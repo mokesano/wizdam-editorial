@@ -1,0 +1,91 @@
+# --- KONFIGURASI SENSITIF ---
+# Jangan pernah mengirim file ini ke Github karena berisi password database
+config.inc.php
+
+# --- DIREKTORI CACHE ---
+# Mengabaikan semua file hasil generate sistem di folder cache
+cache/*.wiz
+cache/*.pdf
+cache/*.html
+cache/t_compile/*.php
+cache/_db/
+cache/t_wizdam
+cache/fc-cache-*.wiz
+cache/fc-site-*.wiz
+cache/fc-locale-*.wiz
+cache/fc-help-*.wiz
+
+# --- FONTS & THEME CUSTOM ---
+fonts/bp/
+fonts/dt/
+fonts/europa/
+fonts/hd/
+fonts/kievit/
+fonts/museosans/
+fonts/nexus/
+fonts/sangia/
+
+# --- FONTS & THEME CUSTOM ---
+plugins/themes/classical/
+plugins/themes/publisher/
+plugins/themes/sangia_old/
+plugins/themes/wizdam/
+
+# --- REPO THEME CUSTOM ---
+plugins/themes/sangiapub/lib/
+plugins/themes/sangiapub/php-dev/
+plugins/themes/sangiapub/php/article_recomended/
+plugins/themes/sangiapub/php/css_compiler/
+plugins/themes/sangiapub/php/citations/
+plugins/themes/sangiapub/php/editor_Scopus/
+plugins/themes/sangiapub/php/editorial_time/
+plugins/themes/sangiapub/php/journal_staff/
+plugins/themes/sangiapub/php/hero_futured/cache/
+plugins/themes/sangiapub/php/journal_stats/
+plugins/themes/sangiapub/php/Metrics_journal_scopus/
+plugins/themes/sangiapub/php/most_cited/
+plugins/themes/sangiapub/php/most_download/
+plugins/themes/sangiapub/php/most_popular/
+plugins/themes/sangiapub/php/navigation/
+plugins/themes/sangiapub/php/orcid_researcher/
+plugins/themes/sangiapub/php/pdf-extract/
+plugins/themes/sangiapub/php/publisher_stats/
+plugins/themes/sangiapub/php/sdg_mapper/
+plugins/themes/sangiapub/php/sinta_impact/cache/
+plugins/themes/sangiapub/php/turnstile/
+plugins/themes/sangiapub/php/turnstile_cf/
+plugins/themes/sangiapub/php/visitor_map/
+plugins/themes/sangiapub/php/author_affiliations.php
+plugins/themes/sangiapub/php/getUserDetails.php
+
+# --- DATA USER & UPLOADS ---
+# Folder public biasanya berisi logo, gambar, dan file yang diupload user
+public/*
+!public/index.php
+!public/.htaccess
+
+# Folder penyimpanan naskah/artikel (wajib diabaikan agar data tidak bocor)
+files/
+
+# --- LOGS & TEMPORARY ---
+*.log
+error_log
+.tmp/
+
+# --- ANALYTICS & REFACTORING TOOLS ---
+# File hasil pemindaian CI/CD (jangan kotori repositori dengan file log ini)
+results-phpmd/
+*.sarif
+.phpstan.cache/
+.phpunit.result.cache
+
+# --- SISTEM OPERASI & IDE ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.user.ini
+.php.ini
+*.swp
+*.sublime-project
+*.sublime-workspace
