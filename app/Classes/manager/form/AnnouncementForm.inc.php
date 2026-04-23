@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.manager.form.PKPAnnouncementForm');
 
-class AnnouncementForm extends PKPAnnouncementForm {
+class AnnouncementForm extends CoreAnnouncementForm {
     
     /**
      * Constructor

@@ -34,7 +34,7 @@ define('LOCALE_COMPONENT_APP_USER',           0x0000010C);
 define('LOCALE_COMPONENT_APP_SUBMISSION',     0x0000010D);
 define('LOCALE_COMPONENT_APP_EDITORIAL',      0x0000010E);
 
-class AppLocale extends PKPLocale {
+class AppLocale extends CoreLocale {
 
     /**
      * Constructor.

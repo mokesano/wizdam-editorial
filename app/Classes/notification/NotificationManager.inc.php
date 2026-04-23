@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.notification.PKPNotificationManager');
 
-class NotificationManager extends PKPNotificationManager {
+class NotificationManager extends CoreNotificationManager {
     
     /** @var array Cache each user's most privileged role for each article */
     public $privilegedRoles = [];
@@ -360,7 +360,7 @@ class NotificationManager extends PKPNotificationManager {
         if (!$journal) return array();
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
 
         $settings = array(
             'subscriptionsEnabled' => $paymentManager->acceptSubscriptionPayments(),

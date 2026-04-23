@@ -125,7 +125,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         }
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
             $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
@@ -337,7 +337,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $templateMgr->assign('templates', $journal->getSetting('templates'));
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
 
         $publicationFeeEnabled = $paymentManager->publicationEnabled();
@@ -2749,7 +2749,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $this->validate($articleId, SECTION_EDITOR_ACCESS_EDIT);
         $submission = $this->submission;
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
         $journal = $request->getJournal();
 
@@ -2781,7 +2781,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $submission = $this->submission;
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
         $queuedPayment = $paymentManager->createQueuedPayment(
@@ -2813,7 +2813,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $submission = $this->submission;
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
         $queuedPayment = $paymentManager->createQueuedPayment(

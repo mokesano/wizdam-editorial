@@ -201,7 +201,7 @@ class ArticleHandler extends Handler {
             $templateMgr->assign('showGalleyLinks', $journal->getSetting('showGalleyLinks'));
 
             import('classes.payment.ojs.OJSPaymentManager');
-            $paymentManager = new OJSPaymentManager($request);
+            $paymentManager = new AppPaymentManager($request);
             if ( $paymentManager->onlyPdfEnabled() ) {
                 $templateMgr->assign('restrictOnlyPdf', true);
             }
@@ -593,7 +593,7 @@ class ArticleHandler extends Handler {
                 $subscribedUser = IssueAction::subscribedUser($journal, $issue->getId(), $publishedArticle->getId());
 
                 import('classes.payment.ojs.OJSPaymentManager');
-                $paymentManager = new OJSPaymentManager($request);
+                $paymentManager = new AppPaymentManager($request);
 
                 $purchasedIssue = false;
                 if (!$subscribedUser && $paymentManager->purchaseIssueEnabled()) {

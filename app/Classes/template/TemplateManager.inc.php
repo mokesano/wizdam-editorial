@@ -20,7 +20,7 @@ import('classes.search.ArticleSearch');
 import('classes.file.PublicFileManager');
 import('lib.pkp.classes.template.PKPTemplateManager');
 
-class TemplateManager extends PKPTemplateManager {
+class TemplateManager extends CoreTemplateManager {
     
     /**
      * Constructor.
@@ -109,7 +109,7 @@ class TemplateManager extends PKPTemplateManager {
                 }
 
                 import('classes.payment.ojs.OJSPaymentManager');
-                $paymentManager = new OJSPaymentManager($this->request);
+                $paymentManager = new AppPaymentManager($this->request);
                 $this->assign('journalPaymentsEnabled', $paymentManager->isConfigured());
 
                 $this->assign('pageFooter', $journal->getLocalizedSetting('journalPageFooter'));

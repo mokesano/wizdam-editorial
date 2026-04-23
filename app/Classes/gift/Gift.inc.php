@@ -19,7 +19,7 @@ import('lib.pkp.classes.gift.PKPGift');
 
 define('GIFT_TYPE_SUBSCRIPTION', 0x01);
 
-class Gift extends PKPGift {
+class Gift extends CoreGift {
     
     /**
      * Constructor.

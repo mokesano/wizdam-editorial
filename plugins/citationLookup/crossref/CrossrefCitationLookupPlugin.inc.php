@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.citationLookup.crossref.PKPCrossrefCitationLookupPlugin');
 
-class CrossrefCitationLookupPlugin extends PKPCrossrefCitationLookupPlugin {
+class CrossrefCitationLookupPlugin extends CoreCrossrefCitationLookupPlugin {
     
 	/**
 	 * Constructor

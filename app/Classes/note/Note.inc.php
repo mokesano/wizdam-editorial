@@ -20,7 +20,7 @@ declare(strict_types=1);
 import('classes.article.ArticleFile');
 import('lib.pkp.classes.note.PKPNote');
 
-class Note extends PKPNote {
+class Note extends CoreNote {
     
     /**
      * Constructor.

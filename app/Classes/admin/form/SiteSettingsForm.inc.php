@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.admin.form.PKPSiteSettingsForm');
 
-class SiteSettingsForm extends PKPSiteSettingsForm {
+class SiteSettingsForm extends CoreSiteSettingsForm {
     
     /**
      * Constructor.

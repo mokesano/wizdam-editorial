@@ -64,7 +64,7 @@ class OJSInstallTool extends InstallTool {
 }
 
 // [WIZDAM] Safe instantiation
-$tool = new OJSInstallTool($argv ?? []);
+$tool = new AppInstallTool($argv ?? []);
 $tool->execute();
 
 ?>

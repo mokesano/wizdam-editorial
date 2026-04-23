@@ -42,6 +42,7 @@ if (!function_exists('str_contains')) {
  * [WIZDAM] Updated to support PSR-4 Autoloading bypass and Legacy Path Mapping.
  * If a class contains backslashes, we assume it's handled by Composer/Autoloader.
  * Maps legacy paths (lib.pkp.*, classes.*, pages.*) to new structure (core.library.*, app.classes.*, app.pages.*).
+ * Also maps PKP class names to CORE and OJS class names to APP.
  * @param string $class the complete name of the class to be imported
  */
 if (!function_exists('import')) {

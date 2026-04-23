@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.plugins.PKPPlugin');
 
-class Plugin extends PKPPlugin {
+class Plugin extends CorePlugin {
     
     /**
      * Constructor

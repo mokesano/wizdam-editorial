@@ -43,7 +43,7 @@ define('ASSOC_TYPE_RESEARCH_TOPIC', 0x0000108);
 
 define('CONTEXT_JOURNAL', 1);
 
-class Application extends PKPApplication {
+class Application extends CoreApplication {
     
     /** @var Application|null Instance singleton */
     private static ?Application $instance = null;
@@ -438,7 +438,7 @@ class Application extends PKPApplication {
             }
         }
         
-        return new OJSPaymentManager($journal);
+        return new AppPaymentManager($journal);
     }
 }
 ?>

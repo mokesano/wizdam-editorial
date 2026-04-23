@@ -112,7 +112,7 @@ class SubscriptionBlockPlugin extends BlockPlugin {
 
         import('classes.payment.ojs.OJSPaymentManager');
         // [MODERNISASI] Hapus referensi &
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
 
         if (isset($individualSubscription) || isset($institutionalSubscription)) {
             $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();

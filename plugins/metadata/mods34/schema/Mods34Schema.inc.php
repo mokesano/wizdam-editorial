@@ -21,7 +21,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.metadata.mods34.schema.PKPMods34Schema');
 
-class Mods34Schema extends PKPMods34Schema {
+class Mods34Schema extends CoreMods34Schema {
 
     /**
      * Constructor

@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.user.PKPUserSettingsDAO');
 
-class UserSettingsDAO extends PKPUserSettingsDAO {
+class UserSettingsDAO extends CoreUserSettingsDAO {
     
     /**
      * Retrieve a user setting value.

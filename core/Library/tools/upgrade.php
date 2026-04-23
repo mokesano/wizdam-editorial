@@ -45,6 +45,6 @@ class OJSUpgradeTool extends UpgradeTool {
 }
 
 // [WIZDAM] Safe instantiation
-$tool = new OJSUpgradeTool($argv ?? []);
+$tool = new AppUpgradeTool($argv ?? []);
 $tool->execute();
 ?>

@@ -19,7 +19,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.submission.reviewAssignment.PKPReviewAssignment');
 
-class ReviewAssignment extends PKPReviewAssignment {
+class ReviewAssignment extends CoreReviewAssignment {
     
     /**
      * Constructor.

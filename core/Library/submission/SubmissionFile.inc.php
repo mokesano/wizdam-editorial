@@ -16,7 +16,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.file.PKPFile');
 
-class SubmissionFile extends PKPFile {
+class SubmissionFile extends CoreFile {
     
     /**
      * Constructor.

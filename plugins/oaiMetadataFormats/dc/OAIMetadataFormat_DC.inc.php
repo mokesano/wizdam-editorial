@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.oaiMetadataFormats.dc.PKPOAIMetadataFormat_DC');
 
-class OAIMetadataFormat_DC extends PKPOAIMetadataFormat_DC {
+class OAIMetadataFormat_DC extends CoreOAIMetadataFormat_DC {
 
     /**
      * Constructor

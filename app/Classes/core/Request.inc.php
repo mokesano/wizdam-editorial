@@ -18,7 +18,7 @@
 
 import('lib.pkp.classes.core.PKPRequest');
 
-class Request extends PKPRequest {
+class Request extends CoreRequest {
     
     /**
      * Constructor.

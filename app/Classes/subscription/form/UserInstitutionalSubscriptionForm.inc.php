@@ -205,7 +205,7 @@ class UserInstitutionalSubscriptionForm extends Form {
         }
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($this->request);
+        $paymentManager = new AppPaymentManager($this->request);
         $paymentPlugin = $paymentManager->getPaymentPlugin();
         
         if ($paymentPlugin->getName() == 'ManualPayment') {

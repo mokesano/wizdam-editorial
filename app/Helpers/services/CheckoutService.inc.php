@@ -72,7 +72,7 @@ class CheckoutService {
         }
 
         // 2. Buat Record Baru menggunakan Objek yang sudah kita modifikasi
-        $payment = new OJSQueuedPayment($baseAmount, $currencyCode, $userId, $articleId);
+        $payment = new AppQueuedPayment($baseAmount, $currencyCode, $userId, $articleId);
         
         $payment->setJournalId($publisherOrJournalId);
         $payment->setType($baseFeeType);

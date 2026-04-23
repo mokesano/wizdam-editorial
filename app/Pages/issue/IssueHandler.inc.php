@@ -504,7 +504,7 @@ class IssueHandler extends Handler {
 
                 if (!$subscribedUser) {
                     import('classes.payment.ojs.OJSPaymentManager');
-                    $paymentManager = new OJSPaymentManager($request);
+                    $paymentManager = new AppPaymentManager($request);
 
                     if ($paymentManager->purchaseIssueEnabled() || $paymentManager->membershipEnabled()) {
                         if ($paymentManager->onlyPdfEnabled() && !$galley->isPdfGalley()) return true;
@@ -663,7 +663,7 @@ class IssueHandler extends Handler {
             $templateMgr->assign('showGalleyLinks', $journal->getSetting('showGalleyLinks'));
 
             import('classes.payment.ojs.OJSPaymentManager');
-            $paymentManager = new OJSPaymentManager($request);
+            $paymentManager = new AppPaymentManager($request);
             if ($paymentManager->onlyPdfEnabled()) {
                 $templateMgr->assign('restrictOnlyPdf', true);
             }

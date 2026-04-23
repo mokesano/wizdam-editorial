@@ -62,7 +62,7 @@ class DonationsHandler extends Handler {
         }
     
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $journal = $request->getJournal();
 
         if (!Validation::isLoggedIn()) {

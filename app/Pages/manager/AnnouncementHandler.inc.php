@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 import('lib.pkp.pages.manager.PKPAnnouncementHandler');
 
-class AnnouncementHandler extends PKPAnnouncementHandler {
+class AnnouncementHandler extends CoreAnnouncementHandler {
     
     /**
      * Constructor

@@ -271,7 +271,7 @@ class NotificationMailingListForm extends Form {
             
             // Periksa metode langganan jika ini adalah jurnal spesifik
             import('classes.payment.ojs.OJSPaymentManager');
-            $paymentManager = new OJSPaymentManager($request);
+            $paymentManager = new AppPaymentManager($request);
             $settings['subscriptionsEnabled'] = $paymentManager->acceptGiftSubscriptionPayments() || $paymentManager->acceptSubscriptionPayments();
         }
 

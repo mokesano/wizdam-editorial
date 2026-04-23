@@ -21,7 +21,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.metadata.nlm30.PKPNlm30MetadataPlugin');
 
-class Nlm30MetadataPlugin extends PKPNlm30MetadataPlugin {
+class Nlm30MetadataPlugin extends CoreNlm30MetadataPlugin {
     
 	/**
 	 * Constructor

@@ -150,7 +150,7 @@ class GiftIndividualSubscriptionForm extends Form {
         // Create new gift and save details
         import('classes.gift.Gift');
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($this->request);
+        $paymentManager = new AppPaymentManager($this->request);
         $paymentPlugin = $paymentManager->getPaymentPlugin();
 
         $gift = new Gift();

@@ -25,7 +25,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.announcement.PKPAnnouncement');
 
-class Announcement extends PKPAnnouncement {
+class Announcement extends CoreAnnouncement {
     
     /**
      * Constructor

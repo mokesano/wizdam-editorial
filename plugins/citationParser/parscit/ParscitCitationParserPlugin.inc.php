@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.citationParser.parscit.PKPParscitCitationParserPlugin');
 
-class ParscitCitationParserPlugin extends PKPParscitCitationParserPlugin {
+class ParscitCitationParserPlugin extends CoreParscitCitationParserPlugin {
     
 	/**
 	 * Constructor

@@ -32,7 +32,7 @@ class DBDataXMLParser {
      * Constructor.
      */
     public function __construct() {
-        $this->parser = new PKPXMLParser();
+        $this->parser = new CoreXMLParser();
         $this->sql = array();
     }
 

@@ -141,7 +141,7 @@ class AuthorHandler extends Handler {
 
         // assign payment 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
 
         if ( $paymentManager->isConfigured() ) {        
             $templateMgr->assign('submissionEnabled', $paymentManager->submissionEnabled());

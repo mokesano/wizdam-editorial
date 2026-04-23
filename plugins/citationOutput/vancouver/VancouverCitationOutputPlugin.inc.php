@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.citationOutput.vancouver.PKPVancouverCitationOutputPlugin');
 
-class VancouverCitationOutputPlugin extends PKPVancouverCitationOutputPlugin {
+class VancouverCitationOutputPlugin extends CoreVancouverCitationOutputPlugin {
     
 	/**
 	 * Constructor

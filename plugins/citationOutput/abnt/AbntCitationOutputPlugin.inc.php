@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.citationOutput.abnt.PKPAbntCitationOutputPlugin');
 
-class AbntCitationOutputPlugin extends PKPAbntCitationOutputPlugin {
+class AbntCitationOutputPlugin extends CoreAbntCitationOutputPlugin {
     
 	/**
 	 * Constructor

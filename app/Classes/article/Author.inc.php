@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.submission.PKPAuthor');
 
-class Author extends PKPAuthor {
+class Author extends CoreAuthor {
     
     /**
      * Constructor.

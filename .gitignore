@@ -1,14 +1,14 @@
+```
 # Compiled and build artifacts
 *.pyc
 __pycache__/
 *.o
 *.obj
-*.class
+*.out
 *.exe
 *.dll
 *.so
 *.a
-*.out
 
 # Dependencies
 node_modules/
@@ -28,21 +28,16 @@ venv/
 .vscode/
 .idea/
 
-# System files
-.DS_Store
-Thumbs.db
-
-# Coverage and testing
-.coverage
-coverage/
-htmlcov/
-
 # Build directories
 dist/
 build/
 target/
-.gradle/
-
-# Python specific
+coverage/
+htmlcov/
 .mypy_cache/
 .pytest_cache/
+
+# System files
+.DS_Store
+Thumbs.db
+```

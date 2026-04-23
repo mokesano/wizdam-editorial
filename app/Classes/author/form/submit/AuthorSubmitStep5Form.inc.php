@@ -78,7 +78,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
 
         // Set up required Payment Related Information
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($this->request);
+        $paymentManager = new AppPaymentManager($this->request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
             $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
@@ -124,7 +124,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
      */
     public function validate($callHooks = true) {
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($this->request);
+        $paymentManager = new AppPaymentManager($this->request);
         if ( $paymentManager->submissionEnabled() ) {
             if (!parent::validate()) return false;
 

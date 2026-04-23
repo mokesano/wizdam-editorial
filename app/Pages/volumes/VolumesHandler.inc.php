@@ -431,7 +431,7 @@ class VolumesHandler extends Handler {
 
         // Payment
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         if ($paymentManager->onlyPdfEnabled()) {
             $templateMgr->assign('restrictOnlyPdf', true);
         }

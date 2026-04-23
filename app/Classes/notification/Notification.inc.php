@@ -51,7 +51,7 @@ define('NOTIFICATION_TYPE_BOOK_AUTHOR_REMOVED',     0x300000A);
 import('lib.pkp.classes.notification.PKPNotification');
 import('lib.pkp.classes.notification.NotificationDAO');
 
-class Notification extends PKPNotification {
+class Notification extends CoreNotification {
 
     /**
      * Constructor.

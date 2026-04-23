@@ -42,7 +42,7 @@ class XMLDAO {
      * @return mixed
      */
     public function parse($file) {
-        $parser = new PKPXMLParser();
+        $parser = new CoreXMLParser();
         $data = $parser->parse($file);
         $parser->destroy();
         return $data;
@@ -56,7 +56,7 @@ class XMLDAO {
      * @return mixed
      */
     public function parseWithHandler($file, $handler) {
-        $parser = new PKPXMLParser();
+        $parser = new CoreXMLParser();
         $parser->setHandler($handler);
         $data = $parser->parse($file);
         $parser->destroy();
@@ -71,7 +71,7 @@ class XMLDAO {
      * @return array
      */
     public function parseStruct($file, $tagsToMatch = array()) {
-        $parser = new PKPXMLParser();
+        $parser = new CoreXMLParser();
         $data = $parser->parseStruct($file, $tagsToMatch);
         $parser->destroy();
         return $data;

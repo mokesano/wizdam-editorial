@@ -26,7 +26,7 @@ define('INSTALLER_DEFAULT_MIN_PASSWORD_LENGTH', 12);
 
 import('lib.pkp.classes.install.PKPInstall');
 
-class Install extends PKPInstall {
+class Install extends CoreInstall {
 
     /**
      * Constructor.

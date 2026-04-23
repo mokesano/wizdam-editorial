@@ -73,7 +73,7 @@ class UserSubscriptionHandler extends UserHandler {
         }
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
 
         $this->setupTemplate($request, true);
@@ -116,7 +116,7 @@ class UserSubscriptionHandler extends UserHandler {
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
 
@@ -199,7 +199,7 @@ class UserSubscriptionHandler extends UserHandler {
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
 
@@ -308,7 +308,7 @@ class UserSubscriptionHandler extends UserHandler {
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
 
@@ -362,7 +362,7 @@ class UserSubscriptionHandler extends UserHandler {
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
 
@@ -418,7 +418,7 @@ class UserSubscriptionHandler extends UserHandler {
         $this->setupTemplate($request);
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
 
         $journal = $request->getJournal();
         $user = $request->getUser();

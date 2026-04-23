@@ -20,7 +20,7 @@ declare(strict_types=1);
 import('lib.pkp.classes.mail.PKPEmailTemplateDAO');
 import('lib.pkp.classes.mail.EmailTemplate');
 
-class EmailTemplateDAO extends PKPEmailTemplateDAO {
+class EmailTemplateDAO extends CoreEmailTemplateDAO {
     
     /**
      * Constructor.

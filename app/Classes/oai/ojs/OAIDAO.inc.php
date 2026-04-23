@@ -17,7 +17,7 @@ declare(strict_types=1);
 import('lib.pkp.classes.oai.PKPOAIDAO');
 import('classes.issue.Issue');
 
-class OAIDAO extends PKPOAIDAO {
+class OAIDAO extends CoreOAIDAO {
 
     /** @var JournalDAO */
     public JournalDAO $journalDao;

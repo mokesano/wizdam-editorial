@@ -19,7 +19,7 @@ declare(strict_types=1);
 import('classes.user.User');
 import('lib.pkp.classes.user.PKPUserDAO');
 
-class UserDAO extends PKPUserDAO {
+class UserDAO extends CoreUserDAO {
     
     /**
      * Constructor.

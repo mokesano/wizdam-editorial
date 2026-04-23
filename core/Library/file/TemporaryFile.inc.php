@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.file.PKPFile');
 
-class TemporaryFile extends PKPFile {
+class TemporaryFile extends CoreFile {
 
     /**
      * Constructor.
@@ -42,7 +42,7 @@ class TemporaryFile extends PKPFile {
      */
     public function getFilePath() {
         import('lib.pkp.classes.file.PKPTemporaryFileManager');
-        $temporaryFileManager = new PKPTemporaryFileManager();
+        $temporaryFileManager = new CoreTemporaryFileManager();
         return $temporaryFileManager->getBasePath() . $this->getFileName();
     }
 

@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.user.PKPUser');
 
-class User extends PKPUser {
+class User extends CoreUser {
 
 	/**
      * Constructor.

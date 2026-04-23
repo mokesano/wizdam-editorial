@@ -19,7 +19,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.mail.PKPMailTemplate');
 
-class MailTemplate extends PKPMailTemplate {
+class MailTemplate extends CoreMailTemplate {
     /** @var object|null The journal this message relates to */
     public $journal = null;
 

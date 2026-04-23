@@ -81,7 +81,7 @@ class AuthorSubmitStep1Form extends AuthorSubmitForm {
 
         // Set up required Payment Related Information
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($this->request);
+        $paymentManager = new AppPaymentManager($this->request);
         if ($paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
             $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');

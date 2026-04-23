@@ -20,7 +20,7 @@ import('lib.pkp.classes.file.PKPFile');
 define('ISSUE_FILE_PUBLIC', 0x000001);
 
 
-class IssueFile extends PKPFile {
+class IssueFile extends CoreFile {
 
     /**
      * Constructor.

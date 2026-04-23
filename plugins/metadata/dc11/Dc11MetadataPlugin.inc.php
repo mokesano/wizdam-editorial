@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.metadata.dc11.PKPDc11MetadataPlugin');
 
-class Dc11MetadataPlugin extends PKPDc11MetadataPlugin {
+class Dc11MetadataPlugin extends CoreDc11MetadataPlugin {
 
 	/**
 	 * Constructor

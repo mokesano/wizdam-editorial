@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.citationOutput.apa.PKPApaCitationOutputPlugin');
 
-class ApaCitationOutputPlugin extends PKPApaCitationOutputPlugin {
+class ApaCitationOutputPlugin extends CoreApaCitationOutputPlugin {
     
 	/**
 	 * Constructor

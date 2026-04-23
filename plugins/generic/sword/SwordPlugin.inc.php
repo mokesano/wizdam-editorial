@@ -180,7 +180,7 @@ class SwordPlugin extends GenericPlugin {
                 if ($depositType != SWORD_DEPOSIT_TYPE_AUTOMATIC) continue;
 
                 // For each automatic deposit point, perform a deposit.
-                $deposit = new OJSSwordDeposit($sectionEditorSubmission);
+                $deposit = new AppSwordDeposit($sectionEditorSubmission);
                 $deposit->setMetadata();
                 $deposit->addEditorial();
                 $deposit->createPackage();

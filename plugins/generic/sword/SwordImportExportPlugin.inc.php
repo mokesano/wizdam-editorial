@@ -115,7 +115,7 @@ class SwordImportExportPlugin extends ImportExportPlugin {
         $publishedArticle = $publishedArticleDao->getPublishedArticleByArticleId($articleId);
         $journal = Request::getJournal();
 
-        $deposit = new OJSSwordDeposit($publishedArticle);
+        $deposit = new AppSwordDeposit($publishedArticle);
         $deposit->setMetadata();
         if ($depositGalleys) $deposit->addGalleys();
         if ($depositEditorial) $deposit->addEditorial();

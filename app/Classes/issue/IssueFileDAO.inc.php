@@ -18,7 +18,7 @@ declare(strict_types=1);
 import('lib.pkp.classes.file.PKPFileDAO');
 import('classes.issue.IssueFile');
 
-class IssueFileDAO extends PKPFileDAO {
+class IssueFileDAO extends CoreFileDAO {
 
      /* @var array MIME types that can be displayed inline in a browser */
     public $_inlineableTypes = null;

@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.citationParser.freecite.PKPFreeciteCitationParserPlugin');
 
-class FreeciteCitationParserPlugin extends PKPFreeciteCitationParserPlugin {
+class FreeciteCitationParserPlugin extends CoreFreeciteCitationParserPlugin {
     
 	/**
 	 * Constructor

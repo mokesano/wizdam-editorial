@@ -231,7 +231,7 @@ class Depositor extends ScheduledTask {
         // get the object type we'll be dealing with
         $objectType = $this->_plugin->getSetting($journal->getId(), 'object_type');
         
-        // create new deposit objects for any new OJS content
+        // create new deposit objects for any new App content
         $depositDao = DAORegistry::getDAO('DepositDAO');
         $depositObjectDao = DAORegistry::getDAO('DepositObjectDAO');
         $depositObjectDao->createNew($journal->getId(),$objectType);

@@ -44,7 +44,7 @@ define('SUBMISSION_FIELD_DATE_PROOFREADING_COMPLETE', 7);
 
 import('lib.pkp.classes.submission.common.PKPAction');
 
-class Action extends PKPAction {
+class Action extends CoreAction {
     
     /**
      * Constructor.

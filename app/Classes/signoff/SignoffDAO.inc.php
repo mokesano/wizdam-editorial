@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.signoff.PKPSignoffDAO');
 
-class SignoffDAO extends PKPSignoffDAO {
+class SignoffDAO extends CoreSignoffDAO {
     
     /**
      * Constructor

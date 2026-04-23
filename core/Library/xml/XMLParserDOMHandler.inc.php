@@ -19,7 +19,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.xml.XMLNode');
 
-class XMLParserDOMHandler extends PKPXMLParserHandler {
+class XMLParserDOMHandler extends CoreXMLParserHandler {
 
     /** @var XMLNode reference to the root node */
     public $rootNode;

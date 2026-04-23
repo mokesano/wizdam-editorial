@@ -246,7 +246,7 @@ class Installer {
     public function parseInstaller() {
         // Read installation descriptor file
         $this->log(sprintf('load: %s', $this->descriptor));
-        $xmlParser = new PKPXMLParser();
+        $xmlParser = new CoreXMLParser();
         $installPath = $this->isPlugin ? $this->descriptor : INSTALLER_DATA_DIR . DIRECTORY_SEPARATOR . $this->descriptor;
         $installTree = $xmlParser->parse($installPath);
         if (!$installTree) {
@@ -660,7 +660,7 @@ class Installer {
         static $filterHelper = false;
 
         // Parse the filter configuration.
-        $xmlParser = new PKPXMLParser();
+        $xmlParser = new CoreXMLParser();
         $tree = $xmlParser->parse($filterConfigFile);
 
         // Validate the filter configuration.

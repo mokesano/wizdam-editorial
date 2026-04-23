@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.citationOutput.mla.PKPMlaCitationOutputPlugin');
 
-class MlaCitationOutputPlugin extends PKPMlaCitationOutputPlugin {
+class MlaCitationOutputPlugin extends CoreMlaCitationOutputPlugin {
     
 	/**
 	 * Constructor

@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.file.PKPTemporaryFileManager');
 
-class TemporaryFileManager extends PKPTemporaryFileManager {
+class TemporaryFileManager extends CoreTemporaryFileManager {
     
     /**
      * Constructor.

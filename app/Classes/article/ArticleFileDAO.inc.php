@@ -23,7 +23,7 @@ declare(strict_types=1);
 import('lib.pkp.classes.file.PKPFileDAO');
 import('classes.article.ArticleFile');
 
-class ArticleFileDAO extends PKPFileDAO {
+class ArticleFileDAO extends CoreFileDAO {
 
     /**
      * Retrieve an article by ID.

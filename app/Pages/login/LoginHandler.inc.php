@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.pages.login.PKPLoginHandler');
 
-class LoginHandler extends PKPLoginHandler {
+class LoginHandler extends CoreLoginHandler {
 
     /**
      * Constructor

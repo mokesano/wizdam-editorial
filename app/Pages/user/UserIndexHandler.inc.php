@@ -124,7 +124,7 @@ class UserIndexHandler extends UserHandler {
             $templateMgr->assign('subscriptionsEnabled', $subscriptionsEnabled);
 
             import('classes.payment.ojs.OJSPaymentManager');
-            $paymentManager = new OJSPaymentManager($request);
+            $paymentManager = new AppPaymentManager($request);
             $acceptGiftPayments = $paymentManager->acceptGiftPayments();
             $templateMgr->assign('acceptGiftPayments', $acceptGiftPayments);
             $membershipEnabled = $paymentManager->membershipEnabled();

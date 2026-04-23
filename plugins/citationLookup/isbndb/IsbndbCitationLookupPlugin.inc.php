@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.citationLookup.isbndb.PKPIsbndbCitationLookupPlugin');
 
-class IsbndbCitationLookupPlugin extends PKPIsbndbCitationLookupPlugin {
+class IsbndbCitationLookupPlugin extends CoreIsbndbCitationLookupPlugin {
     
 	/**
 	 * Constructor

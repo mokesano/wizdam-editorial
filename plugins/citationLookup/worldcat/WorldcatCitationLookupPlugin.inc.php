@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.citationLookup.worldcat.PKPWorldcatCitationLookupPlugin');
 
-class WorldcatCitationLookupPlugin extends PKPWorldcatCitationLookupPlugin {
+class WorldcatCitationLookupPlugin extends CoreWorldcatCitationLookupPlugin {
     
 	/**
 	 * Constructor

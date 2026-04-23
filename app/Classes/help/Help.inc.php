@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.help.PKPHelp');
 
-class Help extends PKPHelp {
+class Help extends CoreHelp {
     
     /**
      * Constructor.
@@ -26,7 +26,7 @@ class Help extends PKPHelp {
     public function __construct() {
         parent::__construct();
         import('classes.help.OJSHelpMappingFile');
-        $mainMappingFile = new OJSHelpMappingFile();
+        $mainMappingFile = new AppHelpMappingFile();
         $this->addMappingFile($mainMappingFile);
     }
 

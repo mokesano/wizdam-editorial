@@ -16,7 +16,7 @@ declare(strict_types=1);
 
 import('lib.pkp.classes.file.PKPPublicFileManager');
 
-class PublicFileManager extends PKPPublicFileManager {
+class PublicFileManager extends CorePublicFileManager {
     
     /**
      * Constructor

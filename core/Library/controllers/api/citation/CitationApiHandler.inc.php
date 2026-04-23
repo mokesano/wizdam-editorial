@@ -22,7 +22,7 @@ declare(strict_types=1);
 // import the base Handler
 import('lib.pkp.classes.handler.PKPHandler');
 
-class CitationApiHandler extends PKPHandler {
+class CitationApiHandler extends CoreHandler {
     
     /**
      * Constructor.
@@ -63,7 +63,7 @@ class CitationApiHandler extends PKPHandler {
         }
 
         // [WIZDAM FIX] Using direct object creation (no reference needed for objects)
-        $this->addPolicy(new PKPProcessAccessPolicy($request, $args, 'checkAllCitations'));
+        $this->addPolicy(new CoreProcessAccessPolicy($request, $args, 'checkAllCitations'));
         
         return parent::authorize($request, $args, $roleAssignments);
     }

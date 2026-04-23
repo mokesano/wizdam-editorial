@@ -351,7 +351,7 @@ class PoliciesHandler extends Handler {
         $templateMgr->assign('pageTitle', 'about.sectionPolicies');
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('paymentConfigured', $paymentManager->isConfigured());
 
         $templateMgr->display('policies/sectionPolicies.tpl');

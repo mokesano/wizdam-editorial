@@ -21,7 +21,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.metadata.dc11.schema.PKPDc11Schema');
 
-class Dc11Schema extends PKPDc11Schema {
+class Dc11Schema extends CoreDc11Schema {
 
     /**
      * Constructor

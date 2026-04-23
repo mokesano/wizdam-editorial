@@ -572,7 +572,7 @@ class SubscriptionAction {
         }
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('acceptSubscriptionPayments', $paymentManager->acceptSubscriptionPayments());                
 
         $subscriptionPolicyForm = new SubscriptionPolicyForm();
@@ -603,7 +603,7 @@ class SubscriptionAction {
         }
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('acceptSubscriptionPayments', $paymentManager->acceptSubscriptionPayments());                
 
         if ($subscriptionPolicyForm->validate()) {

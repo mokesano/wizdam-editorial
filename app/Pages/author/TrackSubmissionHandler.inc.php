@@ -156,7 +156,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 
         // Set up required Payment Related Information
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
             $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
@@ -661,7 +661,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         $journal = $request->getJournal();
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
         $queuedPayment = $paymentManager->createQueuedPayment($journal->getId(), PAYMENT_TYPE_SUBMISSION, $user->getId(), $articleId, $journal->getSetting('submissionFee'));
@@ -684,7 +684,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         $journal = $request->getJournal();
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
         $queuedPayment = $paymentManager->createQueuedPayment($journal->getId(), PAYMENT_TYPE_FASTTRACK, $user->getId(), $articleId, $journal->getSetting('fastTrackFee'));
@@ -707,7 +707,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         $journal = $request->getJournal();
 
         import('classes.payment.ojs.OJSPaymentManager');
-        $paymentManager = new OJSPaymentManager($request);
+        $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
         $queuedPayment = $paymentManager->createQueuedPayment($journal->getId(), PAYMENT_TYPE_PUBLICATION, $user->getId(), $articleId, $journal->getSetting('publicationFee'));

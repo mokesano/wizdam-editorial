@@ -35,7 +35,7 @@ define('GRID_ACTION_POSITION_ABOVE', 'above');
 define('GRID_ACTION_POSITION_LASTCOL', 'lastcol');
 define('GRID_ACTION_POSITION_BELOW', 'below');
 
-class GridHandler extends PKPHandler {
+class GridHandler extends CoreHandler {
 
     /** 
      * @var string grid title locale key 

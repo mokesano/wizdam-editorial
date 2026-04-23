@@ -20,7 +20,7 @@ declare(strict_types=1);
 import('classes.submission.reviewAssignment.ReviewAssignment');
 import('lib.pkp.classes.submission.reviewAssignment.PKPReviewAssignmentDAO');
 
-class ReviewAssignmentDAO extends PKPReviewAssignmentDAO {
+class ReviewAssignmentDAO extends CoreReviewAssignmentDAO {
     public $articleFileDao = null;
     public $suppFileDao = null;
     public $articleCommentDao = null;

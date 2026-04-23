@@ -22,7 +22,7 @@ define('GIFT_REDEEM_STATUS_ERROR_SUBSCRIPTION_TYPE_INVALID', 0x10);
 define('GIFT_REDEEM_STATUS_ERROR_SUBSCRIPTION_NON_EXPIRING', 0x11);
 
 
-class GiftDAO extends PKPGiftDAO {
+class GiftDAO extends CoreGiftDAO {
     
     /**
      * Constructor

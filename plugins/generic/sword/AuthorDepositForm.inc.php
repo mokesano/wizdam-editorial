@@ -104,7 +104,7 @@ class AuthorDepositForm extends Form {
     public function execute($object = null) {
         $user = $request->getUser();
         import('classes.sword.OJSSwordDeposit');
-        $deposit = new OJSSwordDeposit($this->article);
+        $deposit = new AppSwordDeposit($this->article);
         $deposit->setMetadata();
         $deposit->addEditorial();
         $deposit->createPackage();

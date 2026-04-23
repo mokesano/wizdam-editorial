@@ -20,7 +20,7 @@ declare(strict_types=1);
 
 import('lib.pkp.plugins.citationLookup.pubmed.PKPPubmedCitationLookupPlugin');
 
-class PubmedCitationLookupPlugin extends PKPPubmedCitationLookupPlugin {
+class PubmedCitationLookupPlugin extends CorePubmedCitationLookupPlugin {
     
 	/**
 	 * Constructor

@@ -25,7 +25,7 @@ import('lib.pkp.classes.handler.PKPHandler');
 // import JSON class for API responses
 import('lib.pkp.classes.core.JSONMessage');
 
-class UserApiHandler extends PKPHandler {
+class UserApiHandler extends CoreHandler {
     
     /**
      * Constructor.
@@ -59,7 +59,7 @@ class UserApiHandler extends PKPHandler {
         if (!$request) $request = Application::get()->getRequest();
 
         import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
-        $this->addPolicy(new PKPSiteAccessPolicy(
+        $this->addPolicy(new CoreSiteAccessPolicy(
             $request,
             ['updateUserMessageState'],
             SITE_ACCESS_ALL_ROLES
