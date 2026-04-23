@@ -223,7 +223,7 @@ class ReportGeneratorHandler extends Handler {
             $reportTemplate = null;
         }
 
-        import('controllers.statistics.form.ReportGeneratorForm');
+        import('app.controllers.statistics.form.ReportGeneratorForm');
         $reportGeneratorForm = new ReportGeneratorForm(
             $columns, 
             $optionalColumns,

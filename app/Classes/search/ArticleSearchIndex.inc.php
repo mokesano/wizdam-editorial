@@ -15,12 +15,12 @@ declare(strict_types=1);
  * [WIZDAM EDITION] High Performance & PHP 8+ Compatible.
  */
 
-import('lib.pkp.classes.search.SearchFileParser');
-import('lib.pkp.classes.search.SearchHTMLParser');
-import('lib.pkp.classes.search.SearchHelperParser');
-import('classes.journal.Journal'); // [WIZDAM] Explicit Import
+import('core.library.nlp.SearchFileParser');
+import('core.library.nlp.SearchHTMLParser');
+import('core.library.nlp.SearchHelperParser');
+import('app.classes.journal.Journal'); // [WIZDAM] Explicit Import
 
-define('SEARCH_STOPWORDS_FILE', 'lib/pkp/registry/stopwords.txt');
+define('SEARCH_STOPWORDS_FILE', 'core/Library/nlp/stopwords.txt');
 define('SEARCH_KEYWORD_MAX_LENGTH', 40);
 
 class ArticleSearchIndex {
