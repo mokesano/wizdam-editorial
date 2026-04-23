@@ -1,49 +1,22 @@
 ```
-# Dependencies
-node_modules/
-
-# Build artifacts
-public/js/lib/tinymce/jscripts/tiny_mce/tiny_mce_gzip.php
-public/js/lib/tinymce/jscripts/tiny_mce/utils/
+# Documentation backup files (if any temporary/backup files exist)
+*.bak
+*~
+*.tmp
 
 # Logs
 *.log
 
-# Environment
+# Environment files
 .env
 .env.local
 *.env.*
 
-# IDE
-.vscode/
-.idea/
-
-# OS
+# OS generated files
 .DS_Store
 Thumbs.db
 
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-
-# Images (if any get added temporarily)
-*.png
-*.jpg
-*.jpeg
-*.bmp
-*.gif
-*.webm
-
+# Backup files
+*.bak
+*~
 ```
