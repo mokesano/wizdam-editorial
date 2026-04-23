@@ -285,13 +285,25 @@ $(document).ready(function() {
         });
     }
 
+    function sanitizeHref(urlValue) {
+        if (!urlValue) return '#';
+        try {
+            var parsed = new URL(urlValue, window.location.origin);
+            var protocol = parsed.protocol.toLowerCase();
+            if (protocol === 'http:' || protocol === 'https:') {
+                return parsed.href;
+            }
+        } catch (e) {}
+        return '#';
+    }
+
     // Mengembalikan href asli setelah halaman selesai dimuat
     $(window).on('load', function() {
         if (footer.length) {
             footer.find('a[data-href]').each(function() {
                 var link = $(this);
-                // Mengembalikan href asli dari data-href
-                link.attr('href', link.attr('data-href'));
+                // Mengembalikan href asli dari data-href dengan validasi protokol
+                link.attr('href', sanitizeHref(link.attr('data-href')));
                 link.removeAttr('data-href');
             });
         }
