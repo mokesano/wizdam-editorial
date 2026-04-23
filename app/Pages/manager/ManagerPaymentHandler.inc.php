@@ -50,7 +50,7 @@ class ManagerPaymentHandler extends ManagerHandler {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         OJSPaymentAction::payments($args);
     }
      
@@ -66,7 +66,7 @@ class ManagerPaymentHandler extends ManagerHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         $success = OJSPaymentAction::savePaymentSettings($args);
 
         if ($success) {
@@ -91,7 +91,7 @@ class ManagerPaymentHandler extends ManagerHandler {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         OJSPaymentAction::viewPayments($args);
     }
 
@@ -104,7 +104,7 @@ class ManagerPaymentHandler extends ManagerHandler {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         OJSPaymentAction::viewPayment($args);
     }
 
@@ -117,7 +117,7 @@ class ManagerPaymentHandler extends ManagerHandler {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         OJSPaymentAction::payMethodSettings();
     }
     
@@ -133,7 +133,7 @@ class ManagerPaymentHandler extends ManagerHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         $success = OJSPaymentAction::savePayMethodSettings();
 
         if ($success) {

@@ -334,7 +334,7 @@ class ManualPaymentPlugin extends PaymethodPlugin {
         $queuedPaymentId = isset($args[1]) ? ((int) $args[1]) : 0;
 
         // Bypass Application kernel, direct instantiation
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         if (!class_exists('OJSPaymentManager')) {
             error_log("ManualPaymentPlugin: OJSPaymentManager class not found.");
             $request->redirect(null, 'index');

@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.payment.ojs.OJSCompletedPayment');
+import('classes.payment.AppCompletedPayment');
 
 class AppCompletedPaymentDAO extends DAO {
 

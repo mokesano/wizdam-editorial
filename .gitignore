@@ -4,11 +4,12 @@
 __pycache__/
 *.o
 *.obj
-*.out
+*.class
 *.exe
 *.dll
 *.so
 *.a
+*.out
 
 # Dependencies
 node_modules/
@@ -28,12 +29,18 @@ venv/
 .vscode/
 .idea/
 
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
 # Build directories
 dist/
 build/
 target/
-coverage/
-htmlcov/
+.gradle/
+
+# Python cache
 .mypy_cache/
 .pytest_cache/
 

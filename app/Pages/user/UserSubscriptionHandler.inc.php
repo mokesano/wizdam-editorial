@@ -72,7 +72,7 @@ class UserSubscriptionHandler extends UserHandler {
             $userInstitutionalSubscriptions = $subscriptionDao->getSubscriptionsByUserForJournal($userId, $journalId);
         }
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
 
@@ -115,7 +115,7 @@ class UserSubscriptionHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
@@ -198,7 +198,7 @@ class UserSubscriptionHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
@@ -307,7 +307,7 @@ class UserSubscriptionHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
@@ -361,7 +361,7 @@ class UserSubscriptionHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
@@ -417,7 +417,7 @@ class UserSubscriptionHandler extends UserHandler {
         $this->validate();
         $this->setupTemplate($request);
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
 
         $journal = $request->getJournal();

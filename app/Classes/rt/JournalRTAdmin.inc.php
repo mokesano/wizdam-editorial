@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 import('lib.pkp.classes.rt.RTAdmin');
-import('classes.rt.ojs.RTDAO');
+import('classes.rt.RTDAO');
 
 define('RT_DIRECTORY', 'rt');
 define('DEFAULT_RT_LOCALE', 'en_US');

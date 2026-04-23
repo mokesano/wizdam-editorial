@@ -206,7 +206,7 @@ class JournalSiteSettingsForm extends Form {
             ]);
 
             // Install the default RT versions.
-            import('classes.rt.ojs.JournalRTAdmin');
+            import('classes.rt.JournalRTAdmin');
             $journalRtAdmin = new JournalRTAdmin($journalId);
             $journalRtAdmin->restoreVersions(false);
 

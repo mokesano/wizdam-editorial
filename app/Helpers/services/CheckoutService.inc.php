@@ -15,7 +15,7 @@ declare(strict_types=1);
  * Menggunakan tabel 'queued_payments' sebagai pangkalan data keranjang sementara (Stateful Cart).
  */
 
-import('classes.payment.ojs.OJSQueuedPayment');
+import('classes.payment.AppQueuedPayment');
 import('lib.wizdam.classes.services.InvoiceService');
 
 class CheckoutService {

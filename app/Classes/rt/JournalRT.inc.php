@@ -21,7 +21,7 @@ declare(strict_types=1);
  */
 
 import('lib.pkp.classes.rt.RT');
-import('classes.rt.ojs.RTDAO');
+import('classes.rt.RTDAO');
 
 class JournalRT extends RT {
     

@@ -124,7 +124,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
             $templateMgr->assign('helpTopicId', 'editorial.editorsRole.submissionSummary');
         }
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
@@ -336,7 +336,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $templateMgr->assign('submissionAccepted', $submissionAccepted);
         $templateMgr->assign('templates', $journal->getSetting('templates'));
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
 
@@ -2748,7 +2748,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 
         $this->validate($articleId, SECTION_EDITOR_ACCESS_EDIT);
         $submission = $this->submission;
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
         $journal = $request->getJournal();
@@ -2780,7 +2780,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $journal = $request->getJournal();
         $submission = $this->submission;
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
@@ -2812,7 +2812,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $journal = Request::getJournal();
         $submission = $this->submission;
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 

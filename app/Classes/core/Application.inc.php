@@ -428,7 +428,7 @@ class Application extends CoreApplication {
      * @return OJSPaymentManager
      */
     public static function getPaymentManager($journal = null) {
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         
         // Resolve journal jika tidak disuplai
         if ($journal === null) {

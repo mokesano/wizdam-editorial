@@ -110,7 +110,7 @@ class SubscriptionBlockPlugin extends BlockPlugin {
             }
         }
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         // [MODERNISASI] Hapus referensi &
         $paymentManager = new AppPaymentManager($request);
 

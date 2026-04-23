@@ -155,7 +155,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         $templateMgr->assign('editorDecisionOptions', SectionEditorSubmission::getEditorDecisionOptions());
 
         // Set up required Payment Related Information
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
@@ -660,7 +660,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 
         $journal = $request->getJournal();
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
@@ -683,7 +683,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 
         $journal = $request->getJournal();
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
@@ -706,7 +706,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 
         $journal = $request->getJournal();
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 

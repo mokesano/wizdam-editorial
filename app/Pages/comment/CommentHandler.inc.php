@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.rt.ojs.RTDAO');
-import('classes.rt.ojs.JournalRT');
+import('classes.rt.RTDAO');
+import('classes.rt.JournalRT');
 import('classes.handler.Handler');
 
 class CommentHandler extends Handler {

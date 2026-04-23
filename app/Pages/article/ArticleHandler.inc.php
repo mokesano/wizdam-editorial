@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.rt.ojs.RTDAO');
-import('classes.rt.ojs.JournalRT');
+import('classes.rt.RTDAO');
+import('classes.rt.JournalRT');
 import('classes.handler.Handler');
 
 class ArticleHandler extends Handler {
@@ -200,7 +200,7 @@ class ArticleHandler extends Handler {
 
             $templateMgr->assign('showGalleyLinks', $journal->getSetting('showGalleyLinks'));
 
-            import('classes.payment.ojs.OJSPaymentManager');
+            import('classes.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             if ( $paymentManager->onlyPdfEnabled() ) {
                 $templateMgr->assign('restrictOnlyPdf', true);
@@ -592,7 +592,7 @@ class ArticleHandler extends Handler {
                 // Subscription Access
                 $subscribedUser = IssueAction::subscribedUser($journal, $issue->getId(), $publishedArticle->getId());
 
-                import('classes.payment.ojs.OJSPaymentManager');
+                import('classes.payment.AppPaymentManager');
                 $paymentManager = new AppPaymentManager($request);
 
                 $purchasedIssue = false;

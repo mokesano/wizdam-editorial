@@ -98,7 +98,7 @@ class DonationBlockPlugin extends BlockPlugin {
         $journal = $request->getJournal(); 
         if (!$journal) return '';
         
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         
         // Cek apakah donasi aktif di Payment Settings

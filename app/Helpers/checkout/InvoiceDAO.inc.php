@@ -17,7 +17,7 @@ declare(strict_types=1);
 import('lib.pkp.classes.db.DAO');
 import('lib.pkp.classes.db.DBResultRange');
 import('lib.wizdam.classes.checkout.Invoice');
-import('classes.payment.ojs.OJSQueuedPayment');
+import('classes.payment.AppQueuedPayment');
 import('classes.payment.QueuedPayment');
 
 class InvoiceDAO extends DAO {

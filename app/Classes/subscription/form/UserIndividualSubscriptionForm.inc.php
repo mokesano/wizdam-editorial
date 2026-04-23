@@ -168,7 +168,7 @@ class UserIndividualSubscriptionForm extends Form {
             $subscription = $this->subscription;
         }
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($this->request);
         $paymentPlugin = $paymentManager->getPaymentPlugin();
         

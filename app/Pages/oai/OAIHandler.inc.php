@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 define('SESSION_DISABLE_INIT', 1);
 
-import('classes.oai.ojs.JournalOAI');
+import('classes.oai.JournalOAI');
 import('classes.handler.Handler');
 
 class OAIHandler extends Handler {

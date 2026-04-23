@@ -61,7 +61,7 @@ class DonationsHandler extends Handler {
             $args = $request->getRequestedArgs();
         }
     
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $journal = $request->getJournal();
 

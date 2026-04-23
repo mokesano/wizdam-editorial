@@ -571,7 +571,7 @@ class SubscriptionAction {
             $templateMgr->assign('scheduledTasksEnabled', true);
         }
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('acceptSubscriptionPayments', $paymentManager->acceptSubscriptionPayments());                
 
@@ -602,7 +602,7 @@ class SubscriptionAction {
             $templateMgr->assign('scheduledTasksEnabled', true);
         }
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('acceptSubscriptionPayments', $paymentManager->acceptSubscriptionPayments());                
 

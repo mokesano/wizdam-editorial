@@ -108,7 +108,7 @@ class TemplateManager extends CoreTemplateManager {
                     $this->addStyleSheet($this->request->getBaseUrl() . '/' . $publicFileManager->getJournalFilesPath($journal->getId()) . '/' . $journalStyleSheet['uploadName']);
                 }
 
-                import('classes.payment.ojs.OJSPaymentManager');
+                import('classes.payment.AppPaymentManager');
                 $paymentManager = new AppPaymentManager($this->request);
                 $this->assign('journalPaymentsEnabled', $paymentManager->isConfigured());
 

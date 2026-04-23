@@ -77,7 +77,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
         $templateMgr->assign('journal', $journal);
 
         // Set up required Payment Related Information
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($this->request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
@@ -123,7 +123,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
      * @return bool
      */
     public function validate($callHooks = true) {
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($this->request);
         if ( $paymentManager->submissionEnabled() ) {
             if (!parent::validate()) return false;

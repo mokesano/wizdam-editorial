@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('classes.oai.ojs.OAIDAO');
+import('classes.oai.OAIDAO');
 
 class OpenAIREDAO extends OAIDAO {
 

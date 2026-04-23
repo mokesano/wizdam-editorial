@@ -270,7 +270,7 @@ class NotificationMailingListForm extends Form {
             $settings['allowRegAuthor'] = $context->getSetting('allowRegAuthor');
             
             // Periksa metode langganan jika ini adalah jurnal spesifik
-            import('classes.payment.ojs.OJSPaymentManager');
+            import('classes.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             $settings['subscriptionsEnabled'] = $paymentManager->acceptGiftSubscriptionPayments() || $paymentManager->acceptSubscriptionPayments();
         }

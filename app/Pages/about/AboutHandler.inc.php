@@ -79,7 +79,7 @@ class AboutHandler extends Handler {
             }
             
             // Hide membership if the payment method is not configured
-            import('classes.payment.ojs.OJSPaymentManager');
+            import('classes.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             $templateMgr->assign('paymentConfigured', $paymentManager->isConfigured());
 
@@ -551,7 +551,7 @@ class AboutHandler extends Handler {
         $templateMgr->assign('sectionEditorEntriesBySection', $sectionEditorEntriesBySection);
         // --- AKHIR MODIFIKASI UTAMA ---
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('paymentConfigured', $paymentManager->isConfigured());
 
@@ -593,7 +593,7 @@ class AboutHandler extends Handler {
         $individualSubscriptionTypes = $subscriptionTypeDao->getSubscriptionTypesByInstitutional($journalId, false, false);
         $institutionalSubscriptionTypes = $subscriptionTypeDao->getSubscriptionTypesByInstitutional($journalId, true, false);
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptGiftSubscriptionPayments = $paymentManager->acceptGiftSubscriptionPayments();
 
@@ -626,7 +626,7 @@ class AboutHandler extends Handler {
         
         $journal = $request->getJournal();
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
 
         $membershipEnabled = $paymentManager->membershipEnabled();

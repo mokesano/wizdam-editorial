@@ -41,7 +41,7 @@ class UserGiftHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
 
         // Ensure gift payments are enabled
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptGiftPayments = $paymentManager->acceptGiftPayments();
         if (!$acceptGiftPayments) $request->redirect(null, 'user');
@@ -87,7 +87,7 @@ class UserGiftHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
 
         // Ensure gift payments are enabled
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptGiftPayments = $paymentManager->acceptGiftPayments();
         if (!$acceptGiftPayments) $request->redirect(null, 'user');

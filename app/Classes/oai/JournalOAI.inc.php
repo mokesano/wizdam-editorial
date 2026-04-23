@@ -24,7 +24,7 @@ declare(strict_types=1);
  */
 
 import('lib.pkp.classes.oai.OAI');
-import('classes.oai.ojs.OAIDAO');
+import('classes.oai.OAIDAO');
 
 class JournalOAI extends OAI {
     /** @var Site $site Associated site object */

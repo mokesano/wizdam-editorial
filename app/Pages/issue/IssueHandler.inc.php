@@ -503,7 +503,7 @@ class IssueHandler extends Handler {
                 $subscribedUser = IssueAction::subscribedUser($journal, $issueId);
 
                 if (!$subscribedUser) {
-                    import('classes.payment.ojs.OJSPaymentManager');
+                    import('classes.payment.AppPaymentManager');
                     $paymentManager = new AppPaymentManager($request);
 
                     if ($paymentManager->purchaseIssueEnabled() || $paymentManager->membershipEnabled()) {
@@ -662,7 +662,7 @@ class IssueHandler extends Handler {
             $templateMgr->assign('subscribedDomain', $subscribedDomain);
             $templateMgr->assign('showGalleyLinks', $journal->getSetting('showGalleyLinks'));
 
-            import('classes.payment.ojs.OJSPaymentManager');
+            import('classes.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             if ($paymentManager->onlyPdfEnabled()) {
                 $templateMgr->assign('restrictOnlyPdf', true);

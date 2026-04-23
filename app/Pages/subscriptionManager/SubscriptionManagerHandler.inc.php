@@ -535,7 +535,7 @@ class SubscriptionManagerHandler extends Handler {
         $this->validate($request);
         $this->setupTemplate();
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         OJSPaymentAction::payments($args);
     }
 
@@ -551,7 +551,7 @@ class SubscriptionManagerHandler extends Handler {
         $this->validate($request);
         $this->setupTemplate();
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         $success = OJSPaymentAction::savePaymentSettings($args);
 
         if ($success) {
@@ -579,7 +579,7 @@ class SubscriptionManagerHandler extends Handler {
         $this->validate($request);
         $this->setupTemplate();
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         OJSPaymentAction::viewPayments($args);
     }
 
@@ -595,7 +595,7 @@ class SubscriptionManagerHandler extends Handler {
         $this->validate($request);
         $this->setupTemplate();
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         OJSPaymentAction::viewPayment($args);
     }
 
@@ -611,7 +611,7 @@ class SubscriptionManagerHandler extends Handler {
         $this->validate($request);
         $this->setupTemplate();
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         OJSPaymentAction::payMethodSettings();
     }
 
@@ -627,7 +627,7 @@ class SubscriptionManagerHandler extends Handler {
         $this->validate($request);
         $this->setupTemplate();
 
-        import('classes.payment.ojs.OJSPaymentAction');
+        import('classes.payment.AppPaymentAction');
         $success = OJSPaymentAction::savePayMethodSettings();
 
         if ($success) {

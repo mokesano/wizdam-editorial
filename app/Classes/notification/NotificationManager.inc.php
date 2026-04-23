@@ -359,7 +359,7 @@ class NotificationManager extends CoreNotificationManager {
         $journal = $request->getJournal();
         if (!$journal) return array();
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
 
         $settings = array(

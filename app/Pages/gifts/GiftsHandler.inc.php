@@ -57,7 +57,7 @@ class GiftsHandler extends Handler {
         $journal = $request->getJournal();
         if (!$journal) $request->redirect(null, 'index');
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptGiftSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'index');
@@ -82,7 +82,7 @@ class GiftsHandler extends Handler {
         $journal = $request->getJournal();
         if (!$journal) $request->redirect(null, 'index');
 
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptGiftSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'index');

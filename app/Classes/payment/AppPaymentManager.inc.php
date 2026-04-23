@@ -16,7 +16,7 @@ declare(strict_types=1);
  * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.payment.ojs.OJSQueuedPayment');
+import('classes.payment.AppQueuedPayment');
 import('lib.pkp.classes.payment.PaymentManager');
 
 define('PAYMENT_TYPE_MEMBERSHIP',         0x000000001);
@@ -233,7 +233,7 @@ class AppPaymentManager extends PaymentManager {
      * @return OJSCompletedPayment
      */
     public function createCompletedPayment($queuedPayment, $payMethod) {
-        import('classes.payment.ojs.OJSCompletedPayment');
+        import('classes.payment.AppCompletedPayment');
         $payment = new AppCompletedPayment();
         $payment->setJournalId($queuedPayment->getJournalId());
         $payment->setType($queuedPayment->getType());

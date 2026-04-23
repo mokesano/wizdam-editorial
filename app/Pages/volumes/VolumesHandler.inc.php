@@ -430,7 +430,7 @@ class VolumesHandler extends Handler {
         $templateMgr->assign('showGalleyLinks',        $journal->getSetting('showGalleyLinks'));
 
         // Payment
-        import('classes.payment.ojs.OJSPaymentManager');
+        import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         if ($paymentManager->onlyPdfEnabled()) {
             $templateMgr->assign('restrictOnlyPdf', true);

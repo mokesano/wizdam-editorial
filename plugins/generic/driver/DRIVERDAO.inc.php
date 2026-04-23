@@ -14,7 +14,7 @@
  * * FIXED: Updated for PHP 7.4 Compatibility & Modernized OAI Core
  */
 
-import('classes.oai.ojs.OAIDAO');
+import('classes.oai.OAIDAO');
 
 class DRIVERDAO extends OAIDAO {
 

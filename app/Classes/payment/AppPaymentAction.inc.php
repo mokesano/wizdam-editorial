@@ -28,7 +28,7 @@ class AppPaymentAction {
      * @param array $args
      */
     public static function payments($args) {
-        import('classes.payment.ojs.form.PaymentSettingsForm');
+        import('classes.payment.form.PaymentSettingsForm');
         $form = new PaymentSettingsForm();
 
         self::assignCommonFormVars();
@@ -47,7 +47,7 @@ class AppPaymentAction {
      * @return bool
      */
     public static function savePaymentSettings($args) {
-        import('classes.payment.ojs.form.PaymentSettingsForm');
+        import('classes.payment.form.PaymentSettingsForm');
         $form = new PaymentSettingsForm();
         $form->readInputData();
 
@@ -101,7 +101,7 @@ class AppPaymentAction {
      * Display form to edit program settings.
      */
     public static function payMethodSettings() {
-        import('classes.payment.ojs.form.PayMethodSettingsForm');
+        import('classes.payment.form.PayMethodSettingsForm');
         $form = new PayMethodSettingsForm();
         
         self::assignCommonFormVars();
@@ -114,7 +114,7 @@ class AppPaymentAction {
      * @return bool
      */
     public static function savePayMethodSettings() {
-        import('classes.payment.ojs.form.PayMethodSettingsForm');
+        import('classes.payment.form.PayMethodSettingsForm');
         $form = new PayMethodSettingsForm();
         $form->readInputData();
 
