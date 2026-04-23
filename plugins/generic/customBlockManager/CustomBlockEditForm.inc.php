@@ -136,7 +136,7 @@ class CustomBlockEditForm extends Form {
         $filesPath = $publicFileManager->getJournalFilesPath($journalId);
         
         // Ensure constant exists or fallback
-        $tinyMcePath = defined('TINYMCE_JS_PATH') ? TINYMCE_JS_PATH : 'lib/pkp/lib/tinymce/jscripts/tiny_mce';
+        $tinyMcePath = defined('TINYMCE_JS_PATH') ? TINYMCE_JS_PATH : TINYMCE_JS_PATH;
 
         $tinyMCE_script = '
         <script language="javascript" type="text/javascript" src="'.$baseUrl.'/'.$tinyMcePath.'/tiny_mce.js"></script>

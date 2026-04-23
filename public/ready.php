@@ -25,7 +25,7 @@ try {
     if (!file_exists('./lib/pkp/includes/bootstrap.inc.php')) {
         throw new Exception("Bootstrap file missing.");
     }
-    require './lib/pkp/includes/bootstrap.inc.php';
+    require './core/Includes/bootstrap.inc.php';
 
     // 3. Tes Koneksi Real (Query Sederhana)
     // Panggil memastikan DB tidak hanya "terhubung" tapi bisa "mengambil data".

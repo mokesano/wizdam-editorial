@@ -61,8 +61,8 @@ class ReviewFormHandler extends ManagerHandler {
         // ReviewAssignmentDAO unused variable removed
 
         $templateMgr = TemplateManager::getManager();
-        $templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-        $templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/lib/jquery/plugins/jquery.tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/functions/tablednd.js');
         // [WIZDAM] Removed assign_by_ref
         $templateMgr->assign('reviewForms', $reviewForms);
         $templateMgr->assign('completeCounts', $reviewFormDao->getUseCounts(ASSOC_TYPE_JOURNAL, $journal->getId(), true));
@@ -385,8 +385,8 @@ class ReviewFormHandler extends ManagerHandler {
         $this->setupTemplate(true, $reviewForm);
         $templateMgr = TemplateManager::getManager();
 
-        $templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-        $templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/lib/jquery/plugins/jquery.tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/functions/tablednd.js');
 
         // [WIZDAM] Removed assign_by_ref
         $templateMgr->assign('unusedReviewFormTitles', $unusedReviewFormTitles);

@@ -39,14 +39,15 @@ if (!function_exists('str_contains')) {
 
 /**
  * Emulate a Java-style import statement.
- * [WIZDAM] Updated to support PSR-4 Autoloading bypass.
+ * [WIZDAM] Updated to support PSR-4 Autoloading bypass and Legacy Path Mapping.
  * If a class contains backslashes, we assume it's handled by Composer/Autoloader.
+ * Maps legacy paths (lib.pkp.*, classes.*, pages.*) to new structure (core.library.*, app.classes.*, app.pages.*).
  * @param string $class the complete name of the class to be imported
  */
 if (!function_exists('import')) {
     function import(string $class): void {
         static $importedClasses = [];
-        
+
         if (isset($importedClasses[$class])) return;
 
         if (strpos($class, '\\') !== false) {
@@ -54,7 +55,31 @@ if (!function_exists('import')) {
             return;
         }
 
-        $filePath = str_replace('.', '/', $class) . '.inc.php';
+        // [WIZDAM] Legacy Path Mapping - Map old paths to new structure
+        $mappedClass = $class;
+        
+        // Map lib.pkp.* -> core.library.*
+        if (strpos($class, 'lib.pkp.') === 0) {
+            $mappedClass = 'core.library.' . substr($class, 9);
+        }
+        // Map lib.wizdam.* -> core.library.* or app.helpers.*
+        elseif (strpos($class, 'lib.wizdam.') === 0) {
+            $mappedClass = 'core.library.' . substr($class, 11);
+        }
+        // Map classes.* -> app.classes.*
+        elseif (strpos($class, 'classes.') === 0) {
+            $mappedClass = 'app.classes.' . substr($class, 8);
+        }
+        // Map pages.* -> app.pages.*
+        elseif (strpos($class, 'pages.') === 0) {
+            $mappedClass = 'app.pages.' . substr($class, 6);
+        }
+        // Map controllers.* -> app.controllers.*
+        elseif (strpos($class, 'controllers.') === 0) {
+            $mappedClass = 'app.controllers.' . substr($class, 12);
+        }
+
+        $filePath = str_replace('.', '/', $mappedClass) . '.inc.php';
 
         if (defined('BASE_SYS_DIR') && file_exists(BASE_SYS_DIR . '/' . $filePath)) {
             // include_once: graceful — eksekusi berlanjut ke require_once fallback jika gagal
@@ -63,9 +88,10 @@ if (!function_exists('import')) {
             // require_once: fatal jika tidak ditemukan — tidak ada jalur fallback lagi
             require_once($filePath);
         }
-        
+
         $importedClasses[$class] = true;
     }
+}
 }
 
 /**

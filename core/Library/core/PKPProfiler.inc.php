@@ -15,8 +15,8 @@ declare(strict_types=1);
  * WIZDAM EDITION: PHP 8 Compatibility
  */
 
-require_once('./lib/pkp/lib/pqp/classes/PhpQuickProfiler.php');
-require_once('./lib/pkp/lib/pqp/classes/Console.php');
+require_once('./core/Library/pqp/classes/PhpQuickProfiler.php');
+require_once('./core/Library/pqp/classes/Console.php');
 
 class PKPProfiler {
 

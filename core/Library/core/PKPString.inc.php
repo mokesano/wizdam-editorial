@@ -143,12 +143,12 @@ class PKPString {
             // In modern PHP/Wizdam environment, we prefer native mb_ calls if available
             // but we keep the require structure for library consistency if files exist
             if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
-                require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+                require_once './core/Library/phputf8/mbstring/core.php';
             }
             return mb_strlen($string);
         } else {
-            require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-            require_once './lib/pkp/lib/phputf8/native/core.php';
+            require_once './core/Library/phputf8/utils/unicode.php';
+            require_once './core/Library/phputf8/native/core.php';
             return utf8_strlen($string);
         }
     }
@@ -163,12 +163,12 @@ class PKPString {
     public static function strpos(string $haystack, string $needle, int $offset = 0) {
         if (defined('ENABLE_MBSTRING')) {
              if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
-                require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+                require_once './core/Library/phputf8/mbstring/core.php';
              }
              return mb_strpos($haystack, $needle, $offset);
         } else {
-            require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-            require_once './lib/pkp/lib/phputf8/native/core.php';
+            require_once './core/Library/phputf8/utils/unicode.php';
+            require_once './core/Library/phputf8/native/core.php';
             return utf8_strpos($haystack, $needle, $offset);
         }
     }
@@ -182,12 +182,12 @@ class PKPString {
     public static function strrpos(string $haystack, string $needle) {
         if (defined('ENABLE_MBSTRING')) {
             if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
-                require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+                require_once './core/Library/phputf8/mbstring/core.php';
             }
             return mb_strrpos($haystack, $needle);
         } else {
-            require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-            require_once './lib/pkp/lib/phputf8/native/core.php';
+            require_once './core/Library/phputf8/utils/unicode.php';
+            require_once './core/Library/phputf8/native/core.php';
             return utf8_strrpos($haystack, $needle);
         }
     }
@@ -202,12 +202,12 @@ class PKPString {
     public static function substr(string $string, int $start, $length = false): string {
         if (defined('ENABLE_MBSTRING')) {
             if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
-                require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+                require_once './core/Library/phputf8/mbstring/core.php';
             }
             return mb_substr($string, $start, $length === false ? null : $length);
         } else {
-            require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-            require_once './lib/pkp/lib/phputf8/native/core.php';
+            require_once './core/Library/phputf8/utils/unicode.php';
+            require_once './core/Library/phputf8/native/core.php';
             // The default length value for the native implementation differs
             if ($length === false) $length = null;
             return utf8_substr($string, $start, $length);
@@ -258,12 +258,12 @@ class PKPString {
     public static function strtolower(string $string): string {
         if (defined('ENABLE_MBSTRING')) {
             if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
-                require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+                require_once './core/Library/phputf8/mbstring/core.php';
             }
             return mb_strtolower($string);
         } else {
-            require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-            require_once './lib/pkp/lib/phputf8/native/core.php';
+            require_once './core/Library/phputf8/utils/unicode.php';
+            require_once './core/Library/phputf8/native/core.php';
             return utf8_strtolower($string);
         }
     }
@@ -276,12 +276,12 @@ class PKPString {
     public static function strtoupper(string $string): string {
         if (defined('ENABLE_MBSTRING')) {
             if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
-                require_once './lib/pkp/lib/phputf8/mbstring/core.php';
+                require_once './core/Library/phputf8/mbstring/core.php';
             }
             return mb_strtoupper($string);
         } else {
-            require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-            require_once './lib/pkp/lib/phputf8/native/core.php';
+            require_once './core/Library/phputf8/utils/unicode.php';
+            require_once './core/Library/phputf8/native/core.php';
             return utf8_strtoupper($string);
         }
     }
@@ -294,14 +294,14 @@ class PKPString {
     public static function ucfirst(string $string): string {
         if (defined('ENABLE_MBSTRING')) {
             if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
-                require_once './lib/pkp/lib/phputf8/mbstring/core.php';
-                require_once './lib/pkp/lib/phputf8/ucfirst.php';
+                require_once './core/Library/phputf8/mbstring/core.php';
+                require_once './core/Library/phputf8/ucfirst.php';
             }
             return utf8_ucfirst($string); // Assuming utf8_ucfirst handles mbstring logic if enabled in lib
         } else {
-            require_once './lib/pkp/lib/phputf8/utils/unicode.php';
-            require_once './lib/pkp/lib/phputf8/native/core.php';
-            require_once './lib/pkp/lib/phputf8/ucfirst.php';
+            require_once './core/Library/phputf8/utils/unicode.php';
+            require_once './core/Library/phputf8/native/core.php';
+            require_once './core/Library/phputf8/ucfirst.php';
             return utf8_ucfirst($string);
         }
     }
@@ -554,7 +554,7 @@ class PKPString {
         error_reporting(E_ERROR | E_PARSE | E_CORE_ERROR);
         // If possible, use the HTML purifier.
         if (defined('USE_HTML_PURIFIER')) {
-            require_once('lib/pkp/lib/htmlpurifier/library/HTMLPurifier.path.php');
+            require_once('core/Library/htmlpurifier/library/HTMLPurifier.path.php');
             require_once('HTMLPurifier.includes.php');
             static $purifier;
             if (!isset($purifier)) {
@@ -662,7 +662,7 @@ class PKPString {
      * @return bool
      */
     public static function utf8_is_valid(string $str): bool {
-        require_once './lib/pkp/lib/phputf8/utils/validation.php';
+        require_once './core/Library/phputf8/utils/validation.php';
         return utf8_is_valid($str);
     }
 
@@ -672,7 +672,7 @@ class PKPString {
      * @return bool
      */
     public static function utf8_compliant(string $str): bool {
-        require_once './lib/pkp/lib/phputf8/utils/validation.php';
+        require_once './core/Library/phputf8/utils/validation.php';
         return utf8_compliant($str);
     }
 
@@ -682,7 +682,7 @@ class PKPString {
      * @return int|false
      */
     public static function utf8_bad_find(string $str) {
-        require_once './lib/pkp/lib/phputf8/utils/bad.php';
+        require_once './core/Library/phputf8/utils/bad.php';
         return utf8_bad_find($str);
     }
 
@@ -692,7 +692,7 @@ class PKPString {
      * @return string
      */
     public static function utf8_bad_strip(string $str): string {
-        require_once './lib/pkp/lib/phputf8/utils/bad.php';
+        require_once './core/Library/phputf8/utils/bad.php';
         return utf8_bad_strip($str);
     }
 
@@ -703,7 +703,7 @@ class PKPString {
      * @return string
      */
     public static function utf8_bad_replace(string $str, string $replace = '?'): string {
-        require_once './lib/pkp/lib/phputf8/utils/bad.php';
+        require_once './core/Library/phputf8/utils/bad.php';
         return utf8_bad_replace($str, $replace);
     }
 
@@ -713,7 +713,7 @@ class PKPString {
      * @return string
      */
     public static function utf8_strip_ascii_ctrl(string $str): string {
-        require_once './lib/pkp/lib/phputf8/utils/ascii.php';
+        require_once './core/Library/phputf8/utils/ascii.php';
         return utf8_strip_ascii_ctrl($str);
     }
 
@@ -760,7 +760,7 @@ class PKPString {
      * @return string
      */
     public static function utf8_to_ascii(string $str): string {
-        require_once('./lib/pkp/lib/phputf8/utf8_to_ascii.php');
+        require_once('./core/Library/phputf8/utf8_to_ascii.php');
         return utf8_to_ascii($str);
     }
 

@@ -20,7 +20,7 @@ declare(strict_types=1);
 import('lib.pkp.classes.plugins.GenericPlugin');
 
 // Define TinyMCE paths with unix-style separators for inclusion in browser.
-define('TINYMCE_INSTALL_PATH', 'lib/pkp/lib/tinymce');
+define('TINYMCE_INSTALL_PATH', 'public/js/lib/tinymce');
 define('TINYMCE_JS_PATH', TINYMCE_INSTALL_PATH . '/jscripts/tiny_mce');
 
 class TinyMCEPlugin extends GenericPlugin {

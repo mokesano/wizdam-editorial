@@ -65,8 +65,8 @@ class GroupHandler extends ManagerHandler {
         $groups = $groupDao->getGroups(ASSOC_TYPE_JOURNAL, $journal->getId(), null, $rangeInfo);
 
         $templateMgr = TemplateManager::getManager();
-        $templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-        $templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/lib/jquery/plugins/jquery.tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/functions/tablednd.js');
         // [WIZDAM] assign_by_ref deprecated
         $templateMgr->assign('groups', $groups);
         $templateMgr->assign('boardEnabled', $journal->getSetting('boardEnabled'));
@@ -251,8 +251,8 @@ class GroupHandler extends ManagerHandler {
         $groupMembershipDao = DAORegistry::getDAO('GroupMembershipDAO');
         $memberships = $groupMembershipDao->getMemberships($group->getId(), $rangeInfo);
         $templateMgr = TemplateManager::getManager();
-        $templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-        $templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/lib/jquery/plugins/jquery.tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/functions/tablednd.js');
         
         // [WIZDAM] Removed assign_by_ref
         $templateMgr->assign('memberships', $memberships);

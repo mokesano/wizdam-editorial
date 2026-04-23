@@ -323,8 +323,8 @@ class IssueHandler extends Handler {
         }
 
         $templateMgr = TemplateManager::getManager();
-        $templateMgr->addJavaScript('js/inlinePdf.js');
-        $templateMgr->addJavaScript('js/pdfobject.js');
+        $templateMgr->addJavaScript('public/js/app/inlinePdf.js');
+        $templateMgr->addJavaScript('public/js/app/pdfobject.js');
         $templateMgr->addStyleSheet($request->getBaseUrl().'/styles/pdfView.css');
 
         $templateMgr->assign('issue', $issue);

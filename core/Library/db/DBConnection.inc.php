@@ -127,7 +127,7 @@ class DBConnection {
     public function initConn() {
         // [MODERNISASI] Cek eksistensi fungsi inti ADODB untuk menghindari I/O disk yang tidak perlu
         if (!function_exists('ADONewConnection')) {
-            require_once('lib/pkp/lib/adodb/adodb.inc.php');
+            require_once('core/Library/adodb/adodb.inc.php');
         }
 
         $this->dbconn = ADONewConnection($this->driver);

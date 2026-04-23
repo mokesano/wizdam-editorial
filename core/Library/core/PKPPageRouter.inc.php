@@ -206,7 +206,7 @@ class PKPPageRouter extends PKPRouter {
         // which page/handler serves the request. We keep '&' here strictly for this reason.
         if (!HookRegistry::dispatch('LoadHandler', [&$page, &$op, &$sourceFile])) {
             if (file_exists($sourceFile)) require('./'.$sourceFile);
-            elseif (file_exists('lib/pkp/'.$sourceFile)) require('./lib/pkp/'.$sourceFile);
+            elseif (file_exists('core/Library/'.$sourceFile)) require('./core/Library/'.$sourceFile);
             elseif (empty($page)) require(ROUTER_DEFAULT_PAGE);
             else {
                 $dispatcher = $this->getDispatcher();

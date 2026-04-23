@@ -15,9 +15,9 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-require_once('./lib/pkp/lib/swordappv2/swordappclient.php');
-require_once('./lib/pkp/lib/swordappv2/swordappentry.php');
-require_once('./lib/pkp/lib/swordappv2/packager_mets_swap.php');
+require_once('./core/Library/swordappv2/swordappclient.php');
+require_once('./core/Library/swordappv2/swordappentry.php');
+require_once('./core/Library/swordappv2/packager_mets_swap.php');
 
 class OJSSwordDeposit {
     /** @var SWORD deposit METS package */

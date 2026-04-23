@@ -348,8 +348,8 @@ class ReviewObjectTypesEditorHandler extends Handler {
 		}
 		$this->setupTemplate($request, true, $reviewObjectType);
 		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-		$templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+		$templateMgr->addJavaScript('public/js/core-library/lib/jquery/plugins/jquery.tablednd.js');
+		$templateMgr->addJavaScript('public/js/core-library/functions/tablednd.js');
 		$templateMgr->assign_by_ref('reviewObjectMetadata', $reviewObjectMetadata);
 		$templateMgr->assign_by_ref('typeOptions', $typeOptions);
 		$templateMgr->assign('typeId', $typeId);

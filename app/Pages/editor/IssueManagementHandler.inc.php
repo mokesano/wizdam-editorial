@@ -78,8 +78,8 @@ class IssueManagementHandler extends EditorHandler {
 
         $templateMgr = TemplateManager::getManager();
 
-        $templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-        $templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/lib/jquery/plugins/jquery.tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/functions/tablednd.js');
 
         // [WIZDAM] Removed assign_by_ref
         $templateMgr->assign('issues', $issueDao->getPublishedIssues($journal->getId(), $rangeInfo));
@@ -658,8 +658,8 @@ class IssueManagementHandler extends EditorHandler {
         $templateMgr->assign('issueOptions', IssueAction::getIssueOptions());
         $templateMgr->assign('helpTopicId', 'publishing.tableOfContents');
 
-        $templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.tablednd.js');
-        $templateMgr->addJavaScript('lib/pkp/js/functions/tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/lib/jquery/plugins/jquery.tablednd.js');
+        $templateMgr->addJavaScript('public/js/core-library/functions/tablednd.js');
 
         $templateMgr->display('editor/issues/issueToc.tpl');
     }

@@ -65,7 +65,7 @@ class JSONManager {
      * Private function to get the JSON services library
      */
     public function _getJsonServices() {
-        require_once('lib/pkp/lib/json/JSON.php');
+        require_once('core/Library/json/JSON.php');
         return new Services_JSON();
     }
 }

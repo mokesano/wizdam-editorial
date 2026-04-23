@@ -126,7 +126,7 @@ class XmlToSqlTool extends CommandLineTool {
      * Parse an XML database file and output the corresponding SQL statements.
      */
     public function execute(): void {
-        require_once('./lib/pkp/lib/adodb/adodb-xmlschema.inc.php');
+        require_once('./core/Library/adodb/adodb-xmlschema.inc.php');
         
         $dbconn = null;
         if (in_array($this->command, ['print', 'save'])) {

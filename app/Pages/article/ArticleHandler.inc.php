@@ -181,9 +181,9 @@ class ArticleHandler extends Handler {
         }
 
         $templateMgr = TemplateManager::getManager($request);
-        // $templateMgr->addJavaScript('js/relatedItems.js'); // RT
-        $templateMgr->addJavaScript('js/inlinePdf.js');
-        $templateMgr->addJavaScript('js/pdfobject.js');
+        // $templateMgr->addJavaScript('public/js/app/relatedItems.js'); // RT
+        $templateMgr->addJavaScript('public/js/app/inlinePdf.js');
+        $templateMgr->addJavaScript('public/js/app/pdfobject.js');
         
         $galleys = $galleyDao->getGalleysByArticle($article->getId());
         $templateMgr->assign('galleys', $galleys);

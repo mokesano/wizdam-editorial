@@ -1,72 +1,28 @@
 ```
-# Compiled/Generated PHP
-*.phpc
-*.php~
-
 # Dependencies
-vendor/
+node_modules/
+
+# Build artifacts
+public/js/lib/tinymce/jscripts/tiny_mce/tiny_mce_gzip.php
+public/js/lib/tinymce/jscripts/tiny_mce/utils/
 
 # Logs
 *.log
-error_log
 
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
-# Editor/IDE
+# IDE
 .vscode/
 .idea/
-*.swp
-*.swo
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Cache
-.cache/
-tmp/
-temp/
-
-# Distribution
-dist/
-build/
-*.tar.gz
-*.zip
-
-# Tests
-.phpunit.result.cache
-
-# PKP Library specific build artifacts
-lib/pkp/styles/lib/jqueryUi/images/*.png
-lib/pkp/templates/images/structure/*.png
-lib/pkp/templates/images/icons/*.gif
-lib/pkp/templates/images/icons/*.png
-lib/pkp/js/lib/jquery/jquery.min.js
-lib/pkp/js/lib/plupload/plupload.full.js
-lib/pkp/js/lib/plupload/jquery.plupload.queue/jquery.plupload.queue.js
-lib/pkp/js/lib/plupload/jquery.ui.plupload/jquery.ui.plupload.js
-lib/pkp/js/lib/superfish/*.js
-lib/pkp/js/lib/jquery/plugins/jquery.validate*.js
-lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js
-lib/pkp/js/lib/jquery/plugins/jquery.jlabel-1.3.min.js
-lib/pkp/js/lib/jquery/plugins/jquery.roundabout.min.js
-lib/pkp/js/lib/jquery/plugins/jquery.selectBox.min.js
-lib/pkp/js/lib/jquery/plugins/orbit/*.png
-lib/pkp/js/lib/jquery/plugins/orbit/*.jpg
-lib/pkp/js/lib/jquery/plugins/orbit/*.gif
-lib/pkp/js/lib/json/json2.js
-lib/pkp/js/functions/jqueryValidatorI18n.js
-lib/pkp/js/lib/jquery/plugins/validate/jquery.validate*.js
-lib/pkp/js/lib/jquery/plugins/validate/localization/*.js
-lib/pkp/js/lib/plupload/plupload.flash.swf
-lib/pkp/js/lib/plupload/plupload.silverlight.xap
-lib/pkp/js/pkp.min.js
-js/pkp.min.js
-
-# Compressed archives
+# Compressed files
 *.zip
 *.gz
 *.tar
@@ -75,19 +31,19 @@ js/pkp.min.js
 *.xz
 *.7z
 *.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
 *.Z
 *.lz
 *.lzo
 *.tar.gz
 *.tar.bz2
 *.tar.xz
-*.tar.zst
+
+# Images (if any get added temporarily)
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+*.webm
 
 ```

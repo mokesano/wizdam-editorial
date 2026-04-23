@@ -136,7 +136,7 @@ class TemplateManager extends PKPTemplateManager {
 
             // Add java script for notifications
             $user = $this->request->getUser();
-            if ($user) $this->addJavaScript('lib/pkp/js/lib/jquery/plugins/jquery.pnotify.js');
+            if ($user) $this->addJavaScript('public/js/core-library/lib/jquery/plugins/jquery.pnotify.js');
         }
     }
 

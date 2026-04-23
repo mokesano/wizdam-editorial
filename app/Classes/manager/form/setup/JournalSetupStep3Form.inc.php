@@ -136,9 +136,9 @@ class JournalSetupStep3Form extends JournalSetupForm {
         
         // Load Assets
         $templateMgr->addStyleSheet($request->getBaseUrl().'/styles/ojs.css');
-        $templateMgr->addJavaScript('lib/pkp/js/functions/modal.js');
-        $templateMgr->addJavaScript('lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.min.js');
-        $templateMgr->addJavaScript('lib/pkp/js/functions/jqueryValidatorI18n.js');
+        $templateMgr->addJavaScript('public/js/core-library/functions/modal.js');
+        $templateMgr->addJavaScript('public/js/core-library/lib/jquery/plugins/validate/jquery.validate.min.js');
+        $templateMgr->addJavaScript('public/js/core-library/functions/jqueryValidatorI18n.js');
 
         // Mail Logic
         import('classes.mail.MailTemplate');
