@@ -26,7 +26,7 @@
   },
   "require-dev": {
     "vimeo/psalm": "^1",
-    "phpunit/phpunit": "12.5.7"
+    "phpunit/phpunit": "12.5.8"
   },
   "suggest": {
     "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
