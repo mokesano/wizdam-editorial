@@ -2,6 +2,12 @@
 declare(strict_types=1);
 
 /**
+ * @file includes/fatalError.inc.php
+ *
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * 
  * Registers a shutdown function to handle fatal errors in a controlled manner.
  *
  * This function checks for fatal errors at the end of script execution and
