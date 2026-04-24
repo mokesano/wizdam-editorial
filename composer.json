@@ -44,6 +44,7 @@
         "symfony/var-dumper": "^6.0",
         "vlucas/phpdotenv": "^5.5",
         "wikimedia/less.php": "^5.5",
+        "wizdamdebug/debug-toolbar": "@dev",
         "xendit/xendit-php": "^2.0"
     },
     "require-dev": {
@@ -107,5 +108,10 @@
         "analyze": "phpstan analyse --level max core/Library app"
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [{
+        "name": "wizdam-debug-toolbar",
+        "type": "vcs",
+        "url": "https://github.com/mokesano/WizdamDebugToolbar"
+    }]
 }
