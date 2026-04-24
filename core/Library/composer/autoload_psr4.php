@@ -14,6 +14,7 @@ return array(
     'Wizdam\\Modules\\' => array($baseDir . '/core/Modules'),
     'Wizdam\\Kernel\\' => array($baseDir . '/core/Kernel'),
     'Wizdam\\Core\\' => array($baseDir . '/core/Includes'),
+    'WizdamDebugToolbar\\' => array($vendorDir . '/wizdamdebug/debug-toolbar/src'),
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
