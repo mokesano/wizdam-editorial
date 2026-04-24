@@ -126,6 +126,4 @@ Kami menyambut kontribusi! Silakan buka *issue* untuk melaporkan bug atau mengaj
 
 ## Penghargaan
 
-Proyek ini merupakan hasil modernisasi dari sistem penerbitan jurnal yang sebelumnya, ditenagai oleh komunitas riset dan pengembang yang berdedikasi.  
-
-```
+Proyek ini merupakan hasil modernisasi dari sistem penerbitan jurnal yang sebelumnya, ditenagai oleh komunitas riset dan pengembang yang berdedikasi.
