@@ -1520,8 +1520,16 @@ $(document).ready(function() {
         if (footer.length) {
             footer.find('a[data-href]').each(function() {
                 var link = $(this);
-                // Mengembalikan href asli dari data-href
-                link.attr('href', link.attr('data-href'));
+                // Mengembalikan href asli dari data-href dengan validasi protokol aman
+                var originalHref = link.attr('data-href');
+                try {
+                    var parsedUrl = new URL(originalHref, window.location.origin);
+                    if (parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:') {
+                        link.attr('href', parsedUrl.href);
+                    }
+                } catch (e) {
+                    // Abaikan URL yang tidak valid/berbahaya
+                }
                 link.removeAttr('data-href');
             });
         }
