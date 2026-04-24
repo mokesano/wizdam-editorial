@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 import('core.Modules.handler.Handler');
-import("core.classes.core.VirtualArrayIterator");
+import("core.Kernel.VirtualArrayIterator");
 
 class BrowseHandler extends Handler {
 

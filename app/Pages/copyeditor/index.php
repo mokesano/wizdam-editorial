@@ -48,7 +48,7 @@ switch ($op) {
 	//
 	case 'submissionCitations':
 		define('HANDLER_CLASS', 'SubmissionCopyeditHandler');
-		import('pages.copyeditor.SubmissionCopyeditHandler');
+		import('app.Pages.copyeditor.SubmissionCopyeditHandler');
 		break;
 	//
 	// Submission Comments
@@ -61,12 +61,12 @@ switch ($op) {
 	case 'saveComment':
 	case 'deleteComment':
 		define('HANDLER_CLASS', 'SubmissionCommentsHandler');
-		import('pages.copyeditor.SubmissionCommentsHandler');
+		import('app.Pages.copyeditor.SubmissionCommentsHandler');
 		break;
 	case 'index':
 	case 'instructions':
 		define('HANDLER_CLASS', 'CopyeditorHandler');
-		import('pages.copyeditor.CopyeditorHandler');
+		import('app.Pages.copyeditor.CopyeditorHandler');
 }
 
 ?>

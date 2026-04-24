@@ -15,13 +15,13 @@ switch ($op) {
     case '':
         // Jika hanya mengakses /section
         define('HANDLER_CLASS', 'SectionHandler');
-        import('pages.section.SectionHandler');
+        import('app.Pages.section.SectionHandler');
         break;
         
     default:
         // Menangkap semua string dinamis (nama section) sebagai $op
         define('HANDLER_CLASS', 'SectionHandler');
-        import('pages.section.SectionHandler');
+        import('app.Pages.section.SectionHandler');
         break;
 }
 ?>

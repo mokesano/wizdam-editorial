@@ -17,7 +17,7 @@ declare(strict_types=1);
  * FIX: Removed recursive constructor calls (Infinite Loop).
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class CoreAnnouncementHandler extends ManagerHandler {
     

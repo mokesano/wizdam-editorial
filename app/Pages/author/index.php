@@ -28,7 +28,7 @@ switch ($op) {
 	case 'deleteSubmitSuppFile':
 	case 'expediteSubmission':
 		define('HANDLER_CLASS', 'SubmitHandler');
-		import('pages.author.SubmitHandler');
+		import('app.Pages.author.SubmitHandler');
 		break;
 	//
 	// Submission Tracking
@@ -68,7 +68,7 @@ switch ($op) {
 	case 'payFastTrackFee':
 	case 'payPublicationFee':
 		define('HANDLER_CLASS', 'TrackSubmissionHandler');
-		import('pages.author.TrackSubmissionHandler');
+		import('app.Pages.author.TrackSubmissionHandler');
 		break;
 	//
 	// Submission Comments
@@ -85,12 +85,12 @@ switch ($op) {
 	case 'saveComment':
 	case 'deleteComment':
 		define('HANDLER_CLASS', 'SubmissionCommentsHandler');
-		import('pages.author.SubmissionCommentsHandler');
+		import('app.Pages.author.SubmissionCommentsHandler');
 		break;
 	case 'index':
 	case 'instructions':
 		define('HANDLER_CLASS', 'AuthorHandler');
-		import('pages.author.AuthorHandler');
+		import('app.Pages.author.AuthorHandler');
 		break;
 }
 

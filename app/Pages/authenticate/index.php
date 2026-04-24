@@ -25,7 +25,7 @@ switch ($op) {
     // Endpoint Sertifikat (Reviewer/Author) berdasarkan Hash-ID
     case 'certificate':
         define('HANDLER_CLASS', 'AuthenticateHandler');
-        import('pages.authenticate.AuthenticateHandler');
+        import('app.Pages.authenticate.AuthenticateHandler');
         break;
 }
 ?>

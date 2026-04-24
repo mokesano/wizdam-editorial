@@ -29,7 +29,7 @@ switch ($op) {
 	case 'suppFileMetadata':
 	case 'findingReferences':
 		define('HANDLER_CLASS', 'RTHandler');
-		import('pages.rt.RTHandler');
+		import('app.Pages.rt.RTHandler');
 		break;
 }
 

@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] FULL REFACTOR: PHP 8.1+ Strict Types, Security Hardening, Smarty Modernization
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class PeopleHandler extends ManagerHandler {
     

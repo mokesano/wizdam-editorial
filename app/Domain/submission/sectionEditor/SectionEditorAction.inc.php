@@ -243,7 +243,7 @@ class SectionEditorAction extends Action {
                 if ($email->isEnabled()) {
                     if ($reviewerAccessKeysEnabled) {
                         import('core.Modules.security.AccessKeyManager');
-                        import('pages.reviewer.ReviewerHandler');
+                        import('app.Pages.reviewer.ReviewerHandler');
                         $accessKeyManager = new AccessKeyManager();
 
                         // Key lifetime is the typical review period plus four weeks
@@ -410,7 +410,7 @@ class SectionEditorAction extends Action {
 
             if ($reviewerAccessKeysEnabled) {
                 import('core.Modules.security.AccessKeyManager');
-                import('pages.reviewer.ReviewerHandler');
+                import('app.Pages.reviewer.ReviewerHandler');
                 $accessKeyManager = new AccessKeyManager();
 
                 // Key lifetime is the typical review period plus four weeks

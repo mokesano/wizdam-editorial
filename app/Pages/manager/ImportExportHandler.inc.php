@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class ImportExportHandler extends ManagerHandler {
     

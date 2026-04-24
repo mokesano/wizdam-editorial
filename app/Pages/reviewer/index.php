@@ -37,7 +37,7 @@ switch ($op) {
 	case 'editReviewFormResponse':
 	case 'saveReviewFormResponse':
 		define('HANDLER_CLASS', 'SubmissionReviewHandler');
-		import('pages.reviewer.SubmissionReviewHandler');
+		import('app.Pages.reviewer.SubmissionReviewHandler');
 		break;
 	//
 	// Submission Comments
@@ -48,11 +48,11 @@ switch ($op) {
 	case 'saveComment':
 	case 'deleteComment':
 		define('HANDLER_CLASS', 'SubmissionCommentsHandler');
-		import('pages.reviewer.SubmissionCommentsHandler');
+		import('app.Pages.reviewer.SubmissionCommentsHandler');
 		break;
 	case 'index':
 		define('HANDLER_CLASS', 'ReviewerHandler');
-		import('pages.reviewer.ReviewerHandler');
+		import('app.Pages.reviewer.ReviewerHandler');
 		break;
 }
 

@@ -873,8 +873,8 @@ class AboutHandler extends Handler {
      * @return array
      */
     public function _getPublicStatisticsNames() {
-        import ('pages.manager.ManagerHandler');
-        import ('pages.manager.StatisticsHandler');
+        import('app.Pages.manager.ManagerHandler');
+        import('app.Pages.manager.StatisticsHandler');
         // Note: _getPublicStatisticsNames is protected in StatisticsHandler refactor.
         // If strict mode prevents access, this needs adaptation. 
         // For now assuming we can access or reflect it, or simply duplicate the list.

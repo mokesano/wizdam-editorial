@@ -18,7 +18,7 @@ switch ($op) {
     case 'index':
     case 'journal':
         define('HANDLER_CLASS', 'JournalStatsHandler');
-        import('pages.statistics.JournalStatsHandler');
+        import('app.Pages.statistics.JournalStatsHandler');
         break;
 }
 ?>

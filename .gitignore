@@ -29,29 +29,20 @@ venv/
 .vscode/
 .idea/
 
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# Distribution / packaging
+# Build and distribution
 dist/
 build/
-*.tar.gz
-*.zip
+target/
+.coverage
+coverage/
+htmlcov/
 
-# OS generated files
+# System files
 .DS_Store
 Thumbs.db
 
 # Cache directories
 .mypy_cache/
 .pytest_cache/
-target/
 .gradle/
-
-# Backup files
-*~
-*.bak
-*.orig
 ```

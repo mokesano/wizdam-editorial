@@ -18,7 +18,7 @@ switch ($op) {
 	case 'header':  // Akses: .../image/header/...
 	case 'article': // Akses: .../image/article/...
 		define('HANDLER_CLASS', 'ImageHandler');
-		import('pages.image.ImageHandler');
+		import('app.Pages.image.ImageHandler');
 		break;
 }
 

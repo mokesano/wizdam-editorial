@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.article.ArticleHandler');
+import('app.Pages.article.ArticleHandler');
 
 class MetricsHandler extends ArticleHandler {
 

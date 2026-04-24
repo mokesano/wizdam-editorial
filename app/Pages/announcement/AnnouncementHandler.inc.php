@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Null Safety
  */
 
-import('core.Modules.pages.announcement.CoreAnnouncementHandler');
+import('app.Pages.announcement.CoreAnnouncementHandler');
 
 class AnnouncementHandler extends CoreAnnouncementHandler {
     

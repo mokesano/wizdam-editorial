@@ -18,7 +18,7 @@ declare(strict_types=1);
  * Refactored for Semantic RESTful URLs (update-profile, my-profile).
  */
 
-import('pages.user.UserHandler');
+import('app.Pages.user.UserHandler');
 
 class ProfileHandler extends UserHandler {
     

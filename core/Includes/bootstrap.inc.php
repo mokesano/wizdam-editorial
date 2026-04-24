@@ -55,7 +55,7 @@ require(BASE_SYS_DIR . '/core/Includes/functions.inc.php');
 
 // Initialize the application environment
 // [WIZDAM] We use the import function to load the core Application class.
-import('app.classes.core.Application');
+import('app.Domain.core.Application');
 
 // [WIZDAM] Instantiate the Application Singleton.
 // The constructor of Application registers itself to the Registry.

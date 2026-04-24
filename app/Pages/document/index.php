@@ -19,7 +19,7 @@ switch ($op) {
     //
     case 'loa':
         define('HANDLER_CLASS', 'LoAHandler');
-        import('pages.document.LoAHandler'); 
+        import('app.Pages.document.LoAHandler'); 
         break;
         
     // 
@@ -27,7 +27,7 @@ switch ($op) {
     //
     case 'certificate':
         define('HANDLER_CLASS', 'CertificateHandler');
-        import('pages.document.CertificateHandler');
+        import('app.Pages.document.CertificateHandler');
         break;
 }
 ?>

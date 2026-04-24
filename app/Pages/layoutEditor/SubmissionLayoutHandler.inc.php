@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Handle requests related to submission layout editing.
  */
 
-import('pages.layoutEditor.LayoutEditorHandler');
+import('app.Pages.layoutEditor.LayoutEditorHandler');
 
 class SubmissionLayoutHandler extends LayoutEditorHandler {
     

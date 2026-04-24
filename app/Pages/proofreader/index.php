@@ -33,7 +33,7 @@ switch ($op) {
 	case 'proofGalleyFile':
 	case 'viewMetadata':
 		define('HANDLER_CLASS', 'SubmissionProofreadHandler');
-		import('pages.proofreader.SubmissionProofreadHandler');
+		import('app.Pages.proofreader.SubmissionProofreadHandler');
 		break;
 	//
 	// Submission Comments
@@ -46,12 +46,12 @@ switch ($op) {
 	case 'deleteComment':
 	case 'saveComment':
 		define('HANDLER_CLASS', 'SubmissionCommentsHandler');
-		import('pages.proofreader.SubmissionCommentsHandler');
+		import('app.Pages.proofreader.SubmissionCommentsHandler');
 		break;
 	case 'index':
 	case 'instructions':
 		define('HANDLER_CLASS', 'ProofreaderHandler');
-		import('pages.proofreader.ProofreaderHandler');
+		import('app.Pages.proofreader.ProofreaderHandler');
 }
 
 ?>

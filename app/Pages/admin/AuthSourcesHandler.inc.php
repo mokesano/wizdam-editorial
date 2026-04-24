@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 import('core.Modules.plugins.AuthPlugin');
 import('core.Modules.security.AuthSourceDAO');
-import('pages.admin.AdminHandler');
+import('app.Pages.admin.AdminHandler');
 
 class AuthSourcesHandler extends AdminHandler {
     

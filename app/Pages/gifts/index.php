@@ -23,7 +23,7 @@ switch ($op) {
 	case 'payPurchaseGiftSubscription':
 	case 'thankYou':
 		define('HANDLER_CLASS', 'GiftsHandler');
-		import('pages.gifts.GiftsHandler');
+		import('app.Pages.gifts.GiftsHandler');
 		break;
 }
 

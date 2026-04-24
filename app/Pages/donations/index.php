@@ -22,7 +22,7 @@ switch ($op) {
 	case 'index':
 	case 'thankYou':
 		define('HANDLER_CLASS', 'DonationsHandler');
-		import('pages.donations.DonationsHandler');
+		import('app.Pages.donations.DonationsHandler');
 		break;
 }
 

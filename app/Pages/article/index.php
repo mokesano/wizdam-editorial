@@ -27,7 +27,7 @@ switch ($op) {
 	case 'download':
 	case 'downloadSuppFile':
 		define('HANDLER_CLASS', 'ArticleHandler');
-		import('pages.article.ArticleHandler');
+		import('app.Pages.article.ArticleHandler');
 		break;
 }
 

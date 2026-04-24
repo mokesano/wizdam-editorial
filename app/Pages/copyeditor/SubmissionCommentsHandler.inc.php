@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.copyeditor.SubmissionCopyeditHandler');
+import('app.Pages.copyeditor.SubmissionCopyeditHandler');
 
 class SubmissionCommentsHandler extends CopyeditorHandler {
     /** @var Comment|null comment associated with this request */

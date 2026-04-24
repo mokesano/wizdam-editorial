@@ -18,7 +18,7 @@ declare(strict_types=1);
 import('core.library.nlp.SearchFileParser');
 import('core.library.nlp.SearchHTMLParser');
 import('core.library.nlp.SearchHelperParser');
-import('app.classes.journal.Journal'); // [WIZDAM] Explicit Import
+import('app.Domain.journal.Journal'); // [WIZDAM] Explicit Import
 
 define('SEARCH_STOPWORDS_FILE', 'core/Library/nlp/stopwords.txt');
 define('SEARCH_KEYWORD_MAX_LENGTH', 40);

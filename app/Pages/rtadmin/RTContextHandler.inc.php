@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.rtadmin.RTAdminHandler');
+import('app.Pages.rtadmin.RTAdminHandler');
 
 class RTContextHandler extends RTAdminHandler {
     

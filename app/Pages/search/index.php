@@ -26,7 +26,7 @@ switch ($op) {
     case 'categories':
     case 'category':
         define('HANDLER_CLASS', 'SearchHandler');
-        import('pages.search.SearchHandler');
+        import('app.Pages.search.SearchHandler');
         break;
 }
 

@@ -77,7 +77,7 @@ class IndexHandler extends Handler {
             $issueDao = DAORegistry::getDAO('IssueDAO');
             $issue = $issueDao->getCurrentIssue($journal->getId(), true);
             if ($displayCurrentIssue && isset($issue)) {
-                import('pages.issue.IssueHandler');
+                import('app.Pages.issue.IssueHandler');
                 // The current issue TOC/cover page should be displayed below the custom home page.
                 IssueHandler::_setupIssueTemplate($request, $issue);
             }

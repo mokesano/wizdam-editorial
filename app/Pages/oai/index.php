@@ -20,7 +20,7 @@ declare(strict_types=1);
 switch ($op) {
 	case 'index':
 		define('HANDLER_CLASS', 'OAIHandler');
-		import('pages.oai.OAIHandler');
+		import('app.Pages.oai.OAIHandler');
 		break;
 }
 

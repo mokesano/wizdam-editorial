@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.admin.AdminHandler');
+import('app.Pages.admin.AdminHandler');
 
 class AdminJournalHandler extends AdminHandler {
     

@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Handle requests for submission comments.
  */
 
-import('pages.layoutEditor.SubmissionLayoutHandler');
+import('app.Pages.layoutEditor.SubmissionLayoutHandler');
 
 class SubmissionCommentsHandler extends LayoutEditorHandler {
     

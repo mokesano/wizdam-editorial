@@ -18,7 +18,7 @@ declare(strict_types=1);
  * - Added Google SSO Integration
  */
 
-import('core.Modules.pages.login.CoreLoginHandler');
+import('app.Pages.login.CoreLoginHandler');
 
 class LoginHandler extends CoreLoginHandler {
 

@@ -12,7 +12,7 @@ switch ($op) {
     case 'index':    // Dasbor dompet virtual
     case 'exchange': // Proses penukaran poin
         define('HANDLER_CLASS', 'RedeemHandler');
-        import('pages.redeem.RedeemHandler');
+        import('app.Pages.redeem.RedeemHandler');
         break;
 }
 ?>

@@ -37,7 +37,7 @@ switch($op) {
 	case 'insights':
 	case 'statistics':
 		define('HANDLER_CLASS', 'AboutHandler');
-		import('pages.about.AboutHandler');
+		import('app.Pages.about.AboutHandler');
 		break;
 }
 

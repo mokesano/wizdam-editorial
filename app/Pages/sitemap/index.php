@@ -20,7 +20,7 @@ declare(strict_types=1);
 switch ($op) {
 	case 'index':
 		define('HANDLER_CLASS', 'SitemapHandler');
-		import('pages.sitemap.SitemapHandler');
+		import('app.Pages.sitemap.SitemapHandler');
 		break;
 }
 

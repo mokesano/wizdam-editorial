@@ -81,7 +81,7 @@ class ObjectsForReviewEditorHandler extends Handler {
         }
 
         // Filter by editor
-        import('pages.editor.EditorHandler');
+        import('app.Pages.editor.EditorHandler');
         
         $user = $request->getUser();
         $filterEditorOptions = [

@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.editor.EditorHandler');
+import('app.Pages.editor.EditorHandler');
 
 class IssueManagementHandler extends EditorHandler {
     /** @var Issue|null issue associated with the request */

@@ -91,7 +91,7 @@ class BooksForReviewEditorHandler extends Handler {
         }
 
 
-        import('pages.editor.EditorHandler');
+        import('app.Pages.editor.EditorHandler');
         $user = $request->getUser();
         $filterEditorOptions = array(
             FILTER_EDITOR_ALL => AppLocale::Translate('editor.allEditors'),

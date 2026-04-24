@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored from UserHandler for better separation of concerns.
  */
 
-import('pages.user.UserHandler');
+import('app.Pages.user.UserHandler');
 
 class UserIndexHandler extends UserHandler {
     

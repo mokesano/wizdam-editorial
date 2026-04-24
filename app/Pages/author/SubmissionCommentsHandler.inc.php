@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.author.TrackSubmissionHandler');
+import('app.Pages.author.TrackSubmissionHandler');
 
 class SubmissionCommentsHandler extends AuthorHandler {
     /** @var Comment|null comment associated with the request */

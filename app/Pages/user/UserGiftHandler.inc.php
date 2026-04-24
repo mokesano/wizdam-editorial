@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Extracted from UserHandler.
  */
 
-import('pages.user.UserHandler');
+import('app.Pages.user.UserHandler');
 
 class UserGiftHandler extends UserHandler {
 

@@ -21,7 +21,7 @@ import('core.Modules.rt.RT');
 import('core.Modules.rt.RTDAO');
 import('core.Modules.rt.JournalRT');
 
-import('pages.article.ArticleHandler');
+import('app.Pages.article.ArticleHandler');
 
 class RTHandler extends ArticleHandler {
     

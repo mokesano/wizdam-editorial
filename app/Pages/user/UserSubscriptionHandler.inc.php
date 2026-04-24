@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Extracted from bloated UserHandler for Single Responsibility Principle.
  */
 
-import('pages.user.UserHandler');
+import('app.Pages.user.UserHandler');
 
 class UserSubscriptionHandler extends UserHandler {
 

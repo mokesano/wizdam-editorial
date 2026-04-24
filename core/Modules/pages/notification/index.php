@@ -31,7 +31,7 @@ switch ($op) {
 	case 'unsubscribeMailList':
 	case 'fetchNotification':
 		define('HANDLER_CLASS', 'NotificationHandler');
-		import('core.Modules.pages.notification.NotificationHandler');
+		import('app.Pages.notification.NotificationHandler');
 		break;
 }
 

@@ -27,7 +27,7 @@ switch ($op) {
 	case 'viewFile':
 	case 'download':
 		define('HANDLER_CLASS', 'IssueHandler');
-		import('pages.issue.IssueHandler');
+		import('app.Pages.issue.IssueHandler');
 		break;
 }
 

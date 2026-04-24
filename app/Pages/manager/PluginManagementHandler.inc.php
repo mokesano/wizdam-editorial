@@ -25,7 +25,7 @@ import('core.Modules.site.VersionCheck');
 import('core.Modules.file.FileManager');
 import('core.Modules.install.Install');
 import('core.Modules.install.Upgrade');
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class PluginManagementHandler extends ManagerHandler {
     

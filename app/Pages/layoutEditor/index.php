@@ -31,7 +31,7 @@ switch ($op) {
 	case 'removeCoverPage':
 	case 'removeStyleFile':
 		define('HANDLER_CLASS', 'IssueManagementHandler');
-		import('pages.editor.IssueManagementHandler');
+		import('app.Pages.editor.IssueManagementHandler');
 		break;
 	case 'viewMetadata':
 	//
@@ -61,7 +61,7 @@ switch ($op) {
 	//
 	case 'layoutEditorProofreadingComplete':
 		define('HANDLER_CLASS', 'SubmissionLayoutHandler');
-		import('pages.layoutEditor.SubmissionLayoutHandler');
+		import('app.Pages.layoutEditor.SubmissionLayoutHandler');
 		break;
 	//
 	// Submission Comments
@@ -74,7 +74,7 @@ switch ($op) {
 	case 'saveComment':
 	case 'deleteComment':
 		define('HANDLER_CLASS', 'SubmissionCommentsHandler');
-		import('pages.layoutEditor.SubmissionCommentsHandler');
+		import('app.Pages.layoutEditor.SubmissionCommentsHandler');
 		break;
 	case 'index':
 	case 'submissions':
@@ -83,7 +83,7 @@ switch ($op) {
 	case 'instructions':
 	case 'completeProofreader':
 		define('HANDLER_CLASS', 'LayoutEditorHandler');
-		import('pages.layoutEditor.LayoutEditorHandler');
+		import('app.Pages.layoutEditor.LayoutEditorHandler');
 		break;
 }
 

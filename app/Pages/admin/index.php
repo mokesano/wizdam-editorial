@@ -23,7 +23,7 @@ switch ($op) {
 	case 'settings':
 	case 'saveSettings':
 		define('HANDLER_CLASS', 'AdminPublisherSettingsHandler');
-		import('pages.admin.AdminPublisherSettingsHandler');
+		import('app.Pages.admin.AdminPublisherSettingsHandler');
 		break;
 	//
 	// Press Management
@@ -35,7 +35,7 @@ switch ($op) {
 	case 'deletePress':
 	case 'movePress':
 		define('HANDLER_CLASS', 'AdminPressHandler');
-		import('pages.admin.AdminPressHandler');
+		import('app.Pages.admin.AdminPressHandler');
 		break;
 	//
 	// Languages
@@ -48,7 +48,7 @@ switch ($op) {
 	case 'reloadDefaultEmailTemplates':
 	case 'downloadLocale':
 		define('HANDLER_CLASS', 'AdminLanguagesHandler');
-		import('pages.admin.AdminLanguagesHandler');
+		import('app.Pages.admin.AdminLanguagesHandler');
 		break;
 	//
 	// Authentication sources
@@ -60,14 +60,14 @@ switch ($op) {
 	case 'updateAuthSource':
 	case 'deleteAuthSource':
 		define('HANDLER_CLASS', 'AuthSourcesHandler');
-		import('pages.admin.AuthSourcesHandler');
+		import('app.Pages.admin.AuthSourcesHandler');
 		break;
 	//
 	// Merge users
 	//
 	case 'mergeUsers':
 		define('HANDLER_CLASS', 'AdminPeopleHandler');
-		import('pages.admin.AdminPeopleHandler');
+		import('app.Pages.admin.AdminPeopleHandler');
 		break;
 	//
     // AREA ADMIN WIZDAM PAYMENT ---
@@ -75,7 +75,7 @@ switch ($op) {
     case 'payment-settings':
     case 'save-payment-settings':
         define('HANDLER_CLASS', 'AdminPaymentHandler'); 
-        import('pages.admin.AdminPaymentHandler');
+        import('app.Pages.admin.AdminPaymentHandler');
         break;
 	//
 	// Administrative functions
@@ -88,7 +88,7 @@ switch ($op) {
 	case 'downloadScheduledTaskLogFile':
 	case 'clearScheduledTaskLogFiles':
 		define('HANDLER_CLASS', 'AdminFunctionsHandler');
-		import('pages.admin.AdminFunctionsHandler');
+		import('app.Pages.admin.AdminFunctionsHandler');
 		break;
 		
 	// 
@@ -104,14 +104,14 @@ switch ($op) {
 	case 'moveCategory':
 	case 'setCategoriesEnabled':
 		define('HANDLER_CLASS', 'AdminCategoriesHandler');
-		import('pages.admin.AdminCategoriesHandler');
+		import('app.Pages.admin.AdminCategoriesHandler');
 		break;
 		
 	case 'index':
 	case 'aboutPublisher':
     case 'saveAboutPublisher':
 		define('HANDLER_CLASS', 'AdminHandler');
-		import('pages.admin.AdminHandler');
+		import('app.Pages.admin.AdminHandler');
 		break;
 }
 ?>

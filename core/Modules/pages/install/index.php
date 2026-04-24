@@ -23,7 +23,7 @@ switch ($op) {
 	case 'upgrade':
 	case 'installUpgrade':
 		define('HANDLER_CLASS', 'CoreInstallHandler');
-		import('core.Modules.pages.install.CoreInstallHandler');
+		import('app.Pages.install.CoreInstallHandler');
 		break;
 }
 

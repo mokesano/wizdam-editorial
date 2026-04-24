@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.rtadmin.RTAdminHandler');
+import('app.Pages.rtadmin.RTAdminHandler');
 import('core.Modules.rt.JournalRTAdmin'); // [WIZDAM] Explicit import
 
 class RTVersionHandler extends RTAdminHandler {

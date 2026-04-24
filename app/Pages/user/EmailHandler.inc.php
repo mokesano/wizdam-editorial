@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.user.UserHandler');
+import('app.Pages.user.UserHandler');
 
 class EmailHandler extends UserHandler {
     

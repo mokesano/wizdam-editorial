@@ -22,7 +22,7 @@ switch ($op) {
 	case 'add':
 	case 'delete':
 		define('HANDLER_CLASS', 'CommentHandler');
-		import('pages.comment.CommentHandler');
+		import('app.Pages.comment.CommentHandler');
 		break;
 }
 

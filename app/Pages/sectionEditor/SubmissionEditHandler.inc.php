@@ -19,7 +19,7 @@ declare(strict_types=1);
 define('SECTION_EDITOR_ACCESS_EDIT', 0x00001);
 define('SECTION_EDITOR_ACCESS_REVIEW', 0x00002);
 
-import('pages.sectionEditor.SectionEditorHandler');
+import('app.Pages.sectionEditor.SectionEditorHandler');
 
 class SubmissionEditHandler extends SectionEditorHandler {
     

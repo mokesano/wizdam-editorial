@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.reviewer.ReviewerHandler');
+import('app.Pages.reviewer.ReviewerHandler');
 
 class SubmissionReviewHandler extends ReviewerHandler {
     

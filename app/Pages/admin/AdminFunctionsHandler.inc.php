@@ -19,7 +19,7 @@ declare(strict_types=1);
 import('core.Modules.site.Version');
 import('core.Modules.site.VersionDAO');
 import('core.Modules.site.VersionCheck');
-import('pages.admin.AdminHandler');
+import('app.Pages.admin.AdminHandler');
 
 class AdminFunctionsHandler extends AdminHandler {
     

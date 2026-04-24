@@ -39,7 +39,7 @@ switch ($op) {
     case 'google-callback':
     case 'google-unlink':    
 		define('HANDLER_CLASS', 'LoginHandler');
-		import('pages.login.LoginHandler');
+		import('app.Pages.login.LoginHandler');
 		break;
 }
 

@@ -22,7 +22,7 @@ switch ($op) {
 	case 'lockss':
 	case 'plugin':
 		define('HANDLER_CLASS', 'GatewayHandler');
-		import('pages.gateway.GatewayHandler');
+		import('app.Pages.gateway.GatewayHandler');
 		break;
 }
 

@@ -20,7 +20,7 @@ declare(strict_types=1);
 switch ($op) {
 	case 'plugin':
 		define('HANDLER_CLASS', 'PaymentHandler');
-		import('pages.payment.PaymentHandler');
+		import('app.Pages.payment.PaymentHandler');
 		break;
 }
 

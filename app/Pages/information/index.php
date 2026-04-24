@@ -25,7 +25,7 @@ switch ($op) {
 	case 'competingInterestGuidelines':
 	case 'sampleCopyrightWording':
 		define('HANDLER_CLASS', 'InformationHandler');
-		import('pages.information.InformationHandler');
+		import('app.Pages.information.InformationHandler');
 		break;
 }
 

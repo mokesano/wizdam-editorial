@@ -24,7 +24,7 @@ switch ($op) {
     case 'view':
     case 'year':
         define('HANDLER_CLASS', 'VolumesHandler');
-        import('pages.volumes.VolumesHandler');
+        import('app.Pages.volumes.VolumesHandler');
         break;
 }
 ?>
