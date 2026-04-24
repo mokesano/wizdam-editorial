@@ -6,37 +6,36 @@ declare(strict_types=1);
  */
  
 /**
- * @file pages/admin/index.php
+ * @file pages.admin.index.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2025 Wizdam Editorial Project
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_admin
- * @brief Handle requests for site administration functions. 
+ * @brief Handle requests for publisher administration functions. 
  *
  */
 
 switch ($op) {
 	//
-	// Settings
+	// Publisher Settings
 	//
 	case 'settings':
 	case 'saveSettings':
-		define('HANDLER_CLASS', 'AdminSettingsHandler');
-		import('pages.admin.AdminSettingsHandler');
+		define('HANDLER_CLASS', 'AdminPublisherSettingsHandler');
+		import('pages.admin.AdminPublisherSettingsHandler');
 		break;
 	//
-	// Journal Management
+	// Press Management
 	//
-	case 'journals':
-	case 'createJournal':
-	case 'editJournal':
-	case 'updateJournal':
-	case 'deleteJournal':
-	case 'moveJournal':
-		define('HANDLER_CLASS', 'AdminJournalHandler');
-		import('pages.admin.AdminJournalHandler');
+	case 'presses':
+	case 'createPress':
+	case 'editPress':
+	case 'updatePress':
+	case 'deletePress':
+	case 'movePress':
+		define('HANDLER_CLASS', 'AdminPressHandler');
+		import('pages.admin.AdminPressHandler');
 		break;
 	//
 	// Languages
@@ -109,8 +108,8 @@ switch ($op) {
 		break;
 		
 	case 'index':
-	case 'aboutSite':
-    case 'saveAboutSite':
+	case 'aboutPublisher':
+    case 'saveAboutPublisher':
 		define('HANDLER_CLASS', 'AdminHandler');
 		import('pages.admin.AdminHandler');
 		break;

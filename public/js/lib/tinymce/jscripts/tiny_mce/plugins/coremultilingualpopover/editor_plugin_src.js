@@ -1,8 +1,7 @@
 /**
  * editor_plugin_src.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2025 Wizdam Editorial Project
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  */
 
@@ -37,5 +36,5 @@
 	});
 
 	// Register plugin
-	tinymce.PluginManager.add('pkpmultilingualpopover', tinymce.plugins.CoreMultilingualPopover);
+	tinymce.PluginManager.add('coremultilingualpopover', tinymce.plugins.CoreMultilingualPopover);
 })();

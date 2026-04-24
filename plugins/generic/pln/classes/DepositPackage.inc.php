@@ -144,7 +144,7 @@ class DepositPackage {
         $atom = new DOMDocument('1.0', 'utf-8');
         $entry = $atom->createElementNS('http://www.w3.org/2005/Atom', 'entry');
         $entry->setAttributeNS('http://www.w3.org/2000/xmlns/' ,'xmlns:dcterms', 'http://purl.org/dc/terms/');
-        $entry->setAttributeNS('http://www.w3.org/2000/xmlns/' ,'xmlns:wizdam', 'http://wizdam.sfu.ca/SWORD');
+        $entry->setAttributeNS('http://www.w3.org/2000/xmlns/' ,'xmlns:wizdam', 'https://wizdam.sangia.org/app/wizdam/SWORD');
         
         $email = $this->_generateElement($atom, 'email', $journal->getSetting('contactEmail'));
         $entry->appendChild($email);
@@ -152,13 +152,13 @@ class DepositPackage {
         $title = $this->_generateElement($atom, 'title', $journal->getLocalizedTitle());
         $entry->appendChild($title);
         
-        $wizdamJournalUrl = $this->_generateElement($atom, 'wizdam:journal_url', $journal->getUrl(), 'http://wizdam.sfu.ca/SWORD');
+        $wizdamJournalUrl = $this->_generateElement($atom, 'wizdam:journal_url', $journal->getUrl(), 'https://wizdam.sangia.org/app/wizdam/SWORD');
         $entry->appendChild($wizdamJournalUrl);
 
-        $wizdamPublisher = $this->_generateElement($atom, 'wizdam:publisherName', $journal->getSetting('publisherInstitution'), 'http://wizdam.sfu.ca/SWORD');
+        $wizdamPublisher = $this->_generateElement($atom, 'wizdam:publisherName', $journal->getSetting('publisherInstitution'), 'https://wizdam.sangia.org/app/wizdam/SWORD');
         $entry->appendChild($wizdamPublisher);
 
-        $wizdamPublisherUrl = $this->_generateElement($atom, 'wizdam:publisherUrl', $journal->getSetting('publisherUrl'), 'http://wizdam.sfu.ca/SWORD');
+        $wizdamPublisherUrl = $this->_generateElement($atom, 'wizdam:publisherUrl', $journal->getSetting('publisherUrl'), 'https://wizdam.sangia.org/app/wizdam/SWORD');
         $entry->appendChild($wizdamPublisherUrl);
 
         $issn = '';
@@ -169,7 +169,7 @@ class DepositPackage {
             $issn = $journal->getSetting('printIssn');
         }
         
-        $wizdamIssn = $this->_generateElement($atom, 'wizdam:issn', $issn, 'http://wizdam.sfu.ca/SWORD');
+        $wizdamIssn = $this->_generateElement($atom, 'wizdam:issn', $issn, 'https://wizdam.sangia.org/app/wizdam/SWORD');
         $entry->appendChild($wizdamIssn);
         
         $id = $this->_generateElement($atom, 'id', 'urn:uuid:'.$this->_deposit->getUUID());
@@ -180,7 +180,7 @@ class DepositPackage {
         $entry->appendChild($updated);
         
         $url = $journal->getUrl() . '/' . PLN_PLUGIN_ARCHIVE_FOLDER . '/deposits/' . $this->_deposit->getUUID();
-        $wizdamDetails = $this->_generateElement($atom, 'wizdam:content', $url, 'http://wizdam.sfu.ca/SWORD');
+        $wizdamDetails = $this->_generateElement($atom, 'wizdam:content', $url, 'https://wizdam.sangia.org/app/wizdam/SWORD');
         $wizdamDetails->setAttribute('size', (string) ceil(filesize($packageFile)/1000));
         
         $objectVolume = "";
@@ -232,11 +232,11 @@ class DepositPackage {
         $atom->appendChild($entry);
 
         $locale = $journal->getPrimaryLocale();
-        $license = $atom->createElementNS('http://wizdam.sfu.ca/SWORD', 'license');
-        $license->appendChild($this->_generateElement($atom, 'openAccessPolicy', $journal->getLocalizedSetting('openAccessPolicy', $locale), 'http://wizdam.sfu.ca/SWORD'));
-        $license->appendChild($this->_generateElement($atom, 'licenseURL', $journal->getLocalizedSetting('licenseURL', $locale), 'http://wizdam.sfu.ca/SWORD'));
+        $license = $atom->createElementNS('https://wizdam.sangia.org/app/wizdam/SWORD', 'license');
+        $license->appendChild($this->_generateElement($atom, 'openAccessPolicy', $journal->getLocalizedSetting('openAccessPolicy', $locale), 'https://wizdam.sangia.org/app/wizdam/SWORD'));
+        $license->appendChild($this->_generateElement($atom, 'licenseURL', $journal->getLocalizedSetting('licenseURL', $locale), 'https://wizdam.sangia.org/app/wizdam/SWORD'));
         
-        $mode = $atom->createElementNS('http://wizdam.sfu.ca/SWORD', 'publishingMode');
+        $mode = $atom->createElementNS('https://wizdam.sangia.org/app/wizdam/SWORD', 'publishingMode');
         switch($journal->getSetting('publishingMode')) {
             case PUBLISHING_MODE_OPEN:
                 $mode->nodeValue = 'Open';
@@ -249,9 +249,9 @@ class DepositPackage {
                 break;
         }
         $license->appendChild($mode);
-        $license->appendChild($this->_generateElement($atom, 'copyrightNotice', $journal->getLocalizedSetting('copyrightNotice', $locale), 'http://wizdam.sfu.ca/SWORD'));
-        $license->appendChild($this->_generateElement($atom, 'copyrightBasis', $journal->getLocalizedSetting('copyrightBasis'), 'http://wizdam.sfu.ca/SWORD'));
-        $license->appendChild($this->_generateElement($atom, 'copyrightHolder', $journal->getLocalizedSetting('copyrightHolder'), 'http://wizdam.sfu.ca/SWORD'));
+        $license->appendChild($this->_generateElement($atom, 'copyrightNotice', $journal->getLocalizedSetting('copyrightNotice', $locale), 'https://wizdam.sangia.org/app/wizdam/SWORD'));
+        $license->appendChild($this->_generateElement($atom, 'copyrightBasis', $journal->getLocalizedSetting('copyrightBasis'), 'https://wizdam.sangia.org/app/wizdam/SWORD'));
+        $license->appendChild($this->_generateElement($atom, 'copyrightHolder', $journal->getLocalizedSetting('copyrightHolder'), 'https://wizdam.sangia.org/app/wizdam/SWORD'));
         
         $entry->appendChild($license);
         $atom->save($atomFile);

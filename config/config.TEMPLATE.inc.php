@@ -665,7 +665,7 @@ log_web_service_info = Off
 ; to do so by someone from your network. You do not need to create an 
 ; account or login on this server. 
 ; 
-; For more information, please see https://wizdam.sfu.ca/wizdam-lockss/
+; For more information, please see https://wizdam.sangia.org/app/wizdam/wizdam-lockss/
 ; 
 ; If you do change this value, a journal manager must also reset each deposit in
 ; each journal so that the new network will receive and process the deposits. 

@@ -2,23 +2,22 @@
 declare(strict_types=1);
 
 /**
- * @file pages/admin/AdminSettingsHandler.inc.php
+ * @file pages.admin.AdminPublisherSettingsHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2025 Wizdam Editorial Project
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class AdminSettingsHandler
+ * @class AdminPublisherSettingsHandler
  * @ingroup pages_admin
  *
- * @brief Handle requests for changing site admin settings.
+ * @brief Handle requests for changing publisher admin settings.
  *
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
 import('pages.admin.AdminHandler');
 
-class AdminSettingsHandler extends AdminHandler {
+class AdminPublisherSettingsHandler extends AdminHandler {
     
     /**
      * Constructor
@@ -30,7 +29,7 @@ class AdminSettingsHandler extends AdminHandler {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function AdminSettingsHandler() {
+    public function AdminPublisherSettingsHandler() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor parent::" . get_class($this) . "(). Please refactor to use parent::__construct().",
@@ -42,7 +41,7 @@ class AdminSettingsHandler extends AdminHandler {
     }
 
     /**
-     * Display form to modify site settings.
+     * Display form to modify publisher settings.
      * @param array $args
      * @param CoreRequest $request
      */
@@ -50,9 +49,9 @@ class AdminSettingsHandler extends AdminHandler {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('core.Modules.admin.form.SiteSettingsForm');
+        import('app.Classes.admin.form.PublisherSettingsForm');
 
-        $settingsForm = new SiteSettingsForm();
+        $settingsForm = new PublisherSettingsForm();
         if ($settingsForm->isLocaleResubmit()) {
             $settingsForm->readInputData();
         } else {

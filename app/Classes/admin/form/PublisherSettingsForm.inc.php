@@ -2,23 +2,22 @@
 declare(strict_types=1);
 
 /**
- * @file core.Modules.admin/form/SiteSettingsForm.inc.php
+ * @file app.Classes.admin.form.PublisherSettingsForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2025 Wizdam Editorial Project
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SiteSettingsForm
+ * @class PublisherSettingsForm
  * @ingroup admin_form
- * @see CoreSiteSettingsForm
+ * @see CorePublisherSettingsForm
  *
- * @brief Form to edit site settings.
+ * @brief Form to edit publisher settings.
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('core.Modules.admin.form.CoreSiteSettingsForm');
+import('core.Modules.admin.form.CorePublisherSettingsForm');
 
-class SiteSettingsForm extends CoreSiteSettingsForm {
+class PublisherSettingsForm extends CorePublisherSettingsForm {
     
     /**
      * Constructor.
@@ -30,7 +29,7 @@ class SiteSettingsForm extends CoreSiteSettingsForm {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function SiteSettingsForm() {
+    public function PublisherSettingsForm() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor. Please refactor to parent::__construct().", 
@@ -49,8 +48,8 @@ class SiteSettingsForm extends CoreSiteSettingsForm {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        $journalDao = DAORegistry::getDAO('JournalDAO');
-        $journals = $journalDao->getJournalTitles();
+        $pressDao = DAORegistry::getDAO('PressDAO');
+        $presses = $pressDao->getPressTitles();
         $templateMgr = TemplateManager::getManager($request);
 
         $allThemes = PluginRegistry::loadCategory('themes');
@@ -64,7 +63,7 @@ class SiteSettingsForm extends CoreSiteSettingsForm {
         }
         
         $templateMgr->assign('themes', $themes);
-        $templateMgr->assign('redirectOptions', $journals);
+        $templateMgr->assign('redirectOptions', $presses);
 
         $application = Application::get();
         $templateMgr->assign('availableMetricTypes', $application->getMetricTypes(true));
@@ -78,13 +77,13 @@ class SiteSettingsForm extends CoreSiteSettingsForm {
     public function initData() {
         parent::initData();
 
-        $siteDao = DAORegistry::getDAO('SiteDAO');
-        $site = $siteDao->getSite();
+        $publisherDao = DAORegistry::getDAO('PublisherDAO');
+        $publisher = $publisherDao->getPublisher();
 
-        $this->_data['useAlphalist'] = $site->getSetting('useAlphalist');
-        $this->_data['usePaging'] = $site->getSetting('usePaging');
-        $this->_data['defaultMetricType'] = $site->getSetting('defaultMetricType');
-        $this->_data['preventManagerPluginManagement'] = $site->getSetting('preventManagerPluginManagement');
+        $this->_data['useAlphalist'] = $publisher->getSetting('useAlphalist');
+        $this->_data['usePaging'] = $publisher->getSetting('usePaging');
+        $this->_data['defaultMetricType'] = $publisher->getSetting('defaultMetricType');
+        $this->_data['preventManagerPluginManagement'] = $publisher->getSetting('preventManagerPluginManagement');
     }
 
     /**
@@ -103,13 +102,13 @@ class SiteSettingsForm extends CoreSiteSettingsForm {
     public function execute($object = null) {
         parent::execute($object);
 
-        /** @var SiteSettingsDAO $siteSettingsDao */
-        $siteSettingsDao = $this->siteSettingsDao; 
+        /** @var PublisherSettingsDAO $publisherSettingsDao */
+        $publisherSettingsDao = $this->publisherSettingsDao; 
         
-        $siteSettingsDao->updateSetting('useAlphalist', (bool) $this->getData('useAlphalist'), 'bool');
-        $siteSettingsDao->updateSetting('usePaging', (bool) $this->getData('usePaging'), 'bool');
-        $siteSettingsDao->updateSetting('defaultMetricType', (string) $this->getData('defaultMetricType'), 'string');
-        $siteSettingsDao->updateSetting('preventManagerPluginManagement', (bool) $this->getData('preventManagerPluginManagement'), 'bool');
+        $publisherSettingsDao->updateSetting('useAlphalist', (bool) $this->getData('useAlphalist'), 'bool');
+        $publisherSettingsDao->updateSetting('usePaging', (bool) $this->getData('usePaging'), 'bool');
+        $publisherSettingsDao->updateSetting('defaultMetricType', (string) $this->getData('defaultMetricType'), 'string');
+        $publisherSettingsDao->updateSetting('preventManagerPluginManagement', (bool) $this->getData('preventManagerPluginManagement'), 'bool');
     }
 }
 

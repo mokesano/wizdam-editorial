@@ -42,7 +42,7 @@ class ReportPlugin extends Plugin {
     /**
      * Retrieve a range of aggregate, filtered, ordered metric values, i.e.
      * a statistics report.
-     * @see <http://wizdam.sfu.ca/wiki/index.php/CoreStatsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
+     * @see <https://wizdam.sangia.org/app/wizdam/wiki/index.php/CoreStatsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
      * for a full specification of the input and output format of this method.
      * @param null|string|array $metricType metrics selection
      * @param string|array $columns column (aggregation level) selection

@@ -19,8 +19,8 @@ declare(strict_types=1);
  * @brief LanguageAction class.
  */
 
-define('LANGUAGE_PACK_DESCRIPTOR_URL', 'http://wizdam.sfu.ca/wizdam/xml/%s/locales.xml');
-define('LANGUAGE_PACK_TAR_URL', 'http://wizdam.sfu.ca/wizdam/xml/%s/%s.tar.gz');
+define('LANGUAGE_PACK_DESCRIPTOR_URL', 'https://wizdam.sangia.org/app/wizdam/wizdam/xml/%s/locales.xml');
+define('LANGUAGE_PACK_TAR_URL', 'https://wizdam.sangia.org/app/wizdam/wizdam/xml/%s/%s.tar.gz');
 
 class LanguageAction {
     

@@ -6,32 +6,31 @@ declare(strict_types=1);
  */
 
 /**
- * @file core.Modules.admin/form/CoreSiteSettingsForm.inc.php
+ * @file core.Modules.admin/form/CorePublisherSettingsForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2025 Wizdam Editorial Project
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class SiteSettingsForm
+ * @class CorePublisherSettingsForm
  * @ingroup admin_form
  *
- * @brief Form to edit site settings.
+ * @brief Form to edit publisher settings.
  */
 
-define('SITE_MIN_PASSWORD_LENGTH', 12);
+define('PUBLISHER_MIN_PASSWORD_LENGTH', 12);
 import('core.Modules.form.Form');
 
-class CoreSiteSettingsForm extends Form {
+class CorePublisherSettingsForm extends Form {
     
-    /** @var object Site settings DAO */
-    public $siteSettingsDao;
+    /** @var object Publisher settings DAO */
+    public $publisherSettingsDao;
 
     /**
      * Constructor.
      */
     public function __construct() {
         parent::__construct('admin/settings.tpl');
-        $this->siteSettingsDao = DAORegistry::getDAO('SiteSettingsDAO');
+        $this->publisherSettingsDao = DAORegistry::getDAO('PublisherSettingsDAO');
 
         // Validation checks for this form
         $this->addCheck(new FormValidatorLocale($this, 'title', 'required', 'admin.settings.form.titleRequired'));
@@ -45,7 +44,7 @@ class CoreSiteSettingsForm extends Form {
             'required', 
             'admin.settings.form.minPasswordLengthRequired', 
             function($l) {
-                return $l >= SITE_MIN_PASSWORD_LENGTH;
+                return $l >= PUBLISHER_MIN_PASSWORD_LENGTH;
             }
         ));
         
@@ -55,7 +54,7 @@ class CoreSiteSettingsForm extends Form {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function CoreSiteSettingsForm() {
+    public function CorePublisherSettingsForm() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor parent::'" . get_class($this) . "'. Please refactor to parent::__construct().", 

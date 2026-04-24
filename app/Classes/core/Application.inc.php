@@ -144,7 +144,7 @@ class Application extends CoreApplication {
     public function getVersionDescriptorUrl(): string {
         // [PERINGATAN] Jika ubah 'wizdam2' siapkan url cek versi aplikasi.
         // Gunakan url wizdamEditin untuk versi fork Wizdam Fork Edition
-        return 'http://wizdam.sfu.ca/wizdam/xml/wizdam-version.xml';
+        return 'https://wizdam.sangia.org/app/wizdam/wizdam/xml/wizdam-version.xml';
     }
 
     /**
