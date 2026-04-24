@@ -1,14 +1,14 @@
-# Wizdam Framework 1.0
+# Wizdam Editorial 1.0
 
 ## Platform Manajemen Editorial & Penerbitan Modern
 
-**Wizdam Framework** adalah platform open-source untuk manajemen editorial dan penerbitan ilmiah dengan arsitektur **Publisher-Centric** yang modern, fleksibel, dan skalabel.
+**Wizdam Editorial** adalah platform open-source untuk manajemen editorial dan penerbitan ilmiah dengan arsitektur **Publisher-Centric** yang modern, fleksibel, dan skalabel.
 
 ---
 
 ## 🎯 Tentang Wizdam
 
-Wizdam Framework 1.0 merupakan hasil refactoring dan modernisasi total dari basis kode OJS 2.x, dirancang ulang dengan prinsip-prinsip pengembangan perangkat lunak modern:
+Wizdam Editorial 1.0 merupakan hasil refactoring dan modernisasi total dari basis kode OJS 2.x, dirancang ulang dengan prinsip-prinsip pengembangan perangkat lunak modern:
 
 - **Arsitektur Modular**: Pemisahan jelas antara Core Engine, Modules, dan Library Eksternal
 - **Publisher-Centric**: Mendukung multi-publisher dalam satu instalasi (bukan hanya jurnal)
@@ -216,7 +216,7 @@ Proyek ini mengikuti [Code of Conduct](docs/CODE_OF_CONDUCT.md) untuk memastikan
 
 ## 📄 Lisensi
 
-Wizdam Framework dilisensikan di bawah **GNU General Public License v3.0** (GPL-3.0).
+Wizdam Editorial dilisensikan di bawah **GNU General Public License v3.0** (GPL-3.0).
 
 Lihat file [LICENSE](LICENSE) untuk teks lengkap lisensi.
 
@@ -232,12 +232,12 @@ Lihat file [LICENSE](LICENSE) untuk teks lengkap lisensi.
 
 ### Core Team
 - Lead Developer: Wizdam Team
-- Architecture: Wizdam Framework Team
+- Architecture: Wizdam Editorial Team
 - Documentation: Community Contributors
 
 ### Kontributor
 
-Terima kasih kepada semua kontributor yang telah membantu mengembangkan Wizdam Framework!
+Terima kasih kepada semua kontributor yang telah membantu mengembangkan Wizdam Editorial!
 
 [Lihat daftar kontributor lengkap](https://github.com/wizdam/framework/graphs/contributors)
 
@@ -268,13 +268,13 @@ Butuh bantuan?
 
 ## 🙏 Acknowledgments
 
-Wizdam Framework dibangun di atas fondasi yang diletakkan oleh:
+Wizdam Editorial dibangun di atas fondasi yang diletakkan oleh:
 - Public Knowledge Project (PKP) - OJS 2.x
 - Komunitas open source global
 - Berbagai library dan framework PHP modern
 
 ---
 
-**Wizdam Framework 1.0** - *Empowering Publishers with Modern Technology*
+**Wizdam Editorial 1.0** - *Empowering Publishers with Modern Technology*
 
-© 2024 Wizdam Framework Team
+© 2024 Wizdam Editorial Team

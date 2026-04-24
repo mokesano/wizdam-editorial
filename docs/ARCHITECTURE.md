@@ -1,6 +1,6 @@
-# Arsitektur Wizdam Framework 1.0
+# Arsitektur Wizdam Editorial 1.0
 
-Dokumentasi lengkap tentang arsitektur, struktur direktori, dan desain sistem Wizdam Framework.
+Dokumentasi lengkap tentang arsitektur, struktur direktori, dan desain sistem Wizdam Editorial.
 
 ---
 
@@ -19,7 +19,7 @@ Dokumentasi lengkap tentang arsitektur, struktur direktori, dan desain sistem Wi
 
 ## Overview
 
-Wizdam Framework 1.0 dibangun dengan prinsip **Separation of Concerns** dan **Modular Design**, memisahkan dengan jelas antara:
+Wizdam Editorial 1.0 dibangun dengan prinsip **Separation of Concerns** dan **Modular Design**, memisahkan dengan jelas antara:
 
 1. **Core Engine** - Framework inti yang tidak bergantung pada bisnis logic spesifik
 2. **Application Layer** - Logika bisnis spesifik untuk manajemen publikasi
@@ -525,4 +525,4 @@ class AnalyticsServiceProvider extends ServiceProvider {
 
 ---
 
-© 2024 Wizdam Framework Team
+© 2024 Wizdam Editorial Team

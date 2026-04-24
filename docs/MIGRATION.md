@@ -1,6 +1,6 @@
-# Panduan Migrasi OJS 2.x ke Wizdam Framework 1.0
+# Panduan Migrasi OJS 2.x ke Wizdam Editorial 1.0
 
-Panduan lengkap untuk melakukan migrasi dari Open Journal Systems (OJS) 2.x ke Wizdam Framework 1.0.
+Panduan lengkap untuk melakukan migrasi dari Open Journal Systems (OJS) 2.x ke Wizdam Editorial 1.0.
 
 ---
 
@@ -19,7 +19,7 @@ Panduan lengkap untuk melakukan migrasi dari Open Journal Systems (OJS) 2.x ke W
 
 ## Overview Migrasi
 
-Wizdam Framework 1.0 adalah hasil refactoring total dari OJS 2.x dengan perubahan fundamental:
+Wizdam Editorial 1.0 adalah hasil refactoring total dari OJS 2.x dengan perubahan fundamental:
 
 ### Apa yang Berubah?
 
@@ -728,6 +728,6 @@ Setelah migrasi selesai:
 
 ---
 
-© 2024 Wizdam Framework Team
+© 2024 Wizdam Editorial Team
 
 *Migrasi yang sukses adalah kunci transformasi digital Anda!*

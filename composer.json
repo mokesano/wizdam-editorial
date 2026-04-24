@@ -1,10 +1,10 @@
 {
-    "name": "wizdam/wizdam-platform",
+    "name": "wizdam/wizdam-editorial",
     "description": "Wizdam Publisher Platform - Modern Open Journal Systems Framework",
     "type": "project",
     "license": "GPL-2.0-only",
     "keywords": [
-        "ojs",
+        
         "publishing",
         "journal",
         "open-access",

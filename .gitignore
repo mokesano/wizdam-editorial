@@ -1,48 +1,76 @@
 ```
-# Compiled and build artifacts
+# Dependencies
+vendor/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Build artifacts
+dist/
+build/
+target/
 *.pyc
 __pycache__/
+*.class
 *.o
 *.obj
-*.class
 *.exe
 *.dll
 *.so
 *.a
 *.out
 
-# Dependencies
+# Package managers
 node_modules/
+.npm/
+.yarn/
+.pnpm-store/
+.bower-cache/
+.bower-registry/
+.bower-tmp/
+
+# Python
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
 venv/
 .venv/
-.env
-.env.local
-*.env.*
-
-# Build directories
-dist/
-build/
-target/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
 .coverage
-coverage/
-htmlcov/
-
-# Editors/IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-
-# Logs
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
 *.log
-
-# System files
+.git/modules/
+.gitattributes
+.github/
 .DS_Store
 Thumbs.db
-
-# Caches
-.mypy_cache/
-.pytest_cache/
-.gradle/
 ```
