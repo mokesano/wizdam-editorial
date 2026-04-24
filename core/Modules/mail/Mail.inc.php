@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file core.Modules.mail/Mail.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Mail
@@ -568,7 +568,7 @@ class Mail extends DataObject {
             $this->addHeader('Return-Path', Config::getVar('email', 'default_envelope_sender'));
         }
 
-        $this->addHeader('X-Mailer', 'Public Knowledge Project Suite v2');
+        $this->addHeader('X-Mailer', 'Sangia Publishing House Suite v2');
 
         $remoteAddr = Request::getRemoteAddr();
         if ($remoteAddr != '') $this->addHeader('X-Originating-IP', $remoteAddr);

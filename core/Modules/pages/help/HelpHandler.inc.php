@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file core.Modules.pages/help/HelpHandler.inc.php
  *
- * Copyright (c) 2013-2025 Simon Fraser University Library
- * Copyright (c) 2003-2025 John Willinsky
+ * Copyright (c) 2013-2025 Sangia Publishing House Library
+ * Copyright (c) 2003-2025 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HelpHandler

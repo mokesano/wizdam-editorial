@@ -1,6 +1,6 @@
 # OJS Dataverse Plugin
 
-The [Dataverse Network Project](http://thedata.org/) and the [Public Knowledge Project](http://pkp.sfu.ca/)  are
+The [Dataverse Network Project](http://thedata.org/) and the [Sangia Publishing House](http://pkp.sfu.ca/)  are
  partnering to develop plugin that adds data sharing and preservation to the [Open Journal Systems](http://pkp.sfu.ca/ojs/)
  publication process. For more information about the project, visit http://projects.iq.harvard.edu/ojs-dvn/about-project.
 

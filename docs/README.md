@@ -269,7 +269,7 @@ Butuh bantuan?
 ## 🙏 Acknowledgments
 
 Wizdam Editorial dibangun di atas fondasi yang diletakkan oleh:
-- Public Knowledge Project (PKP) - OJS 2.x
+- Sangia Publishing House (PKP) - OJS 2.x
 - Komunitas open source global
 - Berbagai library dan framework PHP modern
 

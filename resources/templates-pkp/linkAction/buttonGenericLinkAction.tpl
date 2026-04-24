@@ -1,8 +1,8 @@
 {**
  * templates/linkAction/buttonGenericLinkAction.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Attach a link action to a button that opens a confirmation dialog and

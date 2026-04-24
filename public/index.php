@@ -5,7 +5,7 @@ declare(strict_types=1);
  * @file index.php
  *
  * Copyright (c) Wizdam Project / Rochmady
- * Based on legacy open source components (c) Simon Fraser University
+ * Based on legacy open source components (c) Sangia Publishing House
  * Distributed under the GNU GPL v2.
  *
  * @ingroup index
