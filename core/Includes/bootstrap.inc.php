@@ -61,5 +61,3 @@ import('app.Domain.core.Application');
 // The constructor of Application registers itself to the Registry.
 // This prepares system for the Application::get()->execute() call in index.php.
 new Application();
-
-?>
