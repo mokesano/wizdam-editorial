@@ -47,8 +47,13 @@
     },
     "autoload": {
         "psr-4": {
+            "Wizdam\\Modules\\": [
+                "core/Modules/"
+            ],
+            "Wizdam\\Kernel\\": [
+                "core/Kernel/"
+            ],
             "Wizdam\\Core\\": [
-                "core/Library/",
                 "core/Includes/"
             ],
             "App\\": [
@@ -60,6 +65,8 @@
             ]
         },
         "classmap": [
+            "core/Modules/",
+            "core/Kernel/",
             "core/Library/adodb/",
             "core/Library/smarty/",
             "core/Library/htmlpurifier/library/",
@@ -82,7 +89,7 @@
         "allow-plugins": {
             "php-http/discovery": true
         },
-        "vendor-dir": "core/Library/vendor"
+        "vendor-dir": "core/Library"
     },
     "scripts": {
         "post-install-cmd": [

@@ -41,6 +41,8 @@ $includePaths = [
     BASE_SYS_DIR . '/core/Library/phputf8',
     BASE_SYS_DIR . '/core/Library/pqp/classes',
     BASE_SYS_DIR . '/core/Library/smarty',
+    BASE_SYS_DIR . '/core/Modules',
+    BASE_SYS_DIR . '/core/Kernel',
     BASE_SYS_DIR . '/app/Helpers',
     ini_get('include_path') // Append existing system paths
 ];

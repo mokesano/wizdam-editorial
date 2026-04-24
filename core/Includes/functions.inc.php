@@ -59,25 +59,25 @@ if (!function_exists('import')) {
         // [WIZDAM] Legacy Path Mapping - Map old paths to new structure
         $mappedClass = $class;
         
-        // Map lib.pkp.* -> core.library.*
+        // Map lib.pkp.* -> core.modules.*
         if (strpos($class, 'lib.pkp.') === 0) {
-            $mappedClass = 'core.library.' . substr($class, 9);
+            $mappedClass = 'core.Modules.' . substr($class, 9);
         }
-        // Map lib.wizdam.* -> core.library.* or app.helpers.*
+        // Map lib.wizdam.* -> core.kernel.*
         elseif (strpos($class, 'lib.wizdam.') === 0) {
-            $mappedClass = 'core.library.' . substr($class, 11);
+            $mappedClass = 'core.Kernel.' . substr($class, 11);
         }
-        // Map classes.* -> app.classes.*
+        // Map classes.* -> core.modules.*
         elseif (strpos($class, 'classes.') === 0) {
-            $mappedClass = 'app.classes.' . substr($class, 8);
+            $mappedClass = 'core.Modules.' . substr($class, 8);
         }
-        // Map pages.* -> app.pages.*
+        // Map pages.* -> core.modules.pages.*
         elseif (strpos($class, 'pages.') === 0) {
-            $mappedClass = 'app.pages.' . substr($class, 6);
+            $mappedClass = 'core.Modules.pages.' . substr($class, 6);
         }
-        // Map controllers.* -> app.controllers.*
+        // Map controllers.* -> core.modules.controllers.*
         elseif (strpos($class, 'controllers.') === 0) {
-            $mappedClass = 'app.controllers.' . substr($class, 12);
+            $mappedClass = 'core.Modules.controllers.' . substr($class, 12);
         }
 
         $filePath = str_replace('.', '/', $mappedClass) . '.inc.php';
