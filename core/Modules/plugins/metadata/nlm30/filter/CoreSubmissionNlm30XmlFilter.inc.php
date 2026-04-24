@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionNlm30XmlFilter
+ * @class CoreSubmissionNlm30XmlFilter
  * @ingroup plugins_metadata_nlm30_filter
  *
  * @brief Class that converts a submission to an NLM Journal Publishing

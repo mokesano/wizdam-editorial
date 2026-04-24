@@ -9,7 +9,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @package core
- * @class PKPHandler
+ * @class CoreHandler
  *
  * Base request handler abstract class.
  * [WIZDAM EDITION] Transition Mode: Loose Signatures, Modern Internals.

@@ -12,7 +12,7 @@ declare(strict_types=1);
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPNlm30MetadataPlugin
+ * @class CoreNlm30MetadataPlugin
  * @ingroup plugins_metadata_nlm30
  *
  * @brief Abstract base class for NLM 3.0 metadata plugins

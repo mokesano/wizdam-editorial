@@ -12,7 +12,7 @@ declare(strict_types=1);
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPOpenurl10MetadataPlugin
+ * @class CoreOpenurl10MetadataPlugin
  * @ingroup plugins_metadata_openurl10
  *
  * @brief Abstract base class for OpenURL 1.0 metadata plugins

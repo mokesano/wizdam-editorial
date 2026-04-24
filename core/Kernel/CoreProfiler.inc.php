@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPProfiler
+ * @class CoreProfiler
  * @ingroup core
  *
  * @brief Basic shell class used to wrap the PHP Quick Profiler Class

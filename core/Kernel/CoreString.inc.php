@@ -14,7 +14,7 @@ declare(strict_types=1);
  * - Fixed deprecated string access syntax ({}) -> ([])
  * - Enhanced Type Safety
  *
- * @class PKPString
+ * @class CoreString
  * @ingroup core
  *
  * @brief String manipulation wrapper class.

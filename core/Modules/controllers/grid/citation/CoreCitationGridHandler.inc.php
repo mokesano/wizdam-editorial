@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPCitationGridHandler
+ * @class CoreCitationGridHandler
  * @ingroup controllers_grid_citation
  *
  * @brief Handle generic parts of citation grid requests.

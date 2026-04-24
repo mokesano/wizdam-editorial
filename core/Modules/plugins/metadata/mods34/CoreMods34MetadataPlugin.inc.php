@@ -12,7 +12,7 @@ declare(strict_types=1);
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPMods34MetadataPlugin
+ * @class CoreMods34MetadataPlugin
  * @ingroup plugins_metadata_mods34
  *
  * @brief Abstract base class for MODS metadata plugins

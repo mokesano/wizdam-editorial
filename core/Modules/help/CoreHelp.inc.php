@@ -12,7 +12,7 @@ declare(strict_types=1);
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPHelp
+ * @class CoreHelp
  * @ingroup help
  *
  * @brief Provides methods for translating help topic keys to their respected topic

@@ -9,7 +9,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  * 
  * @ingroup Statistics
- * @class PKPWizdamStats
+ * @class CoreWizdamStats
  * 
  * @brief Mengintegrasikan logika statistik kustom (v1.24.0) ke dalam core OJS.
  * Menggabungkan logika dari journal-insight.txt, getJournalStats_v2.txt, dan allJournalStats.txt

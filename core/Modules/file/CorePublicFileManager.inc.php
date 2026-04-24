@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPPublicFileManager
+ * @class CorePublicFileManager
  * @ingroup file
  *
  * @brief Wrapper class for uploading files to a site/journal's public directory.

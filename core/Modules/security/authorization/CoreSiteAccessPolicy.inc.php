@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPSiteAccessPolicy
+ * @class CoreSiteAccessPolicy
  * @ingroup security_authorization
  *
  * @brief Class to that makes sure that a user is logged in.

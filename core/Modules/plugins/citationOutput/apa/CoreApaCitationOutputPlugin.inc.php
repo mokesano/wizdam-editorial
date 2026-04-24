@@ -12,7 +12,7 @@ declare(strict_types=1);
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPApaCitationOutputPlugin
+ * @class CoreApaCitationOutputPlugin
  * @ingroup plugins_citationOutput_apa
  *
  * @brief Cross-application APA citation style plugin

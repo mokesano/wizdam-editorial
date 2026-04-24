@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OJSSwordDeposit
+ * @class AppSwordDeposit
  * @ingroup sword
  *
  * @brief Class providing a SWORD deposit wrapper for OJS articles
