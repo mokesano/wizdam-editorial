@@ -1,38 +1,7 @@
 ```
-# Dependencies
-vendor/
-
-# Logs and temp files
-*.log
-*.tmp
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Editor/IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# Build artifacts
-dist/
-build/
-target/
+# Compiled and build artifacts
 *.pyc
 __pycache__/
-*.class
 *.o
 *.obj
 *.exe
@@ -41,36 +10,84 @@ __pycache__/
 *.a
 *.out
 
-# Package managers
+# Dependencies
+vendor/
 node_modules/
-.npm/
-.yarn/
-.pnpm-store/
-.bower-cache/
-.bower-registry/
-.bower-tmp/
+composer.lock
 
-# Python
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-.venv/
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
+# Logs and temp files
 *.log
-.git/modules/
-.gitattributes
-.github/
+*.tmp
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# OS specific
 .DS_Store
 Thumbs.db
+
+# Build and distribution
+dist/
+build/
+target/
+.gradle/
+
+# Cache directories
+.cache/
+.mypy_cache/
+.pytest_cache/
+coverage/
+htmlcov/
+.coverage
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+
+# Backup and swap files
+*~
+*.bak
+*.backup
+
+# IDE specific
+*.swp
+*.swo
+
+# PHP specific
+*.php~
+*.php.bak
+
+# Web assets that might be generated
+*.min.js
+*.min.css
+*.bundle.js
+*.bundle.css
 ```

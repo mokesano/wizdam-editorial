@@ -30,7 +30,7 @@ Wizdam Editorial 1.0 merupakan hasil refactoring dan modernisasi total dari basi
 │   └── Services/         # Custom services (GeoLocation, dll)
 │
 ├── app/
-│   ├── Classes/          # Logika bisnis aplikasi (AppPublisher, Submission, dll)
+│   ├── Domain/          # Logika bisnis aplikasi (AppPublisher, Submission, dll)
 │   ├── Pages/            # Request handlers
 │   └── Services/         # Application services
 │
@@ -166,7 +166,7 @@ Dokumentasi lengkap tersedia di folder `docs/`:
 // Contoh penggunaan namespace Wizdam
 use Wizdam\Core\CoreApplication;
 use Wizdam\Modules\db\DBConnection;
-use Wizdam\App\Classes\publisher\AppPublisher;
+use Wizdam\App\Domain\publisher\AppPublisher;
 
 // Inisialisasi aplikasi
 $app = CoreApplication::getInstance();

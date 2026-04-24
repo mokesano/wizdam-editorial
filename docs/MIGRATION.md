@@ -81,11 +81,11 @@ Wizdam Editorial 1.0 adalah hasil refactoring total dari OJS 2.x dengan perubaha
 |---------------|------------------|----------|
 | `PKPApplication` | `CoreApplication` | `core/Kernel/` |
 | `PKPSite` | `CorePublisher` | `core/Kernel/` |
-| `OJSSite` | `AppPublisher` | `app/Classes/` |
-| `Journal` | `Press` | `app/Classes/` |
+| `OJSSite` | `AppPublisher` | `app/Domain/` |
+| `Journal` | `Press` | `app/Domain/` |
 | `PKPDAO` | `CoreDAO` | `core/Modules/db/` |
-| `OJSJournalDAO` | `AppPressDAO` | `app/Classes/` |
-| `Article` | `Submission` | `app/Classes/submission/` |
+| `OJSJournalDAO` | `AppPressDAO` | `app/Domain/` |
+| `Article` | `Submission` | `app/Domain/submission/` |
 | `PKPString` | `CoreString` | `core/Kernel/` |
 
 #### Pattern Replacement
@@ -97,7 +97,7 @@ OJS([A-Z])    → App$1
 Journal       → Press (dalam konteks entitas)
 ojs/          → app/
 pkp/          → core/
-classes/      → core/Modules/ atau app/Classes/
+classes/      → core/Modules/ atau app/Domain/
 pages/        → app/Pages/
 ```
 

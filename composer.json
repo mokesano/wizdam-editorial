@@ -63,7 +63,7 @@
                 "core/Includes/"
             ],
             "App\\": [
-                "app/Classes/",
+                "app/Domain/",
                 "app/Pages/",
                 "app/Controllers/",
                 "app/Services/",

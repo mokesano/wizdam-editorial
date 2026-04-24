@@ -34,7 +34,7 @@ chdir(BASE_SYS_DIR);
 // [WIZDAM] Optimized Path Configuration
 // We define paths in an array for readability, then implode them.
 $includePaths = [
-    BASE_SYS_DIR . '/app/Classes',
+    BASE_SYS_DIR . '/app/Domain',
     BASE_SYS_DIR . '/app/Pages',
     BASE_SYS_DIR . '/core/Library',
     BASE_SYS_DIR . '/core/Library/adodb',

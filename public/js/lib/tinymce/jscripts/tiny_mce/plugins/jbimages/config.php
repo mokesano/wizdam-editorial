@@ -25,7 +25,7 @@
 -------------------------------------------------------------------*/
 
 	/* Wizdam Customization, 01/03/2012; Determine img_path from external file */
-	require_once('integratePKP.php');
+	require_once('integrateCore.php');
 	$integrateApp = new IntegrateApp();
 
 	$config['img_path'] = $integrateApp->getAppImageUrl();

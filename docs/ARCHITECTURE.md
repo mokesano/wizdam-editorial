@@ -290,7 +290,7 @@ Library modern yang dikelola Composer:
     "psr-4": {
       "Wizdam\\Core\\": "core/Kernel/",
       "Wizdam\\Modules\\": "core/Modules/",
-      "Wizdam\\App\\": "app/Classes/"
+      "Wizdam\\App\\": "app/Domain/"
     },
     "classmap": [
       "core/Library/adodb/",
@@ -346,7 +346,7 @@ app/
 |-----------|------|---------|
 | `Wizdam\Core\` | `core/Kernel/` | Framework core |
 | `Wizdam\Modules\` | `core/Modules/` | Framework modules |
-| `Wizdam\App\` | `app/Classes/` | Application classes |
+| `Wizdam\App\` | `app/Domain/` | Application classes |
 | `App\` | `app/` | Application root |
 
 ### Legacy Import Function
@@ -409,7 +409,7 @@ function import($path) {
    ↓
 8. Page Handler (app/Pages/*)
    ↓
-9. Business Logic (app/Classes/*)
+9. Business Logic (app/Domain/*)
    ↓
 10. Database Query (via DAO)
     ↓
