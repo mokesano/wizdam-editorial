@@ -7,7 +7,7 @@
  */
 
 (function() {
-	tinymce.create('tinymce.plugins.PKPMultilingualPopover', {
+	tinymce.create('tinymce.plugins.CoreMultilingualPopover', {
 		init : function(ed, url) {
 			var t = this;
 			if(top.$.core.controllers.form.MultilingualInputHandler.receiveEditorEvent) {
@@ -27,15 +27,15 @@
 
 		getInfo : function() {
 			return {
-				longname : 'PKPMultilingualPopover',
-				author : 'Public Knowledge Project',
-				authorurl : 'http://pkp.sfu.ca',
-				infourl : 'http://pkp.sfu.ca',
+				longname : 'CoreMultilingualPopover',
+				author : 'Wizdam Editorial Project',
+				authorurl : 'https://wizdam.editorial',
+				infourl : 'https://wizdam.editorial',
 				version : tinymce.majorVersion + "." + tinymce.minorVersion
 			};
 		}
 	});
 
 	// Register plugin
-	tinymce.PluginManager.add('pkpmultilingualpopover', tinymce.plugins.PKPMultilingualPopover);
+	tinymce.PluginManager.add('pkpmultilingualpopover', tinymce.plugins.CoreMultilingualPopover);
 })();

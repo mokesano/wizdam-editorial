@@ -17,9 +17,9 @@
 
 <p id="aboutThisPublishingSystem">
 {if $currentJournal}
-	{translate key="about.aboutOJSJournal" ojsVersion=$ojsVersion}
+	{translate key="about.aboutAppPress" appVersion=$appVersion}
 {else}
-	{translate key="about.aboutOJSSite" ojsVersion=$ojsVersion}
+	{translate key="about.aboutAppSite" appVersion=$appVersion}
 {/if}
 </p>
 

@@ -48,7 +48,7 @@
 		{* <category/> *}
 		{* <creativeCommons:license/> *}
 
-		<generator>OJS {$ojsVersion|escape}</generator>
+		<generator>App {$appVersion|escape}</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<ttl>60</ttl>
 

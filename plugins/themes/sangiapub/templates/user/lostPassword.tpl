@@ -33,7 +33,7 @@
             
             {if $error}
             	<div class="alert alert-error">
-            	    <p><span class="pkp_form_error">{translate key="$error"}</span></p>
+            	    <p><span class="core_form_error">{translate key="$error"}</span></p>
             	</div>
             {/if}
                 
@@ -61,7 +61,7 @@
             {* [WIZDAM MODULAR SECURITY] *}
             {if $captchaEnabled || $turnstileEnabled || $reCaptchaEnabled}
             <div class="security-barrier">
-                {* 0. CAPTCHA Default OJS - NEW Version *}
+                {* 0. CAPTCHA Default App - NEW Version *}
                 {if $captchaEnabled && !$reCaptchaEnabled}
                 <div class="form-group">
                     <label class="form-section-label">{translate key="common.captchaField"}<span class="required-indicator">*</span></label>
@@ -126,7 +126,7 @@
             </div>
             {/if}
                 
-            {* Auto-focus Script - Sesuai OJS Original *}
+            {* Auto-focus Script - Sesuai App Original *}
             <script type="text/javascript">
             <!--
             	document.getElementById('email').focus();

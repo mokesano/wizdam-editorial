@@ -1,6 +1,6 @@
 {**
  * templates/article/metrics.tpl
- * Custom metrics page for article statistics in OJS 2.4.8.5
+ * Custom metrics page for article statistics in App 2.4.8.5
  * Compatible with PHP 7.4+
  *}
 

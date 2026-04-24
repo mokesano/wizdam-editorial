@@ -23,7 +23,7 @@
 	{* optional elements *}
 	{* <category/> *}
 	{* <contributor/> *}
-	<generator uri="http://pkp.sfu.ca/ojs/" version="{$ojsVersion|escape}">Open Journal Systems</generator>
+	<generator uri="https://wizdam.editorial/" version="{$appVersion|escape}">Wizdam Editorial</generator>
 	{if $journal->getLocalizedDescription()}
 		{assign var="description" value=$journal->getLocalizedDescription()}
 	{elseif $journal->getLocalizedSetting('searchDescription')}

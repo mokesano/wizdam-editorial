@@ -15,11 +15,11 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#usageStatsSettingsForm').pkpHandler('$.pkp.controllers.form.FormHandler');
+		$('#usageStatsSettingsForm').coreHandler('$.core.controllers.form.FormHandler');
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="usageStatsSettingsForm" method="post" action="{plugin_url path="save"}">
+<form class="core_form" id="usageStatsSettingsForm" method="post" action="{plugin_url path="save"}">
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="usageStatsSettingsFormNotification"}
 

@@ -28,5 +28,5 @@
 			</div>
 		{/foreach}
 	</div>
-	<div class="pkp_helpers_clear"></div>
+	<div class="core_helpers_clear"></div>
 </div>

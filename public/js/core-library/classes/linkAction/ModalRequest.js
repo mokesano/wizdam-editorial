@@ -90,7 +90,7 @@
 		// Subscribe to the dialog handler's 'removed' event so that
 		// we can clean up.
 		var dialogHandler = $.core.classes.Handler.getHandler(this.$dialog_);
-		dialogHandler.bind('pkpRemoveHandler',
+		dialogHandler.bind('coreRemoveHandler',
 				$.core.classes.Helper.curry(this.finish, this));
 
 		return this.parent('activate', element, event);

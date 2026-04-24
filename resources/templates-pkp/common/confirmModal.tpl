@@ -7,7 +7,7 @@
 
 <script type="text/javascript">
     $(function() {ldelim}
-        // Binding tombol pemicu dengan fungsi Modal OJS
+        // Binding tombol pemicu dengan fungsi Modal App
         var triggerSelector = '{$triggerButton|escape:"javascript"}';
         
         $(triggerSelector).click(function() {ldelim}

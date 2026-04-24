@@ -15,12 +15,12 @@
 		{if $prerequisitesMissing|@count > 0}
 			<ul>
 				{foreach from=$prerequisitesMissing item=message}
-					<li><span class='pkp_form_error'>{$message}</span></li>
+					<li><span class='core_form_error'>{$message}</span></li>
 				{/foreach}
 			</ul>
 		{/if}
 <div id="plnSettings">
-	<form class="pkp_form" id="plnSettingsForm" method="post" action="{plugin_url path="settings"}">
+	<form class="core_form" id="plnSettingsForm" method="post" action="{plugin_url path="settings"}">
 		{include file="common/formErrors.tpl"}
 		<table class="data">
 			<tr>

@@ -22,7 +22,7 @@
 		</script>{/literal}
 		<p>{translate key='manager.setup.filter.noMoreTemplates'}</p>
 	{else}
-		<form class="pkp_form" id="editFilterForm" method="post" action="{url op="updateFilter"}" >
+		<form class="core_form" id="editFilterForm" method="post" action="{url op="updateFilter"}" >
 			<h3>{translate key=$formTitle}</h3>
 
 			<p>{translate key=$formDescription filterDisplayName=$filterDisplayName}</p>

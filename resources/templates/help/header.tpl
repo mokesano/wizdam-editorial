@@ -8,6 +8,6 @@
  * Common header for help pages.
  *}
 {strip}
-{translate|assign:applicationHelpTranslated key="help.ojsHelp"}
+{translate|assign:applicationHelpTranslated key="help.wizdamHelp"}
 {include file="core:help/header.tpl"}
 {/strip}

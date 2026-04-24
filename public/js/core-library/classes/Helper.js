@@ -12,11 +12,11 @@
  * @class Helper
  * @ingroup js_controllers
  *
- * @brief PKP helper methods - MODERNIZED
+ * @brief Core helper methods - MODERNIZED
  */
 (function($) {
 
-    // Create PKP namespaces.
+    // Create Core namespaces.
     $.core = $.core || { };
     $.core.classes = $.core.classes || { };
     $.core.controllers = $.core.controllers || { };

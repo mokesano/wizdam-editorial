@@ -511,13 +511,13 @@
 {literal}
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize only essential components
-    initializeOJSInterestsInput();
+    initializeAppInterestsInput();
     initializeFileInput();
     initializeFormSubmission();
 });
 
-function initializeOJSInterestsInput() {
-    // Wait for OJS scripts and tagit to be fully loaded
+function initializeAppInterestsInput() {
+    // Wait for App scripts and tagit to be fully loaded
     setTimeout(function() {
         const interestsContainer = document.getElementById('interests-container');
         
@@ -530,7 +530,7 @@ function initializeOJSInterestsInput() {
 }
 
 function applyInterestsStyling(container) {
-    // Find the actual OJS interests elements
+    // Find the actual App interests elements
     const interestsDiv = container.querySelector('#interests');
     const interestsList = container.querySelector('.interests');
     

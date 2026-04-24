@@ -18,10 +18,10 @@
 {/if}
 <a href="javascript:$.noop();" id="{$buttonId|escape}" {strip}
 	{if $action->getImage()}
-		class="{$imageClass} {$action->getImage()|escape} pkp_controllers_linkAction"
+		class="{$imageClass} {$action->getImage()|escape} core_controllers_linkAction"
 		title="{$action->getHoverTitle()|escape}">{if $hoverTitle}&nbsp;{else}{$action->getTitle()|escape}{/if}
 	{else}
-		class="pkp_controllers_linkAction"
+		class="core_controllers_linkAction"
 		title="{$action->getHoverTitle()|escape}">{if !$hoverTitle}{$action->getTitle()|escape}{/if}
 	{/if}
 {/strip}</a>

@@ -74,7 +74,7 @@ $.core.classes.notification = $.core.classes.notification || {};
 		}
 
 		// Get the selector for a notification element.
-		var $notificationSelector = '.pkp_notification';
+		var $notificationSelector = '.core_notification';
 
 		// Get the html element of the handler.
 		var $handledElement = handler.getHtmlElement();
@@ -115,7 +115,7 @@ $.core.classes.notification = $.core.classes.notification || {};
 			var j, parentsLength, $elementParentWidget;
 			for (j = 0, parentsLength = $elementParents.length;
 					j < parentsLength; j++) {
-				handler = $($elementParents[j]).data('pkp.handler');
+				handler = $($elementParents[j]).data('core.handler');
 				if ((handler instanceof $.core.classes.Handler)) {
 					$elementParentWidget = $($elementParents[j]);
 					break;

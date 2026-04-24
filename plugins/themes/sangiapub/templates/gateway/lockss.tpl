@@ -6,7 +6,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * LOCKSS Publisher Manifest gateway page.
- * NOTE: This page is not localized in order to provide a consistent interface to LOCKSS across all OJS installations. It is not meant to be accessed by humans.
+ * NOTE: This page is not localized in order to provide a consistent interface to LOCKSS across all App installations. It is not meant to be accessed by humans.
  *
  *}
 {strip}

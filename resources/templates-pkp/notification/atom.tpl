@@ -15,7 +15,7 @@
 
 	<link rel="self" type="application/atom+xml" href="{$selfUrl}" />
 
-	<generator uri="http://pkp.sfu.ca/ojs/" version="{$version|escape}">{translate key=$appName}</generator>
+	<generator uri="https://wizdam.editorial/" version="{$version|escape}">{translate key=$appName}</generator>
 
 	{$formattedNotifications}
 </feed>

@@ -10,6 +10,6 @@
  *}
 
 <div class="loading_container">
-	<div class="pkp_helpers_progressIndicator"></div>
+	<div class="core_helpers_progressIndicator"></div>
 	<span class="message">{translate key="common.loading"}</span>
 </div>

@@ -1,24 +1,24 @@
 /**
- * styles/ojs.css
+ * styles/app.css
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Temporary file based on omp.css for early introduction of
- * AJAX components to OJS.
+ * AJAX components to App.
  *
- * FIXME: Must be consolidated with other OJS-wide style sheets.
+ * FIXME: Must be consolidated with other App-wide style sheets.
  */
 
 /* @group Imports */
-/* Includes CSS files necessary for OJS to use new interface components such as Grids */
+/* Includes CSS files necessary for App to use new interface components such as Grids */
 
 /* OOCSS - http://github.com/stubbornella/oocss */
-@import url("../lib/pkp/styles/lib/oocss/grids.css");
+@import url("../core/Library/styles/lib/oocss/grids.css");
 
 /* Theme */
-@import url("../lib/pkp/styles/themes/default/theme.css");
+@import url("../core/Library/styles/themes/default/theme.css");
 
 /* FIXME: temporary workaround for #5137 - size attribute for smarty form tags does not work */
 input.large, select.large, textarea.textarea{

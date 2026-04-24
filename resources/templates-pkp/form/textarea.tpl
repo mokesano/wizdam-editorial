@@ -13,8 +13,8 @@
 {if $FBV_multilingual && count($formLocales) > 1}
 	<script type="text/javascript">
 	$(function() {ldelim}
-		$('#{$FBV_name|escape:javascript}-localization-popover-container{$uniqId}').pkpHandler(
-			'$.pkp.controllers.form.MultilingualInputHandler'
+		$('#{$FBV_name|escape:javascript}-localization-popover-container{$uniqId}').coreHandler(
+			'$.core.controllers.form.MultilingualInputHandler'
 			);
 	{rdelim});
 	</script>

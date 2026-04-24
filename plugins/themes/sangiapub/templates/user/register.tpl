@@ -6,7 +6,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Modern register form ScholarWizdam Editorial Systems 
- * kompatibel dengan OJS v2.4.8.2
+ * kompatibel dengan App v2.4.8.2
  * Production-ready template dengan modern UI components
  *}
 

@@ -99,7 +99,7 @@
 
 		// Retrieve remote modal content.
 		var url = $dialogElement.dialog('option' , 'url');
-		$dialogElement.pkpAjaxHtml(url);
+		$dialogElement.coreAjaxHtml(url);
 	};
 
 /** @param {jQuery} $ jQuery closure. */

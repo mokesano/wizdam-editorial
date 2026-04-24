@@ -7,7 +7,7 @@
  *
  * Keyword input control for user interests
  *
- * Note: This template is called explicitly in OJS and OCS and called by the
+ * Note: This template is called explicitly in App and OCS and called by the
  *  FBV in OMP.  Please be careful if changing variable names.
  *}
 

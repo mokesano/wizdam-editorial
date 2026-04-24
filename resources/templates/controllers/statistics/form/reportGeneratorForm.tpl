@@ -11,7 +11,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#reportGeneratorForm').pkpHandler('$.pkp.statistics.ReportGeneratorFormHandler',
+		$('#reportGeneratorForm').coreHandler('$.core.statistics.ReportGeneratorFormHandler',
 			{ldelim}
 				fetchFormUrl: '{url op=fetchReportGenerator}',
 				metricTypeSelectSelector: '#metricType',
@@ -49,7 +49,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="reportGeneratorForm" method="post" action="{url op="saveReportGenerator"}">
+<form class="core_form" id="reportGeneratorForm" method="post" action="{url op="saveReportGenerator"}">
 	{if $metricTypeOptions}
 		{fbvFormArea id="columnsFormArea" title="defaultMetric.availableMetrics"}
 			{fbvFormSection inline=true size=$fbvStyles.size.SMALL}

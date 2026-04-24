@@ -57,7 +57,7 @@
 	{/if}
 	<tr valign="top">
 		<td><input type="radio" id="defaultAuthId_0" name="defaultAuthId" value="0"{if !$defaultAuthId} checked="checked"{/if} /></td>
-		<td colspan="1"><label for="defaultAuthId_0">{translate key="admin.auth.ojs"}</label></td>
+		<td colspan="1"><label for="defaultAuthId_0">{translate key="admin.auth.wizdam"}</label></td>
 		<td colspan="2" align="right">
 			<input type="submit" value="{translate key="common.save"}" class="button" />
 		</td>

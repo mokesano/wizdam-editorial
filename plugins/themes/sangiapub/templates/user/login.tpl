@@ -1,15 +1,15 @@
 {**
  * File: /templates/user/login.tpl
  *
- * Modern login form yang kompatibel dengan OJS v2.4.8.2
- * Production-ready dengan struktur OJS asli
+ * Modern login form yang kompatibel dengan App v2.4.8.2
+ * Production-ready dengan struktur App asli
  *}
 {strip}
 {assign var="pageTitle" value="user.login"}
 {include file="common/header-parts/header-welcome.tpl"}
 {/strip}
 
-{* Handle OJS default variables *}
+{* Handle App default variables *}
 {if !$registerOp}
     {assign var="registerOp" value="register"}
 {/if}
@@ -249,7 +249,7 @@
                 </div>
                 {/if}
 
-                {* Auto-focus Script - Sesuai OJS Original *}
+                {* Auto-focus Script - Sesuai App Original *}
                 <script type="text/javascript">
                 <!--
                     document.getElementById('{if $username}loginPassword{else}loginUsername{/if}').focus();

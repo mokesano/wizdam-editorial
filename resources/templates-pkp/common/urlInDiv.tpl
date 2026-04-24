@@ -8,8 +8,8 @@
 <script type="text/javascript">
     $(function() {ldelim}
         // Panggil handler JS UrlInDivHandler
-        $('#{$inDivDivId|escape:"javascript"}').pkpHandler(
-            '$.pkp.controllers.UrlInDivHandler',
+        $('#{$inDivDivId|escape:"javascript"}').coreHandler(
+            '$.core.controllers.UrlInDivHandler',
             {ldelim}
                 sourceUrl: '{$inDivUrl|escape:"javascript"}'
             {rdelim}
@@ -17,6 +17,6 @@
     {rdelim});
 </script>
 
-<div id="{$inDivDivId|escape}" class="pkp_url_in_div {if $inDivClass}{$inDivClass|escape}{/if}">
+<div id="{$inDivDivId|escape}" class="core_url_in_div {if $inDivClass}{$inDivClass|escape}{/if}">
     {$inDivLoadMessage}
 </div>

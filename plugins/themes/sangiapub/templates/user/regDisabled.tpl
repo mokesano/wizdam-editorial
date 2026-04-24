@@ -1,8 +1,8 @@
 {**
  * File: /templates/user/regDisabled.tpl
  *
- * Modern login form yang kompatibel dengan OJS v2.4.8.2
- * Production-ready dengan struktur OJS asli
+ * Modern login form yang kompatibel dengan App v2.4.8.2
+ * Production-ready dengan struktur App asli
  *}
 {strip}
 {assign var="pageTitle" value="user.register"}

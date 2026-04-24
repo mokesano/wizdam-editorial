@@ -1,5 +1,5 @@
 {**
- * lib/pkp/templates/common/formErrors.tpl
+ * core/Library/templates/common/formErrors.tpl
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -10,8 +10,8 @@
 {if $isError}
 	<div id="formErrors">
 		<p>
-		<span class="pkp_form_error">{translate key="form.errorsOccurred"}:</span>
-		<ul class="pkp_form_error_list">
+		<span class="core_form_error">{translate key="form.errorsOccurred"}:</span>
+		<ul class="core_form_error_list">
 		{foreach key=field item=message from=$errors}
 			<li><a href="#{$field|escape}">{$message}</a></li>
 		{/foreach}

@@ -40,7 +40,7 @@
 {/if}
 
 {if $error}
-	<span class="pkp_form_error">{translate key="$error" reason=$reason}</span>
+	<span class="core_form_error">{translate key="$error" reason=$reason}</span>
 	<br />
 	<br />
 {/if}

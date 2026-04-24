@@ -2,7 +2,7 @@
 <!DOCTYPE plnplugin SYSTEM "ping.dtd"> 
 <plnplugin>
 	<ojsInfo>
-		<release>{$ojsVersion|escape}</release>
+		<release>{$appVersion|escape}</release>
 	</ojsInfo>
 	<pluginInfo>
 		<release>{$pluginVersion.release|escape}</release>

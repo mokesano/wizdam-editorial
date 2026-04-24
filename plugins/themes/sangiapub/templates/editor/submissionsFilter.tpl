@@ -1,7 +1,7 @@
 {**
  * templates/manager/submissions/submissionsFilter.tpl
- * Modern submissions filter form for Wizdam OJS v7
- * Compatible with OJS v2.4.8.2 backend structure
+ * Modern submissions filter form for Wizdam App v7
+ * Compatible with App v2.4.8.2 backend structure
  *}
 
 <div class="filter-container" id="wizdamFilterContainer">
@@ -113,7 +113,7 @@
             <button type="submit" class="btn btn-primary">{translate key="common.search"}</button>
         </div>
 
-        {* Hidden fields for OJS v2.4.8.2 backend compatibility *}
+        {* Hidden fields for App v2.4.8.2 backend compatibility *}
         <input type="hidden" name="sort" value="{$sort|default:"id"}">
         <input type="hidden" name="sortDirection" value="{$sortDirection|default:"ASC"}">
         

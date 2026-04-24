@@ -33,8 +33,8 @@
 	{include file="common/jqueryScripts.tpl"}
 	{include file="common/head.tpl"}
 	
-	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/pkp.css" type="text/css" />
-	<!-- <link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
+	<link rel="stylesheet" href="{$baseUrl}/core/Library/styles/core.css" type="text/css" />
+	<!-- <link rel="stylesheet" href="{$baseUrl}/core/Library/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />-->
 	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" /> 
 
@@ -50,13 +50,13 @@
 
 	<!-- Compiled scripts -->
 	{if $useMinifiedJavaScript}
-		<script type="text/javascript" src="{$baseUrl}/js/pkp.min.js"></script>
+		<script type="text/javascript" src="{$baseUrl}/js/core.min.js"></script>
 	{else}
 		{include file="common/minifiedScripts.tpl"}
 	{/if}
 
 	<!-- Form validation -->
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/core/Library/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
 	<script type="text/javascript">
 		<!--
 		// initialise plugins
@@ -107,7 +107,7 @@
 	<link rel="stylesheet" href="{$baseUrl}/assets/css/subscribe.css" type="text/css" /> 
 	
 	{foreach from=$stylesheets name="testUrl" item=cssUrl}
-		{if $cssUrl != "$baseUrl/styles/ojs.css"}
+		{if $cssUrl != "$baseUrl/styles/app.css"}
 			<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
 		{/if}
 	{/foreach}

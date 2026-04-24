@@ -1,54 +1,44 @@
 ```
-# Build artifacts and minified JS
-public/js/app/custom/wizdam/core.min.js
-public/js/app/js/core.min.js
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+dist/
+build/
+target/
 
-# Logs
-*.log
-
-# Environment files
+# Dependencies
+node_modules/
+venv/
+.venv/
 .env
 .env.local
 .env.*
 
-# IDE files
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Editors
 .vscode/
 .idea/
 
-# OS files
+# System files
 .DS_Store
 Thumbs.db
 
-# Coverage reports
+# Coverage
 coverage/
 htmlcov/
 .coverage
-
-# Cache directories
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-*.so
-
-# Distribution / packaging
-.dist/
-*.egg
-*.egg-info/
-MANIFEST*
-*.spec
-
-# Debug files
-*.trace
-*.log
-
-# Temporary files
-*.tmp
-*.temp
-*.bak
-*.swp
-*.swo
 
 # Compressed files
 *.zip
@@ -73,5 +63,4 @@ MANIFEST*
 *.tar.bz2
 *.tar.xz
 *.tar.zst
-
 ```

@@ -21,5 +21,5 @@
 			{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
 		{/if}
 	{/foreach}
-	<div class="pkp_helpers_clear"></div>
+	<div class="core_helpers_clear"></div>
 </div>

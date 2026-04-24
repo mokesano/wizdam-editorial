@@ -20,8 +20,8 @@
 		{assign var="searchForm" value="searchForm"}
 	{/if}
 	$(function() {ldelim}
-		$('#{$filterName}Autocomplete').pkpHandler(
-			'$.pkp.plugins.generic.lucene.LuceneAutocompleteHandler',
+		$('#{$filterName}Autocomplete').coreHandler(
+			'$.core.plugins.generic.lucene.LuceneAutocompleteHandler',
 			{ldelim}
 				sourceUrl: "{$autocompleteUrl|escape:javascript}",
 				searchForm: "{$searchForm}"

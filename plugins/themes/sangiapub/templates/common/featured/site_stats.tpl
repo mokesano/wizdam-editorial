@@ -1,4 +1,4 @@
-{* Kode untuk menampilkan jumlah total artikel view, download, dan penulis pada OJS v2.4.8.2 - Versi Dioptimasi *}
+{* Kode untuk menampilkan jumlah total artikel view, download, dan penulis pada App v2.4.8.2 - Versi Dioptimasi *}
 
 {* 1. Untuk Jurnal Tertentu *}
 <div class="journal-stats article">
@@ -65,7 +65,7 @@
         $result->Close();
         
     } catch (Exception $e) {
-        error_log("OJS Stats Error checking tables: " . $e->getMessage());
+        error_log("App Stats Error checking tables: " . $e->getMessage());
     }
     
     // Mendapatkan jurnal saat ini
@@ -113,7 +113,7 @@
                 $viewResult = $articleDao->retrieve(
                     "SELECT SUM(metric) AS total_views FROM metrics 
                      WHERE assoc_type = ? AND context_id = ?
-                     AND (metric_type = 'ojs::counter::article' OR metric_type LIKE '%view%')",
+                     AND (metric_type = 'app::counter::article' OR metric_type LIKE '%view%')",
                     array(ASSOC_TYPE_ARTICLE, $journalId)
                 );
                 
@@ -126,7 +126,7 @@
                 $downloadResult = $articleDao->retrieve(
                     "SELECT SUM(metric) AS total_downloads FROM metrics 
                      WHERE assoc_type = ? AND context_id = ?
-                     AND (metric_type = 'ojs::counter::galley' OR metric_type LIKE '%download%')",
+                     AND (metric_type = 'app::counter::galley' OR metric_type LIKE '%download%')",
                     array(ASSOC_TYPE_GALLEY, $journalId)
                 );
                 
@@ -167,7 +167,7 @@
                     return $stats;
                 }
             } catch (Exception $e) {
-                error_log("OJS Stats Error from metrics: " . $e->getMessage());
+                error_log("App Stats Error from metrics: " . $e->getMessage());
             }
         }
         
@@ -226,7 +226,7 @@
             $authorCount = count($uniqueAuthors);
             
         } catch (Exception $e) {
-            error_log("OJS Author Count Error: " . $e->getMessage());
+            error_log("App Author Count Error: " . $e->getMessage());
         }
         
         return $authorCount;
@@ -334,7 +334,7 @@
                 }
                 $result->Close();
             } catch (Exception $e) {
-                error_log("OJS Stats Error artikel_view_stats: " . $e->getMessage());
+                error_log("App Stats Error artikel_view_stats: " . $e->getMessage());
             }
         }
         
@@ -348,7 +348,7 @@
                     $result = $articleDao->retrieve(
                         "SELECT SUM(metric) AS total_views FROM metrics 
                          WHERE assoc_type = ? AND assoc_id IN ($articleIdList)
-                         AND metric_type = 'ojs::counter::article'",
+                         AND metric_type = 'app::counter::article'",
                         array(ASSOC_TYPE_ARTICLE)
                     );
                     if ($result && !$result->EOF) {
@@ -369,7 +369,7 @@
                         $result->Close();
                     }
                 } catch (Exception $e) {
-                    error_log("OJS Stats Error metrics articles: " . $e->getMessage());
+                    error_log("App Stats Error metrics articles: " . $e->getMessage());
                 }
             }
         }
@@ -383,7 +383,7 @@
                     $result = $articleDao->retrieve(
                         "SELECT SUM(metric) AS total_downloads FROM metrics 
                          WHERE assoc_type = ? AND assoc_id IN ($galleyIdList)
-                         AND metric_type = 'ojs::counter::galley'",
+                         AND metric_type = 'app::counter::galley'",
                         array(ASSOC_TYPE_GALLEY)
                     );
                     if ($result && !$result->EOF) {
@@ -404,7 +404,7 @@
                         $result->Close();
                     }
                 } catch (Exception $e) {
-                    error_log("OJS Stats Error metrics galleys: " . $e->getMessage());
+                    error_log("App Stats Error metrics galleys: " . $e->getMessage());
                 }
             }
         }
@@ -429,7 +429,7 @@
             $totalDownloads = $journalStats['downloads'];
             $totalAuthors = $journalStats['authors'];
         } catch (Exception $e) {
-            error_log("OJS Jurnal Stats Error: " . $e->getMessage());
+            error_log("App Jurnal Stats Error: " . $e->getMessage());
         }
     }
     
@@ -517,7 +517,7 @@
             }
         }
     } catch (Exception $e) {
-        error_log("OJS All Journal Stats Error: " . $e->getMessage());
+        error_log("App All Journal Stats Error: " . $e->getMessage());
     }
     
     // Urutkan jurnal berdasarkan views tertinggi

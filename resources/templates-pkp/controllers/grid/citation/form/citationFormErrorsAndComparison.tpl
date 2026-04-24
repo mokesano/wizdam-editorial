@@ -59,7 +59,7 @@
 		// with live as we use JS to insert messages sometimes.
 		$('#citationFormMessages li').die('click').live('click', function() {ldelim}
 			$(this).remove();
-			if($('#citationFormMessages .pkp_form_error_list').children().length === 0) {ldelim}
+			if($('#citationFormMessages .core_form_error_list').children().length === 0) {ldelim}
 				$('#citationFormMessages').remove();
 			{rdelim}
 		{rdelim});
@@ -181,8 +181,8 @@
 		<div id="citationFormMessages" class="help-message" title="{translate key="submission.citations.editor.details.clickToDismissMessage"}">
 			<div id="formErrors">
 				<p>
-					<span class="pkp_form_error">{translate key="submission.citations.editor.details.messages"}:</span>
-					<ul class="pkp_form_error_list">
+					<span class="core_form_error">{translate key="submission.citations.editor.details.messages"}:</span>
+					<ul class="core_form_error_list">
 						{if $unsavedChanges}
 							<li class="unsaved-data-warning">{translate key="submission.citations.editor.details.unsavedChanges"}</li>
 						{/if}
@@ -230,7 +230,7 @@
 				<button id="cancelRawCitationEditing" type="button" title="{translate key="common.cancel"}">{translate key="common.cancel"}</button>
 				<button id="processRawCitation" type="button" title="{translate key="submission.citations.editor.details.processRawCitation"}">{translate key="submission.citations.editor.details.processRawCitation"}</button>
 			</div>
-			<div class="pkp_helpers_clear"></div>
+			<div class="core_helpers_clear"></div>
 		{/if}
 	</div>
 	<div id="rawCitationWithMarkup" class="citation-comparison">

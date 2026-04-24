@@ -42,13 +42,13 @@
 
 	<!-- Compiled scripts -->
 	{if $useMinifiedJavaScript}
-		<script type="text/javascript" src="{$baseUrl}/js/pkp.min.js"></script>
+		<script type="text/javascript" src="{$baseUrl}/js/core.min.js"></script>
 	{else}
 		{include file="common/minifiedScripts.tpl"}
 	{/if}
 
 	<!-- Form validation -->
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/core/Library/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
 	<script type="text/javascript">
 		<!--
 		// initialise plugins
@@ -97,7 +97,7 @@
 	{include file="common/commonCSS.tpl"}
 	
 	{foreach from=$stylesheets name="testUrl" item=cssUrl}
-		{if $cssUrl == "$baseUrl/styles/ojs.css"}
+		{if $cssUrl == "$baseUrl/styles/app.css"}
 			<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
 		{/if}
 	{/foreach}

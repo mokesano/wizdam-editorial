@@ -45,7 +45,7 @@
         </div>
         {/iterate}
 
-        {* Paginasi menggunakan sistem bawaan OJS *}
+        {* Paginasi menggunakan sistem bawaan App *}
         {page_links anchor="articles" name=$rangeInfoName iterator=$articles}
     </div>
 

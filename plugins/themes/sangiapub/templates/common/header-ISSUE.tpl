@@ -22,7 +22,7 @@
 {strip}
 {if !$pageTitleTranslated}
     {translate|assign:"pageTitleTranslated" key=$pageTitle}
-    {* Override untuk key default OJS *}
+    {* Override untuk key default App *}
     {if $pageTitle == "common.openJournalSystems"}
         {assign var="pageTitleTranslated" value="No Current Issue"}
     {/if}
@@ -48,7 +48,7 @@
 	{include file="common/jqueryScripts.tpl"}
 	{include file="common/head.tpl"}
 	
-	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/pkp.css" type="text/css" />
+	<link rel="stylesheet" href="{$baseUrl}/core/Library/styles/core.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" /> 
 
 	{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
@@ -59,13 +59,13 @@
 
 	<!-- Compiled scripts -->
 	{if $useMinifiedJavaScript}
-		<script type="text/javascript" src="{$baseUrl}/js/pkp.min.js"></script>
+		<script type="text/javascript" src="{$baseUrl}/js/core.min.js"></script>
 	{else}
 		{include file="common/minifiedScripts.tpl"}
 	{/if}
 
 	<!-- Form validation -->
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/core/Library/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
 	<script type="text/javascript">
 		<!--
 		// initialise plugins
@@ -116,7 +116,7 @@
 	{include file="common/commonCSS.tpl"}
 
 	{foreach from=$stylesheets name="testUrl" item=cssUrl}
-		{if $cssUrl == "$baseUrl/styles/ojs.css"}
+		{if $cssUrl == "$baseUrl/styles/app.css"}
 			<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
 		{/if}
 	{/foreach}
@@ -378,7 +378,7 @@
                     <section id="accessKey" class="access-key block">
                         <div class="access">
                             <span class="open">
-                                <img class="lazyload u-hide" src="{$baseUrl}/lib/pkp/templates/images/icons/fulltext_open_medium.gif" alt="{translate key="article.accessLogoOpen.altText"}" />
+                                <img class="lazyload u-hide" src="{$baseUrl}/core/Library/templates/images/icons/fulltext_open_medium.gif" alt="{translate key="article.accessLogoOpen.altText"}" />
                                 <span aria-hidden="false" aria-label="Open Access" data-color="gold" class="tag__TagWrapper-sc-1fw5i3t-0 cNxLig"><span class="tag__TagText-sc-1fw5i3t-1 gcYJkb">OA</span></span>
                                 <span class="open-access" data-color="gold">{translate key="reader.openAccess"}</span>
                             </span>&nbsp;|&nbsp;

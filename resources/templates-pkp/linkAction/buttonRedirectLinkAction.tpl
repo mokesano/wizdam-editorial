@@ -16,10 +16,10 @@
 
 <script type="text/javascript">
 	$(function() {ldelim}
-		$('{$buttonSelector|escape:javascript}').pkpHandler(
-				'$.pkp.controllers.linkAction.LinkActionHandler',
+		$('{$buttonSelector|escape:javascript}').coreHandler(
+				'$.core.controllers.linkAction.LinkActionHandler',
 				{ldelim}
-					actionRequest: '$.pkp.classes.linkAction.RedirectRequest',
+					actionRequest: '$.core.classes.linkAction.RedirectRequest',
 					actionRequestOptions: {ldelim}
 						url: '{$cancelUrl}'
 					{rdelim},

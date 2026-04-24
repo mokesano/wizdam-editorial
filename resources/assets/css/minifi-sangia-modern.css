@@ -430,8 +430,8 @@ ul.navMenu-menu li:last-child {
  color:#fff;
  font-family:Europa,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif
 }
-#setup .pkp_controllers_grid table.listing th a,
-#setup .pkp_controllers_grid table.listing tr.heading a,
+#setup .core_controllers_grid table.listing th a,
+#setup .core_controllers_grid table.listing tr.heading a,
 .navMenu .navItem a:visited,
 table.listing .heading a {
  color:#000
@@ -1543,8 +1543,8 @@ ul.c-sidemenu {
 #JournalName,
 #articleMetrics .block,
 #reviewForms .data td:last-child,
-#setup .pkp_controllers_grid table th td:last-child,
-#setup .pkp_controllers_grid table tr.heading td:last-child,
+#setup .core_controllers_grid table th td:last-child,
+#setup .core_controllers_grid table tr.heading td:last-child,
 .O0WRkf,
 .c-button,
 .c-jump-navigation__link,
@@ -13856,7 +13856,7 @@ textarea:focus {
 .label {
  width:auto
 }
-form.pkp_form {
+form.core_form {
  margin:initial
 }
 #reviewForms .data td .action,
@@ -14199,8 +14199,8 @@ li.pubDOI {
  font-family:NexusSans;
  font-size:1.5rem
 }
-#setup .pkp_controllers_grid table th,
-#setup .pkp_controllers_grid table tr.heading,
+#setup .core_controllers_grid table th,
+#setup .core_controllers_grid table tr.heading,
 .heading {
  font-family:Europa,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
  font-size:1.125em;
@@ -16657,16 +16657,16 @@ footer h2 + * {
 }
 #results table thead th,
 #results table thead tr.heading,
-#setup .pkp_controllers_grid table thead th,
-#setup .pkp_controllers_grid table thead tr.heading {
+#setup .core_controllers_grid table thead th,
+#setup .core_controllers_grid table thead tr.heading {
  border-bottom:1px solid #87908f
 }
 #results table tfoot td,
 #results table tfoot th,
 #results table tfoot tr.heading,
-#setup .pkp_controllers_grid table tfoot td,
-#setup .pkp_controllers_grid table tfoot th,
-#setup .pkp_controllers_grid table tfoot tr.heading {
+#setup .core_controllers_grid table tfoot td,
+#setup .core_controllers_grid table tfoot th,
+#setup .core_controllers_grid table tfoot tr.heading {
  border-top:1px solid #87908f
 }
 #colspan-anchor table,
@@ -17013,7 +17013,7 @@ h3.issue {
  font-size:2.17rem;
  border-top:0
 }
-.pkp_controllers_grid h3,
+.core_controllers_grid h3,
 .popup #main h3 {
  background-color:initial
 }
@@ -17036,7 +17036,7 @@ h3.articleAuthor {
  margin-bottom:0
 }
 #articleComments table .comments,
-#setup .pkp_controllers_grid table,
+#setup .core_controllers_grid table,
 .sectionBlock,
 table.info,
 table.settings {
@@ -17204,11 +17204,11 @@ span.instruct {
  margin:.5em 0;
  line-height:1.4
 }
-#assignBlocksToSidebars #setup .pkp_controllers_grid table th,
-#assignBlocksToSidebars #setup .pkp_controllers_grid table tr.heading,
+#assignBlocksToSidebars #setup .core_controllers_grid table th,
+#assignBlocksToSidebars #setup .core_controllers_grid table tr.heading,
 #assignBlocksToSidebars .heading,
-#setup .pkp_controllers_grid table #assignBlocksToSidebars th,
-#setup .pkp_controllers_grid table #assignBlocksToSidebars tr.heading {
+#setup .core_controllers_grid table #assignBlocksToSidebars th,
+#setup .core_controllers_grid table #assignBlocksToSidebars tr.heading {
  text-align:center;
  border:1px solid #87908f
 }
@@ -17222,15 +17222,15 @@ span.instruct {
 #setup .options {
  margin-top:2em
 }
-#setup .pkp_controllers_grid table {
+#setup .core_controllers_grid table {
  border:1px solid #87908f
 }
 #articleComments table td,
 #articleComments table th,
 #articleComments table tr.heading,
-#setup .pkp_controllers_grid table td,
-#setup .pkp_controllers_grid table th,
-#setup .pkp_controllers_grid table tr.heading {
+#setup .core_controllers_grid table td,
+#setup .core_controllers_grid table th,
+#setup .core_controllers_grid table tr.heading {
  border-right:1px solid #d1d3d5;
  border-bottom:1px solid #d1d3d5;
  border-left-width:0;
@@ -17242,12 +17242,12 @@ span.instruct {
 #articleComments table th:last-child,
 #articleComments table tr.heading:last-child,
 #articleComments table tr.last.heading,
-#setup .pkp_controllers_grid table td.last,
-#setup .pkp_controllers_grid table td:last-child,
-#setup .pkp_controllers_grid table th.last,
-#setup .pkp_controllers_grid table th:last-child,
-#setup .pkp_controllers_grid table tr.heading:last-child,
-#setup .pkp_controllers_grid table tr.last.heading {
+#setup .core_controllers_grid table td.last,
+#setup .core_controllers_grid table td:last-child,
+#setup .core_controllers_grid table th.last,
+#setup .core_controllers_grid table th:last-child,
+#setup .core_controllers_grid table tr.heading:last-child,
+#setup .core_controllers_grid table tr.last.heading {
  border-right-width:0
 }
 #articleComments table tbody tr.last td,
@@ -17262,22 +17262,22 @@ span.instruct {
 #articleComments table tfoot tr:last-child td,
 #articleComments table tfoot tr:last-child th,
 #articleComments table tfoot tr:last-child tr.heading,
-#setup .pkp_controllers_grid table tbody tr.last td,
-#setup .pkp_controllers_grid table tbody tr.last th,
-#setup .pkp_controllers_grid table tbody tr.last tr.heading,
-#setup .pkp_controllers_grid table tbody tr:last-child td,
-#setup .pkp_controllers_grid table tbody tr:last-child th,
-#setup .pkp_controllers_grid table tbody tr:last-child tr.heading,
-#setup .pkp_controllers_grid table tfoot tr.last td,
-#setup .pkp_controllers_grid table tfoot tr.last th,
-#setup .pkp_controllers_grid table tfoot tr.last tr.heading,
-#setup .pkp_controllers_grid table tfoot tr:last-child td,
-#setup .pkp_controllers_grid table tfoot tr:last-child th,
-#setup .pkp_controllers_grid table tfoot tr:last-child tr.heading {
+#setup .core_controllers_grid table tbody tr.last td,
+#setup .core_controllers_grid table tbody tr.last th,
+#setup .core_controllers_grid table tbody tr.last tr.heading,
+#setup .core_controllers_grid table tbody tr:last-child td,
+#setup .core_controllers_grid table tbody tr:last-child th,
+#setup .core_controllers_grid table tbody tr:last-child tr.heading,
+#setup .core_controllers_grid table tfoot tr.last td,
+#setup .core_controllers_grid table tfoot tr.last th,
+#setup .core_controllers_grid table tfoot tr.last tr.heading,
+#setup .core_controllers_grid table tfoot tr:last-child td,
+#setup .core_controllers_grid table tfoot tr:last-child th,
+#setup .core_controllers_grid table tfoot tr:last-child tr.heading {
  border-bottom-width:0
 }
-#setup .pkp_controllers_grid table th:first-child,
-#setup .pkp_controllers_grid table tr.heading:first-child {
+#setup .core_controllers_grid table th:first-child,
+#setup .core_controllers_grid table tr.heading:first-child {
  border-right:1px solid #87908f
 }
 .composite-ui div.pane div.help-message {

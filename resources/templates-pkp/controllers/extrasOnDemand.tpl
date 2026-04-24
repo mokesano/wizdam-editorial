@@ -10,8 +10,8 @@
 <script type="text/javascript">
 	// Initialise JS handler.
 	$(function() {ldelim}
-		$('#{$id}').pkpHandler(
-			'$.pkp.controllers.ExtrasOnDemandHandler');
+		$('#{$id}').coreHandler(
+			'$.core.controllers.ExtrasOnDemandHandler');
 	{rdelim});
 </script>
 {if !$lessDetailsText}
@@ -20,7 +20,7 @@
 {if !$lessDetailsLabel}
 	{assign var=lessDetailsLabel value=$moreDetailsLabel}
 {/if}
-<div id="{$id}" class="pkp_controllers_extrasOnDemand">
+<div id="{$id}" class="core_controllers_extrasOnDemand">
 	<div class="toggleExtras">
 		<span class="ui-icon"></span>
 		<span class="toggleExtras-inactive">{translate key=$moreDetailsText}

@@ -132,7 +132,7 @@
      */
     $.core.classes.Handler.getHandler = function($element) {
         // Retrieve the handler.
-        var handler = $element.data('pkp.handler');
+        var handler = $element.data('core.handler');
 
         // Check whether the handler exists.
         if (!(handler instanceof $.core.classes.Handler)) {
@@ -263,16 +263,16 @@
         $element.off('.coreHandler');
 
         for (key in this.dataItems_) {
-            if (key !== 'pkp.handler') {
+            if (key !== 'core.handler') {
                 $element.removeData(key);
             }
         }
 
-        $element.trigger('pkpRemoveHandler');
+        $element.trigger('coreRemoveHandler');
         // MODERNIZATION: .unbind() -> .off()
         $element.off('.coreHandlerRemove');
 
-        $element.removeData('pkp.handler');
+        $element.removeData('core.handler');
     };
 
 
@@ -295,7 +295,7 @@
 
             var eventNamespace;
             eventNamespace = '.coreHandler';
-            if (eventName === 'pkpRemoveHandler') {
+            if (eventName === 'coreRemoveHandler') {
                 eventNamespace = '.coreHandlerRemove';
             }
 
@@ -342,7 +342,7 @@
     $.core.classes.Handler.prototype.data = function(key, opt_value) {
         $.core.classes.Handler.checkContext_(this);
 
-        key = 'pkp.' + key;
+        key = 'core.' + key;
 
         if (opt_value !== undefined) {
             this.dataItems_[key] = true;

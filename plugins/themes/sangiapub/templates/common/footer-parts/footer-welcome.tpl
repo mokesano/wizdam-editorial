@@ -178,7 +178,7 @@
                             {/if}
                         {translate|assign:"applicationName" key="common.openJournalSystems"}
                         {assign var="applicationName" value="ScholarWizdam: Editorial Management System"}
-                        <span class="sangia-lisensing">Powered by <a class="anchor" href="//pkp.sfu.ca/software/ojs/download/archive/" target="_blank"><span class="anchor-text">{$applicationName}</span></a> and <a class="anchor" href="//github.com/masonpublishing/OJS-Theme" target="_blank"><span class="anchor-text">Mason Publishing</span></a> theme.</span></p>
+                        <span class="sangia-lisensing">Powered by <a class="anchor" href="//wizdam.editorial/download/archive/" target="_blank"><span class="anchor-text">{$applicationName}</span></a> and <a class="anchor" href="//github.com/masonpublishing/App-Theme" target="_blank"><span class="anchor-text">Mason Publishing</span></a> theme.</span></p>
                         <p class="sangia-footer-copyright u-mb-0" style="margin-bottom:0">Copyright © 2017-{$smarty.now|date_format:"%Y"} <a class="anchor" href="//publishing.sangia.org" target="_blank"><span class="anchor-text">Sangia Publishing</span></a> unless otherwise stated. Part of <a class="anchor" href="//www.insw.go.id/nib" target="_blank"><span class="anchor-text">Sangia Research Media and Publishing</span></a> | NIB: 1111220205313.</p>
                         <p class="sangia-footer-legal">Dirjen AHU No. <span class="anchor"><span class="anchor-text">AHU-050003.AH.01.30.Tahun 2022</span></span>. Certificate No. <span class="anchor"><span class="anchor-text">11112202053130002</span></span>.</p>
                         <p class="footer-section anchor">{$pageFooter}</p>       

@@ -17,7 +17,7 @@ jQuery.core.controllers.modal = jQuery.core.controllers.modal || { };
  * @brief Basic modal implementation.
  *
  *  A basic wrapper around jQueryUI's dialog widget with
- *  PKP-specific configuration.
+ *  Core-specific configuration.
  *
  *  This implementation of a modal has only one button and
  *  expects a simple message string.

@@ -79,7 +79,7 @@
             {* [WIZDAM MODULAR SECURITY] *}
             {if $captchaEnabled || $turnstileEnabled || $reCaptchaEnabled}
             <div class="security-barrier">
-                {* 0. CAPTCHA Default OJS - NEW Version *}
+                {* 0. CAPTCHA Default App - NEW Version *}
                 {if $captchaEnabled}
                 <div class="form-group">
                     <label class="form-section-label">{translate key="common.captchaField"}<span class="required-indicator">*</span></label>

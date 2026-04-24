@@ -4,7 +4,7 @@ declare(strict_types=1);
 /**
  * @file core/Modules/tools/install.php
  *
- * Copyright (c) 2013-2025 Wizdam Framework Contributors
+ * Copyright (c) 2013-2025 Wizdam Editorial Contributors
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AppInstallTool

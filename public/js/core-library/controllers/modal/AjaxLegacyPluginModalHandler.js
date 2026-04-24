@@ -64,7 +64,7 @@
 		var url = $dialogElement.dialog('option' , 'url');
 		this.url_ = url;
 		var callback = this.callbackWrapper(this.refreshModalCallback_);
-		$dialogElement.pkpAjaxHtml(url, callback);
+		$dialogElement.coreAjaxHtml(url, callback);
 	};
 
 
@@ -167,7 +167,7 @@
 		});
 
 		// Bind form submit handlers.
-		var $formElements = $('form.pkp_form', $dialogElement);
+		var $formElements = $('form.core_form', $dialogElement);
 		if ($formElements.length > 0) {
 			$formElements.bind('submit', this.callbackWrapper(this.submitFormHandler_));
 			$formElements.find('#cancelFormButton').unbind('click');

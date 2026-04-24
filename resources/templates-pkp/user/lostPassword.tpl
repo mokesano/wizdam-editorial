@@ -20,7 +20,7 @@
 <p><span class="instruct">{translate key="user.login.resetPasswordInstructions"}</span></p>
 
 {if $error}
-	<p><span class="pkp_form_error">{translate key="$error"}</span></p>
+	<p><span class="core_form_error">{translate key="$error"}</span></p>
 {/if}
 
 <table id="lostPasswordTable" class="data" width="100%">

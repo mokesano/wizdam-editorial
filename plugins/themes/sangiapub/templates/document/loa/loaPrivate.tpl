@@ -4,7 +4,7 @@
 {/strip}
 
 <div class="wizdam-loa-private-container">
-    <div class="pkp_page_title flex-between">
+    <div class="core_page_title flex-between">
         <h1>Letter of Acceptance</h1>
         <a href="{url router=$smarty.const.ROUTE_PAGE page="checkout" op="download" path=$submissionId}" class="wizdam-btn wizdam-btn-primary">
             <i class="icon-download"></i> Download Official PDF

@@ -1,10 +1,10 @@
 /**
- * Modern Forms CSS untuk OJS v2.4.8.2
+ * Modern Forms CSS untuk App v2.4.8.2
  * Production-ready styles for authentication forms
  * 
- * @fileoverview Complete CSS styling for modern OJS registration forms
+ * @fileoverview Complete CSS styling for modern App registration forms
  * @version 1.1.0
- * @author OJS Theme Developer
+ * @author App Theme Developer
  */
 
 /* ===== CSS RESET & BASE ===== */
@@ -1270,7 +1270,7 @@ body.dialog-open {
     object-fit: cover;
 }
 
-/* ===== ENHANCED OJS BUTTON STYLING ===== */
+/* ===== ENHANCED App BUTTON STYLING ===== */
 .profile-image-actions,
 .form-actions {
     display: flex;

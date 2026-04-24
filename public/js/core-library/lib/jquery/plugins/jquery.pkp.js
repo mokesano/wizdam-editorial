@@ -11,7 +11,7 @@
  *
  * @ingroup js_lib_jquery_plugins
  *
- * @brief PKP jQuery extensions.
+ * @brief Core jQuery extensions.
  */
 
 /** @param {jQuery} $ jQuery closure. */
@@ -52,7 +52,7 @@
 	 * @param {object} callback function to be called on ajax success.
 	 * @return {jQuery} Selected HTML elements for chaining.
 	 */
-	$.fn.pkpAjaxHtml = function(url, callback) {
+	$.fn.coreAjaxHtml = function(url, callback) {
 		var $element = this.first();
 		// using $.ajax instead of .getJSON to handle failures.
 		// .getJSON does not allow for an error callback

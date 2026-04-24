@@ -126,7 +126,7 @@
 				// Remove in place trivial notifications.
 				for (var i in trivialNotificationsId) {
 					var notificationId = trivialNotificationsId[i];
-					$('#pkp_notification_' + notificationId,
+					$('#core_notification_' + notificationId,
 							this.getHtmlElement()).remove();
 				}
 			}
@@ -202,7 +202,7 @@
 		for (var levelId in workingNotificationsData.content.inPlace) {
 			for (var notificationId in
 					workingNotificationsData.content.inPlace[levelId]) {
-				var element = $('#pkp_notification_' + notificationId);
+				var element = $('#core_notification_' + notificationId);
 				if (element.length > 0) {
 					delete workingNotificationsData.content.
 							inPlace[levelId][notificationId];
@@ -276,7 +276,7 @@
 		if (notificationsId.length) {
 			this.trivialTimer_ = setTimeout(function() {
 				for (var notificationId in notificationsId) {
-					var $notification = $('#pkp_notification_' +
+					var $notification = $('#core_notification_' +
 							notificationsId[notificationId]);
 					$notification.fadeOut(400, function() {
 						// "this" represents the notification element here.

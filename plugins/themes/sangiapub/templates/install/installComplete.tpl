@@ -10,6 +10,6 @@
  *
  *}
 {strip}
-{assign var="pageTitle" value="installer.ojsInstallation"}
+{assign var="pageTitle" value="installer.wizdamInstallation"}
 {include file="core:install/installComplete.tpl"}
 {/strip}

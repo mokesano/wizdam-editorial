@@ -14,10 +14,10 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#submit').pkpHandler('$.pkp.controllers.form.FormHandler');
+		$('#submit').coreHandler('$.core.controllers.form.FormHandler');
 	{rdelim});
 </script>
-<form class="pkp_form" method="post" id="submit" action="{url op="selectObjectForReviewAuthor" path=$objectId}">
+<form class="core_form" method="post" id="submit" action="{url op="selectObjectForReviewAuthor" path=$objectId}">
 	<select name="searchField" size="1" class="selectMenu">
 		{html_options_translate options=$searchFieldOptions selected=$searchField}
 	</select>

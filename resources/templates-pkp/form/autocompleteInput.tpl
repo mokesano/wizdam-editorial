@@ -9,7 +9,7 @@
  *}
 <script type="text/javascript">
 	$(function() {ldelim}
-		$('#{$FBV_id}_container').pkpHandler('$.pkp.controllers.AutocompleteHandler',
+		$('#{$FBV_id}_container').coreHandler('$.core.controllers.AutocompleteHandler',
 			{ldelim}
 				sourceUrl: "{$FBV_autocompleteUrl|escape:javascript}"
 			{rdelim});

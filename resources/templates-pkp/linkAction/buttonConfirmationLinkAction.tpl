@@ -16,12 +16,12 @@
 {if !$titleIcon}{assign var="titleIcon" value="modal_confirm"}{/if}
 <script type="text/javascript">
 	$(function() {ldelim}
-		$('{$buttonSelector|escape:javascript}').pkpHandler(
-				'$.pkp.controllers.linkAction.LinkActionHandler',
+		$('{$buttonSelector|escape:javascript}').coreHandler(
+				'$.core.controllers.linkAction.LinkActionHandler',
 				{ldelim}
-					actionRequest: '$.pkp.classes.linkAction.ModalRequest',
+					actionRequest: '$.core.classes.linkAction.ModalRequest',
 					actionRequestOptions: {ldelim}
-						modalHandler: '$.pkp.controllers.modal.ButtonConfirmationModalHandler',
+						modalHandler: '$.core.controllers.modal.ButtonConfirmationModalHandler',
 						title: '{translate|escape:javascript key="form.confirmSubmit.title"}',
 						okButton: '{translate|escape:javascript key="common.ok"}',
 						cancelButton: '{translate|escape:javascript key="common.cancel"}',

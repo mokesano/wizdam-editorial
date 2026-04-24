@@ -70,7 +70,7 @@
 	$.core.classes.linkAction.AjaxRequest.prototype.handleResponse =
 			function(jsonData) {
 
-		var $linkActionHandler = this.getLinkActionElement().data('pkp.handler');
+		var $linkActionHandler = this.getLinkActionElement().data('core.handler');
 		$linkActionHandler.handleJson(jsonData);
 		this.finish();
 	};

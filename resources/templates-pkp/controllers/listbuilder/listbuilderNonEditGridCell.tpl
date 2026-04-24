@@ -12,7 +12,7 @@
 {else}
 	{assign var=cellId value=""}
 {/if}
-<span {if $cellId}id="{$cellId|escape}" {/if}class="pkp_linkActions gridCellContainer">
+<span {if $cellId}id="{$cellId|escape}" {/if}class="core_linkActions gridCellContainer">
 	<div class="gridCellDisplay">
 		{* Display the current value *}
 		{include file="controllers/grid/gridCellContents.tpl"}

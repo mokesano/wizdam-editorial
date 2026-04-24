@@ -540,16 +540,16 @@ function getFileIconForAttachment(fileType) {
 <script type="text/javascript">
 {literal}
 // Ganti fungsi initTextarea yang bermasalah dengan:
-OJSEmailComposer.initTextarea = function() {
+AppEmailComposer.initTextarea = function() {
 	// TIDAK MELAKUKAN APA-APA - biarkan textarea berperilaku normal
 	// Textarea sudah memiliki cols="60" rows="15" dari template
 };
 
 // Atau lebih sederhana lagi, hapus panggilan initTextarea dari init():
-OJSEmailComposer.init = function() {
-	// OJSEmailComposer.initTextarea(); // <- HAPUS BARIS INI
-	OJSEmailComposer.initFilePreview();
-	OJSEmailComposer.processEmailContent();
+AppEmailComposer.init = function() {
+	// AppEmailComposer.initTextarea(); // <- HAPUS BARIS INI
+	AppEmailComposer.initFilePreview();
+	AppEmailComposer.processEmailContent();
 };
 {/literal}
 </script>

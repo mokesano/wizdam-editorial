@@ -17,7 +17,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#loginChangePassword').pkpHandler('$.pkp.controllers.form.FormHandler');
+		$('#loginChangePassword').coreHandler('$.core.controllers.form.FormHandler');
 	{rdelim});
 </script>
 
@@ -25,7 +25,7 @@
 	{assign var="passwordLengthRestrictionLocaleKey" value="user.register.passwordLengthRestriction"}
 {/if}
 
-<form class="pkp_form" id="loginChangePassword" method="post" action="{url page="login" op="savePassword"}">
+<form class="core_form" id="loginChangePassword" method="post" action="{url page="login" op="savePassword"}">
 {if $confirmHash}
 	<input type="hidden" value="{$confirmHash|escape}" name="confirmHash" />
 {/if}

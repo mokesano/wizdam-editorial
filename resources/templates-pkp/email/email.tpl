@@ -138,7 +138,7 @@ function deleteAttachment(fileId) {
 
 		{if $attachmentNum != 1}<br />{/if}
 
-		<input type="file" name="newAttachment" class="pkp_form_uploadField" /> <input name="addAttachment" type="submit" class="button" value="{translate key="common.upload"}" />
+		<input type="file" name="newAttachment" class="core_form_uploadField" /> <input name="addAttachment" type="submit" class="button" value="{translate key="common.upload"}" />
 	</td>
 </tr>
 {/if}

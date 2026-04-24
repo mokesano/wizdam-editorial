@@ -17,7 +17,7 @@
 <div id="plnStatus">
 	<h3>{translate key="plugins.generic.pln.status.deposits"}</h3>
 	<p>{translate key="plugins.generic.pln.status.network_status" networkStatusMessage=$networkStatusMessage}</p>
-	<form class="pkp_form" id="plnStatusForm" method="post" action="{plugin_url path="status"}">
+	<form class="core_form" id="plnStatusForm" method="post" action="{plugin_url path="status"}">
 		<table>
 			<tr>
 				<th>{translate key="common.id"}</th>

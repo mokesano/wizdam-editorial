@@ -495,7 +495,7 @@
 
 						// Remove warning about unsaved data.
 						$('li.unsaved-data-warning').remove();
-						if($('#citationFormMessages .pkp_form_error_list').children().length === 0) {ldelim}
+						if($('#citationFormMessages .core_form_error_list').children().length === 0) {ldelim}
 							$('#citationFormMessages').remove();
 						{rdelim}
 
@@ -548,15 +548,15 @@
 							if ($('#citationFormMessages').length == 0) {ldelim}
 								var formErrorHtml =
 									'<div id="citationFormMessages" title="{translate key="submission.citations.editor.details.clickToDismissMessage"}" class="help-message">'+
-									'    <div id="pkp_form_errors">'+
-									'        <p><span class="pkp_form_error">{translate key="submission.citations.editor.details.messages"}:</span></p>'+
-									'        <ul class="pkp_form_error_list"></ul>'+
+									'    <div id="core_form_errors">'+
+									'        <p><span class="core_form_error">{translate key="submission.citations.editor.details.messages"}:</span></p>'+
+									'        <ul class="core_form_error_list"></ul>'+
 									'    </div>'+
 									'</div>';
 								$('#citationFormErrorsAndComparison').prepend(formErrorHtml);
 							{rdelim}
 							var messageHtml = '<li class="unsaved-data-warning">{translate key="submission.citations.editor.details.dataSaved"}</li>';
-							$('#formErrors .pkp_form_error_list').append(messageHtml);
+							$('#formErrors .core_form_error_list').append(messageHtml);
 						{rdelim}
 
 
@@ -609,7 +609,7 @@
 		{rdelim});
 		// -->
 	</script>
-	<form class="pkp_form" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
+	<form class="core_form" id="editCitationForm" method="post" action="{url op="updateCitation"}" >
 		<div class="wrapper scrollable with-pane-actions">
 			{include file="controllers/grid/citation/form/citationFormErrorsAndComparison.tpl"}
 
@@ -626,7 +626,7 @@
 							<li><a href="#citationImprovementAuthor" title="{translate key="submission.citations.editor.details.authorQuery"} [Ctrl-Q]">{translate key="submission.citations.editor.details.authorQuery"}</a></li>
 						</ul>
 
-						<div id="citationImprovementManual" class="pkp_controllers_grid">
+						<div id="citationImprovementManual" class="core_controllers_grid">
 							<table><tbody>
 								{* Create initial field list which will then be maintained via JS. *}
 								{foreach from=$availableFields name=availableFields key=fieldName item=field}
@@ -656,7 +656,7 @@
 							<div class="actions">
 								<button id="queryCitation" type="button">{translate key="submission.citations.editor.details.queryCitation"}</button>
 							</div>
-							<div class="pkp_helpers_clear"></div>
+							<div class="core_helpers_clear"></div>
 						</div>
 
 						<div id="citationImprovementGoogle">
@@ -666,7 +666,7 @@
 							<div class="actions">
 								<button id="googleQuery" type="button">{translate key="submission.citations.editor.details.queryGoogleScholar"}</button>
 							</div>
-							<div class="pkp_helpers_clear"></div>
+							<div class="core_helpers_clear"></div>
 						</div>
 
 						<div id="citationImprovementAuthor">
@@ -687,7 +687,7 @@
 							<div class="actions">
 								<button id="authorQuery" type="button">{translate key="submission.citations.editor.details.sendAuthorQuery"}</button>
 							</div>
-							<div class="pkp_helpers_clear"></div>
+							<div class="core_helpers_clear"></div>
 						</div>
 					</div>
 				</div>
