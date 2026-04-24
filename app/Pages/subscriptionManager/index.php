@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file pages/subscriptionManager/index.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_subscriptionManager
@@ -47,7 +47,7 @@ switch ($op) {
 	case 'suggestUsername':
 	case 'userProfile':
 		define('HANDLER_CLASS', 'SubscriptionManagerHandler');
-		import('pages.subscriptionManager.SubscriptionManagerHandler');
+		import('app.Pages.subscriptionManager.SubscriptionManagerHandler');
 		break;
 }
 

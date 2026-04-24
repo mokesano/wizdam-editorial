@@ -205,7 +205,7 @@ class CI_Upload {
 
         /*
          * ------------------------------------------------------------------
-         * TAMBAHAN PATCH KEAMANAN (OJS 2.4.x jbimages AFU)
+         * TAMBAHAN PATCH KEAMANAN (Wizdam 2.4.x jbimages AFU)
          * Memaksa verifikasi bahwa file adalah gambar.
          * ------------------------------------------------------------------
          */

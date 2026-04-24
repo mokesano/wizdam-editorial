@@ -3,8 +3,8 @@
 <!--
   * plugins/paymethod/paypal/locale/cs_CZ/emailTemplateData.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized email templates XML file.
@@ -12,9 +12,9 @@
 <email_texts locale="cs_CZ">
 	<email_text key="PAYPAL_INVESTIGATE_PAYMENT">
 		<subject>Neobvyklá PayPal aktivita</subject>
-		<body>OJS zaznamenal neobvyklou aktivitu v souvislosti s podporou plateb přes PayPal pro časopis {$journalName}. Tato aktivita může vyžadovat další kontrolu nebo ruční zásah.
+		<body>Wizdam Editorial zaznamenal neobvyklou aktivitu v souvislosti s podporou plateb přes PayPal pro časopis {$journalName}. Tato aktivita může vyžadovat další kontrolu nebo ruční zásah.
                        
-Tento email byl vygenerován OJS pluginem pro PayPal.
+Tento email byl vygenerován Wizdam Editorial pluginem pro PayPal.
 
 Kompletní informace k požadavku:
 {$postInfo}

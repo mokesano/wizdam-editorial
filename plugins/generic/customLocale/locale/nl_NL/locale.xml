@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/customLocale/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
@@ -16,11 +16,11 @@
  
 <locale name="nl_NL" full_name="Nederlands">
 	<message key="plugins.generic.customLocale.name">Custom Locale Plugin</message>
-	<message key="plugins.generic.customLocale.description">Deze plugin levert aanpassingsmogelijkheden van de standaard gebruikersinterface-teksten van OJS.</message>
+	<message key="plugins.generic.customLocale.description">Deze plugin levert aanpassingsmogelijkheden van de standaard gebruikersinterface-teksten van Wizdam Editorial.</message>
 
 	<message key="plugins.generic.customLocale.longDescription">Deze pagina toont alle talen die voor het tijdschrift geïnstalleerd zijn.</message>
 	<message key="plugins.generic.customLocale.localeDescription">Deze pagina toont alle bestanden die beschikbaar zijn voor de geselecteerde taal.</message>
-	<message key="plugins.generic.customLocale.fileDescription">Voer tekst in bij het corresponderende aangepaste tekstveld. Laat het aangepaste tekstveld leeg als de standaard OJS tekst gebruikt moet worden.</message>
+	<message key="plugins.generic.customLocale.fileDescription">Voer tekst in bij het corresponderende aangepaste tekstveld. Laat het aangepaste tekstveld leeg als de standaard Wizdam Editorial tekst gebruikt moet worden.</message>
 	<message key="plugins.generic.customLocale.localeName">Naam</message>
 	<message key="plugins.generic.customLocale.localeKey">Sleutel</message>
 	<message key="plugins.generic.customLocale.localeKeyValue">Waarde</message>

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/editor/EditorHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EditorHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.sectionEditor.SectionEditorHandler');
+import('app.Pages.sectionEditor.SectionEditorHandler');
 
 define('EDITOR_SECTION_HOME', 0);
 define('EDITOR_SECTION_SUBMISSIONS', 1);
@@ -26,7 +26,7 @@ define('EDITOR_SECTION_ISSUES', 2);
 define('FILTER_EDITOR_ALL', 0);
 define('FILTER_EDITOR_ME', 1);
 
-import ('classes.submission.editor.EditorAction');
+import ('app.Domain.submission.editor.EditorAction');
 
 class EditorHandler extends SectionEditorHandler {
     
@@ -56,7 +56,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Displays the editor role selection page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -78,7 +78,7 @@ class EditorHandler extends SectionEditorHandler {
         $templateMgr->assign('fieldOptions', $this->_getSearchFieldOptions());
         $templateMgr->assign('dateFieldOptions', $this->_getDateFieldOptions());
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         // Note: register_function is legacy Smarty. Consider update if upgrading Smarty.
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
@@ -154,7 +154,7 @@ class EditorHandler extends SectionEditorHandler {
                     $submissionsArray = array_reverse($submissionsArray);
                 }
                 // Convert submission array back to an ItemIterator class
-                import('lib.pkp.classes.core.ArrayItemIterator');
+                import('core.Kernel.ArrayItemIterator');
                 $submissions = ArrayItemIterator::fromRangeInfo($submissionsArray, $rangeInfo);
             } else {
                 $rawSubmissions = $editorSubmissionDao->_getUnfilteredEditorSubmissions(
@@ -210,7 +210,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Display editor submission queue pages.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submissions($args, $request) {
         $this->validate();
@@ -362,7 +362,7 @@ class EditorHandler extends SectionEditorHandler {
         $templateMgr->assign('fieldOptions', $this->_getSearchFieldOptions());
         $templateMgr->assign('dateFieldOptions', $this->_getDateFieldOptions());
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
 
@@ -420,7 +420,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Set the canEdit / canReview flags for this submission's edit assignments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function setEditorFlags($args, $request) {
         $this->validate();
@@ -454,7 +454,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Delete the specified edit assignment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteEditAssignment($args, $request) {
         $this->validate();
@@ -481,7 +481,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Assigns the selected editor to the submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function assignEditor($args, $request) {
         $this->validate();
@@ -534,7 +534,7 @@ class EditorHandler extends SectionEditorHandler {
                 }
 
             } elseif (!empty($searchInitial)) {
-                $searchInitial = PKPString::strtoupper($searchInitial);
+                $searchInitial = CoreString::strtoupper($searchInitial);
                 $searchType = USER_FIELD_INITIAL;
                 $search = $searchInitial;
             }
@@ -590,7 +590,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Delete a submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteSubmission($args, $request) {
         $articleId = (int) array_shift($args);
@@ -607,7 +607,7 @@ class EditorHandler extends SectionEditorHandler {
 
         if ($article->getJournalId() == $journal->getId() && ($status == STATUS_DECLINED || $status == STATUS_ARCHIVED)) {
             // Delete article files
-            import('classes.file.ArticleFileManager');
+            import('core.Modules.file.ArticleFileManager');
             $articleFileManager = new ArticleFileManager($articleId);
             $articleFileManager->deleteArticleTree();
 
@@ -653,7 +653,7 @@ class EditorHandler extends SectionEditorHandler {
             $pageHierarchy = [[$request->url(null, 'user'), 'navigation.user'], [$request->url(null, $isLayoutEditor?'layoutEditor':'editor'), $isLayoutEditor?'user.role.layoutEditor':'user.role.editor'], [$request->url(null, $isLayoutEditor?'layoutEditor':'editor', 'futureIssues'), 'issue.issues']];
         }
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         $submissionCrumb = SectionEditorAction::submissionBreadcrumb($articleId, $parentPage, 'editor');
         if (isset($submissionCrumb)) {
             $pageHierarchy = array_merge($pageHierarchy, $submissionCrumb);

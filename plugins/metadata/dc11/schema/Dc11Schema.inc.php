@@ -8,18 +8,18 @@ declare(strict_types=1);
 /**
  * @file plugins/metadata/dc11/schema/Dc11Schema.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Dc11Schema
  * @ingroup plugins_metadata_dc11_schema
- * @see PKPDc11Schema
+ * @see CoreDc11Schema
  *
- * @brief OJS-specific implementation of the Dc11Schema.
+ * @brief Wizdam-specific implementation of the Dc11Schema.
  */
 
-import('lib.pkp.plugins.metadata.dc11.schema.PKPDc11Schema');
+import('core.Modules.plugins.metadata.dc11.schema.CoreDc11Schema');
 
 class Dc11Schema extends CoreDc11Schema {
 

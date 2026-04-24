@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/themes/custom/CustomThemePlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CustomThemePlugin
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief "Custom" theme plugin
  */
 
-import('classes.plugins.ThemePlugin');
+import('core.Modules.plugins.ThemePlugin');
 
 class CustomThemePlugin extends ThemePlugin
 {
@@ -80,7 +80,7 @@ class CustomThemePlugin extends ThemePlugin
     {
         $journal = Request::getJournal();
         if ($journal && $this->getSetting($journal->getId(), 'customThemePerJournal')) {
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $fileManager = new PublicFileManager();
             return $fileManager->getJournalFilesPath($journal->getId());
         }

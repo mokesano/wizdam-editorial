@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/crossref/CrossrefInfoSender.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CrossrefInfoSender
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 
 class CrossrefInfoSender extends ScheduledTask {
@@ -108,7 +108,7 @@ class CrossrefInfoSender extends ScheduledTask {
             if ($notify) {
                 $roleDao = DAORegistry::getDAO('RoleDAO');
                 $journalManagers = $roleDao->getUsersByRoleId(ROLE_ID_JOURNAL_MANAGER, $journal->getId());
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 while ($journalManager = $journalManagers->next()) {
                     $notificationManager->createTrivialNotification($journalManager->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('plugins.importexport.crossref.notification.failed')));

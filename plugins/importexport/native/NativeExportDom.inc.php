@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/native/NativeExportDom.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NativeExportDom
@@ -14,9 +14,9 @@ declare(strict_types=1);
  * @brief Native import/export plugin DOM functions for export
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
-import('classes.file.PublicFileManager');
-import('classes.file.ArticleFileManager');
+import('core.Modules.xml.XMLCustomWriter');
+import('core.Modules.file.PublicFileManager');
+import('core.Modules.file.ArticleFileManager');
 
 class NativeExportDom {
 
@@ -118,7 +118,7 @@ class NativeExportDom {
                         $embedNode = XMLCustomWriter::createChildWithText($doc, $imageNode, 'embed', $encodedContent);
                         XMLCustomWriter::setAttribute($embedNode, 'filename', $issue->getOriginalFileName($locale));
                         XMLCustomWriter::setAttribute($embedNode, 'encoding', 'base64');
-                        XMLCustomWriter::setAttribute($embedNode, 'mime_type', PKPString::mime_content_type($coverPagePath));
+                        XMLCustomWriter::setAttribute($embedNode, 'mime_type', CoreString::mime_content_type($coverPagePath));
                     }
                 }
             }
@@ -338,7 +338,7 @@ class NativeExportDom {
                         $embedNode = XMLCustomWriter::createChildWithText($doc, $imageNode, 'embed', $encodedContent);
                         XMLCustomWriter::setAttribute($embedNode, 'filename', $article->getOriginalFileName($locale));
                         XMLCustomWriter::setAttribute($embedNode, 'encoding', 'base64');
-                        XMLCustomWriter::setAttribute($embedNode, 'mime_type', PKPString::mime_content_type($coverPagePath));
+                        XMLCustomWriter::setAttribute($embedNode, 'mime_type', CoreString::mime_content_type($coverPagePath));
                     }
                 }
             }

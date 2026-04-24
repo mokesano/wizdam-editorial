@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/TabHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TabHandler
@@ -20,13 +20,13 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.Handler
+	 * @extends $.core.classes.Handler
 	 *
 	 * @param {jQuery} $tabs A wrapped HTML element that
 	 *  represents the tabbed interface.
 	 * @param {Object} options Handler options.
 	 */
-	$.pkp.controllers.TabHandler = function($tabs, options) {
+	$.core.controllers.TabHandler = function($tabs, options) {
 		this.parent($tabs, options);
 
 		// Attach the tabs event handlers.
@@ -65,8 +65,8 @@
 			selected: options.selected ? options.selected : 0
 		});
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.TabHandler, $.pkp.classes.Handler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.TabHandler, $.core.classes.Handler);
 
 
 	//
@@ -77,7 +77,7 @@
 	 * @private
 	 * @type {jQuery}
 	 */
-	$.pkp.controllers.TabHandler.prototype.$currentTab_ = null;
+	$.core.controllers.TabHandler.prototype.$currentTab_ = null;
 
 
 	/**
@@ -85,7 +85,7 @@
 	 * @private
 	 * @type {number}
 	 */
-	$.pkp.controllers.TabHandler.prototype.currentTabIndex_ = 0;
+	$.core.controllers.TabHandler.prototype.currentTabIndex_ = 0;
 
 
 	/**
@@ -93,7 +93,7 @@
 	 * @private
 	 * @type {boolean}
 	 */
-	$.pkp.controllers.TabHandler.prototype.emptyLastTab_ = false;
+	$.core.controllers.TabHandler.prototype.emptyLastTab_ = false;
 
 
 	//
@@ -108,13 +108,13 @@
 	 * @param {Object} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabHandler.prototype.tabsSelect =
+	$.core.controllers.TabHandler.prototype.tabsSelect =
 			function(tabsElement, event, ui) {
 
 		var unsavedForm = false;
 		this.$currentTab_.find('form').each(function(index) {
 
-			var handler = $.pkp.classes.Handler.getHandler($('#' + $(this).attr('id')));
+			var handler = $.core.classes.Handler.getHandler($('#' + $(this).attr('id')));
 			if (handler.formChangesTracked) {
 				unsavedForm = true;
 				return false; // found an unsaved form, no need to continue with each().
@@ -122,7 +122,7 @@
 		});
 
 		if (unsavedForm) {
-			if (!confirm($.pkp.locale.form_dataHasChanged)) {
+			if (!confirm($.core.locale.form_dataHasChanged)) {
 				return false;
 			} else {
 				this.trigger('unregisterAllForms');
@@ -145,7 +145,7 @@
 	 * @param {Object} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabHandler.prototype.tabsShow =
+	$.core.controllers.TabHandler.prototype.tabsShow =
 			function(tabsElement, event, ui) {
 
 		// Save a reference to the current tab.
@@ -167,7 +167,7 @@
 	 * @param {Object} ui The tabs ui data.
 	 * @return {boolean} Should return true to continue tab loading.
 	 */
-	$.pkp.controllers.TabHandler.prototype.tabsLoad =
+	$.core.controllers.TabHandler.prototype.tabsLoad =
 			function(tabsElement, event, ui) {
 		return true;
 	};
@@ -182,7 +182,7 @@
 	 * @param {string} jsonString Unparsed JSON data returned from the server.
 	 * @return {string} The tab mark-up.
 	 */
-	$.pkp.controllers.TabHandler.prototype.dataFilter =
+	$.core.controllers.TabHandler.prototype.dataFilter =
 			function(ajaxOptions, jsonString) {
 
 		var jsonData = this.handleJson($.parseJSON(jsonString));
@@ -208,7 +208,7 @@
 	 * @param {Event} event The triggered event (tabsReloadRequested).
 	 * @param {Object} jsonContent The tabs ui data.
 	 */
-	$.pkp.controllers.TabHandler.prototype.tabsReloadRequested =
+	$.core.controllers.TabHandler.prototype.tabsReloadRequested =
 			function(divElement, event, jsonContent) {
 
 		var $element = this.getHtmlElement();
@@ -227,7 +227,7 @@
 	 * @protected
 	 * @return {jQuery} The current tab.
 	 */
-	$.pkp.controllers.TabHandler.prototype.getCurrentTab = function() {
+	$.core.controllers.TabHandler.prototype.getCurrentTab = function() {
 		return this.$currentTab_;
 	};
 
@@ -237,7 +237,7 @@
 	 * @protected
 	 * @return {number} The current tab index.
 	 */
-	$.pkp.controllers.TabHandler.prototype.getCurrentTabIndex = function() {
+	$.core.controllers.TabHandler.prototype.getCurrentTabIndex = function() {
 		return this.currentTabIndex_;
 	};
 

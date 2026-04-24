@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/mets/METSExportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class METSExportPlugin
@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief METS/MODS XML metadata export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
 class METSExportPlugin extends ImportExportPlugin {
 
@@ -113,7 +113,7 @@ class METSExportPlugin extends ImportExportPlugin {
             case 'issues':
                 // Display a list of issues for export
                 $this->setBreadcrumbs([], true);
-                AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR);
                 $issues = $issueDao->getIssues($journal->getId(), Handler::getRangeInfo('issues'));
 
                 $siteDao = DAORegistry::getDAO('SiteDAO');

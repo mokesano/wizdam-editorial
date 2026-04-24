@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/users/UserXMLParser.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserXMLParser
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * See dbscripts/xml/dtd/users.dtd for the XML schema used.
  */
 
-import('lib.pkp.classes.xml.XMLParser');
+import('core.Modules.xml.XMLParser');
 
 class UserXMLParser {
 
@@ -91,9 +91,9 @@ class UserXMLParser {
                                 $newUser->setMustChangePassword($attrib->getAttribute('change') == 'true' ? 1 : 0);
                                 $encrypted = $attrib->getAttribute('encrypted');
                                 if (isset($encrypted) && $encrypted !== 'plaintext') {
-                                    $ojsEncryptionScheme = Config::getVar('security', 'encryption');
-                                    if ($encrypted != $ojsEncryptionScheme) {
-                                        $this->errors[] = __('plugins.importexport.users.import.encryptionMismatch', ['importHash' => $encrypted, 'ojsHash' => $ojsEncryptionScheme]);
+                                    $wizdamEncryptionScheme = Config::getVar('security', 'encryption');
+                                    if ($encrypted != $wizdamEncryptionScheme) {
+                                        $this->errors[] = __('plugins.importexport.users.import.encryptionMismatch', ['importHash' => $encrypted, 'wizdamHash' => $wizdamEncryptionScheme]);
                                     }
                                     $newUser->setPassword($attrib->getValue());
                                 } else {
@@ -206,7 +206,7 @@ class UserXMLParser {
 
         if ($sendNotify) {
             // Set up mail template to send to added users
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $mail = new MailTemplate('USER_REGISTER');
 
             $journalDao = DAORegistry::getDAO('JournalDAO');
@@ -373,9 +373,9 @@ class UserXMLParser {
      */
     public function generateUsername(ImportedUser $user): void {
         $userDao = DAORegistry::getDAO('UserDAO');
-        $baseUsername = PKPString::regexp_replace('/[^A-Z0-9]/i', '', $user->getLastName());
+        $baseUsername = CoreString::regexp_replace('/[^A-Z0-9]/i', '', $user->getLastName());
         if (empty($baseUsername)) {
-            $baseUsername = PKPString::regexp_replace('/[^A-Z0-9]/i', '', $user->getFirstName());
+            $baseUsername = CoreString::regexp_replace('/[^A-Z0-9]/i', '', $user->getFirstName());
         }
         if (empty($baseUsername)) {
             // Default username if we can't use the user's last or first name
@@ -406,7 +406,7 @@ class UserXMLParser {
 /**
  * Helper class representing a user imported from a user data file.
  */
-import('classes.user.User');
+import('core.Modules.user.User');
 
 class ImportedUser extends User {
 

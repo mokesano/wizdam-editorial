@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/SetupHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SetupHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class SetupHandler extends ManagerHandler {
     
@@ -45,7 +45,7 @@ class SetupHandler extends ManagerHandler {
      * Display journal setup form for the selected step.
      * Displays setup index page if a valid step is not specified.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function setup($args, $request) {
         $this->validate();
@@ -59,7 +59,7 @@ class SetupHandler extends ManagerHandler {
         if ($step >= 1 && $step <= 5) {
 
             $formClass = "JournalSetupStep{$step}Form";
-            import("classes.manager.form.setup.$formClass");
+            import("core.Modules.manager.form.setup.$formClass");
 
             $setupForm = new $formClass();
             if ($setupForm->isLocaleResubmit()) {
@@ -81,7 +81,7 @@ class SetupHandler extends ManagerHandler {
     /**
      * Save changes to journal settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSetup($args, $request) {
         $this->validate();
@@ -96,7 +96,7 @@ class SetupHandler extends ManagerHandler {
             $this->setupTemplate(true);
 
             $formClass = "JournalSetupStep{$step}Form";
-            import("classes.manager.form.setup.$formClass");
+            import("core.Modules.manager.form.setup.$formClass");
 
             $setupForm = new $formClass();
             $setupForm->readInputData();
@@ -219,7 +219,7 @@ class SetupHandler extends ManagerHandler {
                     $router = $request->getRouter();
                     $journal = $router->getContext($request);
                     $templates = $journal->getSetting('templates');
-                    import('classes.file.JournalFileManager');
+                    import('core.Modules.file.JournalFileManager');
                     $journalFileManager = new JournalFileManager($journal);
                     if ((int) $request->getUserVar('addTemplate')) {
                         // Add a layout template
@@ -376,7 +376,7 @@ class SetupHandler extends ManagerHandler {
     /**
      * Display a "Settings Saved" message
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function setupSaved($args, $request) {
         $this->validate();
@@ -401,7 +401,7 @@ class SetupHandler extends ManagerHandler {
     /**
      * Download a layout template.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function downloadLayoutTemplate($args, $request) {
         $this->validate();
@@ -412,7 +412,7 @@ class SetupHandler extends ManagerHandler {
         $router = $request->getRouter();
         $journal = $router->getContext($request);
         $templates = $journal->getSetting('templates');
-        import('classes.file.JournalFileManager');
+        import('core.Modules.file.JournalFileManager');
         $journalFileManager = new JournalFileManager($journal);
         $templateId = (int) array_shift($args);
         if ($templateId >= count($templates) || $templateId < 0) $request->redirect(null, null, 'setup');
@@ -425,7 +425,7 @@ class SetupHandler extends ManagerHandler {
     /**
      * Reset the license attached to article content.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function resetPermissions($args, $request) {
         $this->validate();

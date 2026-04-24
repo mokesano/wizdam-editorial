@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/services/LoAService.inc.php
+ * @file core.Modules.classes/services/LoAService.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * memastikan LoA hanya terbit dan terverifikasi jika APC telah LUNAS.
  */
 
-import('lib.wizdam.classes.services.InvoiceService');
+import('core.Modules.services.InvoiceService');
 
 class LoAService {
     

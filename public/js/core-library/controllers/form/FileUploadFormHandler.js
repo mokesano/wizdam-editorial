@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/form/FileUploadFormHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FileUploadFormHandler
@@ -16,12 +16,12 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.AjaxFormHandler
+	 * @extends $.core.controllers.form.AjaxFormHandler
 	 *
 	 * @param {jQuery} $form The wrapped HTML form element.
 	 * @param {Object} options Form validation options.
 	 */
-	$.pkp.controllers.form.FileUploadFormHandler =
+	$.core.controllers.form.FileUploadFormHandler =
 			function($form, options) {
 
 		this.parent($form, options);
@@ -35,9 +35,9 @@
 
 		this.uploaderSetup(options.$uploader);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.form.FileUploadFormHandler,
-			$.pkp.controllers.form.AjaxFormHandler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.form.FileUploadFormHandler,
+			$.core.controllers.form.AjaxFormHandler);
 
 
 	/**
@@ -45,7 +45,7 @@
 	 * @private
 	 * @type {Boolean}
 	 */
-	$.pkp.controllers.form.FileUploadFormHandler.prototype.
+	$.core.controllers.form.FileUploadFormHandler.prototype.
 			resetUploader_ = false;
 
 
@@ -55,7 +55,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.form.FileUploadFormHandler.prototype.handleResponse =
+	$.core.controllers.form.FileUploadFormHandler.prototype.handleResponse =
 			function(formElement, jsonData) {
 		if (this.resetUploader_) {
 			var fileUploader = $('#plupload', this.getHtmlElement()).plupload('getUploader');
@@ -77,7 +77,7 @@
 	 * The setup callback of the uploader.
 	 * @param {jQuery} $uploader Element that contains the plupload object.
 	 */
-	$.pkp.controllers.form.FileUploadFormHandler.prototype.
+	$.core.controllers.form.FileUploadFormHandler.prototype.
 			uploaderSetup = function($uploader) {
 
 		var pluploader = $uploader.plupload('getUploader');
@@ -95,7 +95,7 @@
 	 * @param {Object} file The data of the uploaded file.
 	 * @param {string} ret The serialized JSON response.
 	 */
-	$.pkp.controllers.form.FileUploadFormHandler.prototype.
+	$.core.controllers.form.FileUploadFormHandler.prototype.
 			handleUploadResponse = function(caller, pluploader, file, ret) {
 
 		// Handle the server's JSON response.
@@ -126,11 +126,11 @@
 	 * @param {jQuery} $uploader The wrapped HTML uploader element.
 	 * @param {Object} options Uploader options.
 	 */
-	$.pkp.controllers.form.FileUploadFormHandler.prototype.
+	$.core.controllers.form.FileUploadFormHandler.prototype.
 			attachUploader_ = function($uploader, options) {
 
 		// Attach the uploader handler to the uploader div.
-		$uploader.pkpHandler('$.pkp.controllers.UploaderHandler', options);
+		$uploader.coreHandler('$.core.controllers.UploaderHandler', options);
 	};
 
 

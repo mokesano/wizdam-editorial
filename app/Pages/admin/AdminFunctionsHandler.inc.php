@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/admin/AdminFunctionsHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AdminFunctionsHandler
@@ -16,10 +16,10 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionDAO');
-import('lib.pkp.classes.site.VersionCheck');
-import('pages.admin.AdminHandler');
+import('core.Modules.site.Version');
+import('core.Modules.site.VersionDAO');
+import('core.Modules.site.VersionCheck');
+import('app.Pages.admin.AdminHandler');
 
 class AdminFunctionsHandler extends AdminHandler {
     
@@ -47,7 +47,7 @@ class AdminFunctionsHandler extends AdminHandler {
     /**
      * Show system information summary.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function systemInfo($args, $request) {
         $this->validate($request);
@@ -143,7 +143,7 @@ class AdminFunctionsHandler extends AdminHandler {
         // [SECURITY FIX] Sanitasi nama file untuk mencegah directory traversal
         $file = basename(trim((string) $request->getUserVar('file')));
         
-        import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
+        import('core.Modules.scheduledTask.ScheduledTaskHelper');
         ScheduledTaskHelper::downloadExecutionLog($file);
     }
     
@@ -152,7 +152,7 @@ class AdminFunctionsHandler extends AdminHandler {
      */
     public function clearScheduledTaskLogFiles() {
         $this->validate();
-        import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
+        import('core.Modules.scheduledTask.ScheduledTaskHelper');
         ScheduledTaskHelper::clearExecutionLogs();    
 
         Application::get()->getRequest()->redirect(null, 'admin');

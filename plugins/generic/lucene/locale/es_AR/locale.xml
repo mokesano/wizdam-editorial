@@ -4,11 +4,11 @@
 <!--
   * @file plugins/generic/lucene/locale/es_AR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * OJS solr/lucene search plugin localization strings
+  * Wizdam Editorial solr/lucene search plugin localization strings
   -->
  
 <locale name="es_AR" full_name="Español (Argentina)">
@@ -19,8 +19,8 @@
 		<p><strong>Por favor, asegúrese de leer el archivo README del plugin (plugins/generic/lucene/README) antes de intentar cambiar la configuración por defecto</strong></p>
 		<p>Si esta usando el escenario embebido detrás de un firewall, como se explica en el README, probablemente debería dejar todas las configuraciones por defecto.</p>]]></message>
 	<message key="plugins.generic.lucene.settings.instId">ID de instalación única</message>
-	<message key="plugins.generic.lucene.settings.instIdRequired">Por favor introduzca el ID que identifica univocamente esta instalación de OJS en el servidor de búsqueda Solr.</message>
-	<message key="plugins.generic.lucene.settings.instIdInstructions">Si esta usando un servidor central de búsqueda, entonces debería proveer de un ID único de instalación para toda instalación de OJS que comparta el mismo índice de búsqueda. Esta puede ser un texto arbitrario, pero debe ser diferente para cada servidor OJS participante. (EJ: la IP estática del servidor si se tiene una sola instalación de OJS por servidor).</message>
+	<message key="plugins.generic.lucene.settings.instIdRequired">Por favor introduzca el ID que identifica univocamente esta instalación de Wizdam Editorial en el servidor de búsqueda Solr.</message>
+	<message key="plugins.generic.lucene.settings.instIdInstructions">Si esta usando un servidor central de búsqueda, entonces debería proveer de un ID único de instalación para toda instalación de Wizdam Editorial que comparta el mismo índice de búsqueda. Esta puede ser un texto arbitrario, pero debe ser diferente para cada servidor Wizdam Editorial participante. (EJ: la IP estática del servidor si se tiene una sola instalación de Wizdam Editorial por servidor).</message>
 	<message key="plugins.generic.lucene.settings.luceneSettings">Plugin Lucene: Configuraciones de servidor Solr</message>
 	<message key="plugins.generic.lucene.settings.password">Clave</message>
 	<message key="plugins.generic.lucene.settings.passwordInstructions">Por favor introduzca  una clave para el serivdor Sorlr.</message>
@@ -67,7 +67,7 @@
 	<message key="plugins.generic.lucene.message.coreNotFound">El core solicitado '{$core}' no fue encontrado en el servidor Solr. Está online?</message>
 	<message key="plugins.generic.lucene.message.indexingIncomplete">Un error ha ocurrido mientras se indexaba: Procesados {$numProcessed} sin batch sobre {$batchCount} ({$numDeleted} documentos eliminados en este batch).</message>
 	<message key="plugins.generic.lucene.message.pullIndexingDisabled">Pull indexind no está habilitado. Por favor habilítelo desde la confguración del plugin de Lucene.</message>
-	<message key="plugins.generic.lucene.message.searchServiceOffline">Desafortunadamente el servicio de búsqueda de OJS está fuera de línea en este momento.</message>
+	<message key="plugins.generic.lucene.message.searchServiceOffline">Desafortunadamente el servicio de búsqueda de Wizdam Editorial está fuera de línea en este momento.</message>
 	<message key="plugins.generic.lucene.message.techAdminInformed">El administrador técnico de esta revista ha sido informado sobre el problema.</message>
 	<message key="plugins.generic.lucene.message.webServiceError">El servicio web de Lucene retornó un error.</message>
 	<message key="plugins.generic.lucene.rebuildIndex.pullResult">{$numMarked} artículos marcados para actualizar</message>

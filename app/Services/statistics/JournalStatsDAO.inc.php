@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/statistics/JournalStatsDAO.inc.php
+ * @file core.Modules.statistics/JournalStatsDAO.inc.php
  * 
  * Copyright (c) 2024-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady and Wizdam Team
@@ -15,9 +15,9 @@ declare(strict_types=1);
  * @version 2.0 (Strict MVC & PHP 8+ Compliant)
  */
 
-import('classes.db.DAO');
+import('core.Modules.db.DAO');
 
-// Pastikan konstanta OJS tersedia
+// Pastikan konstanta Wizdam tersedia
 if (!defined('ASSOC_TYPE_JOURNAL')) define('ASSOC_TYPE_JOURNAL', 256);
 if (!defined('ASSOC_TYPE_ISSUE')) define('ASSOC_TYPE_ISSUE', 257);
 if (!defined('ASSOC_TYPE_ARTICLE')) define('ASSOC_TYPE_ARTICLE', 259);
@@ -93,7 +93,7 @@ class JournalStatsDAO extends DAO {
             $viewResult = $this->retrieve(
                 "SELECT SUM(metric) AS total_views FROM metrics 
                  WHERE assoc_type = ? AND context_id = ? 
-                 AND (metric_type = 'ojs::counter::article' OR metric_type LIKE '%view%')",
+                 AND (metric_type = 'wizdam::counter::article' OR metric_type LIKE '%view%')",
                 [ASSOC_TYPE_ARTICLE, $journalId]
             );
             if ($viewResult && !$viewResult->EOF && $viewResult->fields['total_views']) {
@@ -117,7 +117,7 @@ class JournalStatsDAO extends DAO {
             $dlResult = $this->retrieve(
                 "SELECT SUM(metric) AS total_downloads FROM metrics 
                  WHERE assoc_type = ? AND context_id = ? 
-                 AND (metric_type = 'ojs::counter::galley' OR metric_type LIKE '%download%')",
+                 AND (metric_type = 'wizdam::counter::galley' OR metric_type LIKE '%download%')",
                 [ASSOC_TYPE_GALLEY, $journalId]
             );
             if ($dlResult && !$dlResult->EOF && $dlResult->fields['total_downloads']) {
@@ -176,7 +176,7 @@ class JournalStatsDAO extends DAO {
     public function getUniqueAuthorsCount(int $journalId): int {
         $count = 0;
         try {
-            // Diadaptasi langsung dari PKPWizdamStats::getSiteWideStats
+            // Diadaptasi langsung dari CoreStats::getSiteWideStats
             $result = $this->retrieve(
                 "SELECT COUNT(DISTINCT a.author_id) AS total 
                  FROM authors a 

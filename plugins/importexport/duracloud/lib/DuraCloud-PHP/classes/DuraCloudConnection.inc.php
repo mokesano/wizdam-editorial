@@ -6,9 +6,9 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/DuraCloudConnection.inc.php
+ * @file core.Modules.DuraCloudConnection.inc.php
  *
- * Copyright (c) 2011 John Willinsky
+ * Copyright (c) 2011 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DuraCloudConnection
@@ -43,7 +43,7 @@ class DuraCloudConnection {
 
     /**
      * Construct a new DuraCloudConnection.
-     * @param string $baseUrl Base URL to DuraCloud, i.e. https://pkp.duracloud.org
+     * @param string $baseUrl Base URL to DuraCloud, i.e. https://wizdam.duracloud.org
      * @param string $username Username
      * @param string $password Password
      */

@@ -4,8 +4,8 @@
 <!--
   * locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the fr_CA (Français (Canada)) locale.
@@ -14,11 +14,11 @@
  
 <locale name="fr_CA" full_name="Français (Canada)">
 	<message key="plugins.generic.customLocale.name">Plugiciel de langue personnalisée</message>
-	<message key="plugins.generic.customLocale.description">Ce plugiciel permet de personnaliser le texte de l'interface utilisateur par défaut utilisé par OJS.</message>
+	<message key="plugins.generic.customLocale.description">Ce plugiciel permet de personnaliser le texte de l'interface utilisateur par défaut utilisé par Wizdam Editorial.</message>
 
 	<message key="plugins.generic.customLocale.longDescription">Cette page liste toutes les langues présentement installées pour la revue.</message>
 	<message key="plugins.generic.customLocale.localeDescription">Cette page liste tous les fichiers qui sont disponibles pour la langue sélectionnée.</message>
-	<message key="plugins.generic.customLocale.fileDescription">Entrer le texte dans la zone de texte personnalisée correspondante. Laisser la zone de texte vide si le texte OJS par défaut devrait être utilisé.</message>
+	<message key="plugins.generic.customLocale.fileDescription">Entrer le texte dans la zone de texte personnalisée correspondante. Laisser la zone de texte vide si le texte Wizdam Editorial par défaut devrait être utilisé.</message>
 	<message key="plugins.generic.customLocale.localeName">Nom de la langue</message>
 	<message key="plugins.generic.customLocale.localeKey">Clé</message>
 	<message key="plugins.generic.customLocale.localeKeyValue">Valeur</message>

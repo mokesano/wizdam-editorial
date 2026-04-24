@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/payment/PaymentHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PaymentHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class PaymentHandler extends Handler {
     
@@ -44,11 +44,11 @@ class PaymentHandler extends Handler {
     /**
      * Pass request to plugin.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function plugin($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $paymentMethodPlugins = PluginRegistry::loadCategory('paymethod');
         $paymentMethodPluginName = array_shift($args);

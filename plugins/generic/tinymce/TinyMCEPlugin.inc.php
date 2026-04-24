@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/tinymce/TinyMCEPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TinyMCEPlugin
@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 // Define TinyMCE paths with unix-style separators for inclusion in browser.
 define('TINYMCE_INSTALL_PATH', 'public/js/lib/tinymce');
@@ -71,7 +71,7 @@ class TinyMCEPlugin extends GenericPlugin {
 
     /**
      * Get the name of the settings file to be installed site-wide when
-     * OJS is installed.
+     * Wizdam is installed.
      * @return string
      */
     public function getInstallSitePluginSettingsFile(): ?string {
@@ -377,7 +377,7 @@ class TinyMCEPlugin extends GenericPlugin {
     public function callback($hookName, $args) {
         // Only pages requests interest us here
         $request = Registry::get('request');
-        if (!($request->getRouter() instanceof PKPPageRouter)) return null;
+        if (!($request->getRouter() instanceof CorePageRouter)) return null;
 
         $templateManager = $args[0];
 
@@ -392,7 +392,7 @@ class TinyMCEPlugin extends GenericPlugin {
             $allLocales = AppLocale::getAllLocales();
             $localeList = [];
             foreach ($allLocales as $key => $locale) {
-                $localeList[] = PKPString::substr($key, 0, 2);
+                $localeList[] = CoreString::substr($key, 0, 2);
             }
 
             $tinymceScript = '
@@ -411,7 +411,7 @@ class TinyMCEPlugin extends GenericPlugin {
                     entity_encoding : "raw",
                     plugins : "paste,'.(Validation::isLoggedIn() ? 'jbimages,' : '').'fullscreen",
                     mode : "exact",
-                    language : "' . PKPString::substr(AppLocale::getLocale(), 0, 2) . '",
+                    language : "' . CoreString::substr(AppLocale::getLocale(), 0, 2) . '",
                     elements : "' . $enableFields . '",
                     relative_urls : false,
                     forced_root_block : false,

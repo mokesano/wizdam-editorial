@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/payment/XenditGateway.inc.php
+ * @file core.Modules.classes/payment/XenditGateway.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -15,8 +15,8 @@ declare(strict_types=1);
 
 require_once(Core::getBaseDir() . '/lib/wizdam/library/autoload.php');
 
-import('lib.wizdam.classes.payment.PaymentGatewayInterface');
-import('lib.wizdam.classes.invoice.Invoice');
+import('core.Modules.payment.PaymentGatewayInterface');
+import('core.Modules.invoice.Invoice');
 
 use Xendit\Configuration;
 use Xendit\Invoice\InvoiceApi;

@@ -2,14 +2,14 @@
  * @defgroup js_classes_notification
  */
 // Define the namespace
-$.pkp.classes.notification = $.pkp.classes.notification || {};
+$.core.classes.notification = $.core.classes.notification || {};
 
 
 /**
  * @file js/classes/notification/NotificationHelper.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NotificationHelper
@@ -19,7 +19,7 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
  */
 (function($) {
 
-	$.pkp.classes.notification.NotificationHelper = function() {};
+	$.core.classes.notification.NotificationHelper = function() {};
 
 
 	//
@@ -52,12 +52,12 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 	 * bubbles up the event so the site handler can show general
 	 * notifications.
 	 *
-	 * @param {$.pkp.classes.Handler} handler The widget handler that is
+	 * @param {$.core.classes.Handler} handler The widget handler that is
 	 * handling the notify user event.
 	 * @param {HTMLElement} triggerElement The element that triggered the
 	 * notify user event.
 	 */
-	$.pkp.classes.notification.NotificationHelper.redirectNotifyUserEvent =
+	$.core.classes.notification.NotificationHelper.redirectNotifyUserEvent =
 			function(handler, triggerElement) {
 
 		// Sometimes the notification handler will bubble up
@@ -74,7 +74,7 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 		}
 
 		// Get the selector for a notification element.
-		var $notificationSelector = '.pkp_notification';
+		var $notificationSelector = '.core_notification';
 
 		// Get the html element of the handler.
 		var $handledElement = handler.getHtmlElement();
@@ -82,8 +82,8 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 		// If the trigger element is inside a grid, let the site
 		// handler show TRIVIAL notifications.
 		var trivialAlreadyHandled = false;
-		if (!(handler instanceof $.pkp.controllers.SiteHandler)) {
-			if ($(triggerElement).parents('.pkp_controllers_grid').length > 0) {
+		if (!(handler instanceof $.core.controllers.SiteHandler)) {
+			if ($(triggerElement).parents('.core_controllers_grid').length > 0) {
 				$handledElement.parent().trigger('notifyUser');
 				trivialAlreadyHandled = true;
 			}
@@ -115,8 +115,8 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 			var j, parentsLength, $elementParentWidget;
 			for (j = 0, parentsLength = $elementParents.length;
 					j < parentsLength; j++) {
-				handler = $($elementParents[j]).data('pkp.handler');
-				if ((handler instanceof $.pkp.classes.Handler)) {
+				handler = $($elementParents[j]).data('core.handler');
+				if ((handler instanceof $.core.classes.Handler)) {
 					$elementParentWidget = $($elementParents[j]);
 					break;
 				}

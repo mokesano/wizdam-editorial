@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/GroupHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GroupHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class GroupHandler extends ManagerHandler {
     
@@ -166,7 +166,7 @@ class GroupHandler extends ManagerHandler {
         }
 
         $this->setupTemplate($group, true);
-        import('classes.manager.form.GroupForm');
+        import('core.Modules.manager.form.GroupForm');
 
         $templateMgr = TemplateManager::getManager();
 
@@ -213,7 +213,7 @@ class GroupHandler extends ManagerHandler {
         }
         $this->setupTemplate($group);
 
-        import('classes.manager.form.GroupForm');
+        import('core.Modules.manager.form.GroupForm');
 
         $groupForm = new GroupForm($group);
         $groupForm->readInputData();
@@ -313,7 +313,7 @@ class GroupHandler extends ManagerHandler {
 
             } elseif (!empty($searchInitial)) {
                 // $searchInitial sudah diamankan
-                $searchInitial = PKPString::strtoupper($searchInitial);
+                $searchInitial = CoreString::strtoupper($searchInitial);
                 $searchType = USER_FIELD_INITIAL;
                 $search = $searchInitial;
             }

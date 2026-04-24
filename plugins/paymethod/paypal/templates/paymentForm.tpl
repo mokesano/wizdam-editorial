@@ -6,7 +6,7 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * [WIZDAM HYBRID EDITION]
- * - Uses OJS Header/Footer
+ * - Uses App Header/Footer
  * - Uses Existing Locales
  * - Uses API v2 Smart Buttons
  *}
@@ -257,8 +257,8 @@
             // Jika Pembayaran Berhasil (Approved)
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(details) {
-                    // Redirect ke ReturnURL yang sudah disiapkan OJS
-                    // Ini akan memicu pencatatan pembayaran di sisi OJS
+                    // Redirect ke ReturnURL yang sudah disiapkan App
+                    // Ini akan memicu pencatatan pembayaran di sisi App
                     window.location.href = "{$paypalParams.returnUrl|escape:'javascript'}";
                 });
             },

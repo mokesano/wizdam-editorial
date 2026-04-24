@@ -1,8 +1,8 @@
 {**
  * plugins/generic/pln/templates/settingsForm.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * PLN plugin settings
@@ -15,12 +15,12 @@
 		{if $prerequisitesMissing|@count > 0}
 			<ul>
 				{foreach from=$prerequisitesMissing item=message}
-					<li><span class='pkp_form_error'>{$message}</span></li>
+					<li><span class='core_form_error'>{$message}</span></li>
 				{/foreach}
 			</ul>
 		{/if}
 <div id="plnSettings">
-	<form class="pkp_form" id="plnSettingsForm" method="post" action="{plugin_url path="settings"}">
+	<form class="core_form" id="plnSettingsForm" method="post" action="{plugin_url path="settings"}">
 		{include file="common/formErrors.tpl"}
 		<table class="data">
 			<tr>

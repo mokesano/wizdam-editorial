@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/pln/pages/PLNHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PLNHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class PLNHandler extends Handler {
 
@@ -41,7 +41,7 @@ class PLNHandler extends Handler {
     /**
      * Index handler: redirect to journal page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args, $request) {
         $request->redirect(null, 'index');
@@ -50,7 +50,7 @@ class PLNHandler extends Handler {
     /**
      * Provide an endpoint for the PLN staging server to retrieve a deposit
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deposits($args, $request) {
         $journal = $request->getJournal();
@@ -90,7 +90,7 @@ class PLNHandler extends Handler {
     /**
      * Display status of deposit(s)
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function status($args, $request) {
         // Fix: args parameter default value array() -> []

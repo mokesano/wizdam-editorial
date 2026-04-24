@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/pages/ObjectsForReviewEditorHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ObjectsForReviewEditorHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class ObjectsForReviewEditorHandler extends Handler {
 
@@ -41,7 +41,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Display objects for review listing pages.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function objectsForReview($args, $request) {
         $journal = $request->getJournal();
@@ -81,7 +81,7 @@ class ObjectsForReviewEditorHandler extends Handler {
         }
 
         // Filter by editor
-        import('pages.editor.EditorHandler');
+        import('app.Pages.editor.EditorHandler');
         
         $user = $request->getUser();
         $filterEditorOptions = [
@@ -159,7 +159,7 @@ class ObjectsForReviewEditorHandler extends Handler {
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
         $mode = $ofrPlugin->getSetting($journalId, 'mode');
 
-        $ofrPlugin->import('classes.ObjectForReviewAssignment');
+        $ofrPlugin->import('core.Modules.ObjectForReviewAssignment');
         $path = !isset($args) || empty($args) ? null : $args[0];
         $template = 'objectsForReviewAssignments.tpl';
         
@@ -233,14 +233,14 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Edit and update object for review (plug-in) settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function objectsForReviewSettings($args, $request) {
         $journal = $request->getJournal();
         $journalId = $journal->getId();
 
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
-        $ofrPlugin->import('classes.form.ObjectsForReviewSettingsForm');
+        $ofrPlugin->import('core.Modules.form.ObjectsForReviewSettingsForm');
         $settingsForm = new ObjectsForReviewSettingsForm($ofrPlugin, $journalId);
         
         // [SECURITY FIX] Amankan flag boolean 'save'
@@ -254,7 +254,7 @@ class ObjectsForReviewEditorHandler extends Handler {
                     
                     // Notification
                     $user = $request->getUser();
-                    import('classes.notification.NotificationManager');
+                    import('core.Modules.notification.NotificationManager');
                     $notificationManager = new NotificationManager();
                     $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_OFR_SETTINGS_SAVED);
 
@@ -270,7 +270,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Create/edit object for review.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createObjectForReview($args, $request) {
         $this->editObjectForReview($args, $request);
@@ -279,7 +279,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Create/edit object for review.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editObjectForReview($args, $request) {
         $objectId = array_shift($args);
@@ -305,7 +305,7 @@ class ObjectsForReviewEditorHandler extends Handler {
             $templateMgr->assign('pageTitle', 'plugins.generic.objectsForReview.editor.create');
         }
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
-        $ofrPlugin->import('classes.form.ObjectForReviewForm');
+        $ofrPlugin->import('core.Modules.form.ObjectForReviewForm');
         $ofrForm = new ObjectForReviewForm($ofrPlugin->getName(), $objectId, $reviewObjectTypeId);
         $ofrForm->initData();
         $ofrForm->display($request);
@@ -314,7 +314,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Update object for review.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateObjectForReview($args, $request) {
         // [SECURITY FIX] Amankan 'objectId'
@@ -331,7 +331,7 @@ class ObjectsForReviewEditorHandler extends Handler {
         }
 
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
-        $ofrPlugin->import('classes.form.ObjectForReviewForm');
+        $ofrPlugin->import('core.Modules.form.ObjectForReviewForm');
         $ofrForm = new ObjectForReviewForm($ofrPlugin->getName(), $objectId, $reviewObjectTypeId);
         $ofrForm->readInputData();
 
@@ -418,7 +418,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Remove object for review cover page image.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeObjectForReviewCoverPage($args, $request) {
         $objectId = array_shift($args);
@@ -435,12 +435,12 @@ class ObjectsForReviewEditorHandler extends Handler {
         $coverPageSetting = $objectForReview->getCoverPage();
         if ($coverPageSetting) {
             // Delete cover image file from the filesystem
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $publicFileManager = new PublicFileManager();
             $publicFileManager->removeJournalFile($journalId, $coverPageSetting['fileName']);
             // Delete object for review setting
             $ofrPlugin = $this->_getObjectsForReviewPlugin();
-            $ofrPlugin->import('classes.ReviewObjectMetadata');
+            $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
             $metadataId = $objectForReview->getMetadataId(REVIEW_OBJECT_METADATA_KEY_COVERPAGE);
             $ofrSettingsDao = DAORegistry::getDAO('ObjectForReviewSettingsDAO');
             $ofrSettingsDao->deleteSetting($objectId, $metadataId);
@@ -451,7 +451,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Delete object for review.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteObjectForReview($args, $request) {
         $objectId = array_shift($args);
@@ -471,7 +471,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Display a list of authors from which to choose an object reviewer.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function selectObjectForReviewAuthor($args, $request) {
         $objectId = array_shift($args);
@@ -519,7 +519,7 @@ class ObjectsForReviewEditorHandler extends Handler {
             }
 
         } else if (!empty($searchInitial)) {
-            $searchInitial = PKPString::strtoupper($searchInitial);
+            $searchInitial = CoreString::strtoupper($searchInitial);
             $searchField = USER_FIELD_INITIAL; // Konstanta ini aman
             $search = $searchInitial;
         }
@@ -551,7 +551,7 @@ class ObjectsForReviewEditorHandler extends Handler {
         $templateMgr->assign('users', $users);
         $templateMgr->assign('usersAssigned', $usersAssigned);
 
-        import('classes.security.Validation');
+        import('core.Modules.security.Validation');
         $templateMgr->assign('isJournalManager', Validation::isJournalManager());
 
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
@@ -561,7 +561,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Assign an object for review author.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function assignObjectForReviewAuthor($args, $request) {
         $objectId = array_shift($args);
@@ -601,7 +601,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Accept an object for review author.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function acceptObjectForReviewAuthor($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -614,7 +614,7 @@ class ObjectsForReviewEditorHandler extends Handler {
         $redirect = true;
         // Ensure the assignment exists
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
-        $ofrPlugin->import('classes.ObjectForReviewAssignment');
+        $ofrPlugin->import('core.Modules.ObjectForReviewAssignment');
         if (!$this->_ensureAssignmentExists($assignmentId, $journalId, OFR_STATUS_REQUESTED)) {
             $request->redirect(null, 'editor', 'objectsForReview', $returnPage);
         }
@@ -636,7 +636,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Deny an object for review request.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function denyObjectForReviewAuthor($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -648,7 +648,7 @@ class ObjectsForReviewEditorHandler extends Handler {
 
         // Ensure the assignment exists
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
-        $ofrPlugin->import('classes.ObjectForReviewAssignment');
+        $ofrPlugin->import('core.Modules.ObjectForReviewAssignment');
         if (!$this->_ensureAssignmentExists($assignmentId, $journalId, OFR_STATUS_REQUESTED)) {
             $request->redirect(null, 'editor', 'objectsForReview', $returnPage);
         }
@@ -656,7 +656,7 @@ class ObjectsForReviewEditorHandler extends Handler {
         $ofrAssignment = $ofrAssignmentDao->getById($assignmentId);
 
         $redirect = true;
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $email = new MailTemplate('OFR_OBJECT_DENIED');
         
         // [SECURITY FIX] Amankan flag boolean 'send'
@@ -679,7 +679,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Mark an object for review assignment as mailed.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function notifyObjectForReviewMailed($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -691,7 +691,7 @@ class ObjectsForReviewEditorHandler extends Handler {
 
         // Ensure the assignment exists
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
-        $ofrPlugin->import('classes.ObjectForReviewAssignment');
+        $ofrPlugin->import('core.Modules.ObjectForReviewAssignment');
         if (!$this->_ensureAssignmentExists($assignmentId, $journalId, OFR_STATUS_ASSIGNED)) {
             $request->redirect(null, 'editor', 'objectsForReview', $returnPage);
         }
@@ -699,7 +699,7 @@ class ObjectsForReviewEditorHandler extends Handler {
         $ofrAssignment = $ofrAssignmentDao->getById($assignmentId);
 
         $redirect = true;
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $email = new MailTemplate('OFR_OBJECT_MAILED');
         
         // [SECURITY FIX] Amankan flag boolean 'send'
@@ -731,7 +731,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Remove object reviewer assignment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeObjectForReviewAssignment($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -753,7 +753,7 @@ class ObjectsForReviewEditorHandler extends Handler {
         }
 
         $redirect = true;
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $email = new MailTemplate('OFR_REVIEWER_REMOVED');
         
         // [SECURITY FIX] Amankan flag boolean 'send'
@@ -776,7 +776,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Display a list of submissions from which to choose an object review submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function selectObjectForReviewSubmission($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -829,7 +829,7 @@ class ObjectsForReviewEditorHandler extends Handler {
                 $searchMatch = 'contains'; // Set default aman
             }
         }
-        import('classes.submission.common.Action');
+        import('core.Modules.submission.common.Action');
         $fieldOptions = [
             SUBMISSION_FIELD_TITLE => 'article.title',
             SUBMISSION_FIELD_ID => 'article.submissionId',
@@ -874,7 +874,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Assign an object for review submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function assignObjectForReviewSubmission($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -929,7 +929,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Edit object for review assignment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editObjectForReviewAssignment($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -955,7 +955,7 @@ class ObjectsForReviewEditorHandler extends Handler {
         $templateMgr->assign('pageTitle', 'plugins.generic.objectsForReview.editor.edit');
 
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
-        $ofrPlugin->import('classes.form.ObjectForReviewAssignmentForm');
+        $ofrPlugin->import('core.Modules.form.ObjectForReviewAssignmentForm');
         $ofrAssignmentForm = new ObjectForReviewAssignmentForm($ofrPlugin->getName(), $assignmentId, $objectId);
         $ofrAssignmentForm->initData();
         $mode = $ofrPlugin->getSetting($journalId, 'mode');
@@ -967,7 +967,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Update object for review assignment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateObjectForReviewAssignment($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -991,7 +991,7 @@ class ObjectsForReviewEditorHandler extends Handler {
         }
 
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
-        $ofrPlugin->import('classes.form.ObjectForReviewAssignmentForm');
+        $ofrPlugin->import('core.Modules.form.ObjectForReviewAssignmentForm');
         $ofrAssignmentForm = new ObjectForReviewAssignmentForm($ofrPlugin->getName(), $assignmentId, $objectId);
         $ofrAssignmentForm->readInputData();
         if ($ofrAssignmentForm->validate()) {
@@ -1025,7 +1025,7 @@ class ObjectsForReviewEditorHandler extends Handler {
 
     /**
      * Ensure that we have a journal, plugin is enabled, and user is editor.
-     * @see PKPHandler::authorize()
+     * @see CoreHandler::authorize()
      */
     public function authorize($request, $args, $roleAssignments) {
         $journal = $request->getJournal();
@@ -1044,7 +1044,7 @@ class ObjectsForReviewEditorHandler extends Handler {
 
     /**
      * Setup common template variables.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param boolean $subclass set to true if caller is below this handler in the hierarchy
      * @param int $objectId
      */
@@ -1107,7 +1107,7 @@ class ObjectsForReviewEditorHandler extends Handler {
 
     /**
      * Get return page
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string
      */
     protected function _getReturnpage($request) {
@@ -1176,10 +1176,10 @@ class ObjectsForReviewEditorHandler extends Handler {
      * @param ObjectForReview $objectForReview
      * @param User $author
      * @param string $returnUrl
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     protected function _assign($ofrAssignment, $objectForReview, $author, $returnUrl, $request) {
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $email = new MailTemplate('OFR_OBJECT_ASSIGNED');
         // [SECURITY FIX] Amankan flag boolean 'send'
         $send = (int) trim($request->getUserVar('send') ?? '');
@@ -1232,7 +1232,7 @@ class ObjectsForReviewEditorHandler extends Handler {
      * @param User $user
      * @param string $returnUrl
      * @param string $action
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     protected function _displayEmailForm($email, $objectForReview, $user, $returnUrl, $action, $request) {
         // [SECURITY FIX] Amankan flag boolean 'continued'
@@ -1264,33 +1264,33 @@ class ObjectsForReviewEditorHandler extends Handler {
                 $dueDateTimestamp = time() + ($dueWeeks * 7 * 24 * 60 * 60);
                 $paramArray = [
                     'authorName' => strip_tags($userFullName),
-                    'authorMailingAddress' => PKPString::html2text($userMailingAddress),
+                    'authorMailingAddress' => CoreString::html2text($userMailingAddress),
                     'objectForReviewTitle' => '"' . strip_tags($objectForReview->getTitle()) . '"',
                     'objectForReviewDueDate' => date('l, F j, Y', $dueDateTimestamp),
                     'userProfileUrl' => $request->url(null, 'user', 'profile'),
                     'submissionUrl' => $request->url(null, 'author', 'submit'),
-                    'editorialContactSignature' => PKPString::html2text($editorContactSignature)
+                    'editorialContactSignature' => CoreString::html2text($editorContactSignature)
                 ];
             } elseif ($action == 'OFR_OBJECT_DENIED') {
                 $paramArray = [
                     'authorName' => strip_tags($userFullName),
                     'objectForReviewTitle' => '"' . strip_tags($objectForReview->getTitle()) . '"',
                     'submissionUrl' => $request->url(null, 'author', 'submit'),
-                    'editorialContactSignature' => PKPString::html2text($editorContactSignature)
+                    'editorialContactSignature' => CoreString::html2text($editorContactSignature)
                 ];
             } elseif ($action == 'OFR_OBJECT_MAILED') {
                 $paramArray = [
                     'authorName' => strip_tags($userFullName),
-                    'authorMailingAddress' => PKPString::html2text($userMailingAddress),
+                    'authorMailingAddress' => CoreString::html2text($userMailingAddress),
                     'objectForReviewTitle' => '"' . strip_tags($objectForReview->getTitle()) . '"',
                     'submissionUrl' => $request->url(null, 'author', 'submit'),
-                    'editorialContactSignature' => PKPString::html2text($editorContactSignature)
+                    'editorialContactSignature' => CoreString::html2text($editorContactSignature)
                 ];
             } elseif ($action == 'OFR_REVIEWER_REMOVED') {
                 $paramArray = [
                     'authorName' => strip_tags($userFullName),
                     'objectForReviewTitle' => '"' . strip_tags($objectForReview->getTitle()) . '"',
-                    'editorialContactSignature' => PKPString::html2text($editorContactSignature)
+                    'editorialContactSignature' => CoreString::html2text($editorContactSignature)
                 ];
             }
             $email->addRecipient($userEmail, $userFullName);
@@ -1303,11 +1303,11 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Create trivial notification
      * @param int $notificationType
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     protected function _createTrivialNotification($notificationType, $request) {
         $user = $request->getUser();
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification($user->getId(), $notificationType);
     }

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/services/InvoiceService.inc.php
+ * @file core.Modules.classes/services/InvoiceService.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -15,11 +15,11 @@ declare(strict_types=1);
  */
 
 // Model & DAO tetap di domain checkout (atau sesuaikan jika ikut dipindah)
-import('lib.wizdam.classes.invoice.Invoice');
-import('lib.wizdam.classes.invoice.InvoiceDAO');
+import('core.Modules.invoice.Invoice');
+import('core.Modules.invoice.InvoiceDAO');
 
 // Import service yang relevan
-import('lib.wizdam.classes.services.CartService');
+import('core.Modules.services.CartService');
 
 class InvoiceService {
     
@@ -103,7 +103,7 @@ class InvoiceService {
             throw new \InvalidArgumentException(__('billing.error.negativeAmount'));
         }
         
-        // Jika invoiceNumber tidak dikirim dari OJSPaymentManager, generate
+        // Jika invoiceNumber tidak dikirim dari AppPaymentManager, generate
         if (empty($invoiceNumber)) {
             $generated     = $this->generateInvoiceNumber($feeType, $journalId, $userId, $submissionId);
             $invoiceNumber = $generated['invoiceNumber'];

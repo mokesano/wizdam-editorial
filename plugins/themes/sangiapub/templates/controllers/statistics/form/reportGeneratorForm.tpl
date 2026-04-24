@@ -1,8 +1,8 @@
 {**
  * templates/controllers/statistics/form/reportGeneratorForm.tpl
  *
- * Copyright (c) 2013-2015 Simon Fraser University Library
- * Copyright (c) 2003-2015 John Willinsky
+ * Copyright (c) 2013-2015 Sangia Publishing House Library
+ * Copyright (c) 2003-2015 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Report generator form template.
@@ -11,7 +11,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#reportGeneratorForm').pkpHandler('$.pkp.statistics.ReportGeneratorFormHandler',
+		$('#reportGeneratorForm').coreHandler('$.core.statistics.ReportGeneratorFormHandler',
 			{ldelim}
 				fetchFormUrl: '{url op=fetchReportGenerator}',
 				metricTypeSelectSelector: '#metricType',
@@ -44,7 +44,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="reportGeneratorForm" method="post" action="{url op="saveReportGenerator"}">
+<form class="core_form" id="reportGeneratorForm" method="post" action="{url op="saveReportGenerator"}">
     
     {* WIZDAM SECURITY: Token CSRF Wajib Ada *}
     <input value="{$csrfToken|escape}" name="csrfToken" type="hidden">

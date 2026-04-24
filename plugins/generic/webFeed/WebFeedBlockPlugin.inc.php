@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/webFeed/WebFeedBlockPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class WebFeedBlockPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class WebFeedBlockPlugin extends BlockPlugin {
 
@@ -113,7 +113,7 @@ class WebFeedBlockPlugin extends BlockPlugin {
     /**
      * Get HTML block contents.
      * @param $templateMgr object
-     * @param $request PKPRequest|null
+     * @param $request CoreRequest|null
      * @return string
      */
     public function getContents($templateMgr, $request = null) {

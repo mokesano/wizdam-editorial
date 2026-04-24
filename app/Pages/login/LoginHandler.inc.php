@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/login/LoginHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LoginHandler
@@ -18,7 +18,7 @@ declare(strict_types=1);
  * - Added Google SSO Integration
  */
 
-import('lib.pkp.pages.login.PKPLoginHandler');
+import('app.Pages.login.CoreLoginHandler');
 
 class LoginHandler extends CoreLoginHandler {
 
@@ -111,16 +111,16 @@ class LoginHandler extends CoreLoginHandler {
     /**
      * [WIZDAM HELPER] Resolve the pre-login return URL, discarding login pages.
      *
-     * OJS passes 'source' when redirecting to login. loginReturnUrl in session may
+     * Wizdam passes 'source' when redirecting to login. loginReturnUrl in session may
      * also hold the login page itself if the user navigated directly to it.
      * Both cases must be discarded so the user is not looped back to login after SSO.
      *
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @param object $session Session instance
      * @return string Valid return URL or empty string
      */
     private function _resolveReturnUrl($request, $session): string {
-        // 'source' is the OJS native parameter set when redirecting to login page
+        // 'source' is the Wizdam native parameter set when redirecting to login page
         $returnUrl = $request->getUserVar('source')
                   ?? $request->getUserVar('returnUrl')
                   ?? $session->getSessionVar('loginReturnUrl')
@@ -174,7 +174,7 @@ class LoginHandler extends CoreLoginHandler {
      * Initiate ORCID authentication flow.
      * Redirects the user to the ORCID authorization server.
      * @param array  $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function orcidAuth($args, $request) {
         if (!Config::getVar('sso', 'sso_enabled') || !Config::getVar('sso', 'orcid')) {
@@ -218,7 +218,7 @@ class LoginHandler extends CoreLoginHandler {
      * Handle callback from ORCID after authentication.
      * Logs in user if ORCID is linked, or redirects to register if not.
      * @param array  $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function orcidCallback($args, $request) {
         $sessionManager = SessionManager::getManager();
@@ -318,7 +318,7 @@ class LoginHandler extends CoreLoginHandler {
             $this->_setSSOSession($user, $session);
 
             // Return to originating page from state, fallback to journal dashboard
-            if ($returnUrl && PKPRequest::isPathValid($returnUrl)) {
+            if ($returnUrl && CoreRequest::isPathValid($returnUrl)) {
                 $request->redirectUrl($returnUrl);
             } else {
                 $request->redirect($contextPath ?: null, 'user');
@@ -353,7 +353,7 @@ class LoginHandler extends CoreLoginHandler {
     /**
      * Unlink ORCID from the current user account.
      * @param array  $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function orcidUnlink($args, $request) {
         $this->validate();
@@ -388,7 +388,7 @@ class LoginHandler extends CoreLoginHandler {
      * Initiate Google authentication flow.
      * Redirects the user to the Google authorization server.
      * @param array  $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function googleAuth($args, $request) {
         if (!Config::getVar('sso', 'sso_enabled') || !Config::getVar('sso', 'google')) {
@@ -431,7 +431,7 @@ class LoginHandler extends CoreLoginHandler {
      * Handle callback from Google after authentication.
      * Logs in user if Google ID is linked, or redirects to register if not.
      * @param array  $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function googleCallback($args, $request) {
         $sessionManager = SessionManager::getManager();
@@ -530,7 +530,7 @@ class LoginHandler extends CoreLoginHandler {
                 $userSettingsDao->updateSetting($currentUser->getId(), 'google_id', $googleId, 'string');
 
                 // [FIX-MULTI-EMAIL] Store Google email in its own slot, never overwrites
-                // the primary OJS email. User may link a different Google account email.
+                // the primary Wizdam email. User may link a different Google account email.
                 if (!empty($googleEmail)) {
                     $slot = $this->_findOrCreateEmailSlot($currentUser->getId(), $googleEmail, $userSettingsDao);
                     $userSettingsDao->updateSetting($currentUser->getId(), $slot, $googleEmail, 'string');
@@ -567,7 +567,7 @@ class LoginHandler extends CoreLoginHandler {
             $this->_setSSOSession($user, $session);
 
             // Return to originating page from state, fallback to journal dashboard
-            if ($returnUrl && PKPRequest::isPathValid($returnUrl)) {
+            if ($returnUrl && CoreRequest::isPathValid($returnUrl)) {
                 $request->redirectUrl($returnUrl);
             } else {
                 $request->redirect($contextPath ?: null, 'user');
@@ -589,7 +589,7 @@ class LoginHandler extends CoreLoginHandler {
     /**
      * Unlink Google from the current user account.
      * @param array  $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function googleUnlink($args, $request) {
         $this->validate();
@@ -623,7 +623,7 @@ class LoginHandler extends CoreLoginHandler {
     /**
      * Override validate to ensure proper access control for SSO actions.
      * ORCID/Google Auth & Callback are accessible without prior login.
-     * @copydoc PKPHandler::validate()
+     * @copydoc CoreHandler::validate()
      */
     function validate($sandbox = false, $requiredContexts = null, $request = null) {
         return parent::validate($sandbox);
@@ -632,7 +632,7 @@ class LoginHandler extends CoreLoginHandler {
     /**
      * Allow site admins and journal managers to sign in as another user for troubleshooting.
      * @param array  $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function signInAsUser($args, $request) {
         $this->addCheck(new HandlerValidatorJournal($this));
@@ -674,7 +674,7 @@ class LoginHandler extends CoreLoginHandler {
     /**
      * Allow site admins and journal managers to sign out from a user they signed in as.
      * @param array  $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function signOutAsUser($args, $request) {
         $this->validate();
@@ -702,7 +702,7 @@ class LoginHandler extends CoreLoginHandler {
 
     /**
      * Override to ensure login URL is correctly generated for SSO flows.
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @return string
      */
     public function _getLoginUrl($request) {
@@ -711,7 +711,7 @@ class LoginHandler extends CoreLoginHandler {
 
     /**
      * Override to set appropriate "From" address for system emails based on journal settings.
-     * @param object      $request PKPRequest
+     * @param object      $request CoreRequest
      * @param object      $mail    MailTemplate
      * @param object|null $site    optional
      */
@@ -728,7 +728,7 @@ class LoginHandler extends CoreLoginHandler {
 
     /**
      * Override to load locale components for the login page.
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function setupTemplate($request = null) {
         AppLocale::requireComponents(LOCALE_COMPONENT_APP_MANAGER, LOCALE_COMPONENT_CORE_MANAGER);

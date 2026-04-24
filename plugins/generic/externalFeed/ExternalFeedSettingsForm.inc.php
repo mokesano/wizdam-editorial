@@ -4,22 +4,22 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/externalFeed/ExternalFeedSettingsForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ExternalFeedSettingsForm
  * @ingroup plugins_generic_externalFeed
  *
  * @brief Form for journal managers to modify External Feed plugin settings
- * * MODERNIZED FOR PHP 7.4+ & OJS FORK
+ * * MODERNIZED FOR PHP 7.4+ & Wizdam FORK
  * - Implemented __construct.
  * - Removed obsolete reference operators (&).
  * - Redirected template to 'templates/' folder.
  * - Cleaned up file upload naming logic.
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ExternalFeedSettingsForm extends Form {
 
@@ -89,7 +89,7 @@ class ExternalFeedSettingsForm extends Form {
         $plugin = $this->plugin;
         $settingName = 'externalFeedStyleSheet';
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $fileManager = new PublicFileManager();
 
         if ($fileManager->uploadedFileExists($settingName)) {
@@ -128,7 +128,7 @@ class ExternalFeedSettingsForm extends Form {
 
         $setting = $plugin->getSetting($journalId, $settingName);
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $fileManager = new PublicFileManager();
 
         if ($fileManager->removeJournalFile($journalId, $setting['uploadName'])) {

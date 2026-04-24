@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/lucene/classes/form/LuceneSettingsForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LuceneSettingsForm
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.pkp.classes.form.Form');
-import('lib.pkp.classes.form.validation.FormValidatorBoolean');
+import('core.Modules.form.Form');
+import('core.Modules.form.validation.FormValidatorBoolean');
 
 // These are the first few letters of an md5 of '##placeholder##'.
 // FIXME: Any better idea how to prevent a password clash?
@@ -85,7 +85,7 @@ class LuceneSettingsForm extends Form {
      */
     public function readInputData() {
         $this->readUserVars($this->_getFormFields());
-        $request = PKPApplication::getRequest();
+        $request = CoreApplication::getRequest();
         $password = $request->getUserVar('password');
         
         if ($password === LUCENE_PLUGIN_PASSWORD_PLACEHOLDER) {
@@ -98,7 +98,7 @@ class LuceneSettingsForm extends Form {
     /**
      * Fetch the form template and display it.
      * @see Form::fetch()
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $template
      * @param boolean $display
      */

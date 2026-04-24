@@ -1,7 +1,7 @@
 {**
  * Journal Visitor Country Statistics
  * @file getJournalVisitorCountry.php
- * @brief Function untuk mengambil data pengunjung jurnal berdasarkan negara untuk OJS 2.4.8.2
+ * @brief Function untuk mengambil data pengunjung jurnal berdasarkan negara untuk App 2.4.8.2
  * @author Rochmady and Wizdam Team
  * @version v1.1.0 - Smart Detection + Weekly Updates + Dynamic Cache
  *}

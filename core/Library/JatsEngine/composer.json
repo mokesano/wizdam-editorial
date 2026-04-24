@@ -1,0 +1,38 @@
+{
+    "name": "wizdam/jats-engine",
+    "description": "JATS XML Parser and Builder for Wizdam Platform",
+    "type": "library",
+    "license": "GPL-2.0-only",
+    "keywords": [
+        "jats",
+        "xml",
+        "publishing",
+        "ojs",
+        "wizdam"
+    ],
+    "authors": [
+        {
+            "name": "Rochmady",
+            "email": "admin@wizdam.sangia.org",
+            "role": "Lead Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "ext-simplexml": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wizdam\\Jats\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Wizdam\\Jats\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

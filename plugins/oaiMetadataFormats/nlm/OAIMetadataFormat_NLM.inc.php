@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file plugins/oaiMetadataFormats/nlm/OAIMetadataFormat_NLM.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAIMetadataFormat_NLM
@@ -141,11 +141,11 @@ class OAIMetadataFormat_NLM extends OAIMetadataFormat {
 
         // Include page info, if available and parseable.
         $matches = null;
-        if (PKPString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)$/', $article->getPages(), $matches)) {
+        if (CoreString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)$/', $article->getPages(), $matches)) {
             $matchedPage = htmlspecialchars(Core::cleanVar($matches[1]));
             $response .= "\t\t\t\t<fpage>$matchedPage</fpage><lpage>$matchedPage</lpage>\n";
             $pageCount = 1;
-        } elseif (PKPString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)[ ]?-[ ]?([Pp][Pp]?[.]?[ ]?)?(\d+)$/', $article->getPages(), $matches)) {
+        } elseif (CoreString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)[ ]?-[ ]?([Pp][Pp]?[.]?[ ]?)?(\d+)$/', $article->getPages(), $matches)) {
             $matchedPageFrom = htmlspecialchars(Core::cleanVar($matches[1]));
             $matchedPageTo = htmlspecialchars(Core::cleanVar($matches[3]));
             $response .=
@@ -173,7 +173,7 @@ class OAIMetadataFormat_NLM extends OAIMetadataFormat {
         $abstract = htmlspecialchars(Core::cleanVar(strip_tags($article->getLocalizedAbstract())));
         if (!empty($abstract)) {
             $abstract = "<p>$abstract</p>";
-            // $abstract = '<p>' . PKPString::regexp_replace('/\n+/', '</p><p>', $abstract) . '</p>';
+            // $abstract = '<p>' . CoreString::regexp_replace('/\n+/', '</p><p>', $abstract) . '</p>';
             $response .= "\t\t\t<abstract xml:lang=\"" . strtoupper(substr($primaryLocale, 0, 2)) . "\">$abstract</abstract>\n";
         }
         if (is_array($article->getAbstract(null))) foreach ($article->getAbstract(null) as $locale => $abstract) {
@@ -181,7 +181,7 @@ class OAIMetadataFormat_NLM extends OAIMetadataFormat {
             $abstract = htmlspecialchars(Core::cleanVar(strip_tags($abstract)));
             if (empty($abstract)) continue;
             $abstract = "<p>$abstract</p>";
-            //$abstract = '<p>' . PKPString::regexp_replace('/\n+/', '</p><p>', $abstract) . '</p>';
+            //$abstract = '<p>' . CoreString::regexp_replace('/\n+/', '</p><p>', $abstract) . '</p>';
             $response .= "\t\t\t<abstract-trans xml:lang=\"" . strtoupper(substr($locale, 0, 2)) . "\">$abstract</abstract-trans>\n";
         }
 
@@ -202,7 +202,7 @@ class OAIMetadataFormat_NLM extends OAIMetadataFormat {
             "\t</front>\n";
 
         // Include body text (for search indexing only)
-        import('classes.search.ArticleSearchIndex');
+        import('core.Modules.search.ArticleSearchIndex');
         $text = '';
         $galleys = $article->getGalleys();
 
@@ -214,7 +214,7 @@ class OAIMetadataFormat_NLM extends OAIMetadataFormat {
 
         // Determine any access limitations. If there are, do not
         // provide the full-text.
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $subscriptionRequired = IssueAction::subscriptionRequired($issue);
         $isSubscribedDomain = IssueAction::subscribedDomain($journal, $issue->getId(), $article->getId());
 

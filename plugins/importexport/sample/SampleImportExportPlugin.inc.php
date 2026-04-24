@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/sample/SampleImportExportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SampleImportExportPlugin
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Sample import/export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
+import('core.Modules.plugins.ImportExportPlugin');
 
 class SampleImportExportPlugin extends ImportExportPlugin {
 
@@ -89,7 +89,7 @@ class SampleImportExportPlugin extends ImportExportPlugin {
     /**
      * Display the plugin.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function display($args, $request): void {
         parent::display($args, $request);

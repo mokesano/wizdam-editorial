@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/pln/locale/ar_IQ/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
   *
   * PLN plugin localization strings
@@ -14,7 +14,7 @@
 <locale name="ar_IQ" full_name="العربية">
 	<message key="plugins.generic.pln">إضافة مشروع المعرفة العامة PLN</message>
 	<message key="plugins.generic.pln.description">إن إضافة مشروع المعرفة العامة PLN ستقوم بإيداع محتوياتك المنشورة في شبكة LOCKSS الخاصة من أجل الحفاظ عليها.</message>
-	<message key="plugins.generic.pln.manager.setup.description"><![CDATA[<strong>الشبكة الخاصة لمشروع المعرفة العامة LOCKSS</strong><br /><br />لطفاً، إقرأ <a href="https://pkp.sfu.ca/pkp-lockss/" target="_blank">نظرة عامة على PLN لمشروع المعرفة العامة</a> ومن ثم أكمل <a href="{$plnPluginURL}">هذا النموذج البسيط</a>. هذا الخيار سيمكنك من تضمين مجلتك في الشبكة الاصة لمشروع المعرفة العامة LOCKSS (PKP PLN).]]></message>
+	<message key="plugins.generic.pln.manager.setup.description"><![CDATA[<strong>الشبكة الخاصة لمشروع المعرفة العامة LOCKSS</strong><br /><br />لطفاً، إقرأ <a href="https://wizdam.sangia.org/pkp-lockss/" target="_blank">نظرة عامة على PLN لمشروع المعرفة العامة</a> ومن ثم أكمل <a href="{$plnPluginURL}">هذا النموذج البسيط</a>. هذا الخيار سيمكنك من تضمين مجلتك في الشبكة الاصة لمشروع المعرفة العامة LOCKSS (Wizdam PLN).]]></message>
     <message key="plugins.generic.pln.enabled">إن إضافة PLN لمشروع المعرفة العامة قد تم تمكينها.</message>
     <message key="plugins.generic.pln.disabled">إن إضافة PLN لمشروع المعرفة العامة قد تم تعطيلها.</message>
     
@@ -23,7 +23,7 @@
     <message key="plugins.generic.pln.settings.acron_required">إن إضافة PLN تتطلب وجود إضافة Acron أو تواجد أداة جدولة دورية مثل 'cron.'</message>
 	<message key="plugins.generic.pln.settings.saved">تم حفظ إعدادات PLN لمشروع المعرفة العامة.</message>
 	<message key="plugins.generic.pln.settings.terms_of_use">شروط الاستعمال</message>
-	<message key="plugins.generic.pln.settings.terms_of_use_help">باعتباري فرد الاتصال الرئيسي، فإنني، وبإيمان ووعي مطلقين، أوافق على الشروط الآتية والمتعلقة بالمشاركة ضمن الشبكة الخاصة LOCKSS لمشروع المعرفة العامة، أو ما يسمى اختصاراً (PKP-PLN):</message>
+	<message key="plugins.generic.pln.settings.terms_of_use_help">باعتباري فرد الاتصال الرئيسي، فإنني، وبإيمان ووعي مطلقين، أوافق على الشروط الآتية والمتعلقة بالمشاركة ضمن الشبكة الخاصة LOCKSS لمشروع المعرفة العامة، أو ما يسمى اختصاراً (Wizdam-PLN):</message>
     <message key="plugins.generic.pln.settings.terms_of_use_agree">أوافق</message>
 	<message key="plugins.generic.pln.settings.journal_uuid">رمز تعريف المجلة</message>
 	<message key="plugins.generic.pln.settings.journal_uuid_help">هذا هو رمز تعريف مجلتك لـ PLN الخاص بمشروع المعرفة العامة. بإمكانك مشاركته مع مدراء PLN لمشروع المعرفة العامة لأغراض الحصول على الدعم.</message>

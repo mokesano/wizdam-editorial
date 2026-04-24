@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/translator/locale/id_ID/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -14,8 +14,8 @@
 <locale name="id_ID" full_name="Bahasa Indonesia">
 	<message key="plugins.generic.translator.name"> Plugin Translator </message> 
 	<message key="plugins.generic.translator.description"> Plugin ini memungkinkan pemeliharaan web-based file terjemahan.</message> 
-	<message key="plugins.generic.translator.longdescription"> Area ini memungkinkan  Administrator Situs untuk membangun, memodifikasi, dan mengecek terjemahan IOJS. Ini adalah site-wide dan tidak seharusnya digunakan untuk menyesuaikan jurnal OJS tunggal.</message> 
-	<message key="plugins.generic.translator.localeDescription"> Halaman ini mendaftar semua komponen terjemahan IOJS dan menyediakan penerjemah kesempatan untuk mengedit. Terjemahan penuh dari sebuah naskah terjemahan harus mengandung terjemahan lengkap semua komponen.</message>	
+	<message key="plugins.generic.translator.longdescription"> Area ini memungkinkan  Administrator Situs untuk membangun, memodifikasi, dan mengecek terjemahan IWizdam Editorial. Ini adalah site-wide dan tidak seharusnya digunakan untuk menyesuaikan jurnal Wizdam Editorial tunggal.</message> 
+	<message key="plugins.generic.translator.localeDescription"> Halaman ini mendaftar semua komponen terjemahan IWizdam Editorial dan menyediakan penerjemah kesempatan untuk mengedit. Terjemahan penuh dari sebuah naskah terjemahan harus mengandung terjemahan lengkap semua komponen.</message>	
 	<message key="plugins.generic.translator.tarMissing"> Fungsi ekspor plugin ini telah diaktivasi karena configured tar binary tidak bisa ditemukan di sistem ini. Pastikan bahwa Anda mempunyai program tar yang diinstal dan kemudian mengatur jalan ke tar binary di bagian config.inc.php's [cli]!</message>
 	<message key="plugins.generic.translator.localeName"> Nama locale </message> 
 	<message key="plugins.generic.translator.localeKey"> Kunci </message> 

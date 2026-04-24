@@ -4,19 +4,19 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/usageStats/UsageStatsPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UsageStatsPlugin
  * @ingroup plugins_generic_usageStats
  *
  * @brief Provide usage statistics to data objects.
- * MODERNIZED FOR PHP 7.4+ & OJS FORK
+ * MODERNIZED FOR PHP 7.4+ & Wizdam FORK
  */
 
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class UsageStatsPlugin extends GenericPlugin {
 
@@ -59,7 +59,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
 
     //
-    // Implement methods from PKPPlugin.
+    // Implement methods from CorePlugin.
     //
     /**
      * Registers the plugin.
@@ -111,7 +111,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Get the plugin display name.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -120,7 +120,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Get the plugin description.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {
@@ -129,7 +129,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Determine whether this is a site plugin.
-     * @see PKPPlugin::isSitePlugin()
+     * @see CorePlugin::isSitePlugin()
      * @return bool
      */
     public function isSitePlugin(): bool {
@@ -138,7 +138,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Get the path to the plugin settings file.
-     * @see PKPPlugin::getInstallSitePluginSettingsFile()
+     * @see CorePlugin::getInstallSitePluginSettingsFile()
      * @return string|null
      */
     public function getInstallSitePluginSettingsFile(): ?string {
@@ -147,7 +147,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Get the path to the plugin schema file.
-     * @see PKPPlugin::getInstallSchemaFile()
+     * @see CorePlugin::getInstallSchemaFile()
      * @return string|null
      */
     public function getInstallSchemaFile(): ?string {
@@ -156,7 +156,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Get the template path for this plugin.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @return string
      */
     public function getTemplatePath(): string {
@@ -165,12 +165,12 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Handle management verbs.
-     * @see PKPPlugin::manage()
+     * @see CorePlugin::manage()
      * @param $verb string
      * @param $args array
      * @param $message string
      * @param $messageParams array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return bool
      */
     public function manage(string $verb, array $args, string $message, array $messageParams, $request = NULL): bool {
@@ -213,7 +213,7 @@ class UsageStatsPlugin extends GenericPlugin {
      * Get the management verbs associated with this plugin.
      * @see GenericPlugin::getManagementVerbs()
      * @param $verbs array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return array
      */
     function getManagementVerbs(array $verbs = [], $request = null): array {
@@ -259,7 +259,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Callback to load the usage stats handler.
-     * @see PKPPageRouter::route()
+     * @see CorePageRouter::route()
      * @param $hookName string
      * @param $args array
      * @return boolean
@@ -371,7 +371,7 @@ class UsageStatsPlugin extends GenericPlugin {
     * @return string
     */
     public function getFilesPath() {
-        import('lib.pkp.classes.file.PrivateFileManager');
+        import('core.Modules.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         return realpath($fileMgr->getBasePath()) . DIRECTORY_SEPARATOR . 'usageStats';
@@ -465,7 +465,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
         $usageLogEntry = implode(' ', $desiredParams) . PHP_EOL;
 
-        import('lib.pkp.classes.file.PrivateFileManager');
+        import('core.Modules.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         // Get the current day filename.
@@ -504,7 +504,7 @@ class UsageStatsPlugin extends GenericPlugin {
     *
     * NB: This implementation was taken from OA-S directly. 
     * See http://sourceforge.net/p/openaccessstati/code-0/3/tree/trunk/logfile-parser/lib/logutils.php
-    * We just do not implement the PHP4 part as OJS dropped PHP4 support.
+    * We just do not implement the PHP4 part as Wizdam dropped PHP4 support.
     *
     * @param $ip string
     * @param $salt string

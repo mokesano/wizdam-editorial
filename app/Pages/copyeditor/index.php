@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file pages/copyeditor/index.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_copyeditor
@@ -48,7 +48,7 @@ switch ($op) {
 	//
 	case 'submissionCitations':
 		define('HANDLER_CLASS', 'SubmissionCopyeditHandler');
-		import('pages.copyeditor.SubmissionCopyeditHandler');
+		import('app.Pages.copyeditor.SubmissionCopyeditHandler');
 		break;
 	//
 	// Submission Comments
@@ -61,12 +61,12 @@ switch ($op) {
 	case 'saveComment':
 	case 'deleteComment':
 		define('HANDLER_CLASS', 'SubmissionCommentsHandler');
-		import('pages.copyeditor.SubmissionCommentsHandler');
+		import('app.Pages.copyeditor.SubmissionCommentsHandler');
 		break;
 	case 'index':
 	case 'instructions':
 		define('HANDLER_CLASS', 'CopyeditorHandler');
-		import('pages.copyeditor.CopyeditorHandler');
+		import('app.Pages.copyeditor.CopyeditorHandler');
 }
 
 ?>

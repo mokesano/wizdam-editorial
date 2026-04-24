@@ -1,6 +1,6 @@
 /**
  * submissions-filter.css
- * Modern styling for Wizdam OJS v7 submissions filter
+ * Modern styling for Wizdam App v7 submissions filter
  * Namespace: .filter-container to avoid conflicts
  */
 
@@ -16,7 +16,7 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Prevent conflicts with existing OJS styles */
+/* Prevent conflicts with existing App styles */
 #wizdamFilterContainer * {
     box-sizing: border-box;
 }
@@ -399,7 +399,7 @@
 
 #wizdamFilterContainer input:not(.form-control),
 #wizdamFilterContainer select:not(.form-control) {
-    /* Reset any global OJS styles that might interfere */
+    /* Reset any global App styles that might interfere */
     padding: initial;
     border: initial;
     background: initial;

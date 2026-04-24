@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/dataverse/classes/form/DataverseAuthForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataverseAuthForm
@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 define('DATAVERSE_PLUGIN_PASSWORD_SLUG', '********');
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class DataverseAuthForm extends Form {
 

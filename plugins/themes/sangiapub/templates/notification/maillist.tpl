@@ -1,8 +1,8 @@
 {**
  * templates/notification/maillist.tpl
  *
- * Copyright (c) 2013-2015 Simon Fraser University Library
- * Copyright (c) 2003-2015 John Willinsky
+ * Copyright (c) 2013-2015 Sangia Publishing House Library
+ * Copyright (c) 2003-2015 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Displays the notification settings page and unchecks  
@@ -79,7 +79,7 @@
             {* [WIZDAM MODULAR SECURITY] *}
             {if $captchaEnabled || $turnstileEnabled || $reCaptchaEnabled}
             <div class="security-barrier">
-                {* 0. CAPTCHA Default OJS - NEW Version *}
+                {* 0. CAPTCHA Default App - NEW Version *}
                 {if $captchaEnabled}
                 <div class="form-group">
                     <label class="form-section-label">{translate key="common.captchaField"}<span class="required-indicator">*</span></label>

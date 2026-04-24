@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @version 2.0 (Strict MVC Compliant)
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 import('lib.wizdam.statistics.StatsManager'); // Load Service Layer WIZDAM
 
 class JournalStatsHandler extends Handler {
@@ -36,7 +36,7 @@ class JournalStatsHandler extends Handler {
      * @return bool
      */
     public function authorize($request, $args, $roleAssignments) {
-        import('classes.security.authorization.ContextRequiredPolicy');
+        import('core.Modules.security.authorization.ContextRequiredPolicy');
         // Parameter ke-3 adalah false untuk mengizinkan akses tanpa konteks jurnal
         $this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noContext', false));
         return parent::authorize($request, $args, $roleAssignments);
@@ -59,7 +59,7 @@ class JournalStatsHandler extends Handler {
         // [WIZDAM] - Context-Aware Controller
         if ($journal) {
             // Validasi tambahan khusus untuk level jurnal
-            import('classes.handler.validation.HandlerValidatorJournal');
+            import('core.Modules.handler.validation.HandlerValidatorJournal');
             $this->addCheck(new HandlerValidatorJournal($this));
         }
 
@@ -81,7 +81,7 @@ class JournalStatsHandler extends Handler {
     }
 
     /**
-     * Helper untuk memuat template header/footer standar OJS
+     * Helper untuk memuat template header/footer standar Wizdam
      * @param Request $request
      */
     public function setupTemplate() {

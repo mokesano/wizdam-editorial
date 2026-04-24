@@ -530,7 +530,7 @@ class Ucdn
 		'nyn' => 'NKL ', /* Nkole */
 		'oc' => 'OCI ', /* Occitan (post 1500) */
 		'oj' => 'OJB ', /* Ojibwa */
-		'ojs' => 'OCR ', /* Oji-Cree */
+		'wizdam' => 'OCR ', /* Oji-Cree */
 		'om' => 'ORO ', /* Oromo */
 		'or' => 'ORI ', /* Oriya */
 		'os' => 'OSS ', /* Ossetian */

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/pages/ObjectsForReviewAuthorHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ObjectsForReviewAuthorHandler
@@ -15,14 +15,14 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class ObjectsForReviewAuthorHandler extends Handler {
 
     /**
      * Display objects for review author listing page.
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function objectsForReview($args, $request) {
         $journal = $request->getJournal();
@@ -44,7 +44,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
         $mode = $ofrPlugin->getSetting($journalId, 'mode');
 
-        $ofrPlugin->import('classes.ObjectForReviewAssignment');
+        $ofrPlugin->import('core.Modules.ObjectForReviewAssignment');
         $path = !isset($args) || empty($args) ? null : $args[0];
         
         switch($path) {
@@ -90,7 +90,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
     /**
      * Author requests an object for review.
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function requestObjectForReview($args, $request) {
         $journal = $request->getJournal();
@@ -114,7 +114,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
                 $request->redirect(null, 'objectsForReview');
             }
 
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $email = new MailTemplate('OFR_OBJECT_REQUESTED');
             
             // [SECURITY FIX] Amankan 'send' sebagai flag boolean (int) trim()
@@ -142,7 +142,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
 
     /**
      * Ensure that we have a journal, plugin is enabled, and user is author.
-     * @see PKPHandler::authorize()
+     * @see CoreHandler::authorize()
      */
     public function authorize($request, $args, $roleAssignments) {
         $journal = $request->getJournal();
@@ -161,7 +161,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
 
     /**
      * Setup common template variables.
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $subclass boolean (optional) set to true if caller is below this handler in the hierarchy
      */
     public function setupTemplate($request, $subclass = false) {
@@ -216,7 +216,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
      * @param $user User
      * @param $returnUrl string
      * @param $action string
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function _displayEmailForm($email, $objectForReview, $user, $returnUrl, $action, $request) {
         // [SECURITY FIX] Amankan 'continued' sebagai flag boolean (int) trim()
@@ -231,7 +231,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
                 $paramArray = array(
                     'editorName' => strip_tags($editorFullName),
                     'objectForReviewTitle' => '"' . strip_tags($objectForReview->getTitle()) . '"',
-                    'authorContactSignature' => PKPString::html2text($user->getContactSignature())
+                    'authorContactSignature' => CoreString::html2text($user->getContactSignature())
                 );
             }
             $email->addRecipient($editorEmail, $editorFullName);
@@ -243,11 +243,11 @@ class ObjectsForReviewAuthorHandler extends Handler {
     /**
      * Create trivial notification
      * @param $notificationType int
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function _createTrivialNotification($notificationType, $request) {
         $user = $request->getUser();
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification($user->getId(), $notificationType);
     }

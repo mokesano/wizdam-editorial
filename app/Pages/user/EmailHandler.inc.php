@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/user/EmailHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EmailHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.user.UserHandler');
+import('app.Pages.user.UserHandler');
 
 class EmailHandler extends UserHandler {
     
@@ -44,11 +44,11 @@ class EmailHandler extends UserHandler {
     /**
      * Display a "send email" template or send an email.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function email($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
@@ -143,13 +143,13 @@ class EmailHandler extends UserHandler {
             if (!$article || ($article && $article->getJournalId() !== $journal->getId())) $hasAccess = false;
 
             if ($hasAccess) {
-                import('classes.mail.ArticleMailTemplate');
+                import('core.Modules.mail.ArticleMailTemplate');
                 $email = new ArticleMailTemplate($articleDao->getArticle($articleId), $template);
             }
         }
 
         if ($email === null) {
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $email = new MailTemplate($template);
         }
 

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/ReviewFormHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class ReviewFormHandler extends ManagerHandler {
     
@@ -44,7 +44,7 @@ class ReviewFormHandler extends ManagerHandler {
     /**
      * Display a list of review forms within the current journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function reviewForms($args, $request) {
         $this->validate();
@@ -105,7 +105,7 @@ class ReviewFormHandler extends ManagerHandler {
                 $templateMgr->assign('pageTitle', 'manager.reviewForms.edit');
             }
 
-            import('classes.manager.form.ReviewFormForm');
+            import('core.Modules.manager.form.ReviewFormForm');
             $reviewFormForm = new ReviewFormForm($reviewFormId);
 
             if ($reviewFormForm->isLocaleResubmit()) {
@@ -139,7 +139,7 @@ class ReviewFormHandler extends ManagerHandler {
         }
         $this->setupTemplate(true, $reviewForm);
 
-        import('classes.manager.form.ReviewFormForm');
+        import('core.Modules.manager.form.ReviewFormForm');
         $reviewFormForm = new ReviewFormForm($reviewFormId);
         $reviewFormForm->readInputData();
 
@@ -195,7 +195,7 @@ class ReviewFormHandler extends ManagerHandler {
         $templateMgr->assign('completeCounts', $completeCounts);
         $templateMgr->assign('incompleteCounts', $incompleteCounts);
         
-        // Note: register_function is technically deprecated in Smarty 3/4 but usually shimmed in OJS wrappers.
+        // Note: register_function is technically deprecated in Smarty 3/4 but usually shimmed in Wizdam wrappers.
         // If 'ReviewFormHandler' static methods are accessible, this works.
         $templateMgr->register_function('form_language_chooser', ['ReviewFormHandler', 'smartyFormLanguageChooser']);
         $templateMgr->assign('helpTopicId', 'journal.managementPages.reviewForms');
@@ -392,7 +392,7 @@ class ReviewFormHandler extends ManagerHandler {
         $templateMgr->assign('unusedReviewFormTitles', $unusedReviewFormTitles);
         $templateMgr->assign('reviewFormElements', $reviewFormElements);
         $templateMgr->assign('reviewFormId', $reviewFormId);
-        import('lib.pkp.classes.reviewForm.ReviewFormElement');
+        import('core.Modules.reviewForm.ReviewFormElement');
         $templateMgr->assign('reviewFormElementTypeOptions', ReviewFormElement::getReviewFormElementTypeOptions());
         $templateMgr->assign('helpTopicId', 'journal.managementPages.reviewForms');
         $templateMgr->display('manager/reviewForms/reviewFormElements.tpl');
@@ -436,7 +436,7 @@ class ReviewFormHandler extends ManagerHandler {
             $templateMgr->assign('pageTitle', 'manager.reviewFormElements.edit');
         }
 
-        import('classes.manager.form.ReviewFormElementForm');
+        import('core.Modules.manager.form.ReviewFormElementForm');
         $reviewFormElementForm = new ReviewFormElementForm($reviewFormId, $reviewFormElementId);
         if ($reviewFormElementForm->isLocaleResubmit()) {
             $reviewFormElementForm->readInputData();
@@ -473,7 +473,7 @@ class ReviewFormHandler extends ManagerHandler {
             $request->redirect(null, null, 'reviewFormElements', [$reviewFormId]);
         }
 
-        import('classes.manager.form.ReviewFormElementForm');
+        import('core.Modules.manager.form.ReviewFormElementForm');
         $reviewFormElementForm = new ReviewFormElementForm($reviewFormId, $reviewFormElementId);
         $reviewFormElementForm->readInputData();
         $formLocale = $reviewFormElementForm->getFormLocale();
@@ -564,7 +564,7 @@ class ReviewFormHandler extends ManagerHandler {
     /**
      * Change the sequence of a review form element.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveReviewFormElement($args, $request) {
         $this->validate();

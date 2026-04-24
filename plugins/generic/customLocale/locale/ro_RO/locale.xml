@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/customLocale/locale/ro_RO/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ro_RO (Limba Română) locale.
@@ -14,10 +14,10 @@
  
 <locale name="ro_RO" full_name="Limba Română">
 	<message key="plugins.generic.customLocale.name">Modul pentru adaptarea localizării</message>
-	<message key="plugins.generic.customLocale.description">Acest modul permite adaptarea textului interfeţei utilizatorului folosită de OJS.</message>
+	<message key="plugins.generic.customLocale.description">Acest modul permite adaptarea textului interfeţei utilizatorului folosită de Wizdam Editorial.</message>
 	<message key="plugins.generic.customLocale.longDescription">Această pagină afişează toate localizările instalate pentru revistă.</message>
 	<message key="plugins.generic.customLocale.localeDescription">Această pagină afișează toate fişierele care sunt disponibile pentru localizarea selectată.</message>
-	<message key="plugins.generic.customLocale.fileDescription">Introdu textul în câmpurile destinate textului folosit la adaptare. Lasă câmpul liber dacă doreşti să apară textul folosit implicit de OJS.</message>
+	<message key="plugins.generic.customLocale.fileDescription">Introdu textul în câmpurile destinate textului folosit la adaptare. Lasă câmpul liber dacă doreşti să apară textul folosit implicit de Wizdam Editorial.</message>
 	<message key="plugins.generic.customLocale.localeName">Numele localizării</message>
 	<message key="plugins.generic.customLocale.localeKey">Cuvânt cheie</message>
 	<message key="plugins.generic.customLocale.localeKey.description">Introdu o cheie întreagă pentru localizare după care se face căutarea.</message>

@@ -4,7 +4,7 @@ declare(strict_types=1);
 /**
  * @file metadata.php
  *
- * Copyright (c) 2011 John Willinsky
+ * Copyright (c) 2011 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Connect to a DuraCloud server, create a new space, and twiddle with metadata.

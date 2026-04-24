@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/listbuilderGridCell.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * a regular listbuilder grid cell (with or without actions)
@@ -12,7 +12,7 @@
 {else}
 	{assign var=cellId value=""}
 {/if}
-<span {if $cellId}id="{$cellId|escape}" {/if}class="pkp_linkActions gridCellContainer">
+<span {if $cellId}id="{$cellId|escape}" {/if}class="core_linkActions gridCellContainer">
 	{if $column->getFlag('sourceType') === $smarty.const.LISTBUILDER_SOURCE_TYPE_NONE}
 		<div class="gridCell">
 			{include file="controllers/grid/gridCellContents.tpl"}

@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file pages/about/index.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_about
@@ -37,7 +37,7 @@ switch($op) {
 	case 'insights':
 	case 'statistics':
 		define('HANDLER_CLASS', 'AboutHandler');
-		import('pages.about.AboutHandler');
+		import('app.Pages.about.AboutHandler');
 		break;
 }
 

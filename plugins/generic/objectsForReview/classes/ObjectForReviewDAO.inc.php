@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/classes/ObjectForReviewDAO.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ObjectForReviewDAO
@@ -73,7 +73,7 @@ class ObjectForReviewDAO extends DAO {
      */
     public function newDataObject() {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ObjectForReview');
+        $ofrPlugin->import('core.Modules.ObjectForReview');
         return new ObjectForReview();
     }
 
@@ -169,7 +169,7 @@ class ObjectForReviewDAO extends DAO {
         );
         if ($this->getAffectedRows()) {
             // Delete cover image files (for all locales) from the filesystem
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $publicFileManager = new PublicFileManager();
             $coverPageSetting = $objectForReview->getCoverPage();
             $publicFileManager->removeJournalFile($objectForReview->getContextId(), $coverPageSetting['fileName']);
@@ -247,7 +247,7 @@ class ObjectForReviewDAO extends DAO {
      */
     public function getAllByContextId($contextId, $searchType = null, $search = null, $searchMatch = null, $available = null, $editorId = null, $filterType = null, $rangeInfo = null, $sortBy = null, $sortDirection = SORT_DIRECTION_ASC) {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ReviewObjectMetadata');
+        $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
 
         $params = array();
 

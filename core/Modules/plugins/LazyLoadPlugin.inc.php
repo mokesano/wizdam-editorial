@@ -1,0 +1,94 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * @file core.Modules.plugins/CachedPlugin.inc.php
+ *
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @class CachedPlugin
+ * @ingroup plugins
+ *
+ * @brief Abstract class for plugins that optionally
+ * support lazy load.
+ * * MODERNIZED FOR PHP 7.4+ (Wizdam FORK)
+ * - Constructor updated to __construct
+ * - Parent constructor call updated
+ */
+
+import('core.Modules.plugins.Plugin');
+
+class LazyLoadPlugin extends Plugin {
+    
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
+	 * Override public methods from CorePlugin.
+     * @see CorePlugin::register()
+	 * @param category
+	 * @param path
+     * @param lazyLoad
+	 * @return bool
+     */
+    public function register(string $category, string $path): bool {
+        $success = parent::register($category, $path);
+        if ($success) {
+            $this->addLocaleData();
+        }
+        return $success;
+    }
+
+    /**
+     * Override protected methods from CorePlugin
+     * @see CorePlugin::getName()
+     * @return string
+     */
+    public function getName(): string {
+        // Lazy load enabled plug-ins always use the plugin's class name
+        // as plug-in name. Legacy plug-ins will override this method so
+        // this implementation is backwards compatible.
+        // NB: strtolower is required for PHP4 compatibility.
+        return strtolower_codesafe(get_class($this));
+    }
+
+    /*
+     * Protected methods required to support lazy load.
+     */
+     
+    /**
+     * Determine whether or not this plugin is currently enabled.
+	 * @see CorePlugin::getContextSpecificSetting()
+	 * @param string $request
+	 * @param mixed $request
+     * @return bool
+     */
+    public function getEnabled($request = null): bool {
+        // [WIZDAM FIX] CLI/Acron Guard (PHP 7.4 - 8.4+ Safe)
+        // Cegah fatal error: Jika Aplikasi belum diinisialisasi (null) saat tugas latar belakang, tidak mungkin ada konteks. Kembalikan false secara aman tanpa mengakses CorePlugin.
+        if (!CoreApplication::getApplication()) {
+            return false;
+        }
+        
+        return (bool) $this->getContextSpecificSetting($this->getSettingMainContext($request), 'enabled');
+    }
+
+    /**
+     * Set whether or not this plugin is currently enabled.
+	 * @see CorePlugin::updateContextSpecificSetting()
+	 * @param bool $enabled
+	 * @param mixed $request
+	 * @return bool
+     */
+    public function setEnabled(bool $enabled, $request = null): bool {
+        $this->updateContextSpecificSetting($this->getSettingMainContext($request), 'enabled', $enabled, 'bool');
+        return true;
+    }
+}
+?>

@@ -2,11 +2,11 @@
 <!--
   * solrconfig.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * OJS solr/lucene search plugin index solr default configuration.
+  * Wizdam Editorial solr/lucene search plugin index solr default configuration.
   * 
   * NB: You may add and/or customize search handlers, index configuration, data
   * directory. See detailed comments below.
@@ -87,7 +87,7 @@
     <httpCaching never304="true" />
   </requestDispatcher>
 
-  <!-- OJS solr alternative spelling suggestion component. Please do not change. -->
+  <!-- Wizdam Editorial solr alternative spelling suggestion component. Please do not change. -->
   <searchComponent name="dictionaries" class="solr.SpellCheckComponent">
     <str name="queryAnalyzerFieldType">text_spell</str>
 
@@ -187,11 +187,11 @@
   </searchComponent>
 
   <!--
-  	Default OJS solr search interface.
+  	Default Wizdam Editorial solr search interface.
   	
   	NB: You can customize this search interface, e.g. to improve ranking. But
   	please be aware that some changes (e.g. removing/changing search components)
-  	can break the OJS/solr communication protocol.
+  	can break the Wizdam Editorial/solr communication protocol.
    -->
   <requestHandler name="/search" class="solr.StandardRequestHandler" default="true">
     <lst name="invariants">
@@ -276,7 +276,7 @@
   </requestHandler>
   <!-- END -->
 
-  <!-- OJS DataImportHandler request handler. Please do not change. -->
+  <!-- Wizdam Editorial DataImportHandler request handler. Please do not change. -->
   <requestHandler name="/dih" class="org.apache.solr.handler.dataimport.DataImportHandler">
     <lst name="defaults">
       <str name="config">dih-ojs.xml</str>

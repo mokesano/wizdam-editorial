@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/dataverse/classes/DataverseFileDAO.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataverseFileDAO
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized for PHP 8.4 Strict Typing and Null-Safety.
  */
 
-import('lib.pkp.classes.db.DAO');
+import('core.Modules.db.DAO');
 import('plugins.generic.dataverse.classes.DataverseFile'); // [WIZDAM FIX] Import absolut untuk mencegah Null Pointer
 
 class DataverseFileDAO extends DAO {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/rtadmin/RTAdminHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RTAdminHandler
@@ -17,8 +17,8 @@ declare(strict_types=1);
  * [WIZDAM CLEANUP] Amputasi total fitur "Validate URLs" dan cURL usang.
  */
 
-import('classes.rt.JournalRTAdmin');
-import('classes.handler.Handler');
+import('core.Modules.rt.JournalRTAdmin');
+import('core.Modules.handler.Handler');
 
 class RTAdminHandler extends Handler {
     
@@ -49,7 +49,7 @@ class RTAdminHandler extends Handler {
     /**
      * Index page
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();

@@ -29,8 +29,8 @@ class MetadataBuilder {
         $this->sectionDAO = DAORegistry::getDAO('SectionDAO');
         $this->publishedArticleDAO = DAORegistry::getDAO('PublishedArticleDAO');
         
-        // OJS 2.x DAO Import
-        import('classes.submission.sectionEditor.SectionEditorSubmissionDAO');
+        // Wizdam 2.x DAO Import
+        import('app.Domain.submission.sectionEditor.SectionEditorSubmissionDAO');
         $this->sectionEditorSubmissionDAO = DAORegistry::getDAO('SectionEditorSubmissionDAO');
     }
 
@@ -51,7 +51,7 @@ class MetadataBuilder {
 
     /**
      * HELPER BARU: Ambil data dengan aman (String atau Array)
-     * Mengatasi konflik Locale PHP vs OJS
+     * Mengatasi konflik Locale PHP vs Wizdam
      */
     protected function getSafeData($article, $key) {
         // 1. Ambil Raw Data
@@ -65,7 +65,7 @@ class MetadataBuilder {
             if (class_exists('AppLocale')) {
                 $locale = \AppLocale::getLocale();
             } elseif (class_exists('Locale') && method_exists('Locale', 'getLocale')) {
-                // Fallback legacy OJS lama sekali (jarang terjadi jika PHP modern)
+                // Fallback legacy Wizdam lama sekali (jarang terjadi jika PHP modern)
                 $locale = \Locale::getLocale();
             }
 

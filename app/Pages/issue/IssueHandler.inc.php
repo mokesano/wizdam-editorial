@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/issue/IssueHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class IssueHandler
@@ -17,8 +17,8 @@ declare(strict_types=1);
  * [WIZDAM v2] Degradasi URL bertingkat: Issue → Volume → Year → Archive
  */
 
-import ('classes.issue.IssueAction');
-import('classes.handler.Handler');
+import ('app.Domain.issue.IssueAction');
+import('core.Modules.handler.Handler');
 
 class IssueHandler extends Handler {
     
@@ -58,7 +58,7 @@ class IssueHandler extends Handler {
     /**
      * Display about index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function index($args = [], $request = null) {
@@ -68,7 +68,7 @@ class IssueHandler extends Handler {
     /**
      * Display current issue page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function current($args, $request) {
@@ -105,7 +105,7 @@ class IssueHandler extends Handler {
     /**
      * Display issue view page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function view($args, $request) {
@@ -140,7 +140,7 @@ class IssueHandler extends Handler {
                     // --- Hitung issueIdentifier ---
                     $issueIdentifier = '';
                     if ($issueNumber !== '') {
-                        $slug = PKPString::slugify($issueNumber);
+                        $slug = CoreString::slugify($issueNumber);
                         // Jika slug kosong setelah slugify (misal karakter aneh saja),
                         // gunakan ID sebagai fallback
                         $issueIdentifier = ($slug !== '') ? $slug : (string) $issue->getId();
@@ -262,7 +262,7 @@ class IssueHandler extends Handler {
     /**
      * Display the issue archive listings
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function archive($args, $request) {
@@ -287,7 +287,7 @@ class IssueHandler extends Handler {
 
         $publishedIssuesIterator = $issueDao->getPublishedIssues($journal->getId(), $rangeInfo);
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $coverPagePath = $request->getBaseUrl() . '/';
         $coverPagePath .= $publicFileManager->getJournalFilesPath($journal->getId()) . '/';
@@ -304,7 +304,7 @@ class IssueHandler extends Handler {
     /**
      * View a PDF issue galley inline
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function viewIssue($args, $request) {
@@ -343,7 +343,7 @@ class IssueHandler extends Handler {
     /**
      * Issue galley interstitial page for non-PDF files
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function viewDownloadInterstitial($args, $request) {
@@ -368,7 +368,7 @@ class IssueHandler extends Handler {
     /**
      * View an issue galley file (inline file).
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function viewFile($args, $request) {
@@ -382,7 +382,7 @@ class IssueHandler extends Handler {
     /**
      * Downloads an issue galley file
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function download($args, $request) {
@@ -456,7 +456,7 @@ class IssueHandler extends Handler {
 
         if (!$issueId) $request->redirect(null, 'index');
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
 
         $journal   = $request->getJournal();
         $journalId = $journal->getId();
@@ -503,7 +503,7 @@ class IssueHandler extends Handler {
                 $subscribedUser = IssueAction::subscribedUser($journal, $issueId);
 
                 if (!$subscribedUser) {
-                    import('classes.payment.AppPaymentManager');
+                    import('core.Modules.payment.AppPaymentManager');
                     $paymentManager = new AppPaymentManager($request);
 
                     if ($paymentManager->purchaseIssueEnabled() || $paymentManager->membershipEnabled()) {
@@ -513,7 +513,7 @@ class IssueHandler extends Handler {
                             Validation::redirectLogin("payment.loginRequired.forIssue");
                         }
 
-                        $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+                        $completedPaymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
                         $dateEndMembership   = $user->getSetting('dateEndMembership', 0);
                         if ($completedPaymentDao->hasPaidPurchaseIssue($userId, (int) $issueId) || (!is_null($dateEndMembership) && $dateEndMembership > time())) {
                             return true;
@@ -551,7 +551,7 @@ class IssueHandler extends Handler {
 
     /**
      * Show an issue galley file (either inline or download)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $inline
      * @return void
      */
@@ -563,7 +563,7 @@ class IssueHandler extends Handler {
         $galleyDao = DAORegistry::getDAO('IssueGalleyDAO');
 
         if (!HookRegistry::dispatch('IssueHandler::viewFile', [&$issue, &$galley])) {
-            import('classes.file.IssueFileManager');
+            import('core.Modules.file.IssueFileManager');
             $issueFileManager = new IssueFileManager($issue->getId());
             return $issueFileManager->downloadFile($galley->getFileId(), $inline);
         }
@@ -584,7 +584,7 @@ class IssueHandler extends Handler {
 
     /**
      * Given an issue, set up the template with all the required variables.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Issue $issue
      * @param bool $showToc
      * @return void
@@ -601,7 +601,7 @@ class IssueHandler extends Handler {
 
             $locale = AppLocale::getLocale();
 
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $publicFileManager = new PublicFileManager();
             $coverPagePath     = $request->getBaseUrl() . '/';
             $coverPagePath    .= $publicFileManager->getJournalFilesPath($journalId) . '/';
@@ -632,7 +632,7 @@ class IssueHandler extends Handler {
             $templateMgr->assign('showToc', $showToc);
             $templateMgr->assign('issue', $issue);
 
-            import('classes.issue.IssueAction');
+            import('core.Modules.issue.IssueAction');
             $subscriptionRequired    = IssueAction::subscriptionRequired($issue);
             $subscribedUser          = IssueAction::subscribedUser($journal);
             $subscribedDomain        = IssueAction::subscribedDomain($journal);
@@ -662,7 +662,7 @@ class IssueHandler extends Handler {
             $templateMgr->assign('subscribedDomain', $subscribedDomain);
             $templateMgr->assign('showGalleyLinks', $journal->getSetting('showGalleyLinks'));
 
-            import('classes.payment.AppPaymentManager');
+            import('core.Modules.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             if ($paymentManager->onlyPdfEnabled()) {
                 $templateMgr->assign('restrictOnlyPdf', true);
@@ -677,7 +677,7 @@ class IssueHandler extends Handler {
         }
 
         if ($issue && $styleFileName = $issue->getStyleFileName()) {
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $publicFileManager = new PublicFileManager();
             $templateMgr->addStyleSheet(
                 $request->getBaseUrl() . '/' . $publicFileManager->getJournalFilesPath($journalId) . '/' . $styleFileName

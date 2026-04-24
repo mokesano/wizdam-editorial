@@ -1,8 +1,8 @@
 {**
  * templates/install/upgrade.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Upgrade form.
@@ -24,8 +24,8 @@
 {if $isInstallError}
 	<div id="installError">
 		<p>
-			<span class="pkp_form_error">{translate key="installer.installErrorsOccurred"}:</span>
-			<ul class="pkp_form_error_list">
+			<span class="core_form_error">{translate key="installer.installErrorsOccurred"}:</span>
+			<ul class="core_form_error_list">
 				<li>{if $dbErrorMsg}{translate key="common.error.databaseError" error=$dbErrorMsg}{else}{translate key=$errorMsg}{/if}</li>
 			</ul>
 		</p>

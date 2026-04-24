@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/oaiMetadataFormats/marcxml/OAIMetadataFormat_MARC21.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAIMetadataFormat_MARC21
@@ -124,7 +124,7 @@ class OAIMetadataFormat_MARC21 extends OAIMetadataFormat {
         }
 
         // 8. Abstract (Tag 520)
-        $abstract = PKPString::html2text($article->getAbstract($article->getLocale()));
+        $abstract = CoreString::html2text($article->getAbstract($article->getLocale()));
         if (!empty($abstract)) {
              $response .= $this->formatDataField('520', ' ', ' ', 'a', $abstract);
         }

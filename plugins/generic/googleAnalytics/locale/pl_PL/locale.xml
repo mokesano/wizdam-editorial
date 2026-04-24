@@ -2,8 +2,8 @@
 <!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Plik językowy dla pl_PL
@@ -14,7 +14,7 @@
 
 	<!-- Google Analytics -->
 	<message key="plugins.generic.googleAnalytics.displayName">Wtyczka Google Analytics</message>
-	<message key="plugins.generic.googleAnalytics.description"><![CDATA[Integrate OJS with Google Analytics, Google's web site traffic analysis application. Requires that you have already setup a Google Analytics account. Please see the <a href="http://www.google.com/analytics/" title="Google Analytics site">Google Analytics site</a> for more information.]]></message>
+	<message key="plugins.generic.googleAnalytics.description"><![CDATA[Integrate Wizdam Editorial with Google Analytics, Google's web site traffic analysis application. Requires that you have already setup a Google Analytics account. Please see the <a href="http://www.google.com/analytics/" title="Google Analytics site">Google Analytics site</a> for more information.]]></message>
 
 	<!-- Google Analytics Settings Management -->
 	<message key="plugins.generic.googleAnalytics.manager.settings">Ustawienia</message>

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/pln/PLNPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PLNPlugin
@@ -16,21 +16,21 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
-import('lib.pkp.classes.config.Config');
-import('classes.article.PublishedArticle');
-import('classes.issue.Issue');
+import('core.Modules.plugins.GenericPlugin');
+import('core.Modules.config.Config');
+import('core.Modules.article.PublishedArticle');
+import('core.Modules.issue.Issue');
 
 define('PLN_PLUGIN_NAME','plnplugin');
 
 // defined here in case an upgrade doesn't pick up the default value.
-define('PLN_DEFAULT_NETWORK', 'http://pkp-pln.lib.sfu.ca');
+define('PLN_DEFAULT_NETWORK', 'http://wizdam-pln.lib.sfu.ca');
 define('PLN_DEFAULT_STATUS_SUFFIX', '/docs/status');
 
 define('PLN_PLUGIN_HTTP_STATUS_OK', 200);
 define('PLN_PLUGIN_HTTP_STATUS_CREATED', 201);
 
-define('PLN_PLUGIN_XML_NAMESPACE','http://pkp.sfu.ca/SWORD');
+define('PLN_PLUGIN_XML_NAMESPACE','http://wizdam.sfu.ca/SWORD');
 
 // base IRI for the SWORD server. IRIs are constructed by appending to 
 // this constant.
@@ -111,9 +111,9 @@ class PLNPlugin extends GenericPlugin {
             if ($this->getEnabled()) {
             
                 $this->registerDAOs();
-                $this->import('classes.Deposit');
-                $this->import('classes.DepositObject');
-                $this->import('classes.DepositPackage');
+                $this->import('core.Modules.Deposit');
+                $this->import('core.Modules.DepositObject');
+                $this->import('core.Modules.DepositPackage');
             
                 HookRegistry::register('PluginRegistry::loadCategory', [$this, 'callbackLoadCategory']);            
                 HookRegistry::register('JournalDAO::deleteJournalById', [$this, 'callbackDeleteJournalById']);
@@ -130,8 +130,8 @@ class PLNPlugin extends GenericPlugin {
      */    
     public function registerDAOs() {
         
-        $this->import('classes.DepositDAO');
-        $this->import('classes.DepositObjectDAO');
+        $this->import('core.Modules.DepositDAO');
+        $this->import('core.Modules.DepositObjectDAO');
         
         $depositDao = new DepositDAO($this->getName());
         DAORegistry::registerDAO('DepositDAO', $depositDao);
@@ -143,7 +143,7 @@ class PLNPlugin extends GenericPlugin {
     
     /**
      * Get the display name of the plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -152,7 +152,7 @@ class PLNPlugin extends GenericPlugin {
     
     /**
      * Get a description of the plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {
@@ -161,7 +161,7 @@ class PLNPlugin extends GenericPlugin {
     
     /**
      * Get the path to the plugin's installation schema file.
-     * @see PKPPlugin::getInstallSchemaFile()
+     * @see CorePlugin::getInstallSchemaFile()
      * @return string
      */
     public function getInstallSchemaFile(): ?string {
@@ -170,7 +170,7 @@ class PLNPlugin extends GenericPlugin {
     
     /**
      * Get the path to the plugin's handler directory.
-     * @see PKPPlugin::getHandlerPath()
+     * @see CorePlugin::getHandlerPath()
      * @return string
      */
     public function getHandlerPath(): string {
@@ -179,7 +179,7 @@ class PLNPlugin extends GenericPlugin {
     
     /**
      * Get the path to the plugin's template directory.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @return string
      */
     public function getTemplatePath(): string {
@@ -188,7 +188,7 @@ class PLNPlugin extends GenericPlugin {
     
     /**
      * Get the path to the plugin's context-specific settings file.
-     * @see PKPPlugin::getContextSpecificPluginSettingsFile()
+     * @see CorePlugin::getContextSpecificPluginSettingsFile()
      * @return string
      */
     public function getContextSpecificPluginSettingsFile(): ?string {
@@ -205,7 +205,7 @@ class PLNPlugin extends GenericPlugin {
     
     /**
      * Get a plugin setting, with some special handling for certain settings.
-     * @see PKPPlugin::getSetting()
+     * @see CorePlugin::getSetting()
      * @param int $journalId
      * @param string $settingName
      */
@@ -272,7 +272,7 @@ class PLNPlugin extends GenericPlugin {
      */
     public function callbackTemplateDisplay($hookName, $params) {
         // Get request and context.
-        $request = PKPApplication::getRequest();
+        $request = CoreApplication::getRequest();
         $journal = $request->getContext();
         
         // Assign our private stylesheet.
@@ -335,7 +335,7 @@ class PLNPlugin extends GenericPlugin {
     
     /**
      * A callback to load this plugin's page handler
-     * @copydoc PKPPageRouter::route()
+     * @copydoc CorePageRouter::route()
      */
     public function callbackLoadHandler($hookName, $args) {
         $page = $args[0];
@@ -354,7 +354,7 @@ class PLNPlugin extends GenericPlugin {
     
     /**
      * A callback to manage this plugin's settings and actions
-     * @copydoc PKPPlugin::manage()
+     * @copydoc CorePlugin::manage()
      */
     public function manage(string $verb, array $args, string $message, array $messageParams, $request = null): bool {
 
@@ -399,7 +399,7 @@ class PLNPlugin extends GenericPlugin {
             case 'settings':
                 $templateMgr = TemplateManager::getManager();
                 $templateMgr->register_function('plugin_url', [$this, 'smartyPluginUrl']);
-                $this->import('classes.form.PLNSettingsForm');
+                $this->import('core.Modules.form.PLNSettingsForm');
                 $form = new PLNSettingsForm($this, $journal->getId());
 
                 if (Request::getUserVar('save')) {
@@ -425,7 +425,7 @@ class PLNPlugin extends GenericPlugin {
             case 'status':
                 $templateMgr = TemplateManager::getManager();
                 $templateMgr->register_function('plugin_url', [$this, 'smartyPluginUrl']);
-                $this->import('classes.form.PLNStatusForm');
+                $this->import('core.Modules.form.PLNStatusForm');
                 $form = new PLNStatusForm($this, $journal->getId());
                 
                 if (Request::getUserVar('reset')) {
@@ -619,7 +619,7 @@ class PLNPlugin extends GenericPlugin {
     public function createJournalManagerNotification($journalId, $notificationType) {
         $roleDao = DAORegistry::getDAO('RoleDAO');
         $journalManagers = $roleDao->getUsersByRoleId(ROLE_ID_JOURNAL_MANAGER,$journalId);
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         // TODO: this currently gets sent to all journal managers - perhaps only limit to the technical contact's account?
         while ($journalManager = $journalManagers->next()) {
@@ -668,7 +668,7 @@ class PLNPlugin extends GenericPlugin {
      * @return boolean
      */
     public function cronEnabled() {
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         $products = $application->getEnabledProducts('plugins.generic');
         return isset($products['acron']) || Config::getVar('general', 'scheduled_tasks', false);
     }
@@ -794,7 +794,7 @@ class PLNPlugin extends GenericPlugin {
      * @return string
      */
     public function newUUID() {
-        return PKPString::generateUUID();
+        return CoreString::generateUUID();
     }
 }
 ?>

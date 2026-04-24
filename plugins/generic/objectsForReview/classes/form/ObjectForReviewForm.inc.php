@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/classes/form/ObjectForReviewForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ObjectForReviewForm
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe (Closures, Constructors, References).
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ObjectForReviewForm extends Form {
 
@@ -255,9 +255,9 @@ class ObjectForReviewForm extends Form {
      */
     public function execute($object = null) {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ObjectForReview');
-        $ofrPlugin->import('classes.ObjectForReviewPerson');
-        $ofrPlugin->import('classes.ReviewObjectMetadata');
+        $ofrPlugin->import('core.Modules.ObjectForReview');
+        $ofrPlugin->import('core.Modules.ObjectForReviewPerson');
+        $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
 
         $journal = Request::getJournal();
         $journalId = $journal->getId();
@@ -315,7 +315,7 @@ class ObjectForReviewForm extends Form {
         }
 
         // Handle object for review cover image
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $coverPageAltText = $this->getData('coverPageAltText');
         $coverPageMetadataId = $reviewObjectMetadataDao->getMetadataId($this->reviewObjectTypeId, REVIEW_OBJECT_METADATA_KEY_COVERPAGE);

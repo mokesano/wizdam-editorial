@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/lucene/LucenePlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LucenePlugin
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 import('plugins.generic.lucene.classes.SolrWebService');
 
 define('LUCENE_PLUGIN_DEFAULT_RANKING_BOOST', 1.0); // Default: No boost (=weight factor one).
@@ -100,7 +100,7 @@ class LucenePlugin extends GenericPlugin {
 	 */
 	public function getMailTemplate($emailKey, $journal = null) {
 		if (!isset($this->_mailTemplates[$emailKey])) {
-			import('classes.mail.MailTemplate');
+			import('core.Modules.mail.MailTemplate');
 			$mailTemplate = new MailTemplate($emailKey, null, null, $journal, true, true);
 			$this->_mailTemplates[$emailKey] = $mailTemplate;
 		}
@@ -109,11 +109,11 @@ class LucenePlugin extends GenericPlugin {
 
 
 	//
-	// Implement template methods from PKPPlugin.
+	// Implement template methods from CorePlugin.
 	//
 	/**
      * Register the plugin
-	 * @see PKPPlugin::register()
+	 * @see CorePlugin::register()
      * @param string $category
      * @param string $path
      * @return boolean
@@ -181,7 +181,7 @@ class LucenePlugin extends GenericPlugin {
 
 	/**
      * Display name of plugin
-	 * @see PKPPlugin::getDisplayName()
+	 * @see CorePlugin::getDisplayName()
 	 */
 	public function getDisplayName(): string {
 		return __('plugins.generic.lucene.displayName');
@@ -189,7 +189,7 @@ class LucenePlugin extends GenericPlugin {
 
 	/**
      * Description of plugin.
-	 * @see PKPPlugin::getDescription()
+	 * @see CorePlugin::getDescription()
 	 */
 	public function getDescription(): string {
 		return __('plugins.generic.lucene.description');
@@ -197,7 +197,7 @@ class LucenePlugin extends GenericPlugin {
 
 	/**
      * Path to the plugin's settings file.
-	 * @see PKPPlugin::getInstallSitePluginSettingsFile()
+	 * @see CorePlugin::getInstallSitePluginSettingsFile()
 	 */
 	public function getInstallSitePluginSettingsFile(): ?string {
 		return $this->getPluginPath() . '/settings.xml';
@@ -205,7 +205,7 @@ class LucenePlugin extends GenericPlugin {
 
 	/**
      * Path to the plugin's email templates file.
-	 * @see PKPPlugin::getInstallEmailTemplatesFile()
+	 * @see CorePlugin::getInstallEmailTemplatesFile()
 	 */
 	public function getInstallEmailTemplatesFile(): string {
 		return ($this->getPluginPath() . '/emailTemplates.xml');
@@ -213,7 +213,7 @@ class LucenePlugin extends GenericPlugin {
 
 	/**
      * Path to the plugin's email template data file.
-	 * @see PKPPlugin::getInstallEmailTemplateDataFile()
+	 * @see CorePlugin::getInstallEmailTemplateDataFile()
 	 */
 	public function getInstallEmailTemplateDataFile(): string {
 		return ($this->getPluginPath() . '/locale/{$installedLocale}/emailTemplates.xml');
@@ -222,7 +222,7 @@ class LucenePlugin extends GenericPlugin {
 	/**
      * Indicates whether this plugin is a site plugin 
      * (i.e. a plugin that is not specific to a journal).
-	 * @see PKPPlugin::isSitePlugin()
+	 * @see CorePlugin::isSitePlugin()
 	 */
 	public function isSitePlugin(): bool {
 		return true;
@@ -230,7 +230,7 @@ class LucenePlugin extends GenericPlugin {
 
 	/**
      * Path to the plugin's templates directory.
-	 * @see PKPPlugin::getTemplatePath()
+	 * @see CorePlugin::getTemplatePath()
 	 */
 	public function getTemplatePath(): string {
 		return parent::getTemplatePath() . 'templates/';
@@ -264,7 +264,7 @@ class LucenePlugin extends GenericPlugin {
 			case 'settings':
 				$templateMgr = TemplateManager::getManager();
 				$templateMgr->register_function('plugin_url', [$this, 'smartyPluginUrl']);
-				$this->import('classes.form.LuceneSettingsForm');
+				$this->import('core.Modules.form.LuceneSettingsForm');
 				$form = new LuceneSettingsForm($this);
 				if (Request::getUserVar('save')) {
 					$form->readInputData();
@@ -325,7 +325,7 @@ class LucenePlugin extends GenericPlugin {
 
 	/**
      * Callback to load the plugin's handler.
-	 * @see PKPPageRouter::route()
+	 * @see CorePageRouter::route()
      * @param $hookName
      * @param $args array
 	 */
@@ -768,7 +768,7 @@ class LucenePlugin extends GenericPlugin {
 		if ($template != 'search/search.tpl') return false;
 
 		// Get request and context.
-		$request = PKPApplication::getRequest();
+		$request = CoreApplication::getRequest();
 		$journal = $request->getContext();
 
 		// Assign our private stylesheet.
@@ -839,7 +839,7 @@ class LucenePlugin extends GenericPlugin {
 		];
 
 		// Create a URL that links to "similar documents".
-		$request = PKPApplication::getRequest();
+		$request = CoreApplication::getRequest();
 		$router = $request->getRouter();
 		$simdocsUrl = $router->url(
 			$request, null, 'lucene', 'similarDocuments', null, $urlParams
@@ -1050,7 +1050,7 @@ class LucenePlugin extends GenericPlugin {
 		}
 
 		// Assign parameters.
-		$request = PKPApplication::getRequest();
+		$request = CoreApplication::getRequest();
 		$site = $request->getSite();
 		$mail->assignParams(
 			['siteName' => $site->getLocalizedTitle(), 'error' => $error]

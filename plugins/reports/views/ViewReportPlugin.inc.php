@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/reports/views/ViewReportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ViewReportPlugin
@@ -14,9 +14,9 @@ declare(strict_types=1);
  * @brief View report plugin
  */
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 
-define('OJS_METRIC_TYPE_LEGACY_DEFAULT', 'ojs::legacyDefault');
+define('APP_METRIC_TYPE_LEGACY_DEFAULT', 'wizdam::legacyDefault');
 
 class ViewReportPlugin extends ReportPlugin {
     
@@ -61,7 +61,7 @@ class ViewReportPlugin extends ReportPlugin {
     /**
      * Display the report
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function display($args, $request) {
         $journal = $request->getJournal();
@@ -90,14 +90,14 @@ class ViewReportPlugin extends ReportPlugin {
         $articleIssueIdentificationMap = [];
         $result = [];
 
-        import('lib.pkp.classes.db.DBResultRange');
+        import('core.Modules.db.DBResultRange');
         $dbResultRange = new DBResultRange(STATISTICS_MAX_ROWS);
         $page = 1; // Start page normally at 1, original code had 3? Assuming correction to standard logic or keeping logic if offset intended. Original: $page = 3. Keeping logical structure but usually page starts at 1.
 
-        if ($request->getUserVar('metricType') === OJS_METRIC_TYPE_COUNTER) {
-            $metricType = OJS_METRIC_TYPE_COUNTER;
+        if ($request->getUserVar('metricType') === APP_METRIC_TYPE_COUNTER) {
+            $metricType = APP_METRIC_TYPE_COUNTER;
         } else {
-            $metricType = OJS_METRIC_TYPE_LEGACY_DEFAULT;
+            $metricType = APP_METRIC_TYPE_LEGACY_DEFAULT;
         }
 
         while (true) {

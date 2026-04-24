@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/externalFeed/locale/it_IT/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * External feed plugin localization strings for the en_US (U.S. English) locale.
@@ -58,7 +58,7 @@
 	<message key="plugins.generic.externalFeed.form.titleRequired">Inserisci il titolo del feed</message>
 	<message key="plugins.generic.externalFeed.form.feedUrl">URL</message>
 	<message key="plugins.generic.externalFeed.form.feedUrlValid">Inserisci una URL valida (incluso http://)</message>
-	<message key="plugins.generic.externalFeed.form.feedUrlDescription">La URL del feed esterno (es. http://pkp.sfu.ca/blog/feed)</message>
+	<message key="plugins.generic.externalFeed.form.feedUrlDescription">La URL del feed esterno (es. http://wizdam.sangia.org/blog/feed)</message>
 	<message key="plugins.generic.externalFeed.form.display">Mostra</message>
 	<message key="plugins.generic.externalFeed.form.displayHomepage">Mostra in homepage</message>
 	<message key="plugins.generic.externalFeed.form.displayBlockNone">Non mostrare il blocco</message>

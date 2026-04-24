@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/xmlGalley/ArticleXMLGalley.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ArticleXMLGalley
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * MODERNIZED FOR SCHOLARWIZDAM FORK (PHP 7/8 Ready)
  */
 
-import('classes.article.ArticleHTMLGalley');
-import('classes.article.SuppFileDAO');
+import('core.Modules.article.ArticleHTMLGalley');
+import('core.Modules.article.SuppFileDAO');
 
 class ArticleXMLGalley extends ArticleHTMLGalley {
     
@@ -120,7 +120,7 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
                     break;
                 case 'custom';
                     // get file path for custom XSL sheet
-                    import('classes.file.JournalFileManager');
+                    import('core.Modules.file.JournalFileManager');
                     $journalFileManager = new JournalFileManager($journal);
                     $xslSheet = $journalFileManager->filesDir . $xmlGalleyPlugin->getSetting($journal->getId(), 'customXSL');
                     break;
@@ -166,10 +166,10 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
             }
         }
 
-        // Perform replacement for ojs://... URLs
-        $contents = PKPString::regexp_replace_callback(
+        // Perform replacement for wizdam://... URLs
+        $contents = CoreString::regexp_replace_callback(
             '/(<[^<>]*")[Oo][Jj][Ss]:\/\/([^"]+)("[^<>]*>)/',
-            array($this, '_handleOjsUrl'),
+            array($this, '_handleAppUrl'),
             $contents
         );
 
@@ -190,7 +190,7 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
             }
         }
 
-        if (LOCALE_ENCODING == "iso-8859-1") $contents = PKPString::utf2html($contents);
+        if (LOCALE_ENCODING == "iso-8859-1") $contents = CoreString::utf2html($contents);
 
         return $contents;
     }
@@ -201,7 +201,7 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
      * @return boolean
      */
     public function viewFileContents() {
-        import('lib.pkp.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
         $pdfFileName = CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . 'fc-xsltGalley-' . str_replace($fileManager->parseFileExtension($this->getFileName()), 'pdf', $this->getFileName());
 
@@ -241,7 +241,7 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
             }
 
             // create temporary FO file and write the contents
-            import('classes.file.TemporaryFileManager');
+            import('core.Modules.file.TemporaryFileManager');
             $temporaryFileManager = new TemporaryFileManager();
             $tempFoName = $temporaryFileManager->filesDir . $this->getFileName() . '-' . $this->getId() . '.fo';
 

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/ImportExportHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ImportExportHandler
@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class ImportExportHandler extends ManagerHandler {
     
@@ -46,7 +46,7 @@ class ImportExportHandler extends ManagerHandler {
     /**
      * Import or export data.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function importexport($args = [], $request = null) {
         $this->validate();

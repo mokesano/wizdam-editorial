@@ -3,8 +3,8 @@
 {**
  * header.tpl
  *
- * Copyright (c) 2013-2015 Simon Fraser University Library
- * Copyright (c) 2000-2015 John Willinsky
+ * Copyright (c) 2013-2015 Sangia Publishing House Library
+ * Copyright (c) 2000-2015 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Common site header.
@@ -33,14 +33,14 @@
 	{include file="common/jqueryScripts.tpl"}
 	{include file="common/head.tpl"}
 
-	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/pkp.css" type="text/css" />
+	<link rel="stylesheet" href="{$baseUrl}/core/Library/styles/core.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
 	
 	{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
 	{call_hook|assign:"rightSidebarCode" name="Templates::Common::RightSidebar"}
 	
 	{**
-	<!-- <link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
+	<!-- <link rel="stylesheet" href="{$baseUrl}/core/Library/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />-->
 	
 	{if $leftSidebarCode || $rightSidebarCode}<link rel="stylesheet" href="{$baseUrl}/styles/sidebar.css" type="text/css" />{/if}
@@ -54,13 +54,13 @@
 
 	<!-- Compiled scripts -->
 	{if $useMinifiedJavaScript}
-		<script type="text/javascript" src="{$baseUrl}/js/pkp.min.js"></script>
+		<script type="text/javascript" src="{$baseUrl}/js/core.min.js"></script>
 	{else}
 		{include file="common/minifiedScripts.tpl"}
 	{/if}
 
 	<!-- Form validation -->
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/core/Library/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
 	<script type="text/javascript">
 		<!--
 		// initialise plugins
@@ -111,7 +111,7 @@
 	<link rel="stylesheet" href="{$baseUrl}/assets/static/styles/user-home.css" type="text/css" />
 	
 	{foreach from=$stylesheets name="testUrl" item=cssUrl}
-		{if $cssUrl == "$baseUrl/styles/ojs.css"}
+		{if $cssUrl == "$baseUrl/styles/app.css"}
 			<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
 		{/if}
 	{/foreach}

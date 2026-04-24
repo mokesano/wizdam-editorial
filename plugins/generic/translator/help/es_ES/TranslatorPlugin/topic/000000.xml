@@ -3,11 +3,11 @@
 <!--
   * 000000.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: http://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_%28es_ES%29
+  * Credits: http://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Spanish_%28es_ES%29
   *
   * Index Help Page 
   *
@@ -15,7 +15,7 @@
 
 <topic id="TranslatorPlugin/topic/000000" locale="es_ES" title="Translator Plugin" toc="index/toc/000000" key="TranslatorPlugin.index">
 	<section>
-		<![CDATA[<p>OJS 2.2 y versiones siguientes incorporan un módulo de traducción que hace mucho más fácil la tarea de actualizar las traducciones incompletas. También puede empezar una traducción nueva desde cero, pero esto acarreará un poco más de trabajo al principio (lea más abajo).</p><p>Para ver las traducciones que están disponibles en este momento para OJS y comprobar cuáles están ya en progreso, visite la página <a href="http://pkp.sfu.ca/ojs-languages">OJS languages</a> donde obtendrá más información. En el caso de traducciones que ya están en progreso, considere contactar con los traductores de la lista para comprobar el estado de la traducción o trabajar conjuntamente y ayudar con la traducción.</p><p>Para habilitar el módulo, conéctese como administrador/a de la revista, vaya a Inicio y después a Módulos del sistema. Ahí encontrará una lista con el módulo de traducción y los módulos genéricos. Haga clic en el enlace 'Habilitar' del módulo. Para acceder al módulo, vuelva a la página Módulos del sistema, desplácese hasta el módulo y haga clic en el enlace "Traducir" recientemente disponible.</p><p>A continuación, podrá ver una lista de configuraciones locales disponibles (ya instaladas) y tres acciones disponibles: "Comprobar", "Editar" y "Exportar".</p>]]>
+		<![CDATA[<p>Wizdam Editorial 2.2 y versiones siguientes incorporan un módulo de traducción que hace mucho más fácil la tarea de actualizar las traducciones incompletas. También puede empezar una traducción nueva desde cero, pero esto acarreará un poco más de trabajo al principio (lea más abajo).</p><p>Para ver las traducciones que están disponibles en este momento para Wizdam Editorial y comprobar cuáles están ya en progreso, visite la página <a href="http://wizdam.sangia.org/ojs-languages">Wizdam Editorial languages</a> donde obtendrá más información. En el caso de traducciones que ya están en progreso, considere contactar con los traductores de la lista para comprobar el estado de la traducción o trabajar conjuntamente y ayudar con la traducción.</p><p>Para habilitar el módulo, conéctese como administrador/a de la revista, vaya a Inicio y después a Módulos del sistema. Ahí encontrará una lista con el módulo de traducción y los módulos genéricos. Haga clic en el enlace 'Habilitar' del módulo. Para acceder al módulo, vuelva a la página Módulos del sistema, desplácese hasta el módulo y haga clic en el enlace "Traducir" recientemente disponible.</p><p>A continuación, podrá ver una lista de configuraciones locales disponibles (ya instaladas) y tres acciones disponibles: "Comprobar", "Editar" y "Exportar".</p>]]>
 	</section>
 
 	<section title="Checking a Translation">
@@ -27,7 +27,7 @@
 	</section>
 
 	<section title="Exporing a Translation">
-		<![CDATA[<p>Puede exportar una traducción mediante el enlace "Exportar" en frente al nombre del idioma en la página del módulo de traducción: el sistema comprimirá todos los archivos de configuración local para esa traducción en un paquete tar.gz descargable. Esto resulta muy útil si necesita llevar un idioma recientemente traducido a otro OJS o a un entorno OCS, o incluso si quisiera aportar sus cambios al PKP.</p>]]>
+		<![CDATA[<p>Puede exportar una traducción mediante el enlace "Exportar" en frente al nombre del idioma en la página del módulo de traducción: el sistema comprimirá todos los archivos de configuración local para esa traducción en un paquete tar.gz descargable. Esto resulta muy útil si necesita llevar un idioma recientemente traducido a otro Wizdam Editorial o a un entorno OCS, o incluso si quisiera aportar sus cambios al Wizdam.</p>]]>
 	</section>
 
 	<section title="Starting a Translation from Scratch">

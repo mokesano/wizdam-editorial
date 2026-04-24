@@ -1,8 +1,8 @@
 {**
  * plugins/generic/pln/templates/settingsForm.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * PLN plugin settings
@@ -17,7 +17,7 @@
 <div id="plnStatus">
 	<h3>{translate key="plugins.generic.pln.status.deposits"}</h3>
 	<p>{translate key="plugins.generic.pln.status.network_status" networkStatusMessage=$networkStatusMessage}</p>
-	<form class="pkp_form" id="plnStatusForm" method="post" action="{plugin_url path="status"}">
+	<form class="core_form" id="plnStatusForm" method="post" action="{plugin_url path="status"}">
 		<table>
 			<tr>
 				<th>{translate key="common.id"}</th>

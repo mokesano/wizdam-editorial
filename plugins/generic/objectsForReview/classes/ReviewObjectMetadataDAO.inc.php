@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/classes/ReviewObjectMetadataDAO.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewObjectMetadataDAO
@@ -92,7 +92,7 @@ class ReviewObjectMetadataDAO extends DAO {
      */
     public function newDataObject() {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ReviewObjectMetadata');
+        $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
         return new ReviewObjectMetadata();
     }
 
@@ -351,7 +351,7 @@ class ReviewObjectMetadataDAO extends DAO {
      */
     public function getTextareaReviewObjectMetadataIds($reviewObjectTypeId) {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ReviewObjectMetadata');
+        $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
 
         $result = $this->retrieve(
             'SELECT metadata_id FROM review_object_metadata WHERE review_object_type_id = ? AND metadata_type = ? ORDER BY seq',

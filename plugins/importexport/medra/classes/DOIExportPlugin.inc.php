@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/common/classes/DOIExportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DOIExportPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 7.4/8.0+ (Strict Types, NotificationManager Integration)
  */
 
-import('classes.plugins.ImportExportPlugin');
+import('core.Modules.plugins.ImportExportPlugin');
 
 // Export types.
 define('DOI_EXPORT_ISSUES', 0x01);
@@ -81,7 +81,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         if (!($this->_cache instanceof PubObjectCache)) {
             // Instantiate the cache.
             if (!class_exists('PubObjectCache')) { 
-                $this->import('classes.PubObjectCache');
+                $this->import('core.Modules.PubObjectCache');
             }
             $this->_cache = new PubObjectCache();
         }
@@ -89,12 +89,12 @@ class DOIExportPlugin extends ImportExportPlugin {
     }
 
     //
-    // Implement template methods from PKPPlugin
+    // Implement template methods from CorePlugin
     //
 
     /**
      * Register the plugin.
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @param string $category
      * @param string $path
      * @param int|null $mainContextId
@@ -111,7 +111,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Get the path to the templates.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @param bool $inCore
      * @return string
      */
@@ -121,7 +121,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Get the context-specific plugin settings file.
-     * @see PKPPlugin::getInstallSitePluginSettingsFile()
+     * @see CorePlugin::getInstallSitePluginSettingsFile()
      * @return string
      */
     public function getContextSpecificPluginSettingsFile(): string {
@@ -130,7 +130,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Get the locale filename for the plugin.
-     * @see PKPPlugin::getLocaleFilename($locale)
+     * @see CorePlugin::getLocaleFilename($locale)
      * @param string $locale
      * @return array
      */
@@ -151,7 +151,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      * Get the management verbs.
      * @see ImportExportPlugin::getManagementVerbs()
      * @param array $verbs
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return array
      */
     public function getManagementVerbs(array $verbs = [], $request = null): array {
@@ -164,7 +164,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      * Display the plugin interface.
      * @see ImportExportPlugin::display()
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function display($args, $request): void {
@@ -229,7 +229,7 @@ class DOIExportPlugin extends ImportExportPlugin {
     /**
      * Process a DOI activity request.
      * [WIZDAM PROTOCOL] Using NotificationManager for UI feedback logic.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Journal $journal
      * @return void
      */
@@ -424,7 +424,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      * @param array $args
      * @param string $message
      * @param array $messageParams
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return bool
      */
     public function manage(string $verb, array $args, string $message = null, $messageParams = null, $request = null): bool {
@@ -529,7 +529,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         $this->setBreadcrumbs([], true);
 
         // Retrieve all published issues.
-        AppLocale::requireComponents([LOCALE_COMPONENT_OJS_EDITOR]);
+        AppLocale::requireComponents([LOCALE_COMPONENT_WIZDAM_EDITOR]);
         $issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
         $this->registerDaoHook('IssueDAO');
         $issueIterator = $issueDao->getPublishedIssues($journal->getId(), Handler::getRangeInfo('issues'));
@@ -564,7 +564,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      */
     public function displayAllUnregisteredObjects($templateMgr, $journal): void {
         $this->setBreadcrumbs([], true);
-        AppLocale::requireComponents([LOCALE_COMPONENT_PKP_SUBMISSION]);
+        AppLocale::requireComponents([LOCALE_COMPONENT_WIZDAM_SUBMISSION]);
 
         // Prepare and display the template.
         $templateMgr->assign('issues', $this->_getUnregisteredIssues($journal));
@@ -630,7 +630,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Export publishing objects.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param array $exportSpec
      * @param Journal $journal
      * @param string|null $outputFile
@@ -715,7 +715,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Register publishing objects.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param array $exportSpec
      * @param Journal $journal
      * @return bool|array
@@ -825,7 +825,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Generate the export data model.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int $exportType
      * @param array $objects
      * @param string $targetPath
@@ -840,7 +840,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Process the marking of the selected objects as registered.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int $exportType
      * @param array $objects
      * @param Journal $journal
@@ -881,7 +881,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Register the given DOI.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Journal $journal
      * @param array $objects
      * @param string $file
@@ -894,7 +894,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Check whether we are in test mode.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool
      */
     public function isTestMode($request): bool {
@@ -903,7 +903,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Mark an object as "registered".
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Issue|PublishedArticle|ArticleGalley|SuppFile $object
      * @param string $testPrefix
      */
@@ -911,7 +911,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         $registeredDoi = $object->getPubId('doi');
         assert(!empty($registeredDoi));
         if ($this->isTestMode($request)) {
-            $registeredDoi = PKPString::regexp_replace('#^[^/]+/#', $testPrefix . '/', $registeredDoi);
+            $registeredDoi = CoreString::regexp_replace('#^[^/]+/#', $testPrefix . '/', $registeredDoi);
         }
         $this->saveRegisteredDoi($object, $registeredDoi);
     }
@@ -1124,7 +1124,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         unset($articles);
 
         // Instantiate article iterator.
-        import('lib.pkp.classes.core.VirtualArrayIterator');
+        import('core.Kernel.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($articleData, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the article template.
@@ -1183,7 +1183,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         unset($galleys);
 
         // Instantiate galley iterator.
-        import('lib.pkp.classes.core.VirtualArrayIterator');
+        import('core.Kernel.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($galleyData, $totalGalleys, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the galley template.
@@ -1359,7 +1359,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Generate export files for the given export spec.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Journal $journal
      * @param array $exportSpec
      * @param string $exportPath
@@ -1509,7 +1509,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      */
     public function _instantiateSettingsForm($journal) {
         $settingsFormClassName = $this->getSettingsFormClassName();
-        $this->import('classes.form.' . $settingsFormClassName);
+        $this->import('core.Modules.form.' . $settingsFormClassName);
         $settingsForm = new $settingsFormClassName($this, $journal->getId());
         return $settingsForm;
     }
@@ -1517,7 +1517,7 @@ class DOIExportPlugin extends ImportExportPlugin {
     /**
      * Add a notification.
      * [WIZDAM PROTOCOL] Refactored: Removed references (&), typed parameters, safe instantiation.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $message An i18n key.
      * @param int $notificationType One of the NOTIFICATION_TYPE_* constants.
      * @param string|null $param An additional parameter for the message.
@@ -1526,7 +1526,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         // Optimization: Instantiate directly without static caching if simpler, 
         // or check class existence if lazy loading is needed.
         if (!class_exists('NotificationManager')) {
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
         }
         $notificationManager = new NotificationManager();
 

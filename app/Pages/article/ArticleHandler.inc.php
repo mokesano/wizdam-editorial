@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/article/ArticleHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ArticleHandler
@@ -16,9 +16,9 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.rt.RTDAO');
-import('classes.rt.JournalRT');
-import('classes.handler.Handler');
+import('core.Modules.rt.RTDAO');
+import('core.Modules.rt.JournalRT');
+import('core.Modules.handler.Handler');
 
 class ArticleHandler extends Handler {
     
@@ -70,7 +70,7 @@ class ArticleHandler extends Handler {
     /**
      * View Article.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function view($args, $request) {
         $articleIdInput = $args[0] ?? 0;
@@ -104,7 +104,7 @@ class ArticleHandler extends Handler {
         $issueDao = DAORegistry::getDAO('IssueDAO');
         $articleObj = null;
 
-        // 1. Coba cari pakai cara standar OJS (Best ID)
+        // 1. Coba cari pakai cara standar Wizdam (Best ID)
         // Fungsi otomatis cek: input Int -> Internal ID, String -> Public ID.
         $articleObj = $publishedArticleDao->getPublishedArticleByBestArticleId((int) $journal->getId(), $articleIdInput, true);
 
@@ -134,7 +134,7 @@ class ArticleHandler extends Handler {
         // Jalankan validasi dengan Internal ID yang sudah dipastikan Integer
         $this->validate($request, $articleId, $galleyId);
         
-        // Setup objek standar OJS
+        // Setup objek standar Wizdam
         $journal = $this->journal;
         $issue = $this->issue;
         $article = $this->article;
@@ -189,7 +189,7 @@ class ArticleHandler extends Handler {
         $templateMgr->assign('galleys', $galleys);
         
         if (!$galley) {
-            import('classes.issue.IssueAction');
+            import('core.Modules.issue.IssueAction');
 
             if ($issue) {
                 $templateMgr->assign('subscriptionRequired', IssueAction::subscriptionRequired($issue));
@@ -200,7 +200,7 @@ class ArticleHandler extends Handler {
 
             $templateMgr->assign('showGalleyLinks', $journal->getSetting('showGalleyLinks'));
 
-            import('classes.payment.AppPaymentManager');
+            import('core.Modules.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             if ( $paymentManager->onlyPdfEnabled() ) {
                 $templateMgr->assign('restrictOnlyPdf', true);
@@ -211,7 +211,7 @@ class ArticleHandler extends Handler {
 
             // Article cover page.
             if (isset($article) && $article->getLocalizedFileName() && $article->getLocalizedShowCoverPage() && !$article->getLocalizedHideCoverPageAbstract()) {
-                import('classes.file.PublicFileManager');
+                import('core.Modules.file.PublicFileManager');
                 $publicFileManager = new PublicFileManager();
                 $coverPagePath = $request->getBaseUrl() . '/';
                 $coverPagePath .= $publicFileManager->getJournalFilesPath($journal->getId()) . '/';
@@ -288,7 +288,7 @@ class ArticleHandler extends Handler {
         ]);
         
         //======================================================================
-        // --- START MODIFIKASI FORK OJS (Arsitektur Bersih - Fungsional) ---
+        // --- START MODIFIKASI FORK Wizdam (Arsitektur Bersih - Fungsional) ---
         //======================================================================
         
         // --- 1. INTEGRASI DATA GENESIS ---
@@ -336,7 +336,7 @@ class ArticleHandler extends Handler {
     /**
      * Article interstitial page before PDF is shown
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param ArticleGalley|null $galley
      */
     public function viewPDFInterstitial($args, $request, $galley = null) {
@@ -371,7 +371,7 @@ class ArticleHandler extends Handler {
     /**
      * Article interstitial page before a non-PDF, non-HTML galley is downloaded
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param ArticleGalley|null $galley
      */
     public function viewDownloadInterstitial($args, $request, $galley = null) {
@@ -406,7 +406,7 @@ class ArticleHandler extends Handler {
     /**
      * Article view (Deprecated)
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewArticle($args, $request) {
         return $this->view($args, $request);
@@ -415,7 +415,7 @@ class ArticleHandler extends Handler {
     /**
      * View a file (inlines file).
      * @param array $args ($articleId, $galleyId, $fileId [optional])
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewFile($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -445,7 +445,7 @@ class ArticleHandler extends Handler {
 
         // HookRegistry keeps & for object references in array
         if (!HookRegistry::dispatch('ArticleHandler::viewFile', [&$article, &$galley, &$fileId])) {
-            import('classes.submission.common.Action');
+            import('core.Modules.submission.common.Action');
             Action::viewFile($article->getId(), $fileId);
         }
     }
@@ -453,7 +453,7 @@ class ArticleHandler extends Handler {
     /**
      * Downloads the document
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function download($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -472,7 +472,7 @@ class ArticleHandler extends Handler {
         if ($article && $galley) {
             $fileId = $galley->getFileId();
             if (!HookRegistry::dispatch('ArticleHandler::downloadFile', [&$article, &$galley, &$fileId])) {
-                import('classes.file.ArticleFileManager');
+                import('core.Modules.file.ArticleFileManager');
                 $articleFileManager = new ArticleFileManager($article->getId());
                 $articleFileManager->downloadFile($fileId);
             }
@@ -482,7 +482,7 @@ class ArticleHandler extends Handler {
     /**
      * Download a supplementary file
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function downloadSuppFile($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -500,7 +500,7 @@ class ArticleHandler extends Handler {
         }
 
         if ($article && $suppFile && !HookRegistry::dispatch('ArticleHandler::downloadSuppFile', [&$article, &$suppFile])) {
-            import('classes.file.ArticleFileManager');
+            import('core.Modules.file.ArticleFileManager');
             $articleFileManager = new ArticleFileManager($article->getId());
             if ($suppFile->getRemoteURL()) {
                 $request->redirectUrl($suppFile->getRemoteURL());
@@ -512,7 +512,7 @@ class ArticleHandler extends Handler {
     /**
      * Validation (Refactored for PHP 8 Compatibility)
      * @param mixed $requiredContexts (Logic swapped variable in legacy)
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function validate($requiredContexts = null, $request = null) {
         // Parameter mapping untuk kompatibilitas
@@ -521,7 +521,7 @@ class ArticleHandler extends Handler {
         $galleyId = null;
         
         // Deteksi pemanggilan gaya lama (Legacy swap check)
-        if ($requiredContexts instanceof PKPRequest) {
+        if ($requiredContexts instanceof CoreRequest) {
             $originalRequest = $requiredContexts;
             $articleId = $request;
             $request = null;
@@ -536,7 +536,7 @@ class ArticleHandler extends Handler {
         
         parent::validate(null, $request);
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
 
         $router = $request->getRouter();
         $journal = $router->getContext($request);
@@ -592,12 +592,12 @@ class ArticleHandler extends Handler {
                 // Subscription Access
                 $subscribedUser = IssueAction::subscribedUser($journal, $issue->getId(), $publishedArticle->getId());
 
-                import('classes.payment.AppPaymentManager');
+                import('core.Modules.payment.AppPaymentManager');
                 $paymentManager = new AppPaymentManager($request);
 
                 $purchasedIssue = false;
                 if (!$subscribedUser && $paymentManager->purchaseIssueEnabled()) {
-                    $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+                    $completedPaymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
                     $purchasedIssue = $completedPaymentDao->hasPaidPurchaseIssue($userId, $issue->getId());
                 }
 
@@ -627,7 +627,7 @@ class ArticleHandler extends Handler {
 
                         /* if the article has been paid for then forget about everything else
                          * and just let them access the article */
-                        $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+                        $completedPaymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
                         $dateEndMembership = $user->getSetting('dateEndMembership', 0);
                         if ($completedPaymentDao->hasPaidPurchaseArticle($userId, $publishedArticle->getId())
                             || (!is_null($dateEndMembership) && $dateEndMembership > time())) {
@@ -663,7 +663,7 @@ class ArticleHandler extends Handler {
 
     /**
      * Set up the template
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function setupTemplate($request = null) {
         parent::setupTemplate();
@@ -689,10 +689,10 @@ class ArticleHandler extends Handler {
     
     /**
      * Menampilkan halaman metrik untuk artikel tertentu.
-     * [WIZDAM] Versi ini menyertakan logika "Best ID" manual di OJS 2.x yang lebih lama
+     * [WIZDAM] Versi ini menyertakan logika "Best ID" manual di Wizdam 2.x yang lebih lama
      *
      * @param array $args Argumen URL (misal, $args[0] adalah <articleId>)
-     * @param PKPRequest $request Objek Request OJS
+     * @param CoreRequest $request Objek Request Wizdam
      */
     public function metrics($args = [], $request = null) {
 

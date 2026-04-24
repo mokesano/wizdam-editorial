@@ -3,11 +3,11 @@
 <!--
   * plugins/reports/counter/locale/ca_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_(ca_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Catalan_(ca_ES)
   *
   * Localization strings for the ca_ES (Català) locale.
   -->
@@ -27,7 +27,7 @@
 	<message key="plugins.reports.counter.1a.ytdHtml">HTML de l'any en curs</message>
 	<message key="plugins.reports.counter.1a.ytdPdf">PDF de l'any en curs</message>
 	<message key="plugins.reports.counter.1a.totalForAllJournals">Total per a totes les revistes</message>
-	<message key="plugins.reports.counter.legacyStats">Els enllaços següents generen informes utilitzant dades de l'antic mòdul COUNTER. Si voleu generar informes COUNTER utilitzant la nova mètrica OJS COUNTER, utilitzeu els enllaços superiors.</message>
+	<message key="plugins.reports.counter.legacyStats">Els enllaços següents generen informes utilitzant dades de l'antic mòdul COUNTER. Si voleu generar informes COUNTER utilitzant la nova mètrica Wizdam Editorial COUNTER, utilitzeu els enllaços superiors.</message>
 	<message key="plugins.reports.counter.release">Llançament de COUNTER</message>
 	<message key="plugins.reports.counter.olderReports">Informes de llocs antics</message>
 	<message key="plugins.reports.counter.1a.xml">versió XML</message>

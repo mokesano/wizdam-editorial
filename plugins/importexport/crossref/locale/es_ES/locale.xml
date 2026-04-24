@@ -4,11 +4,11 @@
 <!--
   * plugins/importexport/crossref/locale/es_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_(es_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Spanish_(es_ES)
   *
   * Localization strings
   -->
@@ -27,8 +27,8 @@
     <message key="plugins.importexport.crossref.settings.form.depositorNameRequired">Introduzca el nombre del depositario/a.</message>
     <message key="plugins.importexport.crossref.settings.form.depositorEmailRequired">Introduzca el correo electrónico del depositario/a.</message>
     <message key="plugins.importexport.crossref.settings.form.automaticRegistration">Registro automático de DOI</message>
-    <message key="plugins.importexport.crossref.settings.form.automaticRegistration.description"><![CDATA[En el momento de su publicación, OJS depositará los DOI de los artículos en CrossRef. Tenga en cuenta que esta operación puede no ser inmediata. Puede revisar todos los DOI no registrados en la <a href="{$unregisteredURL}">lista de artículos sin registrar</a>.]]></message>
-    <message key="plugins.importexport.crossref.registrationIntro"><![CDATA[Este módulo puede configurarse para registrar automáticamente los Digital Object Identifiers (DOI) en CrossRef. Para ello es necesario un usuario y una contraseña de <a href="http://www.crossref.org" target="_blank">CrossRef</a>. Si no dispone de usuario propio no podrá registrar los DOI en CrossRef desde OJS. Aun así, puede exportarlos en formato CrossRef XML y realizar la operación manualmente.]]></message>
+    <message key="plugins.importexport.crossref.settings.form.automaticRegistration.description"><![CDATA[En el momento de su publicación, Wizdam Editorial depositará los DOI de los artículos en CrossRef. Tenga en cuenta que esta operación puede no ser inmediata. Puede revisar todos los DOI no registrados en la <a href="{$unregisteredURL}">lista de artículos sin registrar</a>.]]></message>
+    <message key="plugins.importexport.crossref.registrationIntro"><![CDATA[Este módulo puede configurarse para registrar automáticamente los Digital Object Identifiers (DOI) en CrossRef. Para ello es necesario un usuario y una contraseña de <a href="http://www.crossref.org" target="_blank">CrossRef</a>. Si no dispone de usuario propio no podrá registrar los DOI en CrossRef desde Wizdam Editorial. Aun así, puede exportarlos en formato CrossRef XML y realizar la operación manualmente.]]></message>
 
     <message key="plugins.importexport.crossref.settings.description"><![CDATA[<a href="{$settingsUrl}">Configurar el módulo exportación/registro en CrossRef</a>.]]></message>
 

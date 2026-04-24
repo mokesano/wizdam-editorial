@@ -4,22 +4,22 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/externalFeed/ExternalFeedDAO.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ExternalFeedDAO
  * @ingroup plugins_generic_externalFeed
  *
  * @brief Operations for retrieving and modifying ExternalFeed objects.
- * * MODERNIZED FOR PHP 8.x & OJS FORK (Wizdam Edition)
+ * * MODERNIZED FOR PHP 8.x & Wizdam FORK (Wizdam Edition)
  * - Removed obsolete reference operators (&).
  * - Implemented strict Prepared Statements for SQLi protection.
  * - Added automatic cache flushing.
  * - Strict Constructor & Visibility.
  */
 
-import('lib.pkp.classes.db.DAO');
+import('core.Modules.db.DAO');
 
 class ExternalFeedDAO extends DAO {
 

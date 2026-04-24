@@ -1,8 +1,8 @@
 {**
  * templates/form/textArea.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * form text area
@@ -13,8 +13,8 @@
 {if $FBV_multilingual && count($formLocales) > 1}
 	<script type="text/javascript">
 	$(function() {ldelim}
-		$('#{$FBV_name|escape:javascript}-localization-popover-container{$uniqId}').pkpHandler(
-			'$.pkp.controllers.form.MultilingualInputHandler'
+		$('#{$FBV_name|escape:javascript}-localization-popover-container{$uniqId}').coreHandler(
+			'$.core.controllers.form.MultilingualInputHandler'
 			);
 	{rdelim});
 	</script>

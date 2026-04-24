@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/users/UserImportExportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserImportExportPlugin
@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief Users import/export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
 class UserImportExportPlugin extends ImportExportPlugin {
 
@@ -103,7 +103,7 @@ class UserImportExportPlugin extends ImportExportPlugin {
                 $sendNotify = (bool) Request::getUserVar('sendNotify');
                 $continueOnError = (bool) Request::getUserVar('continueOnError');
 
-                import('lib.pkp.classes.file.FileManager');
+                import('core.Modules.file.FileManager');
                 $fileManager = new FileManager();
                 
                 if (($userFile = $fileManager->getUploadedFilePath('userFile')) !== false) {
@@ -279,7 +279,7 @@ class UserImportExportPlugin extends ImportExportPlugin {
                 $sendNotify = in_array('send_notify', $flags);
                 $continueOnError = in_array('continue_on_error', $flags);
 
-                import('lib.pkp.classes.file.FileManager');
+                import('core.Modules.file.FileManager');
 
                 // Import the uploaded file
                 $parser = new UserXMLParser($journal->getId());

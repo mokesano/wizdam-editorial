@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/gateways/resolver/ResolverPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ResolverPlugin
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Simple resolver gateway plugin
  */
 
-import('classes.plugins.GatewayPlugin');
+import('core.Modules.plugins.GatewayPlugin');
 
 class ResolverPlugin extends GatewayPlugin {
 
@@ -136,11 +136,11 @@ class ResolverPlugin extends GatewayPlugin {
                 foreach ($articles as $article) {
                     // Look for the correct page in the list of articles.
                     $matches = null;
-                    if (PKPString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)$/', $article->getPages(), $matches)) {
+                    if (CoreString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)$/', $article->getPages(), $matches)) {
                         $matchedPage = (int) $matches[1];
                         if ($page == $matchedPage) Request::redirect(null, 'article', 'view', $article->getBestArticleId());
                     }
-                    if (PKPString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)[ ]?-[ ]?([Pp][Pp]?[.]?[ ]?)?(\d+)$/', $article->getPages(), $matches)) {
+                    if (CoreString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)[ ]?-[ ]?([Pp][Pp]?[.]?[ ]?)?(\d+)$/', $article->getPages(), $matches)) {
                         $matchedPageFrom = (int) $matches[1];
                         $matchedPageTo = (int) $matches[3];
                         if ($page >= $matchedPageFrom && ($page < $matchedPageTo || ($page == $matchedPageTo && $matchedPageFrom == $matchedPageTo))) Request::redirect(null, 'article', 'view', $article->getBestArticleId());

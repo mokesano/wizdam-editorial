@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/StatisticsHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class StatisticsHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class StatisticsHandler extends ManagerHandler {
     
@@ -46,7 +46,7 @@ class StatisticsHandler extends ManagerHandler {
      * WARNING: This implementation should be kept roughly synchronized
      * with the reader's statistics view in the About pages.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function statistics($args, $request) {
         $this->validate();
@@ -192,7 +192,7 @@ class StatisticsHandler extends ManagerHandler {
     /**
      * Delegates to plugins operations related to report generation.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function report($args, $request) {
         $this->validate();
@@ -217,7 +217,7 @@ class StatisticsHandler extends ManagerHandler {
     /**
      * Display page to generate custom reports.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function reportGenerator($args, $request) {
         $this->validate();
@@ -235,7 +235,7 @@ class StatisticsHandler extends ManagerHandler {
     /**
      * Generate statistics reports from passed request arguments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function generateReport($args, $request) {
         $this->validate();

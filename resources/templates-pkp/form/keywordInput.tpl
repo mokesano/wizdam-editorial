@@ -1,8 +1,8 @@
 {**
  * templates/form/keywordInput.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Generic keyword input control
@@ -41,12 +41,12 @@
 
 	<script type="text/javascript">
 		$(function() {ldelim}
-			$('#{$FBV_id|escape:javascript}-localization-popover-container{$uniqId}').pkpHandler(
-				'$.pkp.controllers.form.MultilingualInputHandler'
+			$('#{$FBV_id|escape:javascript}-localization-popover-container{$uniqId}').coreHandler(
+				'$.core.controllers.form.MultilingualInputHandler'
 				);
 		{rdelim});
 		</script>
-		<span id="{$FBV_id|escape}-localization-popover-container{$uniqId}" class="localization_popover_container pkpTagit">
+		<span id="{$FBV_id|escape}-localization-popover-container{$uniqId}" class="localization_popover_container coreTagit">
 			<ul class="localization_popover_container localizable {if $formLocale != $currentLocale} locale_{$formLocale|escape}{/if}" id="{$formLocale|escape}-{$FBV_id|escape}{$uniqId}">
 				{if $FBV_currentKeywords}{foreach from=$FBV_currentKeywords.$formLocale item=currentKeyword}<li>{$currentKeyword|escape}</li>{/foreach}{/if}
 			</ul>

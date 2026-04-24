@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/usageStats/locale/fr_CA/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -31,10 +31,10 @@
 	<message key="plugins.generic.usageStats.noCounterBotList">La liste COUNTER bot ne peut être trouvée, ou plus d'une liste est présente. Le fichier {$file} n'a pu être traité.</message>
 	<message key="plugins.generic.usageStats.failedCounterBotList">La liste COUNTER bot {$botlist} n'a pu être ouverte. Le fichier {$file} n'a pu être traité.</message>
 	
-	<message key="plugins.reports.usageStats.report.displayName">Rapport de statistiques d'usage OJS</message>
-	<message key="plugins.reports.usageStats.report.description">Rapport de statistiques d'usage OJS par défaut (COUNTER prêt)</message>
+	<message key="plugins.reports.usageStats.report.displayName">Rapport de statistiques d'usage Wizdam Editorial</message>
+	<message key="plugins.reports.usageStats.report.description">Rapport de statistiques d'usage Wizdam Editorial par défaut (COUNTER prêt)</message>
 	
-	<message key="plugins.reports.usageStats.metricType">OJS/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType">Wizdam Editorial/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Statistiques Open Journal Systems (COUNTER prêt)</message>
 	<message key="plugins.generic.usageStats.settings.dataPrivacyOption">Options de confidentialité des données</message>
 	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.saltFilepath">Chemin du fichier de salage</message>

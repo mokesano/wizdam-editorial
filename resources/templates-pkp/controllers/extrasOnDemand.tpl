@@ -1,8 +1,8 @@
 {**
  * controllers/extrasOnDemand.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Basic markup for extras on demand widget.
@@ -10,8 +10,8 @@
 <script type="text/javascript">
 	// Initialise JS handler.
 	$(function() {ldelim}
-		$('#{$id}').pkpHandler(
-			'$.pkp.controllers.ExtrasOnDemandHandler');
+		$('#{$id}').coreHandler(
+			'$.core.controllers.ExtrasOnDemandHandler');
 	{rdelim});
 </script>
 {if !$lessDetailsText}
@@ -20,7 +20,7 @@
 {if !$lessDetailsLabel}
 	{assign var=lessDetailsLabel value=$moreDetailsLabel}
 {/if}
-<div id="{$id}" class="pkp_controllers_extrasOnDemand">
+<div id="{$id}" class="core_controllers_extrasOnDemand">
 	<div class="toggleExtras">
 		<span class="ui-icon"></span>
 		<span class="toggleExtras-inactive">{translate key=$moreDetailsText}

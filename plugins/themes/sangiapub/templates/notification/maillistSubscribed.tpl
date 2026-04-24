@@ -1,8 +1,8 @@
 {**
  * templates/notification/maillistSubscribed.tpl
  *
- * Copyright (c) 2013-2015 Simon Fraser University Library
- * Copyright (c) 2003-2015 John Willinsky
+ * Copyright (c) 2013-2015 Sangia Publishing House Library
+ * Copyright (c) 2003-2015 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Displays the notification settings page and unchecks
@@ -15,7 +15,7 @@
 
 <ul>
 	<li>
-		<span{if $error} class="pkp_form_error"{/if}>
+		<span{if $error} class="core_form_error"{/if}>
 			{translate key="notification.$status"}
 		</span>
 	</li>

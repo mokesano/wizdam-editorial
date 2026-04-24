@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/externalFeed/locale/no_NO/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * External feed plugin localization strings for the en_US (U.S. English) locale.
@@ -58,7 +58,7 @@
 	<message key="plugins.generic.externalFeed.form.titleRequired">Oppgi en tittel for dette eksterne innholdet</message>
 	<message key="plugins.generic.externalFeed.form.feedUrl">URL</message>
 	<message key="plugins.generic.externalFeed.form.feedUrlValid">Vennligst oppgi en gyldig URL (inkluder http://)</message>
-	<message key="plugins.generic.externalFeed.form.feedUrlDescription">URL-en til det eksterne Atom/RSS-innholdet  (f.eks. http://pkp.sfu.ca/blog/feed)</message>
+	<message key="plugins.generic.externalFeed.form.feedUrlDescription">URL-en til det eksterne Atom/RSS-innholdet  (f.eks. http://wizdam.sangia.org/blog/feed)</message>
 	<message key="plugins.generic.externalFeed.form.display">Vis</message>
 	<message key="plugins.generic.externalFeed.form.displayHomepage">Vis på hjemmesiden</message>
 	<message key="plugins.generic.externalFeed.form.displayBlockNone">Ikke vis i blokken</message>

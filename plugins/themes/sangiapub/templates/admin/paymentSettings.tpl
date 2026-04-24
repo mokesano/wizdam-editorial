@@ -9,7 +9,7 @@
     </div>
 {/if}
 
-{* Pesan Error bawaan Form OJS jika validasi gagal (misal CSRF tidak valid) *}
+{* Pesan Error bawaan Form App jika validasi gagal (misal CSRF tidak valid) *}
 {include file="common/formErrors.tpl"}
 
 <form method="post" action="{url page="admin" op="save-payment-settings"}">

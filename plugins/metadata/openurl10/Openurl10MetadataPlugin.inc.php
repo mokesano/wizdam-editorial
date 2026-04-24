@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file plugins/metadata/openurl10/Openurl10MetadataPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Openurl10MetadataPlugin
@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.plugins.metadata.openurl10.PKPOpenurl10MetadataPlugin');
+import('core.Modules.plugins.metadata.openurl10.CoreOpenurl10MetadataPlugin');
 
 class Openurl10MetadataPlugin extends CoreOpenurl10MetadataPlugin {
     

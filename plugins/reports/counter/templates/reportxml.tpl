@@ -1,8 +1,8 @@
 {**
  * plugins/reports/counter/templates/reportxml.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * COUNTER report XML
@@ -34,7 +34,7 @@
           <Type>Online_ISSN</Type>
           <Value>{$journal.onlineIssn|escape:"html"}</Value>
         </ItemIdentifier>
-        <ItemPlatform>Open Journal Systems</ItemPlatform>
+        <ItemPlatform>Wizdam Editorial</ItemPlatform>
         <ItemPublisher>{$journal.publisherInstitution|escape:"html"}</ItemPublisher>
         <ItemName>{$journal.journalTitle|escape:"html"}</ItemName>
         <ItemDataType>Journal</ItemDataType>

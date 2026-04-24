@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/doi/locale/ru_RU/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
@@ -14,11 +14,11 @@
  
 <locale name="ru_RU" full_name="Русский">
 	<message key="plugins.pubIds.doi.displayName">Плагин «DOI»</message>
-	<message key="plugins.pubIds.doi.description">Этот плагин включает назначение идентификаторов цифровых объектов (Digital Object Identifier) выпускам, статьям, гранкам и дополнительным файлам в OJS.</message>
+	<message key="plugins.pubIds.doi.description">Этот плагин включает назначение идентификаторов цифровых объектов (Digital Object Identifier) выпускам, статьям, гранкам и дополнительным файлам в Wizdam Editorial.</message>
 
 	<!-- форма настройки -->
 	<message key="plugins.pubIds.doi.manager.settings.doiSettings">Настройки плагина «DOI»</message>
-	<message key="plugins.pubIds.doi.manager.settings.description">Пожалуйста, настройте плагин «DOI», чтобы иметь возможность управлять и использовать DOI в OJS:</message>
+	<message key="plugins.pubIds.doi.manager.settings.description">Пожалуйста, настройте плагин «DOI», чтобы иметь возможность управлять и использовать DOI в Wizdam Editorial:</message>
 	
 	<message key="plugins.pubIds.doi.manager.settings.doiObjects">Контент журнала</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiObjectsRequired">Пожалуйста, выберите объекты, которым должны быть назначены DOI.</message>
@@ -35,7 +35,7 @@
 
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffix">Суффикс DOI</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixDescription">Суффикс DOI может принимать любую форму, но должен быть уникальным среди всех публикуемых объектов, которым назначен один и тот же префикс DOI:</message>
-	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Использовать шаблон, введенный ниже, для генерации суффиксов DOI. Используйте %j для аббревиатуры журнала, %v для номера тома, %i для номера выпуска, %Y для года, %a для ID статьи в OJS, %g для ID гранки в OJS, %s для ID дополнительного файла в OJS, %p для номера страницы и %x для «пользовательского идентификатора» (должен быть включен на шаге 4.3 установки журнала).</message>
+	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Использовать шаблон, введенный ниже, для генерации суффиксов DOI. Используйте %j для аббревиатуры журнала, %v для номера тома, %i для номера выпуска, %Y для года, %a для ID статьи в Wizdam Editorial, %g для ID гранки в Wizdam Editorial, %s для ID дополнительного файла в Wizdam Editorial, %p для номера страницы и %x для «пользовательского идентификатора» (должен быть включен на шаге 4.3 установки журнала).</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.issues">для выпусков</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.articles">для статей</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.galleys">для гранок</message>

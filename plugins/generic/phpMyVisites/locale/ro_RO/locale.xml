@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/phpMyVisites/locale/ro_RO/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * phpMyVisites plugin localization strings for the ro_RO (Limba Română) locale.
@@ -16,7 +16,7 @@
 
 	<!-- phpMyVisites -->
 	<message key="plugins.generic.phpmv.displayName">Modulul phpMyVisites</message>
-	<message key="plugins.generic.phpmv.description"><![CDATA[Integrează OJS cu phpMyVisites: o aplicaţie open source pentru analiza traficului pe site. Necesită instalarea deja a lui phpMyVisites. Vedeţi <a href="http://www.phpmyvisites.us/" title="phpMyVisites site">siteul phpMyVisites</a> pentru mai multe informaţii.]]></message>
+	<message key="plugins.generic.phpmv.description"><![CDATA[Integrează Wizdam Editorial cu phpMyVisites: o aplicaţie open source pentru analiza traficului pe site. Necesită instalarea deja a lui phpMyVisites. Vedeţi <a href="http://www.phpmyvisites.us/" title="phpMyVisites site">siteul phpMyVisites</a> pentru mai multe informaţii.]]></message>
 
 	<!-- phpMyVisites Settings Management -->
 	<message key="plugins.generic.phpmv.manager.settings">Setări</message>

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/ObjectsForReviewPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ObjectForReviewPlugin
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Object for review plugin class
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 define('OFR_MODE_FULL',         0x01);
 define('OFR_MODE_METADATA',     0x02);
@@ -50,7 +50,7 @@ class ObjectsForReviewPlugin extends GenericPlugin {
 
     /**
      * Register the plugin
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @return boolean true iff success
      */
     public function register(string $category, string $path): bool {
@@ -116,7 +116,7 @@ class ObjectsForReviewPlugin extends GenericPlugin {
 
     /**
      * Get the display name for this plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -125,7 +125,7 @@ class ObjectsForReviewPlugin extends GenericPlugin {
 
     /**
      * Get a description of the plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {
@@ -134,7 +134,7 @@ class ObjectsForReviewPlugin extends GenericPlugin {
 
     /**
      * Get the name of the schema file to install the plugin's database tables.
-     * @see PKPPlugin::getInstallSchemaFile()
+     * @see CorePlugin::getInstallSchemaFile()
      * @return string
      */
     public function getInstallSchemaFile(): ?string {
@@ -143,7 +143,7 @@ class ObjectsForReviewPlugin extends GenericPlugin {
 
     /**
      * Get the name of the schema file to uninstall the plugin's database tables.
-     * @see PKPPlugin::getInstallEmailTemplatesFile()
+     * @see CorePlugin::getInstallEmailTemplatesFile()
      * @return string
      */
     public function getInstallEmailTemplatesFile(): ?string {
@@ -152,7 +152,7 @@ class ObjectsForReviewPlugin extends GenericPlugin {
 
     /**
      * Get the name of the schema file to install the plugin's email templates.
-     * @see PKPPlugin::getInstallEmailTemplateDataFile()
+     * @see CorePlugin::getInstallEmailTemplateDataFile()
      * @return string
      */
     public function getInstallEmailTemplateDataFile(): ?string {
@@ -161,7 +161,7 @@ class ObjectsForReviewPlugin extends GenericPlugin {
 
     /**
      * Get the template path for this plugin.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @return string
      */
     public function getTemplatePath(): string {
@@ -188,12 +188,12 @@ class ObjectsForReviewPlugin extends GenericPlugin {
      * Instantiate and register the DAOs.
      */
     public function registerDAOs() {
-        $this->import('classes.ReviewObjectTypeDAO');
-        $this->import('classes.ReviewObjectMetadataDAO');
-        $this->import('classes.ObjectForReviewPersonDAO');
-        $this->import('classes.ObjectForReviewDAO');
-        $this->import('classes.ObjectForReviewSettingsDAO');
-        $this->import('classes.ObjectForReviewAssignmentDAO');
+        $this->import('core.Modules.ReviewObjectTypeDAO');
+        $this->import('core.Modules.ReviewObjectMetadataDAO');
+        $this->import('core.Modules.ObjectForReviewPersonDAO');
+        $this->import('core.Modules.ObjectForReviewDAO');
+        $this->import('core.Modules.ObjectForReviewSettingsDAO');
+        $this->import('core.Modules.ObjectForReviewAssignmentDAO');
 
         $reviewObjectTypeDao = new ReviewObjectTypeDAO($this->getName());
         DAORegistry::registerDAO('ReviewObjectTypeDAO', $reviewObjectTypeDao);
@@ -219,7 +219,7 @@ class ObjectsForReviewPlugin extends GenericPlugin {
     //
     /**
      * Hook registry function to load editor, author and public handlers.
-     * @see PKPPageRouter::route()
+     * @see CorePageRouter::route()
      * @param $hookName string Hook name
      * @param $params array Array of hook parameters
      * @return boolean false to continue processing subsequent hooks
@@ -236,13 +236,13 @@ class ObjectsForReviewPlugin extends GenericPlugin {
                 if (in_array($op, $reviewObjectTypesEditorPages)) {
                     define('HANDLER_CLASS', 'ReviewObjectTypesEditorHandler');
                     define('OBJECTS_FOR_REVIEW_PLUGIN_NAME', $this->getName());
-                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_OJS_EDITOR);
+                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_WIZDAM_USER, LOCALE_COMPONENT_WIZDAM_EDITOR);
                     $handlerFile = $params[2];
                     $handlerFile = $this->getHandlerPath() . 'ReviewObjectTypesEditorHandler.inc.php';
                 } elseif (in_array($op, $objectsForReviewEditorPages)) {
                     define('HANDLER_CLASS', 'ObjectsForReviewEditorHandler');
                     define('OBJECTS_FOR_REVIEW_PLUGIN_NAME', $this->getName());
-                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_OJS_EDITOR);
+                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_WIZDAM_USER, LOCALE_COMPONENT_WIZDAM_EDITOR);
                     $handlerFile = $params[2];
                     $handlerFile = $this->getHandlerPath() . 'ObjectsForReviewEditorHandler.inc.php';
                 }
@@ -271,7 +271,7 @@ class ObjectsForReviewPlugin extends GenericPlugin {
                         if (in_array($op, $objectsForReviewAuthorPages)) {
                             define('HANDLER_CLASS', 'ObjectsForReviewAuthorHandler');
                             define('OBJECTS_FOR_REVIEW_PLUGIN_NAME', $this->getName());
-                            AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_OJS_AUTHOR);
+                            AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_WIZDAM_USER, LOCALE_COMPONENT_WIZDAM_AUTHOR);
                             $handlerFile = $params[2];
                             $handlerFile = $this->getHandlerPath() . 'ObjectsForReviewAuthorHandler.inc.php';
                         }

@@ -1,8 +1,8 @@
 {**
  * buttonConfirmationLinkAction.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Attach a link action to a button that opens a confirmation dialog and
@@ -16,12 +16,12 @@
 {if !$titleIcon}{assign var="titleIcon" value="modal_confirm"}{/if}
 <script type="text/javascript">
 	$(function() {ldelim}
-		$('{$buttonSelector|escape:javascript}').pkpHandler(
-				'$.pkp.controllers.linkAction.LinkActionHandler',
+		$('{$buttonSelector|escape:javascript}').coreHandler(
+				'$.core.controllers.linkAction.LinkActionHandler',
 				{ldelim}
-					actionRequest: '$.pkp.classes.linkAction.ModalRequest',
+					actionRequest: '$.core.classes.linkAction.ModalRequest',
 					actionRequestOptions: {ldelim}
-						modalHandler: '$.pkp.controllers.modal.ButtonConfirmationModalHandler',
+						modalHandler: '$.core.controllers.modal.ButtonConfirmationModalHandler',
 						title: '{translate|escape:javascript key="form.confirmSubmit.title"}',
 						okButton: '{translate|escape:javascript key="common.ok"}',
 						cancelButton: '{translate|escape:javascript key="common.cancel"}',

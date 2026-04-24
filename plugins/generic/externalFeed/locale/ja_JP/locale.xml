@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/externalFeed/locale/ja_JP/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * External feed plugin localization strings for the en_US (U.S. English) locale.
@@ -58,7 +58,7 @@
 	<message key="plugins.generic.externalFeed.form.titleRequired">このフィードのタイトルを入力してください</message>
 	<message key="plugins.generic.externalFeed.form.feedUrl">URL</message>
 	<message key="plugins.generic.externalFeed.form.feedUrlValid">適切なフィードURLを入力してください (include http://)</message>
-	<message key="plugins.generic.externalFeed.form.feedUrlDescription">外部の Atom/RSS フィードのURL (e.g. http://pkp.sfu.ca/blog/feed)</message>
+	<message key="plugins.generic.externalFeed.form.feedUrlDescription">外部の Atom/RSS フィードのURL (e.g. http://wizdam.sangia.org/blog/feed)</message>
 	<message key="plugins.generic.externalFeed.form.display">表示</message>
 	<message key="plugins.generic.externalFeed.form.displayHomepage">ホームページで表示</message>
 	<message key="plugins.generic.externalFeed.form.displayBlockNone">ブロックでは表示しない</message>

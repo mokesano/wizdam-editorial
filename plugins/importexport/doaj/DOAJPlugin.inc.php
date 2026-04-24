@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/doaj/DOAJPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DOAJPlugin
@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief DOAJ import/export plugin
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
-import('classes.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
 
 // Export types.
 define('DOAJ_EXPORT_ISSUES', 0x01);
@@ -57,7 +57,7 @@ class DOAJPlugin extends ImportExportPlugin {
         if (!$this->_cache instanceof PubObjectCache) {
             // Instantiate the cache.
             if (!class_exists('PubObjectCache')) { // Bug #7848
-                $this->import('classes.PubObjectCache');
+                $this->import('core.Modules.PubObjectCache');
             }
             $this->_cache = new PubObjectCache();
         }
@@ -77,7 +77,7 @@ class DOAJPlugin extends ImportExportPlugin {
     }
 
     /**
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @return string
      */
     public function getTemplatePath($inCore = false): string {
@@ -148,7 +148,7 @@ class DOAJPlugin extends ImportExportPlugin {
      * @return bool
      */
     protected function _exportJournal($journal, $selectedObjects, $outputFile = null): bool {
-        $this->import('classes.DOAJExportDom');
+        $this->import('core.Modules.DOAJExportDom');
         $doc = XMLCustomWriter::createDocument();
 
         $journalNode = DOAJExportDom::generateJournalDom($doc, $journal, $selectedObjects);
@@ -171,7 +171,7 @@ class DOAJPlugin extends ImportExportPlugin {
 
     /**
      * Label articles (on article or issue level) with a 'doaj::registered' flag
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @param array $selectedObjects
      */
     protected function _markRegistered($request, $selectedObjects): void {
@@ -230,7 +230,7 @@ class DOAJPlugin extends ImportExportPlugin {
         $this->setBreadcrumbs([], true);
 
         // Retrieve all published issues.
-        AppLocale::requireComponents([LOCALE_COMPONENT_OJS_EDITOR]);
+        AppLocale::requireComponents([LOCALE_COMPONENT_WIZDAM_EDITOR]);
         $issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
         $issueIterator = $issueDao->getPublishedIssues($journal->getId());
 
@@ -255,7 +255,7 @@ class DOAJPlugin extends ImportExportPlugin {
         unset($issueIterator);
 
         // Instantiate issue iterator.
-        import('lib.pkp.classes.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $rangeInfo = Handler::getRangeInfo('issues');
         $iterator = new ArrayItemIterator($issues, $rangeInfo->getPage(), $rangeInfo->getCount());
 
@@ -294,7 +294,7 @@ class DOAJPlugin extends ImportExportPlugin {
             $paginatedArticles = array_slice($articles, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
             
             // Instantiate article iterator.
-            import('lib.pkp.classes.core.VirtualArrayIterator');
+            import('core.Kernel.VirtualArrayIterator');
             $iterator = new VirtualArrayIterator($paginatedArticles, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
             // Prepare and display the article template.
@@ -417,7 +417,7 @@ class DOAJPlugin extends ImportExportPlugin {
 
     /**
      * Process a request.
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @param object $journal Journal
      * @return mixed
      */
@@ -487,7 +487,7 @@ class DOAJPlugin extends ImportExportPlugin {
         static $notificationManager = null;
 
         if (is_null($notificationManager)) {
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
         }
 

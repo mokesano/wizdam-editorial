@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file controllers/statistics/ReportGeneratorHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReportGeneratorHandler
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('classes.handler.Handler');
-import('lib.pkp.classes.core.JSONMessage');
+import('core.Modules.handler.Handler');
+import('core.Kernel.JSONMessage');
 
 class ReportGeneratorHandler extends Handler {
     
@@ -47,7 +47,7 @@ class ReportGeneratorHandler extends Handler {
     /**
      * Fetch form to generate custom reports.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function fetchReportGenerator($args, $request) {
         $this->setupTemplate($request);
@@ -71,7 +71,7 @@ class ReportGeneratorHandler extends Handler {
     /**
      * Save form to generate custom reports.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveReportGenerator($args, $request) {
         $this->setupTemplate($request);
@@ -94,7 +94,7 @@ class ReportGeneratorHandler extends Handler {
     /**
      * Fetch articles title and id from the passed request variable issue id.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string JSON response
      */
     public function fetchArticlesInfo($args, $request) {
@@ -125,7 +125,7 @@ class ReportGeneratorHandler extends Handler {
     /**
      * Fetch regions from the passed request variable country id.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string JSON response
      */
     public function fetchRegions($args, $request) {
@@ -156,15 +156,15 @@ class ReportGeneratorHandler extends Handler {
     }
 
     /**
-     * @see PKPHandler::setupTemplate()
+     * @see CoreHandler::setupTemplate()
      */
     public function setupTemplate($request = null) {
         parent::setupTemplate($request);
         AppLocale::requireComponents(
-            LOCALE_COMPONENT_PKP_MANAGER, 
-            LOCALE_COMPONENT_OJS_MANAGER,
-            LOCALE_COMPONENT_OJS_EDITOR, 
-            LOCALE_COMPONENT_PKP_SUBMISSION
+            LOCALE_COMPONENT_WIZDAM_MANAGER, 
+            LOCALE_COMPONENT_WIZDAM_MANAGER,
+            LOCALE_COMPONENT_WIZDAM_EDITOR, 
+            LOCALE_COMPONENT_WIZDAM_SUBMISSION
         );
     }
 
@@ -175,7 +175,7 @@ class ReportGeneratorHandler extends Handler {
     /**
      * Get report generator form object.
      * [WIZDAM] Removed reference return '&' for PHP 8 compatibility with 'new' objects
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return ReportGeneratorForm
      */
     protected function _getReportGeneratorForm($request) {

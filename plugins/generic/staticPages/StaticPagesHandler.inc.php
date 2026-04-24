@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/staticPages/StaticPagesHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @package plugins.generic.staticPages
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class StaticPagesHandler extends Handler {
     
@@ -40,7 +40,7 @@ class StaticPagesHandler extends Handler {
     /**
      * Index handler
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function index($args = array(), $request = null) {
         if (!$request) {
@@ -52,7 +52,7 @@ class StaticPagesHandler extends Handler {
     /**
      * View handler
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function view($args, $request) {
         if (count($args) > 0 ) {

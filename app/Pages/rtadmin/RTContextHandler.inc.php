@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/rtadmin/RTContextHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RTContextHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.rtadmin.RTAdminHandler');
+import('app.Pages.rtadmin.RTAdminHandler');
 
 class RTContextHandler extends RTAdminHandler {
     
@@ -44,7 +44,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * Create context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createContext($args, $request = null) {
         $this->validate();
@@ -58,7 +58,7 @@ class RTContextHandler extends RTAdminHandler {
         $versionId = isset($args[0]) ? (int)$args[0] : 0;
         $version = $rtDao->getVersion($versionId, $journal->getId());
 
-        import('classes.rt.form.ContextForm');
+        import('core.Modules.rt.form.ContextForm');
         $contextForm = new ContextForm(null, $versionId);
 
         if (isset($args[1]) && $args[1]=='save') {
@@ -74,7 +74,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * List contexts.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function contexts($args, $request = null) {
         $this->validate();
@@ -100,7 +100,7 @@ class RTContextHandler extends RTAdminHandler {
             // [WIZDAM] Removed assign_by_ref
             $templateMgr->assign('version', $version);
 
-            import('lib.pkp.classes.core.ArrayItemIterator');
+            import('core.Kernel.ArrayItemIterator');
             $templateMgr->assign('contexts', new ArrayItemIterator($version->getContexts(), $rangeInfo->getPage(), $rangeInfo->getCount()));
 
             $templateMgr->assign('helpTopicId', 'journal.managementPages.readingTools.contexts');
@@ -113,7 +113,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * Edit context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editContext($args, $request = null) {
         $this->validate();
@@ -130,7 +130,7 @@ class RTContextHandler extends RTAdminHandler {
         $context = $rtDao->getContext($contextId);
 
         if (isset($version) && isset($context) && $context->getVersionId() == $version->getVersionId()) {
-            import('classes.rt.form.ContextForm');
+            import('core.Modules.rt.form.ContextForm');
             $this->setupTemplate(true, $version, $context);
             $contextForm = new ContextForm($contextId, $versionId);
             $contextForm->initData();
@@ -143,7 +143,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * Delete context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteContext($args, $request = null) {
         $this->validate();
@@ -169,7 +169,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * Save context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveContext($args, $request = null) {
         $this->validate();
@@ -186,7 +186,7 @@ class RTContextHandler extends RTAdminHandler {
         $context = $rtDao->getContext($contextId);
 
         if (isset($version) && isset($context) && $context->getVersionId() == $version->getVersionId()) {
-            import('classes.rt.form.ContextForm');
+            import('core.Modules.rt.form.ContextForm');
             $contextForm = new ContextForm($contextId, $versionId);
             $contextForm->readInputData();
             $contextForm->execute();
@@ -198,7 +198,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * Move context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveContext($args, $request = null) {
         $this->validate();

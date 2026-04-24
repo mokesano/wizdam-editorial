@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/mets/MetsExportDom.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MetsExportDom
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 7.4/8.0+ (Static Methods, Strict Types, XML DOM)
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('core.Modules.xml.XMLCustomWriter');
 
 class MetsExportDom {
 
@@ -239,7 +239,7 @@ class MetsExportDom {
 
         XMLCustomWriter::createChildWithText($doc, $mods, 'mods:genre', 'issue');
         
-        import('classes.config.Config');
+        import('core.Modules.config.Config');
         $base_url = Config::getVar('general', 'base_url');
         $url = $base_url . '/index.php/' . $journal->getPath() . '/issue/view/' . $issue->getId();
         
@@ -663,8 +663,8 @@ class MetsExportDom {
      * @param Journal $journal
      */
     public static function generateArticleHtmlGalleyImageFileDom(DOMDocument $doc, DOMElement $root, $article, $galley, $imageFile, $useAttribute, Journal $journal): void {
-        import('classes.file.PublicFileManager');
-        import('lib.pkp.classes.file.FileManager');
+        import('core.Modules.file.PublicFileManager');
+        import('core.Modules.file.FileManager');
         
         $fileManager = new FileManager();
         $contentWrapper = Request::getUserVar('contentWrapper');
@@ -708,8 +708,8 @@ class MetsExportDom {
      * @param Journal $journal
      */
     public static function generateArticleFileDom(DOMDocument $doc, DOMElement $root, $article, $galleyFile, $useAttribute, Journal $journal): void {
-        import('classes.file.PublicFileManager');
-        import('lib.pkp.classes.file.FileManager');
+        import('core.Modules.file.PublicFileManager');
+        import('core.Modules.file.FileManager');
         
         $fileManager = new FileManager();
         $contentWrapper = Request::getUserVar('contentWrapper');
@@ -752,8 +752,8 @@ class MetsExportDom {
      * @param Journal $journal
      */
     public static function generateArticleSuppFileDom(DOMDocument $doc, DOMElement $root, $article, SuppFile $suppFile, Journal $journal): void {
-        import('classes.file.PublicFileManager');
-        import('lib.pkp.classes.file.FileManager');
+        import('core.Modules.file.PublicFileManager');
+        import('core.Modules.file.FileManager');
         
         $fileManager = new FileManager();
         $contentWrapper = Request::getUserVar('contentWrapper');
@@ -891,7 +891,7 @@ class MetsExportDom {
     }
 
     /**
-     * Creator is the OJS System
+     * Creator is the Wizdam System
      * @return string
      */
     public static function getCreatorString(): string {

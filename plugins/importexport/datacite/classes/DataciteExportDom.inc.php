@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/datacite/classes/DataciteExportDom.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataciteExportDom
@@ -255,7 +255,7 @@ class DataciteExportDom extends DOIExportDom {
 		$journal = $this->getJournal();
 		$cache = $this->getCache();
 
-		// Retrieve basic OJS objects.
+		// Retrieve basic Wizdam objects.
 		$publicationObjects = parent::retrievePublicationObjects($object);
 		if ($object instanceof SuppFile) {
 			assert(isset($publicationObjects['article']));
@@ -293,7 +293,7 @@ class DataciteExportDom extends DOIExportDom {
 	public function getObjectLocalePrecedence($article, $galley, $suppFile = null) {
 		$locales = array();
 		if ($suppFile instanceof SuppFile) {
-			// Try to map the supp-file language to a PKP locale.
+			// Try to map the supp-file language to a Wizdam locale.
 			$suppFileLocale = $this->translateLanguageToLocale($suppFile->getLanguage());
 			if (!is_null($suppFileLocale)) {
 				$locales[] = $suppFileLocale;
@@ -361,7 +361,7 @@ class DataciteExportDom extends DOIExportDom {
 			return false;
 		}
 		if ($this->getTestMode()) {
-			$doi = PKPString::regexp_replace('#^[^/]+/#', DATACITE_API_TESTPREFIX . '/', $doi);
+			$doi = CoreString::regexp_replace('#^[^/]+/#', DATACITE_API_TESTPREFIX . '/', $doi);
 		}
 		return $this->createElementWithText('identifier', $doi, array('identifierType' => 'DOI'));
 	}
@@ -777,7 +777,7 @@ class DataciteExportDom extends DOIExportDom {
 			return $nullVar;
 		}
 		if ($this->getTestMode()) {
-			$id = PKPString::regexp_replace('#^[^/]+/#', DATACITE_API_TESTPREFIX . '/', $id);
+			$id = CoreString::regexp_replace('#^[^/]+/#', DATACITE_API_TESTPREFIX . '/', $id);
 		}
 
 		return $this->createElementWithText(
@@ -824,7 +824,7 @@ class DataciteExportDom extends DOIExportDom {
 		if (!empty($pages)) {
 			$sizes[] = $pages . ' ' . __('editor.issues.pages');
 		}
-		foreach ($files as $file) { /* @var $file PKPFile */
+		foreach ($files as $file) { /* @var $file CoreFile */
 			$fileSize = round(((int)$file->getFileSize()) / 1024);
 			if ($fileSize >= 1024) {
 				$fileSize = round($fileSize / 1024, 2);

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/blocks/role/RoleBlockPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RoleBlockPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class RoleBlockPlugin extends BlockPlugin {
     
@@ -62,7 +62,7 @@ class RoleBlockPlugin extends BlockPlugin {
 
     /**
      * Override the block contents based on the current role being browsed.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string|null
      */
     public function getBlockTemplateFilename($request = null) {

@@ -1,8 +1,8 @@
 {**
- * lib/pkp/templates/common/formErrors.tpl
+ * core/Library/templates/common/formErrors.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * List errors that occurred during form processing.
@@ -10,8 +10,8 @@
 {if $isError}
 	<div id="formErrors">
 		<p>
-		<span class="pkp_form_error">{translate key="form.errorsOccurred"}:</span>
-		<ul class="pkp_form_error_list">
+		<span class="core_form_error">{translate key="form.errorsOccurred"}:</span>
+		<ul class="core_form_error_list">
 		{foreach key=field item=message from=$errors}
 			<li><a href="#{$field|escape}">{$message}</a></li>
 		{/foreach}

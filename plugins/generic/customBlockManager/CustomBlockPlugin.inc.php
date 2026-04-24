@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/customBlockManager/CustomBlockPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CustomBlockPlugin
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Plugin to handle individual custom blocks.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class CustomBlockPlugin extends BlockPlugin {
     
@@ -95,13 +95,13 @@ class CustomBlockPlugin extends BlockPlugin {
     /**
      * Determine if the block is enabled.
      * Logic: Data Exists = Enabled. Only returns FALSE if Database explicitly says '0'.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return boolean
      */
     public function getEnabled($request = NULL): bool {
         if (!Config::getVar('general', 'installed')) return true;
 
-        $journal = ($request && is_a($request, 'PKPRequest')) ? $request->getJournal() : Request::getJournal();
+        $journal = ($request && is_a($request, 'CoreRequest')) ? $request->getJournal() : Request::getJournal();
         $journalId = $journal ? $journal->getId() : 0;
 
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
@@ -116,10 +116,10 @@ class CustomBlockPlugin extends BlockPlugin {
     /**
      * Set the enabled state of the block.
      * @param boolean $enabled
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function setEnabled(bool $enabled, $request = NULL): bool {
-        $journal = ($request && is_a($request, 'PKPRequest')) ? $request->getJournal() : Request::getJournal();
+        $journal = ($request && is_a($request, 'CoreRequest')) ? $request->getJournal() : Request::getJournal();
         $journalId = $journal ? $journal->getId() : 0;
         
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO');
@@ -131,7 +131,7 @@ class CustomBlockPlugin extends BlockPlugin {
     /**
      * Get the management verbs for this plugin.
      * @param array $verbs
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return array
      */
     public function getManagementVerbs(array $verbs = [], $request = null): array {
@@ -153,7 +153,7 @@ class CustomBlockPlugin extends BlockPlugin {
      * @param array $args
      * @param string $message
      * @param array $messageParams
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return boolean
      */
     public function manage(string $verb, array $args, string $message, array $messageParams, $request = NULL): bool {
@@ -214,11 +214,11 @@ class CustomBlockPlugin extends BlockPlugin {
     /**
      * Get the contents of the block.
      * @param TemplateManager $templateMgr
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return string
      */
     public function getContents($templateMgr, $request = NULL) {
-        $journal = ($request && is_a($request, 'PKPRequest')) ? $request->getJournal() : Request::getJournal();
+        $journal = ($request && is_a($request, 'CoreRequest')) ? $request->getJournal() : Request::getJournal();
         if (!$journal) return '';
 
         $managerPlugin = $this->getManagerPlugin();

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/sword/AuthorDepositForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthorDepositForm
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class AuthorDepositForm extends Form {
     
@@ -51,7 +51,7 @@ class AuthorDepositForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $template
      */
     public function display($request = null, $template = null) {
@@ -98,18 +98,18 @@ class AuthorDepositForm extends Form {
 
     /**
      * Perform SWORD deposit
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @see Form::execute()
      */
     public function execute($object = null) {
         $user = $request->getUser();
-        import('classes.sword.OJSSwordDeposit');
+        import('core.Modules.sword.AppSwordDeposit');
         $deposit = new AppSwordDeposit($this->article);
         $deposit->setMetadata();
         $deposit->addEditorial();
         $deposit->createPackage();
 
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
 
         $allowAuthorSpecify = $this->swordPlugin->getSetting($this->article->getJournalId(), 'allowAuthorSpecify');
@@ -158,7 +158,7 @@ class AuthorDepositForm extends Form {
      * @return array
      */
     public function _getDepositableDepositPoints() {
-        import('classes.sword.OJSSwordDeposit');
+        import('core.Modules.sword.AppSwordDeposit');
         $depositPoints = $this->swordPlugin->getSetting($this->article->getJournalId(), 'depositPoints');
         
         if (!is_array($depositPoints)) return [];

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/booksForReview/BooksForReviewPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class BooksForReviewPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe & Resource Optimized.
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 define('BFR_MODE_FULL',         0x01);
 define('BFR_MODE_METADATA',     0x02);
@@ -52,8 +52,8 @@ class BooksForReviewPlugin extends GenericPlugin {
         $success = parent::register($category, $path);
         $this->addLocaleData();
         if ($success && $this->getEnabled()) {
-            $this->import('classes.BookForReviewDAO');
-            $this->import('classes.BookForReviewAuthorDAO');
+            $this->import('core.Modules.BookForReviewDAO');
+            $this->import('core.Modules.BookForReviewAuthorDAO');
 
             // [MODERNISASI] Hapus referensi &
             $bfrAuthorDao = new BookForReviewAuthorDAO($this->getName());
@@ -210,7 +210,7 @@ class BooksForReviewPlugin extends GenericPlugin {
 
                     if ($authorId == $userId) {
                         $status = $book->getStatus();
-                        $this->import('classes.BookForReview');
+                        $this->import('core.Modules.BookForReview');
 
                         if ($status == BFR_STATUS_ASSIGNED || $status == BFR_STATUS_MAILED) {
                             $book->setStatus(BFR_STATUS_SUBMITTED);
@@ -258,7 +258,7 @@ class BooksForReviewPlugin extends GenericPlugin {
                 if (in_array($op, $editorPages)) {
                     define('HANDLER_CLASS', 'BooksForReviewEditorHandler');
                     define('BOOKS_FOR_REVIEW_PLUGIN_NAME', $this->getName());
-                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_OJS_EDITOR);
+                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_WIZDAM_USER, LOCALE_COMPONENT_WIZDAM_EDITOR);
                     
                     // [WIZDAM NOTE] Hook LoadHandler arguments: $page, $op, &$sourceFile
                     // Harus menggunakan & di sini karena sourceFile perlu diubah agar router memuat handler dari plugin ini.
@@ -290,7 +290,7 @@ class BooksForReviewPlugin extends GenericPlugin {
                 if (in_array($op, $authorPages)) {
                     define('HANDLER_CLASS', 'BooksForReviewAuthorHandler');
                     define('BOOKS_FOR_REVIEW_PLUGIN_NAME', $this->getName());
-                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_OJS_AUTHOR);
+                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_WIZDAM_USER, LOCALE_COMPONENT_WIZDAM_AUTHOR);
                     
                     // [WIZDAM NOTE] Reference assignment required for HookRegistry modification
                     $handlerFile =& $params[2];
@@ -477,7 +477,7 @@ class BooksForReviewPlugin extends GenericPlugin {
             $book = $bfrDao->getSubmittedBookForReviewByArticle($journalId, $articleId);
 
             if ($book) {
-                import('classes.file.PublicFileManager');
+                import('core.Modules.file.PublicFileManager');
                 $publicFileManager = new PublicFileManager();
                 $baseCoverPagePath = Request::getBaseUrl() . '/';
                 $baseCoverPagePath .= $publicFileManager->getJournalFilesPath($journalId) . '/';

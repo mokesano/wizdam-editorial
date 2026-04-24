@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/index/IndexHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class IndexHandler
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
-import('lib.pkp.classes.core.PKPWizdamStats');
+import('core.Modules.handler.Handler');
+import('core.Kernel.CoreStats');
 
 class IndexHandler extends Handler {
     
@@ -46,7 +46,7 @@ class IndexHandler extends Handler {
      * If no journal is selected, display list of journals.
      * Otherwise, display the index page for the selected journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -77,7 +77,7 @@ class IndexHandler extends Handler {
             $issueDao = DAORegistry::getDAO('IssueDAO');
             $issue = $issueDao->getCurrentIssue($journal->getId(), true);
             if ($displayCurrentIssue && isset($issue)) {
-                import('pages.issue.IssueHandler');
+                import('app.Pages.issue.IssueHandler');
                 // The current issue TOC/cover page should be displayed below the custom home page.
                 IssueHandler::_setupIssueTemplate($request, $issue);
             }
@@ -96,20 +96,20 @@ class IndexHandler extends Handler {
             
             // --- MODIFIKASI DIMULAI (WIZDAM Editor Staff) ---
             // 1. Import kelas handler baru dari core
-            import('lib.pkp.classes.core.PKPWizdamEditorStaff');
+            import('core.Kernel.CoreEditorStaff');
             
             // 2. jumlah staff yang ingin ditampilkan (sesuai kebutuhan)
             $maxStaffToShow = 3; 
             
             // 3. Panggil metode statis untuk menjalankan seluruh logika
             //    Metode ini akan menangani cache dan assign $journalManagers & $journalEditors ke Smarty
-            PKPWizdamEditorStaff::displayHomepageStaff($journal, $templateMgr, $maxStaffToShow);
+            CoreEditorStaff::displayHomepageStaff($journal, $templateMgr, $maxStaffToShow);
             // --- MODIFIKASI SELESAI (WIZDAM Editor Staff) ---
             
             // --- BLOK WIZDAM STATS JURNAL DIMULAI ---
             $journalId = $journal->getId();
             try {
-                $journalStats = PKPWizdamStats::getStats($journalId, $forceRefresh);
+                $journalStats = CoreStats::getStats($journalId, $forceRefresh);
                 if (is_array($journalStats) && !isset($journalStats['error'])) {
                     foreach ($journalStats as $key => $value) {
                         $templateMgr->assign($key, $value);
@@ -122,7 +122,7 @@ class IndexHandler extends Handler {
                 }
             } catch (Exception $e) { 
                 if (Config::getVar('debug', 'log_errors')) {
-                    error_log('WizdamStats (Handler): Exception loading PKPWizdamStats for JID ' . $journalId . ': ' . $e->getMessage());
+                    error_log('WizdamStats (Handler): Exception loading CoreStats for JID ' . $journalId . ': ' . $e->getMessage());
                 }
                 $templateMgr->assign('statsError', 'Gagal memuat statistik jurnal.');
             }
@@ -146,7 +146,7 @@ class IndexHandler extends Handler {
             // --- TAMBAHKAN BLOK STATISTIK SITUS INI ---
             try {
                 // Memanggil Mesin #2 (Statistik Seluruh Situs)
-                $siteStats = PKPWizdamStats::getSiteWideStats($forceRefresh);
+                $siteStats = CoreStats::getSiteWideStats($forceRefresh);
                 
                 // --- TAMBAHKAN DEBUGGING DI SINI ---
                 if (Config::getVar('debug', 'log_errors')) { // Hanya log jika debug aktif
@@ -175,7 +175,7 @@ class IndexHandler extends Handler {
                 }
             } catch (Exception $e) { 
                 if (Config::getVar('debug', 'log_errors')) {
-                    error_log('WizdamStats (Handler): Exception loading PKPWizdamStats (Site-Wide): ' . $e->getMessage());
+                    error_log('WizdamStats (Handler): Exception loading CoreStats (Site-Wide): ' . $e->getMessage());
                 }
                 $templateMgr->assign('statsError', 'Gagal memuat statistik situs.');
                 

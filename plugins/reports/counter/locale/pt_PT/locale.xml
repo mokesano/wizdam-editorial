@@ -4,8 +4,8 @@
 <!--
   * plugins/reports/counter/locale/pt_PT/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the pt_PT locale.
@@ -28,7 +28,7 @@
 	<message key="plugins.reports.counter.1a.ytdHtml">HTML YTD</message>
 	<message key="plugins.reports.counter.1a.ytdPdf">PDF YTD</message>
 	<message key="plugins.reports.counter.1a.totalForAllJournals">Total para todas as revistas</message>
-	<message key="plugins.reports.counter.legacyStats">Os links em baixo geram relatórios usando os dados do antigo plugin COUNTER. Se pretende gerar relatórios COUNTER usando o novo tipo de métrica do COUNTER do OJS, use os links em cima.</message>
+	<message key="plugins.reports.counter.legacyStats">Os links em baixo geram relatórios usando os dados do antigo plugin COUNTER. Se pretende gerar relatórios COUNTER usando o novo tipo de métrica do COUNTER do Wizdam Editorial, use os links em cima.</message>
 	<message key="plugins.reports.counter.release">Lançamento do COUNTER</message>
 	<message key="plugins.reports.counter.olderReports">Relatórios antigos do portal</message>
 	<message key="plugins.reports.counter.error.badParameters">Os parâmetros do relatório eram inválidos.</message>

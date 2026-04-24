@@ -2,13 +2,13 @@
  * @defgroup js_controllers_linkAction
  */
 // Create the linkAction namespace.
-jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
+jQuery.core.controllers.linkAction = jQuery.core.controllers.linkAction || { };
 
 /**
  * @file js/controllers/linkAction/LinkActionHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LinkActionHandler
@@ -24,7 +24,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.Handler
+	 * @extends $.core.classes.Handler
 	 *
 	 * @param {jQueryObject} $handledElement The clickable element
 	 *  the link action will be attached to.
@@ -37,7 +37,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 *  - actionResponse: The action's response listener.
 	 *  - actionResponseOptions: Options for the response listener.
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler =
+	$.core.controllers.linkAction.LinkActionHandler =
 			function($handledElement, options) {
 		this.parent($handledElement, options);
 
@@ -71,8 +71,8 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 				this.callbackWrapper(this.enableLink);
 
 		this.linkActionRequest_ =
-				/** @type {$.pkp.classes.linkAction.LinkActionRequest} */
-				($.pkp.classes.Helper.objectFactory(
+				/** @type {$.core.classes.linkAction.LinkActionRequest} */
+				($.core.classes.Helper.objectFactory(
 						options.actionRequest,
 						[$handledElement, options.actionRequestOptions]));
 
@@ -99,9 +99,9 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 			this.trigger('click');
 		}
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.linkAction.LinkActionHandler,
-			$.pkp.classes.Handler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.linkAction.LinkActionHandler,
+			$.core.classes.Handler);
 
 
 	//
@@ -110,9 +110,9 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	/**
 	 * The link action request object.
 	 * @private
-	 * @type {$.pkp.classes.linkAction.LinkActionRequest}
+	 * @type {$.core.classes.linkAction.LinkActionRequest}
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			linkActionRequest_ = null;
 
 
@@ -122,7 +122,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			staticId_ = null;
 
 
@@ -133,7 +133,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 * Get the static id part of the HTML element id.
 	 * @return {?string} Non-unique part of HTML element id.
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			getStaticId = function() {
 		return this.staticId_;
 	};
@@ -143,7 +143,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 * Get the link url.
 	 * @return {?string} Link url.
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			getUrl = function() {
 		return this.linkActionRequest_.getUrl();
 	};
@@ -160,7 +160,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 * @param {HTMLElement} sourceElement The element that
 	 *  issued the event.
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			imagePreviewHandler_ = function(sourceElement) {
 
 		// Use the jQuery imagepreview plug-in to show the image.
@@ -185,7 +185,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 * @param {Event} event The event that activated the link action.
 	 * @return {boolean} Should return false to stop event propagation.
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			activateAction = function(callingElement, event) {
 
 		// Unbind our click handler to avoid double-execution
@@ -193,7 +193,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 		// if this link action have a null action request. In that
 		// case, the action request is handled by some parent widget.
 		if (this.linkActionRequest_.getObjectName() !=
-				'$.pkp.classes.linkAction.NullAction') {
+				'$.core.classes.linkAction.NullAction') {
 			this.disableLink();
 		}
 
@@ -205,7 +205,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	/**
 	 * Bind the link action request.
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			bindActionRequest = function() {
 
 		// (Re-)bind our click handler so that the action
@@ -217,7 +217,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	/**
 	 * Enable link action.
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			enableLink = function() {
 		var $linkActionElement, actionRequestUrl;
 
@@ -241,7 +241,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	/**
 	 * Disable link action.
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			disableLink = function() {
 		var $linkActionElement = $(this.getHtmlElement());
 		$linkActionElement.addClass('ui-state-disabled');
@@ -260,7 +260,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 * Remove the 'disabled' CSS class for the linkActionElement.
 	 * @private
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			removeDisabledCssClass_ = function() {
 
 		var $linkActionElement = $(this.getHtmlElement());
@@ -277,10 +277,10 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 * @param {Object} eventData Event data.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			dataChangedHandler_ = function(callingElement, event, eventData) {
 
-		if (this.getHtmlElement().parents('.pkp_controllers_grid').length === 0) {
+		if (this.getHtmlElement().parents('.core_controllers_grid').length === 0) {
 			// We might want to redirect this data changed event to a grid.
 			// Trigger another event so parent widgets can handle this
 			// redirection.
@@ -296,7 +296,7 @@ jQuery.pkp.controllers.linkAction = jQuery.pkp.controllers.linkAction || { };
 	 * @return {boolean} Always returns false.
 	 * @private
 	 */
-	$.pkp.controllers.linkAction.LinkActionHandler.prototype.
+	$.core.controllers.linkAction.LinkActionHandler.prototype.
 			noAction_ = function() {
 		return false;
 	};

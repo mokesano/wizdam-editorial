@@ -4,8 +4,8 @@
 <!--
   * plugins/implicitAuth/shibboleth/locale/it_IT/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the it_IT (Italiano) locale.
@@ -16,5 +16,5 @@
  
 <locale name="it_IT" full_name="Italiano">
 	<message key="plugins.implicitAuth.shibboleth.displayName">Plugin di autenticazione Shibbolet</message>
-	<message key="plugins.implicitAuth.shibboleth.description">Questo plugin è esteso a tutto il sito e viene abilitato nel file di configurazione di OJS.</message>
+	<message key="plugins.implicitAuth.shibboleth.description">Questo plugin è esteso a tutto il sito e viene abilitato nel file di configurazione di Wizdam Editorial.</message>
 </locale>

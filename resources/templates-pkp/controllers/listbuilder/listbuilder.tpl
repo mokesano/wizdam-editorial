@@ -1,8 +1,8 @@
 {**
  * templates/controllers/listbuilder/listbuilder.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Displays a Listbuilder object
@@ -15,8 +15,8 @@
 
 <script type="text/javascript">
 	$(function() {ldelim}
-		$('#{$gridId|escape}').pkpHandler(
-			'$.pkp.controllers.listbuilder.ListbuilderHandler',
+		$('#{$gridId|escape}').coreHandler(
+			'$.core.controllers.listbuilder.ListbuilderHandler',
 			{ldelim}
 				{include file="controllers/listbuilder/listbuilderOptions.tpl"}
 			{rdelim}
@@ -25,7 +25,7 @@
 </script>
 
 
-<div id="{$gridId|escape}" class="pkp_controllers_grid pkp_controllers_listbuilder formWidget">
+<div id="{$gridId|escape}" class="core_controllers_grid core_controllers_listbuilder formWidget">
 
 	{* Use this disabled input to store LB deletions. See ListbuilderHandler.js *}
 	<input disabled="disabled" type="hidden" class="deletions" />

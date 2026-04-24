@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/reports/articles/ArticleReportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  * * @class ArticleReportPlugin
  * @ingroup plugins_reports_article
@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @brief Article report plugin
  */
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 
 class ArticleReportPlugin extends ReportPlugin {
     
@@ -86,9 +86,9 @@ class ArticleReportPlugin extends ReportPlugin {
             }
         }
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR, LOCALE_COMPONENT_PKP_SUBMISSION);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR, LOCALE_COMPONENT_WIZDAM_SUBMISSION);
 
-        import('classes.article.Article');
+        import('core.Modules.article.Article');
         $decisionMessages = [
             SUBMISSION_EDITOR_DECISION_ACCEPT => __('editor.article.decision.accept'),
             SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS => __('editor.article.decision.pendingRevisions'),
@@ -124,9 +124,9 @@ class ArticleReportPlugin extends ReportPlugin {
         ]);
 
         $fp = fopen('php://output', 'wt');
-        PKPString::fputcsv($fp, array_values($columns));
+        CoreString::fputcsv($fp, array_values($columns));
 
-        import('classes.article.Article'); // Bring in getStatusMap function
+        import('core.Modules.article.Article'); // Bring in getStatusMap function
         $statusMap = Article::getStatusMap();
 
         $authorIndex = 0;
@@ -162,7 +162,7 @@ class ArticleReportPlugin extends ReportPlugin {
                     }
                 }
             }
-            PKPString::fputcsv($fp, $columns);
+            CoreString::fputcsv($fp, $columns);
             unset($row);
             $authorIndex++;
         }

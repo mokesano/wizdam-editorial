@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/translator/locale/de_DE/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
@@ -14,8 +14,8 @@
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
 	<message key="plugins.generic.translator.name">Übersetzungs-Plug-In</message>
 	<message key="plugins.generic.translator.description">Dieses Plug-In erlaubt die webbasierte Pflege von Übersetzungsdateien.</message>
-	<message key="plugins.generic.translator.longdescription">Dieser Bereich erlaubt es der Zeitschriften-Administration, Übersetzungen von OJS zu erstellen, zu verändern und zu prüfen. Änderungen betreffen die komplette Webseite und sollten nicht nur für eine einzelne Zeitschrift innerhalb dieser Seite vorgenommen werden. Wenn Sie Übersetzungen erstellen oder verbessern, reichen Sie sie ggf. beim Public Knowledge Project zur Aufnahme in künftige OJS-Versionen ein.</message>
-	<message key="plugins.generic.translator.localeDescription">Auf dieser Seite werden alle Komponenten für die OJS-Übersetzung aufgeführt und Möglichkeiten zum Überarbeiten gegeben. Eine vollständige Übersetzung sollte alle OJS-Komponenten einbeziehen.</message>
+	<message key="plugins.generic.translator.longdescription">Dieser Bereich erlaubt es der Zeitschriften-Administration, Übersetzungen von Wizdam Editorial zu erstellen, zu verändern und zu prüfen. Änderungen betreffen die komplette Webseite und sollten nicht nur für eine einzelne Zeitschrift innerhalb dieser Seite vorgenommen werden. Wenn Sie Übersetzungen erstellen oder verbessern, reichen Sie sie ggf. beim Public Knowledge Project zur Aufnahme in künftige Wizdam Editorial-Versionen ein.</message>
+	<message key="plugins.generic.translator.localeDescription">Auf dieser Seite werden alle Komponenten für die Wizdam Editorial-Übersetzung aufgeführt und Möglichkeiten zum Überarbeiten gegeben. Eine vollständige Übersetzung sollte alle Wizdam Editorial-Komponenten einbeziehen.</message>
 
 	<message key="plugins.generic.translator.tarMissing">Die Exportfunktion dieses Plug-Ins ist deaktiviert worden, weil kein ausführbares tar auf dem System gefunden werden konnte. Bitte stellen Sie sicher, dass Sie das tar-Programm installiert haben und stellen Sie dann den Pfad zur ausführbaren tar-Datei im [cli]-Abschnitt von config.inc.php ein!</message>
 

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/services/CheckoutService.inc.php
+ * @file core.Modules.classes/services/CheckoutService.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * Menggunakan tabel 'queued_payments' sebagai pangkalan data keranjang sementara (Stateful Cart).
  */
 
-import('classes.payment.AppQueuedPayment');
-import('lib.wizdam.classes.services.InvoiceService');
+import('core.Modules.payment.AppQueuedPayment');
+import('core.Modules.services.InvoiceService');
 
 class CheckoutService {
 
@@ -89,7 +89,7 @@ class CheckoutService {
             'billing_address' => []   
         ];
         
-        // Suntikkan array ke properti baru yang kita buat di OJSQueuedPayment
+        // Suntikkan array ke properti baru yang kita buat di AppQueuedPayment
         $payment->setCheckoutPayload($payload);
         
         // 4. Simpan ke database (DAO akan melakukan serialize seluruh objek termasuk payload)

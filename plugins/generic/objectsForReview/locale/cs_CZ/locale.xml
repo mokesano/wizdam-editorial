@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/objectsForReview/locale/cs_CZ/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Objects for review plugin localization strings
@@ -86,7 +86,7 @@
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderBeforeDays2">dnů po stanoveném datu k ukončení recenze.</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays1">Poslat autorům e-mail s připomínkou</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays2">dnů po datu stanoveném k ukončení recenze.</message>
-	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Poznámka:</strong> K aktivaci této možnosti musí administrátor stránek povolit možnost <tt>scheduled_tasks</tt> v rámci konfiguračním souboru systému OJS. Další nastavení serveru může být požadován aby tato funkce fungovala (což nemusí fungovat na všech serverech), další informaci najdete v dokumentaci OJS.]]></message>
+	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Poznámka:</strong> K aktivaci této možnosti musí administrátor stránek povolit možnost <tt>scheduled_tasks</tt> v rámci konfiguračním souboru systému Wizdam Editorial. Další nastavení serveru může být požadován aby tato funkce fungovala (což nemusí fungovat na všech serverech), další informaci najdete v dokumentaci Wizdam Editorial.]]></message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformation">Dodatečné informace</message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformationDescription">Dodatečné informace publikované spolu se seznamem objektů k recenzi.</message>
 

@@ -28,13 +28,13 @@ switch ($op) {
     case 'section-policies':
     case 'view':
         define('HANDLER_CLASS', 'PoliciesHandler');
-        import('pages.policies.PoliciesHandler');
+        import('app.Pages.policies.PoliciesHandler');
         break;
     
     // [PENTING] Menangkap semua custom slug (retraction, publication-ethics, dll)
     default:
         define('HANDLER_CLASS', 'PoliciesHandler');
-        import('pages.policies.PoliciesHandler');
+        import('app.Pages.policies.PoliciesHandler');
         break;
 }
 ?>

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/pln/PLNGatewayPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PLNGatewayPlugin
@@ -15,10 +15,10 @@ declare(strict_types=1);
  *
  */
 
-import('classes.plugins.GatewayPlugin');
-import('lib.pkp.classes.site.VersionCheck');
-import('lib.pkp.classes.db.DBResultRange');
-import('lib.pkp.classes.core.ArrayItemIterator');
+import('core.Modules.plugins.GatewayPlugin');
+import('core.Modules.site.VersionCheck');
+import('core.Modules.db.DBResultRange');
+import('core.Kernel.ArrayItemIterator');
 
 define('PLN_PLUGIN_PING_ARTICLE_COUNT', 12);
 
@@ -138,7 +138,7 @@ class PLNGatewayPlugin extends GatewayPlugin {
 			$templateMgr->assign('termsAccepted', 'no');
 		}
 		
-		$application = PKPApplication::getApplication();
+		$application = CoreApplication::getApplication();
 		$products = $application->getEnabledProducts('plugins.generic');
 		$curlVersion = 'not installed';
 		if(function_exists('curl_version')) {
@@ -168,8 +168,8 @@ class PLNGatewayPlugin extends GatewayPlugin {
 		$templateMgr->assign('termsDisplay', new ArrayItemIterator($termsDisplay));
 
 		$versionDao = DAORegistry::getDAO('VersionDAO');
-		$ojsVersion = $versionDao->getCurrentVersion();
-		$templateMgr->assign('ojsVersion', $ojsVersion->getVersionString());
+		$wizdamVersion = $versionDao->getCurrentVersion();
+		$templateMgr->assign('wizdamVersion', $wizdamVersion->getVersionString());
 
 		$publishedArticlesDAO = DAORegistry::getDAO('PublishedArticleDAO');
 		$range = new DBResultRange(PLN_PLUGIN_PING_ARTICLE_COUNT);

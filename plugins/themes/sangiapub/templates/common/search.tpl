@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#searchForm').pkpHandler('$.pkp.pages.search.SearchFormHandler');
+		$('#searchForm').coreHandler('$.core.pages.search.SearchFormHandler');
 	{rdelim});
 </script>
     <div class="s-search c-search--background">

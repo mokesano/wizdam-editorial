@@ -1,8 +1,8 @@
 {**
  * templates/user/login.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * User login form.
@@ -40,7 +40,7 @@
 {/if}
 
 {if $error}
-	<span class="pkp_form_error">{translate key="$error" reason=$reason}</span>
+	<span class="core_form_error">{translate key="$error" reason=$reason}</span>
 	<br />
 	<br />
 {/if}

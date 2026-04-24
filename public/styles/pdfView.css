@@ -1,8 +1,8 @@
 /**
  * styles/pdfView.css
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * PDF inline viewer stylesheet.
@@ -45,7 +45,7 @@
 }
 
 a.pdf {
-	/*! background: url(../lib/pkp/templates/images/structure/page_white_acrobat.png) no-repeat scroll 0 6px !important; */
+	/*! background: url(../core/Library/templates/images/structure/page_white_acrobat.png) no-repeat scroll 0 6px !important; */
 	padding: 3px 0 3px 23px;
 	font-size: 1.2em;
 	text-transform: none;
@@ -111,7 +111,7 @@ a.pdf {
     content: "\f060";
 }
 
-.pkp_screen_reader {
+.core_screen_reader {
     clip: rect(1px, 1px, 1px, 1px);
     position: absolute !important;
     left: -2000px;
@@ -177,8 +177,8 @@ a.pdf {
     margin-left: 7px;
     font-size: 16px;
   }
-  .header_view .download .pkp_screen_reader,
-  .header_view .download .pkp_page_index .cmp_announcements h2 {
+  .header_view .download .core_screen_reader,
+  .header_view .download .core_page_index .cmp_announcements h2 {
     display:none
   }
 }

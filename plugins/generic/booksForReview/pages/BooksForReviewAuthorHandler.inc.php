@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/booksForReview/pages/BooksForReviewAuthorHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class BooksForReviewAuthorHandler
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class BooksForReviewAuthorHandler extends Handler {
 
@@ -30,7 +30,7 @@ class BooksForReviewAuthorHandler extends Handler {
         $journalId = $journal->getId();
 
         $bfrPlugin = PluginRegistry::getPlugin('generic', BOOKS_FOR_REVIEW_PLUGIN_NAME);
-        $bfrPlugin->import('classes.BookForReview');
+        $bfrPlugin->import('core.Modules.BookForReview');
         
         $path = !isset($args) || empty($args) ? null : $args[0];
         $user = $request->getUser();
@@ -90,7 +90,7 @@ class BooksForReviewAuthorHandler extends Handler {
 
         // Ensure book for review is for this journal
         if ($bfrDao->getBookForReviewJournalId($bookId) == $journalId) {
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $email = new MailTemplate('BFR_BOOK_REQUESTED');
             
             // [SECURITY FIX] Amankan 'send' sebagai flag boolean
@@ -102,7 +102,7 @@ class BooksForReviewAuthorHandler extends Handler {
                 // Update book for review as requested
                 $book = $bfrDao->getBookForReview($bookId);
                 $status = $book->getStatus();
-                $bfrPlugin->import('classes.BookForReview');
+                $bfrPlugin->import('core.Modules.BookForReview');
 
                 // Ensure book for review is avaliable
                 if ($status == BFR_STATUS_AVAILABLE) {
@@ -116,7 +116,7 @@ class BooksForReviewAuthorHandler extends Handler {
 
                     $email->send();
 
-                    import('classes.notification.NotificationManager');
+                    import('core.Modules.notification.NotificationManager');
                     $notificationManager = new NotificationManager();
                     $notificationManager->createTrivialNotification($userId, NOTIFICATION_TYPE_BOOK_REQUESTED);
                 }
@@ -130,7 +130,7 @@ class BooksForReviewAuthorHandler extends Handler {
                 if (!$continuedFlag) {
                     $book = $bfrDao->getBookForReview($bookId);
                     $status = $book->getStatus();
-                    $bfrPlugin->import('classes.BookForReview');
+                    $bfrPlugin->import('core.Modules.BookForReview');
 
                     // Ensure book for review is avaliable
                     if ($status == BFR_STATUS_AVAILABLE) {
@@ -146,7 +146,7 @@ class BooksForReviewAuthorHandler extends Handler {
                         $paramArray = array(
                             'editorName' => strip_tags($editorFullName),
                             'bookForReviewTitle' => '"' . strip_tags($book->getLocalizedTitle()) . '"',
-                            'authorContactSignature' => PKPString::html2text($user->getContactSignature())
+                            'authorContactSignature' => CoreString::html2text($user->getContactSignature())
                         );
 
                         $email->addRecipient($editorEmail, $editorFullName);

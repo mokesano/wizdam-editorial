@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/usageStats/UsageStatsHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UsageStatsHandler
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Handle usage stats page requests (opt-out, privacy information)
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class UsageStatsHandler extends Handler {
 
@@ -44,7 +44,7 @@ class UsageStatsHandler extends Handler {
      * opt-out option.
      *
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function privacyInformation($args, $request) {
         $this->validate(null, $request);

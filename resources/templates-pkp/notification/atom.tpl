@@ -1,8 +1,8 @@
 {**
  * templates/notification/atom.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Atom feed template
@@ -15,7 +15,7 @@
 
 	<link rel="self" type="application/atom+xml" href="{$selfUrl}" />
 
-	<generator uri="http://pkp.sfu.ca/ojs/" version="{$version|escape}">{translate key=$appName}</generator>
+	<generator uri="https://wizdam.editorial/" version="{$version|escape}">{translate key=$appName}</generator>
 
 	{$formattedNotifications}
 </feed>

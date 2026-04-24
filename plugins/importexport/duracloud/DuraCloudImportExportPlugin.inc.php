@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/duracloud/DuraCloudImportExportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DuraCloudImportExportPlugin
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief DuraCloud import/export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
+import('core.Modules.plugins.ImportExportPlugin');
 
 class DuraCloudImportExportPlugin extends ImportExportPlugin {
 
@@ -137,7 +137,7 @@ class DuraCloudImportExportPlugin extends ImportExportPlugin {
             case 'exportableIssues':
                 // Display a list of issues for export
                 $this->setBreadcrumbs([], true);
-                AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR);
                 $issues = $issueDao->getIssues($journal->getId(), Handler::getRangeInfo('issues'));
 
                 $templateMgr->assign('issues', $issues);
@@ -147,7 +147,7 @@ class DuraCloudImportExportPlugin extends ImportExportPlugin {
             case 'importableIssues':
                 // Display a list of issues for import
                 $this->setBreadcrumbs([], true);
-                AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR);
                 $templateMgr->assign('issues', $this->getImportableIssues());
                 $templateMgr->display($this->getTemplatePath() . 'importableIssues.tpl');
                 return;

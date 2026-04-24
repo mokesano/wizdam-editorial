@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/dataverse/classes/form/DataverseSelectForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataverseSelectForm
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized for PHP 8.4 and Dataverse Native REST API.
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class DataverseSelectForm extends Form {
 
@@ -60,7 +60,7 @@ class DataverseSelectForm extends Form {
      * @see Form::initData()
      */
     public function initData() {
-        $this->_plugin->import('classes.api.DataverseApiClient');
+        $this->_plugin->import('core.Modules.api.DataverseApiClient');
         $apiClient = new DataverseApiClient($this->_plugin);
         
         $dvnUri = (string) $this->_plugin->getSetting($this->_journalId, 'dvnUri');

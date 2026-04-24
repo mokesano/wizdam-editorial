@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/modal/AjaxModalHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AjaxModalHandler
@@ -17,7 +17,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.modal.ModalHandler
+	 * @extends $.core.controllers.modal.ModalHandler
 	 *
 	 * @param {jQuery} $handledElement The clickable element
 	 *  the modal will be attached to.
@@ -30,7 +30,7 @@
 	 *  - all options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
-	$.pkp.controllers.modal.AjaxModalHandler = function($handledElement, options) {
+	$.core.controllers.modal.AjaxModalHandler = function($handledElement, options) {
 		this.parent($handledElement, options);
 
 		// We assume that AJAX modals usually contain forms and
@@ -39,15 +39,15 @@
 		this.bind('formCanceled', this.modalClose);
 		this.bind('ajaxHtmlError', this.modalClose);
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.AjaxModalHandler,
-			$.pkp.controllers.modal.ModalHandler);
+	$.core.classes.Helper.inherits($.core.controllers.modal.AjaxModalHandler,
+			$.core.controllers.modal.ModalHandler);
 
 
 	//
 	// Protected methods
 	//
 	/** @inheritDoc */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.checkOptions =
+	$.core.controllers.modal.AjaxModalHandler.prototype.checkOptions =
 			function(options) {
 		// Check the mandatory options of the ModalHandler handler.
 		if (!this.parent('checkOptions', options)) {
@@ -60,7 +60,7 @@
 
 
 	/** @inheritDoc */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.mergeOptions =
+	$.core.controllers.modal.AjaxModalHandler.prototype.mergeOptions =
 			function(options) {
 		// Bind open event.
 		this.bind('dialogopen', this.dialogOpen);
@@ -71,7 +71,7 @@
 
 
 	/** @inheritDoc */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.modalClose =
+	$.core.controllers.modal.AjaxModalHandler.prototype.modalClose =
 			function(callingContext, event) {
 
 		if (event.type == 'formSubmitted') {
@@ -90,7 +90,7 @@
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
 	 */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.dialogOpen =
+	$.core.controllers.modal.AjaxModalHandler.prototype.dialogOpen =
 			function(dialogElement) {
 		// Make sure that the modal will remain on screen.
 		var $dialogElement = $(dialogElement);
@@ -99,7 +99,7 @@
 
 		// Retrieve remote modal content.
 		var url = $dialogElement.dialog('option' , 'url');
-		$dialogElement.pkpAjaxHtml(url);
+		$dialogElement.coreAjaxHtml(url);
 	};
 
 /** @param {jQuery} $ jQuery closure. */

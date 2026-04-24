@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file plugins/gateways/metsGateway/MetsExportDom.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MetsExportDom
@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief MetsExportDom export plugin DOM functions for export
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('core.Modules.xml.XMLCustomWriter');
 
 class MetsExportDom {
 
@@ -168,7 +168,7 @@ class MetsExportDom {
 		}
 
 		XMLCustomWriter::createChildWithText($doc, $mods, 'mods:genre', 'issue');
-		import('classes.config.Config');
+		import('core.Modules.config.Config');
 		$base_url = Config::getVar('general','base_url');
 		$url = $base_url.'/index.php/'.$journal->getPath().'/issue/view/'.$issue->getId();
 		$modsIdentifier = XMLCustomWriter::createChildWithText($doc, $mods, 'mods:identifier', $url);
@@ -472,8 +472,8 @@ class MetsExportDom {
 	}
 
 	function generateArticleHtmlGalleyImageFileDom(&$doc, &$root, $article, $galley, $imageFile, $useAttribute) {
-		import('classes.file.PublicFileManager');
-		import('lib.pkp.classes.file.FileManager');
+		import('core.Modules.file.PublicFileManager');
+		import('core.Modules.file.FileManager');
 		$fileManager = new FileManager();
 		$contentWrapper = $this->getSetting($this->journalId, 'contentWrapper');
 		$mfile = XMLCustomWriter::createElement($doc, 'METS:file');
@@ -510,8 +510,8 @@ class MetsExportDom {
 	 * checks if METS:FContent or METS:FLocat should be used
 	 */
 	function generateArticleFileDom(&$doc, &$root, $article, &$galleyFile, $useAttribute) {
-		import('classes.file.PublicFileManager');
-		import('lib.pkp.classes.file.FileManager');
+		import('core.Modules.file.PublicFileManager');
+		import('core.Modules.file.FileManager');
 		$fileManager = new FileManager();
 		$contentWrapper = $this->getSetting($this->journalId, 'contentWrapper');
 		$mfile = XMLCustomWriter::createElement($doc, 'METS:file');
@@ -544,8 +544,8 @@ class MetsExportDom {
 	 * checks if METS:FContent or METS:FLocat should be used
 	 */
 	function generateArticleSuppFileDom(&$doc, &$root, $article, &$suppFile) {
-		import('classes.file.PublicFileManager');
-		import('lib.pkp.classes.file.FileManager');
+		import('core.Modules.file.PublicFileManager');
+		import('core.Modules.file.FileManager');
 		$fileManager = new FileManager();
 		$contentWrapper = $this->getSetting($this->journalId, 'contentWrapper');
 		$mfile = XMLCustomWriter::createElement($doc, 'METS:file');
@@ -646,7 +646,7 @@ class MetsExportDom {
 	}
 
 	/**
-	 * Creator is the OJS Sysytem
+	 * Creator is the Wizdam Sysytem
 	 */
 	function getCreatorString() {
 		$versionDao = DAORegistry::getDAO('VersionDAO');
@@ -671,7 +671,7 @@ class MetsExportDom {
 	 * getPublicFileUrl !!!! must be a better way....
 	 */
 	function getPublicFileUrl(&$file) {
-		import('classes.config.Config');
+		import('core.Modules.config.Config');
 		$base_url = Config::getVar('general','base_url');
 		$articleDao = DAORegistry::getDAO('ArticleDAO');
 		$article = $articleDao->getArticle($file->getArticleId());
@@ -686,7 +686,7 @@ class MetsExportDom {
 	 * getPublicSuppFileUrl !!!! must be a better way....
 	 */
 	function getPublicSuppFileUrl(&$file) {
-		import('classes.config.Config');
+		import('core.Modules.config.Config');
 		$base_url = Config::getVar('general','base_url');
 		$articleDao = DAORegistry::getDAO('ArticleDAO');
 		$article = $articleDao->getArticle($file->getArticleId());

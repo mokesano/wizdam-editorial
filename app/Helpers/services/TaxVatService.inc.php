@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/checkout/services/TaxVatService.inc.php
+ * @file core.Modules.classes/checkout/services/TaxVatService.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady

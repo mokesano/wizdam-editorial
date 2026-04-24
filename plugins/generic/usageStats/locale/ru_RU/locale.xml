@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/usageStats/locale/ru_RU/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
@@ -47,8 +47,8 @@
 	<message key="plugins.generic.usageStats.noCounterBotList">Не удается найти список ботов COUNTER или этих списков более одного. Файл {$file} не может быть обработан.</message>
 	<message key="plugins.generic.usageStats.failedCounterBotList">Список ботов COUNTER {$botlist} не удается открыть. Файл {$file} не может быть обработан.</message>
 	
-	<message key="plugins.reports.usageStats.report.displayName">Отчет о статистике использования OJS</message>
-	<message key="plugins.reports.usageStats.report.description">Отчет о статистике использования OJS, формируемый по умолчанию (готовый для COUNTER)</message>
+	<message key="plugins.reports.usageStats.report.displayName">Отчет о статистике использования Wizdam Editorial</message>
+	<message key="plugins.reports.usageStats.report.description">Отчет о статистике использования Wizdam Editorial, формируемый по умолчанию (готовый для COUNTER)</message>
 
 	<message key="plugins.reports.usageStats.optout.displayName">Информация о конфиденциальности плагина «Статистика использования»</message>
 	<message key="plugins.reports.usageStats.optout.description">Информация о конфиденциальности плагина «Статистика использования»</message>
@@ -75,6 +75,6 @@
 	<message key="plugins.generic.usageStats.optout.cookie"><![CDATA[
 		<p>При желании вы можете отказаться от участия в процессе сбора данных. Щелкнув на кнопку «Отклонить» ниже, вы можете явно отказаться от участия в статистическом анализе. При нажатии кнопки «Отклонить» в вашей системе создается файл <em>cookie</em>, который хранит данное решение. Если настройки безопасности вашего браузера автоматически удаляют файлы cookie, вам нужно будет снова нажимать на конпку «Отклонить» при следующем входе в этот журнал. Файл cookie действует только для одного браузера. Если вы используете другой браузер, вам нужно снова нажать кнопку «Отклонить». В этом cookie не хранится никакая личная информация о вас. Cookie с отказом действителен в течение одного года после вашего последнего входа в журнал.</p>
 		<p>Пожалуйста помните, что общие журналы доступа сервера не попадают под ваше решение отказаться от процесса подробной оценки. Пожалуйста, прочтите наше общее <a href="{$privacyStatementUrl}">Заявление о конфиденциальности</a>.</p>]]></message>
-	<message key="plugins.reports.usageStats.metricType">OJS/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType">Wizdam Editorial/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Статистика Open Journal Systems (готовая для COUNTER)</message>
 </locale>

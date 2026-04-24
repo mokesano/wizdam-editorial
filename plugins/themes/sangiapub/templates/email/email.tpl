@@ -1,8 +1,8 @@
 {**
  * templates/email/email.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Generic email template form
@@ -540,16 +540,16 @@ function getFileIconForAttachment(fileType) {
 <script type="text/javascript">
 {literal}
 // Ganti fungsi initTextarea yang bermasalah dengan:
-OJSEmailComposer.initTextarea = function() {
+AppEmailComposer.initTextarea = function() {
 	// TIDAK MELAKUKAN APA-APA - biarkan textarea berperilaku normal
 	// Textarea sudah memiliki cols="60" rows="15" dari template
 };
 
 // Atau lebih sederhana lagi, hapus panggilan initTextarea dari init():
-OJSEmailComposer.init = function() {
-	// OJSEmailComposer.initTextarea(); // <- HAPUS BARIS INI
-	OJSEmailComposer.initFilePreview();
-	OJSEmailComposer.processEmailContent();
+AppEmailComposer.init = function() {
+	// AppEmailComposer.initTextarea(); // <- HAPUS BARIS INI
+	AppEmailComposer.initFilePreview();
+	AppEmailComposer.processEmailContent();
 };
 {/literal}
 </script>

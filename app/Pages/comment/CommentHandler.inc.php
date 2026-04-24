@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/comment/CommentHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CommentHandler
@@ -16,9 +16,9 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.rt.RTDAO');
-import('classes.rt.JournalRT');
-import('classes.handler.Handler');
+import('core.Modules.rt.RTDAO');
+import('core.Modules.rt.JournalRT');
+import('core.Modules.handler.Handler');
 
 class CommentHandler extends Handler {
     
@@ -52,7 +52,7 @@ class CommentHandler extends Handler {
     /**
      * View a comment
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function view($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -102,7 +102,7 @@ class CommentHandler extends Handler {
     /**
      * Add a comment
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function add($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -139,7 +139,7 @@ class CommentHandler extends Handler {
                 Validation::redirectLogin();
         }
 
-        import('classes.comment.form.CommentForm');
+        import('core.Modules.comment.form.CommentForm');
         $commentForm = new CommentForm(null, $articleId, $galleyId, isset($parent) ? $parentId : null);
         $commentForm->initData();
 
@@ -149,7 +149,7 @@ class CommentHandler extends Handler {
                 $commentForm->execute();
 
                 // Send a notification to associated users
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $articleDao = DAORegistry::getDAO('ArticleDAO');
                 $article = $articleDao->getArticle($articleId);
@@ -171,7 +171,7 @@ class CommentHandler extends Handler {
     /**
      * Delete the specified comment and all its children.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function delete($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -198,7 +198,7 @@ class CommentHandler extends Handler {
 
     /**
      * Validation
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int $articleId
      * @return bool
      */
@@ -229,7 +229,7 @@ class CommentHandler extends Handler {
         $issue = $issueDao->getIssueByArticleId($articleId);
 
         if (isset($issue) && isset($article)) {
-            import('classes.issue.IssueAction');
+            import('core.Modules.issue.IssueAction');
             $subscriptionRequired = IssueAction::subscriptionRequired($issue);
             $subscribedUser = IssueAction::subscribedUser($journal, $issue->getId(), $articleId);
 
@@ -247,7 +247,7 @@ class CommentHandler extends Handler {
 
     /**
      * Set up the comment template.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Article $article
      * @param int $galleyId
      * @param Comment|null $comment
@@ -267,7 +267,7 @@ class CommentHandler extends Handler {
                 $request->url(null, 'article', 'view', [
                     $article->getBestArticleId($request->getJournal()), $galleyId
                 ]),
-                PKPString::stripUnsafeHtml($article->getLocalizedTitle()),
+                CoreString::stripUnsafeHtml($article->getLocalizedTitle()),
                 true
             ]
         ];

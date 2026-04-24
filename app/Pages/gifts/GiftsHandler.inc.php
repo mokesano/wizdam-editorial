@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file pages/gifts/GiftsHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GiftsHandler
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class GiftsHandler extends Handler {
     
@@ -48,7 +48,7 @@ class GiftsHandler extends Handler {
     /**
      * Display payment form for buying a gift subscription
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function purchaseGiftSubscription($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -57,14 +57,14 @@ class GiftsHandler extends Handler {
         $journal = $request->getJournal();
         if (!$journal) $request->redirect(null, 'index');
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptGiftSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'index');
 
         $this->setupTemplate();
 
-        import('classes.subscription.form.GiftIndividualSubscriptionForm');
+        import('core.Modules.subscription.form.GiftIndividualSubscriptionForm');
         $giftSubscriptionForm = new GiftIndividualSubscriptionForm($request);
         $giftSubscriptionForm->initData();
         $giftSubscriptionForm->display();
@@ -73,7 +73,7 @@ class GiftsHandler extends Handler {
     /**
      * Process payment form for buying a gift subscription
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function payPurchaseGiftSubscription($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -82,7 +82,7 @@ class GiftsHandler extends Handler {
         $journal = $request->getJournal();
         if (!$journal) $request->redirect(null, 'index');
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptGiftSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'index');
@@ -93,7 +93,7 @@ class GiftsHandler extends Handler {
         // If buyer is logged in, save buyer user id as part of gift details
         $buyerUserId = $user ? (int) $user->getId() : null;
 
-        import('classes.subscription.form.GiftIndividualSubscriptionForm');
+        import('core.Modules.subscription.form.GiftIndividualSubscriptionForm');
         $giftSubscriptionForm = new GiftIndividualSubscriptionForm($request, $buyerUserId);
         $giftSubscriptionForm->readInputData();
 
@@ -107,7 +107,7 @@ class GiftsHandler extends Handler {
     /**
      * Display generic thank you message following payment
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function thankYou($args, $request) {
         // [WIZDAM] Singleton Fallback

@@ -9,7 +9,7 @@
         var buttonSelector = '{$modalButtonSelector|escape:"javascript"}';
         
         $(buttonSelector).click(function() {ldelim}
-            // Panggil fungsi modal legacy OJS dengan parameter dari PHP
+            // Panggil fungsi modal legacy App dengan parameter dari PHP
             modal(
                 '{$modalUrl|escape:"javascript"}', 
                 '{$modalActOnType|escape:"javascript"}', 

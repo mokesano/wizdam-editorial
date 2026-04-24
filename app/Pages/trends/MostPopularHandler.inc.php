@@ -12,19 +12,19 @@ declare(strict_types=1);
  * URL Target: /{context}/trends/popular ATAU /index/trends/popular
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class MostPopularHandler extends Handler {
 
     public function authorize($request, $args, $roleAssignments) {
-        import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
+        import('core.Modules.security.authorization.ContextRequiredPolicy');
         // Set context required false, agar bisa diakses di site level maupun journal level
         $this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noContext', false));
         return parent::authorize($request, $args, $roleAssignments);
     }
 
     // Nama method WAJIB "popular" sesuai parameter $op
-    public function popular(array $args, PKPRequest $request) {
+    public function popular(array $args, CoreRequest $request) {
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
         $journal = $request->getJournal();

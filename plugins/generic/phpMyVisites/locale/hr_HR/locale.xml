@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/phpMyVisites/locale/hr_HR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * phpMyVisites plugin localization strings for the hr_HR (Hrvatski) locale.
@@ -16,7 +16,7 @@
 
 	<!-- phpMyVisites -->
 	<message key="plugins.generic.phpmv.displayName">phpMyVisites dodatak</message>
-	<message key="plugins.generic.phpmv.description"><![CDATA[Integrirajte OJS sa phpMyVisites, besplatnom aplikacijom otvorenog koda namijenjenoj analizi mrežnog prometa. Aktivacija zahtijeva prethodnu instalaciju phpMyVisites aplikacije. Za više informacija konzultirajte <a href="http://www.phpmyvisites.us/" title="phpMyVisites stranice">phpMyVisites stranice</a>.]]></message>
+	<message key="plugins.generic.phpmv.description"><![CDATA[Integrirajte Wizdam Editorial sa phpMyVisites, besplatnom aplikacijom otvorenog koda namijenjenoj analizi mrežnog prometa. Aktivacija zahtijeva prethodnu instalaciju phpMyVisites aplikacije. Za više informacija konzultirajte <a href="http://www.phpmyvisites.us/" title="phpMyVisites stranice">phpMyVisites stranice</a>.]]></message>
 
 	<!-- phpMyVisites Settings Management -->
 	<message key="plugins.generic.phpmv.manager.settings">Postavke</message>

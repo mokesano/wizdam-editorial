@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/booksForReview/pages/BooksForReviewHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class BooksForReviewHandler
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class BooksForReviewHandler extends Handler {
 
@@ -31,7 +31,7 @@ class BooksForReviewHandler extends Handler {
 
         $bfrPlugin = PluginRegistry::getPlugin('generic', BOOKS_FOR_REVIEW_PLUGIN_NAME);
 
-        $bfrPlugin->import('classes.BookForReview');
+        $bfrPlugin->import('core.Modules.BookForReview');
         $searchField = null;
         $searchMatch = null;
         
@@ -69,7 +69,7 @@ class BooksForReviewHandler extends Handler {
             $templateMgr->assign($param, $sanitizedValue);
         }
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $coverPagePath = $request->getBaseUrl() . '/';
         $coverPagePath .= $publicFileManager->getJournalFilesPath($journalId) . '/';
@@ -108,13 +108,13 @@ class BooksForReviewHandler extends Handler {
         // Ensure book for review is valid and for this journal
         if ($bfrDao->getBookForReviewJournalId($bookId) == $journalId) {
             $book = $bfrDao->getBookForReview($bookId);
-            $bfrPlugin->import('classes.BookForReview');
+            $bfrPlugin->import('core.Modules.BookForReview');
 
             // Ensure book is still available
             if ($book->getStatus() == BFR_STATUS_AVAILABLE) {
                 $isAuthor = Validation::isAuthor();
 
-                import('classes.file.PublicFileManager');
+                import('core.Modules.file.PublicFileManager');
                 $publicFileManager = new PublicFileManager();
                 $coverPagePath = $request->getBaseUrl() . '/';
                 $coverPagePath .= $publicFileManager->getJournalFilesPath($journalId) . '/';

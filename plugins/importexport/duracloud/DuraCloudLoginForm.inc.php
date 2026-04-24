@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/duracloud/DuraCloudLoginForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DuraCloudLoginForm
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Form to allow login to an external DuraCloud service.
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class DuraCloudLoginForm extends Form {
 

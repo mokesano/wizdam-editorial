@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/PeopleHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PeopleHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] FULL REFACTOR: PHP 8.1+ Strict Types, Security Hardening, Smarty Modernization
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class PeopleHandler extends ManagerHandler {
     
@@ -70,7 +70,7 @@ class PeopleHandler extends ManagerHandler {
         $roleId = 0;
         $roleName = 'manager.people.allUsers';
 
-        if ($roleSymbolic != 'all' && PKPString::regexp_match_get('/^(\w+)s$/', $roleSymbolic, $matches)) {
+        if ($roleSymbolic != 'all' && CoreString::regexp_match_get('/^(\w+)s$/', $roleSymbolic, $matches)) {
             // Logika ini secara implisit memvalidasi $roleSymbolic (Whitelisting).
             $checkRoleId = $roleDao->getRoleIdFromPath($matches[1]);
             if ($checkRoleId == null) {
@@ -119,7 +119,7 @@ class PeopleHandler extends ManagerHandler {
         
         } elseif (!empty($searchInitial)) {
             // Jika menggunakan searchInitial, input sudah disanitasi di atas.
-            $searchInitial = PKPString::strtoupper($searchInitial);
+            $searchInitial = CoreString::strtoupper($searchInitial);
             $searchType = USER_FIELD_INITIAL;
             $search = $searchInitial;
         }
@@ -268,7 +268,7 @@ class PeopleHandler extends ManagerHandler {
             }
         
         } elseif (!empty($searchInitial)) {
-            $searchInitial = PKPString::strtoupper($searchInitial);
+            $searchInitial = CoreString::strtoupper($searchInitial);
             $searchType = USER_FIELD_INITIAL;
             $search = $searchInitial;
         }
@@ -455,7 +455,7 @@ class PeopleHandler extends ManagerHandler {
     /**
      * Display form to create a new user.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createUser($args, &$request) {
         $this->editUser($args, $request);
@@ -481,7 +481,7 @@ class PeopleHandler extends ManagerHandler {
     /**
      * Display form to create/edit a user profile.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editUser($args, $request) {
         $this->validate();
@@ -502,7 +502,7 @@ class PeopleHandler extends ManagerHandler {
             return $templateMgr->display('common/error.tpl');
         }
 
-        import('classes.manager.form.UserManagementForm');
+        import('core.Modules.manager.form.UserManagementForm');
 
         $templateMgr->assign('roleSettings', $this->retrieveRoleAssignmentPreferences($journal->getId()));
 
@@ -555,7 +555,7 @@ class PeopleHandler extends ManagerHandler {
         }
 
         if (!empty($oldUserIds) && !empty($newUserId)) {
-            import('classes.user.UserAction');
+            import('core.Modules.user.UserAction');
             foreach ($oldUserIds as $oldUserId) {
                 UserAction::mergeUsers($oldUserId, $newUserId);
             }
@@ -573,7 +573,7 @@ class PeopleHandler extends ManagerHandler {
         $roleId = 0;
         $roleName = 'manager.people.allUsers';
 
-        if ($roleSymbolic != 'all' && PKPString::regexp_match_get('/^(\w+)s$/', $roleSymbolic, $matches)) {
+        if ($roleSymbolic != 'all' && CoreString::regexp_match_get('/^(\w+)s$/', $roleSymbolic, $matches)) {
             $checkRoleId = $roleDao->getRoleIdFromPath($matches[1]);
             if ($checkRoleId == null) {
                 Request::redirect(null, null, null, 'all');
@@ -619,7 +619,7 @@ class PeopleHandler extends ManagerHandler {
             }
 
         } else if (!empty($searchInitial)) {
-            $searchInitial = PKPString::strtoupper($searchInitial);
+            $searchInitial = CoreString::strtoupper($searchInitial);
             $searchType = USER_FIELD_INITIAL;
             $search = $searchInitial;
         }
@@ -768,7 +768,7 @@ class PeopleHandler extends ManagerHandler {
             return $templateMgr->display('common/error.tpl');
         }
 
-        import('classes.manager.form.UserManagementForm');
+        import('core.Modules.manager.form.UserManagementForm');
 
         $userForm = new UserManagementForm($userId);
 

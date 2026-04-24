@@ -1,10 +1,10 @@
 {
-    "name": "wizdam/wizdam-platform",
+    "name": "wizdam/wizdam-editorial",
     "description": "Wizdam Publisher Platform - Modern Open Journal Systems Framework",
     "type": "project",
     "license": "GPL-2.0-only",
     "keywords": [
-        "ojs",
+        
         "publishing",
         "journal",
         "open-access",
@@ -38,7 +38,13 @@
         "chillerlan/php-qrcode": "^4.4",
         "midtrans/midtrans-php": "^2.6",
         "xendit/xendit-php": "^2.0",
-        "smarty/smarty": "^4.0"
+        "smarty/smarty": "^4.0",
+        "adodb/adodb-php": "^5.21",
+        "ezyang/htmlpurifier": "^4.17",
+        "wikimedia/less.php": "^3.0",
+        "simplepie/simplepie": "^1.6",
+        "symfony/polyfill-mbstring": "^1.28",
+        "symfony/var-dumper": "^6.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.0",
@@ -47,12 +53,17 @@
     },
     "autoload": {
         "psr-4": {
+            "Wizdam\\Modules\\": [
+                "core/Modules/"
+            ],
+            "Wizdam\\Kernel\\": [
+                "core/Kernel/"
+            ],
             "Wizdam\\Core\\": [
-                "core/Library/",
                 "core/Includes/"
             ],
             "App\\": [
-                "app/Classes/",
+                "app/Domain/",
                 "app/Pages/",
                 "app/Controllers/",
                 "app/Services/",
@@ -60,9 +71,8 @@
             ]
         },
         "classmap": [
-            "core/Library/adodb/",
-            "core/Library/smarty/",
-            "core/Library/htmlpurifier/library/",
+            "core/Modules/",
+            "core/Kernel/",
             "resources/smarty/plugins/",
             "plugins/"
         ],
@@ -82,7 +92,7 @@
         "allow-plugins": {
             "php-http/discovery": true
         },
-        "vendor-dir": "core/Library/vendor"
+        "vendor-dir": "core/Library"
     },
     "scripts": {
         "post-install-cmd": [

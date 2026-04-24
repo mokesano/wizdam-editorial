@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Extracted from UserHandler.
  */
 
-import('pages.user.UserHandler');
+import('app.Pages.user.UserHandler');
 
 class UserGiftHandler extends UserHandler {
 
@@ -29,11 +29,11 @@ class UserGiftHandler extends UserHandler {
     /**
      * Display user gifts page
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function gifts($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
@@ -41,7 +41,7 @@ class UserGiftHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
 
         // Ensure gift payments are enabled
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptGiftPayments = $paymentManager->acceptGiftPayments();
         if (!$acceptGiftPayments) $request->redirect(null, 'user');
@@ -73,11 +73,11 @@ class UserGiftHandler extends UserHandler {
     /**
      * User redeems a gift
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function redeemGift($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
@@ -87,7 +87,7 @@ class UserGiftHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
 
         // Ensure gift payments are enabled
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptGiftPayments = $paymentManager->acceptGiftPayments();
         if (!$acceptGiftPayments) $request->redirect(null, 'user');
@@ -107,7 +107,7 @@ class UserGiftHandler extends UserHandler {
         );
 
         // Report redeem status to user
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
 
         switch ($status) {

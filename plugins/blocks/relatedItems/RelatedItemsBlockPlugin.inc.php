@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/blocks/relatedItems/RelatedItemsBlockPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RelatedItemsBlockPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized & Cleaned Up Dead Code
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class RelatedItemsBlockPlugin extends BlockPlugin {
     
@@ -66,7 +66,7 @@ class RelatedItemsBlockPlugin extends BlockPlugin {
     /**
      * Get the HTML contents for this block.
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {

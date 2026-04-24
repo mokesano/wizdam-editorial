@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/reviewer/ReviewerHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewerHandler
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.submission.reviewer.ReviewerAction');
-import('classes.handler.Handler');
+import('core.Modules.submission.reviewer.ReviewerAction');
+import('core.Modules.handler.Handler');
 
 class ReviewerHandler extends Handler {
     /** @var object|null user associated with the request */
@@ -51,11 +51,11 @@ class ReviewerHandler extends Handler {
     /**
      * Display reviewer index page.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate($request);
         $this->setupTemplate();
@@ -105,7 +105,7 @@ class ReviewerHandler extends Handler {
             }
 
             // Convert submission array back to an ItemIterator class
-            import('lib.pkp.classes.core.ArrayItemIterator');
+            import('core.Kernel.ArrayItemIterator');
             $submissions = ArrayItemIterator::fromRangeInfo($submissionsArray, $rangeInfo);
         } else {
             $submissions = $reviewerSubmissionDao->getReviewerSubmissionsByReviewerId($user->getId(), $journal->getId(), $active, $rangeInfo, $sort, $sortDirection);
@@ -116,10 +116,10 @@ class ReviewerHandler extends Handler {
         $templateMgr->assign('pageToDisplay', $page);
         $templateMgr->assign('submissions', $submissions);
 
-        import('classes.submission.reviewAssignment.ReviewAssignment');
+        import('core.Modules.submission.reviewAssignment.ReviewAssignment');
         $templateMgr->assign('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
         $templateMgr->assign('helpTopicId', 'editorial.reviewersRole.submissions');
@@ -147,7 +147,7 @@ class ReviewerHandler extends Handler {
             define('REVIEWER_ACCESS_KEY_SESSION_VAR', 'ReviewerAccessKey');
         }
 
-        import('lib.pkp.classes.security.AccessKeyManager');
+        import('core.Modules.security.AccessKeyManager');
         $accessKeyManager = new AccessKeyManager();
 
         $session = $request->getSession();

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/statistics/StatsManager.inc.php
+ * @file core.Modules.statistics/StatsManager.inc.php
  * 
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady and Wizdam Team
@@ -87,7 +87,7 @@ class StatsManager {
         } else {
             // ==========================================
             // LOGIKA LEVEL SITE (AGREGAT ROOT PUBLISHER)
-            // Diadaptasi dari PKPWizdamStats::getSiteWideStats
+            // Diadaptasi dari CoreStats::getSiteWideStats
             // ==========================================
             $cacheKey = "site_global_stats"; 
             $statsData = self::_getFromCache($cacheKey);

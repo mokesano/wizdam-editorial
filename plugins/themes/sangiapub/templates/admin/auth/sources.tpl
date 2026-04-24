@@ -1,8 +1,8 @@
 {**
  * templates/admin/auth/sources.tpl
  *
- * Copyright (c) 2013-2015 Simon Fraser University Library
- * Copyright (c) 2003-2015 John Willinsky
+ * Copyright (c) 2013-2015 Sangia Publishing House Library
+ * Copyright (c) 2003-2015 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Display list of authentication sources in site administration.
@@ -53,7 +53,7 @@
 	{/if}
 	<tr valign="top">
 		<td><input type="radio" id="defaultAuthId_0" name="defaultAuthId" value="0"{if !$defaultAuthId} checked="checked"{/if} /></td>
-		<td colspan="1"><label for="defaultAuthId_0">{translate key="admin.auth.ojs"}</label></td>
+		<td colspan="1"><label for="defaultAuthId_0">{translate key="admin.auth.wizdam"}</label></td>
 		<td colspan="2" align="right">
 			<input type="submit" value="{translate key="common.save"}" class="button" />
 		</td>

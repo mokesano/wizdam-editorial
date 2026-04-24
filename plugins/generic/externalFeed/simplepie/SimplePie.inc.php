@@ -1,7 +1,7 @@
 <?php
 /**
- * Wrapper SimplePie untuk OJS
- * Menjembatani OJS lama dengan SimplePie Modern (Namespaced)
+ * Wrapper SimplePie untuk Wizdam
+ * Menjembatani Wizdam lama dengan SimplePie Modern (Namespaced)
  */
 
 /** 
@@ -20,7 +20,7 @@ if (file_exists($autoloaderPath)) {
 /**
  * 2. MAPPING NAMESPACE (Kunci Perbaikan Error Anda)
  * Kita cek apakah class 'SimplePie\SimplePie' tersedia lewat autoloader
- * Jika ya, kita buat alias menjadi 'SimplePie' biasa agar OJS bisa membacanya.
+ * Jika ya, kita buat alias menjadi 'SimplePie' biasa agar Wizdam bisa membacanya.
  */ 
 if (class_exists('SimplePie\SimplePie')) {
     if (!class_exists('SimplePie')) {

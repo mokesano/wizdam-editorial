@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/dataverse/classes/DataverseFile.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataverseFile
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized for PHP 8.4, Strict Typing, and Null-Safety.
  */
 
-// [WIZDAM FIX] import('classes.article.SuppFile') dihapus karena tidak relevan dengan DataObject
+// [WIZDAM FIX] import('core.Modules.article.SuppFile') dihapus karena tidak relevan dengan DataObject
 
 class DataverseFile extends DataObject {
     

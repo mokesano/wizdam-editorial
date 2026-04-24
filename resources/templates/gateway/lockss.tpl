@@ -1,12 +1,12 @@
 {**
  * templates/gateway/lockss.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * LOCKSS Publisher Manifest gateway page.
- * NOTE: This page is not localized in order to provide a consistent interface to LOCKSS across all OJS installations. It is not meant to be accessed by humans.
+ * NOTE: This page is not localized in order to provide a consistent interface to LOCKSS across all App installations. It is not meant to be accessed by humans.
  *
  *}
 {strip}
@@ -112,9 +112,9 @@
 		
 	<br /><br />
 	
-	<a href="http://pkp.sfu.ca/"><img src="{$baseUrl}/lib/pkp/templates/images/pkp.gif" style="border: 0;" alt="The Public Knowledge Project" /></a>
+	<a href="https://wizdam.editorial/"><img src="{$baseUrl}/core/Library/templates/images/core.gif" style="border: 0;" alt="Wizdam Editorial Project" /></a>
 	<br />
-	Open Journal Systems was developed by the Public Knowledge Project.
+	Wizdam Editorial was developed by the Wizdam Editorial Project.
 </div>
 
 {include file="common/footer.tpl"}

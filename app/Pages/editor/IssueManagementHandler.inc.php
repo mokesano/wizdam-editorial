@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/editor/IssueManagementHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class IssueManagementHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.editor.EditorHandler');
+import('app.Pages.editor.EditorHandler');
 
 class IssueManagementHandler extends EditorHandler {
     /** @var Issue|null issue associated with the request */
@@ -45,7 +45,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Displays the listings of future (unpublished) issues
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function futureIssues($args, $request) {
         $this->validate(null, true);
@@ -65,7 +65,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Displays the listings of back (published) issues
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function backIssues($args, $request) {
         $this->validate();
@@ -105,7 +105,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Removes an issue
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeIssue($args, $request) {
         $issueId = (int) array_shift($args);
@@ -122,7 +122,7 @@ class IssueManagementHandler extends EditorHandler {
         
         if (isset($publishedArticles) && !empty($publishedArticles)) {
             // Insert article tombstone if the issue is published
-            import('classes.article.ArticleTombstoneManager');
+            import('core.Modules.article.ArticleTombstoneManager');
             $articleTombstoneManager = new ArticleTombstoneManager();
             foreach ($publishedArticles as $article) {
                 if ($isBackIssue) {
@@ -154,16 +154,16 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Displays the create issue form
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createIssue($args, $request) {
         $this->validate();
         $this->setupTemplate(EDITOR_SECTION_ISSUES);
 
-        import('classes.issue.form.IssueForm');
+        import('core.Modules.issue.form.IssueForm');
 
         $templateMgr = TemplateManager::getManager();
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $templateMgr->assign('issueOptions', IssueAction::getIssueOptions());
         $templateMgr->assign('helpTopicId', 'publishing.createIssue');
 
@@ -180,13 +180,13 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Saves the new issue form
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveIssue($args, $request) {
         $this->validate();
         $this->setupTemplate(EDITOR_SECTION_ISSUES);
 
-        import('classes.issue.form.IssueForm');
+        import('core.Modules.issue.form.IssueForm');
         $issueForm = new IssueForm('editor/issues/createIssue.tpl');
 
         $issueForm->readInputData();
@@ -196,7 +196,7 @@ class IssueManagementHandler extends EditorHandler {
             $this->futureIssues($args, $request);
         } else {
             $templateMgr = TemplateManager::getManager();
-            import('classes.issue.IssueAction');
+            import('core.Modules.issue.IssueAction');
             $templateMgr->assign('issueOptions', IssueAction::getIssueOptions());
             $templateMgr->assign('helpTopicId', 'publishing.createIssue');
             $issueForm->display();
@@ -206,7 +206,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Displays the issue data page
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function issueData($args, $request) {
         $issueId = (int) array_shift($args);
@@ -215,10 +215,10 @@ class IssueManagementHandler extends EditorHandler {
         $this->setupTemplate(EDITOR_SECTION_ISSUES);
 
         $templateMgr = TemplateManager::getManager();
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $templateMgr->assign('issueOptions', IssueAction::getIssueOptions());
 
-        import('classes.issue.form.IssueForm');
+        import('core.Modules.issue.form.IssueForm');
 
         $issueForm = new IssueForm('editor/issues/issueData.tpl');
 
@@ -239,7 +239,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Edit the current issue form
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editIssue($args, $request) {
         $issueId = (int) array_shift($args);
@@ -252,10 +252,10 @@ class IssueManagementHandler extends EditorHandler {
 
         $journal = $request->getJournal();
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $templateMgr->assign('issueOptions', IssueAction::getIssueOptions());
 
-        import('classes.issue.form.IssueForm');
+        import('core.Modules.issue.form.IssueForm');
         $issueForm = new IssueForm('editor/issues/issueData.tpl');
         $issueForm->readInputData();
 
@@ -281,7 +281,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Remove cover page from issue
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeIssueCoverPage($args, $request) {
         $issueId = (int) array_shift($args);
@@ -295,7 +295,7 @@ class IssueManagementHandler extends EditorHandler {
         $journal = $request->getJournal();
         $issue = $this->issue;
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $publicFileManager->removeJournalFile($journal->getId(), $issue->getFileName($formLocale));
         $issue->setFileName('', $formLocale);
@@ -312,14 +312,14 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Remove style file from issue
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeStyleFile($args, $request) {
         $issueId = (int) array_shift($args);
         $this->validate($issueId, true);
         $issue = $this->issue;
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $journal = $request->getJournal();
         $publicFileManager = new PublicFileManager();
         $publicFileManager->removeJournalFile($journal->getId(), $issue->getStyleFileName());
@@ -335,7 +335,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Displays the issue galleys page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function issueGalleys($args, $request) {
         $issueId = (int) array_shift($args);
@@ -344,7 +344,7 @@ class IssueManagementHandler extends EditorHandler {
         $this->setupTemplate(EDITOR_SECTION_ISSUES);
 
         $templateMgr = TemplateManager::getManager();
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $templateMgr->assign('issueOptions', IssueAction::getIssueOptions());
 
         $templateMgr->assign('issueId', $issueId);
@@ -364,13 +364,13 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Create a new issue galley with the uploaded file.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function uploadIssueGalley($args, $request) {
         $issueId = (int) array_shift($args);
         $this->validate($issueId, true);
 
-        import('classes.issue.form.IssueGalleyForm');
+        import('core.Modules.issue.form.IssueGalleyForm');
         $galleyForm = new IssueGalleyForm($issueId);
 
         $galleyId = $galleyForm->execute();
@@ -380,7 +380,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Edit an issue galley.
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editIssueGalley($args, $request) {
         $issueId = (int) array_shift($args);
@@ -389,7 +389,7 @@ class IssueManagementHandler extends EditorHandler {
         $this->validate($issueId, true);
         $this->setupTemplate(EDITOR_SECTION_ISSUES);
 
-        import('classes.issue.form.IssueGalleyForm');
+        import('core.Modules.issue.form.IssueGalleyForm');
         $submitForm = new IssueGalleyForm($issueId, $galleyId);
 
         if ($submitForm->isLocaleResubmit()) {
@@ -403,7 +403,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Save changes to an issue galley.
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveIssueGalley($args, $request) {
         $issueId = (int) array_shift($args);
@@ -412,7 +412,7 @@ class IssueManagementHandler extends EditorHandler {
         $this->validate($issueId, true);
         $this->setupTemplate(EDITOR_SECTION_ISSUES);
 
-        import('classes.issue.form.IssueGalleyForm');
+        import('core.Modules.issue.form.IssueGalleyForm');
         $submitForm = new IssueGalleyForm($issueId, $galleyId);
 
         $submitForm->readInputData();
@@ -427,7 +427,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Change the sequence order of an issue galley.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function orderIssueGalley($args, $request) {
         // [SECURITY FIX] Secure casting
@@ -451,7 +451,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Delete an issue galley.
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteIssueGalley($args, $request) {
         $issueId = (int) array_shift($args);
@@ -463,7 +463,7 @@ class IssueManagementHandler extends EditorHandler {
         $galley = $galleyDao->getGalley($galleyId, $issueId);
 
         if (isset($galley)) {
-            import('classes.file.IssueFileManager');
+            import('core.Modules.file.IssueFileManager');
             $issueFileManager = new IssueFileManager($issueId);
 
             if ($galley->getFileId()) {
@@ -477,7 +477,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Preview an issue galley.
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofIssueGalley($args, $request) {
         $issueId = (int) array_shift($args);
@@ -495,7 +495,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Proof issue galley (shows frame header).
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofIssueGalleyTop($args, $request) {
         $issueId = (int) array_shift($args);
@@ -513,7 +513,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Preview an issue galley (outputs file contents) (WIZDAM PHP 8 Fix).
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofIssueGalleyFile($args, $request) {
         $issueId = (int) array_shift($args);
@@ -525,7 +525,7 @@ class IssueManagementHandler extends EditorHandler {
         $galley = $issueGalleyDao->getGalley($galleyId, $issueId);
 
         if ($galley && $galley->getFileId()) {
-            import('classes.file.IssueFileManager');
+            import('core.Modules.file.IssueFileManager');
             $issueFileManager = new IssueFileManager($issueId);
             
             // Gunakan fungsi viewFile yang baru dibuat
@@ -543,7 +543,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Download an issue file (WIZDAM FIX: Support Inline Viewing)
      * @param array $args ($issueId, $fileId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function downloadIssueFile($args, $request) {
         $issueId = (int) array_shift($args);
@@ -552,7 +552,7 @@ class IssueManagementHandler extends EditorHandler {
         $this->validate($issueId, true);
     
         if ($fileId) {
-            import('classes.file.IssueFileManager');
+            import('core.Modules.file.IssueFileManager');
             $issueFileManager = new IssueFileManager($issueId);
             
             // Parameter ketiga adalah $inline. 
@@ -573,7 +573,7 @@ class IssueManagementHandler extends EditorHandler {
         $this->validate($issueId, true);
 
         if ($fileId) {
-            import('classes.file.IssueFileManager');
+            import('core.Modules.file.IssueFileManager');
             $issueFileManager = new IssueFileManager($issueId);
             return $issueFileManager->downloadFile($fileId, null, true); // TRUE = Inline
         }
@@ -583,7 +583,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Display the table of contents
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function issueToc($args, $request) {
         $issueId = (int) array_shift($args);
@@ -654,7 +654,7 @@ class IssueManagementHandler extends EditorHandler {
             ARTICLE_ACCESS_OPEN => AppLocale::Translate('editor.issues.open')
         ]);
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $templateMgr->assign('issueOptions', IssueAction::getIssueOptions());
         $templateMgr->assign('helpTopicId', 'publishing.tableOfContents');
 
@@ -667,7 +667,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Updates issue table of contents with selected changes and article removals.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateIssueToc($args, $request) {
         $issueId = (int) array_shift($args);
@@ -688,7 +688,7 @@ class IssueManagementHandler extends EditorHandler {
         $articles = $publishedArticleDao->getPublishedArticles($issueId);
 
         // insert article tombstone, if an article is removed from a published issue
-        import('classes.article.ArticleTombstoneManager');
+        import('core.Modules.article.ArticleTombstoneManager');
         $articleTombstoneManager = new ArticleTombstoneManager();
         $issueDao = DAORegistry::getDAO('IssueDAO');
         $issue = $issueDao->getIssueById($issueId, $journal->getId());
@@ -707,7 +707,7 @@ class IssueManagementHandler extends EditorHandler {
                         // We are not in a form so we cannot send form errors.
                         // Let's at least send a notification to give some feedback
                         // to the user.
-                        import('classes.notification.NotificationManager');
+                        import('core.Modules.notification.NotificationManager');
                         $notificationManager = new NotificationManager();
                         AppLocale::requireComponents([LOCALE_COMPONENT_APP_EDITOR]);
                         $message = 'editor.publicIdentificationExists';
@@ -751,7 +751,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Change the sequence of an issue.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function setCurrentIssue($args, $request) {
         // [SECURITY FIX] Secure casting
@@ -773,7 +773,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Change the sequence of an issue.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveIssue($args, $request) {
         // [SECURITY FIX] Secure casting
@@ -819,7 +819,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Reset issue ordering to defaults.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function resetIssueOrder($args, $request) {
         $this->validate();
@@ -835,7 +835,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Change the sequence of a section.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveSectionToc($args, $request) {
         $issueId = (int) array_shift($args);
@@ -869,7 +869,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Reset section ordering to section defaults.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function resetSectionOrder($args, $request) {
         $issueId = (int) array_shift($args);
@@ -885,7 +885,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Change the sequence of the articles.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveArticleToc($args, $request) {
         $this->validate(null, true);
@@ -940,7 +940,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Publish issue
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function publishIssue($args, $request) {
         $issueId = (int) array_shift($args);
@@ -973,7 +973,7 @@ class IssueManagementHandler extends EditorHandler {
                     $articleDao->updateLocaleFields($article);
 
                     if (!$articleSearchIndex) {
-                        import('classes.search.ArticleSearchIndex');
+                        import('core.Modules.search.ArticleSearchIndex');
                         $articleSearchIndex = new ArticleSearchIndex();
                     }
                     $articleSearchIndex->articleMetadataChanged($publishedArticle);
@@ -1016,7 +1016,7 @@ class IssueManagementHandler extends EditorHandler {
         if ($articleSearchIndex) $articleSearchIndex->articleChangesFinished();
 
         // Send a notification to associated users
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $roleDao = DAORegistry::getDAO('RoleDAO');
         $notificationUsers = [];
@@ -1050,7 +1050,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Unpublish a previously-published issue
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function unpublishIssue($args, $request) {
         $issueId = (int) array_shift($args);
@@ -1067,7 +1067,7 @@ class IssueManagementHandler extends EditorHandler {
         $issueDao->updateIssue($issue);
 
         // insert article tombstones for all articles
-        import('classes.article.ArticleTombstoneManager');
+        import('core.Modules.article.ArticleTombstoneManager');
         $articleTombstoneManager = new ArticleTombstoneManager();
         $publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
         $publishedArticles = $publishedArticleDao->getPublishedArticles($issueId);
@@ -1080,7 +1080,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Allows editors to write emails to users associated with the journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function notifyUsers($args, $request) {
         // [SECURITY FIX] Secure casting
@@ -1100,7 +1100,7 @@ class IssueManagementHandler extends EditorHandler {
         $user = $request->getUser();
         $templateMgr = TemplateManager::getManager();
 
-        import('lib.pkp.classes.mail.MassMail');
+        import('core.Modules.mail.MassMail');
         $email = new MassMail('PUBLISH_NOTIFY');
 
         // [SECURITY FIX] Secure casting
@@ -1135,7 +1135,7 @@ class IssueManagementHandler extends EditorHandler {
                     $recipients = null;
             }
 
-            import('lib.pkp.classes.validation.ValidatorEmail');
+            import('core.Modules.validation.ValidatorEmail');
             $emails = [];
             while ($recipients && !$recipients->eof()) {
                 $recipient = $recipients->next();
@@ -1229,7 +1229,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Validate that user is an editor in the selected journal and if the issue id is valid
      * Redirects to issue create issue page if not properly authenticated.
-     * NOTE: As of OJS 2.2, Layout Editors are allowed if specified in args.
+     * NOTE: As of Wizdam 2.2, Layout Editors are allowed if specified in args.
      * @param int|null $issueId
      * @param bool $allowLayoutEditor
      * @return bool

@@ -1,8 +1,8 @@
 {**
  * templates/notification/index.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Display list of notifications.
@@ -22,9 +22,9 @@
 			{/if}
 		</td>
 		<td><ul class="plain">
-			<li><a href="{url op="getNotificationFeedUrl" path="rss"}" class="icon"><img src="{$baseUrl|escape}/lib/pkp/templates/images/rss10_logo.gif" alt="RSS 1.0"/></a></li>
-			<li><a href="{url op="getNotificationFeedUrl" path="rss2"}" class="icon"><img src="{$baseUrl}/lib/pkp/templates/images/rss20_logo.gif" alt="RSS 2.0"/></a></li>
-			<li><a href="{url op="getNotificationFeedUrl" path="atom"}" class="icon"><img src="{$baseUrl}/lib/pkp/templates/images/atom10_logo.gif" alt="Atom 1.0"/></a></li>
+			<li><a href="{url op="getNotificationFeedUrl" path="rss"}" class="icon"><img src="{$baseUrl|escape}/core/Library/templates/images/rss10_logo.gif" alt="RSS 1.0"/></a></li>
+			<li><a href="{url op="getNotificationFeedUrl" path="rss2"}" class="icon"><img src="{$baseUrl}/core/Library/templates/images/rss20_logo.gif" alt="RSS 2.0"/></a></li>
+			<li><a href="{url op="getNotificationFeedUrl" path="atom"}" class="icon"><img src="{$baseUrl}/core/Library/templates/images/atom10_logo.gif" alt="Atom 1.0"/></a></li>
 		</ul></td>
 	</tr>
 </table>

@@ -15,13 +15,13 @@ declare(strict_types=1);
  * Terlindungi oleh SecurityHashService (SHA-256). Tidak membutuhkan otentikasi login.
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 // [WIZDAM BRIDGE] Memanggil WIZDAM Services
-import('lib.wizdam.classes.services.LoAService');
-import('lib.wizdam.classes.services.InvoiceService');
-import('lib.wizdam.classes.services.CertificateService'); // Layanan sertifikat
-import('lib.wizdam.classes.security.SecurityHashService');
+import('core.Modules.services.LoAService');
+import('core.Modules.services.InvoiceService');
+import('core.Modules.services.CertificateService'); // Layanan sertifikat
+import('core.Modules.security.SecurityHashService');
 
 class AuthenticateHandler extends Handler {
 

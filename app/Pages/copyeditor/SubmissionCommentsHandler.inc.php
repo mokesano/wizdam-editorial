@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/copyeditor/SubmissionCommentsHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionCommentsHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.copyeditor.SubmissionCopyeditHandler');
+import('app.Pages.copyeditor.SubmissionCopyeditHandler');
 
 class SubmissionCommentsHandler extends CopyeditorHandler {
     /** @var Comment|null comment associated with this request */
@@ -46,7 +46,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * View layout comments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewLayoutComments($args, $request) {
         $articleId = (int) array_shift($args);
@@ -58,7 +58,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * Post layout comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function postLayoutComment($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -76,7 +76,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * View copyedit comments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewCopyeditComments($args, $request) {
         $articleId = (int) array_shift($args);
@@ -88,7 +88,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * Post copyedit comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function postCopyeditComment($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -105,7 +105,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * Edit comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editComment($args, $request) {
         $articleId = (int) array_shift($args);
@@ -120,7 +120,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * Save comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveComment($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -154,7 +154,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * Delete comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteComment($args, $request) {
         $articleId = (int) array_shift($args);

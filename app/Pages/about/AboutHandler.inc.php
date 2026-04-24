@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/about/AboutHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AboutHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class AboutHandler extends Handler {
     
@@ -44,7 +44,7 @@ class AboutHandler extends Handler {
     /**
      * Display about index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -79,7 +79,7 @@ class AboutHandler extends Handler {
             }
             
             // Hide membership if the payment method is not configured
-            import('classes.payment.AppPaymentManager');
+            import('core.Modules.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             $templateMgr->assign('paymentConfigured', $paymentManager->isConfigured());
 
@@ -143,7 +143,7 @@ class AboutHandler extends Handler {
     /**
      * Display contact page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function contact($args = [], $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -321,7 +321,7 @@ class AboutHandler extends Handler {
             
             $site = $siteDao->getSite();
             
-            // OJS menggunakan ID 0 untuk entitas level Site (sering disebut CONTEXT_ID_NONE)
+            // Wizdam menggunakan ID 0 untuk entitas level Site (sering disebut CONTEXT_ID_NONE)
             $siteContextId = 0; 
 
             // Ambil semua pengguna yang memiliki Role "Site Administrator" (ID: 1)
@@ -478,7 +478,7 @@ class AboutHandler extends Handler {
     /**
      * Display editorialPolicies page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editorialPolicies($args, $request = null) {
         $this->addCheck(new HandlerValidatorJournal($this));
@@ -551,7 +551,7 @@ class AboutHandler extends Handler {
         $templateMgr->assign('sectionEditorEntriesBySection', $sectionEditorEntriesBySection);
         // --- AKHIR MODIFIKASI UTAMA ---
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('paymentConfigured', $paymentManager->isConfigured());
 
@@ -561,7 +561,7 @@ class AboutHandler extends Handler {
     /**
      * Display subscriptions page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function subscriptions($args, $request = null) {
         $this->addCheck(new HandlerValidatorJournal($this));
@@ -593,7 +593,7 @@ class AboutHandler extends Handler {
         $individualSubscriptionTypes = $subscriptionTypeDao->getSubscriptionTypesByInstitutional($journalId, false, false);
         $institutionalSubscriptionTypes = $subscriptionTypeDao->getSubscriptionTypesByInstitutional($journalId, true, false);
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptGiftSubscriptionPayments = $paymentManager->acceptGiftSubscriptionPayments();
 
@@ -614,7 +614,7 @@ class AboutHandler extends Handler {
     /**
      * Display memberships page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function memberships($args, $request = null) {
         $this->addCheck(new HandlerValidatorJournal($this));
@@ -626,7 +626,7 @@ class AboutHandler extends Handler {
         
         $journal = $request->getJournal();
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
 
         $membershipEnabled = $paymentManager->membershipEnabled();
@@ -753,7 +753,7 @@ class AboutHandler extends Handler {
      * Menangkap URL lama 'aboutThisPublishingSystem' dan mengalihkannya 
      * (redirect) ke lokasi yang baru dengan 301 (Moved Permanently) untuk SEO.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function aboutThisPublishingSystem($args, $request = null) {
         $this->validate();
@@ -781,7 +781,7 @@ class AboutHandler extends Handler {
      * Display Journal Insight page.
      * HANYA UNTUK KONTEKS JURNAL.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function insights($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -806,7 +806,7 @@ class AboutHandler extends Handler {
     /**
      * Menampilkan halaman Statistik Kustom (Versi modernisasi).
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function statistics($args, $request = null) {
         $this->addCheck(new HandlerValidatorJournal($this));
@@ -829,14 +829,14 @@ class AboutHandler extends Handler {
         $journal = $request->getJournal();
         $templateMgr = TemplateManager::getManager($request);
 
-        // 3. --- MULAI BLOK PKPWizdamStats ---
-        import('lib.pkp.classes.core.PKPWizdamStats');
+        // 3. --- MULAI BLOK CoreStats ---
+        import('core.Kernel.CoreStats');
         $refreshStats = $request->getUserVar('refresh_stats');
         $forceRefresh = trim((string) $refreshStats) == 'true';
 
         try {
             // Panggil mesin statistik utama
-            $journalStats = PKPWizdamStats::getStats($journal->getId(), $forceRefresh);
+            $journalStats = CoreStats::getStats($journal->getId(), $forceRefresh);
             
             if (is_array($journalStats) && !isset($journalStats['error'])) {
                 // Kirim SEMUA data statistik ke template
@@ -856,12 +856,12 @@ class AboutHandler extends Handler {
             }
         } catch (Exception $e) { 
             if (Config::getVar('debug', 'log_errors')) {
-                error_log('WizdamStats (Handler): Exception loading PKPWizdamStats for Statistics Page: ' . $e->getMessage());
+                error_log('WizdamStats (Handler): Exception loading CoreStats for Statistics Page: ' . $e->getMessage());
             }
             $templateMgr->assign('statsError', 'Gagal memuat statistik jurnal.');
             $templateMgr->assign('statsJsonPath', '');
         }
-        // --- AKHIR BLOK PKPWizdamStats ---
+        // --- AKHIR BLOK CoreStats ---
 
         $templateMgr->assign('helpTopicId','user.about'); 
         $templateMgr->display('about/statistics.tpl');
@@ -873,8 +873,8 @@ class AboutHandler extends Handler {
      * @return array
      */
     public function _getPublicStatisticsNames() {
-        import ('pages.manager.ManagerHandler');
-        import ('pages.manager.StatisticsHandler');
+        import('app.Pages.manager.ManagerHandler');
+        import('app.Pages.manager.StatisticsHandler');
         // Note: _getPublicStatisticsNames is protected in StatisticsHandler refactor.
         // If strict mode prevents access, this needs adaptation. 
         // For now assuming we can access or reflect it, or simply duplicate the list.
@@ -899,7 +899,7 @@ class AboutHandler extends Handler {
      * Menampilkan halaman statis penerbit (Misi).
      * HANYA KONTEKS SITUS.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function mission($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -923,7 +923,7 @@ class AboutHandler extends Handler {
      * Menampilkan halaman statis penerbit (Sejarah).
      * HANYA KONTEKS SITUS.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function publisherHistory($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -947,7 +947,7 @@ class AboutHandler extends Handler {
      * Menampilkan halaman statis penerbit (Kepemimpinan).
      * HANYA KONTEKS SITUS.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function leaderships($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -971,7 +971,7 @@ class AboutHandler extends Handler {
      * Menampilkan halaman statis penerbit (Penghargaan).
      * HANYA KONTEKS SITUS.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function award($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -1002,7 +1002,7 @@ class AboutHandler extends Handler {
         $defaultTitle = __('about.editorialTeam');
         if (!$journal || !$user) return $defaultTitle;
         
-        // Memanggil request secara statis menyesuaikan OJS versi ini
+        // Memanggil request secara statis menyesuaikan Wizdam versi ini
         $request = Application::get()->getRequest();
         $journalId = (int) $journal->getId();
         $userId = (int) $user->getId();
@@ -1038,7 +1038,7 @@ class AboutHandler extends Handler {
     }
 
     /**
-     * [WIZDAM] Helper Mode 2: Peran standar OJS dengan Locale.
+     * [WIZDAM] Helper Mode 2: Peran standar Wizdam dengan Locale.
      * @param int $journalId
      * @param int $userId
      * @return string Judul keanggotaan berdasarkan peran atau kosong

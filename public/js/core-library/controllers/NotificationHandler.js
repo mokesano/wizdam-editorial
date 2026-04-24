@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/NotificationHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NotificationHandler
@@ -16,12 +16,12 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.Handler
+	 * @extends $.core.classes.Handler
 	 *
 	 * @param {jQuery} $notificationElement The html notification element.
 	 * @param {Object} options Notification options.
 	 */
-	$.pkp.controllers.NotificationHandler =
+	$.core.controllers.NotificationHandler =
 			function($notificationElement, options) {
 		this.parent($notificationElement, options);
 
@@ -35,9 +35,9 @@
 		// Trigger the notify user event without bubbling up.
 		this.getHtmlElement().triggerHandler('notifyUser');
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.NotificationHandler,
-			$.pkp.classes.Handler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.NotificationHandler,
+			$.core.classes.Handler);
 
 
 	//
@@ -48,7 +48,7 @@
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.options_ = null;
+	$.core.controllers.NotificationHandler.prototype.options_ = null;
 
 
 	/**
@@ -56,7 +56,7 @@
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.trivialTimer_ = null;
+	$.core.controllers.NotificationHandler.prototype.trivialTimer_ = null;
 
 
 	//
@@ -66,7 +66,7 @@
 	 * Handler to fetch the notification data.
 	 * @private
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.fetchNotificationHandler_ =
+	$.core.controllers.NotificationHandler.prototype.fetchNotificationHandler_ =
 			function() {
 
 		var requestOptions = {};
@@ -91,7 +91,7 @@
 	 * @param {Object} jsonData A parsed JSON response object.
 	 * @private
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.
+	$.core.controllers.NotificationHandler.prototype.
 			showNotificationResponseHandler_ = function(ajaxContext, jsonData) {
 		// Delete any existing trivial notification timer.
 		clearTimeout(this.trivialTimer_);
@@ -126,7 +126,7 @@
 				// Remove in place trivial notifications.
 				for (var i in trivialNotificationsId) {
 					var notificationId = trivialNotificationsId[i];
-					$('#pkp_notification_' + notificationId,
+					$('#core_notification_' + notificationId,
 							this.getHtmlElement()).remove();
 				}
 			}
@@ -154,7 +154,7 @@
 	 * @return {boolean} True iff the notification is visible.
 	 * @private
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.
+	$.core.controllers.NotificationHandler.prototype.
 			visibleWithoutScrolling_ = function() {
 		var $notificationElement = this.getHtmlElement();
 		var notificationTop = $notificationElement.offset().top;
@@ -194,7 +194,7 @@
 	 * @return {Object} Notification data after deletion.
 	 * @private
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.
+	$.core.controllers.NotificationHandler.prototype.
 			removeAlreadyShownNotifications_ = function(notificationsData) {
 
 		var workingNotificationsData = notificationsData;
@@ -202,7 +202,7 @@
 		for (var levelId in workingNotificationsData.content.inPlace) {
 			for (var notificationId in
 					workingNotificationsData.content.inPlace[levelId]) {
-				var element = $('#pkp_notification_' + notificationId);
+				var element = $('#core_notification_' + notificationId);
 				if (element.length > 0) {
 					delete workingNotificationsData.content.
 							inPlace[levelId][notificationId];
@@ -228,7 +228,7 @@
 	 * @return {string} The concatenated notification data.
 	 * @private
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.
+	$.core.controllers.NotificationHandler.prototype.
 			concatenateNotifications_ = function(notificationsData) {
 		var returner = '';
 		for (var levelId in notificationsData) {
@@ -249,7 +249,7 @@
 	 * @return {Array} The trivial notifications id.
 	 * @private
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.
+	$.core.controllers.NotificationHandler.prototype.
 			getTrivialNotifications_ = function(notificationsData) {
 
 		var trivialNotificationsId = [];
@@ -270,13 +270,13 @@
 	 * @param {object} notificationsId Array with the notifications id
 	 * that will receive the timer.
 	 */
-	$.pkp.controllers.NotificationHandler.prototype.
+	$.core.controllers.NotificationHandler.prototype.
 			addTimerToNotifications = function(notificationsId) {
 
 		if (notificationsId.length) {
 			this.trivialTimer_ = setTimeout(function() {
 				for (var notificationId in notificationsId) {
-					var $notification = $('#pkp_notification_' +
+					var $notification = $('#core_notification_' +
 							notificationsId[notificationId]);
 					$notification.fadeOut(400, function() {
 						// "this" represents the notification element here.

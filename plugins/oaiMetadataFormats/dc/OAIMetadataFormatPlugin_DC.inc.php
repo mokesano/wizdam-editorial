@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/oaiMetadataFormats/dc/OAIMetadataFormatPlugin_DC.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAIMetadataFormatPlugin_DC
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief dc metadata format plugin for OAI.
  */
 
-import('lib.pkp.plugins.oaiMetadataFormats.dc.PKPOAIMetadataFormatPlugin_DC');
+import('core.Modules.plugins.oaiMetadataFormats.dc.CoreOAIMetadataFormatPlugin_DC');
 
 class OAIMetadataFormatPlugin_DC extends CoreOAIMetadataFormatPlugin_DC {
     

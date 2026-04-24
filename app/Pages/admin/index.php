@@ -6,37 +6,36 @@ declare(strict_types=1);
  */
  
 /**
- * @file pages/admin/index.php
+ * @file pages.admin.index.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2025 Wizdam Editorial Project
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_admin
- * @brief Handle requests for site administration functions. 
+ * @brief Handle requests for publisher administration functions. 
  *
  */
 
 switch ($op) {
 	//
-	// Settings
+	// Publisher Settings
 	//
 	case 'settings':
 	case 'saveSettings':
-		define('HANDLER_CLASS', 'AdminSettingsHandler');
-		import('pages.admin.AdminSettingsHandler');
+		define('HANDLER_CLASS', 'AdminPublisherSettingsHandler');
+		import('app.Pages.admin.AdminPublisherSettingsHandler');
 		break;
 	//
-	// Journal Management
+	// Press Management
 	//
-	case 'journals':
-	case 'createJournal':
-	case 'editJournal':
-	case 'updateJournal':
-	case 'deleteJournal':
-	case 'moveJournal':
-		define('HANDLER_CLASS', 'AdminJournalHandler');
-		import('pages.admin.AdminJournalHandler');
+	case 'presses':
+	case 'createPress':
+	case 'editPress':
+	case 'updatePress':
+	case 'deletePress':
+	case 'movePress':
+		define('HANDLER_CLASS', 'AdminPressHandler');
+		import('app.Pages.admin.AdminPressHandler');
 		break;
 	//
 	// Languages
@@ -49,7 +48,7 @@ switch ($op) {
 	case 'reloadDefaultEmailTemplates':
 	case 'downloadLocale':
 		define('HANDLER_CLASS', 'AdminLanguagesHandler');
-		import('pages.admin.AdminLanguagesHandler');
+		import('app.Pages.admin.AdminLanguagesHandler');
 		break;
 	//
 	// Authentication sources
@@ -61,14 +60,14 @@ switch ($op) {
 	case 'updateAuthSource':
 	case 'deleteAuthSource':
 		define('HANDLER_CLASS', 'AuthSourcesHandler');
-		import('pages.admin.AuthSourcesHandler');
+		import('app.Pages.admin.AuthSourcesHandler');
 		break;
 	//
 	// Merge users
 	//
 	case 'mergeUsers':
 		define('HANDLER_CLASS', 'AdminPeopleHandler');
-		import('pages.admin.AdminPeopleHandler');
+		import('app.Pages.admin.AdminPeopleHandler');
 		break;
 	//
     // AREA ADMIN WIZDAM PAYMENT ---
@@ -76,7 +75,7 @@ switch ($op) {
     case 'payment-settings':
     case 'save-payment-settings':
         define('HANDLER_CLASS', 'AdminPaymentHandler'); 
-        import('pages.admin.AdminPaymentHandler');
+        import('app.Pages.admin.AdminPaymentHandler');
         break;
 	//
 	// Administrative functions
@@ -89,7 +88,7 @@ switch ($op) {
 	case 'downloadScheduledTaskLogFile':
 	case 'clearScheduledTaskLogFiles':
 		define('HANDLER_CLASS', 'AdminFunctionsHandler');
-		import('pages.admin.AdminFunctionsHandler');
+		import('app.Pages.admin.AdminFunctionsHandler');
 		break;
 		
 	// 
@@ -105,14 +104,14 @@ switch ($op) {
 	case 'moveCategory':
 	case 'setCategoriesEnabled':
 		define('HANDLER_CLASS', 'AdminCategoriesHandler');
-		import('pages.admin.AdminCategoriesHandler');
+		import('app.Pages.admin.AdminCategoriesHandler');
 		break;
 		
 	case 'index':
-	case 'aboutSite':
-    case 'saveAboutSite':
+	case 'aboutPublisher':
+    case 'saveAboutPublisher':
 		define('HANDLER_CLASS', 'AdminHandler');
-		import('pages.admin.AdminHandler');
+		import('app.Pages.admin.AdminHandler');
 		break;
 }
 ?>

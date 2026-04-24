@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/staticPages/StaticPagesPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @package plugins.generic.staticPages
@@ -15,13 +15,13 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Get the display name of this plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -30,7 +30,7 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Get a description of the plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {
@@ -42,19 +42,19 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Check if the TinyMCE plugin is installed and enabled.
-     * @see PKPApplication::getEnabledProducts()
+     * @see CoreApplication::getEnabledProducts()
      * @return boolean
      */
     public function isTinyMCEInstalled() {
         // If the thesis plugin isn't enabled, don't do anything.
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         $products = $application->getEnabledProducts('plugins.generic');
         return (isset($products['tinymce']));
     }
 
     /**
      * Register the plugin, attaching to hooks as necessary.
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @param $category string
      * @param $path string
      * @return boolean
@@ -75,7 +75,7 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Declare the handler function to process the actual page PATH
-     * @see PKPApplication::getRequest()
+     * @see CoreApplication::getRequest()
      * @param $hookName string
      * @param $args array
      * @return boolean
@@ -97,9 +97,9 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Display verbs for the management interface.
-     * @see PKPPlugin::getManagementVerbs()
+     * @see CorePlugin::getManagementVerbs()
      * @param $verbs array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return array
      */
     public function getManagementVerbs(array $verbs = [], $request = null): array {
@@ -114,12 +114,12 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Perform management functions
-     * @see PKPPlugin::manage()
+     * @see CorePlugin::manage()
      * @param $verb string
      * @param $args array
      * @param $message string
      * @param $messageParams array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return boolean
      */
     public function manage(string $verb, array $args, string $message, array $messageParams, $request = NULL): bool {
@@ -232,7 +232,7 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Get the filename of the ADODB schema for this plugin.
-     * @see PKPPlugin::getInstallSchemaFile()
+     * @see CorePlugin::getInstallSchemaFile()
      * @return string|null
      */
     public function getInstallSchemaFile(): ?string {

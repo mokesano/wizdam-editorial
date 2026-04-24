@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/dataverse/pages/DataverseHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataverseHandler
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized for PHP 8.4, Native REST API, and LSP Compliance.
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class DataverseHandler extends Handler {
 
@@ -82,7 +82,7 @@ class DataverseHandler extends Handler {
         
         // [WIZDAM REST API FIX] Mengarahkan pengambilan Terms of Use ke API Client yang baru
         if ((bool) $dataversePlugin->getSetting($journal->getId(), 'fetchTermsOfUse')) {
-            $dataversePlugin->import('classes.api.DataverseApiClient');
+            $dataversePlugin->import('core.Modules.api.DataverseApiClient');
             $apiClient = new DataverseApiClient($dataversePlugin);
             
             // Ekstrak alias Dataverse dari URL tujuan

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/checkout/services/InvoiceService.inc.php
+ * @file core.Modules.classes/checkout/services/InvoiceService.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -13,8 +13,8 @@ declare(strict_types=1);
  * @brief Jantung pengelola tagihan. Menangani bisnis proses pembayaran.
  */
 
-import('lib.wizdam.classes.checkout.Invoice');
-import('lib.wizdam.classes.checkout.InvoiceDAO');
+import('core.Modules.checkout.Invoice');
+import('core.Modules.checkout.InvoiceDAO');
 
 class InvoiceService {
     
@@ -126,7 +126,7 @@ class InvoiceService {
         $result = $this->invoiceDao->getByUserId($userId);
         
         // [WIZDAM FIX] Menjamin kembalian selalu berupa Strict Array
-        // Mengantisipasi ketidakpastian tipe data dari DAO bawaan OJS
+        // Mengantisipasi ketidakpastian tipe data dari DAO bawaan Wizdam
         if ($result instanceof Invoice) {
             // Jika DAO mengembalikan objek tunggal, bungkus ke dalam array
             return [$result];
@@ -134,7 +134,7 @@ class InvoiceService {
             // Jika sudah berupa array, kembalikan langsung
             return $result;
         } elseif (is_object($result) && method_exists($result, 'toArray')) {
-            // Jika berupa DAOResultFactory khas OJS 2.x
+            // Jika berupa DAOResultFactory khas Wizdam 2.x
             return $result->toArray();
         }
         
@@ -192,7 +192,7 @@ class InvoiceService {
 
     /**
      * [WIZDAM UX] Mengubah tipe tagihan menjadi teks lokalisasi
-     * Mengakomodasi format string Wizdam maupun fallback integer Legacy OJS
+     * Mengakomodasi format string Wizdam maupun fallback integer Legacy Wizdam
      * @param string|int $feeType Tipe tagihan
      * @return string Teks terjemahan yang human-readable
      */

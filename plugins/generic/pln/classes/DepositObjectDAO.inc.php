@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/pln/DepositObjectDAO.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DepositObjectDAO
@@ -167,7 +167,7 @@ class DepositObjectDAO extends DAO {
     }
 
     /**
-     * Create a new deposit object for OJS content that doesn't yet have one
+     * Create a new deposit object for Wizdam content that doesn't yet have one
      * @param int $journalId
      * @param string $objectType
      * @return array DepositObject ordered by sequence

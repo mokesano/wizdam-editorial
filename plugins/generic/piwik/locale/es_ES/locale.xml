@@ -3,11 +3,11 @@
 <!--
   * plugins/generic/piwik/locale/es_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_(es_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Spanish_(es_ES)
   *
   * Piwik plugin localization strings
   -->
@@ -16,7 +16,7 @@
 
 	<!-- Piwik -->
 	<message key="plugins.generic.piwik.displayName">Módulo Piwik</message>
-	<message key="plugins.generic.piwik.description"><![CDATA[Incorpore Piwik a OJS, una aplicación gratuita de código abierto que analiza el tráfico de sitios web. Es necesario instalar Piwik primero. Visite la página de <a href="http://piwik.org/" title="piwik site">Piwik</a> para más información.]]></message>
+	<message key="plugins.generic.piwik.description"><![CDATA[Incorpore Piwik a Wizdam Editorial, una aplicación gratuita de código abierto que analiza el tráfico de sitios web. Es necesario instalar Piwik primero. Visite la página de <a href="http://piwik.org/" title="piwik site">Piwik</a> para más información.]]></message>
 
 	<!-- Piwik Settings Management -->
 	<message key="plugins.generic.piwik.manager.settings">Configuración</message>

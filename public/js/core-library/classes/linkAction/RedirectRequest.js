@@ -1,8 +1,8 @@
 /**
  * @file js/classes/linkAction/RedirectRequest.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RedirectRequest
@@ -16,21 +16,21 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.linkAction.LinkActionRequest
+	 * @extends $.core.classes.linkAction.LinkActionRequest
 	 *
 	 * @param {jQuery} $linkActionElement The element the link
 	 *  action was attached to.
 	 * @param {Object} options Configuration of the link action
 	 *  request.
 	 */
-	$.pkp.classes.linkAction.RedirectRequest =
+	$.core.classes.linkAction.RedirectRequest =
 			function($linkActionElement, options) {
 
 		this.parent($linkActionElement, options);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.classes.linkAction.RedirectRequest,
-			$.pkp.classes.linkAction.LinkActionRequest);
+	$.core.classes.Helper.inherits(
+			$.core.classes.linkAction.RedirectRequest,
+			$.core.classes.linkAction.LinkActionRequest);
 
 
 	//
@@ -39,7 +39,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.linkAction.RedirectRequest.prototype.activate =
+	$.core.classes.linkAction.RedirectRequest.prototype.activate =
 			function(element, event) {
 
 		var options = this.getOptions();

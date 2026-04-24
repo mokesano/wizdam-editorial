@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/ManagerHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ManagerHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class ManagerHandler extends Handler {
     
@@ -57,7 +57,7 @@ class ManagerHandler extends Handler {
     /**
      * Display journal management index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -69,10 +69,10 @@ class ManagerHandler extends Handler {
         $journal = $request->getJournal();
         $templateMgr = TemplateManager::getManager();
 
-        // Display a warning message if there is a new version of OJS available
+        // Display a warning message if there is a new version of Wizdam available
         $newVersionAvailable = false;
         if (Config::getVar('general', 'show_upgrade_warning')) {
-            import('lib.pkp.classes.site.VersionCheck');
+            import('core.Modules.site.VersionCheck');
             if ($latestVersion = VersionCheck::checkIfNewVersionExists()) {
                 $newVersionAvailable = true;
                 $templateMgr->assign('latestVersion', $latestVersion);
@@ -102,7 +102,7 @@ class ManagerHandler extends Handler {
     /**
      * Send an email to a user or group of users.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function email($args, $request = null) {
         $this->validate();
@@ -120,7 +120,7 @@ class ManagerHandler extends Handler {
         $journal = $request->getJournal();
         $user = $request->getUser();
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         
         // [SECURITY FIX] Amankan 'template' dan 'locale' (string key) trim()
         $templateKey = trim((string) ($request->getUserVar('template') ?? ''));

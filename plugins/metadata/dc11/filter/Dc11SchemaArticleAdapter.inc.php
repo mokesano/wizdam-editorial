@@ -4,21 +4,21 @@ declare(strict_types=1);
 /**
  * @file plugins/metadata/dc11/filter/Dc11SchemaArticleAdapter.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Dc11SchemaArticleAdapter
  * @ingroup plugins_metadata_dc11_filter
  * @see Article
- * @see PKPDc11Schema
+ * @see CoreDc11Schema
  *
  * @brief Abstract base class for meta-data adapters that
  * injects/extracts Dublin Core schema compliant meta-data into/from
  * an PublishedArticle object.
  */
 
-import('lib.pkp.classes.metadata.MetadataDataObjectAdapter');
+import('core.Modules.metadata.MetadataDataObjectAdapter');
 
 class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
     
@@ -175,7 +175,7 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
         $dc11Description->addStatement('dc:type', $driverType, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
         $types = $section->getIdentifyType(null);
         $types = array_merge_recursive(
-            empty($types) ? [AppLocale::getLocale() => __('rt.metadata.pkp.peerReviewed')] : $types,
+            empty($types) ? [AppLocale::getLocale() => __('rt.metadata.wizdam.peerReviewed')] : $types,
             (array) $article->getType(null)
         );
         $this->_addLocalizedElements($dc11Description, 'dc:type', $types);

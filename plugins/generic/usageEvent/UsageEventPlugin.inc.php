@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/usageEvent/UsageEventPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UsageEventPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (HookRegistry::dispatch + instanceof modernization)
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 // Our own and OA-S classification types.
 define('USAGE_EVENT_PLUGIN_CLASSIFICATION_BOT', 'bot');
@@ -24,7 +24,7 @@ define('USAGE_EVENT_PLUGIN_CLASSIFICATION_ADMIN', 'administrative');
 class UsageEventPlugin extends GenericPlugin {
 
     //
-    // Implement methods from PKPPlugin.
+    // Implement methods from CorePlugin.
     //
     /**
      * Register the plugin.
@@ -52,7 +52,7 @@ class UsageEventPlugin extends GenericPlugin {
 
     /**
      * Get the display name of this plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -61,7 +61,7 @@ class UsageEventPlugin extends GenericPlugin {
 
     /**
      * Get the description of this plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {
@@ -80,7 +80,7 @@ class UsageEventPlugin extends GenericPlugin {
 
     /**
      * Determine whether or not the plugin is a site plugin.
-     * @see PKPPlugin::isSitePlugin()
+     * @see CorePlugin::isSitePlugin()
      * @return bool
      */
     public function isSitePlugin(): bool {
@@ -340,8 +340,8 @@ class UsageEventPlugin extends GenericPlugin {
             $this->updateSetting(0, 'uniqueSiteId', $siteId);
         }
         array_unshift($idParams, $siteId);
-        $ojsId = 'ojs:' . implode('-', $idParams);
-        $identifiers = array('other::ojs' => $ojsId);
+        $wizdamId = 'wizdam:' . implode('-', $idParams);
+        $identifiers = array('other::wizdam' => $wizdamId);
 
         // Standardized public identifiers
         // [WIZDAM FIX] Replaced is_a() with instanceof

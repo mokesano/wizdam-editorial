@@ -1,8 +1,8 @@
 {**
  * templates/about/siteMap.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * About the Journal / Site Map.
@@ -79,7 +79,7 @@
 {if $isSiteAdmin}
 	<li><a href="{url journal="index" page=$isSiteAdmin->getRolePath()}">{translate key=$isSiteAdmin->getRoleName()}</a></li>
 {/if}
-<li><a href="http://pkp.sfu.ca/ojs">{translate key="common.openJournalSystems"}</a></li>
+<li><a href="https://wizdam.editorial">{translate key="common.openJournalSystems"}</a></li>
 <li><a href="javascript:openHelp('{url journal="index" page="help"}')">{translate key="help.help"}</a></li>
 </ul>
 </div>

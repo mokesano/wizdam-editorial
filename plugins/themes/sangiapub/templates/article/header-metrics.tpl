@@ -3,8 +3,8 @@
 {**
  * templates/article/header.tpl
  *
- * Copyright (c) 2013-2015 Simon Fraser University Library
- * Copyright (c) 2003-2015 John Willinsky
+ * Copyright (c) 2013-2015 Sangia Publishing House Library
+ * Copyright (c) 2003-2015 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Article View -- Header component.
@@ -200,14 +200,14 @@
 
 	<!-- Compiled scripts -->
 	{if $useMinifiedJavaScript}
-        <link rel="preload" href="{$baseUrl}/js/pkp.min.js" as="script" />
-		<script type="text/javascript" src="{$baseUrl}/js/pkp.min.js"></script>
+        <link rel="preload" href="{$baseUrl}/js/core.min.js" as="script" />
+		<script type="text/javascript" src="{$baseUrl}/js/core.min.js"></script>
 	{else}
 		{include file="common/minifiedScripts.tpl"}
 	{/if}
 
 	{foreach from=$stylesheets name="testUrl" item=cssUrl}
-		{if $cssUrl == "$baseUrl/styles/ojs.css"}
+		{if $cssUrl == "$baseUrl/styles/app.css"}
 			<link rel="stylesheet" href="{$cssUrl}" type="text/css" />
 		{/if}
 	{/foreach}

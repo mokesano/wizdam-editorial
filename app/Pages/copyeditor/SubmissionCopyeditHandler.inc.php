@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/copyeditor/SubmissionCopyeditHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionCopyeditHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.copyeditor.CopyeditorHandler');
+import('app.Pages.copyeditor.CopyeditorHandler');
 
 class SubmissionCopyeditHandler extends CopyeditorHandler {
     
@@ -44,7 +44,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * Copyeditor's view of a submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submission($args, $request) {
         $articleId = (int) array_shift($args);
@@ -78,7 +78,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * Complete a copyedit.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function completeCopyedit($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -94,7 +94,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * Complete a final copyedit.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function completeFinalCopyedit($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -128,7 +128,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * Download a file.
      * @param array $args ($articleId, $fileId, [$revision])
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function downloadFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -144,7 +144,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * View a file (inlines file).
      * @param array $args ($articleId, $fileId, [$revision])
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -164,7 +164,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * Set the author proofreading date completion
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function authorProofreadingComplete($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -173,7 +173,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
 
         $send = (int) $request->getUserVar('send') === 1;
 
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
 
         if (ProofreaderAction::proofreadEmail($articleId, 'PROOFREAD_AUTHOR_COMPLETE', $request, $send ? '' : $request->url(null, 'copyeditor', 'authorProofreadingComplete', 'send'))) {
             $request->redirect(null, null, 'submission', $articleId);
@@ -183,7 +183,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * Proof / "preview" a galley.
      * @param array $args ($articleId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofGalley($args, $request) {
         $articleId = (int) array_shift($args);
@@ -199,7 +199,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * Proof galley (shows frame header).
      * @param array $args ($articleId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofGalleyTop($args, $request) {
         $articleId = (int) array_shift($args);
@@ -216,7 +216,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * Proof galley (outputs file contents).
      * @param array $args ($articleId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofGalleyFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -226,7 +226,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
         $galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
         $galley = $galleyDao->getGalley($galleyId, $articleId);
 
-        import('classes.file.ArticleFileManager'); // FIXME
+        import('core.Modules.file.ArticleFileManager'); // FIXME
 
         if (isset($galley)) {
             if ($galley->isHTMLGalley()) {
@@ -250,7 +250,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * Metadata functions.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewMetadata($args, $request) {
         $articleId = (int) array_shift($args);
@@ -265,7 +265,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * Save modified metadata.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveMetadata($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -280,7 +280,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
     /**
      * Remove cover page from article
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeArticleCoverPage($args, $request) {
         $articleId = (int) array_shift($args);
@@ -291,7 +291,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
             $request->redirect(null, null, 'viewMetadata', $articleId);
         }
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         if (SectionEditorAction::removeArticleCoverPage($this->submission, $formLocale)) {
             $request->redirect(null, null, 'viewMetadata', $articleId);
         }

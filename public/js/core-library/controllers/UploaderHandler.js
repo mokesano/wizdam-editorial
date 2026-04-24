@@ -1,14 +1,14 @@
 /**
  * @file js/controllers/UploaderHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UploaderHandler
  * @ingroup js_controllers
  *
- * @brief PKP file uploader widget handler.
+ * @brief Core file uploader widget handler.
  */
 (function($) {
 
@@ -16,13 +16,13 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.Handler
+	 * @extends $.core.classes.Handler
 	 *
 	 * @param {jQuery} $uploader the wrapped HTML uploader element.
 	 * @param {Object} options options to be passed
 	 *  into the validator plug-in.
 	 */
-	$.pkp.controllers.UploaderHandler = function($uploader, options) {
+	$.core.controllers.UploaderHandler = function($uploader, options) {
 		this.parent($uploader, options);
 
 		// Check whether we really got an empty div to attach
@@ -42,10 +42,10 @@
 					url: options.uploadUrl,
 					// Flash settings
 					flash_swf_url: options.baseUrl +
-							'/lib/pkp/js/lib/plupload/plupload.flash.swf',
+							'/core/Library/js/lib/plupload/plupload.flash.swf',
 					// Silverlight settings
 					silverlight_xap_url: options.baseUrl +
-							'/lib/pkp/js/lib/plupload/plupload.silverlight.xap'
+							'/core/Library/js/lib/plupload/plupload.silverlight.xap'
 				});
 
 		// Create the uploader with the puploader plug-in.
@@ -72,8 +72,8 @@
 		pluploader.bind('QueueChanged',
 				this.callbackWrapper(this.refreshUploader));
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.UploaderHandler, $.pkp.classes.Handler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.UploaderHandler, $.core.classes.Handler);
 
 
 	//
@@ -86,7 +86,7 @@
 	 * @param {Object} file The data of the uploaded file.
 	 *
 	 */
-	$.pkp.controllers.UploaderHandler.prototype.
+	$.core.controllers.UploaderHandler.prototype.
 			limitQueueSize = function(caller, pluploader, file) {
 
 		// Prevent > 1 files from being added.
@@ -104,7 +104,7 @@
 	 * @param {Object} file The data of the uploaded file.
 	 *
 	 */
-	$.pkp.controllers.UploaderHandler.prototype.
+	$.core.controllers.UploaderHandler.prototype.
 			refreshUploader = function(caller, pluploader, file) {
 		pluploader.refresh();
 	};
@@ -119,7 +119,7 @@
 	 * @type {Object}
 	 * @const
 	 */
-	$.pkp.controllers.UploaderHandler.DEFAULT_PROPERTIES_ = {
+	$.core.controllers.UploaderHandler.DEFAULT_PROPERTIES_ = {
 		// General settings
 		runtimes: 'html5,flash,silverlight',
 		max_file_size: '20mb',

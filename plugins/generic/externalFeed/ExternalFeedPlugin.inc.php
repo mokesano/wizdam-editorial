@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/externalFeed/ExternalFeedPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ExternalFeedPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM] MODERNIZED FOR PHP 8.x
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class ExternalFeedPlugin extends GenericPlugin {
     
@@ -66,7 +66,7 @@ class ExternalFeedPlugin extends GenericPlugin {
 
     /**
      * Get the display name of the plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -75,7 +75,7 @@ class ExternalFeedPlugin extends GenericPlugin {
 
     /**
      * Get a description of the plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {
@@ -84,7 +84,7 @@ class ExternalFeedPlugin extends GenericPlugin {
 
     /**
      * Get the filename of the ADODB schema for this plugin.
-     * @see PKPPlugin::getInstallSchemaFile()
+     * @see CorePlugin::getInstallSchemaFile()
      * @return string|null
      */
     public function getInstallSchemaFile(): ?string {
@@ -93,7 +93,7 @@ class ExternalFeedPlugin extends GenericPlugin {
 
     /**
      * Get the filename of the default CSS stylesheet for this plugin.
-     * @see PKPPlugin::getDefaultStyleSheetFile()
+     * @see CorePlugin::getDefaultStyleSheetFile()
      * @return string|null
      */
     public function getDefaultStyleSheetFile(): ?string {
@@ -102,7 +102,7 @@ class ExternalFeedPlugin extends GenericPlugin {
 
     /**
      * Get the filename of the CSS stylesheet for this plugin.
-     * @see PKPPlugin::getStyleSheetFile()
+     * @see CorePlugin::getStyleSheetFile()
      * @return string|null
      */
     public function getStyleSheetFile() {
@@ -113,7 +113,7 @@ class ExternalFeedPlugin extends GenericPlugin {
         if (empty($styleSheet)) {
             return $this->getDefaultStyleSheetFile();
         } else {
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $fileManager = new PublicFileManager();
             return $fileManager->getJournalFilesPath($journalId) . '/' . $styleSheet['uploadName'];
         }
@@ -199,7 +199,7 @@ class ExternalFeedPlugin extends GenericPlugin {
 
     /**
      * Display verbs for the management interface.
-     * @see PKPPlugin::getManagementVerbs()
+     * @see CorePlugin::getManagementVerbs()
      * @param array $verbs
      * @param null $request
      * @return array
@@ -228,7 +228,7 @@ class ExternalFeedPlugin extends GenericPlugin {
         $request = Registry::get('request');
         if ($this->getEnabled($request)) {
             // [WIZDAM FIX] Replaced is_a with instanceof
-            if (!($request->getRouter() instanceof PKPPageRouter)) return false;
+            if (!($request->getRouter() instanceof CorePageRouter)) return false;
             
             $requestedPage = $request->getRequestedPage();
 
@@ -236,8 +236,8 @@ class ExternalFeedPlugin extends GenericPlugin {
                 $externalFeedDao = DAORegistry::getDAO('ExternalFeedDAO');
                 $this->import('simplepie.SimplePie');
                 
-                // PENTING: Import PKPString agar tidak error Class Not Found
-                import('lib.pkp.classes.core.PKPString');
+                // PENTING: Import CoreString agar tidak error Class Not Found
+                import('core.Kernel.CoreString');
 
                 $feeds = $externalFeedDao->getExternalFeedsByJournalId($journal->getId());
                 $processedFeeds = array(); 
@@ -284,13 +284,13 @@ class ExternalFeedPlugin extends GenericPlugin {
                     $feed->enable_order_by_date(false);
                     $feed->init();
 
-                    // --- LOGIC SLUGIFY MENGGUNAKAN PKPString (FIX ERROR) ---
+                    // --- LOGIC SLUGIFY MENGGUNAKAN CoreString (FIX ERROR) ---
                     if (empty($sectionIdSlug)) {
                         $rawTitle = $currentFeed->getLocalizedTitle(); 
                         
-                        $slug = PKPString::strtolower($rawTitle); 
+                        $slug = CoreString::strtolower($rawTitle); 
                         $slug = str_replace(array('&', 'amp;'), '', $slug); 
-                        $slug = PKPString::regexp_replace('/[^a-z0-9]+/', '-', $slug);
+                        $slug = CoreString::regexp_replace('/[^a-z0-9]+/', '-', $slug);
                         $slug = trim($slug, '-'); 
                         
                         if (empty($slug)) { $slug = 'external-feed'; }
@@ -377,8 +377,8 @@ class ExternalFeedPlugin extends GenericPlugin {
     
         AppLocale::requireComponents(
             LOCALE_COMPONENT_APPLICATION_COMMON,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_PKP_USER
+            LOCALE_COMPONENT_WIZDAM_MANAGER,
+            LOCALE_COMPONENT_WIZDAM_USER
         );
         $templateMgr = TemplateManager::getManager();
         $templateMgr->register_function('plugin_url', array($this, 'smartyPluginUrl'));
@@ -454,7 +454,7 @@ class ExternalFeedPlugin extends GenericPlugin {
                         $externalFeedForm->execute();
                         
                         // [WIZDAM] Use NotificationManager
-                        import('classes.notification.NotificationManager');
+                        import('core.Modules.notification.NotificationManager');
                         $notificationMgr = new NotificationManager();
                         $notificationMgr->createTrivialNotification(
                             $request->getUser()->getId(),
@@ -492,7 +492,7 @@ class ExternalFeedPlugin extends GenericPlugin {
                     $form->readInputData();
                     if ($form->validate()) {
                         $form->execute();
-                        import('classes.notification.NotificationManager');
+                        import('core.Modules.notification.NotificationManager');
                         $notificationMgr = new NotificationManager();
                         $notificationMgr->createTrivialNotification(
                             $request->getUser()->getId(),

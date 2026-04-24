@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored from UserHandler for better separation of concerns.
  */
 
-import('pages.user.UserHandler');
+import('app.Pages.user.UserHandler');
 
 class UserIndexHandler extends UserHandler {
     
@@ -29,11 +29,11 @@ class UserIndexHandler extends UserHandler {
     /**
      * Display user index page.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
@@ -123,7 +123,7 @@ class UserIndexHandler extends UserHandler {
                     || $subscriptionTypeDao->subscriptionTypesExistByInstitutional($journalId, true)) ? true : false;
             $templateMgr->assign('subscriptionsEnabled', $subscriptionsEnabled);
 
-            import('classes.payment.AppPaymentManager');
+            import('core.Modules.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             $acceptGiftPayments = $paymentManager->acceptGiftPayments();
             $templateMgr->assign('acceptGiftPayments', $acceptGiftPayments);

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/translator/TranslatorHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class TranslatorHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 require_once('TranslatorAction.inc.php');
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class TranslatorHandler extends Handler {
     
@@ -65,7 +65,7 @@ class TranslatorHandler extends Handler {
         $rangeInfo = Handler::getRangeInfo('locales');
 
         $templateMgr = TemplateManager::getManager();
-        import('lib.pkp.classes.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $templateMgr->assign('locales', new ArrayItemIterator(AppLocale::getAllLocales(), $rangeInfo->getPage(), $rangeInfo->getCount()));
         $templateMgr->assign('masterLocale', MASTER_LOCALE);
 
@@ -83,7 +83,7 @@ class TranslatorHandler extends Handler {
     public function setupTemplate($subclass = true) {
         parent::setupTemplate();
         $templateMgr = TemplateManager::getManager();
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_PKP_MANAGER);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_ADMIN, LOCALE_COMPONENT_WIZDAM_MANAGER);
         $pageHierarchy = array(array(Request::url(null, 'user'), 'navigation.user'), array(Request::url(null, 'admin'), 'admin.siteAdmin'));
         if ($subclass) $pageHierarchy[] = array(Request::url(null, 'translate'), 'plugins.generic.translator.name');
         $templateMgr->assign('pageHierarchy', $pageHierarchy);
@@ -113,7 +113,7 @@ class TranslatorHandler extends Handler {
         $miscFilesRangeInfo = Handler::getRangeInfo('miscFiles');
         $emailsRangeInfo = Handler::getRangeInfo('emails');
 
-        import('lib.pkp.classes.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $templateMgr->assign('localeFiles', new ArrayItemIterator($localeFiles, $localeFilesRangeInfo->getPage(), $localeFilesRangeInfo->getCount()));
         $templateMgr->assign('miscFiles', new ArrayItemIterator($miscFiles, $miscFilesRangeInfo->getPage(), $miscFilesRangeInfo->getCount()));
         $templateMgr->assign('emails', new ArrayItemIterator($emails, $emailsRangeInfo->getPage(), $emailsRangeInfo->getCount()));
@@ -206,7 +206,7 @@ class TranslatorHandler extends Handler {
         }
 
         // Save the changes file by file.
-        import('lib.pkp.classes.file.EditableLocaleFile');
+        import('core.Modules.file.EditableLocaleFile');
         foreach ($changesByFile as $filename => $changes) {
             $file = new EditableLocaleFile($locale, $filename);
             foreach ($changes as $key => $value) {
@@ -250,7 +250,7 @@ class TranslatorHandler extends Handler {
         }
 
         // Deal with email removals
-        import('lib.pkp.classes.file.EditableEmailFile');
+        import('core.Modules.file.EditableEmailFile');
         // [SECURITY FIX] Save 'deleteEmail' Casting ke array sudah ada.
         $deleteEmails = (array) Request::getUserVar('deleteEmail');
         
@@ -317,7 +317,7 @@ class TranslatorHandler extends Handler {
         }
 
 
-        import('lib.pkp.classes.file.EditableLocaleFile');
+        import('core.Modules.file.EditableLocaleFile');
         $localeContentsRangeInfo = Handler::getRangeInfo('localeContents');
         $localeContents = EditableLocaleFile::load($filename);
 
@@ -346,7 +346,7 @@ class TranslatorHandler extends Handler {
 
         $templateMgr->assign('filename', $filename);
         $templateMgr->assign('locale', $locale);
-        import('lib.pkp.classes.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $templateMgr->assign('localeContents', new ArrayItemIterator($localeContents, $localeContentsRangeInfo->getPage(), $localeContentsRangeInfo->getCount()));
         $templateMgr->assign('referenceLocaleContents', EditableLocaleFile::load(TranslatorAction::determineReferenceFilename($locale, $filename)));
 
@@ -396,7 +396,7 @@ class TranslatorHandler extends Handler {
             Request::redirect(null, null, 'edit', $locale);
         }
 
-        import('lib.pkp.classes.file.EditableLocaleFile');
+        import('core.Modules.file.EditableLocaleFile');
         
         // [SECURITY FIX] Save 'changes' (data array string)
         $changes = (array) Request::getUserVar('changes');
@@ -523,11 +523,11 @@ class TranslatorHandler extends Handler {
             Request::redirect(null, null, 'edit', $locale);
         }
 
-        import('lib.pkp.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
         $fileManager->copyFile(TranslatorAction::determineReferenceFilename($locale, $filename), $filename);
         $localeKeys = LocaleFile::load($filename);
-        import('lib.pkp.classes.file.EditableLocaleFile');
+        import('core.Modules.file.EditableLocaleFile');
         $file = new EditableLocaleFile($locale, $filename);
         // remove default translations from keys
         foreach (array_keys($localeKeys) as $key) {
@@ -558,7 +558,7 @@ class TranslatorHandler extends Handler {
 
         if (!in_array($emailKey, array_keys($emails))) Request::redirect(null, null, 'index');
 
-        import('lib.pkp.classes.file.EditableEmailFile');
+        import('core.Modules.file.EditableEmailFile');
         $file = new EditableEmailFile($locale, $this->getEmailTemplateFilename($locale));
 
         // [SECURITY FIX] Amankan 'subject' (string teks) dengan trim()
@@ -601,13 +601,13 @@ class TranslatorHandler extends Handler {
                 $dir = dirname($targetFilename);
                 if (!file_exists($dir)) mkdir($dir);
                 file_put_contents($targetFilename, '<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE email_texts SYSTEM "../../../../../lib/pkp/dtd/emailTemplateData.dtd">
+<!DOCTYPE email_texts SYSTEM "../../../../../lib/wizdam/dtd/emailTemplateData.dtd">
 <email_texts locale="' . $locale . '">
 </email_texts>');
             }
         }
 
-        import('lib.pkp.classes.file.EditableEmailFile');
+        import('core.Modules.file.EditableEmailFile');
         $file = new EditableEmailFile($locale, $targetFilename);
 
         // [SECURITY FIX] Amankan 'subject' (string teks) dengan trim()

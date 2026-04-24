@@ -18,7 +18,7 @@ declare(strict_types=1);
  * Refactored for Semantic RESTful URLs (update-profile, my-profile).
  */
 
-import('pages.user.UserHandler');
+import('app.Pages.user.UserHandler');
 
 class ProfileHandler extends UserHandler {
     
@@ -48,10 +48,10 @@ class ProfileHandler extends UserHandler {
      * [WIZDAM ARCHITECTURE] New dedicated semantic method for viewing own profile.
      * URL: /user/my-profile
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function myProfile($args = [], $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         
         // Wajib login
         $this->validate();
@@ -70,16 +70,16 @@ class ProfileHandler extends UserHandler {
     /**
      * Display form to edit user's profile.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function updateProfile($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         $this->setupTemplate($request, true);
 
-        import('classes.user.form.ProfileForm');
+        import('core.Modules.user.form.ProfileForm');
 
         $profileForm = new ProfileForm();
         if ($profileForm->isLocaleResubmit()) {
@@ -93,17 +93,17 @@ class ProfileHandler extends UserHandler {
     /**
      * Validate and save changes to user's profile.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function saveProfile($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         $this->setupTemplate($request);
         $dataModified = false;
 
-        import('classes.user.form.ProfileForm');
+        import('core.Modules.user.form.ProfileForm');
 
         $profileForm = new ProfileForm();
         $profileForm->readInputData();
@@ -131,10 +131,10 @@ class ProfileHandler extends UserHandler {
      * View the public user profile for a user, specified by user ID,
      * if that user should be exposed for public view.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function publicProfile($args, $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate(false); // Tidak wajib login
         
@@ -170,16 +170,16 @@ class ProfileHandler extends UserHandler {
     /**
      * Display form to change user's password.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function changePassword($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         $this->setupTemplate($request, true);
 
-        import('classes.user.form.ChangePasswordForm');
+        import('core.Modules.user.form.ChangePasswordForm');
 
         $passwordForm = new ChangePasswordForm();
         $passwordForm->initData();
@@ -189,15 +189,15 @@ class ProfileHandler extends UserHandler {
     /**
      * Save user's new password.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function savePassword($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
-        import('classes.user.form.ChangePasswordForm');
+        import('core.Modules.user.form.ChangePasswordForm');
 
         $passwordForm = new ChangePasswordForm();
         $passwordForm->readInputData();
@@ -216,7 +216,7 @@ class ProfileHandler extends UserHandler {
      * Menampilkan halaman khusus Linked Accounts
      * URL Akses: /user/linked-accounts
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function linkedAccounts($args, $request) {
         // Validasi akses: Pastikan pengguna sudah login

@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file plugins/metadata/dc11/Dc11MetadataPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Dc11MetadataPlugin
@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief Dublin Core version 1.1 metadata plugin
  */
 
-import('lib.pkp.plugins.metadata.dc11.PKPDc11MetadataPlugin');
+import('core.Modules.plugins.metadata.dc11.CoreDc11MetadataPlugin');
 
 class Dc11MetadataPlugin extends CoreDc11MetadataPlugin {
 

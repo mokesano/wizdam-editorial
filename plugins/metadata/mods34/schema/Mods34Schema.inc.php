@@ -8,18 +8,18 @@ declare(strict_types=1);
 /**
  * @file plugins/metadata/mods34/schema/Mods34Schema.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Mods34Schema
  * @ingroup plugins_metadata_mods34_schema
- * @see PKPMods34Schema
+ * @see CoreMods34Schema
  *
- * @brief OJS-specific implementation of the Mods34Schema.
+ * @brief Wizdam-specific implementation of the Mods34Schema.
  */
 
-import('lib.pkp.plugins.metadata.mods34.schema.PKPMods34Schema');
+import('core.Modules.plugins.metadata.mods34.schema.CoreMods34Schema');
 
 class Mods34Schema extends CoreMods34Schema {
 

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/paymethod/manual/ManualPaymentPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ManualPaymentPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Fixed PHP 8 ArgumentCountError & Parameter Mismatch
  */
 
-import('classes.plugins.PaymethodPlugin');
+import('core.Modules.plugins.PaymethodPlugin');
 
 class ManualPaymentPlugin extends PaymethodPlugin {
     
@@ -114,7 +114,7 @@ class ManualPaymentPlugin extends PaymethodPlugin {
      * @return bool True iff the plugin is configured
      */
     public function isConfigured(): bool {
-        // Selalu return true agar OJSPaymentManager tidak membunuh halaman
+        // Selalu return true agar AppPaymentManager tidak membunuh halaman
         return true; 
     }
 
@@ -136,12 +136,12 @@ class ManualPaymentPlugin extends PaymethodPlugin {
         $cleanInstructions = trim(strip_tags((string) $instructions));
         
         if (empty($cleanInstructions)) {
-             $templateMgr->assign('manualInstructions', '<div class="pkp_form_error" style="color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 15px; border-radius: 4px;"><strong>Peringatan:</strong> Instruksi pembayaran manual belum diatur. Transaksi belum bisa dilanjutkan.</div>');
+             $templateMgr->assign('manualInstructions', '<div class="wizdam_form_error" style="color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 15px; border-radius: 4px;"><strong>Peringatan:</strong> Instruksi pembayaran manual belum diatur. Transaksi belum bisa dilanjutkan.</div>');
         } else {
              $templateMgr->assign('manualInstructions', $instructions);
         }
 
-        // --- 2. [CORE OJS] DATA ITEM DASAR ---
+        // --- 2. [CORE Wizdam] DATA ITEM DASAR ---
         $templateMgr->assign('itemName', $queuedPayment->getName());
         $templateMgr->assign('itemDescription', $queuedPayment->getDescription());
         
@@ -165,7 +165,7 @@ class ManualPaymentPlugin extends PaymethodPlugin {
                 $formatter->setAttribute(\NumberFormatter::MIN_FRACTION_DIGITS, 2);
                 $formatter->setAttribute(\NumberFormatter::MAX_FRACTION_DIGITS, 2);
 
-                // Ambil nilai TOTAL AKHIR dari antrean OJS
+                // Ambil nilai TOTAL AKHIR dari antrean Wizdam
                 $finalAmount = $queuedPayment->getAmount();
 
                 // --- KOP SURAT (SITE SETTINGS) ---
@@ -334,20 +334,20 @@ class ManualPaymentPlugin extends PaymethodPlugin {
         $queuedPaymentId = isset($args[1]) ? ((int) $args[1]) : 0;
 
         // Bypass Application kernel, direct instantiation
-        import('classes.payment.AppPaymentManager');
-        if (!class_exists('OJSPaymentManager')) {
-            error_log("ManualPaymentPlugin: OJSPaymentManager class not found.");
+        import('core.Modules.payment.AppPaymentManager');
+        if (!class_exists('AppPaymentManager')) {
+            error_log("ManualPaymentPlugin: AppPaymentManager class not found.");
             $request->redirect(null, 'index');
         }
         
-        $ojsPaymentManager = new \OJSPaymentManager($request);
-        $queuedPayment = $ojsPaymentManager->getQueuedPayment($queuedPaymentId);
+        $wizdamPaymentManager = new \AppPaymentManager($request);
+        $queuedPayment = $wizdamPaymentManager->getQueuedPayment($queuedPaymentId);
         
         if (!$queuedPayment) $request->redirect(null, 'index');
 
         switch ($op) {
             case 'notify':
-                import('classes.mail.MailTemplate');
+                import('core.Modules.mail.MailTemplate');
                 AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
                 
                 $contactName = $context->getSetting('contactName');

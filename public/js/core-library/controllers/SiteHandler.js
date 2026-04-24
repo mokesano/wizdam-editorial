@@ -4,8 +4,8 @@
 /**
  * @file js/controllers/SiteHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SiteHandler
@@ -19,7 +19,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.Handler
+	 * @extends $.core.classes.Handler
 	 *
 	 * @param {jQueryObject} $widgetWrapper An HTML element that this handle will
 	 * be attached to.
@@ -31,7 +31,7 @@
 	 *   requestOptions: Object
 	 *   }} options Handler options.
 	 */
-	$.pkp.controllers.SiteHandler = function($widgetWrapper, options) {
+	$.core.controllers.SiteHandler = function($widgetWrapper, options) {
 		this.parent($widgetWrapper, options);
 
 		this.options_ = options;
@@ -77,8 +77,8 @@
 		this.bind('unregisterAllForms', this.callbackWrapper(
 				this.unregisterAllFormElements_));
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.SiteHandler, $.pkp.classes.Handler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.SiteHandler, $.core.classes.Handler);
 
 
 	//
@@ -89,7 +89,7 @@
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.controllers.SiteHandler.prototype.options_ = null;
+	$.core.controllers.SiteHandler.prototype.options_ = null;
 
 
 	/**
@@ -97,7 +97,7 @@
 	 * @private
 	 * @type {Array}
 	 */
-	$.pkp.controllers.SiteHandler.prototype.unsavedFormElements_ = null;
+	$.core.controllers.SiteHandler.prototype.unsavedFormElements_ = null;
 
 
 	//
@@ -112,7 +112,7 @@
 	 * @param {string} url The URL to redirect to.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.SiteHandler.prototype.redirectToUrl =
+	$.core.controllers.SiteHandler.prototype.redirectToUrl =
 			function(sourceElement, event, url) {
 		window.location = url;
 	};
@@ -131,7 +131,7 @@
 	 * @private
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.SiteHandler.prototype.registerUnsavedFormElement_ =
+	$.core.controllers.SiteHandler.prototype.registerUnsavedFormElement_ =
 			function(siteHandlerElement, sourceElement, event) {
 		var $formElement, formId, index;
 
@@ -157,7 +157,7 @@
 	 * @private
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.SiteHandler.prototype.unregisterUnsavedFormElement_ =
+	$.core.controllers.SiteHandler.prototype.unregisterUnsavedFormElement_ =
 			function(siteHandlerElement, sourceElement, event) {
 		var $formElement, formId, index;
 
@@ -175,7 +175,7 @@
 	 * Unregister all unsaved form elements.
 	 * @private
 	 */
-	$.pkp.controllers.SiteHandler.prototype.unregisterAllFormElements_ =
+	$.core.controllers.SiteHandler.prototype.unregisterAllFormElements_ =
 			function() {
 		this.unsavedFormElements_ = [];
 	};
@@ -190,7 +190,7 @@
 	 * @return {boolean} Always returns false.
 	 * @private
 	 */
-	$.pkp.controllers.SiteHandler.prototype.toggleInlineHelpHandler_ =
+	$.core.controllers.SiteHandler.prototype.toggleInlineHelpHandler_ =
 			function() {
 		// persist the change on the server.
 		$.ajax({url: this.options_.toggleHelpUrl});
@@ -209,7 +209,7 @@
 	 *
 	 * @private
 	 */
-	$.pkp.controllers.SiteHandler.prototype.updateHelpDisplayHandler_ =
+	$.core.controllers.SiteHandler.prototype.updateHelpDisplayHandler_ =
 			function() {
 		var $bodyElement, inlineHelpState;
 
@@ -218,12 +218,12 @@
 		if (inlineHelpState) {
 			// the .css() call removes the CSS applied to the legend intially,
 			// so it is not shown while the page is being loaded.
-			$bodyElement.find('.pkp_grid_description, #legend, .pkp_help').
+			$bodyElement.find('.core_grid_description, #legend, .core_help').
 					css('visibility', 'visible').show();
 			$bodyElement.find('[id^="toggleHelp"]').html(
 					this.options_.toggleHelpOffText);
 		} else {
-			$bodyElement.find('.pkp_grid_description, #legend, .pkp_help').hide();
+			$bodyElement.find('.core_grid_description, #legend, .core_help').hide();
 			$bodyElement.find('[id^="toggleHelp"]').html(
 					this.options_.toggleHelpOnText);
 		}
@@ -240,7 +240,7 @@
 	 * @private
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.SiteHandler.prototype.fetchNotificationHandler_ =
+	$.core.controllers.SiteHandler.prototype.fetchNotificationHandler_ =
 			function(sourceElement, event, jsonData) {
 
 		if (jsonData !== undefined) {
@@ -266,9 +266,9 @@
 	 * Fetch the header (e.g. on header configuration change).
 	 * @private
 	 */
-	$.pkp.controllers.SiteHandler.prototype.updateHeaderHandler_ =
+	$.core.controllers.SiteHandler.prototype.updateHeaderHandler_ =
 			function() {
-		var handler = $.pkp.classes.Handler.getHandler($('#headerContainer'));
+		var handler = $.core.classes.Handler.getHandler($('#headerContainer'));
 		handler.reload();
 	};
 
@@ -277,9 +277,9 @@
 	 * Fetch the sidebar (e.g. on sidebar configuration change).
 	 * @private
 	 */
-	$.pkp.controllers.SiteHandler.prototype.updateSidebarHandler_ =
+	$.core.controllers.SiteHandler.prototype.updateSidebarHandler_ =
 			function() {
-		var handler = $.pkp.classes.Handler.getHandler($('#sidebarContainer'));
+		var handler = $.core.classes.Handler.getHandler($('#sidebarContainer'));
 		handler.reload();
 	};
 
@@ -303,7 +303,7 @@
 	 * callback when modals are visible or not.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.SiteHandler.prototype.callWhenClickOutsideHandler_ =
+	$.core.controllers.SiteHandler.prototype.callWhenClickOutsideHandler_ =
 			function(sourceElement, event, eventParams) {
 		if (this.callWhenClickOutsideEventParams_ !== undefined) {
 			throw new Error('Another widget is already using this structure.');
@@ -329,7 +329,7 @@
 	 * @return {?boolean} Event handling status.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.SiteHandler.prototype.checkOutsideClickHandler_ =
+	$.core.controllers.SiteHandler.prototype.checkOutsideClickHandler_ =
 			function(sourceElement, event) {
 		var $container, callback;
 
@@ -390,7 +390,7 @@
 	 *
 	 * @return {?string} The warning message string, if needed.
 	 */
-	$.pkp.controllers.SiteHandler.prototype.pageUnloadHandler_ =
+	$.core.controllers.SiteHandler.prototype.pageUnloadHandler_ =
 			function() {
 		var handler, unsavedElementCount, element;
 
@@ -401,7 +401,7 @@
 
 		// we need to get the handler this way since this event is bound
 		// to window, not to SiteHandler.
-		handler = $.pkp.classes.Handler.getHandler($('body'));
+		handler = $.core.classes.Handler.getHandler($('body'));
 
 		unsavedElementCount = 0;
 		for (element in handler.unsavedFormElements_) {
@@ -410,7 +410,7 @@
 			}
 		}
 		if (unsavedElementCount > 0) {
-			return $.pkp.locale.form_dataHasChanged;
+			return $.core.locale.form_dataHasChanged;
 		}
 		return null;
 	};
@@ -423,7 +423,7 @@
 	 * @param {string} id the id of the form to check.
 	 * @return {boolean} true if the form is unsaved.
 	 */
-	$.pkp.controllers.SiteHandler.prototype.isFormUnsaved =
+	$.core.controllers.SiteHandler.prototype.isFormUnsaved =
 			function(id) {
 
 		if (this.unsavedFormElements_ !== null &&
@@ -442,7 +442,7 @@
 	 * @private
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.SiteHandler.prototype.showNotificationResponseHandler_ =
+	$.core.controllers.SiteHandler.prototype.showNotificationResponseHandler_ =
 			function(ajaxContext, jsonData) {
 		this.showNotification_(jsonData);
 	};
@@ -458,7 +458,7 @@
 	 * @param {Object} jsonData The JSON-encoded notification data.
 	 * @private
 	 */
-	$.pkp.controllers.SiteHandler.prototype.showNotification_ =
+	$.core.controllers.SiteHandler.prototype.showNotification_ =
 			function(jsonData) {
 		var workingJsonData, notificationsData, levelId, notificationId;
 
@@ -477,25 +477,25 @@
 
 
 	/**
-	 * Set the maximum width for the pkp_structure_main div.
+	 * Set the maximum width for the core_structure_main div.
 	 * This will prevent content with larger widths (like photos)
 	 * messing up with layout.
 	 * @private
 	 */
-	$.pkp.controllers.SiteHandler.prototype.setMainMaxWidth_ =
+	$.core.controllers.SiteHandler.prototype.setMainMaxWidth_ =
 			function() {
 		var $site, structureContentWidth, leftSideBarWidth, rightSideBarWidth,
 				$mainDiv, mainExtraWidth, mainMaxWidth;
 
 		$site = this.getHtmlElement();
-		structureContentWidth = $('.pkp_structure_content', $site).width();
+		structureContentWidth = $('.core_structure_content', $site).width();
 
-		leftSideBarWidth = $('.pkp_structure_sidebar_left', $site).
+		leftSideBarWidth = $('.core_structure_sidebar_left', $site).
 				outerWidth(true);
-		rightSideBarWidth = $('.pkp_structure_sidebar_right', $site).
+		rightSideBarWidth = $('.core_structure_sidebar_right', $site).
 				outerWidth(true);
 
-		$mainDiv = $('.pkp_structure_main', $site);
+		$mainDiv = $('.core_structure_main', $site);
 
 		// Check for padding, margin or border.
 		mainExtraWidth = $mainDiv.outerWidth(true) - $mainDiv.width();

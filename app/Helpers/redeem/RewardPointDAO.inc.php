@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/redeem/RewardPointDAO.inc.php
+ * @file core.Modules.classes/redeem/RewardPointDAO.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @brief Data Access Object untuk tabel reward_points. Menggunakan pendekatan Ledger.
  */
 
-import('classes.db.DAO');
+import('core.Modules.db.DAO');
 
 class RewardPointDAO extends DAO {
 

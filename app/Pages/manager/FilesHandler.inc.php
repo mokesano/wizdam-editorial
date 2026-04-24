@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/FilesHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class FilesHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class FilesHandler extends ManagerHandler {
     
@@ -44,7 +44,7 @@ class FilesHandler extends ManagerHandler {
     /**
      * Display the files associated with a journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function files($args, $request) {
         $this->validate();
@@ -53,7 +53,7 @@ class FilesHandler extends ManagerHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('lib.pkp.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
 
         $templateMgr = TemplateManager::getManager();
@@ -105,7 +105,7 @@ class FilesHandler extends ManagerHandler {
     /**
      * Upload a new file.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function fileUpload($args, $request) {
         $this->validate();
@@ -119,7 +119,7 @@ class FilesHandler extends ManagerHandler {
         
         $currentPath = $this->_getRealFilesDir($request, $currentDir);
 
-        import('lib.pkp.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
         if ($fileManager->uploadedFileExists('file')) {
             $destPath = $currentPath . '/' . $this->_cleanFileName($fileManager->getUploadedFileName('file'));
@@ -132,7 +132,7 @@ class FilesHandler extends ManagerHandler {
     /**
      * Create a new directory
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function fileMakeDir($args, $request) {
         $this->validate();
@@ -148,7 +148,7 @@ class FilesHandler extends ManagerHandler {
             $currentPath = $this->_getRealFilesDir($request, $currentDir);
             $newDir = $currentPath . '/' . $this->_cleanFileName($dirName);
 
-            import('lib.pkp.classes.file.FileManager');
+            import('core.Modules.file.FileManager');
             $fileManager = new FileManager();
             @$fileManager->mkdir($newDir);
         }
@@ -159,7 +159,7 @@ class FilesHandler extends ManagerHandler {
     /**
      * Delete a file.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function fileDelete($args, $request) {
         $this->validate();
@@ -173,7 +173,7 @@ class FilesHandler extends ManagerHandler {
         
         $currentPath = $this->_getRealFilesDir($request, $currentDir);
 
-        import('lib.pkp.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
 
         if (@is_file($currentPath)) {
@@ -208,7 +208,7 @@ class FilesHandler extends ManagerHandler {
 
     /**
      * Get real file path.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $currentDir
      * @return string
      */
@@ -232,7 +232,7 @@ class FilesHandler extends ManagerHandler {
      * @return string
      */
     protected function _cleanFileName($var) {
-        $var = PKPString::regexp_replace('/[^\w\-\.]/', '', $var);
+        $var = CoreString::regexp_replace('/[^\w\-\.]/', '', $var);
         if (!$this->_fileNameFilter($var)) {
             $var = time() . '';
         }
@@ -245,7 +245,7 @@ class FilesHandler extends ManagerHandler {
      * @return string
      */
     protected function _fileMimeType($filePath) {
-        return PKPString::mime_content_type($filePath);
+        return CoreString::mime_content_type($filePath);
     }
 }
 

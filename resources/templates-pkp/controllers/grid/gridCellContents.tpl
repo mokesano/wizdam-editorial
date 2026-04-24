@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/gridCellContents.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * a regular grid cell's contents
@@ -32,7 +32,7 @@
 {/if}
 
 {if $_label != ''}
-	<span{if count($actions) gt 0} class="pkp_helpers_align_left gridLabelBeforeActions"{/if}>
+	<span{if count($actions) gt 0} class="core_helpers_align_left gridLabelBeforeActions"{/if}>
 		{if $column->hasFlag('maxLength')}
 			{assign var="maxLength" value=$column->getFlag('maxLength')}
 			{$_label|truncate:$maxLength}

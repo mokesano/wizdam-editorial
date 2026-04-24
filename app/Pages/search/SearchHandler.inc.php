@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/search/SearchHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SearchHandler
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.search.ArticleSearch');
-import('classes.handler.Handler');
+import('core.Modules.search.ArticleSearch');
+import('core.Modules.handler.Handler');
 
 class SearchHandler extends Handler {
     
@@ -56,7 +56,7 @@ class SearchHandler extends Handler {
     /**
      * Show the search form
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -66,7 +66,7 @@ class SearchHandler extends Handler {
     /**
      * Private function to transmit current filter values
      * to the template.
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @param object $templateMgr TemplateManager
      * @param array $searchFilters
      */
@@ -160,11 +160,11 @@ class SearchHandler extends Handler {
     /**
      * Show the search form
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function search($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
@@ -200,17 +200,17 @@ class SearchHandler extends Handler {
     /**
      * Show index of published articles by author.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function authors($args, $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $this->validate();
         $this->setupTemplate($request, true);
 
         $journal = $request->getJournal();
         $authorDao = DAORegistry::getDAO('AuthorDAO');
         
-        import('classes.user.UserDAO');
+        import('core.Modules.user.UserDAO');
         $userDao = DAORegistry::getDAO('UserDAO');
 
         if (isset($args[0]) && $args[0] == 'view') {
@@ -320,7 +320,7 @@ class SearchHandler extends Handler {
                 $journalId = $article->getJournalId();
 
                 if (!isset($issues[$issueId])) {
-                    import('classes.issue.IssueAction');
+                    import('core.Modules.issue.IssueAction');
                     $issue = $issueDao->getIssueById($issueId);
                     $issues[$issueId] = $issue;
                     $issuesUnavailable[$issueId] = IssueAction::subscriptionRequired($issue) && (!IssueAction::subscribedUser($journal, $issueId, $articleId) && !IssueAction::subscribedDomain($journal, $issueId, $articleId));
@@ -408,7 +408,7 @@ class SearchHandler extends Handler {
                 $authors[$key] = $author;
             }
 
-            import('lib.pkp.classes.core.VirtualArrayIterator');
+            import('core.Kernel.VirtualArrayIterator');
             $itemsPerPage = ($rangeInfo && $rangeInfo->isValid()) ? $rangeInfo->getCount() : max(1, count($authors));
             $authorsIterator = new VirtualArrayIterator($authors, $authorsFactory->getCount(), $authorsFactory->getPage(), $itemsPerPage);
 
@@ -424,11 +424,11 @@ class SearchHandler extends Handler {
     /**
      * Show index of published articles by title.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function titles($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         $this->setupTemplate($request, true);
@@ -465,7 +465,7 @@ class SearchHandler extends Handler {
             }
         }
         
-        import('lib.pkp.classes.core.VirtualArrayIterator');
+        import('core.Kernel.VirtualArrayIterator');
         // Masukkan array yang sudah diekstrak tadi ke Iterator
         $results = new VirtualArrayIterator($resultsArray, $totalResults, $rangeInfo->getPage(), $rangeInfo->getCount());
 
@@ -484,11 +484,11 @@ class SearchHandler extends Handler {
     /**
      * Display categories.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function categories($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         $this->setupTemplate($request);
@@ -519,11 +519,11 @@ class SearchHandler extends Handler {
     /**
      * Display category contents.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function category($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $categoryId = (int) array_shift($args);
 
@@ -558,13 +558,13 @@ class SearchHandler extends Handler {
 
     /**
      * Setup common template variables.
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      * @param boolean $subclass set to true if caller is below this handler in the hierarchy
      * @param string $op Current operation (for breadcrumb construction)
      */
     public function setupTemplate($request = null, $subclass = false, $op = 'index') {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         parent::setupTemplate();
         $templateMgr = TemplateManager::getManager();

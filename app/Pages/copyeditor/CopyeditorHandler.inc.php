@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/copyeditor/CopyeditorHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CopyeditorHandler
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.submission.copyeditor.CopyeditorAction');
-import('classes.handler.Handler');
+import('core.Modules.submission.copyeditor.CopyeditorAction');
+import('core.Modules.handler.Handler');
 
 class CopyeditorHandler extends Handler {
     
@@ -50,7 +50,7 @@ class CopyeditorHandler extends Handler {
     /**
      * Display copyeditor index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args, $request) {
         $this->validate($request);
@@ -152,7 +152,7 @@ class CopyeditorHandler extends Handler {
             SUBMISSION_FIELD_DATE_PROOFREADING_COMPLETE => 'submissions.proofreadingComplete'
         ]);
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         // Note: register_function is legacy Smarty. Consider update if upgrading Smarty.
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
@@ -180,7 +180,7 @@ class CopyeditorHandler extends Handler {
         $pageHierarchy = $subclass ? [[$request->url(null, 'user'), 'navigation.user'], [$request->url(null, 'copyeditor'), 'user.role.copyeditor']]
                 : [['user', 'navigation.user'], ['copyeditor', 'user.role.copyeditor']];
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         $submissionCrumb = SectionEditorAction::submissionBreadcrumb($articleId, $parentPage, 'copyeditor');
         if (isset($submissionCrumb)) {
             $pageHierarchy = array_merge($pageHierarchy, $submissionCrumb);
@@ -191,11 +191,11 @@ class CopyeditorHandler extends Handler {
     /**
      * Display submission management instructions.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function instructions($args, $request) {
         $this->setupTemplate();
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         if (!isset($args[0]) || !ProofreaderAction::instructions($args[0], ['copy'])) {
             $request->redirect(null, $request->getRequestedPage());
         }
@@ -204,7 +204,7 @@ class CopyeditorHandler extends Handler {
     /**
      * Validate that the user is the assigned copyeditor for
      * the article, if specified. Validate user role.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int|null $articleId optional
      */
     public function validate($request, $articleId = null) {

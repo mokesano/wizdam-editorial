@@ -1,0 +1,91 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * @file pages/user/CoreUserHandler.inc.php
+ *
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @class CoreUserHandler
+ * @ingroup pages_user
+ *
+ * @brief Handle requests for user functions.
+ *
+ * [WIZDAM EDITION] PHP 8.1+ Compatibility, Strict Types, Security Hardening
+ */
+
+import('core.Modules.handler.Handler');
+
+class CoreUserHandler extends Handler {
+    
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        parent::__construct();
+    }
+
+    /**
+     * [SHIM] Backward Compatibility for Legacy Calls
+     */
+    public function CoreUserHandler() {
+        if (Config::getVar('debug', 'deprecation_warnings')) {
+            trigger_error("Deprecated constructor called. Use __construct().", E_USER_DEPRECATED);
+        }
+        self::__construct();
+    }
+
+    /**
+     * Get keywords for reviewer interests autocomplete.
+     * @param array $args
+     * @param CoreRequest|null $request
+     * @return string Serialized JSON object
+     */
+    public function getInterests($args, $request = null) {
+        // [Wizdam] Singleton Fallback
+        if (!$request) $request = Application::get()->getRequest();
+
+        // Get the input text used to filter on
+        $filter = (string) $request->getUserVar('term');
+        
+        // [SECURITY FIX] Sanitasi string (Fix variabel undefined $term -> $filter)
+        $filter = trim($filter);
+
+        import('core.Modules.user.InterestManager');
+        $interestManager = new InterestManager();
+
+        $interests = $interestManager->getAllInterests($filter);
+
+        import('core.Kernel.JSONMessage');
+        $json = new JSONMessage(true, $interests);
+        
+        header('Content-Type: application/json');
+        return $json->getString();
+    }
+
+    /**
+     * Persist the status for a user's preference to see inline help.
+     * @param array $args
+     * @param CoreRequest $request
+     * @return string Serialized JSON object
+     */
+    public function toggleHelp($args, $request) {
+        $user = $request->getUser();
+
+        if ($user) {
+            $user->setInlineHelp($user->getInlineHelp() ? 0 : 1);
+
+            $userDao = DAORegistry::getDAO('UserDAO');
+            $userDao->updateObject($user);
+        }
+
+        import('core.Kernel.JSONMessage');
+        $json = new JSONMessage(true);
+        
+        header('Content-Type: application/json');
+        return $json->getString();
+    }
+}
+?>

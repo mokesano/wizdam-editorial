@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/dataverse/locale/pt_BR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Dataverse plugin localization strings
@@ -57,7 +57,7 @@
 	<message key="plugins.generic.dataverse.settings.citationFormatDescription">Escolha o formato de citação exibido no estudo de catalogação de informação.</message>
 	<message key="plugins.generic.dataverse.settings.citationFormat.apa">Estilo de Citação APA</message>
 	<message key="plugins.generic.dataverse.settings.pubIdType">Tipo de identificador público</message>
-	<message key="plugins.generic.dataverse.settings.pubIdTypeDescription"><![CDATA[Escolha o tipo de identificador público para conectar o artigo à citação da publicação. Se não houverem <a href="{$pubIdsUrl}"> plugins de identificação pública </a> habilitados, as citações de artigos publicados usarão URLs OJS.]]></message>
+	<message key="plugins.generic.dataverse.settings.pubIdTypeDescription"><![CDATA[Escolha o tipo de identificador público para conectar o artigo à citação da publicação. Se não houverem <a href="{$pubIdsUrl}"> plugins de identificação pública </a> habilitados, as citações de artigos publicados usarão URLs Wizdam Editorial.]]></message>
 	<message key="plugins.generic.dataverse.settings.workflow">Configurações de fluxo</message>
 	<message key="plugins.generic.dataverse.settings.requireData">Requerer arquivos de dados</message>
 	<message key="plugins.generic.dataverse.settings.requireDataDescription">Exigir que as submissões incluam arquivos de dados depositados no Dataverse.</message>
@@ -94,7 +94,7 @@
    <ol>
    <li><p>Caso a intenção seja compartilhar conjuntos de dados que derivam de trabalho que envolve participantes humanos, veja o "Guia sobre compartilhamento de conjuntos de dados que derivam do trabalho envolvendo participantes humanos" acima.</p></li>
    <li><p>Prepare o conjunto de dados para depósito verificando as diretrizes de replicação: <a href="http://thedata.org/book/replication-guidelines">http://thedata.org/book/replication-guidelines</a></p></li>
-  <li><p>Caso esteja depositando no Dataverse de Harvard, o conjunto de dados pode ser enviado junto com o manuscrito, durante a submissão no OJS do periódico {$journal}. Este será automaticamente depositado no Dataverse de Harvard e gerará uma citação de dados com um endereço persistente (DOI), que poderá ser indicado para citar seus dados quando o artigo for publicado.</p></li>
+  <li><p>Caso esteja depositando no Dataverse de Harvard, o conjunto de dados pode ser enviado junto com o manuscrito, durante a submissão no Wizdam Editorial do periódico {$journal}. Este será automaticamente depositado no Dataverse de Harvard e gerará uma citação de dados com um endereço persistente (DOI), que poderá ser indicado para citar seus dados quando o artigo for publicado.</p></li>
 <li> <p>Caso seu conjunto de dados já esteja em um arquivo público recomendado, inclua uma citação de dados com um endereço persistente. Para diretrizes sobre citação de dados, consulte as diretrizes de submissão.</p></li>
 	</ol>
 	]]>

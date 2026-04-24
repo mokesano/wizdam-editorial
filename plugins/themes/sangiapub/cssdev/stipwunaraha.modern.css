@@ -18907,7 +18907,7 @@ form {
  padding-bottom:0em;
  /*! margin-bottom:1.5em; */
 }
-form.pkp_form {
+form.core_form {
  margin:initial
 }
 input {
@@ -19412,7 +19412,7 @@ li.pubDOI {
  font-family: NexusSans;
  font-size: 1.5rem;
 }
-.heading,#setup .pkp_controllers_grid table th,#setup .pkp_controllers_grid table tr.heading {
+.heading,#setup .core_controllers_grid table th,#setup .core_controllers_grid table tr.heading {
  font-family:"Europa",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
  font-size:1.125em;
  line-height:1.33333em;
@@ -19420,7 +19420,7 @@ li.pubDOI {
  padding:.25em;
  margin-top: 0;
 }
-.heading td:last-child,#setup .pkp_controllers_grid table th td:last-child,#setup .pkp_controllers_grid table tr.heading td:last-child {
+.heading td:last-child,#setup .core_controllers_grid table th td:last-child,#setup .core_controllers_grid table tr.heading td:last-child {
  text-align:center;
 }
 .selectMenu {
@@ -23084,7 +23084,7 @@ table.info td:first-child {
 table.info td {
  text-align:center
 }
-table.listing .heading a,#setup .pkp_controllers_grid table.listing th a,#setup .pkp_controllers_grid table.listing tr.heading a {
+table.listing .heading a,#setup .core_controllers_grid table.listing th a,#setup .core_controllers_grid table.listing tr.heading a {
  color:#000
 }
 table.listing tr {
@@ -23221,7 +23221,7 @@ span.instruct {
 #assignBlocksToSidebars {
  border:1px solid #D1D3D5
 }
-#assignBlocksToSidebars .heading,#assignBlocksToSidebars #setup .pkp_controllers_grid table th,#setup .pkp_controllers_grid table #assignBlocksToSidebars th,#assignBlocksToSidebars #setup .pkp_controllers_grid table tr.heading,#setup .pkp_controllers_grid table #assignBlocksToSidebars tr.heading {
+#assignBlocksToSidebars .heading,#assignBlocksToSidebars #setup .core_controllers_grid table th,#setup .core_controllers_grid table #assignBlocksToSidebars th,#assignBlocksToSidebars #setup .core_controllers_grid table tr.heading,#setup .core_controllers_grid table #assignBlocksToSidebars tr.heading {
  text-align:center;
  border:1px solid #87908F
 }
@@ -23235,38 +23235,38 @@ span.instruct {
 #setup .options {
  margin-top:2em
 }
-#setup .pkp_controllers_grid table {
+#setup .core_controllers_grid table {
  margin-top:1.5em;
  padding-top:0em;
  padding-bottom:0em;
  margin-bottom:1.5em;
  border:1px solid #87908F
 }
-#setup .pkp_controllers_grid table th,#setup .pkp_controllers_grid table tr.heading,#setup .pkp_controllers_grid table td {
+#setup .core_controllers_grid table th,#setup .core_controllers_grid table tr.heading,#setup .core_controllers_grid table td {
  border-right:1px solid #D1D3D5;
  border-bottom:1px solid #D1D3D5;
  border-left-width:0;
  border-top-width:0
 }
-#setup .pkp_controllers_grid table th:last-child,#setup .pkp_controllers_grid table tr.heading:last-child,#setup .pkp_controllers_grid table td:last-child {
+#setup .core_controllers_grid table th:last-child,#setup .core_controllers_grid table tr.heading:last-child,#setup .core_controllers_grid table td:last-child {
  border-right-width:0
 }
-#setup .pkp_controllers_grid table th.last,#setup .pkp_controllers_grid table tr.last.heading,#setup .pkp_controllers_grid table td.last {
+#setup .core_controllers_grid table th.last,#setup .core_controllers_grid table tr.last.heading,#setup .core_controllers_grid table td.last {
  border-right-width:0
 }
-#setup .pkp_controllers_grid table tbody tr:last-child th,#setup .pkp_controllers_grid table tbody tr:last-child tr.heading,#setup .pkp_controllers_grid table tbody tr:last-child td,#setup .pkp_controllers_grid table tfoot tr:last-child th,#setup .pkp_controllers_grid table tfoot tr:last-child tr.heading,#setup .pkp_controllers_grid table tfoot tr:last-child td {
+#setup .core_controllers_grid table tbody tr:last-child th,#setup .core_controllers_grid table tbody tr:last-child tr.heading,#setup .core_controllers_grid table tbody tr:last-child td,#setup .core_controllers_grid table tfoot tr:last-child th,#setup .core_controllers_grid table tfoot tr:last-child tr.heading,#setup .core_controllers_grid table tfoot tr:last-child td {
  border-bottom-width:0
 }
-#setup .pkp_controllers_grid table tbody tr.last th,#setup .pkp_controllers_grid table tbody tr.last tr.heading,#setup .pkp_controllers_grid table tbody tr.last td,#setup .pkp_controllers_grid table tfoot tr.last th,#setup .pkp_controllers_grid table tfoot tr.last tr.heading,#setup .pkp_controllers_grid table tfoot tr.last td {
+#setup .core_controllers_grid table tbody tr.last th,#setup .core_controllers_grid table tbody tr.last tr.heading,#setup .core_controllers_grid table tbody tr.last td,#setup .core_controllers_grid table tfoot tr.last th,#setup .core_controllers_grid table tfoot tr.last tr.heading,#setup .core_controllers_grid table tfoot tr.last td {
  border-bottom-width:0
 }
-#setup .pkp_controllers_grid table thead th,#setup .pkp_controllers_grid table thead tr.heading {
+#setup .core_controllers_grid table thead th,#setup .core_controllers_grid table thead tr.heading {
  border-bottom:1px solid #87908F
 }
-#setup .pkp_controllers_grid table tfoot th,#setup .pkp_controllers_grid table tfoot tr.heading,#setup .pkp_controllers_grid table tfoot td {
+#setup .core_controllers_grid table tfoot th,#setup .core_controllers_grid table tfoot tr.heading,#setup .core_controllers_grid table tfoot td {
  border-top:1px solid #87908F
 }
-#setup .pkp_controllers_grid table th:first-child,#setup .pkp_controllers_grid table tr.heading:first-child {
+#setup .core_controllers_grid table th:first-child,#setup .core_controllers_grid table tr.heading:first-child {
  border-right:1px solid #87908F
 }
 td form {
@@ -23292,7 +23292,7 @@ td form {
 .composite-ui>.ui-tabs ul.main-tabs a {
  font-size:1.25em
 }
-.pkp_controllers_grid h3 {
+.core_controllers_grid h3 {
  background-color:initial
 }
 .steplist {

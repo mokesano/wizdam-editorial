@@ -9,7 +9,7 @@ declare(strict_types=1);
  * @brief Handler khusus untuk Site Administrator mengelola Payment Gateway.
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class AdminPaymentHandler extends Handler {
 
@@ -53,7 +53,7 @@ class AdminPaymentHandler extends Handler {
 
         if (!$request) $request = Application::get()->getRequest();
 
-        import('lib.wizdam.classes.payment.form.PaymentSettingsForm');
+        import('core.Modules.payment.form.PaymentSettingsForm');
         $settingsForm = new PaymentSettingsForm();
         $settingsForm->initData();
 
@@ -74,7 +74,7 @@ class AdminPaymentHandler extends Handler {
 
         if (!$request) $request = Application::get()->getRequest();
 
-        import('lib.wizdam.classes.payment.form.PaymentSettingsForm');
+        import('core.Modules.payment.form.PaymentSettingsForm');
         $settingsForm = new PaymentSettingsForm();
         $settingsForm->readInputData();
 

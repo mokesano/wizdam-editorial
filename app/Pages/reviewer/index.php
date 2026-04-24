@@ -7,8 +7,8 @@
 /**
  * @file pages/reviewer/index.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_reviewer
@@ -37,7 +37,7 @@ switch ($op) {
 	case 'editReviewFormResponse':
 	case 'saveReviewFormResponse':
 		define('HANDLER_CLASS', 'SubmissionReviewHandler');
-		import('pages.reviewer.SubmissionReviewHandler');
+		import('app.Pages.reviewer.SubmissionReviewHandler');
 		break;
 	//
 	// Submission Comments
@@ -48,11 +48,11 @@ switch ($op) {
 	case 'saveComment':
 	case 'deleteComment':
 		define('HANDLER_CLASS', 'SubmissionCommentsHandler');
-		import('pages.reviewer.SubmissionCommentsHandler');
+		import('app.Pages.reviewer.SubmissionCommentsHandler');
 		break;
 	case 'index':
 		define('HANDLER_CLASS', 'ReviewerHandler');
-		import('pages.reviewer.ReviewerHandler');
+		import('app.Pages.reviewer.ReviewerHandler');
 		break;
 }
 

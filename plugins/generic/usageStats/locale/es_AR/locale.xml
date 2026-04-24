@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/usageStats/locale/es_AR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -32,9 +32,9 @@ UsageStatsLoader::_getDataFromLogEntry() para más información.</message>
 	<message key="plugins.generic.usageStats.noCounterBotList">La lista de CONTADOR de bots no puede ser encontrada, o más de una lista esta presente. El archivo {$file} no puede ser procesado.</message>
 	<message key="plugins.generic.usageStats.failedCounterBotList">La lista CONTADORA de bots {$botlist} no se puede abrir. El archivo {$file} no se puede procesar.</message>
 	
-	<message key="plugins.reports.usageStats.report.displayName">Reporte de estadísticas de uso de OJS</message>
-	<message key="plugins.reports.usageStats.report.description">Reporte de estadísticas de uso de OJS por defecto (CONTADOR listo)</message>
+	<message key="plugins.reports.usageStats.report.displayName">Reporte de estadísticas de uso de Wizdam Editorial</message>
+	<message key="plugins.reports.usageStats.report.description">Reporte de estadísticas de uso de Wizdam Editorial por defecto (CONTADOR listo)</message>
 	
-	<message key="plugins.reports.usageStats.metricType">OJS/CONTADOR</message>
-	<message key="plugins.reports.usageStats.metricType.full">Estadísticas de OJS (CONTADOR listo)</message>
+	<message key="plugins.reports.usageStats.metricType">Wizdam Editorial/CONTADOR</message>
+	<message key="plugins.reports.usageStats.metricType.full">Estadísticas de Wizdam Editorial (CONTADOR listo)</message>
 </locale>

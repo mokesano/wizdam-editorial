@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/admin/AdminJournalHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AdminJournalHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.admin.AdminHandler');
+import('app.Pages.admin.AdminHandler');
 
 class AdminJournalHandler extends AdminHandler {
     
@@ -76,7 +76,7 @@ class AdminJournalHandler extends AdminHandler {
         $this->validate();
         $this->setupTemplate();
 
-        import('classes.admin.form.JournalSiteSettingsForm');
+        import('core.Modules.admin.form.JournalSiteSettingsForm');
         $settingsForm = new JournalSiteSettingsForm(!isset($args) || empty($args) ? null : $args[0]);
 
         if ($settingsForm->isLocaleResubmit()) {
@@ -90,7 +90,7 @@ class AdminJournalHandler extends AdminHandler {
     /**
      * Save changes to a journal's settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateJournal($args, $request) {
         $this->validate();
@@ -99,7 +99,7 @@ class AdminJournalHandler extends AdminHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.admin.form.JournalSiteSettingsForm');
+        import('core.Modules.admin.form.JournalSiteSettingsForm');
 
         $journalId = (int) $request->getUserVar('journalId');
         $settingsForm = new JournalSiteSettingsForm($journalId);
@@ -112,7 +112,7 @@ class AdminJournalHandler extends AdminHandler {
 
             $user = $request->getUser();
 
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification($user->getId());
             $request->redirect(null, null, 'journals');
@@ -125,7 +125,7 @@ class AdminJournalHandler extends AdminHandler {
     /**
      * Delete a journal.
      * @param array $args first parameter is the ID of the journal to delete
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteJournal($args, $request) {
         $this->validate();
@@ -140,13 +140,13 @@ class AdminJournalHandler extends AdminHandler {
             if ($journalDao->deleteJournalById($journalId)) {
                 // Delete journal file tree
                 // FIXME move this somewhere better.
-                import('lib.pkp.classes.file.FileManager');
+                import('core.Modules.file.FileManager');
                 $fileManager = new FileManager();
 
                 $journalPath = Config::getVar('files', 'files_dir') . '/journals/' . $journalId;
                 $fileManager->rmtree($journalPath);
 
-                import('classes.file.PublicFileManager');
+                import('core.Modules.file.PublicFileManager');
                 $publicFileManager = new PublicFileManager();
                 $publicFileManager->rmtree($publicFileManager->getJournalFilesPath($journalId));
             }
@@ -158,7 +158,7 @@ class AdminJournalHandler extends AdminHandler {
     /**
      * Change the sequence of a journal on the site index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveJournal($args, $request) {
         $this->validate();

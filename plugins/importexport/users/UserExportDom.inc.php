@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/users/UserExportDom.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UserExportDom
@@ -14,10 +14,10 @@ declare(strict_types=1);
  * @brief User plugin DOM functions for export
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('core.Modules.xml.XMLCustomWriter');
 
-define('USERS_DTD_URL', 'http://pkp.sfu.ca/ojs/dtds/users.dtd');
-define('USERS_DTD_ID', '-//PKP/OJS Users XML//EN');
+define('USERS_DTD_URL', 'http://wizdam.sfu.ca/wizdam/dtds/users.dtd');
+define('USERS_DTD_ID', '-//Wizdam/Wizdam Users XML//EN');
 
 class UserExportDom {
 
@@ -98,7 +98,7 @@ class UserExportDom {
                 }
             }
 
-            import('lib.pkp.classes.user.InterestManager');
+            import('core.Modules.user.InterestManager');
             $interestManager = new InterestManager();
             $interests = $interestManager->getInterestsForUser($user);
             if (is_array($interests)) {

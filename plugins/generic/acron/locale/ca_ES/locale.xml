@@ -3,18 +3,18 @@
 <!--
   * locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2000-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2000-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_(ca_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Catalan_(ca_ES)
   *
   * Localization strings for the ca_ES (Català) locale.
   -->
  
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.generic.acron.name">Mòdul Acron</message>
-	<message key="plugins.generic.acron.description"><![CDATA[Aquest mòdul intenta reduir la dependència que tenen els OJS d'eines de planificació periòdica com ara «cron.»]]></message>
+	<message key="plugins.generic.acron.description"><![CDATA[Aquest mòdul intenta reduir la dependència que tenen els Wizdam Editorial d'eines de planificació periòdica com ara «cron.»]]></message>
 	<message key="plugins.generic.acron.enabled">S'ha habilitat el mòdul Acron.</message>
 	<message key="plugins.generic.acron.disabled">S'ha deshabilitat el mòdul Acron.</message>
 

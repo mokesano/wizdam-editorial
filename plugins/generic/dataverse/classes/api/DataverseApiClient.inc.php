@@ -75,7 +75,7 @@ class DataverseApiClient {
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-        // Dukungan Proxy (jika dikonfigurasi di config.inc.php OJS)
+        // Dukungan Proxy (jika dikonfigurasi di config.inc.php Wizdam)
         if ($httpProxyHost = Config::getVar('proxy', 'http_host')) {
             curl_setopt($ch, CURLOPT_PROXY, $httpProxyHost);
             curl_setopt($ch, CURLOPT_PROXYPORT, Config::getVar('proxy', 'http_port', '80'));

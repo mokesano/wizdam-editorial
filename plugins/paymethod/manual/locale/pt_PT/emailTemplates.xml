@@ -3,8 +3,8 @@
 <!--
   * plugins/paymethod/manual/locale/pt_PT/emailTemplateData.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localized email templates XML file.
@@ -17,7 +17,7 @@
 O item adquirido é "{$itemName}".
 O custo é {$itemCost} ({$itemCurrencyCode}).
 
-Esta mensagem foi gerada pelo Plugin de Pagamento Manual do OJS.</body>
+Esta mensagem foi gerada pelo Plugin de Pagamento Manual do Wizdam Editorial.</body>
 		<description>Esta mensagem notifica o editor-gestor que um pagamento manual foi realizado e exige processamento.</description>
 	</email_text>
 </email_texts>

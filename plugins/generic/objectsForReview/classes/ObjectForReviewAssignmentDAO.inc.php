@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/classes/ObjectForReviewAssignmentDAO.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ObjectForReviewAssignmentDAO
@@ -101,7 +101,7 @@ class ObjectForReviewAssignmentDAO extends DAO {
      */
     public function newDataObject() {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ObjectForReviewAssignment');
+        $ofrPlugin->import('core.Modules.ObjectForReviewAssignment');
         return new ObjectForReviewAssignment();
     }
 
@@ -331,8 +331,8 @@ class ObjectForReviewAssignmentDAO extends DAO {
      */
      public function getAllByContextId($contextId, $searchType = null, $search = null, $searchMatch = null, $status = null, $userId = null, $editorId = null, $filterType = null, $rangeInfo = null, $sortBy = null, $sortDirection = SORT_DIRECTION_ASC) {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ReviewObjectMetadata');
-        $ofrPlugin->import('classes.ObjectForReviewAssignment');
+        $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
+        $ofrPlugin->import('core.Modules.ObjectForReviewAssignment');
 
         $params = array();
 
@@ -518,7 +518,7 @@ class ObjectForReviewAssignmentDAO extends DAO {
      */
     public function getStatusCounts($contextId, $userId = null) {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ObjectForReviewAssignment');
+        $ofrPlugin->import('core.Modules.ObjectForReviewAssignment');
         $counts = array();
         $counts[OFR_STATUS_AVAILABLE] = $this->getStatusCount($contextId, OFR_STATUS_AVAILABLE, $userId);
         $counts[OFR_STATUS_REQUESTED] = $this->getStatusCount($contextId, OFR_STATUS_REQUESTED, $userId);

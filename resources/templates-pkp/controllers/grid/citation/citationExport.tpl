@@ -1,8 +1,8 @@
 {**
  * citationExport.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Formatted citation export
@@ -62,7 +62,7 @@
 				{rdelim});
 				// -->
 			</script>
-			<form class="pkp_form" id="exportCitationForm" method="post" action="">
+			<form class="core_form" id="exportCitationForm" method="post" action="">
 				<br />
 				<p>
 					<p>{translate key="submission.citations.editor.export.filterSelectionDescription"}</p>

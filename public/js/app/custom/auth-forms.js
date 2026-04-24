@@ -1,11 +1,11 @@
 /**
- * Modern Auth Forms JavaScript untuk OJS v2.4.8.2
+ * Modern Auth Forms JavaScript untuk Core v2.4.8.2
  * Production-ready authentication forms with modern UI components
  * 
  * @fileoverview Modern auth forms with floating labels, password validation,
- * email verification, and prof checkbox designs for OJS registration system.
+ * email verification, and prof checkbox designs for Core registration system.
  * @version 1.2.4
- * @author Rochmady and Wizdam OJS Theme Developer
+ * @author Rochmady and Wizdam Core Theme Developer
  * @requires Kopi plus Rokok
  */
 
@@ -2165,7 +2165,7 @@
      */
     function initializeRememberMeState(checkbox) {
         try {
-            const savedState = localStorage.getItem('ojsRememberMe');
+            const savedState = localStorage.getItem('coreRememberMe');
             if (savedState === 'true') {
                 checkbox.checked = true;
             }
@@ -2184,14 +2184,14 @@
      */
     function handleEnhancedRememberMeChange(checkbox) {
         try {
-            localStorage.setItem('ojsRememberMe', checkbox.checked.toString());
+            localStorage.setItem('coreRememberMe', checkbox.checked.toString());
         } catch (e) {
             console.warn('[Wizdam Auth] Could not save remember me state');
         }
         
         updateRememberMeVisualState(checkbox);
         
-        const customEvent = new CustomEvent('ojsRememberMeChanged', {
+        const customEvent = new CustomEvent('coreRememberMeChanged', {
             detail: { 
                 checked: checkbox.checked,
                 timestamp: new Date().toISOString() 
@@ -2284,7 +2284,7 @@
     }
 
     // Global utility functions
-    window.ojsEnhancedUtils = {
+    window.coreEnhancedUtils = {
         updateFieldMessages: updateFieldMessages,
         updatePasswordRequirements: updatePasswordRequirements,
         initializePasswordStrengthIndicator: initializePasswordStrengthIndicator,
@@ -2292,7 +2292,7 @@
         updatePasswordStrengthForField: updatePasswordStrengthForField,
         clearRememberMeState: function() {
             try {
-                localStorage.removeItem('ojsRememberMe');
+                localStorage.removeItem('coreRememberMe');
                 const checkbox = document.getElementById('loginRemember');
                 if (checkbox) {
                     checkbox.checked = false;
@@ -2304,7 +2304,7 @@
         },
         getRememberMeState: function() {
             try {
-                return localStorage.getItem('ojsRememberMe') === 'true';
+                return localStorage.getItem('coreRememberMe') === 'true';
             } catch (e) {
                 return false;
             }

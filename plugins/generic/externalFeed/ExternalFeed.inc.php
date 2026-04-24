@@ -4,15 +4,15 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/externalFeed/ExternalFeed.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ExternalFeed
  * @ingroup plugins_generic_externalFeed
  *
  * @brief Basic class describing an external feed.
- * * MODERNIZED FOR PHP 7.4+ & OJS FORK
+ * * MODERNIZED FOR PHP 7.4+ & Wizdam FORK
  * - Implemented __construct.
  * - Added strict type casting (int/float) for data security.
  */

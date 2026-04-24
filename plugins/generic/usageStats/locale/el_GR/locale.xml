@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/usageStats/locale/el_GR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -31,9 +31,9 @@
 	<message key="plugins.generic.usageStats.noCounterBotList">Η λίστα COUNTER bot δεν ήταν δυνατόν να βρεθεί ή περισσότερες από μια λίστες είναι παρούσες. Tο αρχείο  {$file} δεν ήταν δυνατόν να επεξεργαστεί.</message>
 	<message key="plugins.generic.usageStats.failedCounterBotList">Η λίστα COUNTER bot {$botlist} δεν ήταν δυνατόν να ανοιχτεί. Το αρχείο  {$file} δεν ήταν δυνατόν να επεξεργαστεί.</message>
 	
-	<message key="plugins.reports.usageStats.report.displayName">OJS αναφορά στατιστικών χρήσης</message>
-	<message key="plugins.reports.usageStats.report.description">OJS προκαθορισμένη αναφορά στατιστικών χρήσης (COUNTER ready)</message>
+	<message key="plugins.reports.usageStats.report.displayName">Wizdam Editorial αναφορά στατιστικών χρήσης</message>
+	<message key="plugins.reports.usageStats.report.description">Wizdam Editorial προκαθορισμένη αναφορά στατιστικών χρήσης (COUNTER ready)</message>
 	
-	<message key="plugins.reports.usageStats.metricType">OJS/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType">Wizdam Editorial/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Open Journal Systems statistics (COUNTER ready)</message>
 </locale>

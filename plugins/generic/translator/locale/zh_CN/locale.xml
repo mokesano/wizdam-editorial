@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/translator/locale/zh_CN/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the zh_CN (简体中文) locale.
@@ -15,8 +15,8 @@
 <locale name="zh_CN" full_name="简体中文">
 	<message key="plugins.generic.translator.name">翻译插件</message>
 	<message key="plugins.generic.translator.description">此插件允许基于网络的维护翻译文件。</message>
-	<message key="plugins.generic.translator.longdescription">此区域允许网站管理员创建，修改和检查OJS翻译。这是整个网站的，不应用来定制一本OJS期刊。如果你正确或创建一个翻译，请考虑为将来的版本提交到分配公共知识项目。</message>
-	<message key="plugins.generic.translator.localeDescription">本页面列出了一OJS翻译所有组件，并提供了机会，编辑每个翻译。一个完整的译本翻译应包含所有组件的完整翻译。</message>
+	<message key="plugins.generic.translator.longdescription">此区域允许网站管理员创建，修改和检查Wizdam Editorial翻译。这是整个网站的，不应用来定制一本Wizdam Editorial期刊。如果你正确或创建一个翻译，请考虑为将来的版本提交到分配公共知识项目。</message>
+	<message key="plugins.generic.translator.localeDescription">本页面列出了一Wizdam Editorial翻译所有组件，并提供了机会，编辑每个翻译。一个完整的译本翻译应包含所有组件的完整翻译。</message>
 	<message key="plugins.generic.translator.tarMissing">The export function of this plugin has been deactivated because the configured tar binary cannot be found on this system. Please make sure that you have the tar program installed and then configure the path to the tar binary in config.inc.php's [cli] section!</message>
 	
 	<message key="plugins.generic.translator.localeName">语系名称</message>

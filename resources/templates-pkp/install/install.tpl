@@ -1,8 +1,8 @@
 {**
  * templates/install/install.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Installation form.
@@ -50,8 +50,8 @@ function doSubmit() {
 
 {if $isInstallError}
 <p>
-	<span class="pkp_form_error">{translate key="installer.installErrorsOccurred"}:</span>
-	<ul class="pkp_form_error_list">
+	<span class="core_form_error">{translate key="installer.installErrorsOccurred"}:</span>
+	<ul class="core_form_error_list">
 		<li>{if $dbErrorMsg}{translate key="common.error.databaseError" error=$dbErrorMsg}{else}{translate key=$errorMsg}{/if}</li>
 	</ul>
 </p>
@@ -79,14 +79,14 @@ function doSubmit() {
 			{foreach from=$localeOptions key=localeKey item=localeName}
 				<input type="checkbox" name="additionalLocales[]" id="additionalLocales-{$localeKey|escape}" value="{$localeKey|escape}"{if in_array($localeKey, $additionalLocales)} checked="checked"{/if} /> <label for="additionalLocales-{$localeKey|escape}">{$localeName|escape} ({$localeKey|escape})</label>
 				{if !$localesComplete[$localeKey]}
-					<span class="pkp_form_error">*</span>
+					<span class="core_form_error">*</span>
 					{assign var=incompleteLocaleFound value=1}
 				{/if}<br />
 			{/foreach}
 			<span class="instruct">{translate key="installer.additionalLocalesInstructions"}</span>
 			{if $incompleteLocaleFound}
 				<br />
-				<span class="pkp_form_error">*</span>&nbsp;{translate key="installer.locale.maybeIncomplete"}
+				<span class="core_form_error">*</span>&nbsp;{translate key="installer.locale.maybeIncomplete"}
 			{/if}{* $incompleteLocaleFound *}
 		</td>
 	</tr>

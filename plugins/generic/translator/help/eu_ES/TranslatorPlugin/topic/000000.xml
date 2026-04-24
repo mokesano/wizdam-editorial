@@ -4,8 +4,8 @@
 <!--
   * 000000.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Index Help Page 
@@ -14,7 +14,7 @@
 
 <topic id="TranslatorPlugin/topic/000000" locale="eu_ES" title="Itzultzailearen plugina" toc="index/toc/000000" key="TranslatorPlugin.index">
 	<section>
-		<![CDATA[<p>OJS 2.2 bertsioak itzulpen-plugin bat dakar, osatu gabeko itzulpenak osatzeko lana errazteko. Itzulpena hutsetik abiatuta egin daiteke, nahiz eta horrek lan gehiago eskatu hasieran (begiratu behean).</p><p>Orain OJSn erabilgarri dauden itzulpenak ikusteko eta zein itzulpen egiten ari diren jakiteko, irakurri <a href="http://pkp.sfu.ca/ojs-languages">OJS hizkuntzen</a> orria. Egiten ari diren itzulpenak direnean, zerrendan agertzen diren itzultzaileekin harremanetan jar zaitezke, lana nola doan jakiteko, ahaleginak koordinatzeko eta itzulpenarekin laguntzeko.</p><p>Plugina gaitzeko, hasi saioa Aldizkariaren kudeatzaile gisa, joan Erabiltzailearen hasierako orrira eta Sistemaren pluginetara; plugin orokorretan aurkituko duzu itzultzailearen plugina. Egin klik 'Gaitu' estekan. Plugina atzitzeko, itzuli Sistemaren pluginen orrira, korritu behera pluginera heldu arte, eta egin klik erabilgarri jarri den 'Itzuli' estekan.</p><p>Erabilgarri (dagoeneko instalatuta) dauden localeen zerrenda ikusiko duzu, eta hiru ekintza izango dituzu aukeran: 'Aztertu', 'Editatu' eta 'Esportatu'.</p>]]>
+		<![CDATA[<p>Wizdam Editorial 2.2 bertsioak itzulpen-plugin bat dakar, osatu gabeko itzulpenak osatzeko lana errazteko. Itzulpena hutsetik abiatuta egin daiteke, nahiz eta horrek lan gehiago eskatu hasieran (begiratu behean).</p><p>Orain Wizdam Editorialn erabilgarri dauden itzulpenak ikusteko eta zein itzulpen egiten ari diren jakiteko, irakurri <a href="http://wizdam.sangia.org/ojs-languages">Wizdam Editorial hizkuntzen</a> orria. Egiten ari diren itzulpenak direnean, zerrendan agertzen diren itzultzaileekin harremanetan jar zaitezke, lana nola doan jakiteko, ahaleginak koordinatzeko eta itzulpenarekin laguntzeko.</p><p>Plugina gaitzeko, hasi saioa Aldizkariaren kudeatzaile gisa, joan Erabiltzailearen hasierako orrira eta Sistemaren pluginetara; plugin orokorretan aurkituko duzu itzultzailearen plugina. Egin klik 'Gaitu' estekan. Plugina atzitzeko, itzuli Sistemaren pluginen orrira, korritu behera pluginera heldu arte, eta egin klik erabilgarri jarri den 'Itzuli' estekan.</p><p>Erabilgarri (dagoeneko instalatuta) dauden localeen zerrenda ikusiko duzu, eta hiru ekintza izango dituzu aukeran: 'Aztertu', 'Editatu' eta 'Esportatu'.</p>]]>
 	</section>
 
 	<section title="Itzulpena aztertzea">
@@ -26,7 +26,7 @@
 	</section>
 
 	<section title="Itzulpena esportatzea">
-		<![CDATA[<p>Itzulpenak esporta ditzakezu 'Esportatu' estekan klik eginda, Itzultzailearen pluginaren orriko hizkuntza-izenetik: itzulpen horren locale-fitxategi guztiak konprimatuko ditu sistemak tar.gz pakete deskargagarri batean. Praktikoa da batez ere hizkuntza itzuli berri bat beste OJS edo OCS ingurune batera migratu nahi baduzu, edo zure aldaketak PKPri helarazi nahi badizkiozu.</p>]]>
+		<![CDATA[<p>Itzulpenak esporta ditzakezu 'Esportatu' estekan klik eginda, Itzultzailearen pluginaren orriko hizkuntza-izenetik: itzulpen horren locale-fitxategi guztiak konprimatuko ditu sistemak tar.gz pakete deskargagarri batean. Praktikoa da batez ere hizkuntza itzuli berri bat beste Wizdam Editorial edo OCS ingurune batera migratu nahi baduzu, edo zure aldaketak Wizdamri helarazi nahi badizkiozu.</p>]]>
 	</section>
 
 	<section title="Itzulpena hutsetik hastea">

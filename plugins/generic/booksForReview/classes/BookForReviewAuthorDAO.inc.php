@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/booksForReview/classes/BookForReviewAuthorDAO.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class BookForReviewAuthorDAO
@@ -122,7 +122,7 @@ class BookForReviewAuthorDAO extends DAO {
     public function _returnAuthorFromRow($row) {
         // [MODERNISASI] Hapus referensi & pada PluginRegistry
         $bfrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $bfrPlugin->import('classes.BookForReviewAuthor');
+        $bfrPlugin->import('core.Modules.BookForReviewAuthor');
 
         $author = new BookForReviewAuthor();
         $author->setId($row['author_id']);

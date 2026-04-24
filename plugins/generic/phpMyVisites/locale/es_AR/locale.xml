@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/phpMyVisites/locale/es_AR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * phpMyVisites plugin localization strings
@@ -15,7 +15,7 @@
 
 	<!-- phpMyVisites -->
 	<message key="plugins.generic.phpmv.displayName">Plugin de phpMyVisites</message>
-	<message key="plugins.generic.phpmv.description"><![CDATA[Integra OJS con phpMyVisites, una aplicación de análisis de tráfico web gratuita y de código abierto. Requiere que phpMyVisites esta instalado previamente. Por favor vea <a href="http://www.phpmyvisites.us/" title="phpMyVisites site">este sitio</a> para más información.]]></message>
+	<message key="plugins.generic.phpmv.description"><![CDATA[Integra Wizdam Editorial con phpMyVisites, una aplicación de análisis de tráfico web gratuita y de código abierto. Requiere que phpMyVisites esta instalado previamente. Por favor vea <a href="http://www.phpmyvisites.us/" title="phpMyVisites site">este sitio</a> para más información.]]></message>
 	<!-- phpMyVisites Settings Management -->
 	<message key="plugins.generic.phpmv.manager.settings">Configuración</message>
 	<message key="plugins.generic.phpmv.manager.phpmvSettings">Configuración de phpMyVisites</message>

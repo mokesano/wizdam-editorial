@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/translator/locale/no_NO/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the no_NO (Norsk) locale.
@@ -15,8 +15,8 @@
 <locale name="no_NO" full_name="Norsk">
 	<message key="plugins.generic.translator.name">Programutvidelse for oversettelse</message>
 	<message key="plugins.generic.translator.description">Denne programutvidelsen gjør det mulig å vedlikeholde oversettelsesfilene i webgrensesnittet.</message>
-	<message key="plugins.generic.translator.longdescription"><![CDATA[Dette området gjør det mulig for nettstedets administrator å lage, endre og korrigere oversettelsen av OJS. Denne funksjonen gjelder hele nettstedet, og bør derfor ikke brukes for å tilpasse oversettelsen til ett bestemt OJS-tidsskrift. Hvis du lager eller korrigerer en oversettelse ber vi om at du vurderer å avgi den til <I>Public Knowledge Project</I> for distribusjon sammen med fremtidige versjoner av programvaren.]]></message>
-	<message key="plugins.generic.translator.localeDescription">På denne siden er alle komponentene i en OJS-oversettelse listet opp, slik at oversetteren får mulighet til å redigere hver enkelt komponent. En fullstendig oversettelse skal omfatte oversettelser av alle komponentene.</message>
+	<message key="plugins.generic.translator.longdescription"><![CDATA[Dette området gjør det mulig for nettstedets administrator å lage, endre og korrigere oversettelsen av Wizdam Editorial. Denne funksjonen gjelder hele nettstedet, og bør derfor ikke brukes for å tilpasse oversettelsen til ett bestemt Wizdam Editorial-tidsskrift. Hvis du lager eller korrigerer en oversettelse ber vi om at du vurderer å avgi den til <I>Public Knowledge Project</I> for distribusjon sammen med fremtidige versjoner av programvaren.]]></message>
+	<message key="plugins.generic.translator.localeDescription">På denne siden er alle komponentene i en Wizdam Editorial-oversettelse listet opp, slik at oversetteren får mulighet til å redigere hver enkelt komponent. En fullstendig oversettelse skal omfatte oversettelser av alle komponentene.</message>
 
 	<message key="plugins.generic.translator.localeName">Lokalfilsettets navn</message>
 	<message key="plugins.generic.translator.localeKey">Nøkkel</message>

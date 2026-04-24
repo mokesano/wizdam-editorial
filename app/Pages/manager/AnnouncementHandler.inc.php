@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/AnnouncementHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.pages.manager.PKPAnnouncementHandler');
+import('app.Pages.manager.CoreAnnouncementHandler');
 
 class AnnouncementHandler extends CoreAnnouncementHandler {
     
@@ -43,9 +43,9 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
 
     /**
      * Display a list of announcements for the current journal.
-     * @see PKPAnnouncementHandler::announcements
+     * @see CoreAnnouncementHandler::announcements
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function announcements($args, $request) {
         $templateMgr = TemplateManager::getManager();
@@ -55,9 +55,9 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
 
     /**
      * Display a list of announcement types for the current journal.
-     * @see PKPAnnouncementHandler::announcementTypes
+     * @see CoreAnnouncementHandler::announcementTypes
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function announcementTypes($args, $request) {
         $templateMgr = TemplateManager::getManager();
@@ -66,8 +66,8 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::getContextId()
-     * @param PKPRequest $request
+     * @see CoreAnnouncementHandler::getContextId()
+     * @param CoreRequest $request
      * @return int|null
      */
     public function getContextId($request) {
@@ -79,9 +79,9 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_getAnnouncements
+     * @see CoreAnnouncementHandler::_getAnnouncements
      * [WIZDAM] Removed & reference return
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param object|null $rangeInfo
      * @return DAOResultFactory
      */
@@ -94,9 +94,9 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_getAnnouncementTypes
+     * @see CoreAnnouncementHandler::_getAnnouncementTypes
      * [WIZDAM] Removed & reference return
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param object|null $rangeInfo
      * @return DAOResultFactory
      */
@@ -110,7 +110,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
 
     /**
      * Checks the announcement to see if it belongs to this journal or scheduled journal
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int|null $announcementId
      * @return bool
      */
@@ -132,7 +132,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
 
     /**
      * Checks the announcement type to see if it belongs to this journal.  All announcement types are set at the journal level.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int|null $typeId
      * @return bool
      */

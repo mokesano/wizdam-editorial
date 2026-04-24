@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file AbntSettingsForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Contributed by Lepidus Tecnologia
  *
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @brief Form for journal managers to modify ABNT Citation plugin settings
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class AbntSettingsForm extends Form {
 
@@ -119,7 +119,7 @@ class AbntSettingsForm extends Form {
         }
 
         // Modern UX: Send notification confirming save
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationMgr = new NotificationManager();
         $user = Request::getUser();
         if ($user) {

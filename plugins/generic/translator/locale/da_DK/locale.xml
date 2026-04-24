@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/translator/locale/da_DK/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the da_DK (Dansk) locale.
@@ -15,8 +15,8 @@
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.generic.translator.name">Oversættelses plugin</message>
 	<message key="plugins.generic.translator.description">Dette plugin tillader web-baseret vedligeholdelse af oversættelsesfiler.</message>
-	<message key="plugins.generic.translator.longdescription">Dette område tillader Site Administrator at udarbejde, ændre og checke oversættelser af OJS. Det gælder hele sitet og skal derfor ikke bruges til at ændre et enkelt OJS-tidsskrift. Hvis du retter eller udarbejder en oversættelse, så husk at indsende den til Public Knowledge Project, så den kan distribueres i fremtidige opdateringer.</message>
-	<message key="plugins.generic.translator.localeDescription">Denne side lister alle komponenter i en OJS oversættelse og giver oversætteren mulighed for at rette i dem alle. En fuldstændig oversættelse bør indeholde fuldstændige oversættelser af alle komponenter.</message>
+	<message key="plugins.generic.translator.longdescription">Dette område tillader Site Administrator at udarbejde, ændre og checke oversættelser af Wizdam Editorial. Det gælder hele sitet og skal derfor ikke bruges til at ændre et enkelt Wizdam Editorial-tidsskrift. Hvis du retter eller udarbejder en oversættelse, så husk at indsende den til Public Knowledge Project, så den kan distribueres i fremtidige opdateringer.</message>
+	<message key="plugins.generic.translator.localeDescription">Denne side lister alle komponenter i en Wizdam Editorial oversættelse og giver oversætteren mulighed for at rette i dem alle. En fuldstændig oversættelse bør indeholde fuldstændige oversættelser af alle komponenter.</message>
 
 	<message key="plugins.generic.translator.localeName">Lokaliseringsnavn</message>
 	<message key="plugins.generic.translator.localeKey">Nøgle</message>

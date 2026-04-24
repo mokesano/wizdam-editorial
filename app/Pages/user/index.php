@@ -23,7 +23,7 @@ switch ($op) {
 	//
     case 'index':
         define('HANDLER_CLASS', 'UserIndexHandler');
-        import('pages.user.UserIndexHandler');
+        import('app.Pages.user.UserIndexHandler');
         break;
 	//
 	// Profiles & Account
@@ -36,7 +36,7 @@ switch ($op) {
 	case 'savePassword':       // (POST Internal)
     case 'linked-accounts':    // [WIZDAM ROUTING] KEBAB-CASE URL ---
 		define('HANDLER_CLASS', 'ProfileHandler');
-		import('pages.user.ProfileHandler');
+		import('app.Pages.user.ProfileHandler');
 		break;
 	//
 	// Registration
@@ -45,14 +45,14 @@ switch ($op) {
 	case 'registerUser':
 	case 'activateUser':
 		define('HANDLER_CLASS', 'RegistrationHandler');
-		import('pages.user.RegistrationHandler');
+		import('app.Pages.user.RegistrationHandler');
 		break;
 	//
 	// Email
 	//
 	case 'email':
 		define('HANDLER_CLASS', 'EmailHandler');
-		import('pages.user.EmailHandler');
+		import('app.Pages.user.EmailHandler');
 		break;
 	//
     // Subscriptions & Payments
@@ -64,7 +64,7 @@ switch ($op) {
     case 'payRenewSubscription':
     case 'payMembership':
         define('HANDLER_CLASS', 'UserSubscriptionHandler');
-        import('pages.user.UserSubscriptionHandler');
+        import('app.Pages.user.UserSubscriptionHandler');
         break;
 
     //
@@ -73,7 +73,7 @@ switch ($op) {
     case 'gifts':
     case 'redeemGift':
         define('HANDLER_CLASS', 'UserGiftHandler');
-        import('pages.user.UserGiftHandler');
+        import('app.Pages.user.UserGiftHandler');
         break;
 	//
 	// Core Utilities / Misc.
@@ -83,14 +83,14 @@ switch ($op) {
 	case 'authorizationDenied':
 	case 'viewCaptcha':
 		define('HANDLER_CLASS', 'UserHandler');
-		import('pages.user.UserHandler');
+		import('app.Pages.user.UserHandler');
 		break;
 	//
 	// Interest
 	//
 	case 'getInterests':
-		define('HANDLER_CLASS', 'PKPUserHandler');
-		import('lib.pkp.pages.user.PKPUserHandler');
+		define('HANDLER_CLASS', 'CoreUserHandler');
+		import('app.Pages.user.CoreUserHandler');
 		break;
 }
 

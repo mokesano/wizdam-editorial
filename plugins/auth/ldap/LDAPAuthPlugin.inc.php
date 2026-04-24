@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/auth/ldap/LDAPAuthPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LDAPAuthPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 7.4/8.0+ (Strict Types, LDAP Objects, Signature Fixes)
  */
 
-import('classes.plugins.AuthPlugin');
+import('core.Modules.plugins.AuthPlugin');
 
 class LDAPAuthPlugin extends AuthPlugin {
     

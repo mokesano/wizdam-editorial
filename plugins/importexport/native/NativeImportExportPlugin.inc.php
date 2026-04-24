@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/native/NativeImportExportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NativeImportExportPlugin
@@ -14,10 +14,10 @@ declare(strict_types=1);
  * @brief Native import/export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
-define('NATIVE_DTD_ID', '-//PKP//OJS Articles and Issues XML//EN');
+define('NATIVE_DTD_ID', '-//Wizdam//Wizdam Articles and Issues XML//EN');
 
 class NativeImportExportPlugin extends ImportExportPlugin {
 
@@ -49,7 +49,7 @@ class NativeImportExportPlugin extends ImportExportPlugin {
     public function getDTDUrl(): string {
         $versionDao = DAORegistry::getDAO('VersionDAO');
         $currentVersion = $versionDao->getCurrentVersion();
-        return 'http://pkp.sfu.ca/ojs/dtds/' . urlencode($currentVersion->getMajor() . '.' . $currentVersion->getMinor() . '.' . $currentVersion->getRevision()) . '/native.dtd';
+        return 'http://wizdam.sfu.ca/wizdam/dtds/' . urlencode($currentVersion->getMajor() . '.' . $currentVersion->getMinor() . '.' . $currentVersion->getRevision()) . '/native.dtd';
     }
 
     /**
@@ -140,7 +140,7 @@ class NativeImportExportPlugin extends ImportExportPlugin {
             case 'issues':
                 // Display a list of issues for export
                 $this->setBreadcrumbs([], true);
-                AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR);
                 $issues = $issueDao->getIssues($journal->getId(), Handler::getRangeInfo('issues'));
 
                 $templateMgr->assign('issues', $issues);
@@ -157,15 +157,15 @@ class NativeImportExportPlugin extends ImportExportPlugin {
                 if ($rangeInfo->isValid()) {
                     $articleIds = array_slice($articleIds, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
                 }
-                import('lib.pkp.classes.core.VirtualArrayIterator');
+                import('core.Kernel.VirtualArrayIterator');
                 $iterator = new VirtualArrayIterator(ArticleSearch::formatResults($articleIds), $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
                 $templateMgr->assign('articles', $iterator);
                 $templateMgr->display($this->getTemplatePath() . 'articles.tpl');
                 break;
 
             case 'import':
-                AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR, LOCALE_COMPONENT_OJS_AUTHOR);
-                import('classes.file.TemporaryFileManager');
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR, LOCALE_COMPONENT_WIZDAM_AUTHOR);
+                import('core.Modules.file.TemporaryFileManager');
                 $issueDao = DAORegistry::getDAO('IssueDAO');
                 $sectionDao = DAORegistry::getDAO('SectionDAO');
                 $user = $request->getUser();

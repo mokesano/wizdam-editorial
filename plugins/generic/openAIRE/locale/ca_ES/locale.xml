@@ -3,18 +3,18 @@
 <!--
   * @file plugins/generic/openAIRE/locale/ca_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_(ca_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Catalan_(ca_ES)
   *
   * OpenAIRE plugin localization strings for the ca_ES (Català) locale.
   -->
  
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.generic.openAIRE.displayName">Mòdul OpenAIRE</message>
-	<message key="plugins.generic.openAIRE.description">Aquest mòdul afegeix l'element projectID a les metadades de l'article i estén la interfície del protocol OAI-PMH segons les Directrius OpenAIRE 1.1, i així facilita que les revistes de l'OJS siguin compatibles amb OpenAIRE.</message>
+	<message key="plugins.generic.openAIRE.description">Aquest mòdul afegeix l'element projectID a les metadades de l'article i estén la interfície del protocol OAI-PMH segons les Directrius OpenAIRE 1.1, i així facilita que les revistes de l'Wizdam Editorial siguin compatibles amb OpenAIRE.</message>
 	<message key="plugins.generic.openAIRE.projectID">ProjectID</message>
 	<message key="plugins.generic.openAIRE.metadata">Metadades específiques d'OpenAIRE</message>
 	<message key="plugins.generic.openAIRE.projectID.description">(El projectID equival al nombre de l'acord de subvenció)</message>

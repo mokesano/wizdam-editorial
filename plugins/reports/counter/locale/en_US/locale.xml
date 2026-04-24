@@ -4,8 +4,8 @@
 <!--
   * plugins/reports/counter/locale/en_US/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -37,6 +37,6 @@
 	<message key="plugins.reports.counter.1a.ytdPdf">YTD PDF</message>
 	<message key="plugins.reports.counter.1a.totalForAllJournals">Total for all journals</message>
 	<message key="plugins.reports.counter.1a.anonymous">anonymous</message>
-	<message key="plugins.reports.counter.legacyStats">The links below generate obsolete reports using the old plugin data, which is not COUNTER-ready. If you want to generate current COUNTER reports using the new OJS COUNTER metric type, use the links above.</message>
+	<message key="plugins.reports.counter.legacyStats">The links below generate obsolete reports using the old plugin data, which is not COUNTER-ready. If you want to generate current COUNTER reports using the new Wizdam Editorial COUNTER metric type, use the links above.</message>
 	<message key="plugins.reports.counter.allCustomers">All Customers</message>
 </locale>

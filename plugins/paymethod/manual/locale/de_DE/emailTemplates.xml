@@ -4,8 +4,8 @@
 <!--
   * @file plugins/paymethod/manual/locale/de_DE/emailTemplates.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localized email templates XML file.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
@@ -19,7 +19,7 @@
 Gezahlt werden soll für "{$itemName}".
 Die Kosten betragen {$itemCost} ({$itemCurrencyCode}).
 
-Diese E-Mail wurde vom OJS-Plug-In Manuelle Gebührenzahlung erzeugt.</body>
+Diese E-Mail wurde vom Wizdam Editorial-Plug-In Manuelle Gebührenzahlung erzeugt.</body>
 		<description>Diese E-Mail-Vorlage wird genutzt, um eine/n Zeitschriftenverwalter/in darüber zu benachrichtigen, dass eine manuelle Zahlung beantragt worden ist.</description>
 	</email_text>
 </email_texts>

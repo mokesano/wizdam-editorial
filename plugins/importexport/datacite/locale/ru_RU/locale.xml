@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/datacite/locale/ru_RU/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ru_RU (Русский) locale.
@@ -24,7 +24,7 @@
 		доступ к службе DataCite для выдачи постоянных идентификаторов (DOI)
 		и регистрации связанных с ними метаданных. Если у вас нет вашего собственного имени пользователя и
 		пароля, вы все равно сможете экспортировать в формат DataCite XML, но вы
-		не сможете зарегистрировать ваши DOI в DataCite из системы OJS.
+		не сможете зарегистрировать ваши DOI в DataCite из системы Wizdam Editorial.
 		Пожалуйста, обратие внимание, что пароль будет сохраняться как простой текст, то есть не будет шифроваться,
 		это требования службы регистрации DataCite.
 	]]></message>
@@ -36,7 +36,7 @@
 	<message key="plugins.importexport.datacite.settings.form.usernameRequired">Пожалуйста, введите имя пользователя (символ), который вы получили от DataCite. Имя пользователя не может содержать двоеточие.</message>
 	<message key="plugins.importexport.datacite.settings.form.passwordRequired">Пожалуйста, введите пароль, который вы получили от DataCite.</message>
 	<message key="plugins.importexport.datacite.settings.form.automaticRegistration">Регистрировать DOI автоматически</message>
-	<message key="plugins.importexport.datacite.settings.form.automaticRegistration.description"><![CDATA[OJS будет автоматически передавать DOI в DataCite после опубликования статей. Пожалуйста, обратите внимание, что обработка может занять некоторое время после публикации. Вы можете проверить все незарегистрированные DOI в <a href="{$unregisteredURL}">списке незарегистрированных статей</a>.]]></message>
+	<message key="plugins.importexport.datacite.settings.form.automaticRegistration.description"><![CDATA[Wizdam Editorial будет автоматически передавать DOI в DataCite после опубликования статей. Пожалуйста, обратите внимание, что обработка может занять некоторое время после публикации. Вы можете проверить все незарегистрированные DOI в <a href="{$unregisteredURL}">списке незарегистрированных статей</a>.]]></message>
  
 	<message key="plugins.importexport.datacite.export.suppFiles">Экспортировать дополнительные файлы</message>
 	<message key="plugins.importexport.datacite.export.selectSuppFile">Выбрать дополнительные файлы</message>

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/erudit/EruditExportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class EruditExportPlugin
@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief Erudit english DTD article export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
 class EruditExportPlugin extends ImportExportPlugin {
 
@@ -113,7 +113,7 @@ class EruditExportPlugin extends ImportExportPlugin {
             default:
                 // Display a list of articles for export
                 $this->setBreadcrumbs();
-                AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_SUBMISSION);
                 
                 $rangeInfo = Handler::getRangeInfo('articles');
                 $articleIds = $publishedArticleDao->getPublishedArticleIdsAlphabetizedByJournal($journal->getId(), false);
@@ -123,7 +123,7 @@ class EruditExportPlugin extends ImportExportPlugin {
                     $articleIds = array_slice($articleIds, $rangeInfo->getCount() * ($rangeInfo->getPage() - 1), $rangeInfo->getCount());
                 }
                 
-                import('lib.pkp.classes.core.VirtualArrayIterator');
+                import('core.Kernel.VirtualArrayIterator');
                 $iterator = new VirtualArrayIterator(ArticleSearch::formatResults($articleIds), $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
                 
                 $templateMgr->assign('articles', $iterator);

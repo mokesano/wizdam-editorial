@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/dataverse/locale/de_DE/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Dataverse plugin localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
@@ -57,7 +57,7 @@
 	<message key="plugins.generic.dataverse.settings.citationFormatDescription">Wählen Sie das Zitationsformat für Publikationen aus, das in der Katalogisierung der Studien benutzt werden soll.</message>
 	<message key="plugins.generic.dataverse.settings.citationFormat.apa">APA-Zitationsstil</message>
 	<message key="plugins.generic.dataverse.settings.pubIdType">Typ der öffentlichen Kennung</message>
-	<message key="plugins.generic.dataverse.settings.pubIdTypeDescription"><![CDATA[Wählen Sie einen Typ öffentlicher Kennungen (Identifier) aus, um aus der Zitation zum Artikel zu verlinken. Wenn keine <a href="{$pubIdsUrl}">Plug-Ins für öffentliche Kennungen</a> aktiviert sind, werden in den Zitationen OJS-URL benutzt.]]></message>
+	<message key="plugins.generic.dataverse.settings.pubIdTypeDescription"><![CDATA[Wählen Sie einen Typ öffentlicher Kennungen (Identifier) aus, um aus der Zitation zum Artikel zu verlinken. Wenn keine <a href="{$pubIdsUrl}">Plug-Ins für öffentliche Kennungen</a> aktiviert sind, werden in den Zitationen Wizdam Editorial-URL benutzt.]]></message>
 	<message key="plugins.generic.dataverse.settings.workflow">Workflow-Einstellungen</message>
 	<message key="plugins.generic.dataverse.settings.requireData">Daten erfordern</message>
 	<message key="plugins.generic.dataverse.settings.requireDataDescription">Für Einreichungen müssen Dateien mit Forschungsdaten in Dataverse archiviert werden.</message>
@@ -82,7 +82,7 @@
      </li>
      <li>
        <p>Anleitung zur Datenzitation</p>
-       <p>Wenn Sie Ihre Forschungsdaten zur gleichen Zeit archivieren, zu der Sie Ihr Manuskript über das Einreichungsformular von OJS einreichen, wird das Harvard Dataverse automatisch eine Datenzitation generieren. Wenn Ihre Forschungsdaten jedoch in einem Repository vorhanden sind, benutzen Sie bitte das hier vorgeschlagene Datenzitationsformat, wenn Sie Ihr Manuskript einreichen:</p>
+       <p>Wenn Sie Ihre Forschungsdaten zur gleichen Zeit archivieren, zu der Sie Ihr Manuskript über das Einreichungsformular von Wizdam Editorial einreichen, wird das Harvard Dataverse automatisch eine Datenzitation generieren. Wenn Ihre Forschungsdaten jedoch in einem Repository vorhanden sind, benutzen Sie bitte das hier vorgeschlagene Datenzitationsformat, wenn Sie Ihr Manuskript einreichen:</p>
        <p>Autor/in(nen), Jahr, Titel des Datensatzes, globale dauerhafte Kennung (Identifier), Datenrepository oder -archiv, Version und Teilmenge.</p>
        <p>Mehr Informationen zur Datenzitation finden Sie in den <a href="http://www.force11.org/datacitation">Force11’s Data Citation Principles</a>.</p>   
      </li>
@@ -94,7 +94,7 @@
    <ol>
    <li><p>Wenn Sie Datensätze teilen möchten, die aus der Forschung an Menschen stammen, lesen Sie bitte die "Anleitung zum Teilen von Datensätzen aus der Forschung an Menschen" weiter oben.</p></li>
    <li><p>Beachten Sie die Richtlinien zur Datenreplikation: <a href="http://thedata.org/book/replication-guidelines">http://thedata.org/book/replication-guidelines</a>, wenn Sie Ihren Datensatz zur Archivierung vorbereiten</p></li>
-   <li><p>Wenn Sie etwas im Harvard Dataverse archivieren, können Sie Ihren Datensatz in OJS zeitgleich mit Ihrem Manuskript für {$journal} einreichen. Er wird dann automatisch im Harvard Dataverse archiviert , und es wird eine Datenzitation mit einem persistenten URL (DOI) erzeugt, den Sie anderen zur Zitation Ihrer Daten mitteilen können, wenn Ihr Artikel veröffentlicht worden ist.</p></li>
+   <li><p>Wenn Sie etwas im Harvard Dataverse archivieren, können Sie Ihren Datensatz dalam Wizdam Editorial zeitgleich mit Ihrem Manuskript für {$journal} einreichen. Er wird dann automatisch im Harvard Dataverse archiviert , und es wird eine Datenzitation mit einem persistenten URL (DOI) erzeugt, den Sie anderen zur Zitation Ihrer Daten mitteilen können, wenn Ihr Artikel veröffentlicht worden ist.</p></li>
    <li><p>Wenn Ihr Datensatz bereits in einem empfohlenen öffentlichen Archiv vorhanden ist, geben Sie bitte eine Datenzitation mit einem persistenten URL an. Hinweise zur Datenzitation köönnen Sie den Autor/innenrichtlinien entnehmen.</p></li>
    </ol>
    ]]>

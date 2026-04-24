@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/medra/classes/MedraWebservice.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class MedraWebservice
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * it doesn't support multipart SOAP messages.
  */
 
-import('lib.pkp.classes.xml.XMLNode');
+import('core.Modules.xml.XMLNode');
 
 define('MEDRA_WS_ENDPOINT_DEV', 'https://medra.dev.cineca.it/servlet/ws/medraWS');
 define('MEDRA_WS_ENDPOINT', 'https://www.medra.org/servlet/ws/medraWS');
@@ -142,7 +142,7 @@ class MedraWebservice {
         $extraHeaders = [
             'SOAPAction: "' . $action . '"',
             'Content-Type: ' . $contentType,
-            'UserAgent: OJS-mEDRA'
+            'UserAgent: Wizdam-mEDRA'
         ];
         curl_setopt($curlCh, CURLOPT_HTTPHEADER, $extraHeaders);
         curl_setopt($curlCh, CURLOPT_POSTFIELDS, $request);
@@ -154,11 +154,11 @@ class MedraWebservice {
         // We do not localize our error messages as they are all
         // fatal errors anyway and must be analyzed by technical staff.
         if ($response === false) {
-            $result = 'OJS-mEDRA: Expected string response.';
+            $result = 'Wizdam-mEDRA: Expected string response.';
         }
 
         if ($result === true && $status != MEDRA_WS_RESPONSE_OK) {
-            $result = 'OJS-mEDRA: Expected ' . MEDRA_WS_RESPONSE_OK . ' response code, got ' . $status . ' instead.';
+            $result = 'Wizdam-mEDRA: Expected ' . MEDRA_WS_RESPONSE_OK . ' response code, got ' . $status . ' instead.';
         }
 
         curl_close($curlCh);
@@ -167,20 +167,20 @@ class MedraWebservice {
         // than instantiating a DOM.
         if (is_string($response)) {
             $matches = [];
-            PKPString::regexp_match_get('#<faultstring>([^<]*)</faultstring>#', $response, $matches);
+            CoreString::regexp_match_get('#<faultstring>([^<]*)</faultstring>#', $response, $matches);
             if (empty($matches)) {
                 if ($attachment) {
-                    assert(PKPString::regexp_match('#<returnCode>success</returnCode>#', $response));
+                    assert(CoreString::regexp_match('#<returnCode>success</returnCode>#', $response));
                 } else {
                     $parts = explode("\r\n\r\n", $response);
                     $result = array_pop($parts);
-                    $result = PKPString::regexp_replace('/>[^>]*$/', '>', $result);
+                    $result = CoreString::regexp_replace('/>[^>]*$/', '>', $result);
                 }
             } else {
                 $result = 'mEDRA: ' . $status . ' - ' . $matches[1];
             }
         } else {
-            $result = 'OJS-mEDRA: Expected string response.';
+            $result = 'Wizdam-mEDRA: Expected string response.';
         }
 
         return $result;

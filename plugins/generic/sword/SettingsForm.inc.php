@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/sword/SettingsForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SettingsForm
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class SettingsForm extends Form {
 
@@ -72,7 +72,7 @@ class SettingsForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $template
      */
     public function display($request = null, $template = null) {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/admin/AuthSourcesHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthSourcesHandler
@@ -16,9 +16,9 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.plugins.AuthPlugin');
-import('lib.pkp.classes.security.AuthSourceDAO');
-import('pages.admin.AdminHandler');
+import('core.Modules.plugins.AuthPlugin');
+import('core.Modules.security.AuthSourceDAO');
+import('app.Pages.admin.AdminHandler');
 
 class AuthSourcesHandler extends AdminHandler {
     
@@ -46,7 +46,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Display a list of authentication sources.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function auth($args, $request = null) {
         $this->validate();
@@ -76,7 +76,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Update the default authentication source.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateAuthSources($args, $request = null) {
         $this->validate();
@@ -93,7 +93,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Create an authentication source.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createAuthSource($args, $request = null) {
         $this->validate();
@@ -118,7 +118,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Display form to edit an authentication source.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editAuthSource($args, $request = null) {
         $this->validate();
@@ -128,7 +128,7 @@ class AuthSourcesHandler extends AdminHandler {
         
         $this->setupTemplate($request, true);
 
-        import('classes.security.form.AuthSourceSettingsForm');
+        import('core.Modules.security.form.AuthSourceSettingsForm');
         $form = new AuthSourceSettingsForm((int) array_shift($args));
         $form->initData();
         $form->display();
@@ -137,7 +137,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Update an authentication source.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateAuthSource($args, $request = null) {
         $this->validate();
@@ -145,7 +145,7 @@ class AuthSourcesHandler extends AdminHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.security.form.AuthSourceSettingsForm');
+        import('core.Modules.security.form.AuthSourceSettingsForm');
         $form = new AuthSourceSettingsForm((int) array_shift($args));
         $form->readInputData();
         $form->execute();
@@ -155,7 +155,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Delete an authentication source.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteAuthSource($args, $request = null) {
         $this->validate();

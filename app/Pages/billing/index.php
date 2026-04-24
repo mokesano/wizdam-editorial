@@ -23,7 +23,7 @@ switch ($op) {
     case 'pay':       // Proses Pembayaran ke Payment Gateway
     case 'cancel':    // Pembatalan Tagihan
         define('HANDLER_CLASS', 'BillingHandler');
-        import('pages.billing.BillingHandler');
+        import('app.Pages.billing.BillingHandler');
         break;
 
     // 
@@ -34,7 +34,7 @@ switch ($op) {
     case 'webhook':
         define('HANDLER_CLASS', 'WebhookHandler');
         // Asumsi WebhookHandler dipindahkan ke domain billing
-        import('pages.billing.WebhookHandler'); 
+        import('app.Pages.billing.WebhookHandler'); 
         break;
 }
 ?>

@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/externalFeed/locale/es_AR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * External feed plugin localization strings
@@ -57,7 +57,7 @@
 	<message key="plugins.generic.externalFeed.form.titleRequired">Por favor introduzca un título para el canal</message>
 	<message key="plugins.generic.externalFeed.form.feedUrl">URL</message>
 	<message key="plugins.generic.externalFeed.form.feedUrlValid">Por favor introduzca una URL válida (include http://)</message>
-	<message key="plugins.generic.externalFeed.form.feedUrlDescription">La URL del canal Atom/RSS externo (EJ: http://pkp.sfu.ca/blog/feed)</message>
+	<message key="plugins.generic.externalFeed.form.feedUrlDescription">La URL del canal Atom/RSS externo (EJ: http://wizdam.sangia.org/blog/feed)</message>
 	<message key="plugins.generic.externalFeed.form.display">Visualización</message>
 	<message key="plugins.generic.externalFeed.form.displayHomepage">Visualización de la página de inicio</message>
 	<message key="plugins.generic.externalFeed.form.displayBlockNone">No mostrar en bloque</message>

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/checkout/services/PdfService.inc.php
+ * @file core.Modules.classes/checkout/services/PdfService.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -14,7 +14,7 @@ declare(strict_types=1);
  */
 
 require_once(Core::getBaseDir() . '/lib/wizdam/library/autoload.php');
-import('lib.wizdam.classes.checkout.Invoice');
+import('core.Modules.checkout.Invoice');
 
 use Mpdf\Mpdf;
 use Mpdf\Output\Destination;
@@ -45,7 +45,7 @@ class PdfService {
      */
     public function generateInvoicePdf(Invoice $invoice, string $qrCodeBase64): void {
         // 1. Panggil InvoiceService untuk merakit Data Transfer Object Array
-        import('lib.wizdam.classes.checkout.services.InvoiceService');
+        import('core.Modules.checkout.services.InvoiceService');
         $invoiceService = new InvoiceService();
         $flatData = $invoiceService->getInvoiceSummary($invoice);
 

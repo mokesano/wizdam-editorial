@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/doi/locale/zh_CN/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * DOI plugin localization strings
@@ -34,7 +34,7 @@
 
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffix">DOI 字尾</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixDescription">DOI字尾可以是任何格式，但是在相同DOI字首的情况下，字尾是不同的。</message>
-	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">使用以下模式生成DOI字尾。%j 为期刊首字母, %v 为卷号, %i 为期数, %Y 为年份, %a 为OJS文章ID, %g 为OJS样稿 ID, %s 为OJS附加文件 ID, %p 为页数 %x 为"自定义标识符"（在设置4.3启用）。</message>
+	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">使用以下模式生成DOI字尾。%j 为期刊首字母, %v 为卷号, %i 为期数, %Y 为年份, %a 为Wizdam Editorial文章ID, %g 为Wizdam Editorial样稿 ID, %s 为Wizdam Editorial附加文件 ID, %p 为页数 %x 为"自定义标识符"（在设置4.3启用）。</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.issues">期次</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.articles">文章</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.galleys">样稿</message>

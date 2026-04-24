@@ -19,9 +19,9 @@ if (file_exists($autoloaderPath)) {
 }
 
 // 2. Class Alias (Opsional - Sesuai gaya SimplePie Anda)
-// Ini memudahkan pemanggilan di OJS tanpa harus ketik 'use Wizdam\JatsEngine\...'
-// Tapi hati-hati bentrok nama. Saya sarankan tetap pakai namespace penuh di controller OJS
-// untuk menghindari konflik dengan class bawaan OJS.
+// Ini memudahkan pemanggilan di Wizdam tanpa harus ketik 'use Wizdam\JatsEngine\...'
+// Tapi hati-hati bentrok nama. Saya sarankan tetap pakai namespace penuh di controller Wizdam
+// untuk menghindari konflik dengan class bawaan Wizdam.
 // Namun jika Anda ingin shortcut global:
 
 /* if (class_exists('Wizdam\JatsEngine\JatsEngine') && !class_exists('JatsEngine')) {

@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/form/AjaxFormHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AjaxFormHandler
@@ -19,12 +19,12 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.FormHandler
+	 * @extends $.core.controllers.form.FormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options options to configure the AJAX form handler.
 	 */
-	$.pkp.controllers.form.AjaxFormHandler = function($form, options) {
+	$.core.controllers.form.AjaxFormHandler = function($form, options) {
 		this.disableControlsOnSubmit = true;
 		options.submitHandler = this.submitForm;
 		this.parent($form, options);
@@ -32,9 +32,9 @@
 		this.bind('refreshForm', this.refreshFormHandler_);
 		this.publishEvent('containerReloadRequested');
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.form.AjaxFormHandler,
-			$.pkp.controllers.form.FormHandler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.form.AjaxFormHandler,
+			$.core.controllers.form.FormHandler);
 
 
 	//
@@ -48,7 +48,7 @@
 	 * @param {HTMLElement} formElement The wrapped HTML form.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.form.AjaxFormHandler.prototype.submitForm =
+	$.core.controllers.form.AjaxFormHandler.prototype.submitForm =
 			function(validator, formElement) {
 
 		// This form implementation will post the form,
@@ -73,7 +73,7 @@
 	 * @param {string} content The content to replace with.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.form.AjaxFormHandler.prototype.refreshFormHandler_ =
+	$.core.controllers.form.AjaxFormHandler.prototype.refreshFormHandler_ =
 			function(sourceElement, event, content) {
 
 		if (content) {
@@ -99,7 +99,7 @@
 	 * @return {boolean} The response status.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.form.AjaxFormHandler.prototype.handleResponse =
+	$.core.controllers.form.AjaxFormHandler.prototype.handleResponse =
 			function(formElement, jsonData) {
 
 		var $form, formSubmittedEvent, processedJsonData;
@@ -134,7 +134,7 @@
 			}
 		}
 
-		$(this.getHtmlElement()).find('.pkp_helpers_progressIndicator').hide();
+		$(this.getHtmlElement()).find('.core_helpers_progressIndicator').hide();
 		this.getHtmlElement().find(':submit').button();
 
 		// Trigger the notify user event, passing this

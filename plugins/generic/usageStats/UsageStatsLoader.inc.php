@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/usageStats/UsageStatsLoader.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UsageStatsLoader
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * Optimized for Connection Pooling & Memory Management
  */
 
-import('lib.pkp.classes.task.FileLoader');
+import('core.Modules.task.FileLoader');
 
 /** 
  * These are rules defined by the COUNTER project.
@@ -678,7 +678,7 @@ class UsageStatsLoader extends FileLoader {
         $metricsDao->purgeLoadBatch($loadId);
 
         while ($record = $statsDao->getNextByLoadId($loadId)) {
-            $record['metric_type'] = OJS_METRIC_TYPE_COUNTER;
+            $record['metric_type'] = APP_METRIC_TYPE_COUNTER;
             $errorMsg = null;
             if (!$metricsDao->insertRecord($record, $errorMsg)) {
                 return false;

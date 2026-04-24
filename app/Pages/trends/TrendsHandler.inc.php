@@ -12,12 +12,12 @@
 
 declare(strict_types=1);
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class TrendsHandler extends Handler {
 
     public function authorize($request, $args, $roleAssignments) {
-        import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
+        import('core.Modules.security.authorization.ContextRequiredPolicy');
         $this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noContext', false));
         return parent::authorize($request, $args, $roleAssignments);
     }

@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/dataverse/locale/zh_CN/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Dataverse plugin localization strings
@@ -58,7 +58,7 @@
 	<message key="plugins.generic.dataverse.settings.citationFormatDescription">选择在研究编目信息中出版引用的格式。</message>
 	<message key="plugins.generic.dataverse.settings.citationFormat.apa">APA 引用格式</message>
 	<message key="plugins.generic.dataverse.settings.pubIdType">公共使用类型</message>
-	<message key="plugins.generic.dataverse.settings.pubIdTypeDescription"><![CDATA[选择公共标识类型链接到出版引用的文章。如果<a href="{$pubIdsUrl}">公共标识插件</a>没有启用，使用OJS网址引用发表的文章。]]></message>
+	<message key="plugins.generic.dataverse.settings.pubIdTypeDescription"><![CDATA[选择公共标识类型链接到出版引用的文章。如果<a href="{$pubIdsUrl}">公共标识插件</a>没有启用，使用Wizdam Editorial网址引用发表的文章。]]></message>
 	<message key="plugins.generic.dataverse.settings.workflow">工作流程设置</message>
 	<message key="plugins.generic.dataverse.settings.requireData">需要数据文件</message>
 	<message key="plugins.generic.dataverse.settings.requireDataDescription">提交的文件须包含在Dataverse存储的数据文件。</message>
@@ -82,7 +82,7 @@
      </li>
      <li>
 <p>数据引用指南</p>
-<p>您的稿件使用OJS文件提交表格时，您的研究数据同时也存储起来，接着，Harvard Dataverse将自动生成数据引用。如果你的研究数据已经在数据库里，数据引用格式则包含您提交稿件的时间。</p>
+<p>您的稿件使用Wizdam Editorial文件提交表格时，您的研究数据同时也存储起来，接着，Harvard Dataverse将自动生成数据引用。如果你的研究数据已经在数据库里，数据引用格式则包含您提交稿件的时间。</p>
 <p>作者, 年份, 数据集标题, 全球唯一标识符，数据存储库或档案，版本和子集。</P >
 <p>更多数据引用信息，请查看<a href="http://www.force11.org/datacitation">Force11's 数据引用原则</a>.</p>
      </li>
@@ -92,7 +92,7 @@
 	<message key="plugins.generic.dataverse.settings.default.checklist"><![CDATA[<ol>
    <li><p>如果共享涉及人类受试者的数据集，请参照上面的指南。</p></li>
 <li><p>准备存储数据参照审查复制指南<a href="http://thedata.org/book/replication-guidelines">http://thedata.org/book/replication-guidelines</a></p></li>
- <li><p>如果沉积在哈佛dataverse，在OJS提交你的数据集的同时，作为 {$journal}的稿件。这将自动保存在哈佛dataverse，并产生数据引用和永久的链接性服务（DOI），当您的文章发表时，可以允许别人引用你的数据。</p></li>
+ <li><p>如果沉积在哈佛dataverse，在Wizdam Editorial提交你的数据集的同时，作为 {$journal}的稿件。这将自动保存在哈佛dataverse，并产生数据引用和永久的链接性服务（DOI），当您的文章发表时，可以允许别人引用你的数据。</p></li>
 <li><p>如果您的数据集已经存储在推荐的文档中，请提供数据引用的永久网址。数据引用指南请参考作者指南。</p></li>
    </ol>]]></message>
 	<message key="plugins.generic.dataverse.settings.default.reviewPolicy.extras">评审政策举例</message>

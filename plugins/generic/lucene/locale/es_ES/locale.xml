@@ -3,13 +3,13 @@
 <!--
   * plugins/generic/lucene/locale/es_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_(es_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Spanish_(es_ES)
   *
-  * OJS solr/lucene search plugin localization strings
+  * Wizdam Editorial solr/lucene search plugin localization strings
   -->
  
 <locale name="es_ES" full_name="Español (España)">
@@ -31,7 +31,7 @@
 	<message key="plugins.generic.lucene.message.indexingIncomplete">Se produjo un error durante la indexación: {$numProcessed} procesados de un lote de {$batchCount} ({$numDeleted} documentos eliminados en este lote).</message>
 	<message key="plugins.generic.lucene.message.indexOnline">Indexar con {$numDocs} documentos en línea.</message>
 	<message key="plugins.generic.lucene.message.pullIndexingDisabled">La indexación mediante servidor no está habilitada. Habilítela en la configuración del módulo Lucene.</message>
-	<message key="plugins.generic.lucene.message.searchServiceOffline">Desafortunadamente el servicio de búsquedas de OJS está desconectado en estos momentos.</message>
+	<message key="plugins.generic.lucene.message.searchServiceOffline">Desafortunadamente el servicio de búsquedas de Wizdam Editorial está desconectado en estos momentos.</message>
 	<message key="plugins.generic.lucene.message.techAdminInformed">Se informó al administrador/a de la revista del problema.</message>
 	<message key="plugins.generic.lucene.message.webServiceError">El servicio web Lucene devolvió un error.</message>
 
@@ -70,8 +70,8 @@
 	]]></message>
 	<message key="plugins.generic.lucene.settings.highlighting">Destacado (muestra un breve extracto del texto completo de cada artículo que contiene palabras clave consultadas)</message>
 	<message key="plugins.generic.lucene.settings.instId">Número de identificación único de instalación</message>
-	<message key="plugins.generic.lucene.settings.instIdRequired">Introduzca un número de identificación específico para esta instalación de OJS en el servidor de búsqueda Solr.</message>
-	<message key="plugins.generic.lucene.settings.instIdInstructions">Si emplea un servidor de búsqueda central, tendrá que proporcionar este número único para cada instalación de OJS que comparta el mísmo índice de búsqueda. Puede utilizar cualquier texto que elija pero debe ser diferente para cada servidor OJS involucrado (p. ej. la dirección estática IP del servidor si tiene una instalación OJS por servidor).</message>
+	<message key="plugins.generic.lucene.settings.instIdRequired">Introduzca un número de identificación específico para esta instalación de Wizdam Editorial en el servidor de búsqueda Solr.</message>
+	<message key="plugins.generic.lucene.settings.instIdInstructions">Si emplea un servidor de búsqueda central, tendrá que proporcionar este número único para cada instalación de Wizdam Editorial que comparta el mísmo índice de búsqueda. Puede utilizar cualquier texto que elija pero debe ser diferente para cada servidor Wizdam Editorial involucrado (p. ej. la dirección estática IP del servidor si tiene una instalación Wizdam Editorial por servidor).</message>
 	<message key="plugins.generic.lucene.settings.internalError">Selección no válida.</message>
 	<message key="plugins.generic.lucene.settings.luceneSettings">Módulo Lucene: Configuración</message>
 	<message key="plugins.generic.lucene.settings.password">Contraseña</message>

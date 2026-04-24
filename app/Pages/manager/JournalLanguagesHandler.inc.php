@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/JournalLanguagesHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class JournalLanguagesHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class JournalLanguagesHandler extends ManagerHandler {
     
@@ -44,13 +44,13 @@ class JournalLanguagesHandler extends ManagerHandler {
     /**
      * Display form to edit language settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function languages($args = [], $request = null) {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.manager.form.LanguageSettingsForm');
+        import('core.Modules.manager.form.LanguageSettingsForm');
 
         $settingsForm = new LanguageSettingsForm();
         $settingsForm->initData();
@@ -60,7 +60,7 @@ class JournalLanguagesHandler extends ManagerHandler {
     /**
      * Save changes to language settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveLanguageSettings($args, $request) {
         $this->validate();
@@ -69,7 +69,7 @@ class JournalLanguagesHandler extends ManagerHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.manager.form.LanguageSettingsForm');
+        import('core.Modules.manager.form.LanguageSettingsForm');
 
         $settingsForm = new LanguageSettingsForm();
         $settingsForm->readInputData();
@@ -77,7 +77,7 @@ class JournalLanguagesHandler extends ManagerHandler {
         if ($settingsForm->validate()) {
             $settingsForm->execute();
             $user = $request->getUser();
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification($user->getId());
             $request->redirect(null, null, 'index');
@@ -89,7 +89,7 @@ class JournalLanguagesHandler extends ManagerHandler {
     /**
      * Reload the default localized settings for the journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function reloadLocalizedDefaultSettings($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -123,7 +123,7 @@ class JournalLanguagesHandler extends ManagerHandler {
         $user = $request->getUser();
 
         // Display a notification
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification($user->getId());
         $request->redirect(null, null, 'languages');

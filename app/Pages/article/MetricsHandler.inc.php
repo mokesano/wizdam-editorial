@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.article.ArticleHandler');
+import('app.Pages.article.ArticleHandler');
 
 class MetricsHandler extends ArticleHandler {
 
@@ -47,7 +47,7 @@ class MetricsHandler extends ArticleHandler {
      * /article/view/<articleId>/metrics
      *
      * @param array $args Argumen URL (misal, $args[0] adalah <articleId>)
-     * @param PKPRequest $request Objek Request OJS
+     * @param CoreRequest $request Objek Request Wizdam
      */
     public function metrics($args = [], $request = null) {
 
@@ -94,7 +94,7 @@ class MetricsHandler extends ArticleHandler {
             $isAuthor = $user && $user->getId() == $article->getUserId();
             
             // Apakah pengguna adalah editor?
-            // [WIZDAM] Standardized OJS validation check
+            // [WIZDAM] Standardized Wizdam validation check
             $isEditor = Validation::isEditor($journal->getId()) || Validation::isSectionEditor($journal->getId());
 
             // Jika pengguna tidak login, ATAU
@@ -130,10 +130,10 @@ class MetricsHandler extends ArticleHandler {
         ];
 
         foreach ($triedDaoNames as $daoName) {
-            // Coba dapatkan DAO dari registri OJS
+            // Coba dapatkan DAO dari registri Wizdam
             $dao = DAORegistry::getDAO($daoName);
 
-            // Periksa apakah OJS berhasil menemukan dan memuat DAO tersebut
+            // Periksa apakah Wizdam berhasil menemukan dan memuat DAO tersebut
             // [WIZDAM] Updated is_a to instanceof
             if ($dao && $dao instanceof DAO) {
                 

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/oai/OAIHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAIHandler
@@ -18,8 +18,8 @@ declare(strict_types=1);
 
 define('SESSION_DISABLE_INIT', 1);
 
-import('classes.oai.JournalOAI');
-import('classes.handler.Handler');
+import('core.Modules.oai.CoreOAI');
+import('core.Modules.handler.Handler');
 
 class OAIHandler extends Handler {
 
@@ -47,18 +47,18 @@ class OAIHandler extends Handler {
     /**
      * Entry point utama untuk menangani request OAI.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard & DI
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         PluginRegistry::loadCategory('oaiMetadataFormats', true);
 
         // Membuat instance OAI; menggunakan try/catch untuk menangkap error fatal.
         try {
-            $oai = new JournalOAI(
+            $oai = new CoreOAI(
                 new OAIConfig(
                     $request->url(null, 'oai'),
                     Config::getVar('oai', 'repository_id')
@@ -99,7 +99,7 @@ class OAIHandler extends Handler {
      */
     public function validate($requiredContexts = null, $request = null) {
         // [WIZDAM] Request Fallback
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // Site validation checks not applicable
         // parent::validate();

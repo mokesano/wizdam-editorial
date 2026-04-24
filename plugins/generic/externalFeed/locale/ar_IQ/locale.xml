@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/externalFeed/locale/ar_IQ/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * External feed plugin localization strings
@@ -57,7 +57,7 @@
 	<message key="plugins.generic.externalFeed.form.titleRequired">لطفاً، إمنح هذا المغذي عنواناً ما</message>
 	<message key="plugins.generic.externalFeed.form.feedUrl">رابط الإنترنت</message>
 	<message key="plugins.generic.externalFeed.form.feedUrlValid">لطفاً، حدد رابط إنترنت صحيح للمغذي (متضمناً http://)</message>
-	<message key="plugins.generic.externalFeed.form.feedUrlDescription">رابط الإنترنت لمغذي Atom/RSS الخارجي (مثل: http://pkp.sfu.ca/blog/feed)</message>
+	<message key="plugins.generic.externalFeed.form.feedUrlDescription">رابط الإنترنت لمغذي Atom/RSS الخارجي (مثل: http://wizdam.sangia.org/blog/feed)</message>
 	<message key="plugins.generic.externalFeed.form.display">العرض</message>
 	<message key="plugins.generic.externalFeed.form.displayHomepage">إعرضه على الصفحة الرئيسية</message>
 	<message key="plugins.generic.externalFeed.form.displayBlockNone">لا تعرضه ضمن كتلة</message>

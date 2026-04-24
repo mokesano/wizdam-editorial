@@ -4,11 +4,11 @@
 <!--
   * plugins/generic/lucene/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * OJS solr/lucene search plugin localization strings
+  * Wizdam Editorial solr/lucene search plugin localization strings
   -->
  
 <locale name="nl_NL" full_name="Nederlands">
@@ -19,8 +19,8 @@
 		<p><strong>Lees het README van deze plugin (plugins/generic/lucene/README) voordat u de standaardconfiguratie wijzigt.</strong></p>
 		<p>Als u het  embedded scenario behind a firewall gebruikt zoals beschreven in het README bestand, dan kunt u waarschijnlijk alle parameters ongemoeid laten.</p>]]></message>
 	<message key="plugins.generic.lucene.settings.instId">Unieke installatie-ID</message>
-	<message key="plugins.generic.lucene.settings.instIdRequired">Geef een ID dat deze OJS installatie uniek identificeert voor de solr zoekserver.</message>
-	<message key="plugins.generic.lucene.settings.instIdInstructions">Als u een centrale zoek-server gebruikt, dan moet u een unieke ID opgeven voor iedere OJS installatie die gebruik maakt van dezelfde zoekindex.  Dit kan een willekeurige tekst zijn, zolang die maar uniek is voor ieder OJS installatie. (bv. het statische IP adres van de server, als u één OJS installatie per server hebt).</message>
+	<message key="plugins.generic.lucene.settings.instIdRequired">Geef een ID dat deze Wizdam Editorial installatie uniek identificeert voor de solr zoekserver.</message>
+	<message key="plugins.generic.lucene.settings.instIdInstructions">Als u een centrale zoek-server gebruikt, dan moet u een unieke ID opgeven voor iedere Wizdam Editorial installatie die gebruik maakt van dezelfde zoekindex.  Dit kan een willekeurige tekst zijn, zolang die maar uniek is voor ieder Wizdam Editorial installatie. (bv. het statische IP adres van de server, als u één Wizdam Editorial installatie per server hebt).</message>
 	<message key="plugins.generic.lucene.settings.luceneSettings">Lucene plugin: Solr server instellingen</message>
 	<message key="plugins.generic.lucene.settings.password">Wachtwoord</message>
 	<message key="plugins.generic.lucene.settings.passwordInstructions">Geef het wachtwoord voor de solr server.</message>
@@ -90,7 +90,7 @@
 	<message key="plugins.generic.lucene.message.coreNotFound">De opgevraagde core '{$core}' is niet aangetroffen op de Solr server. Is die online?</message>
 	<message key="plugins.generic.lucene.message.indexingIncomplete">Er is een fout opgetreden bij het indexeren: {$numProcessed} verwerkt uit een batch van {$batchCount} ({$numDeleted} verwijderde documenten in deze batch).</message>
 	<message key="plugins.generic.lucene.message.pullIndexingDisabled">Pull indexing is niet ingeschakeld. Schakel het in in de Lucene plug-in instellingen.</message>
-	<message key="plugins.generic.lucene.message.searchServiceOffline">De OJS zoekfunctie is momenteel helaas niet beschikbaar.</message>
+	<message key="plugins.generic.lucene.message.searchServiceOffline">De Wizdam Editorial zoekfunctie is momenteel helaas niet beschikbaar.</message>
 	<message key="plugins.generic.lucene.message.techAdminInformed">De technisch beheerder van dit tijdschrift is op de hoogte gesteld van het probleem.</message>
 	<message key="plugins.generic.lucene.settings.facetingSelectCategory">U kunt specifieke facet-categorieën kiezen (de corresponderende metadata moet geselecteerd zijn voor indexeren in de tijdschriftinstellingen, stap 3.4)</message>
 	<message key="plugins.generic.lucene.settings.autosuggestTypeExplanation"><![CDATA[<strong>Vink de termen voor resultaten aan</strong>: Alleen termen suggereren die zoekresultaten opleveren. Suggesties zullen

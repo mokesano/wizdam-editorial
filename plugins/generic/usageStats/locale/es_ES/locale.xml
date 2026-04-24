@@ -4,10 +4,10 @@
 <!--
   * plugins/generic/usageStats/locale/es_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_(es_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Spanish_(es_ES)
   * Localization strings
   -->
 
@@ -26,10 +26,10 @@
 	<message key="plugins.generic.usageStats.displayName">Estadísticas de uso</message>
 	<message key="plugins.generic.usageStats.description">Presentar objetos de datos de estadísticas de uso. Se pueden usar los archivos de acceso de registro del servidor para extraer las estadísticas.</message>
 
-	<message key="plugins.reports.usageStats.report.displayName">Informe de estadísticas de uso de OJS</message>
-	<message key="plugins.reports.usageStats.report.description">Informe de estadísticas de uso de OJS predeterminado (COUNTER preparado)</message>
+	<message key="plugins.reports.usageStats.report.displayName">Informe de estadísticas de uso de Wizdam Editorial</message>
+	<message key="plugins.reports.usageStats.report.description">Informe de estadísticas de uso de Wizdam Editorial predeterminado (COUNTER preparado)</message>
 
-	<message key="plugins.reports.usageStats.metricType">OJS/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType">Wizdam Editorial/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Estadísticas de Open Journal Systems (COUNTER preparado)</message>
 	<message key="plugins.generic.usageStats.removeUrlError">La linea {$lineNumber} del fichero {$file} contiene una url a la que no se le puede eliminar la url base de origen.</message>
 	<message key="plugins.generic.usageStats.loadDataError">No se pueden cargar los datos esperados del fichero {$file}. El error es: {$error}. El fichero se a movido de nuevo a su origen.</message>

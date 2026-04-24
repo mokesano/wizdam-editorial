@@ -291,7 +291,7 @@ function checkHeroOpenAccessStatus($article, $journalId) {
             $accessStatus = $row['access_status'];
             $result->Close();
             
-            // OJS 2.x constants: 0 = subscription required, 1 = open access
+            // Wizdam 2.x constants: 0 = subscription required, 1 = open access
             if ($accessStatus == 1) {
                 return true;
             }
@@ -310,7 +310,7 @@ function checkHeroOpenAccessStatus($article, $journalId) {
                 // Cek access status dari issue
                 if (method_exists($issue, 'getAccessStatus')) {
                     $issueAccessStatus = $issue->getAccessStatus();
-                    // ISSUE_ACCESS_OPEN = 1 di OJS 2.x
+                    // ISSUE_ACCESS_OPEN = 1 di Wizdam 2.x
                     if ($issueAccessStatus == 1) {
                         return true;
                     }

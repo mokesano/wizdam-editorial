@@ -2,13 +2,13 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/trends/MostPopularDAO.inc.php
+ * @file core.Modules.trends/MostPopularDAO.inc.php
  *
  * [WIZDAM] - Exclusive DAO for Most Popular metrics.
  * Menangani pengambilan data statistik performa artikel dengan performa tinggi.
  */
 
-import('lib.pkp.classes.db.DAO');
+import('core.Modules.db.DAO');
 
 class MostPopularDAO extends DAO {
 

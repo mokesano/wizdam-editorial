@@ -1,0 +1,93 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * @file core.Modules.core/CoreProfiler.inc.php
+ *
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @class CoreProfiler
+ * @ingroup core
+ *
+ * @brief Basic shell class used to wrap the PHP Quick Profiler Class
+ * WIZDAM EDITION: PHP 8 Compatibility
+ */
+
+require_once('./core/Library/pqp/classes/PhpQuickProfiler.php');
+require_once('./core/Library/pqp/classes/Console.php');
+
+class CoreProfiler {
+
+    /** @var object instance of the PQP profiler */
+    public $profiler;
+
+    /**
+     * Constructor.
+     */
+    public function __construct() {
+        $this->profiler = new PhpQuickProfiler(PhpQuickProfiler::getMicroTime());
+    }
+
+    /**
+     * [SHIM] Backward Compatibility
+     */
+    public function CoreProfiler() {
+        trigger_error(
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreProfiler(). Please refactor to parent::__construct().", 
+            E_USER_DEPRECATED
+        );
+        self::__construct();
+    }
+
+    /**
+     * Gather information to be used to display profiling
+     * @return array of stored profiling information
+     */
+    public function getData() {
+        $profiler = $this->profiler;
+        $profiler->db = new CoreDBProfiler();
+
+        $profiler->gatherConsoleData();
+        $profiler->gatherFileData();
+        $profiler->gatherMemoryData();
+        $profiler->gatherQueryData();
+        $profiler->gatherSpeedData();
+
+        return $profiler->output;
+    }
+}
+
+class CoreDBProfiler {
+
+    /** @var int property to wrap DB connection query count */
+    public $queryCount;
+
+    /** @var array property to store queries (PHP 8 require explicit declaration) */
+    public $queries;
+
+    /**
+     * Constructor.
+     */
+    public function __construct() {
+        // PHP 8: Objects are passed by handle, reference & removed
+        $dbconn = DBConnection::getInstance();
+
+        $this->queryCount = $dbconn->getNumQueries();
+        $this->queries = Registry::get('queries', true, array());
+    }
+
+    /**
+     * [SHIM] Backward Compatibility
+     */
+    public function CoreDBProfiler() {
+        trigger_error(
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreDBProfiler(). Please refactor to parent::__construct().", 
+            E_USER_DEPRECATED
+        );
+        self::__construct();
+    }
+}
+
+?>

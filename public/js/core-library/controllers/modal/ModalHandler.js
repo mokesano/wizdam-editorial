@@ -2,13 +2,13 @@
  * @defgroup js_controllers_modal
  */
 // Create the modal namespace.
-jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
+jQuery.core.controllers.modal = jQuery.core.controllers.modal || { };
 
 /**
  * @file js/controllers/modal/ModalHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ModalHandler
@@ -17,7 +17,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
  * @brief Basic modal implementation.
  *
  *  A basic wrapper around jQueryUI's dialog widget with
- *  PKP-specific configuration.
+ *  Core-specific configuration.
  *
  *  This implementation of a modal has only one button and
  *  expects a simple message string.
@@ -28,7 +28,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.Handler
+	 * @extends $.core.classes.Handler
 	 *
 	 * @param {jQuery} $handledElement The modal.
 	 * @param {Object} options Non-default dialog options
@@ -40,7 +40,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 *  - all options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
-	$.pkp.controllers.modal.ModalHandler = function($handledElement, options) {
+	$.core.controllers.modal.ModalHandler = function($handledElement, options) {
 		this.parent($handledElement, options);
 
 		// Check the options.
@@ -98,8 +98,8 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 					click(this.callbackWrapper(this.outsideClick));
 		}
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,
-			$.pkp.classes.Handler);
+	$.core.classes.Helper.inherits($.core.controllers.modal.ModalHandler,
+			$.core.classes.Handler);
 
 
 	//
@@ -111,7 +111,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * @type {Object}
 	 * @const
 	 */
-	$.pkp.controllers.modal.ModalHandler.DEFAULT_OPTIONS_ = {
+	$.core.controllers.modal.ModalHandler.DEFAULT_OPTIONS_ = {
 		autoOpen: true,
 		width: 710,
 		modal: true,
@@ -131,7 +131,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * @param {Object} options Dialog options.
 	 * @return {boolean} True if options are ok.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.checkOptions =
+	$.core.controllers.modal.ModalHandler.prototype.checkOptions =
 			function(options) {
 
 		// Check for basic configuration requirements.
@@ -149,7 +149,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * @return {Object} The default options merged
 	 *  with the non-default options.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.mergeOptions =
+	$.core.controllers.modal.ModalHandler.prototype.mergeOptions =
 			function(options) {
 
 		// Merge the user options into the default options.
@@ -171,7 +171,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 *  a close button. Not set if called via callback.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.modalClose =
+	$.core.controllers.modal.ModalHandler.prototype.modalClose =
 			function(callingContext, event) {
 
 		if (event && event.currentTarget.id == 'cancelFormButton') {
@@ -187,9 +187,9 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 		// unregister this form with SiteHandler.
 
 		if ($form.length == 1) {
-			var handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
+			var handler = $.core.classes.Handler.getHandler($('#' + $form.attr('id')));
 			if (handler.formChangesTracked) {
-				if (!confirm($.pkp.locale.form_dataHasChanged)) {
+				if (!confirm($.core.locale.form_dataHasChanged)) {
 					return false;
 				} else {
 					this.trigger('unregisterAllForms');
@@ -209,7 +209,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.dialogClose =
+	$.core.controllers.modal.ModalHandler.prototype.dialogClose =
 			function(dialogElement) {
 
 		// Remove the dialog including our button callbacks.
@@ -231,7 +231,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * @param {Object} callingContext The calling element or object.
 	 * @param {Event} event The outside click event.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.outsideClick =
+	$.core.controllers.modal.ModalHandler.prototype.outsideClick =
 			function(callingContext, event) {
 
 		// Close the dialog.
@@ -250,11 +250,11 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 *  dialog was created on.
 	 * @param {Object} options The dialog options.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.fixTitleBar_ =
+	$.core.controllers.modal.ModalHandler.prototype.fixTitleBar_ =
 			function($handledElement, options) {
 
 		// The new titlebar.
-		var $titleBar = $('<div class="pkp_controllers_modal_titleBar"></div>');
+		var $titleBar = $('<div class="core_controllers_modal_titleBar"></div>');
 
 		// Close icon.
 		var canClose = options.canClose || '1';
@@ -288,7 +288,7 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 *  dialog was created on.
 	 * @param {Object} options The dialog options.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.fixCloseButton_ =
+	$.core.controllers.modal.ModalHandler.prototype.fixCloseButton_ =
 			function($handledElement, options) {
 
 		// The new close button.
@@ -321,11 +321,11 @@ jQuery.pkp.controllers.modal = jQuery.pkp.controllers.modal || { };
 	 * the "notifyUser" event.
 	 * @private
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.redirectNotifyUserEventHandler_ =
+	$.core.controllers.modal.ModalHandler.prototype.redirectNotifyUserEventHandler_ =
 			function(sourceElement, event, triggerElement) {
 
 		// Use the notification helper to redirect the notify user event.
-		$.pkp.classes.notification.NotificationHelper.
+		$.core.classes.notification.NotificationHelper.
 				redirectNotifyUserEvent(this, triggerElement);
 	};
 

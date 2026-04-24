@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/announcement/AnnouncementHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Null Safety
  */
 
-import('lib.pkp.pages.announcement.PKPAnnouncementHandler');
+import('app.Pages.announcement.CoreAnnouncementHandler');
 
 class AnnouncementHandler extends CoreAnnouncementHandler {
     
@@ -46,7 +46,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     /**
      * OVERRIDE: Tambahan logika Redirect jika Announcement kosong
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -73,8 +73,8 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_getAnnouncementsEnabled()
-     * @param PKPRequest $request
+     * @see CoreAnnouncementHandler::_getAnnouncementsEnabled()
+     * @param CoreRequest $request
      * @return bool
      */
     public function _getAnnouncementsEnabled($request) {
@@ -84,9 +84,9 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_getAnnouncements()
+     * @see CoreAnnouncementHandler::_getAnnouncements()
      * [MODERNISASI] Menghapus tanda & reference return
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param object|null $rangeInfo
      * @return DAOResultFactory
      */
@@ -108,8 +108,8 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_getAnnouncementsIntroduction()
-     * @param PKPRequest $request
+     * @see CoreAnnouncementHandler::_getAnnouncementsIntroduction()
+     * @param CoreRequest $request
      * @return string
      */
     public function _getAnnouncementsIntroduction($request) {
@@ -119,8 +119,8 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_announcementIsValid()
-     * @param PKPRequest $request
+     * @see CoreAnnouncementHandler::_announcementIsValid()
+     * @param CoreRequest $request
      * @param int $announcementId
      * @return bool
      */

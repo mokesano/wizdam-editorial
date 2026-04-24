@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/native/NativeImportDom.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NativeImportDom
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.0+ (Static Methods, Strict Types, Reference Cleanup)
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('core.Modules.xml.XMLCustomWriter');
 
 class NativeImportDom {
     
@@ -364,7 +364,7 @@ class NativeImportDom {
         if (($node = $coverNode->getChildByName('caption'))) $issue->setCoverPageDescription($node->getValue(), $locale);
 
         if (($node = $coverNode->getChildByName('image'))) {
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $publicFileManager = new PublicFileManager();
             $newName = 'cover_issue_' . $issue->getId()."_{$locale}"  . '.';
 
@@ -445,7 +445,7 @@ class NativeImportDom {
         if (($node = $coverNode->getChildByName('altText'))) $article->setCoverPageAltText($node->getValue(), $locale);
 
         if (($node = $coverNode->getChildByName('image'))) {
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $publicFileManager = new PublicFileManager();
             $newName = 'cover_article_' . $article->getId()."_{$locale}"  . '.';
 
@@ -781,7 +781,7 @@ class NativeImportDom {
                         return false;
                     }
                     $setter = 'set' . str_replace('_', '', $field);
-                    if (method_exists($article, $setter)) $article->$setter($node->getValue(), $locale); // Loose call but standard in OJS
+                    if (method_exists($article, $setter)) $article->$setter($node->getValue(), $locale); // Loose call but standard in Wizdam
                     elseif ($field == 'subject_class') $article->setSubjectClass($node->getValue(), $locale);
                 }
             }
@@ -854,7 +854,7 @@ class NativeImportDom {
         }
 
         // Log the import in the article event log.
-        import('classes.article.log.ArticleLog');
+        import('core.Modules.article.log.ArticleLog');
         ArticleLog::logEventHeadless(
             $journal, $user->getId(), $article,
             ARTICLE_LOG_ARTICLE_IMPORT,
@@ -902,7 +902,7 @@ class NativeImportDom {
         $articleDao->updateLocaleFields($article);
 
         /* --- Galleys --- */
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFileManager = new ArticleFileManager($article->getId());
 
         $hasErrors = false;
@@ -932,7 +932,7 @@ class NativeImportDom {
         if ($hasErrors) return false;
 
         // Index the inserted article.
-        import('classes.search.ArticleSearchIndex');
+        import('core.Modules.search.ArticleSearchIndex');
         $articleSearchIndex = new ArticleSearchIndex();
         $articleSearchIndex->articleMetadataChanged($article);
         $articleSearchIndex->articleFilesChanged($article);

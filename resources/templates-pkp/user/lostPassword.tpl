@@ -1,8 +1,8 @@
 {**
  * templates/user/lostPassword.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Password reset form.
@@ -20,7 +20,7 @@
 <p><span class="instruct">{translate key="user.login.resetPasswordInstructions"}</span></p>
 
 {if $error}
-	<p><span class="pkp_form_error">{translate key="$error"}</span></p>
+	<p><span class="core_form_error">{translate key="$error"}</span></p>
 {/if}
 
 <table id="lostPasswordTable" class="data" width="100%">

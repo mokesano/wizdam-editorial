@@ -4,22 +4,22 @@ declare(strict_types=1);
 /**
  * @file controllers/grid/citation/CitationGridHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CitationGridHandler
  * @ingroup controllers_grid_citation
  *
- * @brief Handle OJS specific parts of citation grid requests.
+ * @brief Handle Wizdam specific parts of citation grid requests.
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.controllers.grid.citation.PKPCitationGridHandler');
+import('core.Modules.controllers.grid.citation.CoreCitationGridHandler');
 
 // import validation classes
-import('classes.handler.validation.HandlerValidatorJournal');
-import('lib.pkp.classes.handler.validation.HandlerValidatorRoles');
+import('core.Modules.handler.validation.HandlerValidatorJournal');
+import('core.Modules.handler.validation.HandlerValidatorRoles');
 
 class CitationGridHandler extends CoreCitationGridHandler {
     
@@ -52,25 +52,25 @@ class CitationGridHandler extends CoreCitationGridHandler {
     }
 
     //
-    // Implement template methods from PKPHandler
+    // Implement template methods from CoreHandler
     //
 
     /**
-     * @see PKPHandler::authorize()
-     * @param PKPRequest $request
+     * @see CoreHandler::authorize()
+     * @param CoreRequest $request
      * @param array $args
      * @param array $roleAssignments
      */
     public function authorize($request, &$args, $roleAssignments) {
         // Make sure the user can edit the submission in the request.
-        import('classes.security.authorization.OjsSubmissionAccessPolicy');
-        $this->addPolicy(new OjsSubmissionAccessPolicy($request, $args, $roleAssignments, 'assocId'));
+        import('core.Modules.security.authorization.AppSubmissionAccessPolicy');
+        $this->addPolicy(new AppSubmissionAccessPolicy($request, $args, $roleAssignments, 'assocId'));
         return parent::authorize($request, $args, $roleAssignments);
     }
 
     /**
-     * @see PKPHandler::initialize()
-     * @param PKPRequest $request
+     * @see CoreHandler::initialize()
+     * @param CoreRequest $request
      * @param array|null $args
      */
     public function initialize($request, $args = null) {
@@ -89,13 +89,13 @@ class CitationGridHandler extends CoreCitationGridHandler {
     }
 
     //
-    // Override methods from PKPCitationGridHandler
+    // Override methods from CoreCitationGridHandler
     //
 
     /**
-     * @see PKPCitationGridHandler::exportCitations()
+     * @see CoreCitationGridHandler::exportCitations()
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function exportCitations($args, $request) {
         $dispatcher = $this->getDispatcher();

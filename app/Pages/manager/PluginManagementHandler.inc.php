@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/PluginManagementHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PluginManagementHandler
@@ -20,12 +20,12 @@ define('VERSION_FILE', '/version.xml');
 define('INSTALL_FILE', '/install.xml');
 define('UPGRADE_FILE', '/upgrade.xml');
 
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionCheck');
-import('lib.pkp.classes.file.FileManager');
-import('classes.install.Install');
-import('classes.install.Upgrade');
-import('pages.manager.ManagerHandler');
+import('core.Modules.site.Version');
+import('core.Modules.site.VersionCheck');
+import('core.Modules.file.FileManager');
+import('core.Modules.install.Install');
+import('core.Modules.install.Upgrade');
+import('app.Pages.manager.ManagerHandler');
 
 class PluginManagementHandler extends ManagerHandler {
     
@@ -53,7 +53,7 @@ class PluginManagementHandler extends ManagerHandler {
     /**
      * Display a list of plugins along with management options.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function managePlugins($args, $request) {
         $this->validate($request);
@@ -91,7 +91,7 @@ class PluginManagementHandler extends ManagerHandler {
      * The site setting option 'preventManagerPluginManagement' must not be set for
      * journal managers to be able to manage plugins.
      * @param mixed|null $requiredContexts (legacy param, ignored)
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function validate($requiredContexts = null, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -109,7 +109,7 @@ class PluginManagementHandler extends ManagerHandler {
 
     /**
      * Show plugin installation form.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function _showInstallForm($request) {
         $this->validate($request);
@@ -127,7 +127,7 @@ class PluginManagementHandler extends ManagerHandler {
 
     /**
      * Show form to select plugin for upgrade.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $category
      * @param string $plugin
      */
@@ -147,7 +147,7 @@ class PluginManagementHandler extends ManagerHandler {
 
     /**
      * Confirm deletion of plugin.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $category
      * @param string $plugin
      */
@@ -169,7 +169,7 @@ class PluginManagementHandler extends ManagerHandler {
 
     /**
      * Decompress uploaded plugin and install in the correct plugin directory.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $function type of operation to perform after upload ('upgrade' or 'install')
      * @param string|null $category the category of the uploaded plugin (upgrade only)
      * @param string|null $plugin the name of the uploaded plugin (upgrade only)
@@ -188,7 +188,7 @@ class PluginManagementHandler extends ManagerHandler {
         $user = null;
 
         if ((int) $request->getUserVar('uploadPlugin')) {
-            import('classes.file.TemporaryFileManager');
+            import('core.Modules.file.TemporaryFileManager');
             $temporaryFileManager = new TemporaryFileManager();
             $user = $request->getUser();
         } else {
@@ -204,7 +204,7 @@ class PluginManagementHandler extends ManagerHandler {
                 // tar archive basename (less potential version number) must equal plugin directory name
                 // and plugin files must be in a directory named after the plug-in.
                 $matches = [];
-                PKPString::regexp_match_get('/^[a-zA-Z0-9]+/', basename($temporaryFile->getOriginalFileName(), '.tar.gz'), $matches);
+                CoreString::regexp_match_get('/^[a-zA-Z0-9]+/', basename($temporaryFile->getOriginalFileName(), '.tar.gz'), $matches);
                 $pluginName = array_pop($matches);
                 // Create random dirname to avoid symlink attacks.
                 $pluginDir = dirname($temporaryFile->getFilePath()) . DIRECTORY_SEPARATOR . $pluginName . substr(md5((string) mt_rand()), 0, 10);
@@ -249,7 +249,7 @@ class PluginManagementHandler extends ManagerHandler {
 
     /**
      * Installs the uploaded plugin
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $path path to plugin Directory
      * @param TemplateManager $templateMgr reference to template manager
      * @return bool
@@ -285,7 +285,7 @@ class PluginManagementHandler extends ManagerHandler {
 
             // Upgrade the database with the new plug-in.
             $installFile = $pluginDest . INSTALL_FILE;
-            if(!is_file($installFile)) $installFile = Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'xml' . DIRECTORY_SEPARATOR . 'defaultPluginInstall.xml';
+            if(!is_file($installFile)) $installFile = Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'wizdam' . DIRECTORY_SEPARATOR . 'xml' . DIRECTORY_SEPARATOR . 'defaultPluginInstall.xml';
             
             // [WIZDAM] assert replaced with explicit check
             if (!is_file($installFile)) return false;
@@ -320,7 +320,7 @@ class PluginManagementHandler extends ManagerHandler {
 
     /**
      * Upgrade a plugin to a newer version from the user's filesystem
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $path path to plugin Directory
      * @param TemplateManager $templateMgr reference to template manager
      * @param string $category
@@ -410,7 +410,7 @@ class PluginManagementHandler extends ManagerHandler {
 
     /**
      * Delete a plugin from the system
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $category
      * @param string $plugin
      */
@@ -471,7 +471,7 @@ class PluginManagementHandler extends ManagerHandler {
 
     /**
      * Set the page's breadcrumbs
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $subclass
      * @param string|null $category
      * @return array

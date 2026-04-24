@@ -2,8 +2,8 @@
 {**
  * plugins/generic/webFeed/templates/atom.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Atom feed template
@@ -43,7 +43,7 @@
 	{* <category/> *}
 	{* <contributor/> *}
 
-	<generator uri="http://pkp.sfu.ca/ojs/" version="{$ojsVersion|escape}">Open Journal Systems</generator>
+	<generator uri="https://wizdam.editorial/" version="{$appVersion|escape}">Wizdam Editorial</generator>
 	{if $journal->getLocalizedDescription()}
 		{assign var="description" value=$journal->getLocalizedDescription()}
 	{elseif $journal->getLocalizedSetting('searchDescription')}

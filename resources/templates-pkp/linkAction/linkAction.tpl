@@ -1,8 +1,8 @@
 {**
- * lib/pkp/templates/linkAction/linkAction.tpl
+ * core/Library/templates/linkAction/linkAction.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Create a link action
@@ -27,8 +27,8 @@
 <script type="text/javascript">
 	{* Attach the action handler to the button. *}
 	$(function() {ldelim}
-		$('#{$buttonId}').pkpHandler(
-			'$.pkp.controllers.linkAction.LinkActionHandler',
+		$('#{$buttonId}').coreHandler(
+			'$.core.controllers.linkAction.LinkActionHandler',
 				{include file="linkAction/linkActionOptions.tpl" action=$action selfActivate=$selfActivate staticId=$staticId}
 			);
 	{rdelim});

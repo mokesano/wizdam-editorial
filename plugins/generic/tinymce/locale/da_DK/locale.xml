@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/tinymce/locale/da_DK/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the da_DK (Dansk) locale.
@@ -14,8 +14,8 @@
  
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.generic.tinymce.name">TinyMCE Plugin</message>
-	<message key="plugins.generic.tinymce.description"><![CDATA[Dette plugin aktiverer WYSIWYG redigering af OJS tekstfelter ved hjælp af <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a> tekstbehandleren.]]></message>
-	<message key="plugins.generic.tinymce.descriptionDisabled"><![CDATA[Dette plugin aktiverer WYSIWYG redigering af OJS tekstfelter ved hjælp af <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a> tekstbehandleren. <strong>TinyMCE er ikke installeret; sørg for at installere den i {$tinyMcePath}.</strong>]]></message>
+	<message key="plugins.generic.tinymce.description"><![CDATA[Dette plugin aktiverer WYSIWYG redigering af Wizdam Editorial tekstfelter ved hjælp af <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a> tekstbehandleren.]]></message>
+	<message key="plugins.generic.tinymce.descriptionDisabled"><![CDATA[Dette plugin aktiverer WYSIWYG redigering af Wizdam Editorial tekstfelter ved hjælp af <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a> tekstbehandleren. <strong>TinyMCE er ikke installeret; sørg for at installere den i {$tinyMcePath}.</strong>]]></message>
 
 	<message key="plugins.generic.tinymce.settings">Indstillinger</message>
 </locale>

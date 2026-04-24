@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/crossref/CrossRefExportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CrossRefExportPlugin
@@ -150,7 +150,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
     /**
      * Process a DOI activity request.
      * @see DOIExportPlugin::process()
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $journal Journal
      * @return void
      */
@@ -183,7 +183,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
         $this->setBreadcrumbs(array(), true);
 
         // Retrieve all published issues.
-        AppLocale::requireComponents(array(LOCALE_COMPONENT_OJS_EDITOR));
+        AppLocale::requireComponents(array(LOCALE_COMPONENT_WIZDAM_EDITOR));
         $issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
         $this->registerDaoHook('IssueDAO');
         $issueIterator = $issueDao->getPublishedIssues($journal->getId(), Handler::getRangeInfo('issues'));
@@ -275,7 +275,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
             $articleData = array_slice($articleData, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
         }
         // Instantiate article iterator.
-        import('lib.pkp.classes.core.VirtualArrayIterator');
+        import('core.Kernel.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($articleData, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the article template.
@@ -322,9 +322,9 @@ class CrossRefExportPlugin extends DOIExportPlugin {
      */
     public function generateExportFiles($request, $exportType, $objects, $targetPath, $journal, &$errors) {
         // Additional locale file.
-        AppLocale::requireComponents(array(LOCALE_COMPONENT_OJS_EDITOR));
+        AppLocale::requireComponents(array(LOCALE_COMPONENT_WIZDAM_EDITOR));
 
-        $this->import('classes.CrossRefExportDom');
+        $this->import('core.Modules.CrossRefExportDom');
         $dom = new CrossRefExportDom($request, $this, $journal, $this->getCache());
         $doc = $dom->generate($objects);
         if ($doc === false) {
@@ -348,7 +348,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
      */
     public function processMarkRegistered($request, $exportType, $objects, $journal): void {
         $articleDao = DAORegistry::getDAO('ArticleDAO');  /* @var $articleDao ArticleDAO */
-        $this->import('classes.CrossRefExportDom');
+        $this->import('core.Modules.CrossRefExportDom');
         $dom = new CrossRefExportDom($request, $this, $journal, $this->getCache());
         $statusUpdatePossible = $this->getSetting($journal->getId(), 'username') && $this->getSetting($journal->getId(), 'password');
         foreach($objects as $object) {
@@ -442,7 +442,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
      */
     public function updateDepositStatus($request, $journal, $article) {
         $articleDao = DAORegistry::getDAO('ArticleDAO');  /* @var $articleDao ArticleDAO */
-        import('lib.pkp.classes.core.JSONManager');
+        import('core.Kernel.JSONManager');
         $jsonManager = new JSONManager();
 
         // Prepare HTTP session.

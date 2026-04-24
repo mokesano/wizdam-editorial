@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/ManagerPaymentHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ManagerPaymentHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class ManagerPaymentHandler extends ManagerHandler {
     
@@ -44,20 +44,20 @@ class ManagerPaymentHandler extends ManagerHandler {
     /**
      * Display Settings Form (main payments page)
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function payments($args = [], $request = null) {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.AppPaymentAction');
-        OJSPaymentAction::payments($args);
+        import('core.Modules.payment.AppPaymentAction');
+        AppPaymentAction::payments($args);
     }
      
     /**
      * Execute the form or display it again if there are problems
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function savePaymentSettings($args = [], $request = null) {
         $this->validate();
@@ -66,8 +66,8 @@ class ManagerPaymentHandler extends ManagerHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.payment.AppPaymentAction');
-        $success = OJSPaymentAction::savePaymentSettings($args);
+        import('core.Modules.payment.AppPaymentAction');
+        $success = AppPaymentAction::savePaymentSettings($args);
 
         if ($success) {
             $templateMgr = TemplateManager::getManager();
@@ -85,46 +85,46 @@ class ManagerPaymentHandler extends ManagerHandler {
     /** 
      * Display all payments previously made
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewPayments($args = [], $request = null) {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.AppPaymentAction');
-        OJSPaymentAction::viewPayments($args);
+        import('core.Modules.payment.AppPaymentAction');
+        AppPaymentAction::viewPayments($args);
     }
 
     /** 
      * Display a single Completed payment 
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewPayment($args = [], $request = null) {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.AppPaymentAction');
-        OJSPaymentAction::viewPayment($args);
+        import('core.Modules.payment.AppPaymentAction');
+        AppPaymentAction::viewPayment($args);
     }
 
     /**
      * Display form to edit program settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function payMethodSettings() {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.AppPaymentAction');
-        OJSPaymentAction::payMethodSettings();
+        import('core.Modules.payment.AppPaymentAction');
+        AppPaymentAction::payMethodSettings();
     }
     
     /**
      * Save changes to payment settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function savePayMethodSettings($args = [], $request = null) {
         $this->validate();
@@ -133,8 +133,8 @@ class ManagerPaymentHandler extends ManagerHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.payment.AppPaymentAction');
-        $success = OJSPaymentAction::savePayMethodSettings();
+        import('core.Modules.payment.AppPaymentAction');
+        $success = AppPaymentAction::savePayMethodSettings();
 
         if ($success) {
             $templateMgr = TemplateManager::getManager();

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/pubIds/doi/DOIPubIdPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DOIPubIdPlugin
@@ -14,12 +14,12 @@ declare(strict_types=1);
  * @brief DOI plugin class
  */
 
-import('classes.plugins.PubIdPlugin');
+import('core.Modules.plugins.PubIdPlugin');
 
 class DOIPubIdPlugin extends PubIdPlugin {
 
     //
-    // Implement template methods from PKPPlugin.
+    // Implement template methods from CorePlugin.
     //
     /**
      * @see PubIdPlugin::register()
@@ -32,7 +32,7 @@ class DOIPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a name of the plugin.
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      */
     public function getName(): string {
         return 'DOIPubIdPlugin';
@@ -40,7 +40,7 @@ class DOIPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a Display Name of the plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      */
     public function getDisplayName(): string {
         return __('plugins.pubIds.doi.displayName');
@@ -48,7 +48,7 @@ class DOIPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a description of the plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      */
     public function getDescription(): string {
         return __('plugins.pubIds.doi.description');
@@ -56,7 +56,7 @@ class DOIPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a template of the plugin.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      */
     public function getTemplatePath($inCore = false): string {
         return parent::getTemplatePath($inCore) . 'templates/';
@@ -157,40 +157,40 @@ class DOIPubIdPlugin extends PubIdPlugin {
                     $doiSuffix = $this->getSetting($journalId, "doi{$pubObjectType}SuffixPattern");
 
                     // %j - journal initials
-                    $doiSuffix = PKPString::regexp_replace('/%j/', PKPString::strtolower($journal->getLocalizedSetting('initials', $journal->getPrimaryLocale())), $doiSuffix);
+                    $doiSuffix = CoreString::regexp_replace('/%j/', CoreString::strtolower($journal->getLocalizedSetting('initials', $journal->getPrimaryLocale())), $doiSuffix);
 
                     // %x - custom identifier
                     if ($pubObject->getStoredPubId('publisher-id')) {
-                        $doiSuffix = PKPString::regexp_replace('/%x/', $pubObject->getStoredPubId('publisher-id'), $doiSuffix);
+                        $doiSuffix = CoreString::regexp_replace('/%x/', $pubObject->getStoredPubId('publisher-id'), $doiSuffix);
                     }
                     if ($issue) {
                         // %v - volume number
-                        $doiSuffix = PKPString::regexp_replace('/%v/', $issue->getVolume(), $doiSuffix);
+                        $doiSuffix = CoreString::regexp_replace('/%v/', $issue->getVolume(), $doiSuffix);
                         // %i - issue number
-                        $doiSuffix = PKPString::regexp_replace('/%i/', $issue->getNumber(), $doiSuffix);
+                        $doiSuffix = CoreString::regexp_replace('/%i/', $issue->getNumber(), $doiSuffix);
                         // %Y - year
-                        $doiSuffix = PKPString::regexp_replace('/%Y/', $issue->getYear(), $doiSuffix);
+                        $doiSuffix = CoreString::regexp_replace('/%Y/', $issue->getYear(), $doiSuffix);
                     }
                     if ($article) {
                         // %a - article id
-                        $doiSuffix = PKPString::regexp_replace('/%a/', $article->getId(), $doiSuffix);
+                        $doiSuffix = CoreString::regexp_replace('/%a/', $article->getId(), $doiSuffix);
                         // %p - page number
                         if ($article->getPages()) {
-                            $doiSuffix = PKPString::regexp_replace('/%p/', $article->getPages(), $doiSuffix);
+                            $doiSuffix = CoreString::regexp_replace('/%p/', $article->getPages(), $doiSuffix);
                         }
                     }
                     if ($galley) {
                         // %g - galley id
-                        $doiSuffix = PKPString::regexp_replace('/%g/', $galley->getId(), $doiSuffix);
+                        $doiSuffix = CoreString::regexp_replace('/%g/', $galley->getId(), $doiSuffix);
                     }
                     if ($suppFile) {
                         // %s - supp file id
-                        $doiSuffix = PKPString::regexp_replace('/%s/', $suppFile->getId(), $doiSuffix);
+                        $doiSuffix = CoreString::regexp_replace('/%s/', $suppFile->getId(), $doiSuffix);
                     }
                     break;
 
                 default:
-                    $doiSuffix = PKPString::strtolower($journal->getLocalizedSetting('initials', $journal->getPrimaryLocale()));
+                    $doiSuffix = CoreString::strtolower($journal->getLocalizedSetting('initials', $journal->getPrimaryLocale()));
 
                     if ($issue) {
                         $doiSuffix .= '.v' . $issue->getVolume() . 'i' . $issue->getNumber();

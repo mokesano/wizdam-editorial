@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/proofreader/ProofreaderHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ProofreaderHandler
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.submission.proofreader.ProofreaderAction');
-import('classes.handler.Handler');
+import('core.Modules.submission.proofreader.ProofreaderAction');
+import('core.Modules.handler.Handler');
 
 class ProofreaderHandler extends Handler {
     /** @var object|null submission associated with the request */
@@ -50,11 +50,11 @@ class ProofreaderHandler extends Handler {
     /**
      * Display proofreader index page.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate($request);
         $this->setupTemplate();
@@ -137,7 +137,7 @@ class ProofreaderHandler extends Handler {
             SUBMISSION_FIELD_DATE_PROOFREADING_COMPLETE => 'submissions.proofreadingComplete'
         ]);
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
         $templateMgr->assign('helpTopicId', 'editorial.proofreadersRole.submissions');
@@ -164,7 +164,7 @@ class ProofreaderHandler extends Handler {
             ? [[Request::url(null, 'user'), 'navigation.user'], [Request::url(null, 'proofreader'), 'user.role.proofreader']]
             : [[Request::url(null, 'user'), 'navigation.user'], [Request::url(null, 'proofreader'), 'user.role.proofreader']];
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         $submissionCrumb = SectionEditorAction::submissionBreadcrumb($articleId, $parentPage, 'proofreader');
         if (isset($submissionCrumb)) {
             $pageHierarchy = array_merge($pageHierarchy, $submissionCrumb);
@@ -175,10 +175,10 @@ class ProofreaderHandler extends Handler {
     /**
      * Display submission management instructions.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function instructions($args, $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $this->setupTemplate();
         if (!isset($args[0]) || !ProofreaderAction::instructions($args[0], ['proof'])) {
             $request->redirect(null, $request->getRequestedPage());
@@ -222,7 +222,7 @@ class ProofreaderHandler extends Handler {
 
         // --- Sekarang kita bisa memvalidasi dengan aman ---
 
-        // Panggil validasi 'Kakek' (PKPHandler) terlebih dahulu
+        // Panggil validasi 'Kakek' (CoreHandler) terlebih dahulu
         // Ini akan menangani validasi jurnal dasar
         parent::validate($realRequest);
 

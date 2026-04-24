@@ -1,8 +1,8 @@
 /**
  * @file js/classes/Handler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Handler
@@ -16,13 +16,13 @@
     /**
      * @constructor
      *
-     * @extends $.pkp.classes.ObjectProxy
+     * @extends $.core.classes.ObjectProxy
      *
      * @param {jQueryObject} $element A DOM element to which
      * this handler is bound.
      * @param {Object} options Handler options.
      */
-    $.pkp.classes.Handler = function($element, options) {
+    $.core.classes.Handler = function($element, options) {
 
         // MODERNIZATION: Prevent crash if selector selects multiple elements
         if ($element.length > 1) {
@@ -77,7 +77,7 @@
      * @private
      * @type {Array}
      */
-    $.pkp.classes.Handler.prototype.publishChangeEvents_ = null;
+    $.core.classes.Handler.prototype.publishChangeEvents_ = null;
 
 
     /**
@@ -85,7 +85,7 @@
      * @private
      * @type {jQueryObject}
      */
-    $.pkp.classes.Handler.prototype.$htmlElement_ = null;
+    $.core.classes.Handler.prototype.$htmlElement_ = null;
 
 
     /**
@@ -93,7 +93,7 @@
      * @private
      * @type {Object.<string, Array>}
      */
-    $.pkp.classes.Handler.prototype.eventBindings_ = null;
+    $.core.classes.Handler.prototype.eventBindings_ = null;
 
 
     /**
@@ -102,7 +102,7 @@
      * @private
      * @type {Object.<string, boolean>}
      */
-    $.pkp.classes.Handler.prototype.dataItems_ = null;
+    $.core.classes.Handler.prototype.dataItems_ = null;
 
 
     /**
@@ -110,7 +110,7 @@
      * @private
      * @type {Object.<string, boolean>}
      */
-    $.pkp.classes.Handler.prototype.publishedEvents_ = null;
+    $.core.classes.Handler.prototype.publishedEvents_ = null;
 
 
     /**
@@ -118,7 +118,7 @@
      * @private
      * @type {?string}
      */
-    $.pkp.classes.Handler.prototype.$eventBridge_ = null;
+    $.core.classes.Handler.prototype.$eventBridge_ = null;
 
 
     //
@@ -130,12 +130,12 @@
      * handler was attached.
      * @return {Object} The retrieved handler.
      */
-    $.pkp.classes.Handler.getHandler = function($element) {
+    $.core.classes.Handler.getHandler = function($element) {
         // Retrieve the handler.
-        var handler = $element.data('pkp.handler');
+        var handler = $element.data('core.handler');
 
         // Check whether the handler exists.
-        if (!(handler instanceof $.pkp.classes.Handler)) {
+        if (!(handler instanceof $.core.classes.Handler)) {
             // MODERNIZATION: Soft fail
             console.warn('There is no handler bound to this element!');
             return null;
@@ -153,8 +153,8 @@
      *
      * @return {jQueryObject} The element this handler is bound to.
      */
-    $.pkp.classes.Handler.prototype.getHtmlElement = function() {
-        $.pkp.classes.Handler.checkContext_(this);
+    $.core.classes.Handler.prototype.getHtmlElement = function() {
+        $.core.classes.Handler.checkContext_(this);
         return this.$htmlElement_;
     };
 
@@ -162,7 +162,7 @@
     /**
      * Publish change events. (See options.publishChangeEvents.)
      */
-    $.pkp.classes.Handler.prototype.publishChangeEvents = function() {
+    $.core.classes.Handler.prototype.publishChangeEvents = function() {
         var i;
         for (i = 0; i < this.publishChangeEvents_.length; i++) {
             this.trigger(this.publishChangeEvents_[i]);
@@ -178,11 +178,11 @@
      * @param {jQuery.Event} event The jQuery event object.
      * @return {boolean} Return value to be passed back to jQuery.
      */
-    $.pkp.classes.Handler.prototype.handleEvent = function(event) {
+    $.core.classes.Handler.prototype.handleEvent = function(event) {
         var $callingElement, handler, boundEvents, args, returnValue, i, l;
 
         $callingElement = $(this);
-        handler = $.pkp.classes.Handler.getHandler($callingElement);
+        handler = $.core.classes.Handler.getHandler($callingElement);
         
         // Safety check if handler retrieval failed
         if (!handler) return false;
@@ -228,10 +228,10 @@
      * |this| should point to.
      * @return {Function} The wrapped callback.
      */
-    $.pkp.classes.Handler.prototype.callbackWrapper =
+    $.core.classes.Handler.prototype.callbackWrapper =
             function(callback, opt_context) {
 
-        $.pkp.classes.Handler.checkContext_(this);
+        $.core.classes.Handler.checkContext_(this);
 
         if (!opt_context) {
             opt_context = this;
@@ -245,7 +245,7 @@
     /**
      * This callback can be used to handle simple remote server requests.
      */
-    $.pkp.classes.Handler.prototype.remoteResponse =
+    $.core.classes.Handler.prototype.remoteResponse =
             function(ajaxOptions, jsonData) {
         return this.handleJson(jsonData);
     };
@@ -254,25 +254,25 @@
     /**
      * Completely remove all traces of the handler.
      */
-    $.pkp.classes.Handler.prototype.remove = function() {
-        $.pkp.classes.Handler.checkContext_(this);
+    $.core.classes.Handler.prototype.remove = function() {
+        $.core.classes.Handler.checkContext_(this);
         var $element, key;
 
         $element = this.getHtmlElement();
         // MODERNIZATION: .unbind() -> .off()
-        $element.off('.pkpHandler');
+        $element.off('.coreHandler');
 
         for (key in this.dataItems_) {
-            if (key !== 'pkp.handler') {
+            if (key !== 'core.handler') {
                 $element.removeData(key);
             }
         }
 
-        $element.trigger('pkpRemoveHandler');
+        $element.trigger('coreRemoveHandler');
         // MODERNIZATION: .unbind() -> .off()
-        $element.off('.pkpHandlerRemove');
+        $element.off('.coreHandlerRemove');
 
-        $element.removeData('pkp.handler');
+        $element.removeData('core.handler');
     };
 
 
@@ -287,16 +287,16 @@
      * @param {string} eventName The name of the event
      * @param {Function} handler The event handler
      */
-    $.pkp.classes.Handler.prototype.bind = function(eventName, handler) {
-        $.pkp.classes.Handler.checkContext_(this);
+    $.core.classes.Handler.prototype.bind = function(eventName, handler) {
+        $.core.classes.Handler.checkContext_(this);
 
         if (!this.eventBindings_[eventName]) {
             this.eventBindings_[eventName] = [];
 
             var eventNamespace;
-            eventNamespace = '.pkpHandler';
-            if (eventName === 'pkpRemoveHandler') {
-                eventNamespace = '.pkpHandlerRemove';
+            eventNamespace = '.coreHandler';
+            if (eventName === 'coreRemoveHandler') {
+                eventNamespace = '.coreHandlerRemove';
             }
 
             // MODERNIZATION: .bind() -> .on()
@@ -311,8 +311,8 @@
      * Unbind an event from a handler operation.
      * MODERNIZED: Uses .off() instead of .unbind() internally.
      */
-    $.pkp.classes.Handler.prototype.unbind = function(eventName, handler) {
-        $.pkp.classes.Handler.checkContext_(this);
+    $.core.classes.Handler.prototype.unbind = function(eventName, handler) {
+        $.core.classes.Handler.checkContext_(this);
 
         if (!this.eventBindings_[eventName]) {
             return false;
@@ -339,10 +339,10 @@
     /**
      * Add or retrieve a data item to/from the DOM element.
      */
-    $.pkp.classes.Handler.prototype.data = function(key, opt_value) {
-        $.pkp.classes.Handler.checkContext_(this);
+    $.core.classes.Handler.prototype.data = function(key, opt_value) {
+        $.core.classes.Handler.checkContext_(this);
 
-        key = 'pkp.' + key;
+        key = 'core.' + key;
 
         if (opt_value !== undefined) {
             this.dataItems_[key] = true;
@@ -355,7 +355,7 @@
     /**
      * This function should be used to pre-process a JSON response.
      */
-    $.pkp.classes.Handler.prototype.handleJson = function(jsonData) {
+    $.core.classes.Handler.prototype.handleJson = function(jsonData) {
         if (!jsonData) {
             // Soft fail instead of crash
             console.error('Server error: Server returned no or invalid data!');
@@ -384,7 +384,7 @@
     /**
      * Trigger events.
      */
-    $.pkp.classes.Handler.prototype.trigger =
+    $.core.classes.Handler.prototype.trigger =
             function(eventName, opt_data) {
 
         if (opt_data === undefined) {
@@ -403,7 +403,7 @@
     /**
      * Publish an event triggered by a nested widget.
      */
-    $.pkp.classes.Handler.prototype.publishEvent = function(eventName) {
+    $.core.classes.Handler.prototype.publishEvent = function(eventName) {
         if (this.publishedEvents_[eventName]) {
             return;
         }
@@ -425,7 +425,7 @@
     /**
      * Handle the "show more" and "show less" clicks.
      */
-    $.pkp.classes.Handler.prototype.switchViz = function(event) {
+    $.core.classes.Handler.prototype.switchViz = function(event) {
         var eventElement = event.currentTarget;
         // Simple toggle is fine in jQuery 3 for visibility
         $(eventElement).parent().parent().find('span').toggle();
@@ -439,7 +439,7 @@
      * Trigger a public event.
      * @private
      */
-    $.pkp.classes.Handler.prototype.triggerPublicEvent_ =
+    $.core.classes.Handler.prototype.triggerPublicEvent_ =
             function(eventName, opt_data) {
 
         var $handledElement = this.getHtmlElement();
@@ -462,8 +462,8 @@
      * Check the context of a method invocation.
      * @private
      */
-    $.pkp.classes.Handler.checkContext_ = function(context) {
-        if (!(context instanceof $.pkp.classes.Handler)) {
+    $.core.classes.Handler.checkContext_ = function(context) {
+        if (!(context instanceof $.core.classes.Handler)) {
             console.error('Trying to call handler method in non-handler context!');
             // Don't throw, just log.
         }

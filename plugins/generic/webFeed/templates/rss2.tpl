@@ -2,8 +2,8 @@
 {**
  * plugins/generic/webFeed/templates/rss2.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * RSS 2 feed template
@@ -48,7 +48,7 @@
 		{* <category/> *}
 		{* <creativeCommons:license/> *}
 
-		<generator>OJS {$ojsVersion|escape}</generator>
+		<generator>App {$appVersion|escape}</generator>
 		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
 		<ttl>60</ttl>
 

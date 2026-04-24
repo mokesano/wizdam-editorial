@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/checkout/form/PaymentSettingsForm.inc.php
+ * @file core.Modules.classes/checkout/form/PaymentSettingsForm.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -13,8 +13,8 @@ declare(strict_types=1);
  * @brief Form untuk mengatur Payment Gateway Keys di level Admin.
  */
 
-import('lib.pkp.classes.form.Form');
-import('lib.wizdam.classes.checkout.services.PaymentSettingsService');
+import('core.Modules.form.Form');
+import('core.Modules.checkout.services.PaymentSettingsService');
 
 class PaymentSettingsForm extends Form {
 
@@ -27,7 +27,7 @@ class PaymentSettingsForm extends Form {
         $this->settingsService = new PaymentSettingsService();
 
         // [WIZDAM SECURITY] Gunakan Validator CSRF yang kita buat sebelumnya!
-        import('lib.pkp.classes.form.validation.FormValidatorCSRF');
+        import('core.Modules.form.validation.FormValidatorCSRF');
         $this->addCheck(new FormValidatorCSRF($this));
         
         $this->addCheck(new FormValidatorPost($this));
@@ -41,7 +41,7 @@ class PaymentSettingsForm extends Form {
         $templateMgr = TemplateManager::getManager($validRequest);
         
         // [WIZDAM SECURITY] Gunakan Validator CSRF
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('core.Modules.validation.ValidatorCSRF');
         $sessionId = $validRequest->getSession()->getId();
         $templateMgr->assign('csrfToken', ValidatorCSRF::generateToken($sessionId));
 

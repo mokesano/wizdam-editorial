@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/usageStats/UsageStatsReportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UsageStatsReportPlugin
@@ -14,15 +14,15 @@ declare(strict_types=1);
  * @brief Default statistics report plugin (and metrics provider)
  */
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 
-define('OJS_METRIC_TYPE_COUNTER', 'ojs::counter');
+define('APP_METRIC_TYPE_COUNTER', 'wizdam::counter');
 
 class UsageStatsReportPlugin extends ReportPlugin {
 
     /**
      * Register the plugin.
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @param string $category
      * @param string $path
      * @return bool True on success
@@ -35,7 +35,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
 
     /**
      * Get the name of this plugin.
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      * @return string
      */
     public function getName(): string {
@@ -44,7 +44,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
 
     /**
      * Get the display name of this plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -53,7 +53,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
 
     /**
      * Get the description of this plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {
@@ -64,7 +64,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
      * Display the report.
      * @see ReportPlugin::display()
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function display($args, $request) {
         parent::display($args, $request);
@@ -72,7 +72,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
         $journal = Request::getJournal();
 
         $reportArgs = array(
-            'metricType' => OJS_METRIC_TYPE_COUNTER,
+            'metricType' => APP_METRIC_TYPE_COUNTER,
             'columns' => array(
                 STATISTICS_DIMENSION_ASSOC_ID, STATISTICS_DIMENSION_ASSOC_TYPE, STATISTICS_DIMENSION_CONTEXT_ID,
                 STATISTICS_DIMENSION_ISSUE_ID, STATISTICS_DIMENSION_MONTH, STATISTICS_DIMENSION_COUNTRY),
@@ -96,7 +96,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
         // Validate the metric type.
         if (!(is_scalar($metricType) || count($metricType) === 1)) return null;
         if (is_array($metricType)) $metricType = array_pop($metricType);
-        if ($metricType !== OJS_METRIC_TYPE_COUNTER) return null;
+        if ($metricType !== APP_METRIC_TYPE_COUNTER) return null;
 
         // This plug-in uses the MetricsDAO to store metrics. So we simply
         // delegate there.
@@ -111,7 +111,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
      * @return array
      */
     public function getMetricTypes() {
-        return array(OJS_METRIC_TYPE_COUNTER);
+        return array(APP_METRIC_TYPE_COUNTER);
     }
 
     /**
@@ -121,7 +121,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
      * @return string|null
      */
     public function getMetricDisplayType($metricType) {
-        if ($metricType !== OJS_METRIC_TYPE_COUNTER) return null;
+        if ($metricType !== APP_METRIC_TYPE_COUNTER) return null;
         return __('plugins.reports.usageStats.metricType');
     }
 
@@ -132,8 +132,8 @@ class UsageStatsReportPlugin extends ReportPlugin {
      * @return string|null
      */
     public function getMetricFullName($metricType) {
-        // Wizdam Fix: Typo OAS_METRIC_TYPE_COUNTER -> OJS_METRIC_TYPE_COUNTER
-        if ($metricType !== OJS_METRIC_TYPE_COUNTER) return null;
+        // Wizdam Fix: Typo OAS_METRIC_TYPE_COUNTER -> APP_METRIC_TYPE_COUNTER
+        if ($metricType !== APP_METRIC_TYPE_COUNTER) return null;
         return __('plugins.reports.usageStats.metricType.full');
     }
 
@@ -144,7 +144,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
      * @return array
      */
     public function getColumns($metricType) {
-        if ($metricType !== OJS_METRIC_TYPE_COUNTER) return array();
+        if ($metricType !== APP_METRIC_TYPE_COUNTER) return array();
         return array(
             STATISTICS_DIMENSION_ASSOC_ID,
             STATISTICS_DIMENSION_ASSOC_TYPE,
@@ -168,7 +168,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
      * @return array
      */
     public function getObjectTypes($metricType) {
-        if ($metricType !== OJS_METRIC_TYPE_COUNTER) return array();
+        if ($metricType !== APP_METRIC_TYPE_COUNTER) return array();
         return array(
             ASSOC_TYPE_JOURNAL,
             ASSOC_TYPE_ISSUE,
@@ -185,7 +185,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
      * @return array
      */
     public function getOptionalColumns($metricType) {
-        if ($metricType !== OJS_METRIC_TYPE_COUNTER) return array();
+        if ($metricType !== APP_METRIC_TYPE_COUNTER) return array();
         return array(
             STATISTICS_DIMENSION_CITY,
             STATISTICS_DIMENSION_REGION

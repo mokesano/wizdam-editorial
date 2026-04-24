@@ -3,8 +3,8 @@
 /**
  * @file plugins/generic/driver/DRIVERDAO.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DRIVERDAO
@@ -14,7 +14,7 @@
  * * FIXED: Updated for PHP 7.4 Compatibility & Modernized OAI Core
  */
 
-import('classes.oai.OAIDAO');
+import('core.Modules.oai.OAIDAO');
 
 class DRIVERDAO extends OAIDAO {
 
@@ -41,7 +41,7 @@ class DRIVERDAO extends OAIDAO {
 
     /**
      * Set parent OAI object.
-     * @param $oai JournalOAI
+     * @param $oai CoreOAI
      */
     public function setOAI($oai) {
         $this->oai = $oai;
@@ -68,7 +68,7 @@ class DRIVERDAO extends OAIDAO {
         // [FIXED] Manual SQL Construction because _getRecordsRecordSet was removed in Parent Refactor
         $params = $this->getOrderedRecordParams(null, $setIds, null);
         
-        // Note: 'mutex' table usage here assumes specific OJS fork implementation as per original code.
+        // Note: 'mutex' table usage here assumes specific Wizdam fork implementation as per original code.
         $sql = $this->getRecordSelectStatement() . ' FROM mutex m ' .
                $this->getRecordJoinClause(null, $setIds, null) . ' ' .
                $this->getAccessibleRecordWhereClause() . ' ' .

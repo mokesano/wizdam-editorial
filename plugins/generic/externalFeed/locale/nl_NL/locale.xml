@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/externalFeed/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * External feed plugin localization strings for the en_US (U.S. English) locale.
@@ -58,7 +58,7 @@
 	<message key="plugins.generic.externalFeed.form.titleRequired">Geef een titel voor deze feed</message>
 	<message key="plugins.generic.externalFeed.form.feedUrl">URL</message>
 	<message key="plugins.generic.externalFeed.form.feedUrlValid">Geef een geldige feed URL (met de http://)</message>
-	<message key="plugins.generic.externalFeed.form.feedUrlDescription">De URL van de externel Atom/RSS feed (bv. http://pkp.sfu.ca/blog/feed)</message>
+	<message key="plugins.generic.externalFeed.form.feedUrlDescription">De URL van de externel Atom/RSS feed (bv. http://wizdam.sangia.org/blog/feed)</message>
 	<message key="plugins.generic.externalFeed.form.display">Weergave</message>
 	<message key="plugins.generic.externalFeed.form.displayHomepage">Weergeven op de homepage</message>
 	<message key="plugins.generic.externalFeed.form.displayBlockNone">Niet in blok weergeven</message>

@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/booksForReview/locale/da_DK/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Books for review plugin localization strings for the da_DK (Dansk) locale.
@@ -126,7 +126,7 @@
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderBeforeDays2">dag(e) før anmeldelsens forfaldsdato.</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays1">Send forfattere en e-mail-rykker</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays2">dag(e) efter anmeldelsens forfaldsdato.</message>
-	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Bemærk:</strong> For at aktivere disse muligheder kræves det, at webstedsadministratoren har tilvalgt muligheden for de <tt>programsatte_opgaver</tt> i OJS’ konfigurationsfil. Yderligere serverkonfiguration er muligvis nødvendig for at understøtte denne funktionalitet (hvilket måske ikke kan udføres på alle servere) som anført i OJS’ dokumentationsmateriale.]]></message>
+	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Bemærk:</strong> For at aktivere disse muligheder kræves det, at webstedsadministratoren har tilvalgt muligheden for de <tt>programsatte_opgaver</tt> i Wizdam Editorial’ konfigurationsfil. Yderligere serverkonfiguration er muligvis nødvendig for at understøtte denne funktionalitet (hvilket måske ikke kan udføres på alle servere) som anført i Wizdam Editorial’ dokumentationsmateriale.]]></message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformation">Yderligere information</message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformationDescription">Yderligere information publiceret sammen med ‘bøger til anmeldelse’.</message>
 	<message key="plugins.generic.booksForReview.settings.dueWeeksRequired">Præcisér antallet af uger for boganmeldelsens forfaldsdato.</message>

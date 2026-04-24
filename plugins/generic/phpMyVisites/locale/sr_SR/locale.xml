@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/phpMyVisites/locale/sr_SR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * phpMyVisites plugin localization strings for the sr_SR (Cрпски) locale.
@@ -16,7 +16,7 @@
 
 	<!-- phpMyVisites -->
 	<message key="plugins.generic.phpmv.displayName">phpMyVisites dodatak</message>
-	<message key="plugins.generic.phpmv.description"><![CDATA[Integriše OJS sa phpMyVisites, besplatnim i  open source servisom za analitiku prometa na web sajtovima. Zahteva da je phpMyVisites već instaliran. Pogledajte <a href="http://www.phpmyvisites.us/" title="phpMyVisites site">phpMyVisites sajt</a> za više informacija.]]></message>
+	<message key="plugins.generic.phpmv.description"><![CDATA[Integriše Wizdam Editorial sa phpMyVisites, besplatnim i  open source servisom za analitiku prometa na web sajtovima. Zahteva da je phpMyVisites već instaliran. Pogledajte <a href="http://www.phpmyvisites.us/" title="phpMyVisites site">phpMyVisites sajt</a> za više informacija.]]></message>
 	<!-- phpMyVisites Settings Management -->
 	<message key="plugins.generic.phpmv.manager.settings">Podešavanja</message>
 	<message key="plugins.generic.phpmv.manager.phpmvSettings">phpMyVisites podešavanja</message>

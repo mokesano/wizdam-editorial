@@ -1,8 +1,8 @@
 /**
  * @file js/classes/features/OrderItemsFeature.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OrderItemsFeature
@@ -20,7 +20,7 @@
 	 *  the grid element that this feature is attached to.
 	 * @param {object} options Configuration of this feature.
 	 */
-	$.pkp.classes.features.OrderItemsFeature =
+	$.core.classes.features.OrderItemsFeature =
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
 
@@ -35,9 +35,9 @@
 
 		this.itemsOrder_ = [];
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.classes.features.OrderItemsFeature,
-			$.pkp.classes.features.Feature);
+	$.core.classes.Helper.inherits(
+			$.core.classes.features.OrderItemsFeature,
+			$.core.classes.features.Feature);
 
 
 	//
@@ -48,7 +48,7 @@
 	 * @private
 	 * @type {array}
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.itemsOrder_ = null;
+	$.core.classes.features.OrderItemsFeature.prototype.itemsOrder_ = null;
 
 
 	/**
@@ -56,7 +56,7 @@
 	 * @private
 	 * @type {boolean}
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.isOrdering_ = false;
+	$.core.classes.features.OrderItemsFeature.prototype.isOrdering_ = false;
 
 
 	/**
@@ -64,7 +64,7 @@
 	 * @private
 	 * @type {jQuery}
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.$orderButton_ = null;
+	$.core.classes.features.OrderItemsFeature.prototype.$orderButton_ = null;
 
 
 	/**
@@ -72,7 +72,7 @@
 	 * @private
 	 * @type {jQuery}
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.$cancelButton_ = null;
+	$.core.classes.features.OrderItemsFeature.prototype.$cancelButton_ = null;
 
 
 	/**
@@ -80,7 +80,7 @@
 	 * @private
 	 * @type {jQuery}
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.$saveButton_ = null;
+	$.core.classes.features.OrderItemsFeature.prototype.$saveButton_ = null;
 
 
 	/**
@@ -88,7 +88,7 @@
 	 * @private
 	 * @type {jQuery}
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.$finishControl_ = null;
+	$.core.classes.features.OrderItemsFeature.prototype.$finishControl_ = null;
 
 
 	//
@@ -98,7 +98,7 @@
 	 * Get the order button.
 	 * @return {jQuery} The order button JQuery object.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.getOrderButton =
+	$.core.classes.features.OrderItemsFeature.prototype.getOrderButton =
 			function() {
 		return this.$orderButton_;
 	};
@@ -108,7 +108,7 @@
 	 * Get the finish control.
 	 * @return {jQuery} The JQuery "finish" control.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.getFinishControl =
+	$.core.classes.features.OrderItemsFeature.prototype.getFinishControl =
 			function() {
 		return this.$finishControl_;
 	};
@@ -119,7 +119,7 @@
 	 *
 	 * @return {jQuery} The "save order" JQuery object.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.getSaveOrderButton =
+	$.core.classes.features.OrderItemsFeature.prototype.getSaveOrderButton =
 			function() {
 		return this.getFinishControl().find('.saveButton');
 	};
@@ -130,7 +130,7 @@
 	 *
 	 * @return {jQuery} The "cancel order" JQuery control.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.getCancelOrderButton =
+	$.core.classes.features.OrderItemsFeature.prototype.getCancelOrderButton =
 			function() {
 		return this.getFinishControl().find('.cancelFormButton');
 	};
@@ -140,7 +140,7 @@
 	 * Get the move item row action element selector.
 	 * @return {string} Return the element selector.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.
+	$.core.classes.features.OrderItemsFeature.prototype.
 			getMoveItemRowActionSelector = function() {
 		return '.orderable a.order_items';
 	};
@@ -150,9 +150,9 @@
 	 * Get the css classes used to stylize the ordering items.
 	 * @return {String} CSS classes.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.getMoveItemClasses =
+	$.core.classes.features.OrderItemsFeature.prototype.getMoveItemClasses =
 			function() {
-		return 'pkp_helpers_moveicon ordering';
+		return 'core_helpers_moveicon ordering';
 	};
 
 
@@ -165,7 +165,7 @@
 	 * @param {Event} event The drag/drop event.
 	 * @param {Object} ui Object with data related to the event elements.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.dragStartCallback =
+	$.core.classes.features.OrderItemsFeature.prototype.dragStartCallback =
 			function(contextElement, event, ui) {
 		// The default implementation does nothing.
 	};
@@ -177,7 +177,7 @@
 	 * @param {Event} event The drag/drop event.
 	 * @param {Object} ui Object with data related to the event elements.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.dragStopCallback =
+	$.core.classes.features.OrderItemsFeature.prototype.dragStopCallback =
 			function(contextElement, event, ui) {
 		// The default implementation does nothing.
 	};
@@ -189,7 +189,7 @@
 	 * @param {Event} event The drag/drop event.
 	 * @param {Object} ui Object with data related to the event elements.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.updateOrderCallback =
+	$.core.classes.features.OrderItemsFeature.prototype.updateOrderCallback =
 			function(contextElement, event, ui) {
 		// The default implementation does nothing.
 	};
@@ -201,7 +201,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.init =
+	$.core.classes.features.OrderItemsFeature.prototype.init =
 			function() {
 
 		this.addOrderingClassToRows();
@@ -217,7 +217,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.addFeatureHtml =
+	$.core.classes.features.OrderItemsFeature.prototype.addFeatureHtml =
 			function($gridElement, options) {
 		if (options.orderFinishControls !== undefined) {
 			var $orderFinishControls = $(options.orderFinishControls);
@@ -233,7 +233,7 @@
 	/**
 	 * Add orderable class to grid rows.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.addOrderingClassToRows =
+	$.core.classes.features.OrderItemsFeature.prototype.addOrderingClassToRows =
 			function() {
 		// Add ordering class to grid rows.
 		var $gridRows = this.gridHandler_.getRows();
@@ -244,7 +244,7 @@
 	/**
 	 * Setup the sortable plugin. Must be implemented in subclasses.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.setupSortablePlugin =
+	$.core.classes.features.OrderItemsFeature.prototype.setupSortablePlugin =
 			function() {
 		// Default implementation does nothing.
 	};
@@ -257,7 +257,7 @@
 	 * jQuery object.
 	 * @param {jQuery} $row Row for which to store the sequence.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.storeRowOrder =
+	$.core.classes.features.OrderItemsFeature.prototype.storeRowOrder =
 			function(index, $row) {
 		// The default implementation does nothing.
 	};
@@ -270,7 +270,7 @@
 	 * Initiate ordering button click event handler.
 	 * @return {boolean} Always returns false.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.clickOrderHandler =
+	$.core.classes.features.OrderItemsFeature.prototype.clickOrderHandler =
 			function() {
 		this.gridHandler_.hideAllVisibleRowActions();
 		this.storeOrder(this.gridHandler_.getRows());
@@ -282,7 +282,7 @@
 	/**
 	 * Save order handler.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.saveOrderHandler =
+	$.core.classes.features.OrderItemsFeature.prototype.saveOrderHandler =
 			function() {
 		this.gridHandler_.updateControlRowsPosition();
 		this.unbindOrderFinishControlsHandlers_();
@@ -295,7 +295,7 @@
 	 * Cancel ordering action click event handler.
 	 * @return {boolean} Always returns false.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.cancelOrderHandler =
+	$.core.classes.features.OrderItemsFeature.prototype.cancelOrderHandler =
 			function() {
 		this.gridHandler_.resequenceRows(this.itemsOrder_);
 		this.toggleState(false);
@@ -308,7 +308,7 @@
 	 * ordering process (enabled or disabled).
 	 * @param {boolean} isOrdering Is ordering process active?
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.toggleState =
+	$.core.classes.features.OrderItemsFeature.prototype.toggleState =
 			function(isOrdering) {
 		this.isOrdering_ = isOrdering;
 		this.toggleGridLinkActions_();
@@ -325,7 +325,7 @@
 	 *
 	 * @param {jQuery} $rows The rows to be used to get the sequence information.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.storeOrder =
+	$.core.classes.features.OrderItemsFeature.prototype.storeOrder =
 			function($rows) {
 		this.itemsOrder_ = [];
 		var index, limit;
@@ -344,7 +344,7 @@
 	/**
 	 * Enable/disable the items drag mode.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.toggleItemsDragMode =
+	$.core.classes.features.OrderItemsFeature.prototype.toggleItemsDragMode =
 			function() {
 		var isOrdering = this.isOrdering_;
 		var $rows = this.gridHandler_.getRows();
@@ -366,7 +366,7 @@
 	 * @param {string} itemsSelector The jQuery selector for orderable items.
 	 * @param {Object?} extraParams Optional set of extra parameters for sortable.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.applySortPlgOnElements =
+	$.core.classes.features.OrderItemsFeature.prototype.applySortPlgOnElements =
 			function($container, itemsSelector, extraParams) {
 		var isOrdering = this.isOrdering_;
 		var dragStartCallback = this.gridHandler_.callbackWrapper(
@@ -398,7 +398,7 @@
 	 * that will be used to retrieve the id.
 	 * @return {Array} A sequence array with data element ids as values.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.getRowsDataId =
+	$.core.classes.features.OrderItemsFeature.prototype.getRowsDataId =
 			function($rowsContainer) {
 		var index;
 		var rowDataIds = [];
@@ -419,7 +419,7 @@
 	 * Show/hide the move item row action (position left).
 	 * @param {boolean} enable New enable state.
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.toggleMoveItemRowAction =
+	$.core.classes.features.OrderItemsFeature.prototype.toggleMoveItemRowAction =
 			function(enable) {
 		var $grid = this.getGridHtmlElement();
 		var $actionsContainer = $('div.row_actions', $grid);
@@ -428,12 +428,12 @@
 		var $actions = $actionsContainer.find(allLinksButMoveItemSelector);
 		var $moveItemRowAction = $(this.getMoveItemRowActionSelector(), $grid);
 		if (enable) {
-			$actions.addClass('pkp_helpers_display_none');
+			$actions.addClass('core_helpers_display_none');
 			$moveItemRowAction.show();
 			// Make sure row actions div is visible.
 			this.gridHandler_.showRowActionsDiv();
 		} else {
-			$actions.removeClass('pkp_helpers_display_none');
+			$actions.removeClass('core_helpers_display_none');
 
 			var $rowActionsContainer = $('.gridRow div.row_actions', $grid);
 			var $rowActions = $rowActionsContainer.
@@ -453,7 +453,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.appendElement =
+	$.core.classes.features.OrderItemsFeature.prototype.appendElement =
 			function($element) {
 		this.addOrderingClassToRows();
 		this.toggleItemsDragMode();
@@ -463,7 +463,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.replaceElement =
+	$.core.classes.features.OrderItemsFeature.prototype.replaceElement =
 			function($content) {
 		this.addOrderingClassToRows();
 		this.toggleItemsDragMode();
@@ -477,13 +477,13 @@
 	 * Set the state of the grid link actions, based on current ordering state.
 	 * @private
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.toggleGridLinkActions_ =
+	$.core.classes.features.OrderItemsFeature.prototype.toggleGridLinkActions_ =
 			function() {
 		var isOrdering = this.isOrdering_;
 
 		// We want to enable/disable all link actions, except this
 		// features controls.
-		var $gridLinkActions = $('.pkp_controllers_linkAction',
+		var $gridLinkActions = $('.core_controllers_linkAction',
 				this.getGridHtmlElement()).not(this.getMoveItemRowActionSelector(),
 				this.getOrderButton(), this.getFinishControl().find('*'));
 
@@ -495,7 +495,7 @@
 	 * Enable/disable the order link action.
 	 * @private
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.toggleOrderLink_ =
+	$.core.classes.features.OrderItemsFeature.prototype.toggleOrderLink_ =
 			function() {
 		if (this.isOrdering_) {
 			this.$orderButton_.unbind('click');
@@ -514,7 +514,7 @@
 	 * on the current ordering state.
 	 * @private
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.toggleFinishControl_ =
+	$.core.classes.features.OrderItemsFeature.prototype.toggleFinishControl_ =
 			function() {
 		if (this.isOrdering_) {
 			this.bindOrderFinishControlsHandlers_();
@@ -531,7 +531,7 @@
 	 * ordering action (save and cancel).
 	 * @private
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.
+	$.core.classes.features.OrderItemsFeature.prototype.
 			bindOrderFinishControlsHandlers_ = function() {
 		var $saveButton = this.getSaveOrderButton();
 		var $cancelLink = this.getCancelOrderButton();
@@ -551,7 +551,7 @@
 	 * ordering action (save and cancel).
 	 * @private
 	 */
-	$.pkp.classes.features.OrderItemsFeature.prototype.
+	$.core.classes.features.OrderItemsFeature.prototype.
 			unbindOrderFinishControlsHandlers_ = function() {
 		var $saveButton = this.getSaveOrderButton();
 		var $cancelLink = this.getCancelOrderButton();

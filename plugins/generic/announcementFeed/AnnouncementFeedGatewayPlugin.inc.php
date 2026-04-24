@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/announcementFeed/AnnouncementFeedGatewayPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementFeedGatewayPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('classes.plugins.GatewayPlugin');
+import('core.Modules.plugins.GatewayPlugin');
 
 class AnnouncementFeedGatewayPlugin extends GatewayPlugin {
     
@@ -122,7 +122,7 @@ class AnnouncementFeedGatewayPlugin extends GatewayPlugin {
     /**
      * Handle fetch requests for this plugin.
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function fetch($args, $request = null) {
         // Make sure we're within a Journal context
@@ -159,7 +159,7 @@ class AnnouncementFeedGatewayPlugin extends GatewayPlugin {
         $journalId = $journal->getId();
         
         if ($limitRecentItems && $recentItems > 0) {
-            import('lib.pkp.classes.db.DBResultRange');
+            import('core.Modules.db.DBResultRange');
             $rangeInfo = new DBResultRange($recentItems, 1);
             $announcements = $announcementDao->getAnnouncementsNotExpiredByAssocId(ASSOC_TYPE_JOURNAL, $journalId, $rangeInfo);
         } else {
@@ -191,7 +191,7 @@ class AnnouncementFeedGatewayPlugin extends GatewayPlugin {
         $version = $versionDao->getCurrentVersion();
 
         $templateMgr = TemplateManager::getManager();
-        $templateMgr->assign('ojsVersion', $version->getVersionString());
+        $templateMgr->assign('wizdamVersion', $version->getVersionString());
         $templateMgr->assign('selfUrl', Request::getCompleteUrl()); 
         $templateMgr->assign('dateUpdated', $dateUpdated);
         

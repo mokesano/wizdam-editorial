@@ -20,7 +20,7 @@
     {rdelim});
 </script>
 
-<div class="pkp_controllers_modal_titleBar wizdam-modal-header">
+<div class="core_controllers_modal_titleBar wizdam-modal-header">
     <div class="wizdam-modal-title-group">
         {if $modalIcon}
             <span class="icon {$modalIcon|escape}"></span>

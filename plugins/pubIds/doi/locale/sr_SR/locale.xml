@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/doi/locale/sr_SR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * DOI plugin localization strings
@@ -13,11 +13,11 @@
  
 <locale name="sr_SR" full_name="Cрпски">
 	<message key="plugins.pubIds.doi.displayName">DOI</message>
-	<message key="plugins.pubIds.doi.description">Ovaj dodatak omogućuje dodavanje Digital Object Identifiers jedinicama (brojevima), člancima, prikazima i dodatnim fajlovima u OJS-u.</message>
+	<message key="plugins.pubIds.doi.description">Ovaj dodatak omogućuje dodavanje Digital Object Identifiers jedinicama (brojevima), člancima, prikazima i dodatnim fajlovima u Wizdam Editorial-u.</message>
 
 	<!-- settings form -->
 	<message key="plugins.pubIds.doi.manager.settings.doiSettings">DOI podešavanja</message>
-	<message key="plugins.pubIds.doi.manager.settings.description">Podesite DOI dodatak kako biste mogli koristiti DOI-e u OJS-u:</message>
+	<message key="plugins.pubIds.doi.manager.settings.description">Podesite DOI dodatak kako biste mogli koristiti DOI-e u Wizdam Editorial-u:</message>
 	
 	<message key="plugins.pubIds.doi.manager.settings.doiObjects">Sadržaj časopisa</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiObjectsRequired">Odaberite objekte kojima bi DOI-i trebali biti dodeljeni.</message>
@@ -33,7 +33,7 @@
 
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffix">DOI sufiks</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixDescription">DOI sufiks može biti u bilo kojoj formi, ali mora biti jedinstven među svim objektima objavljivanja koji koriste isti DOI prefiks:</message>
-	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Koristite obrazac dole da generišete DOI sufikse. Koristite %j za inisijale časopisa, %v za vol., %i za broj, %Y za godinu, %a za OJS ID članka, %g za OJS ID prikaza, %s za OJS ID dodatnog fajla i %p za broj stranice.</message>
+	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Koristite obrazac dole da generišete DOI sufikse. Koristite %j za inisijale časopisa, %v za vol., %i za broj, %Y za godinu, %a za Wizdam Editorial ID članka, %g za Wizdam Editorial ID prikaza, %s za Wizdam Editorial ID dodatnog fajla i %p za broj stranice.</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.issues">za jedinicu (broj)</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.articles">za članak</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.galleys">za prikaz</message>

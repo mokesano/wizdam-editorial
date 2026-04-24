@@ -2,7 +2,7 @@
 <html>
 {**
  * templates/billing/invoicePdf.tpl
- * Template khusus PDF — tanpa header/footer OJS, murni HTML untuk mPDF
+ * Template khusus PDF — tanpa header/footer App, murni HTML untuk mPDF
  *}
 <head>
 <meta charset="utf-8">

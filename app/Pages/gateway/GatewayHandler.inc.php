@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/gateway/GatewayHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class GatewayHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class GatewayHandler extends Handler {
     
@@ -44,7 +44,7 @@ class GatewayHandler extends Handler {
     /**
      * Index handler.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -56,7 +56,7 @@ class GatewayHandler extends Handler {
     /**
      * Handle LOCKSS requests.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function lockss($args, $request) {
         $this->validate();
@@ -159,7 +159,7 @@ class GatewayHandler extends Handler {
     /**
      * Handle requests for gateway plugins.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function plugin($args, $request) {
         $this->validate();

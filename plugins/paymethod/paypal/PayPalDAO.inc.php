@@ -4,7 +4,7 @@ declare(strict_types=1);
 /**
  * @file plugins/paymethod/paypal/PayPalDAO.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
+ * Copyright (c) 2013-2019 Sangia Publishing House
  * Copyright (c) 2006-2009 Gunther Eysenbach, Juan Pablo Alperin, MJ Suhonos
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.db.DAO');
+import('core.Modules.db.DAO');
 
 class PayPalDAO extends DAO {
     

@@ -18,8 +18,8 @@ declare(strict_types=1);
  * DRY Principle, and N+1 Query Optimization.
  */
 
-import('classes.handler.Handler');
-import('lib.pkp.classes.core.PKPString');
+import('core.Modules.handler.Handler');
+import('core.Kernel.CoreString');
 
 class PoliciesHandler extends Handler {
 
@@ -50,11 +50,11 @@ class PoliciesHandler extends Handler {
 
     /**
      * Helper: Mendapatkan object request yang valid (Mencegah repeat kode).
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      * @return object
      */
     private function _getRequest($request = null) {
-        return $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        return $request instanceof CoreRequest ? $request : Application::get()->getRequest();
     }
 
     // --------------------------------------------------------------
@@ -64,7 +64,7 @@ class PoliciesHandler extends Handler {
     /**
      * Halaman Utama Kebijakan (Index).
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function index($args = [], $request = null) {
         $request = $this->_getRequest($request);
@@ -81,7 +81,7 @@ class PoliciesHandler extends Handler {
     /**
      * Penangan Kebijakan Dinamis (View).
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function view($args = [], $request = null) {
         $request = $this->_getRequest($request);
@@ -110,7 +110,7 @@ class PoliciesHandler extends Handler {
     /**
      * Menampilkan Privacy Statement.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function privacyStatement($args = [], $request = null) {
         $this->_commonPolicyHandler('privacyStatement', 'about.privacyStatement', $this->_getRequest($request));
@@ -119,7 +119,7 @@ class PoliciesHandler extends Handler {
     /**
      * Menampilkan Peer Review Process.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function peerReview($args = [], $request = null) {
         $this->_commonPolicyHandler('reviewPolicy', 'about.peerReviewProcess', $this->_getRequest($request));
@@ -128,7 +128,7 @@ class PoliciesHandler extends Handler {
     /**
      * Menampilkan Publication Ethics.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function ethics($args = [], $request = null) {
         $this->_commonPolicyHandler('publicationEthics', 'about.publicationEthics', $this->_getRequest($request));
@@ -141,7 +141,7 @@ class PoliciesHandler extends Handler {
     /**
      * Menampilkan Open Access Policy dengan Logika Cerdas.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function openAccess($args = [], $request = null) {
         $request = $this->_getRequest($request);
@@ -174,7 +174,7 @@ class PoliciesHandler extends Handler {
             }
         }
 
-        if (!empty($content)) $content = PKPString::stripUnsafeHtml($content);
+        if (!empty($content)) $content = CoreString::stripUnsafeHtml($content);
 
         $translatedTitle = AppLocale::Translate($pageTitleKey);
         $templateMgr->assign('pageTitle', $translatedTitle);
@@ -191,7 +191,7 @@ class PoliciesHandler extends Handler {
     /**
      * Menampilkan Kebijakan Pengarsipan (Archiving).
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function archiving($args = [], $request = null) {
         $request = $this->_getRequest($request);
@@ -221,7 +221,7 @@ class PoliciesHandler extends Handler {
             }
         }
 
-        if (!empty($content)) $content = PKPString::stripUnsafeHtml($content);
+        if (!empty($content)) $content = CoreString::stripUnsafeHtml($content);
 
         $translatedTitle = AppLocale::Translate('about.archiving');
         $templateMgr->assign('pageTitle', $translatedTitle);
@@ -234,7 +234,7 @@ class PoliciesHandler extends Handler {
     /**
      * Menampilkan Copyright Notice.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function copyright($args = [], $request = null) {
         $this->_commonPolicyHandler('copyrightNotice', 'about.copyrightNotice', $this->_getRequest($request));
@@ -243,7 +243,7 @@ class PoliciesHandler extends Handler {
     /**
      * Menampilkan Publication Frequency.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function publicationFrequency($args = [], $request = null) {
         $this->_commonPolicyHandler('pubFreqPolicy', 'about.publicationFrequency', $this->_getRequest($request));
@@ -253,7 +253,7 @@ class PoliciesHandler extends Handler {
      * Menampilkan Kebijakan Bagian (Section Policies) dengan Optimasi Performa
      * dan Penarikan Data (Afiliasi/Interests) yang Akurat.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function sectionPolicies($args = [], $request = null) {
         $request = $this->_getRequest($request);
@@ -350,7 +350,7 @@ class PoliciesHandler extends Handler {
         $templateMgr->assign('sectionEditorEntriesBySection', $sectionEditorEntriesBySection);
         $templateMgr->assign('pageTitle', 'about.sectionPolicies');
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('paymentConfigured', $paymentManager->isConfigured());
 
@@ -365,7 +365,7 @@ class PoliciesHandler extends Handler {
      * Helper Umum untuk Menampilkan Halaman Kebijakan Standar.
      * @param string $settingName
      * @param string $titleKey
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function _commonPolicyHandler($settingName, $titleKey, $request) {
         $this->validate();
@@ -399,7 +399,7 @@ class PoliciesHandler extends Handler {
 
     /**
      * Helper untuk Menampilkan Kebijakan Kustom (Custom Items).
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @param string $slug
      * @return boolean
      */
@@ -424,7 +424,7 @@ class PoliciesHandler extends Handler {
 
     /**
      * Helper untuk Menampilkan Daftar Index Kebijakan.
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function _showPolicyIndex($request) {
         $journal = $request->getJournal();
@@ -498,7 +498,7 @@ class PoliciesHandler extends Handler {
 
     /**
      * Setup Common Template Data.
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function setupTemplate($request = NULL) {
         parent::setupTemplate();
@@ -523,7 +523,7 @@ class PoliciesHandler extends Handler {
         $templateMgr->assign('customPolicies', $processedCustomItems);
 
         $router = $request->getRouter();
-        if ($router instanceof PKPPageRouter) {
+        if ($router instanceof CorePageRouter) {
             $requestedOp = $router->getRequestedOp($request);
 
             if ($requestedOp !== 'index') {

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/pages/ObjectsForReviewHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ObjectsForReviewHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class ObjectsForReviewHandler extends Handler {
 
@@ -41,7 +41,7 @@ class ObjectsForReviewHandler extends Handler {
     /**
      * Display objects for review public index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args, $request) {
         $journal = $request->getJournal();
@@ -151,14 +151,14 @@ class ObjectsForReviewHandler extends Handler {
         $templateMgr->assign('isAuthor', $isAuthor);
         $templateMgr->assign('authorAssignments', $authorAssignments);
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $coverPagePath = $request->getBaseUrl() . '/';
         $coverPagePath .= $publicFileManager->getJournalFilesPath($journalId) . '/';
         $templateMgr->assign('coverPagePath', $coverPagePath);
 
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
-        $ofrPlugin->import('classes.ReviewObjectMetadata');
+        $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
         $templateMgr->assign('multipleOptionsTypes', ReviewObjectMetadata::getMultipleOptionsTypes());
         $templateMgr->assign('additionalInformation', $ofrPlugin->getSetting($journalId, 'additionalInformation'));
         $templateMgr->assign('ofrListing', true);
@@ -168,7 +168,7 @@ class ObjectsForReviewHandler extends Handler {
     /**
      * Public view object for review details.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewObjectForReview($args, $request) {
         // Ensure the args (object ID) exists
@@ -222,14 +222,14 @@ class ObjectsForReviewHandler extends Handler {
             $templateMgr->assign('authorAssignments', $authorAssignments);
 
             // Cover page path
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $publicFileManager = new PublicFileManager();
             $coverPagePath = $request->getBaseUrl() . '/';
             $coverPagePath .= $publicFileManager->getJournalFilesPath($journalId) . '/';
             $templateMgr->assign('coverPagePath', $coverPagePath);
 
             $ofrPlugin = $this->_getObjectsForReviewPlugin();
-            $ofrPlugin->import('classes.ReviewObjectMetadata');
+            $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
             $templateMgr->assign('multipleOptionsTypes', ReviewObjectMetadata::getMultipleOptionsTypes());
             $templateMgr->assign('locale', AppLocale::getLocale());
             $templateMgr->assign('ofrListing', false);
@@ -244,7 +244,7 @@ class ObjectsForReviewHandler extends Handler {
     /**
      * Ensure that we have a selected journal, the plugin is enabled,
      * in full mode and the option 'displayListing' is selected
-     * @see PKPHandler::authorize()
+     * @see CoreHandler::authorize()
      */
     public function authorize($request, $args, $roleAssignments) {
         $journal = $request->getJournal();
@@ -266,7 +266,7 @@ class ObjectsForReviewHandler extends Handler {
 
     /**
      * Setup common template variables.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param boolean $subclass set to true if caller is below this handler in the hierarchy
      */
     public function setupTemplate($request, $subclass = false) {

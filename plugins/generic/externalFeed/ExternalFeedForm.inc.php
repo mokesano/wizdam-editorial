@@ -4,21 +4,21 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/externalFeed/ExternalFeedForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ExternalFeedForm
  * @ingroup plugins_generic_externalFeed
  *
  * @brief Form for journal managers to modify external feed plugin settings
- * * MODERNIZED FOR PHP 8.x & OJS FORK (Wizdam Edition)
+ * * MODERNIZED FOR PHP 8.x & Wizdam FORK (Wizdam Edition)
  * - Implemented proper __construct.
  * - Removed obsolete var keywords.
  * - Strict type casting for security.
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ExternalFeedForm extends Form {
 

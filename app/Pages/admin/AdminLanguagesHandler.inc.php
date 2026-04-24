@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/admin/AdminLanguagesHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AdminLanguagesHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.admin.AdminHandler');
+import('app.Pages.admin.AdminHandler');
 
 class AdminLanguagesHandler extends AdminHandler {
     
@@ -44,7 +44,7 @@ class AdminLanguagesHandler extends AdminHandler {
     /**
      * Display form to modify site language settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function languages($args, $request = null) {
         $this->validate();
@@ -70,7 +70,7 @@ class AdminLanguagesHandler extends AdminHandler {
         $templateMgr->assign('uninstalledLocales', array_diff(array_keys(AppLocale::getAllLocales()), $site->getInstalledLocales()));
         $templateMgr->assign('helpTopicId', 'site.siteManagement');
 
-        import('classes.i18n.LanguageAction');
+        import('core.Modules.i18n.LanguageAction');
         $languageAction = new LanguageAction();
         if ($languageAction->isDownloadAvailable()) {
             $templateMgr->assign('downloadAvailable', true);
@@ -83,7 +83,7 @@ class AdminLanguagesHandler extends AdminHandler {
     /**
      * Update language settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveLanguageSettings($args, $request) {
         $this->validate();
@@ -126,7 +126,7 @@ class AdminLanguagesHandler extends AdminHandler {
 
         $user = $request->getUser();
 
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification($user->getId());
 
@@ -136,7 +136,7 @@ class AdminLanguagesHandler extends AdminHandler {
     /**
      * Install a new locale.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function installLocale($args, $request) {
         $this->validate();
@@ -169,7 +169,7 @@ class AdminLanguagesHandler extends AdminHandler {
     /**
      * Uninstall a locale
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function uninstallLocale($args, $request) {
         $this->validate();
@@ -203,7 +203,7 @@ class AdminLanguagesHandler extends AdminHandler {
     /**
      * Reload data for an installed locale.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function reloadLocale($args, $request) {
         $this->validate();
@@ -219,7 +219,7 @@ class AdminLanguagesHandler extends AdminHandler {
 
             $user = $request->getUser();
 
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification($user->getId());
         }
@@ -230,7 +230,7 @@ class AdminLanguagesHandler extends AdminHandler {
     /**
      * Reload default email templates for a locale.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function reloadDefaultEmailTemplates($args, $request) {
         $this->validate();
@@ -248,7 +248,7 @@ class AdminLanguagesHandler extends AdminHandler {
 
             $user = $request->getUser();
 
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification($user->getId());
         }
@@ -258,7 +258,7 @@ class AdminLanguagesHandler extends AdminHandler {
     
     /**
      * Helper function to remove unsupported locales from journals.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function _removeLocalesFromJournals($request) {
         // [WIZDAM] Singleton Fallback
@@ -289,9 +289,9 @@ class AdminLanguagesHandler extends AdminHandler {
     }
 
     /**
-     * Download a locale from the PKP web site.
+     * Download a locale from the Wizdam web site.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function downloadLocale($args, $request) {
         $this->validate();
@@ -302,7 +302,7 @@ class AdminLanguagesHandler extends AdminHandler {
 
         $locale = trim((string) $request->getUserVar('locale'));
 
-        import('classes.i18n.LanguageAction');
+        import('core.Modules.i18n.LanguageAction');
         $languageAction = new LanguageAction();
 
         if (!$languageAction->isDownloadAvailable()) $request->redirect(null, null, 'languages');
@@ -323,7 +323,7 @@ class AdminLanguagesHandler extends AdminHandler {
 
         $user = $request->getUser();
 
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $params = ['locale' => $locale];
         $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_LOCALE_INSTALLED, $params);

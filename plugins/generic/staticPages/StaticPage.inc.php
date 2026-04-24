@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/staticPages/StaticPage.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @package plugins.generic.staticPages
@@ -124,7 +124,7 @@ class StaticPage extends DataObject {
 
     /**
      * Get ID of page.
-     * @deprecated since OJS 2.x. Please use getId() instead.
+     * @deprecated since Wizdam 2.x. Please use getId() instead.
      * @return int
      */
     public function getStaticPageId() {
@@ -136,7 +136,7 @@ class StaticPage extends DataObject {
 
     /**
      * Set ID of page.
-     * @deprecated since OJS 2.x. Please use setId() instead.
+     * @deprecated since Wizdam 2.x. Please use setId() instead.
      * @param $staticPageId int
      */
     public function setStaticPageId($staticPageId) {

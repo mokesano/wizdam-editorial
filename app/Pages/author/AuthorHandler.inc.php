@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/author/AuthorHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AuthorHandler
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.submission.author.AuthorAction');
-import('classes.handler.Handler');
+import('core.Modules.submission.author.AuthorAction');
+import('core.Modules.handler.Handler');
 
 class AuthorHandler extends Handler {
     /** @var AuthorSubmission|null */
@@ -48,7 +48,7 @@ class AuthorHandler extends Handler {
     /**
      * Display journal author index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate(null, $request);
@@ -93,7 +93,7 @@ class AuthorHandler extends Handler {
         
         $sortDirection = (string) $request->getUserVar('sortDirection');
         
-        // [SECURITY & ROBUSTNESS FIX] Mengganti kode ternary OJS dengan whitelisting yang jelas
+        // [SECURITY & ROBUSTNESS FIX] Mengganti kode ternary Wizdam dengan whitelisting yang jelas
         $allowedSortDirections = [
             'ASC', 
             'DESC'
@@ -124,7 +124,7 @@ class AuthorHandler extends Handler {
                 $submissionsArray = array_reverse($submissionsArray);
             }
             // Convert submission array back to an ItemIterator class
-            import('lib.pkp.classes.core.ArrayItemIterator');
+            import('core.Kernel.ArrayItemIterator');
             $submissions = ArrayItemIterator::fromRangeInfo($submissionsArray, $rangeInfo);
         } else {
             $submissions = $authorSubmissionDao->getAuthorSubmissions($user->getId(), $journal->getId(), $active, $rangeInfo, $sort, $sortDirection);
@@ -140,7 +140,7 @@ class AuthorHandler extends Handler {
         $templateMgr->assign('submissions', $submissions);
 
         // assign payment 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
 
         if ( $paymentManager->isConfigured() ) {        
@@ -148,16 +148,16 @@ class AuthorHandler extends Handler {
             $templateMgr->assign('fastTrackEnabled', $paymentManager->fastTrackEnabled());
             $templateMgr->assign('publicationEnabled', $paymentManager->publicationEnabled());
             
-            $completedPaymentDAO = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+            $completedPaymentDAO = DAORegistry::getDAO('AppCompletedPaymentDAO');
             // [WIZDAM] Removed assign_by_ref
             $templateMgr->assign('completedPaymentDAO', $completedPaymentDAO);
         }
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         
         // Note: register_function might be deprecated depending on Smarty version, consider registering plugin/modifier.
-        // Keeping as is for OJS 2.x compatibility structure unless Smarty updated.
+        // Keeping as is for Wizdam 2.x compatibility structure unless Smarty updated.
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
         
         $templateMgr->assign('helpTopicId', 'editorial.authorsRole.submissions');
@@ -171,7 +171,7 @@ class AuthorHandler extends Handler {
      * and, optionally, for the specified article.
      * Redirects to user index page if not properly authenticated.
      * @param mixed $requiredContexts (Legacy param)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int|null $articleId optional
      * @param string|null $reason optional
      */
@@ -223,7 +223,7 @@ class AuthorHandler extends Handler {
 
     /**
      * Setup common template variables.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $subclass
      * @param int $articleId
      * @param string|null $parentPage
@@ -244,7 +244,7 @@ class AuthorHandler extends Handler {
         $pageHierarchy = $subclass ? [[$request->url(null, 'user'), 'navigation.user'], [$request->url(null, 'author'), 'user.role.author'], [$request->url(null, 'author'), 'article.submissions']]
             : [[$request->url(null, 'user'), 'navigation.user'], [$request->url(null, 'author'), 'user.role.author']];
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         $submissionCrumb = SectionEditorAction::submissionBreadcrumb($articleId, $parentPage, 'author');
         if (isset($submissionCrumb)) {
             $pageHierarchy = array_merge($pageHierarchy, $submissionCrumb);
@@ -255,10 +255,10 @@ class AuthorHandler extends Handler {
     /**
      * Display submission management instructions.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function instructions($args, $request = null) {
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
         

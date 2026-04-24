@@ -1,6 +1,6 @@
 /**
  * js/simple-submission-progress.js
- * Simple Progress Bar JavaScript for OJS 2.4.8.2 - WITH COMPREHENSIVE LOGGING
+ * Simple Progress Bar JavaScript for Core 2.4.8.2 - WITH COMPREHENSIVE LOGGING
  */
 
 (function() {

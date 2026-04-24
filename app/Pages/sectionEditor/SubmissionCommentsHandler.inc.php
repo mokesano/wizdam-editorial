@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/sectionEditor/SubmissionCommentsHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionCommentsHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.sectionEditor.SubmissionEditHandler');
+import('app.Pages.sectionEditor.SubmissionEditHandler');
 
 class SubmissionCommentsHandler extends SectionEditorHandler {
     
@@ -47,11 +47,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * View peer review comments.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function viewPeerReviewComments($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $reviewId = (int) array_shift($args);
@@ -65,11 +65,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * Post peer review comments.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function postPeerReviewComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' (ID integer) dengan trim()
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -93,11 +93,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * View editor decision comments.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function viewEditorDecisionComments($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
 
@@ -110,11 +110,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * Post editor decision comments.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function postEditorDecisionComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' (ID integer) dengan trim()
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -135,11 +135,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * View copyedit comments.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function viewCopyeditComments($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
 
@@ -152,11 +152,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * Post copyedit comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function postCopyeditComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' (ID integer) dengan trim()
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -177,11 +177,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * View layout comments.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function viewLayoutComments($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
 
@@ -194,11 +194,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * Post layout comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function postLayoutComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' (ID integer) dengan trim()
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -219,11 +219,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * View proofread comments.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function viewProofreadComments($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
 
@@ -236,11 +236,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * Post proofread comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function postProofreadComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' (ID integer) dengan trim()
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -261,11 +261,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * Email an editor decision comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function emailEditorDecisionComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' (ID integer) - Ini sudah benar
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -298,11 +298,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * Blind CC the editor decision email to reviewers.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function bccEditorDecisionCommentToReviewers($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' (ID integer) dengan trim()
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -323,11 +323,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * Edit comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function editComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $commentId = (int) array_shift($args);
@@ -349,11 +349,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * Save comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function saveComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' (ID integer) dengan trim()
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -400,11 +400,11 @@ class SubmissionCommentsHandler extends SectionEditorHandler {
     /**
      * Delete comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function deleteComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $commentId = (int) array_shift($args);

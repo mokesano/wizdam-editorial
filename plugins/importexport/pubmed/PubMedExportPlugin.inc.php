@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/pubmed/PubMedExportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PubMedExportPlugin
@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief PubMed/MEDLINE XML metadata export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
 class PubMedExportPlugin extends ImportExportPlugin {
 
@@ -124,7 +124,7 @@ class PubMedExportPlugin extends ImportExportPlugin {
             case 'issues':
                 // Display a list of issues for export
                 $this->setBreadcrumbs([], true);
-                AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR);
                 $issues = $issueDao->getIssues($journal->getId(), Handler::getRangeInfo('issues'));
 
                 $templateMgr->assign('issues', $issues);
@@ -140,7 +140,7 @@ class PubMedExportPlugin extends ImportExportPlugin {
                 if ($rangeInfo->isValid()) {
                     $articleIds = array_slice($articleIds, $rangeInfo->getCount() * ($rangeInfo->getPage() - 1), $rangeInfo->getCount());
                 }
-                import('lib.pkp.classes.core.VirtualArrayIterator');
+                import('core.Kernel.VirtualArrayIterator');
                 $iterator = new VirtualArrayIterator(ArticleSearch::formatResults($articleIds), $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
                 $templateMgr->assign('articles', $iterator);
                 $templateMgr->display($this->getTemplatePath() . 'articles.tpl');

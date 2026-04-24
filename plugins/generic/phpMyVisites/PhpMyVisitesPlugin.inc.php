@@ -4,18 +4,18 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/phpMyVisites/PhpMyVisitesPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PhpMyVisitesPlugin
  * @ingroup plugins_generic_phpMyVisites
  *
  * @brief phpMyVisites plugin class
- * * MODERNIZED FOR PHP 7.4+ & OJS FORK
+ * * MODERNIZED FOR PHP 7.4+ & Wizdam FORK
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class PhpMyVisitesPlugin extends GenericPlugin {
     
@@ -179,7 +179,7 @@ class PhpMyVisitesPlugin extends GenericPlugin {
                 $templateMgr->register_function('plugin_url', array($this, 'smartyPluginUrl'));
                 $journal = $request->getJournal();
 
-                AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON,  LOCALE_COMPONENT_PKP_MANAGER);
+                AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON,  LOCALE_COMPONENT_WIZDAM_MANAGER);
                 $this->import('PhpMyVisitesSettingsForm');
                 $form = new PhpMyVisitesSettingsForm($this, $journal->getId());
                 if (Request::getUserVar('save')) {

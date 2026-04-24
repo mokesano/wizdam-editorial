@@ -2,14 +2,14 @@
 <!--
   * schema.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * OJS solr/lucene search plugin index schema default configuration.
+  * Wizdam Editorial solr/lucene search plugin index schema default configuration.
   * 
   * NB: You may customize the index/query analyzer chains. Do not change the field
-  * configuration, though, as this will probably break the OJS/solr indexing or
+  * configuration, though, as this will probably break the Wizdam Editorial/solr indexing or
   * search protocol.
   -->
 
@@ -409,10 +409,10 @@
     <field name="section_id" type="numId" indexed="true" stored="true" required="true" multiValued="false" />
     <dynamicField name="*_id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
 
-    <!-- OJS locale support. We are using stored field for easier debugging. This can be changed
+    <!-- Wizdam Editorial locale support. We are using stored field for easier debugging. This can be changed
          to "false" in a production environment if index size becomes an issue. If you want to
          support an additional locale, you can add a dynamic field definition here. The locale
-         names correspond 1:1 to OJS locale names. The type attribute points to one of the
+         names correspond 1:1 to Wizdam Editorial locale names. The type attribute points to one of the
          field type definitions above. -->
     <dynamicField name="*_ca_ES" type="text_ca" indexed="true"  stored="true" multiValued="false" />
     <dynamicField name="*_cs_CZ" type="text_cs" indexed="true"  stored="true" multiValued="false" />

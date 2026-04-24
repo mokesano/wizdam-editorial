@@ -1,8 +1,8 @@
 {**
  * templates/controllers/grid/gridActionsBelow.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Grid actions in bottom position
@@ -21,5 +21,5 @@
 			{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
 		{/if}
 	{/foreach}
-	<div class="pkp_helpers_clear"></div>
+	<div class="core_helpers_clear"></div>
 </div>

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/gateways/metsGateway/MetsGatewayPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class METSGatewayPlugin
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * * [WIZDAM EDITION v3.4] Refactored for PHP 8.x Strict Compliance
  */
 
-import('classes.plugins.GatewayPlugin');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.GatewayPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
 class METSGatewayPlugin extends GatewayPlugin {
     
@@ -82,7 +82,7 @@ class METSGatewayPlugin extends GatewayPlugin {
      * @param array $args
      * @param string|null $message
      * @param array|null $messageParams
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return bool
      */
     public function manage(string $verb, array $args, string $message = NULL, $messageParams = NULL, $request = NULL): bool {
@@ -131,7 +131,7 @@ class METSGatewayPlugin extends GatewayPlugin {
     /**
      * Handle fetch requests for this plugin.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return bool
      */
     public function fetch($args, $request = null) {
@@ -209,7 +209,7 @@ class METSGatewayPlugin extends GatewayPlugin {
     /**
      * @param Journal $journal
      * @param array $issues
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return bool
      */
     public function exportIssues($journal, $issues, $request = null) {

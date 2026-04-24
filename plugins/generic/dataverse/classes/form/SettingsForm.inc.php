@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/dataverse/classes/form/SettingsForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SettingsForm
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized for PHP 8.4 with Dependency Injection.
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 import('plugins.generic.tinymce.TinyMCEPlugin');
 
 class SettingsForm extends Form {
@@ -205,7 +205,7 @@ class SettingsForm extends Form {
         if ($this->getData('fetchTermsOfUse') === "0") return true;
 
         // [WIZDAM FIX] Inject DataverseApiClient to fetch terms of use
-        $this->_plugin->import('classes.api.DataverseApiClient');
+        $this->_plugin->import('core.Modules.api.DataverseApiClient');
         $apiClient = new DataverseApiClient($this->_plugin);
         $dvTermsOfUse = $apiClient->getTermsOfUse($this->_journalId);
         

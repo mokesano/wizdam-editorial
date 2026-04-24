@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/rtadmin/RTSearchHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RTSearchHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.rtadmin.RTAdminHandler');
+import('app.Pages.rtadmin.RTAdminHandler');
 
 class RTSearchHandler extends RTAdminHandler {
     
@@ -44,7 +44,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * Create search.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createSearch($args, $request = null) {
         $this->validate();
@@ -61,7 +61,7 @@ class RTSearchHandler extends RTAdminHandler {
         $contextId = isset($args[1]) ? (int)$args[1] : 0;
         $context = $rtDao->getContext($contextId);
 
-        import('classes.rt.form.SearchForm');
+        import('core.Modules.rt.form.SearchForm');
         $searchForm = new SearchForm(null, $contextId, $versionId);
 
         if (isset($args[2]) && $args[2]=='save') {
@@ -77,7 +77,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * List searches.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function searches($args, $request = null) {
         $this->validate();
@@ -108,7 +108,7 @@ class RTSearchHandler extends RTAdminHandler {
             $templateMgr->assign('version', $version);
             $templateMgr->assign('context', $context);
             
-            import('lib.pkp.classes.core.ArrayItemIterator');
+            import('core.Kernel.ArrayItemIterator');
             $templateMgr->assign('searches', new ArrayItemIterator($context->getSearches(), $rangeInfo->getPage(), $rangeInfo->getCount()));
 
             $templateMgr->assign('helpTopicId', 'journal.managementPages.readingTools.contexts');
@@ -121,7 +121,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * Edit search.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editSearch($args, $request = null) {
         $this->validate();
@@ -140,7 +140,7 @@ class RTSearchHandler extends RTAdminHandler {
         $search = $rtDao->getSearch($searchId);
 
         if (isset($version) && isset($context) && isset($search) && $context->getVersionId() == $version->getVersionId() && $search->getContextId() == $context->getContextId()) {
-            import('classes.rt.form.SearchForm');
+            import('core.Modules.rt.form.SearchForm');
             $this->setupTemplate(true, $version, $context, $search);
             $searchForm = new SearchForm($searchId, $contextId, $versionId);
             $searchForm->initData();
@@ -153,7 +153,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * Delete search.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteSearch($args, $request = null) {
         $this->validate();
@@ -181,7 +181,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * Save search.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSearch($args, $request = null) {
         $this->validate();
@@ -200,7 +200,7 @@ class RTSearchHandler extends RTAdminHandler {
         $search = $rtDao->getSearch($searchId);
 
         if (isset($version) && isset($context) && isset($search) && $context->getVersionId() == $version->getVersionId() && $search->getContextId() == $context->getContextId()) {
-            import('classes.rt.form.SearchForm');
+            import('core.Modules.rt.form.SearchForm');
             $searchForm = new SearchForm($searchId, $contextId, $versionId);
             $searchForm->readInputData();
             $searchForm->execute();
@@ -212,7 +212,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * Move search.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveSearch($args, $request = null) {
         $this->validate();

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Extracted from bloated UserHandler for Single Responsibility Principle.
  */
 
-import('pages.user.UserHandler');
+import('app.Pages.user.UserHandler');
 
 class UserSubscriptionHandler extends UserHandler {
 
@@ -29,11 +29,11 @@ class UserSubscriptionHandler extends UserHandler {
     /**
      * Display subscriptions page
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function subscriptions($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
@@ -72,7 +72,7 @@ class UserSubscriptionHandler extends UserHandler {
             $userInstitutionalSubscriptions = $subscriptionDao->getSubscriptionsByUserForJournal($userId, $journalId);
         }
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
 
@@ -101,11 +101,11 @@ class UserSubscriptionHandler extends UserHandler {
     /**
      * Purchase a subscription.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function purchaseSubscription($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
@@ -115,7 +115,7 @@ class UserSubscriptionHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
@@ -133,11 +133,11 @@ class UserSubscriptionHandler extends UserHandler {
 
         if ($institutional == 'institutional') {
             $institutional = true;
-            import('classes.subscription.form.UserInstitutionalSubscriptionForm');
+            import('core.Modules.subscription.form.UserInstitutionalSubscriptionForm');
             $subscriptionDao = DAORegistry::getDAO('InstitutionalSubscriptionDAO');
         } else {
             $institutional = false;
-            import('classes.subscription.form.UserIndividualSubscriptionForm');
+            import('core.Modules.subscription.form.UserIndividualSubscriptionForm');
             $subscriptionDao = DAORegistry::getDAO('IndividualSubscriptionDAO');
         }
 
@@ -150,7 +150,7 @@ class UserSubscriptionHandler extends UserHandler {
             // Ensure subscription can be updated
             $subscription = $subscriptionDao->getSubscription($subscriptionId);
             $subscriptionStatus = $subscription->getStatus();
-            import('classes.subscription.Subscription');
+            import('core.Modules.subscription.Subscription');
             $validStatus = [
                 SUBSCRIPTION_STATUS_ACTIVE,
                 SUBSCRIPTION_STATUS_AWAITING_ONLINE_PAYMENT,
@@ -184,11 +184,11 @@ class UserSubscriptionHandler extends UserHandler {
     /**
      * Pay for a subscription purchase.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function payPurchaseSubscription($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
@@ -198,7 +198,7 @@ class UserSubscriptionHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
@@ -216,11 +216,11 @@ class UserSubscriptionHandler extends UserHandler {
 
         if ($institutional == 'institutional') {
             $institutional = true;
-            import('classes.subscription.form.UserInstitutionalSubscriptionForm');
+            import('core.Modules.subscription.form.UserInstitutionalSubscriptionForm');
             $subscriptionDao = DAORegistry::getDAO('InstitutionalSubscriptionDAO');
         } else {
             $institutional = false;
-            import('classes.subscription.form.UserIndividualSubscriptionForm');
+            import('core.Modules.subscription.form.UserIndividualSubscriptionForm');
             $subscriptionDao = DAORegistry::getDAO('IndividualSubscriptionDAO');
         }
 
@@ -233,7 +233,7 @@ class UserSubscriptionHandler extends UserHandler {
             // Ensure subscription can be updated
             $subscription = $subscriptionDao->getSubscription($subscriptionId);
             $subscriptionStatus = $subscription->getStatus();
-            import('classes.subscription.Subscription');
+            import('core.Modules.subscription.Subscription');
             $validStatus = [
                 SUBSCRIPTION_STATUS_ACTIVE,
                 SUBSCRIPTION_STATUS_AWAITING_ONLINE_PAYMENT,
@@ -293,11 +293,11 @@ class UserSubscriptionHandler extends UserHandler {
     /**
      * Complete the purchase subscription process.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function completePurchaseSubscription($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
@@ -307,7 +307,7 @@ class UserSubscriptionHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
@@ -330,7 +330,7 @@ class UserSubscriptionHandler extends UserHandler {
 
         $subscription = $subscriptionDao->getSubscription($subscriptionId);
         $subscriptionStatus = $subscription->getStatus();
-        import('classes.subscription.Subscription');
+        import('core.Modules.subscription.Subscription');
         $validStatus = [SUBSCRIPTION_STATUS_ACTIVE, SUBSCRIPTION_STATUS_AWAITING_ONLINE_PAYMENT];
 
         if (!in_array($subscriptionStatus, $validStatus)) $request->redirect(null, 'user');
@@ -347,11 +347,11 @@ class UserSubscriptionHandler extends UserHandler {
     /**
      * Pay the "renew subscription" fee.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function payRenewSubscription($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
@@ -361,7 +361,7 @@ class UserSubscriptionHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
         if ($journal->getSetting('publishingMode') != PUBLISHING_MODE_SUBSCRIPTION) $request->redirect(null, 'user');
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'user');
@@ -386,7 +386,7 @@ class UserSubscriptionHandler extends UserHandler {
 
         if ($subscription->isNonExpiring()) $request->redirect(null, 'user');
 
-        import('classes.subscription.Subscription');
+        import('core.Modules.subscription.Subscription');
         $subscriptionStatus = $subscription->getStatus();
         $validStatus = [
             SUBSCRIPTION_STATUS_ACTIVE,
@@ -408,16 +408,16 @@ class UserSubscriptionHandler extends UserHandler {
     /**
      * Pay for a membership.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function payMembership($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         $this->setupTemplate($request);
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
 
         $journal = $request->getJournal();

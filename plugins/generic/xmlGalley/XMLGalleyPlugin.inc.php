@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/xmlGalley/XMLGalleyPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class XMLGalleyPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * MODERNIZED FOR PHP 7.4+ & SCHOLARWIZDAM FORK
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class XMLGalleyPlugin extends GenericPlugin {
     
@@ -92,7 +92,7 @@ class XMLGalleyPlugin extends GenericPlugin {
 
     /**
      * Get the filename of the ADODB schema for this plugin.
-     * @see PKPPlugin::getInstallSchemaFile()
+     * @see CorePlugin::getInstallSchemaFile()
      * @return string|null
      */
     public function getInstallSchemaFile(): ?string {
@@ -236,7 +236,7 @@ class XMLGalleyPlugin extends GenericPlugin {
      * Display verbs for the management interface.
      * @see Plugin::getManagementVerbs()
      * @param $verbs array Existing management verbs
-     * @param $request PKPRequest|null
+     * @param $request CoreRequest|null
      * @return array Modified management verbs
      */
     public function getManagementVerbs(array $verbs = [], $request = null): array {
@@ -296,7 +296,7 @@ class XMLGalleyPlugin extends GenericPlugin {
                 }
 
             case 'settings':
-                AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON,  LOCALE_COMPONENT_PKP_MANAGER);
+                AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON,  LOCALE_COMPONENT_WIZDAM_MANAGER);
                 // if we are updating XSLT settings or switching XSL sheets
                 if (Request::getUserVar('save')) {
                     $form->readInputData();
@@ -310,7 +310,7 @@ class XMLGalleyPlugin extends GenericPlugin {
                 } elseif (Request::getUserVar('uploadCustomXSL')) {
                     $form->readInputData();
 
-                    import('classes.file.JournalFileManager');
+                    import('core.Modules.file.JournalFileManager');
 
                     // if the a valid custom XSL is uploaded, process it
                     $fileManager = new JournalFileManager($journal);
@@ -348,7 +348,7 @@ class XMLGalleyPlugin extends GenericPlugin {
                 // if we are deleting an existing custom XSL sheet
                 } elseif (Request::getUserVar('deleteCustomXSL')) {
 
-                    import('classes.file.JournalFileManager');
+                    import('core.Modules.file.JournalFileManager');
 
                     // if the a valid custom XSL is uploaded, process it
                     $fileManager = new JournalFileManager($journal);

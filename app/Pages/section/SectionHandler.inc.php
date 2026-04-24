@@ -18,7 +18,7 @@ declare(strict_types=1);
  * Supports Sub-routes: /section/slug/about, /section/slug/articles
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class SectionHandler extends Handler {
 
@@ -32,7 +32,7 @@ class SectionHandler extends Handler {
     /**
      * Fallback jika URL hanya /section
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function index(array $args = [], $request = null) {
         Request::redirect(null, 'index');
@@ -41,13 +41,13 @@ class SectionHandler extends Handler {
     /**
      * Menampilkan halaman about section.
      * URL: /{context}/section/{slug}/about
-     * [WIZDAM] $args[0] berisi slug section karena PKPPageRouter
+     * [WIZDAM] $args[0] berisi slug section karena CorePageRouter
      * meletakkan segmen sebelum $op di dalam $args.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function about(array $args = [], $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $journal = $request->getJournal();
         if (!$journal) {
             Request::redirect(null, 'index');
@@ -67,10 +67,10 @@ class SectionHandler extends Handler {
      * Menampilkan semua artikel section dengan paginasi.
      * URL: /{context}/section/{slug}/articles
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function articles(array $args = [], $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $journal = $request->getJournal();
         if (!$journal) {
             Request::redirect(null, 'index');
@@ -88,7 +88,7 @@ class SectionHandler extends Handler {
 
     /**
      * [WIZDAM] Entry point untuk semua slug section.
-     * PKPPageRouter sudah menangani kebab-case → camelCase.
+     * CorePageRouter sudah menangani kebab-case → camelCase.
      * __call() hanya menangani slug dinamis — sub-route ditangani method eksplisit.
      * @param string $op slug section dalam camelCase dari router
      * @param array $arguments args dari router
@@ -131,7 +131,7 @@ class SectionHandler extends Handler {
     /**
      * Halaman index section: 4 artikel terbaru + editor.
      * [WIZDAM] Data editor dikirim sebagai User object langsung — tidak dibungkus
-     * array terbatas. Template bebas mengakses semua getter PKPUser.
+     * array terbatas. Template bebas mengakses semua getter CoreUser.
      * @param object $section
      * @param object $journal
      */
@@ -160,7 +160,7 @@ class SectionHandler extends Handler {
      * [WIZDAM] Lead editor dikirim sebagai User object langsung.
      * @param object $section
      * @param object $journal
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     private function _showSectionAbout($section, $journal, $request): void {
         $this->setupSectionTemplate($section);
@@ -183,11 +183,11 @@ class SectionHandler extends Handler {
     }
 
     /**
-     * Halaman semua artikel section dengan paginasi OJS.
-     * [WIZDAM] Menggunakan VirtualArrayIterator dan getRangeInfo() bawaan OJS.
+     * Halaman semua artikel section dengan paginasi Wizdam.
+     * [WIZDAM] Menggunakan VirtualArrayIterator dan getRangeInfo() bawaan Wizdam.
      * @param object $section
      * @param object $journal
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     private function _showSectionArticles($section, $journal, $request): void {
         $this->setupSectionTemplate($section);
@@ -202,7 +202,7 @@ class SectionHandler extends Handler {
         $offset       = ($currentPage - 1) * $itemsPerPage;
         $pageArticles = array_slice($allFiltered, $offset, $itemsPerPage);
 
-        import('lib.pkp.classes.core.VirtualArrayIterator');
+        import('core.Kernel.VirtualArrayIterator');
         $articlesIterator = new VirtualArrayIterator(
             $pageArticles,
             $totalCount,
@@ -231,7 +231,7 @@ class SectionHandler extends Handler {
     // =========================================================================
 
     /**
-     * Resolve Section dari op yang sudah dinormalisasi PKPPageRouter.
+     * Resolve Section dari op yang sudah dinormalisasi CorePageRouter.
      * Router sudah mengkonversi kebab-case → camelCase sebelum sampai ke sini.
      * getSectionUrlTitle() menghasilkan format yang sama — satu sumber kebenaran.
      * @param string $op

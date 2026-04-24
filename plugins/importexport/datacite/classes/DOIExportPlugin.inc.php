@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/.../classes/DOIExportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DOIExportPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 
-import('classes.plugins.ImportExportPlugin');
+import('core.Modules.plugins.ImportExportPlugin');
 
 // Export types.
 define('DOI_EXPORT_ISSUES', 0x01);
@@ -54,7 +54,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		if (!($this->_cache instanceof PubObjectCache)) {
 			// Instantiate the cache.
 			if (!class_exists('PubObjectCache')) { // Bug #7848
-				$this->import('classes.PubObjectCache');
+				$this->import('core.Modules.PubObjectCache');
 			}
 			$this->_cache = new PubObjectCache();
 		}
@@ -97,11 +97,11 @@ class DOIExportPlugin extends ImportExportPlugin {
 
 
 	//
-	// Implement template methods from PKPPlugin
+	// Implement template methods from CorePlugin
 	//
 	/**
      * Register the plugin.
-	 * @see PKPPlugin::register()
+	 * @see CorePlugin::register()
      * @param $category string
      * @param $path string
      * @return boolean True if successfully registered.
@@ -117,7 +117,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
 	/**
      * Get the path to the templates.
-	 * @see PKPPlugin::getTemplatePath()
+	 * @see CorePlugin::getTemplatePath()
      * @return string
 	 */
 	public function getTemplatePath(): string {
@@ -126,7 +126,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
 	/**
      * Get the path to the context-specific settings file.
-	 * @see PKPPlugin::getInstallSitePluginSettingsFile()
+	 * @see CorePlugin::getInstallSitePluginSettingsFile()
      * @return string
 	 */
 	public function getContextSpecificPluginSettingsFile(): string {
@@ -135,7 +135,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
 	/**
      * Get the locale filename for a specific locale.
-	 * @see PKPPlugin::getLocaleFilename($locale)
+	 * @see CorePlugin::getLocaleFilename($locale)
      * @param $locale string
      * @return array
 	 */
@@ -156,7 +156,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      * Get management verbs.
 	 * @see ImportExportPlugin::getManagementVerbs()
      * @param $verbs array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return array
 	 */
 	public function getManagementVerbs(array $verbs = [], $request = null): array {
@@ -169,7 +169,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      * Display the plugin.
 	 * @see ImportExportPlugin::display()
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return void
 	 *
 	 * This supports the following actions:
@@ -235,7 +235,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
 	/**
 	 * Process a DOI activity request.
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 * @param $journal Journal
      * @return void
 	 */
@@ -425,7 +425,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      * @param $args array
      * @param $message string
      * @param $messageParams array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return boolean True if the verb was executed.
 	 * 
 	 * NOTE: $message and $messageParams are legacy parameters, not used per protocol P5.
@@ -535,7 +535,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		$this->setBreadcrumbs(array(), true);
 
 		// Retrieve all published issues.
-		AppLocale::requireComponents(array(LOCALE_COMPONENT_OJS_EDITOR));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_WIZDAM_EDITOR));
 		$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
 		$this->registerDaoHook('IssueDAO');
 		$issueIterator = $issueDao->getPublishedIssues($journal->getId(), Handler::getRangeInfo('issues'));
@@ -570,7 +570,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 	 */
 	public function displayAllUnregisteredObjects($templateMgr, $journal) {
 		$this->setBreadcrumbs(array(), true);
-		AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_SUBMISSION));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_WIZDAM_SUBMISSION));
 
 		// Prepare and display the template.
 		$templateMgr->assign_by_ref('issues', $this->_getUnregisteredIssues($journal));
@@ -920,7 +920,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		$registeredDoi = $object->getPubId('doi');
 		assert(!empty($registeredDoi));
 		if ($this->isTestMode($request)) {
-			$registeredDoi = PKPString::regexp_replace('#^[^/]+/#', $testPrefix . '/', $registeredDoi);
+			$registeredDoi = CoreString::regexp_replace('#^[^/]+/#', $testPrefix . '/', $registeredDoi);
 		}
 		$this->saveRegisteredDoi($object, $registeredDoi);
 	}
@@ -1139,7 +1139,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		unset($articles);
 
 		// Instantiate article iterator.
-		import('lib.pkp.classes.core.VirtualArrayIterator');
+		import('core.Kernel.VirtualArrayIterator');
 		$iterator = new VirtualArrayIterator($articleData, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
 		// Prepare and display the article template.
@@ -1202,7 +1202,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		unset($galleys);
 
 		// Instantiate galley iterator.
-		import('lib.pkp.classes.core.VirtualArrayIterator');
+		import('core.Kernel.VirtualArrayIterator');
 		$iterator = new VirtualArrayIterator($galleyData, $totalGalleys, $rangeInfo->getPage(), $rangeInfo->getCount());
 
 		// Prepare and display the galley template.
@@ -1553,7 +1553,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 	 */
 	private function _instantiateSettingsForm($journal) {
 		$settingsFormClassName = $this->getSettingsFormClassName();
-		$this->import('classes.form.' . $settingsFormClassName);
+		$this->import('core.Modules.form.' . $settingsFormClassName);
 		$settingsForm = new $settingsFormClassName($this, $journal->getId());
 		assert($settingsForm instanceof DOIExportSettingsForm);
 		return $settingsForm;
@@ -1571,7 +1571,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		static $notificationManager = null;
 
 		if (is_null($notificationManager)) {
-			import('classes.notification.NotificationManager');
+			import('core.Modules.notification.NotificationManager');
 			$notificationManager = new NotificationManager();
 		}
 

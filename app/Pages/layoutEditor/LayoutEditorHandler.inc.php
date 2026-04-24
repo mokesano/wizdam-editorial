@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/layoutEditor/LayoutEditorHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LayoutEditorHandler
@@ -16,9 +16,9 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.submission.layoutEditor.LayoutEditorAction');
-import('classes.submission.proofreader.ProofreaderAction');
-import('classes.handler.Handler');
+import('core.Modules.submission.layoutEditor.LayoutEditorAction');
+import('core.Modules.submission.proofreader.ProofreaderAction');
+import('core.Modules.handler.Handler');
 
 class LayoutEditorHandler extends Handler {
     
@@ -52,7 +52,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Display layout editor index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args, $request) {
         $this->validate($request);
@@ -66,7 +66,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Display layout editor submissions page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submissions($args, $request) {
         $this->validate($request);
@@ -195,7 +195,7 @@ class LayoutEditorHandler extends Handler {
             SUBMISSION_FIELD_DATE_PROOFREADING_COMPLETE => 'submissions.proofreadingComplete'
         ]);
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         // Note: register_function might be deprecated depending on Smarty version.
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
@@ -209,7 +209,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Display Future Isshes page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function futureIssues($args, $request) {
         $this->validate($request);
@@ -228,7 +228,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Displays the listings of back (published) issues
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function backIssues($args, $request) {
         $this->validate($request);
@@ -287,7 +287,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Sets proofreader completion date
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function completeProofreader($args, $request) {
         // [SECURITY FIX] Amankan 'articleId' dengan trim() dan (int)
@@ -329,7 +329,7 @@ class LayoutEditorHandler extends Handler {
         $pageHierarchy = $subclass ? [[$request->url(null, 'user'), 'navigation.user'], [$request->url(null, 'layoutEditor'), 'user.role.layoutEditor']]
                 : [[$request->url(null, 'user'), 'navigation.user']];
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         $submissionCrumb = SectionEditorAction::submissionBreadcrumb($articleId, $parentPage, 'layoutEditor');
         if (isset($submissionCrumb)) {
             $pageHierarchy = array_merge($pageHierarchy, $submissionCrumb);
@@ -340,11 +340,11 @@ class LayoutEditorHandler extends Handler {
     /**
      * Display submission management instructions.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function instructions($args, $request) {
         $this->setupTemplate();
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         if (!isset($args[0]) || !LayoutEditorAction::instructions($args[0], ['layout', 'proof', 'referenceLinking'])) {
             $request->redirect(null, $request->getRequestedPage());
         }
@@ -359,7 +359,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Validate that the user is the assigned layout editor for the submission.
      * Redirects to layoutEditor index page if validation fails.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int|null $articleId optional the submission being edited
      * @param bool $checkEdit check if editor has editing permissions
      * @return bool|void

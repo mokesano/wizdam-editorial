@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/proofreader/SubmissionCommentsHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionCommentsHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.proofreader.SubmissionProofreadHandler');
+import('app.Pages.proofreader.SubmissionProofreadHandler');
 
 class SubmissionCommentsHandler extends ProofreaderHandler {
     
@@ -47,11 +47,11 @@ class SubmissionCommentsHandler extends ProofreaderHandler {
     /**
      * View proofread comments.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function viewProofreadComments($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $this->validate($request, $articleId);
@@ -63,11 +63,11 @@ class SubmissionCommentsHandler extends ProofreaderHandler {
     /**
      * Post proofread comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function postProofreadComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' dengan trim() dan (int)
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -88,11 +88,11 @@ class SubmissionCommentsHandler extends ProofreaderHandler {
     /**
      * View layout comments.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function viewLayoutComments($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $this->validate($request, $articleId);
@@ -104,11 +104,11 @@ class SubmissionCommentsHandler extends ProofreaderHandler {
     /**
      * Post layout comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function postLayoutComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' dengan trim() dan (int)
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -129,11 +129,11 @@ class SubmissionCommentsHandler extends ProofreaderHandler {
     /**
      * Edit comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function editComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $commentId = (int) array_shift($args);
@@ -148,11 +148,11 @@ class SubmissionCommentsHandler extends ProofreaderHandler {
     /**
      * Save comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function saveComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' dengan trim() dan (int)
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -183,11 +183,11 @@ class SubmissionCommentsHandler extends ProofreaderHandler {
     /**
      * Delete comment.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function deleteComment($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $commentId = (int) array_shift($args);

@@ -1,8 +1,8 @@
 {**
  * header.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Common site header.
@@ -26,8 +26,8 @@
 	<meta name="generator" content="{$applicationName} {$currentVersionString|escape}" />
 	{$metaCustomHeaders}
 	{if $displayFavicon}<link rel="icon" href="{$faviconDir}/{$displayFavicon.uploadName|escape:"url"}" type="{$displayFavicon.mimeType|escape}" />{/if}
-	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/pkp.css" type="text/css" />
-	<link rel="stylesheet" href="{$baseUrl}/lib/pkp/styles/common.css" type="text/css" />
+	<link rel="stylesheet" href="{$baseUrl}/core/Library/styles/core.css" type="text/css" />
+	<link rel="stylesheet" href="{$baseUrl}/core/Library/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/common.css" type="text/css" />
 	<link rel="stylesheet" href="{$baseUrl}/styles/compiled.css" type="text/css" />
 
@@ -37,8 +37,8 @@
 			<!--
 			// Provide a local fallback if the CDN cannot be reached
 			if (typeof google == 'undefined') {
-				document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
-				document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js' type='text/javascript'%3E%3C/script%3E"));
+				document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/core/Library/js/lib/jquery/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+				document.write(unescape("%3Cscript src='{/literal}{$baseUrl}{literal}/core/Library/js/lib/jquery/plugins/jqueryUi.min.js' type='text/javascript'%3E%3C/script%3E"));
 			} else {
 				google.load("jquery", "{/literal}{$smarty.const.CDN_JQUERY_VERSION}{literal}");
 				google.load("jqueryui", "{/literal}{$smarty.const.CDN_JQUERY_UI_VERSION}{literal}");
@@ -46,8 +46,8 @@
 			// -->
 		{/literal}</script>
 	{else}
-		<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/jquery.min.js"></script>
-		<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/jqueryUi.min.js"></script>
+		<script type="text/javascript" src="{$baseUrl}/core/Library/js/lib/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="{$baseUrl}/core/Library/js/lib/jquery/plugins/jqueryUi.min.js"></script>
 	{/if}
 
 	{call_hook|assign:"leftSidebarCode" name="Templates::Common::LeftSidebar"}
@@ -66,13 +66,13 @@
 
 	<!-- Compiled scripts -->
 	{if $useMinifiedJavaScript}
-		<script type="text/javascript" src="{$baseUrl}/js/pkp.min.js"></script>
+		<script type="text/javascript" src="{$baseUrl}/js/core.min.js"></script>
 	{else}
 		{include file="common/minifiedScripts.tpl"}
 	{/if}
 
 	<!-- Form validation -->
-	<script type="text/javascript" src="{$baseUrl}/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
+	<script type="text/javascript" src="{$baseUrl}/core/Library/js/lib/jquery/plugins/validate/jquery.validate.js"></script>
 	<script type="text/javascript">
 		<!--
 		// initialise plugins
@@ -120,7 +120,7 @@
 
 	{$additionalHeadData}
 </head>
-<body id="pkp-{$pageTitle|replace:'.':'-'}">
+<body id="core-{$pageTitle|replace:'.':'-'}">
     
     <header id="header">
         <div id="headerTitle">

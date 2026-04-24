@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/classes/form/ReviewObjectMetadataForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewObjectMetadataForm
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ReviewObjectMetadataForm extends Form {
 
@@ -44,7 +44,7 @@ class ReviewObjectMetadataForm extends Form {
         $journal = Request::getJournal();
         $journalId = $journal->getId();
 
-        $ofrPlugin->import('classes.ReviewObjectMetadata');
+        $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
         $reviewObjectMetadataDao = DAORegistry::getDAO('ReviewObjectMetadataDAO');
         
         if (!empty($metadataId)) {
@@ -93,7 +93,7 @@ class ReviewObjectMetadataForm extends Form {
         $templateMgr->assign('reviewObjectTypeId', $this->reviewObjectTypeId);
 
         $ofrPlugin = PluginRegistry::getPlugin('generic', OBJECTS_FOR_REVIEW_PLUGIN_NAME);
-        $ofrPlugin->import('classes.ReviewObjectMetadata');
+        $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
         $templateMgr->assign('multipleOptionsTypes', ReviewObjectMetadata::getMultipleOptionsTypes());
         // in order to be able to search for an element in the array in the javascript function 'togglePossibleResponses':
         $templateMgr->assign('multipleOptionsTypesString', ';'.implode(';', ReviewObjectMetadata::getMultipleOptionsTypes()).';');
@@ -135,7 +135,7 @@ class ReviewObjectMetadataForm extends Form {
         $journal = Request::getJournal();
         $journalId = $journal->getId();
 
-        $ofrPlugin->import('classes.ReviewObjectMetadata');
+        $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
         $reviewObjectMetadataDao = DAORegistry::getDAO('ReviewObjectMetadataDAO');
         
         if ($this->reviewObjectMetadata == null) {

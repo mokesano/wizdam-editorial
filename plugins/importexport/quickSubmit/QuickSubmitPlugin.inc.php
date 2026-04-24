@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/quickSubmit/QuickSubmitPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class QuickSubmitPlugin
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Quick Submit one-page submission plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
+import('core.Modules.plugins.ImportExportPlugin');
 
 class QuickSubmitPlugin extends ImportExportPlugin {
 
@@ -84,7 +84,7 @@ class QuickSubmitPlugin extends ImportExportPlugin {
     public function display($args, $request): void {
         $templateMgr = TemplateManager::getManager();
         $templateMgr->register_function('plugin_url', [$this, 'smartyPluginUrl']);
-        AppLocale::requireComponents(LOCALE_COMPONENT_OJS_AUTHOR, LOCALE_COMPONENT_OJS_EDITOR, LOCALE_COMPONENT_PKP_SUBMISSION);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_AUTHOR, LOCALE_COMPONENT_WIZDAM_EDITOR, LOCALE_COMPONENT_WIZDAM_SUBMISSION);
         $this->setBreadcrumbs();
 
         if (array_shift($args) == 'saveSubmit') {

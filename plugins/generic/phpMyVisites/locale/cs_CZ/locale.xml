@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/phpMyVisites/locale/cs_CZ/locale.xml
   *
-  * Copyright (c) 2014-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2014-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * phpMyVisites plugin Localization strings for the cs_CZ (Čeština) locale.
@@ -16,7 +16,7 @@
 
 	<!-- phpMyVisites -->
 	<message key="plugins.generic.phpmv.displayName">Plugin phpMyVisites</message>
-	<message key="plugins.generic.phpmv.description"><![CDATA[Integruje OJS s phpMyVisites - volně dostupnou a open source aplikací pro analýzu provozu webových stránek. Vyžaduje, aby již byla nainstalována aplikace phpMyVisites. Prosím viz <a href="http://www.phpmyvisites.us/" title="stránka phpMyVisites">stránku phpMyVisites</a> pro více informací.]]></message>
+	<message key="plugins.generic.phpmv.description"><![CDATA[Integruje Wizdam Editorial s phpMyVisites - volně dostupnou a open source aplikací pro analýzu provozu webových stránek. Vyžaduje, aby již byla nainstalována aplikace phpMyVisites. Prosím viz <a href="http://www.phpmyvisites.us/" title="stránka phpMyVisites">stránku phpMyVisites</a> pro více informací.]]></message>
 
 	<!-- phpMyVisites Settings Management -->
 	<message key="plugins.generic.phpmv.manager.settings">Nastavení</message>

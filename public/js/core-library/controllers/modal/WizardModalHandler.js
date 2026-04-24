@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/modal/WizardModalHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class WizardModalHandler
@@ -16,7 +16,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.modal.AjaxModalHandler
+	 * @extends $.core.controllers.modal.AjaxModalHandler
 	 *
 	 * @param {jQuery} $handledElement The clickable element
 	 *  the modal will be attached to.
@@ -26,7 +26,7 @@
 	 *  Options are:
 	 *  - all options documented for the AjaxModalHandler.
 	 */
-	$.pkp.controllers.modal.WizardModalHandler =
+	$.core.controllers.modal.WizardModalHandler =
 			function($handledElement, options) {
 
 		this.parent($handledElement, options);
@@ -35,8 +35,8 @@
 		this.bind('wizardClose', this.wizardClose);
 		this.bind('wizardCancel', this.wizardClose);
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.WizardModalHandler,
-			$.pkp.controllers.modal.AjaxModalHandler);
+	$.core.classes.Helper.inherits($.core.controllers.modal.WizardModalHandler,
+			$.core.controllers.modal.AjaxModalHandler);
 
 
 	/**
@@ -50,7 +50,7 @@
 	 *  close the modal.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.modal.WizardModalHandler.prototype.modalClose =
+	$.core.controllers.modal.WizardModalHandler.prototype.modalClose =
 			function(callingElement, event, closeWithoutCancel) {
 
 		if (closeWithoutCancel) {
@@ -79,7 +79,7 @@
 	 *  wizard.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.modal.WizardModalHandler.prototype.wizardClose =
+	$.core.controllers.modal.WizardModalHandler.prototype.wizardClose =
 			function(wizardElement, event) {
 
 		this.modalClose(wizardElement, event, true);

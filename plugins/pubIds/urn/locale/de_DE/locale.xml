@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/urn/locale/de_DE/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * URN plugin localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
@@ -16,17 +16,17 @@
 
 	<!-- plugin -->
 	<message key="plugins.pubIds.urn.displayName">URN</message>
-	<message key="plugins.pubIds.urn.description">Dieses Plug-In ermöglicht die Zuweisung von Uniform Resource Names an Objekte (Ausgaben, Artikel, Fahnen und Zusatzdateien) in OJS.</message>
+	<message key="plugins.pubIds.urn.description">Dieses Plug-In ermöglicht die Zuweisung von Uniform Resource Names an Objekte (Ausgaben, Artikel, Fahnen und Zusatzdateien) dalam Wizdam Editorial.</message>
 
 	<!-- URN manager options, setting -->
-	<message key="plugins.pubIds.urn.manager.settings.description"><![CDATA[Bitte erledigen Sie die folgenden Setup-Schritte, damit Sie URN in OJS verwalten und benutzen können:]]></message>
+	<message key="plugins.pubIds.urn.manager.settings.description"><![CDATA[Bitte erledigen Sie die folgenden Setup-Schritte, damit Sie URN dalam Wizdam Editorial verwalten und benutzen können:]]></message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSettings">URN-Einstellungen</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix">URN-Präfix</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix.description"><![CDATA[Der URN-Präfix ist der feste, niemals wechselnde Bestandteil des URN (z.B. "urn:nbn:de:0000-").]]></message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix">URN-Suffix</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default">Die Standardmuster benutzen.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default.description"><![CDATA[%j.v%vi%i für Ausgaben<br />%j.v%vi%i.%a für Artikel<br />%j.v%vi%i.%a.g%g für Fahnen <br />%j.v%vi%i.%a.s%s für Zusatzdateien.]]></message>
-	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Verwenden Sie das unten angegebene Muster, um URN-Suffixe zu erzeugen. Nutzen Sie %j für die Initialen der Zeitschrift, %v für die Nummer des Jahrgangs, %i für die Nummer der Ausgabe, %Y für das Jahr, %a für die OJS-Artikel-ID, %g für die OJS-Fahnen-ID, %s für die OJS-Zusatzdatei-ID,  %p für die Seitenzahl und %x für die "benutzerdefinierte Kennung" (muss in Schritt 4.3 der Zeitschrifteneinrichtung aktiviert werden).</message>
+	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Verwenden Sie das unten angegebene Muster, um URN-Suffixe zu erzeugen. Nutzen Sie %j für die Initialen der Zeitschrift, %v für die Nummer des Jahrgangs, %i für die Nummer der Ausgabe, %Y für das Jahr, %a für die Wizdam Editorial-Artikel-ID, %g für die Wizdam Editorial-Fahnen-ID, %s für die Wizdam Editorial-Zusatzdatei-ID,  %p für die Seitenzahl und %x für die "benutzerdefinierte Kennung" (muss in Schritt 4.3 der Zeitschrifteneinrichtung aktiviert werden).</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.issues">für Ausgaben</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.articles">für Artikel</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.galleys">für Fahnen</message>

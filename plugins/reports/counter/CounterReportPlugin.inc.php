@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/reports/counter/CounterReportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CounterReportPlugin
@@ -14,16 +14,16 @@ declare(strict_types=1);
  * @brief Counter report plugin
  */
 
-define('OJS_METRIC_TYPE_LEGACY_COUNTER', 'ojs::legacyCounterPlugin');
+define('APP_METRIC_TYPE_LEGACY_COUNTER', 'wizdam::legacyCounterPlugin');
 define('COUNTER_CLASS_SUFFIX', '.inc.php');
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 import('plugins.reports.counter.classes.CounterReport');
 
 class CounterReportPlugin extends ReportPlugin {
 
     /**
-     * @see PKPPlugin::register($category, $path)
+     * @see CorePlugin::register($category, $path)
      */
     public function register(string $category, string $path, $mainContextId = null): bool {
         $success = parent::register($category, $path, $mainContextId);
@@ -35,7 +35,7 @@ class CounterReportPlugin extends ReportPlugin {
     }
 
     /**
-     * @see PKPPlugin::getLocaleFilename($locale)
+     * @see CorePlugin::getLocaleFilename($locale)
      */
     public function getLocaleFilename($locale) {
         $localeFilenames = parent::getLocaleFilename($locale);
@@ -51,28 +51,28 @@ class CounterReportPlugin extends ReportPlugin {
     }
 
     /**
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      */
     public function getName(): string {
         return 'CounterReportPlugin';
     }
 
     /**
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      */
     public function getDisplayName(): string {
         return __('plugins.reports.counter');
     }
 
     /**
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      */
     public function getDescription(): string {
         return __('plugins.reports.counter.description');
     }
 
     /**
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      */
     public function getTemplatePath($inCore = false): string {
         return parent::getTemplatePath($inCore) . 'templates/';
@@ -97,7 +97,7 @@ class CounterReportPlugin extends ReportPlugin {
         // Assuming it's available or defined in imported files.
         // If it's a constant from CounterReport, it might need CounterReport::PREFIX, 
         // but sticking to legacy usage patterns for global constants if they exist.
-        // Based on typical OJS counter plugin, this constant is usually 'CounterReport'.
+        // Based on typical Wizdam counter plugin, this constant is usually 'CounterReport'.
         $prefix = $this->getReportPath() . DIRECTORY_SEPARATOR . COUNTER_CLASS_PREFIX;
         $suffix = COUNTER_CLASS_SUFFIX;
         foreach (glob($prefix.'*'.$suffix) as $file) {
@@ -173,7 +173,7 @@ class CounterReportPlugin extends ReportPlugin {
     public function display($args, $request) {
         parent::display($args, $request);
         // We need these constants
-        import('classes.statistics.StatisticsHelper');
+        import('core.Modules.statistics.StatisticsHelper');
 
         $this->setBreadcrumbs();
         $available = $this->getValidReports();
@@ -238,7 +238,7 @@ class CounterReportPlugin extends ReportPlugin {
                         $errormessage = __('plugins.reports.counter.error.badRequest');
                     }
                     $user = Request::getUser();
-                    import('classes.notification.NotificationManager');
+                    import('core.Modules.notification.NotificationManager');
                     $notificationManager = new NotificationManager();
                     $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => $errormessage]);
             }
@@ -262,10 +262,10 @@ class CounterReportPlugin extends ReportPlugin {
      */
     private function _getYears($useLegacyStats = false) {
         if ($useLegacyStats) {
-            $metricType = OJS_METRIC_TYPE_LEGACY_COUNTER;
+            $metricType = APP_METRIC_TYPE_LEGACY_COUNTER;
             $filter = [];
         } else {
-            $metricType = OJS_METRIC_TYPE_COUNTER;
+            $metricType = APP_METRIC_TYPE_COUNTER;
             $filter = [STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_GALLEY];
         }
         $metricsDao = DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */

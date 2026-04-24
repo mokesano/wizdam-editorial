@@ -4,18 +4,18 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/browse/BrowsePlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class BrowsePlugin
  * @ingroup plugins_generic_browse
  *
  * @brief Browse by additional objects plugin class.
- * * MODERNIZED FOR PHP 7.4+ & OJS FORK
+ * * MODERNIZED FOR PHP 7.4+ & Wizdam FORK
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class BrowsePlugin extends GenericPlugin {
     
@@ -183,7 +183,7 @@ class BrowsePlugin extends GenericPlugin {
                 $templateMgr->register_function('plugin_url', array($this, 'smartyPluginUrl'));
                 $journal = Request::getJournal();
 
-                $this->import('classes.form.BrowseSettingsForm');
+                $this->import('core.Modules.form.BrowseSettingsForm');
                 $form = new BrowseSettingsForm($this, $journal->getId());
 
                 if (Request::getUserVar('save')) {

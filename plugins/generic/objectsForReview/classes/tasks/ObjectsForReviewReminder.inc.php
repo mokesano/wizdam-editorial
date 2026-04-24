@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/classes/tasks/ObjectsForReviewReminder.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ObjectsForReviewReminder
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe. Resource Optimized.
  */
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 class ObjectsForReviewReminder extends ScheduledTask {
     
@@ -69,7 +69,7 @@ class ObjectsForReviewReminder extends ScheduledTask {
             'editorialContactSignature' => strip_tags($editor->getContactSignature())
         );
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $mail = new MailTemplate($emailKey);
         $mail->setFrom($editor->getEmail(), $editor->getFullName());
         $mail->addRecipient($author->getEmail(), $author->getFullName());

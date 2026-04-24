@@ -25,7 +25,7 @@ switch ($op) {
 	case 'finalize':
 	case 'updateCartAjax':
 		define('HANDLER_CLASS', 'CheckoutHandler');
-		import('pages.checkout.CheckoutHandler');
+		import('app.Pages.checkout.CheckoutHandler');
 		break;
 }
 ?>

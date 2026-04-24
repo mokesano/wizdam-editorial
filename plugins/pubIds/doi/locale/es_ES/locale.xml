@@ -3,22 +3,22 @@
 <!--
   * plugins/pubIds/doi/locale/es_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_(es_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Spanish_(es_ES)
   *
   * DOI plugin localization strings
   -->
 
 <locale name="es_ES" full_name="Español (España)">
 	<message key="plugins.pubIds.doi.displayName">Identificador de objeto digital (DOI)</message>
-	<message key="plugins.pubIds.doi.description">Este módulo activa la asignación del Identificador de objetos digitales a números, artículos, galeradas y archivos complementarios en OJS.</message>
+	<message key="plugins.pubIds.doi.description">Este módulo activa la asignación del Identificador de objetos digitales a números, artículos, galeradas y archivos complementarios en Wizdam Editorial.</message>
 
 	<!-- settings form -->
 	<message key="plugins.pubIds.doi.manager.settings.doiSettings">Configuración del módulo DOI</message>
-	<message key="plugins.pubIds.doi.manager.settings.description">Configure el módulo DOI para poder gestionar y usar los Identificadores de objetos digitales en OJS:</message>
+	<message key="plugins.pubIds.doi.manager.settings.description">Configure el módulo DOI para poder gestionar y usar los Identificadores de objetos digitales en Wizdam Editorial:</message>
 	
 	<message key="plugins.pubIds.doi.manager.settings.doiObjects">Contenido de la revista</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiObjectsRequired">Seleccione los elementos DOI que desea asignar.</message>
@@ -35,7 +35,7 @@
 
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffix">Sufijo del DOI</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixDescription">El sufijo del DOI puede tener cualquier forma, pero debe ser único para cada elemento publicado con un mismo prefijo.</message>
-	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Usar el patrón introducido a continuación para generar los sufijos del DOI. Usar %j para las iniciales de la revista, %v para el número del volumen, %i para el número de expedición, %Y para el año, %a para el Id. del artículo de OJS, %g para el Id. de las galeradas de OJS, %s para el Id. de los archivos complementarios de OJS, %p para el número de página y %x para el "Identificador personalizado" (debe habilitarse en el paso 4.3 de la Instalación).</message>
+	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Usar el patrón introducido a continuación para generar los sufijos del DOI. Usar %j para las iniciales de la revista, %v para el número del volumen, %i para el número de expedición, %Y para el año, %a para el Id. del artículo de Wizdam Editorial, %g para el Id. de las galeradas de Wizdam Editorial, %s para el Id. de los archivos complementarios de Wizdam Editorial, %p para el número de página y %x para el "Identificador personalizado" (debe habilitarse en el paso 4.3 de la Instalación).</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.issues">para números</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.articles">para artículos</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.galleys">para galeradas</message>

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/checkout/InvoiceDAO.inc.php
+ * @file core.Modules.classes/checkout/InvoiceDAO.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -11,14 +11,14 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  * @class InvoiceDAO
  * @brief Operations for retrieving and modifying Invoice objects. 
- * Memiliki fitur Legacy Bridge ke tabel completed_payments bawaan OJS.
+ * Memiliki fitur Legacy Bridge ke tabel completed_payments bawaan Wizdam.
  */
 
-import('lib.pkp.classes.db.DAO');
-import('lib.pkp.classes.db.DBResultRange');
-import('lib.wizdam.classes.checkout.Invoice');
-import('classes.payment.AppQueuedPayment');
-import('classes.payment.QueuedPayment');
+import('core.Modules.db.DAO');
+import('core.Modules.db.DBResultRange');
+import('core.Modules.checkout.Invoice');
+import('core.Modules.payment.AppQueuedPayment');
+import('core.Modules.payment.QueuedPayment');
 
 class InvoiceDAO extends DAO {
 

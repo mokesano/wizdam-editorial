@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/users/locale/da_DK/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the da_DK (Dansk) locale.
@@ -49,7 +49,7 @@ Eksempler:
 	<message key="plugins.importexport.users.import.errorsOccurred">Der opstod en fejl under importen</message>
 	<message key="plugins.importexport.users.import.confirmUsers">Bekræft at dette er de brugere, du vil importere til systemet</message>
 	<message key="plugins.importexport.users.import.warning">Advarsel</message>
-	<message key="plugins.importexport.users.import.encryptionMismatch">Kan ikke bruge passwords hashed med {$importHash}; OJS er konfigureret til at bruge {$ojsHash}. Hvis du fortsætter, bliver du nødt til at nulstille de importerede brugeres passwords.</message>
+	<message key="plugins.importexport.users.import.encryptionMismatch">Kan ikke bruge passwords hashed med {$importHash}; Wizdam Editorial er konfigureret til at bruge {$ojsHash}. Hvis du fortsætter, bliver du nødt til at nulstille de importerede brugeres passwords.</message>
 	<message key="plugins.importexport.users.unknownJournal">Der blev angivet en ukendt tidsskriftssti "{$journalPath}".</message>
 
 	<message key="plugins.importexport.users.export.exportUsers">Eksporter brugere</message>

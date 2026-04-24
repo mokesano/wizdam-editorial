@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/importexport/datacite/DataciteExportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DataciteExportPlugin
@@ -171,7 +171,7 @@ class DataciteExportPlugin extends DOIExportPlugin {
         unset($suppFiles);
 
         // Instantiate supp file iterator.
-        import('lib.pkp.classes.core.VirtualArrayIterator');
+        import('core.Kernel.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($suppFileData, $totalSuppFiles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the supp file template.
@@ -184,11 +184,11 @@ class DataciteExportPlugin extends DOIExportPlugin {
      */
     public function generateExportFiles($request, $exportType, $objects, $targetPath, $journal, &$errors) {
         // Additional locale file.
-        AppLocale::requireComponents([LOCALE_COMPONENT_OJS_EDITOR]);
+        AppLocale::requireComponents([LOCALE_COMPONENT_WIZDAM_EDITOR]);
 
         // Export objects one by one (DataCite does not allow
         // multiple objects per file).
-        $this->import('classes.DataciteExportDom');
+        $this->import('core.Modules.DataciteExportDom');
         $exportFiles = [];
         foreach($objects as $object) {
             // Generate the export XML.
@@ -225,7 +225,7 @@ class DataciteExportPlugin extends DOIExportPlugin {
         $doi = $object->getPubId('doi');
         assert(!empty($doi));
         if ($this->isTestMode($request)) {
-            $doi = PKPString::regexp_replace('#^[^/]+/#', DATACITE_API_TESTPREFIX . '/', $doi);
+            $doi = CoreString::regexp_replace('#^[^/]+/#', DATACITE_API_TESTPREFIX . '/', $doi);
         }
         $url = $this->_getObjectUrl($request, $journal, $object);
         assert(!empty($url));
@@ -423,7 +423,7 @@ class DataciteExportPlugin extends DOIExportPlugin {
 
         if ($this->isTestMode($request)) {
             // Change server domain for testing.
-            $url = PKPString::regexp_replace('#://[^\s]+/index.php#', '://example.com/index.php', $url);
+            $url = CoreString::regexp_replace('#://[^\s]+/index.php#', '://example.com/index.php', $url);
         }
         return $url;
     }

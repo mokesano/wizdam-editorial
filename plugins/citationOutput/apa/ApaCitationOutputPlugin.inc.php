@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file plugins/citationOutput/apa/ApaCitationOutputPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ApaCitationOutputPlugin
@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief APA citation style plug-in.
  */
 
-import('lib.pkp.plugins.citationOutput.apa.PKPApaCitationOutputPlugin');
+import('core.Modules.plugins.citationOutput.apa.CoreApaCitationOutputPlugin');
 
 class ApaCitationOutputPlugin extends CoreApaCitationOutputPlugin {
     

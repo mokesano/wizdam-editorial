@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file plugins/metadata/nlm30/Nlm30MetadataPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class Nlm30MetadataPlugin
@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.plugins.metadata.nlm30.PKPNlm30MetadataPlugin');
+import('core.Modules.plugins.metadata.nlm30.CoreNlm30MetadataPlugin');
 
 class Nlm30MetadataPlugin extends CoreNlm30MetadataPlugin {
     

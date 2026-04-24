@@ -13,24 +13,24 @@ switch ($op) {
     case '':
         // [WIZDAM] - Halaman Hub Utama
         define('HANDLER_CLASS', 'TrendsHandler');
-        import('pages.trends.TrendsHandler');
+        import('app.Pages.trends.TrendsHandler');
         break;
         
     case 'popular':
         define('HANDLER_CLASS', 'MostPopularHandler');
-        import('pages.trends.MostPopularHandler');
+        import('app.Pages.trends.MostPopularHandler');
         break;
         
     case 'download':
         // Disiapkan untuk AI selanjutnya
         define('HANDLER_CLASS', 'MostDownloadHandler');
-        import('pages.trends.MostDownloadHandler');
+        import('app.Pages.trends.MostDownloadHandler');
         break;
         
     case 'cited':
         // Disiapkan untuk AI selanjutnya
         define('HANDLER_CLASS', 'MostCitedHandler');
-        import('pages.trends.MostCitedHandler');
+        import('app.Pages.trends.MostCitedHandler');
         break;
 }
 ?>

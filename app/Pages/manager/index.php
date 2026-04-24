@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/index.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_manager
@@ -27,7 +27,7 @@ switch ($op) {
 	case 'downloadLayoutTemplate':
 	case 'resetPermissions':
 		define('HANDLER_CLASS', 'SetupHandler');
-		import('pages.manager.SetupHandler');
+		import('app.Pages.manager.SetupHandler');
 		break;
 	//
 	// People Management
@@ -49,7 +49,7 @@ switch ($op) {
 	case 'updateUser':
 	case 'userProfile':
 		define('HANDLER_CLASS', 'PeopleHandler');
-		import('pages.manager.PeopleHandler');
+		import('app.Pages.manager.PeopleHandler');
 		break;
 	//
 	// Section Management
@@ -61,7 +61,7 @@ switch ($op) {
 	case 'deleteSection':
 	case 'moveSection':
 		define('HANDLER_CLASS', 'SectionHandler');
-		import('pages.manager.SectionHandler');
+		import('app.Pages.manager.SectionHandler');
 		break;
 	//
 	// Review Form Management
@@ -84,7 +84,7 @@ switch ($op) {
 	case 'moveReviewFormElement':
 	case 'copyReviewFormElement':
 		define('HANDLER_CLASS', 'ReviewFormHandler');
-		import('pages.manager.ReviewFormHandler');
+		import('app.Pages.manager.ReviewFormHandler');
 		break;
 	//
 	// E-mail Management
@@ -101,7 +101,7 @@ switch ($op) {
 	case 'enableEmail':
 	case 'resetAllEmails':
 		define('HANDLER_CLASS', 'EmailHandler');
-		import('pages.manager.EmailHandler');
+		import('app.Pages.manager.EmailHandler');
 		break;
 	//
 	// Languages
@@ -110,7 +110,7 @@ switch ($op) {
 	case 'saveLanguageSettings':
 	case 'reloadLocalizedDefaultSettings':
 		define('HANDLER_CLASS', 'JournalLanguagesHandler');
-		import('pages.manager.JournalLanguagesHandler');
+		import('app.Pages.manager.JournalLanguagesHandler');
 		break;
 	//
 	// Files Browser
@@ -120,7 +120,7 @@ switch ($op) {
 	case 'fileMakeDir':
 	case 'fileDelete':
 		define('HANDLER_CLASS', 'FilesHandler');
-		import('pages.manager.FilesHandler');
+		import('app.Pages.manager.FilesHandler');
 		break;
 	//
 	// Subscription Policies
@@ -149,14 +149,14 @@ switch ($op) {
 	case 'updateSubscription':
 	case 'resetDateReminded':
 		define('HANDLER_CLASS', 'SubscriptionHandler');
-		import('pages.manager.SubscriptionHandler');
+		import('app.Pages.manager.SubscriptionHandler');
 		break;
 	//
 	// Import/Export
 	//
 	case 'importexport':
 		define('HANDLER_CLASS', 'ImportExportHandler');
-		import('pages.manager.ImportExportHandler');
+		import('app.Pages.manager.ImportExportHandler');
 		break;
 	//
 	// Plugin Management
@@ -164,11 +164,11 @@ switch ($op) {
 	case 'plugins':
 	case 'plugin':
 		define('HANDLER_CLASS', 'PluginHandler');
-		import('pages.manager.PluginHandler');
+		import('app.Pages.manager.PluginHandler');
 		break;
 	case 'managePlugins':
 		define('HANDLER_CLASS', 'PluginManagementHandler');
-		import('pages.manager.PluginManagementHandler');
+		import('app.Pages.manager.PluginManagementHandler');
 		break;
 	//
 	// Group Management
@@ -185,7 +185,7 @@ switch ($op) {
 	case 'moveGroup':
 	case 'moveMembership':
 		define('HANDLER_CLASS', 'GroupHandler');
-		import('pages.manager.GroupHandler');
+		import('app.Pages.manager.GroupHandler');
 		break;
 	//
 	// Statistics Functions
@@ -197,7 +197,7 @@ switch ($op) {
 	case 'reportGenerator':
 	case 'generateReport':
 		define('HANDLER_CLASS', 'StatisticsHandler');
-		import('pages.manager.StatisticsHandler');
+		import('app.Pages.manager.StatisticsHandler');
 		break;
 	//
 	// Payment
@@ -209,7 +209,7 @@ switch ($op) {
 	case 'viewPayments':
 	case 'viewPayment':
 		define('HANDLER_CLASS', 'ManagerPaymentHandler');
-		import('pages.manager.ManagerPaymentHandler');
+		import('app.Pages.manager.ManagerPaymentHandler');
 		break;
 	//
 	//	announcements
@@ -228,12 +228,12 @@ switch ($op) {
 	case 'editAnnouncementType':
 	case 'updateAnnouncementType':
 		define('HANDLER_CLASS', 'AnnouncementHandler');
-		import('pages.manager.AnnouncementHandler');
+		import('app.Pages.manager.AnnouncementHandler');
 		break;
 	case 'index':
 	case 'email':
 		define('HANDLER_CLASS', 'ManagerHandler');
-		import('pages.manager.ManagerHandler');
+		import('app.Pages.manager.ManagerHandler');
 }
 
 ?>

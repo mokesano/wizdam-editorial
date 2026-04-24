@@ -18,7 +18,7 @@ switch ($op) {
     case 'cart':       // Menampilkan UI Keranjang Belanja
     case 'checkout':   // Memproses isi keranjang menjadi Invoice (POST)
         define('HANDLER_CLASS', 'OrderHandler');
-        import('pages.order.OrderHandler');
+        import('app.Pages.order.OrderHandler');
         break;
 }
 ?>

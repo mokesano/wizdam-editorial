@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file pages/rtadmin/index.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_rtadmin
@@ -24,12 +24,12 @@ switch ($op) {
 	case 'index':
 	case 'validateUrls':
 		define('HANDLER_CLASS', 'RTAdminHandler');
-		import('pages.rtadmin.RTAdminHandler');
+		import('app.Pages.rtadmin.RTAdminHandler');
 		break;
 	case 'settings':
 	case 'saveSettings':
 		define('HANDLER_CLASS', 'RTSetupHandler');
-		import('pages.rtadmin.RTSetupHandler');
+		import('app.Pages.rtadmin.RTSetupHandler');
 		break;
 	//
 	// Versions
@@ -43,7 +43,7 @@ switch ($op) {
 	case 'deleteVersion':
 	case 'saveVersion':
 		define('HANDLER_CLASS', 'RTVersionHandler');
-		import('pages.rtadmin.RTVersionHandler');
+		import('app.Pages.rtadmin.RTVersionHandler');
 		break;
 	//
 	// Contexts
@@ -55,7 +55,7 @@ switch ($op) {
 	case 'deleteContext':
 	case 'moveContext':
 		define('HANDLER_CLASS', 'RTContextHandler');
-		import('pages.rtadmin.RTContextHandler');
+		import('app.Pages.rtadmin.RTContextHandler');
 		break;
 	//
 	// Searches
@@ -67,7 +67,7 @@ switch ($op) {
 	case 'deleteSearch':
 	case 'moveSearch':
 		define('HANDLER_CLASS', 'RTSearchHandler');
-		import('pages.rtadmin.RTSearchHandler');
+		import('app.Pages.rtadmin.RTSearchHandler');
 		break;
 }
 

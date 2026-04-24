@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/classes/form/ReviewObjectTypeForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewObjectTypeForm
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ReviewObjectTypeForm extends Form {
 
@@ -38,7 +38,7 @@ class ReviewObjectTypeForm extends Form {
         $journal = Request::getJournal();
         $journalId = $journal->getId();
 
-        $ofrPlugin->import('classes.ReviewObjectType');
+        $ofrPlugin->import('core.Modules.ReviewObjectType');
         $reviewObjectTypeDao = DAORegistry::getDAO('ReviewObjectTypeDAO');
         if (!empty($typeId)) {
             $this->reviewObjectType = $reviewObjectTypeDao->getById((int) $typeId, $journalId);
@@ -116,7 +116,7 @@ class ReviewObjectTypeForm extends Form {
         $journal = Request::getJournal();
         $journalId = $journal->getId();
 
-        $ofrPlugin->import('classes.ReviewObjectType');
+        $ofrPlugin->import('core.Modules.ReviewObjectType');
         $reviewObjectTypeDao = DAORegistry::getDAO('ReviewObjectTypeDAO');
         
         if ($this->reviewObjectType == null) {
@@ -134,7 +134,7 @@ class ReviewObjectTypeForm extends Form {
             $reviewObjectTypeDao->updateObject($reviewObjectType);
         } else {
             //install common metadata
-            $ofrPlugin->import('classes.ReviewObjectMetadata');
+            $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
             $multipleOptionsTypes = ReviewObjectMetadata::getMultipleOptionsTypes();
             $dtdTypes = ReviewObjectMetadata::getMetadataDTDTypes();
 

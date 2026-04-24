@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/SectionHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SectionHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class SectionHandler extends ManagerHandler {
     
@@ -44,7 +44,7 @@ class SectionHandler extends ManagerHandler {
     /**
      * Display a list of the sections within the current journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function sections($args, $request) {
         $this->validate();
@@ -73,7 +73,7 @@ class SectionHandler extends ManagerHandler {
     /**
      * Display form to create a new section.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createSection($args, $request) {
         $this->editSection($args, $request);
@@ -82,13 +82,13 @@ class SectionHandler extends ManagerHandler {
     /**
      * Display form to create/edit a section.
      * @param array $args if set the first parameter is the ID of the section to edit
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editSection($args, $request) {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.manager.form.SectionForm');
+        import('core.Modules.manager.form.SectionForm');
 
         $sectionForm = new SectionForm(!isset($args) || empty($args) ? null : ((int) $args[0]));
         if ($sectionForm->isLocaleResubmit()) {
@@ -102,7 +102,7 @@ class SectionHandler extends ManagerHandler {
     /**
      * Save changes to a section.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateSection($args, $request) {
         $this->validate();
@@ -111,7 +111,7 @@ class SectionHandler extends ManagerHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.manager.form.SectionForm');
+        import('core.Modules.manager.form.SectionForm');
         $sectionForm = new SectionForm(!isset($args) || empty($args) ? null : ((int) $args[0]));
 
         // [SECURITY FIX] Amankan 'editorAction' (string key) dengan trim()
@@ -148,7 +148,7 @@ class SectionHandler extends ManagerHandler {
     /**
      * Delete a section.
      * @param array $args first parameter is the ID of the section to delete
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteSection($args, $request) {
         $this->validate();
@@ -167,7 +167,7 @@ class SectionHandler extends ManagerHandler {
     /**
      * Change the sequence of a section.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveSection($args, $request) {
         $this->validate();

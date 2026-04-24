@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/users/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
@@ -50,7 +50,7 @@ Voorbeelden:
 	<message key="plugins.importexport.users.import.errorsOccurred">Er zijn fouten opgetreden tijdens het importeren</message>
 	<message key="plugins.importexport.users.import.confirmUsers">Wilt u deze gebruikers in het systeem importeren</message>
 	<message key="plugins.importexport.users.import.warning">Waarschuwing</message>
-	<message key="plugins.importexport.users.import.encryptionMismatch">Wachtwoorden gecodeerd volgens {$importHash} kunnen niet geïmporteerd worden. OJS is geconfigureerd voor {$ojsHash}. Als u doorgaat, moet u de wachtwoorden van de geïmporteerde gebruikers opnieuw instellen.</message>
+	<message key="plugins.importexport.users.import.encryptionMismatch">Wachtwoorden gecodeerd volgens {$importHash} kunnen niet geïmporteerd worden. Wizdam Editorial is geconfigureerd voor {$ojsHash}. Als u doorgaat, moet u de wachtwoorden van de geïmporteerde gebruikers opnieuw instellen.</message>
 	<message key="plugins.importexport.users.unknownJournal">Het pad naar tijdschrift  "{$journalPath}" is onbekend.</message>
 
 	<message key="plugins.importexport.users.export.exportUsers">Exporteer gebruikers</message>

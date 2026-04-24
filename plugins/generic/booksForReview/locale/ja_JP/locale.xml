@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/booksForReview/locale/ja_JP/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Books for review plugin localization strings for the en_US (U.S. English) locale.
@@ -125,7 +125,7 @@
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderBeforeDays2">日後に締切</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays1">著者にリマインダーメールを送る</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays2">日経過(締切後)</message>
-	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>注意:</strong> このオプションをアクティベートするには, サイト管理者がOJSの設定ファイルで <tt>scheduled_tasks</tt> オプションを使用可能にしなければなりません。OJS documentation にあるように，この機能をサポートするためにサーバに追加の設定が必要な場合があります(すべてのサーバで動作するわけではありません)。]]></message>
+	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>注意:</strong> このオプションをアクティベートするには, サイト管理者がWizdam Editorialの設定ファイルで <tt>scheduled_tasks</tt> オプションを使用可能にしなければなりません。Wizdam Editorial documentation にあるように，この機能をサポートするためにサーバに追加の設定が必要な場合があります(すべてのサーバで動作するわけではありません)。]]></message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformation">追加情報</message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformationDescription">追加情報は書評とともに公開されました。</message>
 	<message key="plugins.generic.booksForReview.settings.dueWeeksRequired">書評をいつ締め切るか適切な期間(週)を指定してください。</message>

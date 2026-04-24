@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/lucene/LuceneHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class LuceneHandler
@@ -16,10 +16,10 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 import('plugins.generic.lucene.classes.SolrWebService');
-import('lib.pkp.classes.core.JSONMessage');
-import('classes.search.ArticleSearch');
+import('core.Kernel.JSONMessage');
+import('core.Modules.search.ArticleSearch');
 
 class LuceneHandler extends Handler {
 
@@ -62,7 +62,7 @@ class LuceneHandler extends Handler {
     /**
      * AJAX request for search query auto-completion.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string JSON
      */
     public function queryAutocomplete($args, $request) {
@@ -128,7 +128,7 @@ class LuceneHandler extends Handler {
      * article metadata in a formate that can be consumed by
      * the Solr data import handler.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string JSON
      */
     public function pullChangedArticles($args, $request) {
@@ -159,7 +159,7 @@ class LuceneHandler extends Handler {
      * similar to the one identified by an article id in the
      * request.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function similarDocuments($args, $request) {
         $this->validate(null, $request);

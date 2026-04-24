@@ -1,5 +1,5 @@
 /**
- * Script untuk menampilkan Sinta Impact Factor di OJS v2.4.8
+ * Script untuk menampilkan Sinta Impact Factor di App v2.4.8
  * Versi dengan keamanan yang ditingkatkan dan efek skeleton loading
  * Enhanced with comprehensive Wizdam logging system
  * #author Rochmady and Wizdam Team

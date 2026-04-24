@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/rtadmin/RTSetupHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RTSetupHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & UI Amputation
  */
 
-import('pages.rtadmin.RTAdminHandler');
+import('app.Pages.rtadmin.RTAdminHandler');
 
 class RTSetupHandler extends RTAdminHandler {
     
@@ -44,7 +44,7 @@ class RTSetupHandler extends RTAdminHandler {
     /**
      * Display settings page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function settings($args = [], $request = null) {
         $this->validate();
@@ -89,7 +89,7 @@ class RTSetupHandler extends RTAdminHandler {
     /**
      * Save settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSettings($args = [], $request = null) {
         $this->validate();

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/objectsForReview/classes/form/ObjectForReviewAssignmentForm.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ObjectForReviewAssignmentForm
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM] MODERNIZED FOR PHP 8.x compatibility.
  */
 
-import('lib.pkp.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ObjectForReviewAssignmentForm extends Form {
 
@@ -117,7 +117,7 @@ class ObjectForReviewAssignmentForm extends Form {
      */
     public function execute($object = null) {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ObjectForReviewAssignment');
+        $ofrPlugin->import('core.Modules.ObjectForReviewAssignment');
 
         $journal = Request::getJournal();
         $journalId = $journal->getId();

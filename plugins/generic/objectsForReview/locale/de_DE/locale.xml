@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/objectsForReview/locale/de_DE/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Objects for review plugin localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
@@ -85,7 +85,7 @@
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderBeforeDays2">Tag(e) vor dem Fälligkeitsdatum schicken.</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays1">Autor/innen eine Erinnerungs-E-Mail</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays2">Tag(e) nach dem Fälligkeitsdatum schicken.</message>
-	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Hinweis:</strong> Um diese Optionen zu aktivieren, muss der/die Zeitschriftenverwalter/in die <tt>scheduled_tasks</tt>-Option in der OJS-Konfigurationsdatei auswählen. Eventuell sind weitere Einstellungen des Servers (die vielleicht nicht auf allen Servern möglich sind) erforderlich, um diese Funktionen zu ermöglichen, vgl. die OJS-Dokumentation.]]></message>
+	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Hinweis:</strong> Um diese Optionen zu aktivieren, muss der/die Zeitschriftenverwalter/in die <tt>scheduled_tasks</tt>-Option in der Wizdam Editorial-Konfigurationsdatei auswählen. Eventuell sind weitere Einstellungen des Servers (die vielleicht nicht auf allen Servern möglich sind) erforderlich, um diese Funktionen zu ermöglichen, vgl. die Wizdam Editorial-Dokumentation.]]></message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformation">Zusätzliche Informationen</message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformationDescription">Zusätzliche Informationen, die zusammen mit der Liste der Rezensionsobjekte veröffentlicht werden.</message>
 

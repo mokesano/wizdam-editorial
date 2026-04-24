@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/doi/locale/uk_UA/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * DOI plugin localization strings
@@ -13,11 +13,11 @@
  
 <locale name="uk_UA" full_name="Українська">
 	<message key="plugins.pubIds.doi.displayName">DOI</message>
-	<message key="plugins.pubIds.doi.description">Цей модуль дозволяє призначення цифрових ідентифікаторів об'єктів (DOI) для випусків, статей, гранок та супровідних файлів OJS.</message>
+	<message key="plugins.pubIds.doi.description">Цей модуль дозволяє призначення цифрових ідентифікаторів об'єктів (DOI) для випусків, статей, гранок та супровідних файлів Wizdam Editorial.</message>
 
 	<!-- settings form -->
 	<message key="plugins.pubIds.doi.manager.settings.doiSettings">Налаштування модуля DOI</message>
-	<message key="plugins.pubIds.doi.manager.settings.description">Щоб мати можливість використовувати DOI у OJS, будь ласка, налаштуйте модуль DOI:</message>
+	<message key="plugins.pubIds.doi.manager.settings.description">Щоб мати можливість використовувати DOI у Wizdam Editorial, будь ласка, налаштуйте модуль DOI:</message>
 	
 	<message key="plugins.pubIds.doi.manager.settings.doiObjects">Зміст журналу</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiObjectsRequired">Будь ласка, оберіть об'єкти, для яких мають призначатись DOI.</message>
@@ -33,7 +33,7 @@
 
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffix">Суфікс DOI</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixDescription">Суфікс DOI може мати будь-яку форму, але він має бути унікальним серед всіх видавничих об'єктів з однаковим префіксом DOI:</message>
-	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Використовуйте поданий нижче шаблон для генерації суфіксів DOI. Синтаксис шаблону наступний: %j - ініціали журналу, %v - номер тому, %i - номер випуску, %Y - рік, %a - ідентифікатор статті, %g - ідентифікатор гранки в OJS, %s - ідентифікатор супровідного файлу в OJS, %p - номери сторінок.</message>
+	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Використовуйте поданий нижче шаблон для генерації суфіксів DOI. Синтаксис шаблону наступний: %j - ініціали журналу, %v - номер тому, %i - номер випуску, %Y - рік, %a - ідентифікатор статті, %g - ідентифікатор гранки в Wizdam Editorial, %s - ідентифікатор супровідного файлу в Wizdam Editorial, %p - номери сторінок.</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.issues">для випусків</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.articles">для статей</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.galleys">для гранок</message>

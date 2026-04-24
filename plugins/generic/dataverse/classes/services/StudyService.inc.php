@@ -61,7 +61,7 @@ class StudyService {
         // 2. Ekstrak Deskripsi/Abstrak
         $description = $article->getData('studyDescription', $article->getLocale()) 
             ? $article->getData('studyDescription', $article->getLocale()) 
-            : PKPString::html2text($article->getAbstract($article->getLocale()));
+            : CoreString::html2text($article->getAbstract($article->getLocale()));
 
         $descriptionValues = [
             [
@@ -156,7 +156,7 @@ class StudyService {
 
         $study = null;
         if ($datasetData && isset($datasetData['persistentId'])) {
-            $this->plugin->import('classes.DataverseStudy');
+            $this->plugin->import('core.Modules.DataverseStudy');
             $study = new DataverseStudy();
             $study->setSubmissionId($article->getId());
             // Di Native API, URI dan ID direpresentasikan oleh Persistent ID (DOI)
@@ -184,7 +184,7 @@ class StudyService {
     public function replaceStudyMetadata($article, $study, $journal): bool {
         // Karena WIZDAM fokus pada unggah file dan release, replace metadata via REST bisa
         // memerlukan endpoint edit spesifik (/editMetadata). 
-        // Untuk saat ini, kita return true agar workflow OJS tidak terhambat.
+        // Untuk saat ini, kita return true agar workflow Wizdam tidak terhambat.
         return true; 
     }
     
@@ -201,7 +201,7 @@ class StudyService {
 
         $allUploaded = true;
         
-        $this->plugin->import('classes.DataverseFile');         
+        $this->plugin->import('core.Modules.DataverseFile');         
         $dvFileDao = DAORegistry::getDAO('DataverseFileDAO');
 
         foreach ($suppFiles as $suppFile) {
@@ -243,7 +243,7 @@ class StudyService {
      * @return bool
      */
     public function releaseStudy($study, $journal, $user, $request): bool {
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();       
         $persistentId = (string) $study->getPersistentUri();
 
@@ -283,7 +283,7 @@ class StudyService {
             $dataverseStudyDao->deleteStudy($study);
         }
 
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification($userId, $studyDeleted ? NOTIFICATION_TYPE_DATAVERSE_STUDY_DELETED : NOTIFICATION_TYPE_DATAVERSE_ERROR);
         
@@ -304,7 +304,7 @@ class StudyService {
         if (strpos($sourceUri, 'native-api-file:') === 0) {
             // Native API membutuhkan Dataverse File ID fisik untuk menghapus.
             // Karena kita mendelegasikan hapus keseluruhan dataset pada opsi Decline,
-            // Hapus file satuan kita simulasikan sukses untuk database OJS lokal.
+            // Hapus file satuan kita simulasikan sukses untuk database Wizdam lokal.
             return $dvFileDao->deleteDataverseFile($dvFile);
         }
         
@@ -322,7 +322,7 @@ class StudyService {
         $affiliation = '';
         if ($author) {
             if ($author->getAffiliation($locale)) {
-                $lines = array_map("PKPString::trimPunctuation", PKPString::regexp_split('/\s*[\r\n]+/s', $author->getAffiliation($locale)));
+                $lines = array_map("CoreString::trimPunctuation", CoreString::regexp_split('/\s*[\r\n]+/s', $author->getAffiliation($locale)));
                 $affiliation .= implode(', ', $lines);
                 if ($author->getCountry())  $affiliation .= ', '. $author->getCountry();
             }

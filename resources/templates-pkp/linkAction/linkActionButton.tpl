@@ -1,8 +1,8 @@
 {**
  * linkActionButton.tpl
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Template that renders a button for a link action.
@@ -18,10 +18,10 @@
 {/if}
 <a href="javascript:$.noop();" id="{$buttonId|escape}" {strip}
 	{if $action->getImage()}
-		class="{$imageClass} {$action->getImage()|escape} pkp_controllers_linkAction"
+		class="{$imageClass} {$action->getImage()|escape} core_controllers_linkAction"
 		title="{$action->getHoverTitle()|escape}">{if $hoverTitle}&nbsp;{else}{$action->getTitle()|escape}{/if}
 	{else}
-		class="pkp_controllers_linkAction"
+		class="core_controllers_linkAction"
 		title="{$action->getHoverTitle()|escape}">{if !$hoverTitle}{$action->getTitle()|escape}{/if}
 	{/if}
 {/strip}</a>

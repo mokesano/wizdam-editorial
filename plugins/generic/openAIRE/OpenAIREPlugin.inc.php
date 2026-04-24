@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/openAIRE/OpenAIREPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OpenAIREPlugin
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class OpenAIREPlugin extends GenericPlugin {
 
@@ -62,8 +62,8 @@ class OpenAIREPlugin extends GenericPlugin {
 
             // Add OpenAIRE set to OAI results
             HookRegistry::register('OAIDAO::getJournalSets', [$this, 'sets']);
-            HookRegistry::register('JournalOAI::identifiers', [$this, 'recordsOrIdentifiers']);
-            HookRegistry::register('JournalOAI::records', [$this, 'recordsOrIdentifiers']);
+            HookRegistry::register('CoreOAI::identifiers', [$this, 'recordsOrIdentifiers']);
+            HookRegistry::register('CoreOAI::records', [$this, 'recordsOrIdentifiers']);
             HookRegistry::register('OAIDAO::_returnRecordFromRow', [$this, 'addSet']);
             HookRegistry::register('OAIDAO::_returnIdentifierFromRow', [$this, 'addSet']);
 
@@ -203,9 +203,9 @@ class OpenAIREPlugin extends GenericPlugin {
             $openAIREDao->setOAI($journalOAI);
             
             $funcName = '';
-            if ($hookName == 'JournalOAI::records') {
+            if ($hookName == 'CoreOAI::records') {
                 $funcName = '_returnRecordFromRow';
-            } else if ($hookName == 'JournalOAI::identifiers') {
+            } else if ($hookName == 'CoreOAI::identifiers') {
                 $funcName = '_returnIdentifierFromRow';
             }
             

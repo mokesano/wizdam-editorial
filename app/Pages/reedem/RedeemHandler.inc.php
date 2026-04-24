@@ -16,8 +16,8 @@ declare(strict_types=1);
  * melihat saldo "Recognition Points" dan riwayat mutasinya.
  */
 
-import('classes.handler.Handler');
-import('lib.wizdam.classes.checkout.services.RedeemService');
+import('core.Modules.handler.Handler');
+import('core.Modules.checkout.services.RedeemService');
 
 class RedeemHandler extends Handler {
     
@@ -81,7 +81,7 @@ class RedeemHandler extends Handler {
             $this->_redirectWithError($request, 'redeem.error.invalidMethod');
         }
 
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('core.Modules.validation.ValidatorCSRF');
         if (!ValidatorCSRF::checkToken($request->getUserVar('csrfToken'))) {
             $this->_redirectWithError($request, 'redeem.error.csrfInvalid');
         }
@@ -98,7 +98,7 @@ class RedeemHandler extends Handler {
             $this->redeemService->exchangePoints((int) $user->getId(), $pointsToRedeem);
 
             // Jika berhasil, beri notifikasi trivial sukses
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification(
                 $user->getId(), 
@@ -123,7 +123,7 @@ class RedeemHandler extends Handler {
      * HELPER: Mengalihkan pengguna kembali ke dasbor dompet dengan Notifikasi Error.
      */
     private function _redirectWithError($request, string $localeKey): void {
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $user = $request->getUser();
         

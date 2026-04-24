@@ -3,11 +3,11 @@
 <!--
   * plugins/generic/usageStats/locale/ca_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_(ca_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Catalan_(ca_ES)
   *
   * Localization strings
   -->
@@ -28,10 +28,10 @@
 	<message key="plugins.generic.usageStats.displayName">Estadístiques d'ús</message>
 	<message key="plugins.generic.usageStats.description">Actuals objectes d'estadístiques d'ús. Pots utilitzar els fitxers de registre d'accés del servidor per a extreure'n les estadístiques.</message>
 	
-	<message key="plugins.reports.usageStats.report.displayName">Informe OJS d'estadístiques d'ús</message>
-	<message key="plugins.reports.usageStats.report.description">Informe OJS per defecte d'estadístiques d'us (compatible amb COUNTER)</message>
+	<message key="plugins.reports.usageStats.report.displayName">Informe Wizdam Editorial d'estadístiques d'ús</message>
+	<message key="plugins.reports.usageStats.report.description">Informe Wizdam Editorial per defecte d'estadístiques d'us (compatible amb COUNTER)</message>
 	
-	<message key="plugins.reports.usageStats.metricType">OJS/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType">Wizdam Editorial/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Open Journal Systems statistics (compatible amb COUNTER)</message>
 	<message key="plugins.generic.usageStats.settings.dataPrivacyOption">Opció de privacitat de dades</message>
 	<message key="plugins.generic.usageStats.settings.dataPrivacyOption.excludesCity">Activar la privacitat de dades exclou Ciutat com a estadística opcional.</message>

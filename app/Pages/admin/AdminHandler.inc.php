@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/admin/AdminHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AdminHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class AdminHandler extends Handler {
     
@@ -59,7 +59,7 @@ class AdminHandler extends Handler {
     /**
      * Display site admin index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -67,10 +67,10 @@ class AdminHandler extends Handler {
 
         $templateMgr = TemplateManager::getManager();
 
-        // Display a warning message if there is a new version of OJS available
+        // Display a warning message if there is a new version of Wizdam available
         $newVersionAvailable = false;
         if (Config::getVar('general', 'show_upgrade_warning')) {
-            import('lib.pkp.classes.site.VersionCheck');
+            import('core.Modules.site.VersionCheck');
             if ($latestVersion = VersionCheck::checkIfNewVersionExists()) {
                 $newVersionAvailable = true;
                 $templateMgr->assign('latestVersion', $latestVersion);
@@ -106,7 +106,7 @@ class AdminHandler extends Handler {
     /**
      * Tampilkan formulir 'About Site Settings' kustom.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function aboutSite($args, $request) {
         $this->validate();
@@ -123,7 +123,7 @@ class AdminHandler extends Handler {
         // I will use standard call:
         // $this->setupTemplate(true); 
         
-        import('classes.admin.form.AboutSiteForm');
+        import('core.Modules.admin.form.AboutSiteForm');
         $form = new AboutSiteForm();
         
         if (!$request->isPost()) {
@@ -135,7 +135,7 @@ class AdminHandler extends Handler {
     /**
      * Simpan formulir 'About Site Settings' kustom.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveAboutSite($args, $request) {
         $this->validate();
@@ -143,7 +143,7 @@ class AdminHandler extends Handler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
         
-        import('classes.admin.form.AboutSiteForm');
+        import('core.Modules.admin.form.AboutSiteForm');
         $form = new AboutSiteForm();
         
         // --- PERBAIKAN ALUR LOGIKA ---
@@ -158,7 +158,7 @@ class AdminHandler extends Handler {
             $form->execute();
             
             // --- PERBAIKAN NOTIFIKASI ---
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             
             // Parameter 1: Dapatkan ID pengguna dari request

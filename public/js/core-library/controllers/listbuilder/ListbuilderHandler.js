@@ -2,14 +2,14 @@
  * @defgroup js_controllers_listbuilder
  */
 // Define the namespace.
-$.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
+$.core.controllers.listbuilder = $.core.controllers.listbuilder || {};
 
 
 /**
  * @file js/controllers/listbuilder/ListbuilderHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ListbuilderHandler
@@ -23,18 +23,18 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.grid.GridHandler
+	 * @extends $.core.controllers.grid.GridHandler
 	 *
 	 * @param {jQuery} $listbuilder The listbuilder this handler is
 	 *  attached to.
 	 * @param {Object} options Listbuilder handler configuration.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler =
+	$.core.controllers.listbuilder.ListbuilderHandler =
 			function($listbuilder, options) {
 		this.parent($listbuilder, options);
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.listbuilder.ListbuilderHandler,
-			$.pkp.controllers.grid.GridHandler);
+	$.core.classes.Helper.inherits($.core.controllers.listbuilder.ListbuilderHandler,
+			$.core.controllers.grid.GridHandler);
 
 
 	//
@@ -45,7 +45,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 * @type {?number}
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			sourceType_ = null;
 
 
@@ -55,7 +55,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			saveUrl_ = null;
 
 
@@ -65,7 +65,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			saveFieldName_ = null;
 
 
@@ -74,7 +74,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			fetchOptionsUrl_ = null;
 
 
@@ -83,7 +83,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 * @type {HTMLElement}
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.
+	$.core.controllers.listbuilder.ListbuilderHandler.
 			prototype.editItemCallingContext_ = null;
 
 
@@ -93,7 +93,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.initialize =
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.initialize =
 			function(options) {
 		this.parent('initialize', options);
 
@@ -129,7 +129,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 * @return {?string} URL to the "save listbuilder" handler operation.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.getSaveUrl_ =
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.getSaveUrl_ =
 			function() {
 
 		return this.saveUrl_;
@@ -141,7 +141,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @private
 	 * @return {?string} Name of the field to transmit LB contents in.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.getSaveFieldName_ =
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.getSaveFieldName_ =
 			function() {
 
 		return this.saveFieldName_;
@@ -152,7 +152,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * "Save" and close any editing rows in the listbuilder.
 	 * @protected
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.closeEdits =
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.closeEdits =
 			function() {
 
 		var $editedRow = this.getHtmlElement().find('.gridRowEdit:visible');
@@ -166,7 +166,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	/**
 	 * Save the listbuilder.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.save =
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.save =
 			function() {
 
 		// Get deletions
@@ -224,7 +224,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * Function that will be called to save an edited row.
 	 * @param {Object} $row The DOM element representing the row to save.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			saveRow = function($row) {
 
 		// Retrieve a single new row from the server.
@@ -253,7 +253,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.getEmptyElement =
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.getEmptyElement =
 			function($element) {
 		// Listbuilders have only one empty element placeholder.
 		return this.getHtmlElement().find('.empty');
@@ -273,7 +273,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 *  a button.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.addItemHandler_ =
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.addItemHandler_ =
 			function(callingContext, opt_event) {
 
 		// Make sure this event will be handled after any other next triggered one,
@@ -301,7 +301,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 *  a button.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.deleteItemHandler_ =
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.deleteItemHandler_ =
 			function(callingContext, opt_event) {
 
 		// Close any existing edits if necessary
@@ -309,7 +309,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 
 		var $callingContext = $(callingContext);
 		var $targetRow = $callingContext.closest('.gridRow');
-		var $deletions = $callingContext.closest('.pkp_controllers_listbuilder')
+		var $deletions = $callingContext.closest('.core_controllers_listbuilder')
 				.find('.deletions');
 		var rowId = $targetRow.find('input[name="rowId"]').val();
 
@@ -334,7 +334,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @param {Object} jsonData A parsed JSON response object.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			appendRowResponseHandler_ = function(ajaxContext, jsonData) {
 
 		jsonData = this.handleJson(jsonData);
@@ -349,7 +349,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			$newRow.find(':input').not('[type="hidden"]').first().focus();
 
 			// If this is a select menu listbuilder, load the options
-			if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
+			if (this.sourceType_ == $.core.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
 				this.disableControls();
 				$.get(this.fetchOptionsUrl_, {},
 						this.callbackWrapper(this.fetchOptionsResponseHandler_, null),
@@ -375,7 +375,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @param {Object} jsonData A parsed JSON response object.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			fetchOptionsResponseHandler_ = function(ajaxContext, jsonData) {
 
 		// Find the currently editable select menu and fill
@@ -409,26 +409,26 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 				var $option;
 				for (j in jsonData.content[i]) {
 					// Ignore optgroup labels.
-					if (j == $.pkp.cons.LISTBUILDER_OPTGROUP_LABEL) {
+					if (j == $.core.cons.LISTBUILDER_OPTGROUP_LABEL) {
 						continue;
 					}
 
 					if (typeof(jsonData.content[i][j]) == 'object') {
 						// Options must go inside an optgroup.
 						// Check if we have optgroup label data.
-						if (jsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL] ===
+						if (jsonData.content[i][$.core.cons.LISTBUILDER_OPTGROUP_LABEL] ===
 								undefined) {
 							continue;
 						}
 
 						if (typeof(
-								jsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL]) !=
+								jsonData.content[i][$.core.cons.LISTBUILDER_OPTGROUP_LABEL]) !=
 								'object') {
 							continue;
 						}
 
 						var label =
-								jsonData.content[i][$.pkp.cons.LISTBUILDER_OPTGROUP_LABEL][j];
+								jsonData.content[i][$.core.cons.LISTBUILDER_OPTGROUP_LABEL][j];
 						if (!label) {
 							continue;
 						}
@@ -494,7 +494,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @param {string} optionValue The key to populate the pulldown with.
 	 * @return {object?} Return the inserted option or false.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			populatePulldown_ = function(
 			$element, selectedValues, optionText, optionValue) {
 
@@ -541,7 +541,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 *  a button.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.editItemHandler_ =
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.editItemHandler_ =
 			function(callingContext, opt_event) {
 
 		// Close any existing edits if necessary
@@ -558,7 +558,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 			$targetRow.find(':input').not('[type="hidden"]').first().focus();
 
 			// If this is a select menu listbuilder, load the options
-			if (this.sourceType_ == $.pkp.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
+			if (this.sourceType_ == $.core.cons.LISTBUILDER_SOURCE_TYPE_SELECT) {
 				this.disableControls();
 				$.get(this.fetchOptionsUrl_, {},
 						this.callbackWrapper(this.fetchOptionsResponseHandler_, null),
@@ -580,7 +580,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @param {Object} $inputs The grid inputs to mine for parameters.
 	 * @return {Object} A name: value association of relevant parameters.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			buildParamsFromInputs_ = function($inputs) {
 
 		var params = {};
@@ -607,7 +607,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @param {Event=} opt_event The triggering event.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			inputKeystrokeHandler_ = function(callingContext, opt_event) {
 
 		var CR_KEY = 13;
@@ -641,7 +641,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @param {Event=} opt_event The triggering event.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			inputBlurHandler_ = function(callingContext, opt_event) {
 
 		// Flag currently selected input using a CSS class. (Don't
@@ -681,7 +681,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			saveRowResponseHandler_ = function(ajaxContext, jsonData) {
 
 		jsonData = this.handleJson(jsonData);
@@ -719,7 +719,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			saveResponseHandler_ = function(ajaxContext, jsonData) {
 
 		// Noop
@@ -734,7 +734,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 *
 	 * @param {Object} $context The JQuery object to search for attachables.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.prototype.
+	$.core.controllers.listbuilder.ListbuilderHandler.prototype.
 			attachContentHandlers_ = function($context) {
 
 		// Attach click handler for text fields and select menus
@@ -756,12 +756,12 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * Save the Listbuilder's contents upon a "form submitted" event.
 	 * @private
 	 *
-	 * @param {$.pkp.controllers.form.AjaxFormHandler} callingForm The form
+	 * @param {$.core.controllers.form.AjaxFormHandler} callingForm The form
 	 *  that triggered the event.
 	 * @param {Event} event The event.
 	 * @return {boolean} False if the form submission should abort.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.
+	$.core.controllers.listbuilder.ListbuilderHandler.
 			prototype.formSubmitHandler_ = function(callingForm, event) {
 
 		// Save the contents
@@ -780,11 +780,11 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	 * Enable deactivated inputs.
 	 * @private
 	 *
-	 * @param {$.pkp.controllers.form.AjaxFormHandler} callingForm The form
+	 * @param {$.core.controllers.form.AjaxFormHandler} callingForm The form
 	 *  that triggered the event.
 	 * @param {Event} event The event.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.
+	$.core.controllers.listbuilder.ListbuilderHandler.
 			prototype.formSubmittedHandler_ = function(callingForm, event) {
 
 		this.getHtmlElement().find('.gridRow :input').removeAttr('disabled');
@@ -794,7 +794,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	/**
 	 * Disable the add_* links and show the spinner before making AJAX calls.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.
+	$.core.controllers.listbuilder.ListbuilderHandler.
 			prototype.disableControls = function() {
 
 		this.getHtmlElement().
@@ -810,7 +810,7 @@ $.pkp.controllers.listbuilder = $.pkp.controllers.listbuilder || {};
 	/**
 	 * Re-enable the add_* links and hide the spinner.
 	 */
-	$.pkp.controllers.listbuilder.ListbuilderHandler.
+	$.core.controllers.listbuilder.ListbuilderHandler.
 			prototype.enableControls = function() {
 		// rebind our 'click' handler so we can add another item
 		// if needed

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/admin/AdminPeopleHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AdminPeopleHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.admin.AdminHandler');
+import('app.Pages.admin.AdminHandler');
 
 class AdminPeopleHandler extends AdminHandler {
     
@@ -44,7 +44,7 @@ class AdminPeopleHandler extends AdminHandler {
     /**
      * Allow the Site Administrator to merge user accounts, including attributed articles etc.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function mergeUsers($args, $request) {
         $this->validate();
@@ -65,7 +65,7 @@ class AdminPeopleHandler extends AdminHandler {
 
         if (!empty($oldUserIds) && !empty($newUserId)) {
             // Both user IDs have been selected. Merge the accounts.
-            import('classes.user.UserAction');
+            import('core.Modules.user.UserAction');
             foreach ($oldUserIds as $oldUserId) {
                 UserAction::mergeUsers($oldUserId, $newUserId);
             }
@@ -81,9 +81,9 @@ class AdminPeopleHandler extends AdminHandler {
             $roleSymbolic = isset($args[0]) ? (string) $args[0] : 'all';
         }
         
-        // [LOGIKA VALIDASI OJS ASLI]
+        // [LOGIKA VALIDASI Wizdam ASLI]
         $matches = [];
-        if ($roleSymbolic != 'all' && PKPString::regexp_match_get('/^(\w+)s$/', $roleSymbolic, $matches)) {
+        if ($roleSymbolic != 'all' && CoreString::regexp_match_get('/^(\w+)s$/', $roleSymbolic, $matches)) {
             $roleId = $roleDao->getRoleIdFromPath($matches[1]);
             if ($roleId == null) {
                 $request->redirect(null, null, null, 'all');
@@ -115,13 +115,13 @@ class AdminPeopleHandler extends AdminHandler {
             
             $searchMatch = trim((string) $request->getUserVar('searchMatch'));
             // Whitelisting (PENTING):
-            $allowedMatches = ['is', 'contains', 'startsWith']; // Standard OJS matches
+            $allowedMatches = ['is', 'contains', 'startsWith']; // Standard Wizdam matches
             if (!in_array($searchMatch, $allowedMatches)) {
                 $searchMatch = 'contains'; // Default aman
             }
 
         } elseif (!empty($searchInitial)) {
-            $searchInitial = PKPString::strtoupper($searchInitial);
+            $searchInitial = CoreString::strtoupper($searchInitial);
             $searchType = USER_FIELD_INITIAL;
             $search = $searchInitial;
         }

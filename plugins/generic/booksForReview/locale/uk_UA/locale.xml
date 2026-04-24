@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/booksForReview/locale/uk_UA/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the uk_UA (Українська) locale.
@@ -129,7 +129,7 @@
        <message key="plugins.generic.booksForReview.settings.enableDueReminderBeforeDays2">днів перед кінцевою датою рецензування.</message>
        <message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays1">Надсилати авторам нагадування поштою через</message>
        <message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays2">днів після кінцевої дати рецензування.</message>
-       <message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Примітка:</strong> Щоб активувати цю опцію, адміністратор сайту повинен дозволити директиву <tt>scheduled_tasks</tt> у файлі конфігурації OJS. Крім того, як зазначено у документації OJS, налаштування цієї опції може вимагати також додаткових конфігурацій (що можливо не на всіх серверах).]]></message>
+       <message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Примітка:</strong> Щоб активувати цю опцію, адміністратор сайту повинен дозволити директиву <tt>scheduled_tasks</tt> у файлі конфігурації Wizdam Editorial. Крім того, як зазначено у документації Wizdam Editorial, налаштування цієї опції може вимагати також додаткових конфігурацій (що можливо не на всіх серверах).]]></message>
        <message key="plugins.generic.booksForReview.settings.additionalInformation">Додаткова інформація</message>
        <message key="plugins.generic.booksForReview.settings.additionalInformationDescription">Додаткова інформація, яка повинна публікуватися разом з книгами до рецензії.</message>
        <message key="plugins.generic.booksForReview.settings.dueWeeksRequired">Будь ласка, вкажіть кількість тижнів до настання кінцевої дати рецензування книг.</message>

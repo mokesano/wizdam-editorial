@@ -4,11 +4,11 @@
 <!--
   * plugins/generic/lucene/locale/it_IT/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * OJS solr/lucene search plugin localization strings
+  * Wizdam Editorial solr/lucene search plugin localization strings
   * Contributed by Andrea Marchitelli - CINECA.
   -->
  
@@ -29,7 +29,7 @@
 	<message key="plugins.generic.lucene.message.indexingIncomplete">Si è verificato un errore durante: indicizzati {$numIndexed} documenti su un totale di {$batchCount}.</message>
 	<message key="plugins.generic.lucene.message.indexOnline">Indice con {$numDocs} documenti online.</message>
 	<message key="plugins.generic.lucene.message.pullIndexingDisabled">L'indicizzazione pull non è abilitata. Abilitala nella configurazione del plugin Lucene.</message>
-	<message key="plugins.generic.lucene.message.searchServiceOffline">Sfortunatamente, il servizio di ricerca in OJS al momento è offline.</message>
+	<message key="plugins.generic.lucene.message.searchServiceOffline">Sfortunatamente, il servizio di ricerca dalam Wizdam Editorial al momento è offline.</message>
 	<message key="plugins.generic.lucene.message.techAdminInformed">L'amministratore tecnico di questa rivista è stato informato del problema.</message>
 	<message key="plugins.generic.lucene.message.webServiceError">Il web service Lucene ha restituito un errore.</message>
 
@@ -80,8 +80,8 @@
 	]]></message>
 	<message key="plugins.generic.lucene.settings.highlighting">Evidenziazione (mostra un breve estratto del testo di ciascun articolo contenente le parole oggetto della ricerca)</message>
 	<message key="plugins.generic.lucene.settings.instId">ID univoco dell'installazione</message>
-	<message key="plugins.generic.lucene.settings.instIdRequired">Inserisci un ID che identifichi univocamente questa installazione di OJS sul server di ricerca Solr.</message>
-	<message key="plugins.generic.lucene.settings.instIdInstructions">Se usi un server di ricerca centralizzato, devi indicare un ID univoco per ciascuna installazione di OJS che condivide l'indice.  Puoi usare un testo a tua scelta, ma deve essere diverso per ciascuna installazione coinvolta (es. l'indirizzo IP statico del server se hai una installazione OJS per server).</message>
+	<message key="plugins.generic.lucene.settings.instIdRequired">Inserisci un ID che identifichi univocamente questa installazione di Wizdam Editorial sul server di ricerca Solr.</message>
+	<message key="plugins.generic.lucene.settings.instIdInstructions">Se usi un server di ricerca centralizzato, devi indicare un ID univoco per ciascuna installazione di Wizdam Editorial che condivide l'indice.  Puoi usare un testo a tua scelta, ma deve essere diverso per ciascuna installazione coinvolta (es. l'indirizzo IP statico del server se hai una installazione Wizdam Editorial per server).</message>
 	<message key="plugins.generic.lucene.settings.internalError">Selezione non valida.</message>
 	<message key="plugins.generic.lucene.settings.luceneSettings">Plugin Lucene: Impostazioni</message>
 	<message key="plugins.generic.lucene.settings.password">Password</message>

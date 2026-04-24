@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/blocks/subscription/SubscriptionBlockPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubscriptionBlockPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. Reference safe for PHP 8.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class SubscriptionBlockPlugin extends BlockPlugin {
     
@@ -66,7 +66,7 @@ class SubscriptionBlockPlugin extends BlockPlugin {
     /**
      * Get the HTML contents for this block.
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {
@@ -110,7 +110,7 @@ class SubscriptionBlockPlugin extends BlockPlugin {
             }
         }
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         // [MODERNISASI] Hapus referensi &
         $paymentManager = new AppPaymentManager($request);
 

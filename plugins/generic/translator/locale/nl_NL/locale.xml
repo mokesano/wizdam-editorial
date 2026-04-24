@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/translator/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
@@ -17,8 +17,8 @@
 <locale name="nl_NL" full_name="Nederlands">
 	<message key="plugins.generic.translator.name">Translator Plugin</message>
 	<message key="plugins.generic.translator.description">Met deze plugin kunnen taalbestanden via een webinterface onderhouden worden.</message>
-	<message key="plugins.generic.translator.longdescription">Op deze plek kan de Site Administrator vertalingen van OJS maken, veranderen en controleren. Dit werkt door de hele site en is niet bedoeld om een enkel OJS tijdschrijft te modificeren. Als u een vertaling maakt of verbetert, overweeg dan om die beschikbaar te stellen aan het Public Knowledge Project.</message>
-	<message key="plugins.generic.translator.localeDescription">Deze pagina toont alle componenten van een OJS vertaling en biedt de vertaler de mogelijkheid om ze te bewerken. Een volledige vertaling bevat complete vertalingen van alle componenten.</message>
+	<message key="plugins.generic.translator.longdescription">Op deze plek kan de Site Administrator vertalingen van Wizdam Editorial maken, veranderen en controleren. Dit werkt door de hele site en is niet bedoeld om een enkel Wizdam Editorial tijdschrijft te modificeren. Als u een vertaling maakt of verbetert, overweeg dan om die beschikbaar te stellen aan het Public Knowledge Project.</message>
+	<message key="plugins.generic.translator.localeDescription">Deze pagina toont alle componenten van een Wizdam Editorial vertaling en biedt de vertaler de mogelijkheid om ze te bewerken. Een volledige vertaling bevat complete vertalingen van alle componenten.</message>
 
 	<message key="plugins.generic.translator.localeName">Naam vertaling</message>
 	<message key="plugins.generic.translator.localeKey">Sleutel</message>

@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/modal/ConfirmationModalHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ConfirmationModalHandler
@@ -17,7 +17,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.modal.ModalHandler
+	 * @extends $.core.controllers.modal.ModalHandler
 	 *
 	 * @param {jQuery} $handledElement The clickable element
 	 *  the modal will be attached to.
@@ -33,20 +33,20 @@
 	 *  - All options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
-	$.pkp.controllers.modal.ConfirmationModalHandler =
+	$.core.controllers.modal.ConfirmationModalHandler =
 			function($handledElement, options) {
 
 		this.parent($handledElement, options);
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ConfirmationModalHandler,
-			$.pkp.controllers.modal.ModalHandler);
+	$.core.classes.Helper.inherits($.core.controllers.modal.ConfirmationModalHandler,
+			$.core.controllers.modal.ModalHandler);
 
 
 	//
 	// Protected methods
 	//
 	/** @inheritDoc */
-	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.checkOptions =
+	$.core.controllers.modal.ConfirmationModalHandler.prototype.checkOptions =
 			function(options) {
 		// Check the mandatory options of the ModalHandler handler.
 		if (!this.parent('checkOptions', options)) {
@@ -62,7 +62,7 @@
 
 
 	/** @inheritDoc */
-	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.mergeOptions =
+	$.core.controllers.modal.ConfirmationModalHandler.prototype.mergeOptions =
 			function(options) {
 		// Let the parent class prepare the options first.
 		var internalOptions = this.parent('mergeOptions', options);
@@ -99,7 +99,7 @@
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
 	 */
-	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalConfirm =
+	$.core.controllers.modal.ConfirmationModalHandler.prototype.modalConfirm =
 			function(dialogElement) {
 
 		// The default implementation will simply close the modal.

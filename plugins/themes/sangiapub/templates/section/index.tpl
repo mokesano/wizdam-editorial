@@ -48,7 +48,7 @@
                      class="editor-photo" />
                 {/if}
 
-                {* Identitas — Template bebas akses semua getter PKPUser *}
+                {* Identitas — Template bebas akses semua getter CoreUser *}
                 <div class="editor-identity">
                     <strong>{$editor.user->getFullName()|escape}</strong>
 

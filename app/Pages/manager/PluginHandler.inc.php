@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/manager/PluginHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class PluginHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.manager.ManagerHandler');
+import('app.Pages.manager.ManagerHandler');
 
 class PluginHandler extends ManagerHandler {
     
@@ -44,7 +44,7 @@ class PluginHandler extends ManagerHandler {
     /**
      * Display a list of plugins along with management options.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function plugins($args, $request) {
         $category = isset($args[0]) ? $args[0] : null;
@@ -94,7 +94,7 @@ class PluginHandler extends ManagerHandler {
     /**
      * Perform plugin-specific management functions.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function plugin($args, $request) {
         $category = array_shift($args);
@@ -127,7 +127,7 @@ class PluginHandler extends ManagerHandler {
             
             if ($message) {
                 $user = $request->getUser();
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification($user->getId(), $message, $messageParams);
             }
@@ -137,7 +137,7 @@ class PluginHandler extends ManagerHandler {
 
     /**
      * Set the page's breadcrumbs
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $subclass
      * @return array
      */

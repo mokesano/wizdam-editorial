@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/openAIRE/OpenAIREDAO.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OpenAIREDAO
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('classes.oai.OAIDAO');
+import('core.Modules.oai.OAIDAO');
 
 class OpenAIREDAO extends OAIDAO {
 
@@ -40,7 +40,7 @@ class OpenAIREDAO extends OAIDAO {
 
     /**
      * Set parent OAI object.
-     * @param JournalOAI $oai
+     * @param CoreOAI $oai
      */
     public function setOAI($oai) {
         $this->oai = $oai;
@@ -72,7 +72,7 @@ class OpenAIREDAO extends OAIDAO {
         $params = $this->getOrderedRecordParams(null, $setIds, null);
 
         // 2. Build SQL manually (Replaces the old _getRecordsRecordSet)
-        // We use the helper methods available in the modernized PKPOAIDAO
+        // We use the helper methods available in the modernized CoreOAIDAO
         $sql = $this->getRecordSelectStatement() . ' FROM mutex m ' .
                $this->getRecordJoinClause(null, $setIds, null) . ' ' .
                $this->getAccessibleRecordWhereClause() . ' ' .
@@ -83,7 +83,7 @@ class OpenAIREDAO extends OAIDAO {
 
         // 4. Handle Pagination & Filtering
         // Note: We calculate total based on DB rows before filtering, 
-        // matching original OJS behavior (though arguably imprecise)
+        // matching original Wizdam behavior (though arguably imprecise)
         $total = $result->RecordCount();
 
         $result->Move($offset);

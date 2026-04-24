@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/user/RegistrationHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RegistrationHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.user.UserHandler');
+import('app.Pages.user.UserHandler');
 
 class RegistrationHandler extends UserHandler {
     
@@ -44,11 +44,11 @@ class RegistrationHandler extends UserHandler {
     /**
      * Display registration form for new users.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function register($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         
         // --- [WIZDAM FIX] SINGLE ACCOUNT PARADIGM ---
         // Jika user sudah login, tidak perlu akses halaman register lagi.
@@ -67,7 +67,7 @@ class RegistrationHandler extends UserHandler {
         $journal = $request->getJournal();
 
         if ($journal != null) {
-            import('classes.user.form.RegistrationForm');
+            import('core.Modules.user.form.RegistrationForm');
 
             $regForm = new RegistrationForm();
             if ($regForm->isLocaleResubmit()) {
@@ -98,11 +98,11 @@ class RegistrationHandler extends UserHandler {
     /**
      * Validate user registration information and register new user.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function registerUser($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [WIZDAM FIX] $request di posisi argumen yang benar
         $this->validate(null, $request);
@@ -110,7 +110,7 @@ class RegistrationHandler extends UserHandler {
 
         // [WIZDAM FIX] Validasi token security dengan konteks register
         if (!$this->_validateSecurityTokens($request, 'register')) {
-            import('classes.user.form.RegistrationForm');
+            import('core.Modules.user.form.RegistrationForm');
             $templateMgr = TemplateManager::getManager();
             $this->_assignSecurityVariables($templateMgr, 'register');
             $regForm = new RegistrationForm();
@@ -192,11 +192,11 @@ class RegistrationHandler extends UserHandler {
 
     /**
      * Show error message if user registration is not allowed.
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function registrationDisabled($request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->setupTemplate($request, true);
         $templateMgr = TemplateManager::getManager();
@@ -218,12 +218,12 @@ class RegistrationHandler extends UserHandler {
     /**
      * Check credentials and activate a new user
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      * @author Marc Bria <marc.bria@uab.es>
      */
     public function activateUser($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $username = array_shift($args);
         $accessKeyCode = array_shift($args);
@@ -234,7 +234,7 @@ class RegistrationHandler extends UserHandler {
         if (!$user) $request->redirect(null, 'login');
 
         // Checks user & token
-        import('lib.pkp.classes.security.AccessKeyManager');
+        import('core.Modules.security.AccessKeyManager');
         $accessKeyManager = new AccessKeyManager();
         $accessKeyHash = AccessKeyManager::generateKeyHash($accessKeyCode);
         $accessKey = $accessKeyManager->validateKey(
@@ -262,7 +262,7 @@ class RegistrationHandler extends UserHandler {
      * Validation check.
      * Checks if journal allows user registration.
      * @param mixed $requiredContexts (Legacy boolean loginCheck or context)
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      * @return boolean
      */     
     public function validate($requiredContexts = null, $request = null) {

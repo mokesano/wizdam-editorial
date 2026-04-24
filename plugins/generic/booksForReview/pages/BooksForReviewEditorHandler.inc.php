@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/booksForReview/pages/BooksForReviewEditorHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class BooksForReviewEditorHandler
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe. Security Hardened (XSS & Open Redirect Prevention).
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class BooksForReviewEditorHandler extends Handler {
 
@@ -31,7 +31,7 @@ class BooksForReviewEditorHandler extends Handler {
 
         $bfrPlugin = PluginRegistry::getPlugin('generic', BOOKS_FOR_REVIEW_PLUGIN_NAME);
         $mode = $bfrPlugin->getSetting($journalId, 'mode');
-        $bfrPlugin->import('classes.BookForReview');
+        $bfrPlugin->import('core.Modules.BookForReview');
         
         $searchField = null;
         $searchMatch = null;
@@ -91,7 +91,7 @@ class BooksForReviewEditorHandler extends Handler {
         }
 
 
-        import('pages.editor.EditorHandler');
+        import('app.Pages.editor.EditorHandler');
         $user = $request->getUser();
         $filterEditorOptions = array(
             FILTER_EDITOR_ALL => AppLocale::Translate('editor.allEditors'),
@@ -192,7 +192,7 @@ class BooksForReviewEditorHandler extends Handler {
 
         // Ensure book for review is valid and for this journal
         if (($bookId != null && $bfrDao->getBookForReviewJournalId($bookId) == $journalId) || ($bookId == null)) {
-            $bfrPlugin->import('classes.form.BookForReviewForm');
+            $bfrPlugin->import('core.Modules.form.BookForReviewForm');
 
             $journalSettingsDao = DAORegistry::getDAO('JournalSettingsDAO');
             $journalSettings = $journalSettingsDao->getJournalSettings($journalId);
@@ -225,7 +225,7 @@ class BooksForReviewEditorHandler extends Handler {
 
         $bfrPlugin = PluginRegistry::getPlugin('generic', BOOKS_FOR_REVIEW_PLUGIN_NAME);
         $mode = $bfrPlugin->getSetting($journalId, 'mode');
-        $bfrPlugin->import('classes.form.BookForReviewForm');
+        $bfrPlugin->import('core.Modules.form.BookForReviewForm');
         
         // [SECURITY FIX] Amankan 'bookId' dengan trim() dan (int)
         $bookId = (int) trim($request->getUserVar('bookId'));
@@ -294,13 +294,13 @@ class BooksForReviewEditorHandler extends Handler {
                 }
                 
                 $user = $request->getUser();
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification($user->getId(), $notificationType);
                 
                 // [SECURITY FIX] Validasi $returnPage untuk mencegah Open Redirect
                 $redirectParams = null;
-                // Request::isPathValid adalah helper fiktif jika tidak ada di OJS 2, tapi validasi di atas sudah cukup
+                // Request::isPathValid adalah helper fiktif jika tidak ada di Wizdam 2, tapi validasi di atas sudah cukup
                 if (!empty($returnPage)) {
                     $redirectParams = array('returnPage' => $returnPage);
                 }
@@ -362,7 +362,7 @@ class BooksForReviewEditorHandler extends Handler {
             if ($bfrDao->getBookForReviewJournalId($bookId) == $journalId) {
                 $bfrDao->deleteBookForReviewById($bookId);
                 $user = $request->getUser();
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_BOOK_DELETED);
             }
@@ -381,7 +381,7 @@ class BooksForReviewEditorHandler extends Handler {
         $journalId = $journal->getId();
 
         $bfrPlugin = PluginRegistry::getPlugin('generic', BOOKS_FOR_REVIEW_PLUGIN_NAME);
-        $bfrPlugin->import('classes.form.BooksForReviewSettingsForm');
+        $bfrPlugin->import('core.Modules.form.BooksForReviewSettingsForm');
         $templateMgr = TemplateManager::getManager();
 
         $form = new BooksForReviewSettingsForm($bfrPlugin, $journalId);
@@ -399,7 +399,7 @@ class BooksForReviewEditorHandler extends Handler {
             if ($form->validate()) {
                 $form->execute();
                 $user = $request->getUser();
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_BOOK_SETTINGS_SAVED);
 
@@ -480,7 +480,7 @@ class BooksForReviewEditorHandler extends Handler {
             }
 
         } else if (!empty($searchInitial)) { 
-            $searchInitial = PKPString::strtoupper($searchInitial);
+            $searchInitial = CoreString::strtoupper($searchInitial);
             $searchType = USER_FIELD_INITIAL;
             $search = $searchInitial;
         }
@@ -495,7 +495,7 @@ class BooksForReviewEditorHandler extends Handler {
         // [SECURITY FIX] Amankan output 'searchInitial'
         $templateMgr->assign('searchInitial', htmlspecialchars($searchInitial, ENT_QUOTES, 'UTF-8'));
 
-        import('classes.security.Validation');
+        import('core.Modules.security.Validation');
         $templateMgr->assign('isJournalManager', Validation::isJournalManager());
 
         $templateMgr->assign('fieldOptions', Array(
@@ -569,7 +569,7 @@ class BooksForReviewEditorHandler extends Handler {
         $editorId = $user->getId();
         $rangeInfo = Handler::getRangeInfo('submissions');
 
-        import('lib.pkp.classes.db.DAO');
+        import('core.Modules.db.DAO');
         $submissions = $editorSubmissionDao->getEditorSubmissions(
             $journalId,
             0,
@@ -643,7 +643,7 @@ class BooksForReviewEditorHandler extends Handler {
                 $bfrDao->updateObject($book);
                 $user = $request->getUser();
 
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_BOOK_SUBMISSION_ASSIGNED);
             }
@@ -705,7 +705,7 @@ class BooksForReviewEditorHandler extends Handler {
             // Ensure user is an author for this journal
             $roleDao = DAORegistry::getDAO('RoleDAO');
             if ($roleDao->userHasRole($journalId, $userId, ROLE_ID_AUTHOR)) {
-                import('classes.mail.MailTemplate');
+                import('core.Modules.mail.MailTemplate');
                 $email = new MailTemplate('BFR_BOOK_ASSIGNED');
                 // [SECURITY FIX] Amankan flag boolean 'send'
                 $send = (int) trim($request->getUserVar('send'));
@@ -726,7 +726,7 @@ class BooksForReviewEditorHandler extends Handler {
                     $email->send();
                     $user = $request->getUser();
 
-                    import('classes.notification.NotificationManager');
+                    import('core.Modules.notification.NotificationManager');
                     $notificationManager = new NotificationManager();
                     $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_BOOK_AUTHOR_ASSIGNED);
 
@@ -750,12 +750,12 @@ class BooksForReviewEditorHandler extends Handler {
 
                         $paramArray = array(
                             'authorName' => strip_tags($userName),
-                            'authorMailingAddress' => PKPString::html2text($userMailingAddress),
+                            'authorMailingAddress' => CoreString::html2text($userMailingAddress),
                             'bookForReviewTitle' => '"' . strip_tags($book->getLocalizedTitle()) . '"',
                             'bookForReviewDueDate' => date('l, F j, Y', $dueDateTimestamp),
                             'userProfileUrl' => $request->url(null, 'user', 'profile'),
                             'submissionUrl' => $request->url(null, 'author', 'submit'),
-                            'editorialContactSignature' => PKPString::html2text($book->getEditorContactSignature())
+                            'editorialContactSignature' => CoreString::html2text($book->getEditorContactSignature())
                         );
 
                         $email->addRecipient($userEmail, $userName);
@@ -799,7 +799,7 @@ class BooksForReviewEditorHandler extends Handler {
 
         // Ensure book for review is for this journal
         if ($bfrDao->getBookForReviewJournalId($bookId) == $journalId) {
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $email = new MailTemplate('BFR_BOOK_DENIED');
             
             // [SECURITY FIX] Amankan flag boolean 'send'
@@ -818,7 +818,7 @@ class BooksForReviewEditorHandler extends Handler {
                 $email->send();
                 $user = $request->getUser();
 
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_BOOK_AUTHOR_DENIED);
 
@@ -836,7 +836,7 @@ class BooksForReviewEditorHandler extends Handler {
                         'authorName' => strip_tags($userFullName),
                         'bookForReviewTitle' => '"' . strip_tags($book->getLocalizedTitle()) . '"',
                         'submissionUrl' => $request->url(null, 'author', 'submit'),
-                        'editorialContactSignature' => PKPString::html2text($book->getEditorContactSignature())
+                        'editorialContactSignature' => CoreString::html2text($book->getEditorContactSignature())
                     );
 
                     $email->addRecipient($userEmail, $userFullName);
@@ -879,7 +879,7 @@ class BooksForReviewEditorHandler extends Handler {
 
         // Ensure book for review is for this journal
         if ($bfrDao->getBookForReviewJournalId($bookId) == $journalId) {
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $email = new MailTemplate('BFR_BOOK_MAILED');
             
             // [SECURITY FIX] Amankan flag boolean 'send'
@@ -897,7 +897,7 @@ class BooksForReviewEditorHandler extends Handler {
                 $email->send();
                 $user = $request->getUser();
 
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_BOOK_MAILED);
 
@@ -925,10 +925,10 @@ class BooksForReviewEditorHandler extends Handler {
 
                     $paramArray = array(
                         'authorName' => strip_tags($userFullName),
-                        'authorMailingAddress' => PKPString::html2text($userMailingAddress),
+                        'authorMailingAddress' => CoreString::html2text($userMailingAddress),
                         'bookForReviewTitle' => '"' . strip_tags($book->getLocalizedTitle()) . '"',
                         'submissionUrl' => $request->url(null, 'author', 'submit'),
-                        'editorialContactSignature' => PKPString::html2text($book->getEditorContactSignature())
+                        'editorialContactSignature' => CoreString::html2text($book->getEditorContactSignature())
                     );
 
                     $email->addRecipient($userEmail, $userFullName);
@@ -971,7 +971,7 @@ class BooksForReviewEditorHandler extends Handler {
 
         // Ensure book for review is for this journal
         if ($bfrDao->getBookForReviewJournalId($bookId) == $journalId) {
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $email = new MailTemplate('BFR_REVIEWER_REMOVED');
             
             // [SECURITY FIX] Amankan flag boolean 'send'
@@ -995,7 +995,7 @@ class BooksForReviewEditorHandler extends Handler {
                 $email->send();
                 $user = $request->getUser();
 
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_BOOK_AUTHOR_REMOVED);
 
@@ -1013,7 +1013,7 @@ class BooksForReviewEditorHandler extends Handler {
                     $paramArray = array(
                         'authorName' => strip_tags($userFullName),
                         'bookForReviewTitle' => '"' . strip_tags($book->getLocalizedTitle()) . '"',
-                        'editorialContactSignature' => PKPString::html2text($book->getEditorContactSignature())
+                        'editorialContactSignature' => CoreString::html2text($book->getEditorContactSignature())
                     );
 
                     $email->addRecipient($userEmail, $userFullName);

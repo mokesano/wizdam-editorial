@@ -50,7 +50,7 @@ class CounterReportAR1 extends CounterReport {
     }
 
     /*
-     * Convert an OJS metrics request to a COUNTER ReportItem
+     * Convert an Wizdam metrics request to a COUNTER ReportItem
      * @param string|array $columns column (aggregation level) selection
      * @param array $filters report-level filter selection
      * @param array $orderBy order criteria
@@ -101,8 +101,8 @@ class CounterReportAR1 extends CounterReport {
         if (array_keys($filters)) {
             $this->setError(new Exception(__('plugins.reports.counter.exception.filter'), COUNTER_EXCEPTION_WARNING | COUNTER_EXCEPTION_BAD_FILTERS));
         }
-        // Metric type is ojs::counter
-        $metricType = OJS_METRIC_TYPE_COUNTER;
+        // Metric type is wizdam::counter
+        $metricType = APP_METRIC_TYPE_COUNTER;
         // Ordering must be by Journal (ReportItem), and by Month (ItemPerformance) for JR1
         $validOrder = [STATISTICS_DIMENSION_SUBMISSION_ID => STATISTICS_ORDER_DESC, STATISTICS_DIMENSION_MONTH => STATISTICS_ORDER_ASC];
         // TODO: range

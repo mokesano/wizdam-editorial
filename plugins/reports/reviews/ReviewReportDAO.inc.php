@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/reports/reviews/ReviewReportDAO.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ReviewReportDAO
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * @brief Review report DAO
  */
 
-import('classes.article.ArticleComment');
-import('lib.pkp.classes.db.DBRowIterator');
+import('core.Modules.article.ArticleComment');
+import('core.Modules.db.DBRowIterator');
 
 class ReviewReportDAO extends DAO {
     

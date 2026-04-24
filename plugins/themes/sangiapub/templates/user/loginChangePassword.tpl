@@ -1,8 +1,8 @@
 {**
  * templates/user/loginChangePassword.tpl
  *
- * Copyright (c) 2013-2017 Simon Fraser University
- * Copyright (c) 2000-2016 John Willinsky
+ * Copyright (c) 2013-2017 Sangia Publishing House
+ * Copyright (c) 2000-2016 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * Form to change a user's password in order to login.
@@ -17,7 +17,7 @@
 <script type="text/javascript">
 	$(function() {ldelim}
 		// Attach the form handler.
-		$('#loginChangePassword').pkpHandler('$.pkp.controllers.form.FormHandler');
+		$('#loginChangePassword').coreHandler('$.core.controllers.form.FormHandler');
 	{rdelim});
 </script>
 
@@ -25,7 +25,7 @@
 	{assign var="passwordLengthRestrictionLocaleKey" value="user.register.passwordLengthRestriction"}
 {/if}
 
-<form class="pkp_form" id="loginChangePassword" method="post" action="{url page="login" op="savePassword"}">
+<form class="core_form" id="loginChangePassword" method="post" action="{url page="login" op="savePassword"}">
 
 {* WIZDAM SECURITY: Token CSRF Wajib Ada *}
 <input value="{$csrfToken|escape}" name="csrfToken" type="hidden">

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/proofreader/SubmissionProofreadHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class SubmissionProofreadHandler
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.proofreader.ProofreaderHandler');
+import('app.Pages.proofreader.ProofreaderHandler');
 
 class SubmissionProofreadHandler extends ProofreaderHandler {
     
@@ -44,11 +44,11 @@ class SubmissionProofreadHandler extends ProofreaderHandler {
     /**
      * Submission - Proofreading view
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function submission($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $journal = $request->getJournal();
@@ -87,11 +87,11 @@ class SubmissionProofreadHandler extends ProofreaderHandler {
     /**
      * Sets proofreader completion date
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function completeProofreader($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) $request->getUserVar('articleId');
 
@@ -109,11 +109,11 @@ class SubmissionProofreadHandler extends ProofreaderHandler {
     /**
      * View submission metadata.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function viewMetadata($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $journal = $request->getJournal();
@@ -130,11 +130,11 @@ class SubmissionProofreadHandler extends ProofreaderHandler {
     /**
      * Download a file.
      * @param array $args ($articleId, $fileId, [$revision])
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function downloadFile($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $fileId = (int) array_shift($args);
@@ -153,11 +153,11 @@ class SubmissionProofreadHandler extends ProofreaderHandler {
     /**
      * Proof / "preview" a galley.
      * @param array $args ($articleId, $galleyId)
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function proofGalley($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $galleyId = (int) array_shift($args);
@@ -172,11 +172,11 @@ class SubmissionProofreadHandler extends ProofreaderHandler {
     /**
      * Proof galley (shows frame header).
      * @param array $args ($articleId, $galleyId)
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function proofGalleyTop($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $galleyId = (int) array_shift($args);
@@ -192,11 +192,11 @@ class SubmissionProofreadHandler extends ProofreaderHandler {
     /**
      * Proof galley (outputs file contents).
      * @param array $args ($articleId, $galleyId)
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function proofGalleyFile($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $galleyId = (int) array_shift($args);
@@ -205,7 +205,7 @@ class SubmissionProofreadHandler extends ProofreaderHandler {
         $galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
         $galley = $galleyDao->getGalley($galleyId, $articleId);
 
-        import('classes.file.ArticleFileManager'); 
+        import('core.Modules.file.ArticleFileManager'); 
 
         if (isset($galley)) {
             if ($galley->isHTMLGalley()) {
@@ -228,11 +228,11 @@ class SubmissionProofreadHandler extends ProofreaderHandler {
     /**
      * View a file (inlines file).
      * @param array $args ($articleId, $fileId, [$revision])
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function viewFile($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $fileId = (int) array_shift($args);

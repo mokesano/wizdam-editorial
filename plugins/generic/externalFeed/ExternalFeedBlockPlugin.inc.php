@@ -4,22 +4,22 @@ declare(strict_types=1);
 /**
  * @file plugins/generic/externalFeed/ExternalFeedBlockPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ExternalFeedBlockPlugin
  * @ingroup plugins_generic_externalFeed
  *
  * @brief Class for block component of external feed plugin
- * * MODERNIZED FOR PHP 8.x & OJS FORK (Wizdam Edition)
+ * * MODERNIZED FOR PHP 8.x & Wizdam FORK (Wizdam Edition)
  * - Added Block-Specific CSS injection.
  * - Implemented Firewall Bypass logic.
  * - Redirected template to 'templates/' folder.
  * - Strict Syntax Compliance.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class ExternalFeedBlockPlugin extends BlockPlugin {
     
@@ -127,7 +127,7 @@ class ExternalFeedBlockPlugin extends BlockPlugin {
         $externalFeedDao = DAORegistry::getDAO('ExternalFeedDAO');
         
         $plugin->import('simplepie.SimplePie');
-        import('lib.pkp.classes.core.PKPString');
+        import('core.Kernel.CoreString');
     
         $feeds = $externalFeedDao->getExternalFeedsByJournalId($journal->getId());
         $externalFeeds = array();

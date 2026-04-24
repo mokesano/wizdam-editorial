@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file pages/donations/DonationsHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class DonationsHandler
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class DonationsHandler extends Handler {
     
@@ -48,7 +48,7 @@ class DonationsHandler extends Handler {
     /**
      * Display the donations page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Singleton Fallback 
@@ -61,7 +61,7 @@ class DonationsHandler extends Handler {
             $args = $request->getRequestedArgs();
         }
     
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $journal = $request->getJournal();
 
@@ -87,7 +87,7 @@ class DonationsHandler extends Handler {
     /**
      * Display a "thank you" page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function thankYou($args, $request = null) {
         // [WIZDAM] Singleton Fallback

@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/UrlInDivHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class UrlInDivHandler
@@ -15,12 +15,12 @@
     /**
      * @constructor
      *
-     * @extends $.pkp.classes.Handler
+     * @extends $.core.classes.Handler
      *
      * @param {jQueryObject} $divElement the wrapped div element.
      * @param {Object} options options to be passed.
      */
-    $.pkp.controllers.UrlInDivHandler = function($divElement, options) {
+    $.core.controllers.UrlInDivHandler = function($divElement, options) {
         this.parent($divElement, options);
 
         // Store the URL (e.g. for reloads)
@@ -34,8 +34,8 @@
     };
     
     // Inherit from Handler
-    $.pkp.classes.Helper.inherits(
-        $.pkp.controllers.UrlInDivHandler, $.pkp.classes.Handler);
+    $.core.classes.Helper.inherits(
+        $.core.controllers.UrlInDivHandler, $.core.classes.Handler);
 
     //
     // Private properties
@@ -45,7 +45,7 @@
      * @private
      * @type {?string}
      */
-    $.pkp.controllers.UrlInDivHandler.prototype.sourceUrl_ = null;
+    $.core.controllers.UrlInDivHandler.prototype.sourceUrl_ = null;
 
     //
     // Public Methods
@@ -53,7 +53,7 @@
     /**
      * Reload the div contents.
      */
-    $.pkp.controllers.UrlInDivHandler.prototype.reload = function() {
+    $.core.controllers.UrlInDivHandler.prototype.reload = function() {
         if (!this.sourceUrl_) {
             console.warn('UrlInDivHandler: No sourceUrl defined for reloading.');
             return;
@@ -97,7 +97,7 @@
      * @return {boolean} Message handling result.
      * @private
      */
-    $.pkp.controllers.UrlInDivHandler.prototype.handleLoadedContent_ = 
+    $.core.controllers.UrlInDivHandler.prototype.handleLoadedContent_ = 
             function(ajaxContext, jsonData) {
         
         // Safety check if 'this' context is lost

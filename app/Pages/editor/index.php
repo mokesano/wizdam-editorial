@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file pages/editor/index.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_editor
@@ -142,7 +142,7 @@ switch ($op) {
 	case 'waivePublicationFee':
 	case 'downloadLayoutTemplate':
 		define('HANDLER_CLASS', 'SubmissionEditHandler');
-		import('pages.sectionEditor.SubmissionEditHandler');
+		import('app.Pages.sectionEditor.SubmissionEditHandler');
 		break;
 	//
 	// Submission Comments
@@ -163,7 +163,7 @@ switch ($op) {
 	case 'saveComment':
 	case 'deleteComment':
 		define('HANDLER_CLASS', 'SubmissionCommentsHandler');
-		import('pages.sectionEditor.SubmissionCommentsHandler');
+		import('app.Pages.sectionEditor.SubmissionCommentsHandler');
 		break;
 	//
 	// Issue
@@ -199,7 +199,7 @@ switch ($op) {
 	case 'unpublishIssue':
 	case 'notifyUsers':
 		define('HANDLER_CLASS', 'IssueManagementHandler');
-		import('pages.editor.IssueManagementHandler');
+		import('app.Pages.editor.IssueManagementHandler');
 		break;
 	case 'index':
 	case 'submissions':
@@ -209,7 +209,7 @@ switch ($op) {
 	case 'deleteSubmission':
 	case 'instructions':
 		define('HANDLER_CLASS', 'EditorHandler');
-		import('pages.editor.EditorHandler');
+		import('app.Pages.editor.EditorHandler');
 }
 
 ?>

@@ -1,8 +1,8 @@
 /**
  * @file js/controllers/ExtrasOnDemandHandler.js
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2000-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class ExtrasOnDemandHandler
@@ -16,13 +16,13 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.Handler
+	 * @extends $.core.classes.Handler
 	 *
 	 * @param {jQueryObject} $widgetWrapper An HTML element that contains the
 	 *  widget.
 	 * @param {Object} options Handler options.
 	 */
-	$.pkp.controllers.ExtrasOnDemandHandler = function($widgetWrapper, options) {
+	$.core.controllers.ExtrasOnDemandHandler = function($widgetWrapper, options) {
 		this.parent($widgetWrapper, options);
 
 		// Show the toggle button and attach click event
@@ -34,8 +34,8 @@
 		// Hide extras (default initial widget state).
 		this.deactivateExtraContent_();
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.ExtrasOnDemandHandler, $.pkp.classes.Handler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.ExtrasOnDemandHandler, $.core.classes.Handler);
 
 
 	//
@@ -46,7 +46,7 @@
 	 *
 	 * @param {HTMLElement} toggleExtras The div that is clicked to toggle extras.
 	 */
-	$.pkp.controllers.ExtrasOnDemandHandler.prototype.toggleExtras =
+	$.core.controllers.ExtrasOnDemandHandler.prototype.toggleExtras =
 			function(toggleExtras) {
 
 		var $widgetWrapper = this.getHtmlElement();
@@ -67,7 +67,7 @@
 	 * @private
 	 * @param {string=} opt_duration The effect duration.
 	 */
-	$.pkp.controllers.ExtrasOnDemandHandler.prototype.activateExtraContent_ =
+	$.core.controllers.ExtrasOnDemandHandler.prototype.activateExtraContent_ =
 			function(opt_duration) {
 		var $widgetWrapper, $scrollable;
 
@@ -115,7 +115,7 @@
 	 * @private
 	 * @param {string=} opt_duration The effect duration.
 	 */
-	$.pkp.controllers.ExtrasOnDemandHandler.prototype.deactivateExtraContent_ =
+	$.core.controllers.ExtrasOnDemandHandler.prototype.deactivateExtraContent_ =
 			function(opt_duration) {
 
 		var $widgetWrapper = this.getHtmlElement();
@@ -151,7 +151,7 @@
 	 * @param {jQueryObject} $widgetWrapper The element to be made visible.
 	 * @param {Array|jQueryObject} $scrollable The parent scrollable element.
 	 */
-	$.pkp.controllers.ExtrasOnDemandHandler.prototype.scrollToMakeVisible_ =
+	$.core.controllers.ExtrasOnDemandHandler.prototype.scrollToMakeVisible_ =
 			function($widgetWrapper, $scrollable) {
 		var extrasWidgetTop, scrollingWidgetTop, currentScrollingTop,
 				hiddenPixels, newScrollingTop;

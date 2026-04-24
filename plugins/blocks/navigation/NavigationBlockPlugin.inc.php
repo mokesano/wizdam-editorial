@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/blocks/navigation/NavigationBlockPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class NavigationBlockPlugin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. Transitioning to Publisher-Centric Nav.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class NavigationBlockPlugin extends BlockPlugin {
     
@@ -73,13 +73,13 @@ class NavigationBlockPlugin extends BlockPlugin {
     /**
      * Get the contents for this block.
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {
         $journal = $request->getJournal();
 
-        // Opsi pencarian standar OJS
+        // Opsi pencarian standar Wizdam
         $templateMgr->assign('articleSearchByOptions', array(
             'query' => 'search.allFields',
             'authors' => 'search.author',

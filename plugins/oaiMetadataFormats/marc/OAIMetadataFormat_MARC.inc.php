@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/oaiMetadataFormats/marc/OAIMetadataFormat_MARC.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAIMetadataFormat_MARC
@@ -118,7 +118,7 @@ class OAIMetadataFormat_MARC extends OAIMetadataFormat {
         }
 
         // 9. Field 520: Abstract
-        $abstract = PKPString::html2text($article->getAbstract($article->getLocale()));
+        $abstract = CoreString::html2text($article->getAbstract($article->getLocale()));
         if (!empty($abstract)) {
              $response .= $this->formatVarField('520', ' ', ' ', 'a', $abstract);
         }

@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file plugins/reports/reviews/ReviewReportPlugin.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  * * @class ReviewReportPlugin
  * @ingroup plugins_reports_review
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Review report plugin
  */
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 
 class ReviewReportPlugin extends ReportPlugin {
     
@@ -64,14 +64,14 @@ class ReviewReportPlugin extends ReportPlugin {
     /**
      * Display the report.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function display($args, $request) {
         $journal = $request->getJournal();
 
         header('content-type: text/comma-separated-values');
         header('content-disposition: attachment; filename=reviews-' . date('Ymd') . '.csv');
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_SUBMISSION);
 
         $reviewReportDao = DAORegistry::getDAO('ReviewReportDAO'); /* @var $reviewReportDao ReviewReportDAO */
         
@@ -89,7 +89,7 @@ class ReviewReportPlugin extends ReportPlugin {
 
         $yesnoMessages = [0 => __('common.no'), 1 => __('common.yes')];
 
-        import('classes.submission.reviewAssignment.ReviewAssignment');
+        import('core.Modules.submission.reviewAssignment.ReviewAssignment');
         $recommendations = ReviewAssignment::getReviewerRecommendationOptions();
 
         $columns = [
@@ -114,7 +114,7 @@ class ReviewReportPlugin extends ReportPlugin {
         $yesNoArray = ['declined', 'cancelled'];
 
         $fp = fopen('php://output', 'wt');
-        PKPString::fputcsv($fp, array_values($columns));
+        CoreString::fputcsv($fp, array_values($columns));
 
         while ($row = $reviewsIterator->next()) {
             foreach ($columns as $index => $junk) {
@@ -132,7 +132,7 @@ class ReviewReportPlugin extends ReportPlugin {
                     $columns[$index] = $row[$index];
                 }
             }
-            PKPString::fputcsv($fp, $columns);
+            CoreString::fputcsv($fp, $columns);
             unset($row);
         }
         fclose($fp);

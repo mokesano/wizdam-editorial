@@ -4,8 +4,8 @@ declare(strict_types=1);
 /**
  * @file pages/rtadmin/RTVersionHandler.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RTVersionHandler
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('pages.rtadmin.RTAdminHandler');
-import('classes.rt.JournalRTAdmin'); // [WIZDAM] Explicit import
+import('app.Pages.rtadmin.RTAdminHandler');
+import('core.Modules.rt.JournalRTAdmin'); // [WIZDAM] Explicit import
 
 class RTVersionHandler extends RTAdminHandler {
     
@@ -45,7 +45,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Create version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createVersion($args, $request = null) {
         $this->validate();
@@ -56,7 +56,7 @@ class RTVersionHandler extends RTAdminHandler {
         $rtDao = DAORegistry::getDAO('RTDAO');
         $journal = $request->getJournal();
 
-        import('classes.rt.form.VersionForm');
+        import('core.Modules.rt.form.VersionForm');
         $versionForm = new VersionForm(null, $journal->getId());
 
         if (isset($args[0]) && $args[0]=='save') {
@@ -72,7 +72,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Export version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function exportVersion($args, $request = null) {
         $this->validate();
@@ -100,7 +100,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Import version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function importVersion($args = [], $request = null) {
         $this->validate();
@@ -121,7 +121,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Restore versions.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function restoreVersions($args = [], $request = null) {
         $this->validate();
@@ -149,7 +149,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Versions list.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function versions($args = [], $request = null) {
         $this->validate();
@@ -173,7 +173,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Edit version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editVersion($args, $request = null) {
         $this->validate();
@@ -188,7 +188,7 @@ class RTVersionHandler extends RTAdminHandler {
         $version = $rtDao->getVersion($versionId, $journal->getId());
 
         if (isset($version)) {
-            import('classes.rt.form.VersionForm');
+            import('core.Modules.rt.form.VersionForm');
             $this->setupTemplate(true, $version);
             $versionForm = new VersionForm($versionId, $journal->getId());
             $versionForm->initData();
@@ -201,7 +201,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Delete version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteVersion($args, $request = null) {
         $this->validate();
@@ -222,7 +222,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Save version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveVersion($args, $request = null) {
         $this->validate();
@@ -237,7 +237,7 @@ class RTVersionHandler extends RTAdminHandler {
         $version = $rtDao->getVersion($versionId, $journal->getId());
 
         if (isset($version)) {
-            import('classes.rt.form.VersionForm');
+            import('core.Modules.rt.form.VersionForm');
             $versionForm = new VersionForm($versionId, $journal->getId());
             $versionForm->readInputData();
             $versionForm->execute();

@@ -8,8 +8,8 @@ declare(strict_types=1);
 /**
  * @file plugins/oaiMetadataFormats/dc/OAIMetadataFormat_DC.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2019 Sangia Publishing House
+ * Copyright (c) 2003-2019 Rochmady and Wizdam Team
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class OAIMetadataFormat_DC
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] REFACTOR: PHP 8.1+ Compatibility
  */
 
-import('lib.pkp.plugins.oaiMetadataFormats.dc.PKPOAIMetadataFormat_DC');
+import('core.Modules.plugins.oaiMetadataFormats.dc.CoreOAIMetadataFormat_DC');
 
 class OAIMetadataFormat_DC extends CoreOAIMetadataFormat_DC {
 
@@ -51,7 +51,7 @@ class OAIMetadataFormat_DC extends CoreOAIMetadataFormat_DC {
 
     /**
      * Convert an article to an OAI Dublin Core XML document.
-     * @see lib/pkp/plugins/oaiMetadataFormats/dc/PKPOAIMetadataFormat_DC::toXml()
+     * @see core.Modules.plugins/oaiMetadataFormats/dc/CoreOAIMetadataFormat_DC::toXml()
      *
      * [WIZDAM NOTE]
      * Signature disesuaikan persis dengan Parent:

@@ -4,8 +4,8 @@
 <!--
   * @file plugins/importexport/datacite/locale/es_AR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -19,7 +19,7 @@
  		DataCite</a>, que va a hacer referencia hacia su usuario de DataCite local. Una vez que haya
 		establecido una relación con la organización Miembro, se le proveerá 
 		con acceso al servicio DataCite para almacenar identificadores persistentes (DOIs)
-		y registrar los metadatos asociados.Si no posee sus nombre de usuario y clave propios, puede exportar  en el formato XML DataCite pero no puede registrar sus DOIs con DataCite desde dentro de OJS.
+		y registrar los metadatos asociados.Si no posee sus nombre de usuario y clave propios, puede exportar  en el formato XML DataCite pero no puede registrar sus DOIs con DataCite desde dentro de Wizdam Editorial.
 		Por favor note que la clave será guardada como texto plano y no se encriptará debido a los requerimientos del servicio de registro de DataCite.]]></message>
 
 	<message key="plugins.importexport.datacite.settings.description"><![CDATA[Por favor <a href="{$settingsUrl}">configure</a> el plugin de exportación DataCite antes de utilizarlo por primera vez.]]></message>
