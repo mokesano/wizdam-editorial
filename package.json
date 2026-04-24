@@ -1,0 +1,14 @@
+{
+  "name": "wizdam/wizdam-platform",
+  "version": "1.0.0",
+  "description": "Wizdam Publisher Platform - Modern Open Journal Systems Framework",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:tinymce",
+    "build:tinymce": "node scripts/build-tinymce.js",
+    "postinstall": "npm run build"
+  },
+  "devDependencies": {
+    "tinymce": "^6.8.0"
+  }
+}

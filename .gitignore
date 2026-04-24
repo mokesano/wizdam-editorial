@@ -1,103 +1,50 @@
 ```
 # Dependencies
 vendor/
+node_modules/
+
+# Build artifacts
+dist/
+build/
+target/
+
+# Cache and temporary files
+.cache/
+.tmp/
+*.tmp
 
 # Logs
 *.log
 
-# Environment specific files
-.env
-.env.local
-.env.*
-
-# IDE and editor files
+# IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# OS generated files
+# OS files
 .DS_Store
 Thumbs.db
 
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
-
-# Build and cache directories
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.sass-cache/
-.nuxt/
-.next/
-.cache/
-.gradle/
-target/
-build/
-dist/
-out/
-coverage/
-htmlcov/
-.mypy_cache/
-.pytest_cache/
-.hypothesis/
-*.egg-info/
-.cargo/
-zig-cache/
-zig-out/
+# Environment files
+.env
+.env.local
+*.env.*
 
 # PHP specific
 *.php~
-*.php.bak
-*.php.swp
-*.phar
+phpunit.xml.dist
+
+# Coverage reports
+coverage/
+htmlcov/
+*.coverage
+
+# Composer cache
+composer.lock
 vendor/composer/installed.json
 
-# Session files
-sess_*
+# Git submodules
+submodule/
 
-# Temporary files
-*.tmp
-*.temp
-tmp/
-temp/
-
-# Database
-*.db
-*.db-journal
-
-# Backup files
-*~
-*.bak
-*.backup
-
-# Sensitive files
-config/database.yml
-config/secrets.yml
-*.key
-*.pem
-*.crt
-*.cert
 ```
