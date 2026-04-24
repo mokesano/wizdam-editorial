@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/payment/wizdam/OJSPaymentManager.inc.php
+ * @file core.Modules.payment/wizdam/AppPaymentManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -10,14 +10,14 @@ declare(strict_types=1);
  *
  * @class AppPaymentManager
  * @ingroup payment
- * @see OJSQueuedPayment
+ * @see AppQueuedPayment
  *
  * @brief Provides payment management functions.
  * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.payment.AppQueuedPayment');
-import('lib.wizdam.classes.payment.PaymentManager');
+import('core.Modules.payment.AppQueuedPayment');
+import('core.Modules.payment.PaymentManager');
 
 define('PAYMENT_TYPE_MEMBERSHIP',         0x000000001);
 define('PAYMENT_TYPE_RENEW_SUBSCRIPTION', 0x000000002);
@@ -43,7 +43,7 @@ class AppPaymentManager extends PaymentManager {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function OJSPaymentManager($request) {
+    public function AppPaymentManager($request) {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor " . get_class($this) . "(). Please refactor to use __construct().",
@@ -149,7 +149,7 @@ class AppPaymentManager extends PaymentManager {
                 
                 // ========================================================
                 // [SEMANTIC CHECKOUT BRIDGE]
-                import('lib.wizdam.classes.services.InvoiceService');
+                import('core.Modules.services.InvoiceService');
                 $checkoutInvoiceService = new InvoiceService();
                 
                 $feeType = 'PUBLICATION';
@@ -230,10 +230,10 @@ class AppPaymentManager extends PaymentManager {
      * Create a completed payment from a queued payment.
      * @param $queuedPayment QueuedPayment Payment to complete.
      * @param $payMethod string Name of payment plugin used.
-     * @return OJSCompletedPayment
+     * @return AppCompletedPayment
      */
     public function createCompletedPayment($queuedPayment, $payMethod) {
-        import('classes.payment.AppCompletedPayment');
+        import('core.Modules.payment.AppCompletedPayment');
         $payment = new AppCompletedPayment();
         $payment->setJournalId($queuedPayment->getJournalId());
         $payment->setType($queuedPayment->getType());
@@ -394,7 +394,7 @@ class AppPaymentManager extends PaymentManager {
                 // Update subscription end date now that payment is completed
                 if ($institutional) {
                     // Still requires approval from JM/SM since includes domain and IP ranges
-                    import('classes.subscription.InstitutionalSubscription');
+                    import('core.Modules.subscription.InstitutionalSubscription');
                     $subscription->setStatus(SUBSCRIPTION_STATUS_NEEDS_APPROVAL);
                     if ($subscription->isNonExpiring()) {
                         $institutionalSubscriptionDao->updateSubscription($subscription);
@@ -405,11 +405,11 @@ class AppPaymentManager extends PaymentManager {
                     // Notify JM/SM of completed online purchase
                     $journalSettingsDao = DAORegistry::getDAO('JournalSettingsDAO');
                     if ($journalSettingsDao->getSetting($subscription->getJournalId(), 'enableSubscriptionOnlinePaymentNotificationPurchaseInstitutional')) {
-                        import('classes.subscription.SubscriptionAction');
+                        import('core.Modules.subscription.SubscriptionAction');
                         SubscriptionAction::sendOnlinePaymentNotificationEmail($subscription, 'SUBSCRIPTION_PURCHASE_INSTL');
                     }
                 } else {
-                    import('classes.subscription.IndividualSubscription');
+                    import('core.Modules.subscription.IndividualSubscription');
                     $subscription->setStatus(SUBSCRIPTION_STATUS_ACTIVE);
                     if ($subscription->isNonExpiring()) {
                         $individualSubscriptionDao->updateSubscription($subscription);
@@ -419,7 +419,7 @@ class AppPaymentManager extends PaymentManager {
                     // Notify JM/SM of completed online purchase
                     $journalSettingsDao = DAORegistry::getDAO('JournalSettingsDAO');
                     if ($journalSettingsDao->getSetting($subscription->getJournalId(), 'enableSubscriptionOnlinePaymentNotificationPurchaseIndividual')) {
-                        import('classes.subscription.SubscriptionAction');
+                        import('core.Modules.subscription.SubscriptionAction');
                         SubscriptionAction::sendOnlinePaymentNotificationEmail($subscription, 'SUBSCRIPTION_PURCHASE_INDL');
                     }
                 }
@@ -447,7 +447,7 @@ class AppPaymentManager extends PaymentManager {
                     // Notify JM/SM of completed online purchase
                     $journalSettingsDao = DAORegistry::getDAO('JournalSettingsDAO');
                     if ($journalSettingsDao->getSetting($subscription->getJournalId(), 'enableSubscriptionOnlinePaymentNotificationRenewInstitutional')) {
-                        import('classes.subscription.SubscriptionAction');
+                        import('core.Modules.subscription.SubscriptionAction');
                         SubscriptionAction::sendOnlinePaymentNotificationEmail($subscription, 'SUBSCRIPTION_RENEW_INSTL');
                     }
                 } else {
@@ -456,7 +456,7 @@ class AppPaymentManager extends PaymentManager {
                     // Notify JM/SM of completed online purchase
                     $journalSettingsDao = DAORegistry::getDAO('JournalSettingsDAO');
                     if ($journalSettingsDao->getSetting($subscription->getJournalId(), 'enableSubscriptionOnlinePaymentNotificationRenewIndividual')) {
-                        import('classes.subscription.SubscriptionAction');
+                        import('core.Modules.subscription.SubscriptionAction');
                         SubscriptionAction::sendOnlinePaymentNotificationEmail($subscription, 'SUBSCRIPTION_RENEW_INDL');
                     }
                 }
@@ -530,7 +530,7 @@ class AppPaymentManager extends PaymentManager {
                 }
 
                 // Update gift status (make it redeemable) and add recipient user account reference
-                import('classes.gift.Gift');
+                import('core.Modules.gift.Gift');
                 $gift->setStatus(GIFT_STATUS_NOT_REDEEMED);
                 $gift->setRecipientUserId($userId);
                 $giftDao->updateObject($gift);
@@ -546,7 +546,7 @@ class AppPaymentManager extends PaymentManager {
                 $giftJournalName = $journal->getTitle($giftLocale);
                 $giftContactSignature = $journal->getSetting('contactName');
 
-                import('classes.mail.MailTemplate');
+                import('core.Modules.mail.MailTemplate');
                 $mail = new MailTemplate('GIFT_AVAILABLE', $giftLocale);
                 $mail->setFrom($journal->getSetting('contactEmail'), $journal->getSetting('contactName'));
                 $mail->assignParams([

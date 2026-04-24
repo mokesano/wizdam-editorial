@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/article/log/ArticleLog.inc.php
+ * @file core.Modules.article/log/ArticleLog.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,8 +20,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.article.log.ArticleEventLogEntry');
-import('classes.article.log.ArticleEmailLogEntry');
+import('core.Modules.article.log.ArticleEventLogEntry');
+import('core.Modules.article.log.ArticleEmailLogEntry');
 
 class ArticleLog {
     

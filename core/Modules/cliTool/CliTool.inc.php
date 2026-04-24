@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/cliTool/CliTool.inc.php
+ * @file core.Modules.cliTool/CliTool.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -65,7 +65,7 @@ class CommandLineTool {
         // [WIZDAM LEGACY SUPPORT]
         // Ideally we should use a CLIRouter, but legacy plugins expect a PageRouter context.
         // We maintain this for compatibility with the existing ecosystem.
-        import('classes.core.PageRouter');
+        import('core.Modules.core.PageRouter');
         $router = new PageRouter();
         $router->setApplication($application);
         $request->setRouter($router);

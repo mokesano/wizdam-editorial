@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/author/AuthorAction.inc.php
+ * @file core.Modules.submission/author/AuthorAction.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & HookRegistry::dispatch
  */
 
-import('classes.submission.common.Action');
+import('core.Modules.submission.common.Action');
 
 class AuthorAction extends Action {
 
@@ -51,7 +51,7 @@ class AuthorAction extends Action {
      * @param boolean $designate
      */
     public static function designateReviewVersion($authorSubmission, $designate = false) {
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFileManager = new ArticleFileManager($authorSubmission->getId());
         $authorSubmissionDao = DAORegistry::getDAO('AuthorSubmissionDAO');
 
@@ -77,7 +77,7 @@ class AuthorAction extends Action {
      * @param int $revisionId
      */
     public static function deleteArticleFile($article, $fileId, $revisionId) {
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
 
         $articleFileManager = new ArticleFileManager($article->getId());
         $articleFileDao = DAORegistry::getDAO('ArticleFileDAO');
@@ -110,7 +110,7 @@ class AuthorAction extends Action {
         // [WIZDAM] Strict Type Guard
         $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFileManager = new ArticleFileManager($authorSubmission->getId());
         $authorSubmissionDao = DAORegistry::getDAO('AuthorSubmissionDAO');
 
@@ -132,7 +132,7 @@ class AuthorAction extends Action {
 
             $user = $request->getUser();
             $journal = $request->getJournal();
-            import('classes.mail.ArticleMailTemplate');
+            import('core.Modules.mail.ArticleMailTemplate');
             $email = new ArticleMailTemplate($authorSubmission, 'REVISED_VERSION_NOTIFY', null, null, null, false);
             if ($email->isEnabled()) {
                 $isEditor = false;
@@ -161,7 +161,7 @@ class AuthorAction extends Action {
                 $email->send($request);
             }
             // Add log entry
-            import('classes.article.log.ArticleLog');
+            import('core.Modules.article.log.ArticleLog');
             ArticleLog::logEvent($request, $authorSubmission, ARTICLE_LOG_AUTHOR_REVISION, 'log.author.documentRevised', ['authorName' => $user->getFullName(), 'fileId' => $fileId]);
         }
     }
@@ -188,7 +188,7 @@ class AuthorAction extends Action {
         }
 
         $user = $request->getUser();
-        import('classes.mail.ArticleMailTemplate');
+        import('core.Modules.mail.ArticleMailTemplate');
         $email = new ArticleMailTemplate($authorSubmission, 'COPYEDIT_AUTHOR_COMPLETE');
 
         $editAssignments = $authorSubmission->getEditAssignments();
@@ -211,7 +211,7 @@ class AuthorAction extends Action {
             $signoffDao->updateObject($finalSignoff);
 
             // Add log entry
-            import('classes.article.log.ArticleLog');
+            import('core.Modules.article.log.ArticleLog');
             ArticleLog::logEvent($request, $authorSubmission, ARTICLE_LOG_COPYEDIT_REVISION, 'log.copyedit.authorFile');
 
             return true;
@@ -276,7 +276,7 @@ class AuthorAction extends Action {
      * @param string $copyeditStage
      */
     public static function uploadCopyeditVersion($authorSubmission, $copyeditStage) {
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFileManager = new ArticleFileManager($authorSubmission->getId());
         $authorSubmissionDao = DAORegistry::getDAO('AuthorSubmissionDAO');
         $articleFileDao = DAORegistry::getDAO('ArticleFileDAO');
@@ -317,7 +317,7 @@ class AuthorAction extends Action {
      */
     public static function viewLayoutComments($article) {
         if (!HookRegistry::dispatch('AuthorAction::viewLayoutComments', [&$article])) {
-            import('classes.submission.form.comment.LayoutCommentForm');
+            import('core.Modules.submission.form.comment.LayoutCommentForm');
             $commentForm = new LayoutCommentForm($article, ROLE_ID_EDITOR);
             $commentForm->initData();
             $commentForm->display();
@@ -335,7 +335,7 @@ class AuthorAction extends Action {
         $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('AuthorAction::postLayoutComment', [&$article, &$emailComment])) {
-            import('classes.submission.form.comment.LayoutCommentForm');
+            import('core.Modules.submission.form.comment.LayoutCommentForm');
 
             $commentForm = new LayoutCommentForm($article, ROLE_ID_AUTHOR);
             $commentForm->readInputData();
@@ -344,7 +344,7 @@ class AuthorAction extends Action {
                 $commentForm->execute();
 
                 // Send a notification to associated users
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationUsers = $article->getAssociatedUserIds(true, false);
                 foreach ($notificationUsers as $userRole) {
@@ -371,7 +371,7 @@ class AuthorAction extends Action {
      */
     public static function viewEditorDecisionComments($article) {
         if (!HookRegistry::dispatch('AuthorAction::viewEditorDecisionComments', [&$article])) {
-            import('classes.submission.form.comment.EditorDecisionCommentForm');
+            import('core.Modules.submission.form.comment.EditorDecisionCommentForm');
 
             $commentForm = new EditorDecisionCommentForm($article, ROLE_ID_AUTHOR);
             $commentForm->initData();
@@ -394,7 +394,7 @@ class AuthorAction extends Action {
         $journal = $request->getJournal();
         $user = $request->getUser();
 
-        import('classes.mail.ArticleMailTemplate');
+        import('core.Modules.mail.ArticleMailTemplate');
         $email = new ArticleMailTemplate($authorSubmission);
 
         $editAssignments = $authorSubmission->getEditAssignments();
@@ -445,7 +445,7 @@ class AuthorAction extends Action {
      */
     public static function viewCopyeditComments($article) {
         if (!HookRegistry::dispatch('AuthorAction::viewCopyeditComments', [&$article])) {
-            import('classes.submission.form.comment.CopyeditCommentForm');
+            import('core.Modules.submission.form.comment.CopyeditCommentForm');
 
             $commentForm = new CopyeditCommentForm($article, ROLE_ID_AUTHOR);
             $commentForm->initData();
@@ -464,7 +464,7 @@ class AuthorAction extends Action {
         $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('AuthorAction::postCopyeditComment', [&$article, &$emailComment])) {
-            import('classes.submission.form.comment.CopyeditCommentForm');
+            import('core.Modules.submission.form.comment.CopyeditCommentForm');
 
             $commentForm = new CopyeditCommentForm($article, ROLE_ID_AUTHOR);
             $commentForm->readInputData();
@@ -473,7 +473,7 @@ class AuthorAction extends Action {
                 $commentForm->execute();
 
                 // Send a notification to associated users
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationUsers = $article->getAssociatedUserIds(true, false);
                 foreach ($notificationUsers as $userRole) {
@@ -500,7 +500,7 @@ class AuthorAction extends Action {
      */
     public static function viewProofreadComments($article) {
         if (!HookRegistry::dispatch('AuthorAction::viewProofreadComments', [&$article])) {
-            import('classes.submission.form.comment.ProofreadCommentForm');
+            import('core.Modules.submission.form.comment.ProofreadCommentForm');
 
             $commentForm = new ProofreadCommentForm($article, ROLE_ID_AUTHOR);
             $commentForm->initData();
@@ -519,7 +519,7 @@ class AuthorAction extends Action {
         $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('AuthorAction::postProofreadComment', [&$article, &$emailComment])) {
-            import('classes.submission.form.comment.ProofreadCommentForm');
+            import('core.Modules.submission.form.comment.ProofreadCommentForm');
 
             $commentForm = new ProofreadCommentForm($article, ROLE_ID_AUTHOR);
             $commentForm->readInputData();
@@ -528,7 +528,7 @@ class AuthorAction extends Action {
                 $commentForm->execute();
 
                 // Send a notification to associated users
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationUsers = $article->getAssociatedUserIds(true, false);
                 foreach ($notificationUsers as $userRole) {

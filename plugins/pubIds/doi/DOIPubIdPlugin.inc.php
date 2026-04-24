@@ -14,12 +14,12 @@ declare(strict_types=1);
  * @brief DOI plugin class
  */
 
-import('classes.plugins.PubIdPlugin');
+import('core.Modules.plugins.PubIdPlugin');
 
 class DOIPubIdPlugin extends PubIdPlugin {
 
     //
-    // Implement template methods from PKPPlugin.
+    // Implement template methods from CorePlugin.
     //
     /**
      * @see PubIdPlugin::register()
@@ -32,7 +32,7 @@ class DOIPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a name of the plugin.
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      */
     public function getName(): string {
         return 'DOIPubIdPlugin';
@@ -40,7 +40,7 @@ class DOIPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a Display Name of the plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      */
     public function getDisplayName(): string {
         return __('plugins.pubIds.doi.displayName');
@@ -48,7 +48,7 @@ class DOIPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a description of the plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      */
     public function getDescription(): string {
         return __('plugins.pubIds.doi.description');
@@ -56,7 +56,7 @@ class DOIPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a template of the plugin.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      */
     public function getTemplatePath($inCore = false): string {
         return parent::getTemplatePath($inCore) . 'templates/';

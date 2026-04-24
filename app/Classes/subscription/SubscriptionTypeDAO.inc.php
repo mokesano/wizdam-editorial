@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/subscription/SubscriptionTypeDAO.inc.php
+ * @file core.Modules.subscription/SubscriptionTypeDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.subscription.SubscriptionType');
+import('core.Modules.subscription.SubscriptionType');
 
 class SubscriptionTypeDAO extends DAO {
     /**

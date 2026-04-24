@@ -16,17 +16,17 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.grid.GridHandler
+	 * @extends $.core.controllers.grid.GridHandler
 	 *
 	 * @param {jQuery} $grid The grid this handler is
 	 *  attached to.
 	 * @param {Object} options Grid handler configuration.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler = function($grid, options) {
+	$.core.controllers.grid.CategoryGridHandler = function($grid, options) {
 		this.parent($grid, options);
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.grid.CategoryGridHandler,
-			$.pkp.controllers.grid.GridHandler);
+	$.core.classes.Helper.inherits($.core.controllers.grid.CategoryGridHandler,
+			$.core.controllers.grid.GridHandler);
 
 
 	//
@@ -36,7 +36,7 @@
 	 * Get category id prefix.
 	 * @return {string} Category id prefix.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryIdPrefix =
+	$.core.controllers.grid.CategoryGridHandler.prototype.getCategoryIdPrefix =
 			function() {
 		return this.getGridIdPrefix() + '-category-';
 	};
@@ -46,7 +46,7 @@
 	 * Get categories tbody element.
 	 * @return {jQuery} Categories tbody elements.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategories =
+	$.core.controllers.grid.CategoryGridHandler.prototype.getCategories =
 			function() {
 		return $('.category_grid_body:not(.empty)',
 				this.getHtmlElement());
@@ -58,7 +58,7 @@
 	 * @param {String} categoryDataId The category data id.
 	 * @return {jQuery} Category tbody element.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryByDataId =
+	$.core.controllers.grid.CategoryGridHandler.prototype.getCategoryByDataId =
 			function(categoryDataId) {
 		return $('#' + this.getCategoryIdPrefix() + categoryDataId);
 	};
@@ -70,7 +70,7 @@
 	 * @param {jQuery} $opt_category Category tbody element.
 	 * @return {jQuery} Category rows.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryRow =
+	$.core.controllers.grid.CategoryGridHandler.prototype.getCategoryRow =
 			function($opt_category) {
 		var $context = this.getHtmlElement();
 		if ($opt_category !== undefined) {
@@ -86,7 +86,7 @@
 	 * @param {jQuery} $category Category tbody element.
 	 * @return {jQuery} Category rows.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.getRowsInCategory =
+	$.core.controllers.grid.CategoryGridHandler.prototype.getRowsInCategory =
 			function($category) {
 		return $('tr.gridRow', $category).not('.category');
 	};
@@ -97,7 +97,7 @@
 	 * @param {jQuery} $category A grid category element.
 	 * @return {jQuery} The category empty placeholder.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.
+	$.core.controllers.grid.CategoryGridHandler.prototype.
 			getCategoryEmptyPlaceholder = function($category) {
 		var selector = '#' + $category.attr('id') + '-emptyPlaceholder';
 		return $(selector, this.getHtmlElement());
@@ -109,7 +109,7 @@
 	 * @param {jQuery} $category Category element.
 	 * @return {string} Category data id.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryDataId =
+	$.core.controllers.grid.CategoryGridHandler.prototype.getCategoryDataId =
 			function($category) {
 		var categoryId = $category.attr('id');
 		var startExtractPosition = this.getCategoryIdPrefix().length;
@@ -122,7 +122,7 @@
 	 * @param {string} gridRowId Category row element id.
 	 * @return {string} Category data id.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.getCategoryDataIdByRowId =
+	$.core.controllers.grid.CategoryGridHandler.prototype.getCategoryDataIdByRowId =
 			function(gridRowId) {
 		// Remove the category id prefix to avoid getting wrong data.
 		gridRowId = gridRowId.replace(this.getCategoryIdPrefix(), ' ');
@@ -137,7 +137,7 @@
 	 * Append a category to the end of the list.
 	 * @param {jQuery} $category Category to append.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.appendCategory =
+	$.core.controllers.grid.CategoryGridHandler.prototype.appendCategory =
 			function($category) {
 		var $gridBody = this.getHtmlElement().find(this.bodySelector_);
 		$gridBody.append($category);
@@ -149,7 +149,7 @@
 	 * @param {array} sequenceMap A sequence array with the category
 	 * element id as value.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.resequenceCategories =
+	$.core.controllers.grid.CategoryGridHandler.prototype.resequenceCategories =
 			function(sequenceMap) {
 		var categoryId, index;
 		for (index in sequenceMap) {
@@ -166,7 +166,7 @@
 	 * Move all empty category placeholders to their correct position,
 	 * below of each correspondent category element.
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.
+	$.core.controllers.grid.CategoryGridHandler.prototype.
 			updateEmptyPlaceholderPosition = function() {
 		var $categories = this.getCategories();
 		var index, limit;
@@ -186,7 +186,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.initialize =
+	$.core.controllers.grid.CategoryGridHandler.prototype.initialize =
 			function(options) {
 		// Save the URL to fetch a whole category.
 		this.fetchCategoryUrl_ = options.fetchCategoryUrl;
@@ -198,7 +198,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.getElementsByType =
+	$.core.controllers.grid.CategoryGridHandler.prototype.getElementsByType =
 			function($element) {
 		if ($element.hasClass('category_grid_body')) {
 			return this.getCategories();
@@ -211,7 +211,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.getEmptyElement =
+	$.core.controllers.grid.CategoryGridHandler.prototype.getEmptyElement =
 			function($element) {
 		if ($element.hasClass('category_grid_body')) {
 			// Return the grid empty element placeholder.
@@ -225,7 +225,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.refreshGridHandler =
+	$.core.controllers.grid.CategoryGridHandler.prototype.refreshGridHandler =
 			function(sourceElement, event, opt_elementId) {
 
 		var fetchedAlready = false;
@@ -260,7 +260,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.deleteElement =
+	$.core.controllers.grid.CategoryGridHandler.prototype.deleteElement =
 			function($element) {
 
 		if ($element.length > 1) {
@@ -302,7 +302,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.appendElement =
+	$.core.controllers.grid.CategoryGridHandler.prototype.appendElement =
 			function($element) {
 		var $gridBody = null;
 
@@ -326,7 +326,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.replaceElement =
+	$.core.controllers.grid.CategoryGridHandler.prototype.replaceElement =
 			function($existingElement, $newElement) {
 
 		if ($newElement.hasClass('category_grid_body')) {
@@ -343,7 +343,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.grid.CategoryGridHandler.prototype.hasSameNumOfColumns =
+	$.core.controllers.grid.CategoryGridHandler.prototype.hasSameNumOfColumns =
 			function($row) {
 		var $element = $row;
 		var checkColSpan = false;

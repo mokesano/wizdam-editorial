@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/DuraCloudContent.inc.php
+ * @file core.Modules.DuraCloudContent.inc.php
  *
  * Copyright (c) 2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

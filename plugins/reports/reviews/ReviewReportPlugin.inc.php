@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Review report plugin
  */
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 
 class ReviewReportPlugin extends ReportPlugin {
     
@@ -89,7 +89,7 @@ class ReviewReportPlugin extends ReportPlugin {
 
         $yesnoMessages = [0 => __('common.no'), 1 => __('common.yes')];
 
-        import('classes.submission.reviewAssignment.ReviewAssignment');
+        import('core.Modules.submission.reviewAssignment.ReviewAssignment');
         $recommendations = ReviewAssignment::getReviewerRecommendationOptions();
 
         $columns = [

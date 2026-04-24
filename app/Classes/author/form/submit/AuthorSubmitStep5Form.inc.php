@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/author/form/submit/AuthorSubmitStep5Form.inc.php
+ * @file core.Modules.author/form/submit/AuthorSubmitStep5Form.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('classes.author.form.submit.AuthorSubmitForm');
+import('core.Modules.author.form.submit.AuthorSubmitForm');
 
 class AuthorSubmitStep5Form extends AuthorSubmitForm {
     
@@ -77,7 +77,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
         $templateMgr->assign('journal', $journal);
 
         // Set up required Payment Related Information
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($this->request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
@@ -123,7 +123,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
      * @return bool
      */
     public function validate($callHooks = true) {
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($this->request);
         if ( $paymentManager->submissionEnabled() ) {
             if (!parent::validate()) return false;
@@ -213,7 +213,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
         $sectionEditors = $this->assignEditors($article);
 
         // Send author notification email
-        import('classes.mail.ArticleMailTemplate');
+        import('core.Modules.mail.ArticleMailTemplate');
         $mail = new ArticleMailTemplate($article, 'SUBMISSION_ACK', null, null, null, false);
         $mail->setFrom($journal->getSetting('contactEmail'), $journal->getSetting('contactName'));
         if ($mail->isEnabled()) {
@@ -246,7 +246,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
             $mail->send($this->request);
         }
 
-        import('classes.article.log.ArticleLog');
+        import('core.Modules.article.log.ArticleLog');
         ArticleLog::logEvent($this->request, $article, ARTICLE_LOG_ARTICLE_SUBMIT, 'log.author.submitted', ['authorName' => $user->getFullName(), 'submissionId' => $article->getId()]);
 
         return $this->articleId;

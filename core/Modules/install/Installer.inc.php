@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/install/Installer.inc.php
+ * @file core.Modules.install/Installer.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -24,10 +24,10 @@ define('INSTALLER_ERROR_DB', 2);
 // Default data
 define('INSTALLER_DEFAULT_LOCALE', 'en_US');
 
-import('lib.wizdam.classes.db.DBDataXMLParser');
-import('lib.wizdam.classes.site.Version');
-import('lib.wizdam.classes.site.VersionDAO');
-import('lib.wizdam.classes.config.ConfigParser');
+import('core.Modules.db.DBDataXMLParser');
+import('core.Modules.site.Version');
+import('core.Modules.site.VersionDAO');
+import('core.Modules.config.ConfigParser');
 
 require_once './core/Library/adodb/adodb-xmlschema.inc.php';
 
@@ -671,7 +671,7 @@ class Installer {
 
         // Get the filter helper.
         if ($filterHelper === false) {
-            import('lib.wizdam.classes.filter.FilterHelper');
+            import('core.Modules.filter.FilterHelper');
             $filterHelper = new FilterHelper();
         }
 
@@ -741,7 +741,7 @@ class Installer {
      * @return bool
      */
     public function fileExists($filePath) {
-        import('lib.wizdam.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileMgr = new FileManager();
 
         return $fileMgr->fileExists(realpath($filePath));
@@ -754,7 +754,7 @@ class Installer {
      */
     public function addPluginVersions() {
         $versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
-        import('lib.wizdam.classes.site.VersionCheck');
+        import('core.Modules.site.VersionCheck');
         $fileManager = new FileManager();
         $categories = PluginRegistry::getCategories();
         foreach ($categories as $category) {

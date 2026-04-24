@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/user/InterestEntry.inc.php
+ * @file core.Modules.user/InterestEntry.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Basic class describing a reviewer interest
  */
 
-import('lib.wizdam.classes.controlledVocab.ControlledVocabEntry');
+import('core.Modules.controlledVocab.ControlledVocabEntry');
 
 class InterestEntry extends ControlledVocabEntry {
     

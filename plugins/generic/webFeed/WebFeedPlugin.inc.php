@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class WebFeedPlugin extends GenericPlugin {
 
@@ -99,7 +99,7 @@ class WebFeedPlugin extends GenericPlugin {
         if (!$this->getEnabled()) return false;
 
         $request = Application::getRequest();
-        if (!is_a($request->getRouter(), 'PKPPageRouter')) return false;
+        if (!is_a($request->getRouter(), 'CorePageRouter')) return false;
 
         $templateManager = $args[0];
 

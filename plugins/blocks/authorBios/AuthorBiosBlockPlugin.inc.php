@@ -17,7 +17,7 @@ declare(strict_types=1);
  * only for safety/fallback purposes to prevent PHP 8 Fatal Errors.
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class AuthorBiosBlockPlugin extends BlockPlugin {
     

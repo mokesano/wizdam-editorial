@@ -16,9 +16,9 @@ declare(strict_types=1);
  * [WIZDAM EDITION] REFACTOR: PHP 8.1+ Compatibility, Logic Fixes, Strict Types
  */
 
-import('classes.install.form.InstallForm');
-import('classes.install.form.UpgradeForm');
-import('classes.handler.Handler');
+import('core.Modules.install.form.InstallForm');
+import('core.Modules.install.form.UpgradeForm');
+import('core.Modules.handler.Handler');
 
 class CoreInstallHandler extends Handler {
 

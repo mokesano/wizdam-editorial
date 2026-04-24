@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/issue/IssueGalley.inc.php
+ * @file core.Modules.issue/IssueGalley.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief A galley is a final presentation version of the full-text of an issue.
  */
 
-import('classes.issue.IssueFile');
+import('core.Modules.issue.IssueFile');
 
 class IssueGalley extends IssueFile {
 

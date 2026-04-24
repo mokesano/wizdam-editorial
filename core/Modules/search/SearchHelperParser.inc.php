@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/search/SearchHelperParser.inc.php
+ * @file core.Modules.search/SearchHelperParser.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class to extract text from a file using an external helper program.
  */
 
-import('lib.wizdam.classes.search.SearchFileParser');
+import('core.Modules.search.SearchFileParser');
 
 class SearchHelperParser extends SearchFileParser {
 

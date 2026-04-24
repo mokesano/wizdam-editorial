@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/payment/wizdam/OJSQueuedPayment.inc.php
+ * @file core.Modules.payment/wizdam/AppQueuedPayment.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.payment.QueuedPayment');
+import('core.Modules.payment.QueuedPayment');
 
 class AppQueuedPayment extends QueuedPayment {
     
@@ -63,7 +63,7 @@ class AppQueuedPayment extends QueuedPayment {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function OJSQueuedPayment($amount, $currencyCode, $userId, $assocId) {
+    public function AppQueuedPayment($amount, $currencyCode, $userId, $assocId) {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor " . get_class($this) . "(). Please refactor to use __construct().",
@@ -268,7 +268,7 @@ class AppQueuedPayment extends QueuedPayment {
 
                 // Try to return gift details in description
                 if ($gift) {
-                    import('classes.gift.Gift');
+                    import('core.Modules.gift.Gift');
 
                     if ($gift->getGiftType() == GIFT_TYPE_SUBSCRIPTION) {
                         $subscriptionTypeDao = DAORegistry::getDAO('SubscriptionTypeDAO');

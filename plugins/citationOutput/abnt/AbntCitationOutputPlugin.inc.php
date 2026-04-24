@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief ABNT citation style plug-in.
  */
 
-import('lib.wizdam.plugins.citationOutput.abnt.PKPAbntCitationOutputPlugin');
+import('core.Modules.plugins.citationOutput.abnt.CoreAbntCitationOutputPlugin');
 
 class AbntCitationOutputPlugin extends CoreAbntCitationOutputPlugin {
     

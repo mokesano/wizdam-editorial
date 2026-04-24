@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/editor/EditorSubmissionDAO.inc.php
+ * @file core.Modules.editor/EditorSubmissionDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,11 +20,11 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & HookRegistry::dispatch
  */
 
-import('classes.submission.editor.EditorSubmission');
+import('core.Modules.submission.editor.EditorSubmission');
 
 // Bring in editor decision constants
-import('classes.submission.common.Action');
-import('classes.submission.author.AuthorSubmission');
+import('core.Modules.submission.common.Action');
+import('core.Modules.submission.author.AuthorSubmission');
 
 class EditorSubmissionDAO extends DAO {
     public $articleDao = null;

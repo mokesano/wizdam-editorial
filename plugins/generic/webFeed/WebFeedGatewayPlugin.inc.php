@@ -11,7 +11,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.plugins.GatewayPlugin');
+import('core.Modules.plugins.GatewayPlugin');
 
 class WebFeedGatewayPlugin extends GatewayPlugin {
 
@@ -147,7 +147,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
         $publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
 
         if ($displayItems == 'recent' && $recentItems > 0) {
-            import('lib.wizdam.classes.db.DBResultRange');
+            import('core.Modules.db.DBResultRange');
             $rangeInfo = new DBResultRange($recentItems, 1);
             $publishedArticleObjects = $publishedArticleDao->getPublishedArticlesByJournalId(
                 $journal->getId(), $rangeInfo, true

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. Uses PHP DateTime for accurate calculation.
  */
 
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 class BooksForReviewReminder extends ScheduledTask {
 
@@ -64,7 +64,7 @@ class BooksForReviewReminder extends ScheduledTask {
             'editorialContactSignature' => strip_tags($book->getEditorContactSignature())
         );
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $mail = new MailTemplate($emailKey);
 
         $mail->setFrom($book->getEditorEmail(), $book->getEditorFullName());
@@ -84,8 +84,8 @@ class BooksForReviewReminder extends ScheduledTask {
 
         if ($bfrPlugin) {
             $bfrPluginName = $bfrPlugin->getName();
-            $bfrPlugin->import('classes.BookForReviewDAO');
-            $bfrPlugin->import('classes.BookForReviewAuthorDAO');
+            $bfrPlugin->import('core.Modules.BookForReviewDAO');
+            $bfrPlugin->import('core.Modules.BookForReviewAuthorDAO');
 
             // Register DAO (Idempotent: DAORegistry handle duplicates)
             $bfrAuthorDao = new BookForReviewAuthorDAO($bfrPluginName);

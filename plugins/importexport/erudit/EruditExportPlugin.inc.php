@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief Erudit english DTD article export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
 class EruditExportPlugin extends ImportExportPlugin {
 
@@ -123,7 +123,7 @@ class EruditExportPlugin extends ImportExportPlugin {
                     $articleIds = array_slice($articleIds, $rangeInfo->getCount() * ($rangeInfo->getPage() - 1), $rangeInfo->getCount());
                 }
                 
-                import('lib.wizdam.classes.core.VirtualArrayIterator');
+                import('core.Modules.core.VirtualArrayIterator');
                 $iterator = new VirtualArrayIterator(ArticleSearch::formatResults($articleIds), $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
                 
                 $templateMgr->assign('articles', $iterator);

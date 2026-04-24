@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief CBE citation format plugin
  */
 
-import('classes.plugins.CitationPlugin');
+import('core.Modules.plugins.CitationPlugin');
 
 class CbeCitationPlugin extends CitationPlugin {
     

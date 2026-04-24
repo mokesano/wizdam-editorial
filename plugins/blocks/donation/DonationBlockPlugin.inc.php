@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized PHP 8
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class DonationBlockPlugin extends BlockPlugin {
     
@@ -98,7 +98,7 @@ class DonationBlockPlugin extends BlockPlugin {
         $journal = $request->getJournal(); 
         if (!$journal) return '';
         
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         
         // Cek apakah donasi aktif di Payment Settings

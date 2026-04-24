@@ -17,13 +17,13 @@
 	 * @constructor
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderMultipleListsItemsFeature =
+	$.core.classes.features.OrderMultipleListsItemsFeature =
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.classes.features.OrderMultipleListsItemsFeature,
-			$.pkp.classes.features.OrderListbuilderItemsFeature);
+	$.core.classes.Helper.inherits(
+			$.core.classes.features.OrderMultipleListsItemsFeature,
+			$.core.classes.features.OrderListbuilderItemsFeature);
 
 
 	//
@@ -32,7 +32,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.addFeatureHtml =
+	$.core.classes.features.OrderMultipleListsItemsFeature.prototype.addFeatureHtml =
 			function($gridElement, options) {
 		this.parent('addFeatureHtml', $gridElement, options);
 
@@ -56,7 +56,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.storeRowOrder =
+	$.core.classes.features.OrderMultipleListsItemsFeature.prototype.storeRowOrder =
 			function(index, $row) {
 		this.parent('storeRowOrder', index, $row);
 
@@ -69,7 +69,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.
+	$.core.classes.features.OrderMultipleListsItemsFeature.prototype.
 			setupSortablePlugin = function() {
 		var $lists = this.gridHandler_.getLists().find('tbody');
 		var extraParams = {connectWith: $lists};
@@ -80,7 +80,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.
+	$.core.classes.features.OrderMultipleListsItemsFeature.prototype.
 			dragStartCallback = function(contextElement, event, ui) {
 		var $list = this.gridHandler_.getListByRow(ui.item);
 		this.gridHandler_.toggleListNoItemsRow(
@@ -91,7 +91,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderMultipleListsItemsFeature.prototype.
+	$.core.classes.features.OrderMultipleListsItemsFeature.prototype.
 			dragStopCallback = function(contextElement, event, ui) {
 		var $list = this.gridHandler_.getListByRow(ui.item);
 		this.gridHandler_.toggleListNoItemsRow($list, 0, null);

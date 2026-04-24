@@ -60,7 +60,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
         
         $signoffDao = DAORegistry::getDAO('SignoffDAO');
 
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         ProofreaderAction::proofreadingUnderway($submission, 'SIGNOFF_PROOFREADING_LAYOUT');
 
         $layoutSignoff = $signoffDao->build('SIGNOFF_LAYOUT', ASSOC_TYPE_ARTICLE, $articleId);
@@ -157,7 +157,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
                 $request->redirect(null, null, 'submission', $articleId);
                 break;
             case 'galley':
-                import('classes.submission.form.ArticleGalleyForm');
+                import('core.Modules.submission.form.ArticleGalleyForm');
 
                 $galleyForm = new ArticleGalleyForm($articleId);
                 $galleyId = $galleyForm->execute('layoutFile');
@@ -165,7 +165,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
                 $request->redirect(null, null, 'editGalley', [$articleId, $galleyId]);
                 break;
             case 'supp':
-                import('classes.submission.form.SuppFileForm');
+                import('core.Modules.submission.form.SuppFileForm');
                 $journal = $request->getJournal();
                 $suppFileForm = new SuppFileForm($submission, $journal);
                 $suppFileForm->setData('title', [$submission->getLocale() => __('common.untitled')]);
@@ -197,7 +197,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
         $this->setupTemplate(true, $articleId, 'editing');
 
         if ($this->_layoutEditingEnabled($submission)) {
-            import('classes.submission.form.ArticleGalleyForm');
+            import('core.Modules.submission.form.ArticleGalleyForm');
 
             $submitForm = new ArticleGalleyForm($articleId, $galleyId);
 
@@ -240,7 +240,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
         $this->validate($request, $articleId);
         $this->setupTemplate(true, $articleId, 'editing');
 
-        import('classes.submission.form.ArticleGalleyForm');
+        import('core.Modules.submission.form.ArticleGalleyForm');
 
         $submitForm = new ArticleGalleyForm($articleId, $galleyId);
         $submitForm->readInputData();
@@ -249,7 +249,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
             $submitForm->execute();
 
             // Send a notification to associated users
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $articleDao = DAORegistry::getDAO('ArticleDAO');
             $article = $articleDao->getArticle($articleId);
@@ -386,7 +386,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
         $galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
         $galley = $galleyDao->getGalley($galleyId, $articleId);
 
-        import('classes.file.ArticleFileManager'); // FIXME
+        import('core.Modules.file.ArticleFileManager'); // FIXME
 
         if (isset($galley)) {
             if ($galley->isHTMLGalley()) {
@@ -449,7 +449,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
         $this->setupTemplate(true, $articleId, 'editing');
 
         if ($this->_layoutEditingEnabled($submission)) {
-            import('classes.submission.form.SuppFileForm');
+            import('core.Modules.submission.form.SuppFileForm');
 
             $submitForm = new SuppFileForm($submission, $journal, $suppFileId);
 
@@ -494,7 +494,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
         $suppFileId = (int) ($args[0] ?? 0);
         $journal = $request->getJournal();
 
-        import('classes.submission.form.SuppFileForm');
+        import('core.Modules.submission.form.SuppFileForm');
 
         $submitForm = new SuppFileForm($submission, $journal, $suppFileId);
         $submitForm->readInputData();
@@ -503,7 +503,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
             $submitForm->execute();
 
             // Send a notification to associated users
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $articleDao = DAORegistry::getDAO('ArticleDAO');
             $article = $articleDao->getArticle($articleId);
@@ -629,7 +629,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
 
         $send = isset($args[0]) ? (int) trim((string) $request->getUserVar('send')) : false;
 
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         
         $url = $send ? '' : $request->url(null, 'layoutEditor', 'layoutEditorProofreadingComplete', 'send');
 
@@ -651,7 +651,7 @@ class SubmissionLayoutHandler extends LayoutEditorHandler {
         $journal = $request->getJournal();
         $templates = $journal->getSetting('templates');
         
-        import('classes.file.JournalFileManager');
+        import('core.Modules.file.JournalFileManager');
         $journalFileManager = new JournalFileManager($journal);
         
         $templateId = (int) ($args[0] ?? -1);

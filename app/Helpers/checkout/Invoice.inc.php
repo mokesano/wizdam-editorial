@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/checkout/Invoice.inc.php
+ * @file core.Modules.classes/checkout/Invoice.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @brief Data Object yang merepresentasikan satu entitas Tagihan (Global Level).
  */
 
-import('lib.wizdam.classes.core.DataObject');
+import('core.Modules.core.DataObject');
 
 class Invoice extends DataObject {
     

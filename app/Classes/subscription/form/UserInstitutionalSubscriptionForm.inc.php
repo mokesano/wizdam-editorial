@@ -5,7 +5,7 @@
  */
  
 /**
- * @file classes/subscription/form/UserInstitutionalSubscriptionForm.inc.php
+ * @file core.Modules.subscription/form/UserInstitutionalSubscriptionForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class UserInstitutionalSubscriptionForm extends Form {
     /** @var $request CoreRequest */
@@ -161,7 +161,7 @@ class UserInstitutionalSubscriptionForm extends Form {
 
         // If provided ensure IP ranges have IP address format; IP addresses may contain wildcards
         if ($ipRangeProvided) {    
-            import('classes.subscription.InstitutionalSubscription');
+            import('core.Modules.subscription.InstitutionalSubscription');
             // [WIZDAM FIX] Replaced create_function with Closure
             $this->addCheck(new FormValidatorArrayCustom($this, 'ipRanges', 'required', 'user.subscriptions.form.ipRangeValid', function($ipRange, $regExp) {
                 return CoreString::regexp_match($regExp, $ipRange);
@@ -192,7 +192,7 @@ class UserInstitutionalSubscriptionForm extends Form {
         $insert = false;
 
         if (!isset($this->subscription)) {
-            import('classes.subscription.InstitutionalSubscription');
+            import('core.Modules.subscription.InstitutionalSubscription');
             $subscription = new InstitutionalSubscription();
             $subscription->setJournalId($journalId);
             $subscription->setUserId($this->userId);
@@ -204,7 +204,7 @@ class UserInstitutionalSubscriptionForm extends Form {
             $subscription = $this->subscription;
         }
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($this->request);
         $paymentPlugin = $paymentManager->getPaymentPlugin();
         

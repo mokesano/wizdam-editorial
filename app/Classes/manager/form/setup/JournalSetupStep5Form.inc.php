@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/manager/form/setup/JournalSetupStep5Form.inc.php
+ * @file core.Modules.manager/form/setup/JournalSetupStep5Form.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.manager.form.setup.JournalSetupForm');
+import('core.Modules.manager.form.setup.JournalSetupForm');
 
 class JournalSetupStep5Form extends JournalSetupForm {
     
@@ -156,7 +156,7 @@ class JournalSetupStep5Form extends JournalSetupForm {
         $settingsDao = DAORegistry::getDAO('JournalSettingsDAO');
         $faviconTypes = ['.ico', '.png', '.gif'];
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $fileManager = new PublicFileManager();
         if ($fileManager->uploadedFileExists($settingName)) {
             $type = $fileManager->getUploadedFileType($settingName);
@@ -216,7 +216,7 @@ class JournalSetupStep5Form extends JournalSetupForm {
         $settingsDao = DAORegistry::getDAO('JournalSettingsDAO');
         $setting = $settingsDao->getSetting($journal->getId(), $settingName);
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $fileManager = new PublicFileManager();
         if ($fileManager->removeJournalFile($journal->getId(), $locale !== null ? $setting[$locale]['uploadName'] : $setting['uploadName'] )) {
             $returner = $settingsDao->deleteSetting($journal->getId(), $settingName, $locale);
@@ -246,7 +246,7 @@ class JournalSetupStep5Form extends JournalSetupForm {
         
         $settingsDao = DAORegistry::getDAO('JournalSettingsDAO');
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $fileManager = new PublicFileManager();
         if ($fileManager->uploadedFileExists($settingName)) {
             $type = $fileManager->getUploadedFileType($settingName);

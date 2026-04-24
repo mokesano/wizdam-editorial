@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/DuraCloudStreamContent.inc.php
+ * @file core.Modules.DuraCloudStreamContent.inc.php
  *
  * Copyright (c) 2011 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.

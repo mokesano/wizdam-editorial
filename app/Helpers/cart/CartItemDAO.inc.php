@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/cart/CartItemDAO.inc.php
+ * @file core.Modules.classes/cart/CartItemDAO.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * Terisolasi di dalam direktori Wizdam Frontedge.
  */
 
-import('classes.db.DAO');
+import('core.Modules.db.DAO');
 
 class CartItemDAO extends DAO {
 

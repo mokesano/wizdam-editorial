@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief Native import/export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
 define('NATIVE_DTD_ID', '-//Wizdam//Wizdam Articles and Issues XML//EN');
 
@@ -157,7 +157,7 @@ class NativeImportExportPlugin extends ImportExportPlugin {
                 if ($rangeInfo->isValid()) {
                     $articleIds = array_slice($articleIds, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
                 }
-                import('lib.wizdam.classes.core.VirtualArrayIterator');
+                import('core.Modules.core.VirtualArrayIterator');
                 $iterator = new VirtualArrayIterator(ArticleSearch::formatResults($articleIds), $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
                 $templateMgr->assign('articles', $iterator);
                 $templateMgr->display($this->getTemplatePath() . 'articles.tpl');
@@ -165,7 +165,7 @@ class NativeImportExportPlugin extends ImportExportPlugin {
 
             case 'import':
                 AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR, LOCALE_COMPONENT_WIZDAM_AUTHOR);
-                import('classes.file.TemporaryFileManager');
+                import('core.Modules.file.TemporaryFileManager');
                 $issueDao = DAORegistry::getDAO('IssueDAO');
                 $sectionDao = DAORegistry::getDAO('SectionDAO');
                 $user = $request->getUser();

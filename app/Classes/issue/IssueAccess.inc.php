@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/issue/IssueAccess.inc.php
+ * @file core.Modules.issue/IssueAccess.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady

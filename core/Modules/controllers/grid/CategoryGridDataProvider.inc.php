@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/CategoryGridDataProvider.inc.php
+ * @file core.Modules.controllers/grid/CategoryGridDataProvider.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 // Import base class.
-import('lib.wizdam.classes.controllers.grid.GridDataProvider');
+import('core.Modules.controllers.grid.GridDataProvider');
 
 class CategoryGridDataProvider extends GridDataProvider {
 

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/services/RedeemService.inc.php
+ * @file core.Modules.classes/services/RedeemService.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @brief Layanan pengelola dompet loyalti dan penukaran poin.
  */
 
-import('lib.wizdam.classes.redeem.RewardPointDAO');
+import('core.Modules.redeem.RewardPointDAO');
 
 class RedeemService {
 

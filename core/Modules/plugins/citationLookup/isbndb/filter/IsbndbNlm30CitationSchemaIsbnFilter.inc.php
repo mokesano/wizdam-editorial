@@ -19,7 +19,7 @@ declare(strict_types=1);
  * - Removed obsolete reference operators
  */
 
-import('lib.wizdam.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaFilter');
+import('core.Modules.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaFilter');
 
 class IsbndbNlm30CitationSchemaIsbnFilter extends IsbndbNlm30CitationSchemaFilter {
     
@@ -40,7 +40,7 @@ class IsbndbNlm30CitationSchemaIsbnFilter extends IsbndbNlm30CitationSchemaFilte
      * @return string the class name of this filter
      */
     public function getClassName(): string {
-        return 'lib.wizdam.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaIsbnFilter';
+        return 'core.Modules.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaIsbnFilter';
     }
 
     //

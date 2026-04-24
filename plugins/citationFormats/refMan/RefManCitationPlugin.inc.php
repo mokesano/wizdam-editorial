@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Reference Manager citation format plugin
  */
 
-import('classes.plugins.CitationPlugin');
+import('core.Modules.plugins.CitationPlugin');
 
 class RefManCitationPlugin extends CitationPlugin {
     

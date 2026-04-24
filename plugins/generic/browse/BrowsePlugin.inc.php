@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR PHP 7.4+ & Wizdam FORK
  */
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class BrowsePlugin extends GenericPlugin {
     
@@ -183,7 +183,7 @@ class BrowsePlugin extends GenericPlugin {
                 $templateMgr->register_function('plugin_url', array($this, 'smartyPluginUrl'));
                 $journal = Request::getJournal();
 
-                $this->import('classes.form.BrowseSettingsForm');
+                $this->import('core.Modules.form.BrowseSettingsForm');
                 $form = new BrowseSettingsForm($this, $journal->getId());
 
                 if (Request::getUserVar('save')) {

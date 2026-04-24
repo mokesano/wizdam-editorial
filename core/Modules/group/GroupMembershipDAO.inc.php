@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/group/GroupMembershipDAO.inc.php
+ * @file core.Modules.group/GroupMembershipDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying group membership info.
  */
 
-import ('lib.wizdam.classes.group.GroupMembership');
+import ('core.Modules.group.GroupMembership');
 
 class GroupMembershipDAO extends DAO {
     /** @var UserDAO */

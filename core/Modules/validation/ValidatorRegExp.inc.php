@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/validation/ValidatorRegExp.inc.php
+ * @file core.Modules.validation/ValidatorRegExp.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor & Visibility)
  */
 
-import ('lib.wizdam.classes.validation.Validator');
+import ('core.Modules.validation.Validator');
 
 class ValidatorRegExp extends Validator {
 

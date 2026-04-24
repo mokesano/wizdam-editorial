@@ -15,10 +15,10 @@ declare(strict_types=1);
  *
  */
 
-import('classes.plugins.GatewayPlugin');
-import('lib.wizdam.classes.site.VersionCheck');
-import('lib.wizdam.classes.db.DBResultRange');
-import('lib.wizdam.classes.core.ArrayItemIterator');
+import('core.Modules.plugins.GatewayPlugin');
+import('core.Modules.site.VersionCheck');
+import('core.Modules.db.DBResultRange');
+import('core.Modules.core.ArrayItemIterator');
 
 define('PLN_PLUGIN_PING_ARTICLE_COUNT', 12);
 

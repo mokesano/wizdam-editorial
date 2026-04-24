@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/citation/PlainTextReferencesListFilter.inc.php
+ * @file core.Modules.citation/PlainTextReferencesListFilter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -17,8 +17,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.citation.TemplateBasedReferencesListFilter');
-import('lib.wizdam.classes.citation.PlainTextReferencesList');
+import('core.Modules.citation.TemplateBasedReferencesListFilter');
+import('core.Modules.citation.PlainTextReferencesList');
 
 class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
     
@@ -28,7 +28,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
      */
     public function __construct($filterGroup) {
         // Add the persistable filter settings.
-        import('lib.wizdam.classes.filter.SetFilterSetting');
+        import('core.Modules.filter.SetFilterSetting');
         $this->addSetting(new SetFilterSetting('ordering', null, null,
                 [REFERENCES_LIST_ORDERING_ALPHABETICAL, REFERENCES_LIST_ORDERING_NUMERICAL]));
 
@@ -58,7 +58,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
      */
     public function getCitationOutputFilterTypeDescriptions() {
         return [
-                'metadata::lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+                'metadata::core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
                 'primitive::string'
         ];
     }
@@ -71,7 +71,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
      * @return string
      */
     public function getClassName() {
-        return 'lib.wizdam.classes.citation.PlainTextReferencesListFilter';
+        return 'core.Modules.citation.PlainTextReferencesListFilter';
     }
 
     //

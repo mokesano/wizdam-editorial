@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Handle requests for editor objects for review functions.
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class ReviewObjectTypesEditorHandler extends Handler {
 
@@ -32,7 +32,7 @@ class ReviewObjectTypesEditorHandler extends Handler {
 		$types = $reviewObjectTypeDao->getTypeIdsAlphabetizedByContext($journalId);
 		$totalResults = count($types);
 		$types = array_slice($types, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
-		import('lib.wizdam.classes.core.VirtualArrayIterator');
+		import('core.Modules.core.VirtualArrayIterator');
 		$results = new VirtualArrayIterator($types, $totalResults, $rangeInfo->getPage(), $rangeInfo->getCount());
 
 		$this->setupTemplate($request);
@@ -82,7 +82,7 @@ class ReviewObjectTypesEditorHandler extends Handler {
 		}
 
 		$plugin = $this->_getObjectsForReviewPlugin();
-		$plugin->import('classes.form.ReviewObjectTypeForm');
+		$plugin->import('core.Modules.form.ReviewObjectTypeForm');
 		$reviewObjectTypeForm = new ReviewObjectTypeForm(OBJECTS_FOR_REVIEW_PLUGIN_NAME, $typeId);
 		if ($reviewObjectTypeForm->isLocaleResubmit()) {
 			$reviewObjectTypeForm->readInputData();
@@ -111,7 +111,7 @@ class ReviewObjectTypesEditorHandler extends Handler {
 		}
 
 		$plugin = $this->_getObjectsForReviewPlugin();
-		$plugin->import('classes.form.ReviewObjectTypeForm');
+		$plugin->import('core.Modules.form.ReviewObjectTypeForm');
 		$reviewObjectTypeForm = new ReviewObjectTypeForm(OBJECTS_FOR_REVIEW_PLUGIN_NAME, $typeId);
 		$reviewObjectTypeForm->readInputData();
 		if (!$typeId) {
@@ -394,7 +394,7 @@ class ReviewObjectTypesEditorHandler extends Handler {
 		}
 
 		$plugin = $this->_getObjectsForReviewPlugin();
-		$plugin->import('classes.form.ReviewObjectMetadataForm');
+		$plugin->import('core.Modules.form.ReviewObjectMetadataForm');
 		$reviewObjectMetadataForm = new ReviewObjectMetadataForm(OBJECTS_FOR_REVIEW_PLUGIN_NAME, $typeId, $metadataId);
 		if ($reviewObjectMetadataForm->isLocaleResubmit()) {
 			$reviewObjectMetadataForm->readInputData();
@@ -424,7 +424,7 @@ class ReviewObjectTypesEditorHandler extends Handler {
 		}
 
 		$plugin = $this->_getObjectsForReviewPlugin();
-		$plugin->import('classes.form.ReviewObjectMetadataForm');
+		$plugin->import('core.Modules.form.ReviewObjectMetadataForm');
 		$reviewObjectMetadataForm = new ReviewObjectMetadataForm(OBJECTS_FOR_REVIEW_PLUGIN_NAME, $typeId, $metadataId);
 		$reviewObjectMetadataForm->readInputData();
 		$formLocale = $reviewObjectMetadataForm->getFormLocale();
@@ -745,8 +745,8 @@ class ReviewObjectTypesEditorHandler extends Handler {
 		$plugin = $this->_getObjectsForReviewPlugin();
 		if (!isset($journal) || !isset($reviewObjects) || !isset($locales) || !isset($action)) return false;
 		$journalId = $journal->getId();
-		$plugin->import('classes.ReviewObjectType');
-		$plugin->import('classes.ReviewObjectMetadata');
+		$plugin->import('core.Modules.ReviewObjectType');
+		$plugin->import('core.Modules.ReviewObjectMetadata');
 		$reviewObjectTypeDao = DAORegistry::getDAO('ReviewObjectTypeDAO');
 		$reviewObjectMetadataDao = DAORegistry::getDAO('ReviewObjectMetadataDAO');
 		$onlyCommonMetadata = false;
@@ -896,7 +896,7 @@ class ReviewObjectTypesEditorHandler extends Handler {
 	 */
 	function _createTrivialNotification($notificationType, &$request) {
 		$user = $request->getUser();
-		import('classes.notification.NotificationManager');
+		import('core.Modules.notification.NotificationManager');
 		$notificationManager = new NotificationManager();
 		$notificationManager->createTrivialNotification($user->getId(), $notificationType);
 	}

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/article/ArticleDAO.inc.php
+ * @file core.Modules.article/ArticleDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 8+ Compatible & Optimized
  */
 
-import('classes.article.Article');
+import('core.Modules.article.Article');
 
 class ArticleDAO extends DAO {
 
@@ -460,7 +460,7 @@ class ArticleDAO extends DAO {
         $suppFileDao->deleteSuppFilesByArticle($articleId);
 
         // Delete article files
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFileDao = DAORegistry::getDAO('ArticleFileDAO');
         $articleFiles = $articleFileDao->getArticleFilesByArticle($articleId);
 
@@ -478,7 +478,7 @@ class ArticleDAO extends DAO {
         $this->update('DELETE FROM article_settings WHERE article_id = ?', $articleId);
         $this->update('DELETE FROM articles WHERE article_id = ?', $articleId);
 
-        import('classes.search.ArticleSearchIndex');
+        import('core.Modules.search.ArticleSearchIndex');
         $articleSearchIndex = new ArticleSearchIndex();
         $articleSearchIndex->articleDeleted($articleId);
         $articleSearchIndex->articleChangesFinished();
@@ -945,7 +945,7 @@ class ArticleDAO extends DAO {
         // Rekonstruksi ke format ber-hyphen (1234-567X) agar bisa ditelan ValidatorISSN
         $reconstructedIssn = substr($extractedIssn, 0, 4) . '-' . substr($extractedIssn, 4, 4);
 
-        import('lib.wizdam.classes.validation.ValidatorISSN');
+        import('core.Modules.validation.ValidatorISSN');
         $validator = new ValidatorISSN();
         
         return $validator->isValid($reconstructedIssn);
@@ -986,7 +986,7 @@ class ArticleDAO extends DAO {
         // Ambil Raw ISSN (Biasanya formatnya XXXX-XXXX)
         $rawIssn = $journal ? ($journal->getSetting('onlineIssn') ? $journal->getSetting('onlineIssn') : $journal->getSetting('printIssn')) : '';
         
-        import('lib.wizdam.classes.validation.ValidatorISSN');
+        import('core.Modules.validation.ValidatorISSN');
         $validator = new ValidatorISSN();
 
         // Cek kelayakan matematis MENGGUNAKAN RAW ISSN (yang masih ada tanda hubungnya)

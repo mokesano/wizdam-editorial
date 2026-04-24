@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/metadata/CrosswalkFilter.inc.php
+ * @file core.Modules.metadata/CrosswalkFilter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -18,7 +18,7 @@ declare(strict_types=1);
  * implementations.
  */
 
-import('lib.wizdam.classes.filter.Filter');
+import('core.Modules.filter.Filter');
 
 class CrosswalkFilter extends Filter {
     

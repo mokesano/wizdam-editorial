@@ -19,7 +19,7 @@ declare(strict_types=1);
  * - Cleaned up file upload naming logic.
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ExternalFeedSettingsForm extends Form {
 
@@ -89,7 +89,7 @@ class ExternalFeedSettingsForm extends Form {
         $plugin = $this->plugin;
         $settingName = 'externalFeedStyleSheet';
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $fileManager = new PublicFileManager();
 
         if ($fileManager->uploadedFileExists($settingName)) {
@@ -128,7 +128,7 @@ class ExternalFeedSettingsForm extends Form {
 
         $setting = $plugin->getSetting($journalId, $settingName);
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $fileManager = new PublicFileManager();
 
         if ($fileManager->removeJournalFile($journalId, $setting['uploadName'])) {

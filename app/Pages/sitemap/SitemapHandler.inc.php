@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Fix Method Signature
  */
 
-import('lib.wizdam.classes.xml.XMLCustomWriter');
-import('classes.handler.Handler');
+import('core.Modules.xml.XMLCustomWriter');
+import('core.Modules.handler.Handler');
 
 define('SITEMAP_XSD_URL', 'http://www.sitemaps.org/schemas/sitemap/0.9');
 

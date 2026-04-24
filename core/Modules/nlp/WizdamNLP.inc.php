@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/lib/nlp/WizdamNLP.inc.php
+ * @file core.Modules.lib/nlp/WizdamNLP.inc.php
  *
  * Copyright (c) 2025 Wizdam Fork Team
  * Distributed under the GNU GPL v2.
@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 // Imports Wizdam untuk string utility
 if (!class_exists('CoreString')) {
-    import('lib.wizdam.classes.core.CoreString'); 
+    import('core.Modules.core.CoreString'); 
 }
 
 class WizdamNLP {

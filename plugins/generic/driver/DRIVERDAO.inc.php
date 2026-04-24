@@ -14,7 +14,7 @@
  * * FIXED: Updated for PHP 7.4 Compatibility & Modernized OAI Core
  */
 
-import('classes.oai.OAIDAO');
+import('core.Modules.oai.OAIDAO');
 
 class DRIVERDAO extends OAIDAO {
 
@@ -41,7 +41,7 @@ class DRIVERDAO extends OAIDAO {
 
     /**
      * Set parent OAI object.
-     * @param $oai JournalOAI
+     * @param $oai CoreOAI
      */
     public function setOAI($oai) {
         $this->oai = $oai;

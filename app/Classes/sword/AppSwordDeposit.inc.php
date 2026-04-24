@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/sword/OJSSwordDeposit.inc.php
+ * @file core.Modules.sword/AppSwordDeposit.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -81,9 +81,9 @@ class AppSwordDeposit {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function OJSSwordDeposit($article) {
+    public function AppSwordDeposit($article) {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor OJSSwordDeposit(). Please refactor to use __construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor AppSwordDeposit(). Please refactor to use __construct().",
             E_USER_DEPRECATED
         );
         self::__construct($article);
@@ -203,7 +203,7 @@ class AppSwordDeposit {
      * Clean up after a deposit, i.e. removing all created files.
      */
     public function cleanup() {
-        import('lib.wizdam.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
 
         $fileManager->rmtree($this->outPath);

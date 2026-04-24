@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/form/validation/FormValidatorName.inc.php
+ * @file core.Modules.form/validation/FormValidatorName.inc.php
  *
  * @class FormValidatorName
  * @ingroup form_validation
@@ -11,7 +11,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.form.validation.FormValidator');
+import('core.Modules.form.validation.FormValidator');
 
 class FormValidatorName extends FormValidator {
     
@@ -23,7 +23,7 @@ class FormValidatorName extends FormValidator {
      * @param string $message the error message for validation failures
      */
     public function __construct($form, $field, $type, $message) {
-        import('lib.wizdam.classes.validation.ValidatorName');
+        import('core.Modules.validation.ValidatorName');
         $validator = new ValidatorName();
         
         // Meneruskan parameter secara utuh ke parent, termasuk $type!

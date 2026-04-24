@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief PubMed XML export plugin DOM functions
  */
 
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.xml.XMLCustomWriter');
 
 define('PUBMED_DTD_URL', 'http://www.ncbi.nlm.nih.gov:80/entrez/query/static/PubMed.dtd');
 define('PUBMED_DTD_ID', '-//NLM//DTD PubMed 2.0//EN');

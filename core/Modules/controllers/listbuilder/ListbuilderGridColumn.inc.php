@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/listbuilder/ListbuilderGridColumn.inc.php
+ * @file core.Modules.controllers/listbuilder/ListbuilderGridColumn.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.controllers.grid.GridColumn');
+import('core.Modules.controllers.grid.GridColumn');
 
 class ListbuilderGridColumn extends GridColumn {
 

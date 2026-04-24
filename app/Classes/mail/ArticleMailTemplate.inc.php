@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/mail/ArticleMailTemplate.inc.php
+ * @file core.Modules.mail/ArticleMailTemplate.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,8 +18,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.mail.MailTemplate');
-import('classes.article.log.ArticleEmailLogEntry'); // Bring in log constants
+import('core.Modules.mail.MailTemplate');
+import('core.Modules.article.log.ArticleEmailLogEntry'); // Bring in log constants
 
 class ArticleMailTemplate extends MailTemplate {
 
@@ -172,11 +172,11 @@ class ArticleMailTemplate extends MailTemplate {
         $entry->setBccs($this->getBccString());
 
         // Add log entry
-        import('classes.article.log.ArticleLog');
+        import('core.Modules.article.log.ArticleLog');
         $logEntryId = ArticleLog::logEmail((int) $this->article->getId(), $entry, $request);
 
         // Add attachments
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFileManager = new ArticleFileManager($article->getId());
         foreach ($this->getAttachmentFiles() as $attachment) {
             $articleFileManager->temporaryFileToArticleFile(

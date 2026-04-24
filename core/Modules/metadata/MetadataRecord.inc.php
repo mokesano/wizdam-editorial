@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/metadata/MetadataRecord.inc.php
+ * @file core.Modules.metadata/MetadataRecord.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky

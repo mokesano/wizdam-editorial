@@ -16,9 +16,9 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.rt.RTDAO');
-import('classes.rt.JournalRT');
-import('classes.handler.Handler');
+import('core.Modules.rt.RTDAO');
+import('core.Modules.rt.JournalRT');
+import('core.Modules.handler.Handler');
 
 class CommentHandler extends Handler {
     
@@ -139,7 +139,7 @@ class CommentHandler extends Handler {
                 Validation::redirectLogin();
         }
 
-        import('classes.comment.form.CommentForm');
+        import('core.Modules.comment.form.CommentForm');
         $commentForm = new CommentForm(null, $articleId, $galleyId, isset($parent) ? $parentId : null);
         $commentForm->initData();
 
@@ -149,7 +149,7 @@ class CommentHandler extends Handler {
                 $commentForm->execute();
 
                 // Send a notification to associated users
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $articleDao = DAORegistry::getDAO('ArticleDAO');
                 $article = $articleDao->getArticle($articleId);
@@ -229,7 +229,7 @@ class CommentHandler extends Handler {
         $issue = $issueDao->getIssueByArticleId($articleId);
 
         if (isset($issue) && isset($article)) {
-            import('classes.issue.IssueAction');
+            import('core.Modules.issue.IssueAction');
             $subscriptionRequired = IssueAction::subscriptionRequired($issue);
             $subscribedUser = IssueAction::subscribedUser($journal, $issue->getId(), $articleId);
 

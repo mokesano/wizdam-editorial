@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/log/EventLogDAO.inc.php
+ * @file core.Modules.log/EventLogDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class for inserting/accessing event log entries.
  */
 
-import ('lib.wizdam.classes.log.EventLogEntry');
+import ('core.Modules.log.EventLogEntry');
 
 class EventLogDAO extends DAO {
     

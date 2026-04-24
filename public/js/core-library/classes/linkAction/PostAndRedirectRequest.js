@@ -19,21 +19,21 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.linkAction.LinkActionRequest
+	 * @extends $.core.classes.linkAction.LinkActionRequest
 	 *
 	 * @param {jQuery} $linkActionElement The element the link
 	 *  action was attached to.
 	 * @param {Object} options Configuration of the link action
 	 *  request.
 	 */
-	$.pkp.classes.linkAction.PostAndRedirectRequest =
+	$.core.classes.linkAction.PostAndRedirectRequest =
 			function($linkActionElement, options) {
 
 		this.parent($linkActionElement, options);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.classes.linkAction.PostAndRedirectRequest,
-			$.pkp.classes.linkAction.LinkActionRequest);
+	$.core.classes.Helper.inherits(
+			$.core.classes.linkAction.PostAndRedirectRequest,
+			$.core.classes.linkAction.LinkActionRequest);
 
 
 	//
@@ -42,13 +42,13 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.linkAction.PostAndRedirectRequest.prototype.activate =
+	$.core.classes.linkAction.PostAndRedirectRequest.prototype.activate =
 			function(element, event) {
 		var returner = this.parent('activate', element, event);
 		var options = this.getOptions();
 
 		// Create a response handler for the first request (post).
-		var responseHandler = $.pkp.classes.Helper.curry(
+		var responseHandler = $.core.classes.Helper.curry(
 				this.handleResponse_, this);
 
 		// Post.
@@ -64,7 +64,7 @@
 		// So we use a timer to give some deactivated time to the link
 		// to minimize double-execution (we can't avoid it totally because
 		// we never know when the redirect request is over).
-		var finishCallback = $.pkp.classes.Helper.curry(
+		var finishCallback = $.core.classes.Helper.curry(
 				this.finishCallback_, this);
 		setTimeout(finishCallback, 2000);
 
@@ -79,7 +79,7 @@
 	 * Callback to be called after a timeout.
 	 * @private
 	 */
-	$.pkp.classes.linkAction.PostAndRedirectRequest.prototype.finishCallback_ =
+	$.core.classes.linkAction.PostAndRedirectRequest.prototype.finishCallback_ =
 			function() {
 		this.finish();
 	};
@@ -90,13 +90,13 @@
 	 * @param {Object} jsonData A parsed JSON response object.
 	 * @private
 	 */
-	$.pkp.classes.linkAction.PostAndRedirectRequest.prototype.handleResponse_ =
+	$.core.classes.linkAction.PostAndRedirectRequest.prototype.handleResponse_ =
 			function(jsonData) {
 		var options = this.getOptions();
 		var $linkActionElement = this.getLinkActionElement();
 
 		// Get the link action handler to handle the json response.
-		var linkActionHandler = $.pkp.classes.Handler.getHandler($linkActionElement);
+		var linkActionHandler = $.core.classes.Handler.getHandler($linkActionElement);
 		linkActionHandler.handleJson(jsonData);
 
 		// Redirect.

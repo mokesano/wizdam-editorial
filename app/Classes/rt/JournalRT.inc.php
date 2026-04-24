@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/rt/wizdam/JournalRT.inc.php
+ * @file core.Modules.rt/wizdam/JournalRT.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,8 +20,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.rt.RT');
-import('classes.rt.RTDAO');
+import('core.Modules.rt.RT');
+import('core.Modules.rt.RTDAO');
 
 class JournalRT extends RT {
     

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/manager/form/JournalSiteSettingsForm.inc.php
+ * @file core.Modules.manager/form/JournalSiteSettingsForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x (Removed create_function)
  */
 
-import('lib.wizdam.classes.db.DBDataXMLParser');
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.db.DBDataXMLParser');
+import('core.Modules.form.Form');
 
 class JournalSiteSettingsForm extends Form {
 
@@ -183,7 +183,7 @@ class JournalSiteSettingsForm extends Form {
             }
 
             // Make the file directories for the journal
-            import('lib.wizdam.classes.file.FileManager');
+            import('core.Modules.file.FileManager');
             $fileManager = new FileManager();
             $filesDir = Config::getVar('files', 'files_dir');
             $publicFilesDir = Config::getVar('files', 'public_files_dir');
@@ -206,7 +206,7 @@ class JournalSiteSettingsForm extends Form {
             ]);
 
             // Install the default RT versions.
-            import('classes.rt.JournalRTAdmin');
+            import('core.Modules.rt.JournalRTAdmin');
             $journalRtAdmin = new JournalRTAdmin($journalId);
             $journalRtAdmin->restoreVersions(false);
 

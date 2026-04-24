@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file plugins/citationLookup/crossref/PKPCrossrefCitationLookupPlugin.inc.php
+ * @file plugins/citationLookup/crossref/CoreCrossrefCitationLookupPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -21,7 +21,7 @@ declare(strict_types=1);
  * - Explicit Type Hinting & Return Types
  */
 
-import('classes.plugins.Plugin');
+import('core.Modules.plugins.Plugin');
 
 class CoreCrossrefCitationLookupPlugin extends Plugin {
     
@@ -33,11 +33,11 @@ class CoreCrossrefCitationLookupPlugin extends Plugin {
     }
 
     //
-    // Override protected template methods from PKPPlugin
+    // Override protected template methods from CorePlugin
     //
     
     /**
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * * [WIZDAM NOTE] 
      * Menggunakan tipe data string ketat untuk category dan path.
      * Return bool wajib.
@@ -51,7 +51,7 @@ class CoreCrossrefCitationLookupPlugin extends Plugin {
     }
 
     /**
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      * @return string
      */
     public function getName(): string {
@@ -59,7 +59,7 @@ class CoreCrossrefCitationLookupPlugin extends Plugin {
     }
 
     /**
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -67,7 +67,7 @@ class CoreCrossrefCitationLookupPlugin extends Plugin {
     }
 
     /**
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {

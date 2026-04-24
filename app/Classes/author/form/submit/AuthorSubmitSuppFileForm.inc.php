@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/author/form/submit/AuthorSubmitSuppFileForm.inc.php
+ * @file core.Modules.author/form/submit/AuthorSubmitSuppFileForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class AuthorSubmitSuppFileForm extends Form {
     /** @var int the ID of the article */
@@ -185,7 +185,7 @@ class AuthorSubmitSuppFileForm extends Form {
      * @return int the supplementary file ID
      */
     public function execute($object = null) {
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFileManager = new ArticleFileManager($this->articleId);
         $suppFileDao = DAORegistry::getDAO('SuppFileDAO');
 

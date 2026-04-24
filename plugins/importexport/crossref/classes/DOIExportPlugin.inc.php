@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 
-import('classes.plugins.ImportExportPlugin');
+import('core.Modules.plugins.ImportExportPlugin');
 
 // Export types.
 define('DOI_EXPORT_ISSUES', 0x01);
@@ -52,7 +52,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         if (!($this->_cache instanceof PubObjectCache)) {
             // Instantiate the cache.
             if (!class_exists('PubObjectCache')) { // Bug #7848
-                $this->import('classes.PubObjectCache');
+                $this->import('core.Modules.PubObjectCache');
             }
             $this->_cache = new PubObjectCache();
         }
@@ -90,11 +90,11 @@ class DOIExportPlugin extends ImportExportPlugin {
 
 
     //
-    // Implement template methods from PKPPlugin
+    // Implement template methods from CorePlugin
     //
     /**
      * Register the plugin.
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @param string $category
      * @param string $path
      * @return bool True if plugin initialized successfully.
@@ -110,7 +110,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Get the path to the templates.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @return string
      */
     public function getTemplatePath(): string {
@@ -119,7 +119,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Get the path to the context-specific settings file.
-     * @see PKPPlugin::getInstallSitePluginSettingsFile()
+     * @see CorePlugin::getInstallSitePluginSettingsFile()
      * @return string
      */
     public function getContextSpecificPluginSettingsFile(): string {
@@ -128,7 +128,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Get the locale filename for a specific locale.
-     * @see PKPPlugin::getLocaleFilename($locale)
+     * @see CorePlugin::getLocaleFilename($locale)
      * @param string $locale
      * @return array
      */
@@ -1131,7 +1131,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         unset($articles);
 
         // Instantiate article iterator.
-        import('lib.wizdam.classes.core.VirtualArrayIterator');
+        import('core.Modules.core.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($articleData, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the article template.
@@ -1193,7 +1193,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         unset($galleys);
 
         // Instantiate galley iterator.
-        import('lib.wizdam.classes.core.VirtualArrayIterator');
+        import('core.Modules.core.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($galleyData, $totalGalleys, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the galley template.
@@ -1535,7 +1535,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      */
     public function _instantiateSettingsForm($journal) {
         $settingsFormClassName = $this->getSettingsFormClassName();
-        $this->import('classes.form.' . $settingsFormClassName);
+        $this->import('core.Modules.form.' . $settingsFormClassName);
         $settingsForm = new $settingsFormClassName($this, $journal->getId());
         // [WIZDAM FIX] Updated assert to use instanceof
         assert($settingsForm instanceof DOIExportSettingsForm);
@@ -1553,7 +1553,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         static $notificationManager = null;
 
         if (is_null($notificationManager)) {
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
         }
 

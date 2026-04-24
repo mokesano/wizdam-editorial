@@ -3,7 +3,7 @@
  */
 
 /**
- * @file js/lib/jquery/plugins/jquery.pkp.js
+ * @file js/lib/jquery/plugins/jquery.core.js
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -27,7 +27,7 @@
 	 *  to the handler.
 	 * @return {jQuery} Selected HTML elements for chaining.
 	 */
-	$.fn.pkpHandler = function(handlerName, options) {
+	$.fn.coreHandler = function(handlerName, options) {
 		// Go through all selected elements.
 		this.each(function() {
 			var $element = $(this);
@@ -35,7 +35,7 @@
 			// Instantiate the handler and bind it
 			// to the element.
 			options = options || {};
-			var handler = $.pkp.classes.Helper.objectFactory(
+			var handler = $.core.classes.Helper.objectFactory(
 					handlerName, [$element, options]);
 		});
 

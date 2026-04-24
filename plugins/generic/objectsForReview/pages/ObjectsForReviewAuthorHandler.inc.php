@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class ObjectsForReviewAuthorHandler extends Handler {
 
@@ -44,7 +44,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
         $ofrPlugin = $this->_getObjectsForReviewPlugin();
         $mode = $ofrPlugin->getSetting($journalId, 'mode');
 
-        $ofrPlugin->import('classes.ObjectForReviewAssignment');
+        $ofrPlugin->import('core.Modules.ObjectForReviewAssignment');
         $path = !isset($args) || empty($args) ? null : $args[0];
         
         switch($path) {
@@ -114,7 +114,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
                 $request->redirect(null, 'objectsForReview');
             }
 
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $email = new MailTemplate('OFR_OBJECT_REQUESTED');
             
             // [SECURITY FIX] Amankan 'send' sebagai flag boolean (int) trim()
@@ -247,7 +247,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
      */
     public function _createTrivialNotification($notificationType, $request) {
         $user = $request->getUser();
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification($user->getId(), $notificationType);
     }

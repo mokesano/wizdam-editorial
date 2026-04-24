@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/Validation.inc.php
+ * @file core.Modules.security/Validation.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Auto-Migrate Legacy Passwords to Bcrypt
  */
 
-import('classes.security.Role');
-import('classes.security.Hashing');
+import('core.Modules.security.Role');
+import('core.Modules.security.Hashing');
 
 define('IMPLICIT_AUTH_OPTIONAL', 'optional');
 

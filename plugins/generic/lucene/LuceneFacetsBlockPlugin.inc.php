@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class LuceneFacetsBlockPlugin extends BlockPlugin {
 
@@ -43,12 +43,12 @@ class LuceneFacetsBlockPlugin extends BlockPlugin {
     }
 
     //
-    // Implement template methods from PKPPlugin.
+    // Implement template methods from CorePlugin.
     //
     /**
      * Manage the pluginn's installation and upgrade process.
      * @return boolean True on success.
-     * @see PKPPlugin::getHideManagement()
+     * @see CorePlugin::getHideManagement()
      */
     public function getHideManagement(): bool {
         return true;
@@ -56,7 +56,7 @@ class LuceneFacetsBlockPlugin extends BlockPlugin {
 
     /**
      * Get the plugin name.
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      */
     public function getName(): string {
         return 'LuceneFacetsBlockPlugin';
@@ -64,7 +64,7 @@ class LuceneFacetsBlockPlugin extends BlockPlugin {
 
     /**
      * Get the display name of this plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      */
     public function getDisplayName(): string {
         return __('plugins.generic.lucene.faceting.displayName');
@@ -72,7 +72,7 @@ class LuceneFacetsBlockPlugin extends BlockPlugin {
 
     /**
      * Get the description of this plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      */
     public function getDescription(): string {
         return __('plugins.generic.lucene.faceting.description');
@@ -80,7 +80,7 @@ class LuceneFacetsBlockPlugin extends BlockPlugin {
 
     /**
      * Get the path to this plugin.
-     * @see PKPPlugin::getPluginPath()
+     * @see CorePlugin::getPluginPath()
      */
     public function getPluginPath(): string {
         $plugin = $this->_getLucenePlugin();
@@ -89,7 +89,7 @@ class LuceneFacetsBlockPlugin extends BlockPlugin {
 
     /**
      * Get the path to this plugin's templates.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      */
     public function getTemplatePath(): string {
         $plugin = $this->_getLucenePlugin();
@@ -98,7 +98,7 @@ class LuceneFacetsBlockPlugin extends BlockPlugin {
 
     /**
      * Get the sequence of this plugin.
-     * @see PKPPlugin::getSeq()
+     * @see CorePlugin::getSeq()
      */
     public function getSeq(): int {
         // Identify the position of the faceting block.

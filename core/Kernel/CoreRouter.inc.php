@@ -2,15 +2,15 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/CoreRouter.inc.php
+ * @file core.Modules.core/CoreRouter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CoreRouter
- * @see PKPPageRouter
- * @see PKPComponentRouter
+ * @see CorePageRouter
+ * @see CoreComponentRouter
  * @ingroup core
  *
  * @brief Basic router class that has functionality common to all routers.
@@ -86,7 +86,7 @@ class CoreRouter {
 
     /**
      * set the dispatcher
-     * @param $dispatcher PKPDispatcher
+     * @param $dispatcher CoreDispatcher
      */
     public function setDispatcher($dispatcher) {
         $this->_dispatcher = $dispatcher;

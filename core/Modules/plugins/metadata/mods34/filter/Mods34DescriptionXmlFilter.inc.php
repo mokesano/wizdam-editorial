@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/plugins/metadata/mods34/filter/Mods34DescriptionXmlFilter.inc.php
+ * @file core.Modules.plugins/metadata/mods34/filter/Mods34DescriptionXmlFilter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -19,8 +19,8 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.filter.PersistableFilter');
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.filter.PersistableFilter');
+import('core.Modules.xml.XMLCustomWriter');
 
 class Mods34DescriptionXmlFilter extends PersistableFilter {
     
@@ -55,7 +55,7 @@ class Mods34DescriptionXmlFilter extends PersistableFilter {
      * @see PersistableFilter::getClassName()
      */
     public function getClassName() {
-        return 'lib.wizdam.plugins.metadata.mods34.filter.Mods34DescriptionXmlFilter';
+        return 'core.Modules.plugins.metadata.mods34.filter.Mods34DescriptionXmlFilter';
     }
 
 

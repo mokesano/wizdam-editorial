@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/article/PublishedArticle.inc.php
+ * @file core.Modules.article/PublishedArticle.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 7.4+ Compatible, Strict Types & Fatal Error Fix
  */
 
-import('classes.article.Article');
+import('core.Modules.article.Article');
 
 class PublishedArticle extends Article {
 

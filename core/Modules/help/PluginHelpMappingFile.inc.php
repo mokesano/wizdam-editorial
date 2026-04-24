@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/help/PluginHelpMappingFile.inc.php
+ * @file core.Modules.help/PluginHelpMappingFile.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Abstracts the plugin's help mapping XML files.
  */
 
-import('lib.wizdam.classes.help.HelpMappingFile');
+import('core.Modules.help.HelpMappingFile');
 
 class PluginHelpMappingFile extends HelpMappingFile {
     /** @var object */

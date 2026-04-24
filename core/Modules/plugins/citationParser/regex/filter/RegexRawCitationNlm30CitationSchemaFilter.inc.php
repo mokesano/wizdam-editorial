@@ -29,7 +29,7 @@ declare(strict_types=1);
  * - Short Array Syntax
  */
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 
 class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
     
@@ -52,7 +52,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
      * @return string the class name of this filter
      */
     public function getClassName(): string {
-        return 'lib.wizdam.plugins.citationParser.regex.filter.RegexRawCitationNlm30CitationSchemaFilter';
+        return 'core.Modules.plugins.citationParser.regex.filter.RegexRawCitationNlm30CitationSchemaFilter';
     }
 
     //

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/db/DBResultRange.inc.php
+ * @file core.Modules.db/DBResultRange.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky

@@ -18,12 +18,12 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.Handler
+	 * @extends $.core.classes.Handler
 	 *
 	 * @param {jQuery} $container the wrapped HTML container element.
 	 * @param {Object} options form options.
 	 */
-	$.pkp.controllers.form.DropdownHandler =
+	$.core.controllers.form.DropdownHandler =
 			function($container, options) {
 
 		this.parent($container, options);
@@ -55,9 +55,9 @@
 		this.bind('containerReloadRequested', this.containerReloadHandler_);
 	};
 
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.form.DropdownHandler,
-			$.pkp.classes.Handler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.form.DropdownHandler,
+			$.core.classes.Handler);
 
 
 	//
@@ -68,7 +68,7 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.form.DropdownHandler.prototype.eventName_ = null;
+	$.core.controllers.form.DropdownHandler.prototype.eventName_ = null;
 
 
 	/**
@@ -76,7 +76,7 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.form.DropdownHandler.prototype.defaultKey_ = null;
+	$.core.controllers.form.DropdownHandler.prototype.defaultKey_ = null;
 
 
 	/**
@@ -84,7 +84,7 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.form.DropdownHandler.prototype.currentKey_ = null;
+	$.core.controllers.form.DropdownHandler.prototype.currentKey_ = null;
 
 
 	/**
@@ -92,7 +92,7 @@
 	 * @private
 	 * @type {string?}
 	 */
-	$.pkp.controllers.form.DropdownHandler.prototype.getOptionsUrl_ = null;
+	$.core.controllers.form.DropdownHandler.prototype.getOptionsUrl_ = null;
 
 
 	//
@@ -106,7 +106,7 @@
 	 * @param {Event} event The triggering event.
 	 * @private
 	 */
-	$.pkp.controllers.form.DropdownHandler.prototype.selectOptionHandler_ =
+	$.core.controllers.form.DropdownHandler.prototype.selectOptionHandler_ =
 			function(sourceElement, event) {
 
 		// Trigger the published event.
@@ -119,7 +119,7 @@
 	 *
 	 * @private
 	 */
-	$.pkp.controllers.form.DropdownHandler.prototype.loadOptions_ =
+	$.core.controllers.form.DropdownHandler.prototype.loadOptions_ =
 			function() {
 
 		$.get(this.getOptionsUrl_,
@@ -134,7 +134,7 @@
 	 * @param {Object} jsonData A parsed JSON response object.
 	 * @private
 	 */
-	$.pkp.controllers.form.DropdownHandler.prototype.setOptionList_ =
+	$.core.controllers.form.DropdownHandler.prototype.setOptionList_ =
 			function(ajaxContext, jsonData) {
 
 		jsonData = this.handleJson(jsonData);
@@ -160,11 +160,11 @@
 	 * grids for categories or series.
 	 * @private
 	 *
-	 * @param {$.pkp.controllers.form.FormHandler} sourceElement The element
+	 * @param {$.core.controllers.form.FormHandler} sourceElement The element
 	 *  that triggered the event.
 	 * @param {Event} event The event.
 	 */
-	$.pkp.controllers.form.DropdownHandler.prototype.containerReloadHandler_ =
+	$.core.controllers.form.DropdownHandler.prototype.containerReloadHandler_ =
 			function(sourceElement, event) {
 
 		// prune the list before reloading the items.

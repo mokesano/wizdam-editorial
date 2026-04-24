@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/CoreApplication.inc.php
+ * @file core.Modules.core/CoreApplication.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -63,7 +63,7 @@ class CoreApplication {
         if (defined('E_NOTICE')) $errorReportingLevel &= ~E_NOTICE;
         @error_reporting($errorReportingLevel);
 
-        import('lib.wizdam.classes.core.PKPProfiler');
+        import('core.Modules.core.CoreProfiler');
         $wizdamProfiler = new CoreProfiler();
 
         Console::logMemory('', 'CoreApplication::construct');
@@ -71,10 +71,10 @@ class CoreApplication {
 
         mt_srand((int) ((double) microtime() * 1000000));
 
-        import('lib.wizdam.classes.core.Core');
-        import('lib.wizdam.classes.core.CoreString');
-        import('lib.wizdam.classes.core.Registry');
-        import('lib.wizdam.classes.config.Config');
+        import('core.Modules.core.Core');
+        import('core.Modules.core.CoreString');
+        import('core.Modules.core.Registry');
+        import('core.Modules.config.Config');
 
         if ((bool) Config::getVar('debug', 'display_errors')) {
             @ini_set('display_errors', '0');
@@ -83,21 +83,21 @@ class CoreApplication {
         Registry::set('application', $this);
         
         // Request dibuat DI SINI, sebelum komponen lain memintanya.
-        import('classes.core.Request');
+        import('core.Modules.core.Request');
         $request = new Request();
         Registry::set('request', $request);
         // ---------------------------
 
-        import('lib.wizdam.classes.db.DAORegistry');
-        import('lib.wizdam.classes.db.XMLDAO');
-        import('lib.wizdam.classes.cache.CacheManager');
-        import('classes.security.Validation');
-        import('lib.wizdam.classes.session.SessionManager');
-        import('classes.template.TemplateManager');
-        import('classes.notification.NotificationManager');
-        import('lib.wizdam.classes.plugins.PluginRegistry');
-        import('lib.wizdam.classes.plugins.HookRegistry');
-        import('classes.i18n.AppLocale');
+        import('core.Modules.db.DAORegistry');
+        import('core.Modules.db.XMLDAO');
+        import('core.Modules.cache.CacheManager');
+        import('core.Modules.security.Validation');
+        import('core.Modules.session.SessionManager');
+        import('core.Modules.template.TemplateManager');
+        import('core.Modules.notification.NotificationManager');
+        import('core.Modules.plugins.PluginRegistry');
+        import('core.Modules.plugins.HookRegistry');
+        import('core.Modules.i18n.AppLocale');
 
         CoreString::init();
         set_error_handler([$this, 'errorHandler']);
@@ -161,7 +161,7 @@ class CoreApplication {
         $dispatcher = Registry::get('dispatcher', true, null);
 
         if ($dispatcher === null) {
-            import('lib.wizdam.classes.core.Dispatcher');
+            import('core.Modules.core.Dispatcher');
             $dispatcher = new Dispatcher();
             Registry::set('dispatcher', $dispatcher);
 
@@ -170,7 +170,7 @@ class CoreApplication {
                 $dispatcher->setApplication($application);
             }
 
-            $dispatcher->addRouterName('lib.wizdam.classes.core.PKPComponentRouter', ROUTE_COMPONENT);
+            $dispatcher->addRouterName('core.Modules.core.CoreComponentRouter', ROUTE_COMPONENT);
             $dispatcher->addRouterName('classes.core.PageRouter', ROUTE_PAGE);
         }
 
@@ -297,42 +297,42 @@ class CoreApplication {
      */
     public function getDAOMap(): array {
         return [
-            'AccessKeyDAO' => 'lib.wizdam.classes.security.AccessKeyDAO',
-            'AuthSourceDAO' => 'lib.wizdam.classes.security.AuthSourceDAO',
-            'CaptchaDAO' => 'lib.wizdam.classes.captcha.CaptchaDAO',
-            'CitationDAO' => 'lib.wizdam.classes.citation.CitationDAO',
-            'ControlledVocabDAO' => 'lib.wizdam.classes.controlledVocab.ControlledVocabDAO',
-            'ControlledVocabEntryDAO' => 'lib.wizdam.classes.controlledVocab.ControlledVocabEntryDAO',
-            'CountryDAO' => 'lib.wizdam.classes.i18n.CountryDAO',
-            'CurrencyDAO' => 'lib.wizdam.classes.currency.CurrencyDAO',
-            'DataObjectTombstoneDAO' => 'lib.wizdam.classes.tombstone.DataObjectTombstoneDAO',
-            'DataObjectTombstoneSettingsDAO' => 'lib.wizdam.classes.tombstone.DataObjectTombstoneSettingsDAO',
-            'FilterDAO' => 'lib.wizdam.classes.filter.FilterDAO',
-            'FilterGroupDAO' => 'lib.wizdam.classes.filter.FilterGroupDAO',
-            'GroupDAO' => 'lib.wizdam.classes.group.GroupDAO',
-            'GroupMembershipDAO' => 'lib.wizdam.classes.group.GroupMembershipDAO',
-            'HelpTocDAO' => 'lib.wizdam.classes.help.HelpTocDAO',
-            'HelpTopicDAO' => 'lib.wizdam.classes.help.HelpTopicDAO',
-            'InterestDAO' => 'lib.wizdam.classes.user.InterestDAO',
-            'InterestEntryDAO' => 'lib.wizdam.classes.user.InterestEntryDAO',
-            'LanguageDAO' => 'lib.wizdam.classes.language.LanguageDAO',
-            'MetadataDescriptionDAO' => 'lib.wizdam.classes.metadata.MetadataDescriptionDAO',
-            'NotificationDAO' => 'lib.wizdam.classes.notification.NotificationDAO',
-            'NotificationMailListDAO' => 'lib.wizdam.classes.notification.NotificationMailListDAO',
-            'NotificationSettingsDAO' => 'lib.wizdam.classes.notification.NotificationSettingsDAO',
-            'NotificationSubscriptionSettingsDAO' => 'lib.wizdam.classes.notification.NotificationSubscriptionSettingsDAO',
-            'ONIXCodelistItemDAO' => 'lib.wizdam.classes.codelist.ONIXCodelistItemDAO',
-            'ProcessDAO' => 'lib.wizdam.classes.process.ProcessDAO',
-            'QualifierDAO' => 'lib.wizdam.classes.codelist.QualifierDAO',
-            'ScheduledTaskDAO' => 'lib.wizdam.classes.scheduledTask.ScheduledTaskDAO',
-            'SessionDAO' => 'lib.wizdam.classes.session.SessionDAO',
-            'SiteDAO' => 'lib.wizdam.classes.site.SiteDAO',
-            'SiteSettingsDAO' => 'lib.wizdam.classes.site.SiteSettingsDAO',
-            'SubjectDAO' => 'lib.wizdam.classes.codelist.SubjectDAO',
-            'TimeZoneDAO' => 'lib.wizdam.classes.i18n.TimeZoneDAO',
-            'TemporaryFileDAO' => 'lib.wizdam.classes.file.TemporaryFileDAO',
-            'VersionDAO' => 'lib.wizdam.classes.site.VersionDAO',
-            'XMLDAO' => 'lib.wizdam.classes.db.XMLDAO'
+            'AccessKeyDAO' => 'core.Modules.security.AccessKeyDAO',
+            'AuthSourceDAO' => 'core.Modules.security.AuthSourceDAO',
+            'CaptchaDAO' => 'core.Modules.captcha.CaptchaDAO',
+            'CitationDAO' => 'core.Modules.citation.CitationDAO',
+            'ControlledVocabDAO' => 'core.Modules.controlledVocab.ControlledVocabDAO',
+            'ControlledVocabEntryDAO' => 'core.Modules.controlledVocab.ControlledVocabEntryDAO',
+            'CountryDAO' => 'core.Modules.i18n.CountryDAO',
+            'CurrencyDAO' => 'core.Modules.currency.CurrencyDAO',
+            'DataObjectTombstoneDAO' => 'core.Modules.tombstone.DataObjectTombstoneDAO',
+            'DataObjectTombstoneSettingsDAO' => 'core.Modules.tombstone.DataObjectTombstoneSettingsDAO',
+            'FilterDAO' => 'core.Modules.filter.FilterDAO',
+            'FilterGroupDAO' => 'core.Modules.filter.FilterGroupDAO',
+            'GroupDAO' => 'core.Modules.group.GroupDAO',
+            'GroupMembershipDAO' => 'core.Modules.group.GroupMembershipDAO',
+            'HelpTocDAO' => 'core.Modules.help.HelpTocDAO',
+            'HelpTopicDAO' => 'core.Modules.help.HelpTopicDAO',
+            'InterestDAO' => 'core.Modules.user.InterestDAO',
+            'InterestEntryDAO' => 'core.Modules.user.InterestEntryDAO',
+            'LanguageDAO' => 'core.Modules.language.LanguageDAO',
+            'MetadataDescriptionDAO' => 'core.Modules.metadata.MetadataDescriptionDAO',
+            'NotificationDAO' => 'core.Modules.notification.NotificationDAO',
+            'NotificationMailListDAO' => 'core.Modules.notification.NotificationMailListDAO',
+            'NotificationSettingsDAO' => 'core.Modules.notification.NotificationSettingsDAO',
+            'NotificationSubscriptionSettingsDAO' => 'core.Modules.notification.NotificationSubscriptionSettingsDAO',
+            'ONIXCodelistItemDAO' => 'core.Modules.codelist.ONIXCodelistItemDAO',
+            'ProcessDAO' => 'core.Modules.process.ProcessDAO',
+            'QualifierDAO' => 'core.Modules.codelist.QualifierDAO',
+            'ScheduledTaskDAO' => 'core.Modules.scheduledTask.ScheduledTaskDAO',
+            'SessionDAO' => 'core.Modules.session.SessionDAO',
+            'SiteDAO' => 'core.Modules.site.SiteDAO',
+            'SiteSettingsDAO' => 'core.Modules.site.SiteSettingsDAO',
+            'SubjectDAO' => 'core.Modules.codelist.SubjectDAO',
+            'TimeZoneDAO' => 'core.Modules.i18n.TimeZoneDAO',
+            'TemporaryFileDAO' => 'core.Modules.file.TemporaryFileDAO',
+            'VersionDAO' => 'core.Modules.site.VersionDAO',
+            'XMLDAO' => 'core.Modules.db.XMLDAO'
         ];
     }
 
@@ -498,7 +498,7 @@ class CoreApplication {
         $user = $request->getUser();
 
         if ($user instanceof User) {
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             
             switch ($type) {

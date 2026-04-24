@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/internal/CopyeditorSubmissionRequiredPolicy.inc.php
+ * @file core.Modules.security/authorization/internal/CopyeditorSubmissionRequiredPolicy.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.security.authorization.DataObjectRequiredPolicy');
+import('core.Modules.security.authorization.DataObjectRequiredPolicy');
 
 class CopyeditorSubmissionRequiredPolicy extends DataObjectRequiredPolicy {
     

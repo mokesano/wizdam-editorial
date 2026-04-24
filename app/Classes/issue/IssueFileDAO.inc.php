@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/issue/IssueFileDAO.inc.php
+ * @file core.Modules.issue/IssueFileDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying IssueFile objects.
  */
 
-import('lib.wizdam.classes.file.CoreFileDAO');
-import('classes.issue.IssueFile');
+import('core.Modules.file.CoreFileDAO');
+import('core.Modules.issue.IssueFile');
 
 class IssueFileDAO extends CoreFileDAO {
 

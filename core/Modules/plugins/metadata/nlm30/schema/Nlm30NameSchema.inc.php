@@ -30,7 +30,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.metadata.MetadataSchema');
+import('core.Modules.metadata.MetadataSchema');
 
 class Nlm30NameSchema extends MetadataSchema {
     
@@ -42,7 +42,7 @@ class Nlm30NameSchema extends MetadataSchema {
         parent::__construct(
             'nlm-3.0-name',
             'nlm30',
-            'lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema',
+            'core.Modules.plugins.metadata.nlm30.schema.Nlm30NameSchema',
             array(ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR)
         );
 

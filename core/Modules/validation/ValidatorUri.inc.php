@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/validation/ValidatorUri.inc.php
+ * @file core.Modules.validation/ValidatorUri.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, Explicit Static Method)
  */
 
-import('lib.wizdam.classes.validation.ValidatorRegExp');
+import('core.Modules.validation.ValidatorRegExp');
 
 class ValidatorUri extends ValidatorRegExp {
     

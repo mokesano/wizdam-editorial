@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/plugins/MetadataPlugin.inc.php
+ * @file core.Modules.plugins/MetadataPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Abstract class for metadata plugins
  */
 
-import('classes.plugins.Plugin');
+import('core.Modules.plugins.Plugin');
 
 // Define the well-known file name for controlled vocabulary data.
 define('METADATA_PLUGIN_VOCAB_DATAFILE', 'controlledVocabs.xml');
@@ -33,12 +33,12 @@ class MetadataPlugin extends Plugin {
     }
 
 	//
-	// Override public methods from PKPPlugin
+	// Override public methods from CorePlugin
 	//
 
 	/**
 	 * This implementation adds the plugin's locale data to the application.
-	 * @see PKPPlugin::register()
+	 * @see CorePlugin::register()
 	 * @param $category String The category of plugin (e.g. 'metadata')
 	 * @param $path String The path to the plugin's main directory
 	 * @return boolean True iff the plugin was registered successfully
@@ -52,7 +52,7 @@ class MetadataPlugin extends Plugin {
 	/**
 	 * This implementation looks for files that contain controlled
 	 * vocabulary data. It can discover and return more than one file.
-	 * @see PKPPlugin::getInstallDataFile()
+	 * @see CorePlugin::getInstallDataFile()
 	 * @return array|null
 	 */
 	public function getInstallDataFile() {
@@ -82,7 +82,7 @@ class MetadataPlugin extends Plugin {
 
 	/**
 	 * This implementation marks the vocabulary data as installed.
-	 * @see PKPPlugin::installData()
+	 * @see CorePlugin::installData()
 	 * @param $hookName string The name of the hook being registered
 	 * @param $args array The arguments passed by the hook
 	 * @return boolean True iff the data was installed successfully

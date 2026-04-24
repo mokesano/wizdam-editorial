@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/JSONMessage.inc.php
+ * @file core.Modules.core/JSONMessage.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -182,7 +182,7 @@ class JSONMessage {
         }
 
         // Encode the object.
-        import('lib.wizdam.classes.core.JSONManager');
+        import('core.Modules.core.JSONManager');
         $jsonManager = new JSONManager();
         return $jsonManager->encode($jsonObject);
     }

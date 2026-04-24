@@ -27,8 +27,8 @@ if (!defined('ISBNDB_WEBSERVICE_URL')) {
     define('ISBNDB_WEBSERVICE_URL', 'http://isbndb.com/api/books.xml');
 }
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
-import('lib.wizdam.classes.filter.FilterSetting');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('core.Modules.filter.FilterSetting');
 
 class IsbndbNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
     

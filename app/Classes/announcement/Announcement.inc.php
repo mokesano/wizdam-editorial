@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/announcement/Announcement.inc.php
+ * @file core.Modules.announcement/Announcement.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -23,7 +23,7 @@ declare(strict_types=1);
  * - Strict SHIM
  */
 
-import('lib.wizdam.classes.announcement.PKPAnnouncement');
+import('core.Modules.announcement.CoreAnnouncement');
 
 class Announcement extends CoreAnnouncement {
     

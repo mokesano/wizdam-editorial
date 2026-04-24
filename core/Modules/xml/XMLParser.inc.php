@@ -119,7 +119,7 @@ class CoreXMLParser {
         xml_set_element_handler($parser, [$this->handler, "startElement"], [$this->handler, "endElement"]);
         xml_set_character_data_handler($parser, [$this->handler, "characterData"]);
 
-        import('lib.wizdam.classes.file.FileWrapper');
+        import('core.Modules.file.FileWrapper');
         $wrapper = FileWrapper::wrapper($file);
 
         // Handle responses of various types
@@ -267,7 +267,7 @@ class CoreXMLParser {
      * @return array a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
      */
     public function parseStruct($file, $tagsToMatch = array()) {
-        import('lib.wizdam.classes.file.FileWrapper');
+        import('core.Modules.file.FileWrapper');
         $wrapper = FileWrapper::wrapper($file);
         $fileContents = $wrapper->contents();
         if (!$fileContents) {

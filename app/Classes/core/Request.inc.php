@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/core/Request.inc.php
+ * @file core.Modules.core/Request.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@
  * WIZDAM EDITION: PHP 8 Compatibility (Static & Strict Types)
  */
 
-import('lib.wizdam.classes.core.CoreRequest');
+import('core.Modules.core.CoreRequest');
 
 class Request extends CoreRequest {
     
@@ -40,7 +40,7 @@ class Request extends CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::getRequestedContextPath()
+     * @see CorePageRouter::getRequestedContextPath()
      */
     public static function getRequestedJournalPath() {
         static $journal;
@@ -58,7 +58,7 @@ class Request extends CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::getContext()
+     * @see CorePageRouter::getContext()
      */
     public static function getJournal() {
         $instance = CoreRequest::_checkThis();
@@ -68,7 +68,7 @@ class Request extends CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::getRequestedContextPath()
+     * @see CorePageRouter::getRequestedContextPath()
      */
     public static function getRequestedContextPath($contextLevel = null) {
         $instance = CoreRequest::_checkThis();
@@ -84,7 +84,7 @@ class Request extends CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::getContext()
+     * @see CorePageRouter::getContext()
      * Note: Parameter $level default value makes it slightly different from Parent, 
      * but since it is static, it shadows the parent method.
      */
@@ -96,7 +96,7 @@ class Request extends CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::getContextByName()
+     * @see CorePageRouter::getContextByName()
      */
     public static function getContextByName($contextName) {
         $instance = CoreRequest::_checkThis();
@@ -106,7 +106,7 @@ class Request extends CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::url()
+     * @see CorePageRouter::url()
      */
     public static function url($journalPath = null, $page = null, $op = null, $path = null,
             $params = null, $anchor = null, $escape = false) {

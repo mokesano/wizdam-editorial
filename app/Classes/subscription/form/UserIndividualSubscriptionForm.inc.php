@@ -5,7 +5,7 @@
  */
  
 /**
- * @file classes/subscription/form/UserIndividualSubscriptionForm.inc.php
+ * @file core.Modules.subscription/form/UserIndividualSubscriptionForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class UserIndividualSubscriptionForm extends Form {
     /** @var $request CoreRequest */
@@ -156,7 +156,7 @@ class UserIndividualSubscriptionForm extends Form {
         $insert = false;
 
         if (!isset($this->subscription)) {
-            import('classes.subscription.IndividualSubscription');
+            import('core.Modules.subscription.IndividualSubscription');
             $subscription = new IndividualSubscription();
             $subscription->setJournalId($journalId);
             $subscription->setUserId($this->userId);
@@ -168,7 +168,7 @@ class UserIndividualSubscriptionForm extends Form {
             $subscription = $this->subscription;
         }
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($this->request);
         $paymentPlugin = $paymentManager->getPaymentPlugin();
         

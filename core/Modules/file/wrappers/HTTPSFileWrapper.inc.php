@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/file/wrappers/HTTPSFileWrapper.inc.php
+ * @file core.Modules.file/wrappers/HTTPSFileWrapper.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  *
  */
 
-import('lib.wizdam.classes.file.wrappers.HTTPFileWrapper');
+import('core.Modules.file.wrappers.HTTPFileWrapper');
 
 class HTTPSFileWrapper extends HTTPFileWrapper {
     /**

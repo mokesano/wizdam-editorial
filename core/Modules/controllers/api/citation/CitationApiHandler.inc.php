@@ -20,7 +20,7 @@ declare(strict_types=1);
  */
 
 // import the base Handler
-import('lib.wizdam.classes.handler.CoreHandler');
+import('core.Modules.handler.CoreHandler');
 
 class CitationApiHandler extends CoreHandler {
     
@@ -54,9 +54,9 @@ class CitationApiHandler extends CoreHandler {
      * [WIZDAM TRANSITION]: Signature kept loose for parent compatibility.
      */
     public function authorize($request, $args, $roleAssignments) {
-        import('lib.wizdam.classes.security.authorization.PKPProcessAccessPolicy');
+        import('core.Modules.security.authorization.CoreProcessAccessPolicy');
         
-        // Ensure $request is the correct type before use, although PKPProcessAccessPolicy expects it.
+        // Ensure $request is the correct type before use, although CoreProcessAccessPolicy expects it.
         if (!($request instanceof CoreRequest)) {
             // Log an error or return authorization failure if not a CoreRequest
             // For now, we trust the caller passes a compatible object as per design.

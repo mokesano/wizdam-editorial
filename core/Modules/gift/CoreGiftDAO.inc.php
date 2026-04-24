@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/gift/CoreGiftDAO.inc.php
+ * @file core.Modules.gift/CoreGiftDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying Gift objects.
  */
 
-import('lib.wizdam.classes.gift.CoreGift');
+import('core.Modules.gift.CoreGift');
 
 define('GIFT_REDEEM_STATUS_SUCCESS', 0x01);
 define('GIFT_REDEEM_STATUS_ERROR_GIFT_INVALID', 0x2);
@@ -121,7 +121,7 @@ class CoreGiftDAO extends DAO {
         $gift->setGiftNote($row['gift_note']);
         $gift->setNotes($row['notes']);
 
-        HookRegistry::call('PKPNoteDAO::_returnGiftFromRow', array(&$gift, $row)); // $row tidak lagi reference
+        HookRegistry::call('CoreNoteDAO::_returnGiftFromRow', array(&$gift, $row)); // $row tidak lagi reference
 
         return $gift;
     }

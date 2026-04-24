@@ -6,13 +6,13 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/oai/wizdam/JournalOAI.inc.php
+ * @file core.Modules.oai/wizdam/CoreOAI.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class JournalOAI
+ * @class CoreOAI
  * @ingroup oai_wizdam
  * @see OAIDAO
  *
@@ -23,10 +23,10 @@ declare(strict_types=1);
  * [WIZDAM EDITION] REFACTOR: PHP 8.1+ Compatibility, Strict Types, Structured Returns
  */
 
-import('lib.wizdam.classes.oai.OAI');
-import('classes.oai.OAIDAO');
+import('core.Modules.oai.OAI');
+import('core.Modules.oai.OAIDAO');
 
-class JournalOAI extends OAI {
+class CoreOAI extends OAI {
     /** @var Site $site Associated site object */
     public $site;
 
@@ -187,7 +187,7 @@ class JournalOAI extends OAI {
         
         // Hook now passes the result array container instead of individual references
         // [Wizdam] Removed & before $result (Object/Array passed by identifier in PHP 7+)
-        if (!HookRegistry::dispatch('JournalOAI::records', [$this, $from, $until, $set, $offset, $limit, &$result])) {
+        if (!HookRegistry::dispatch('CoreOAI::records', [$this, $from, $until, $set, $offset, $limit, &$result])) {
             $sectionId = null;
             if (isset($set)) {
                 [$journalId, $sectionId] = $this->setSpecToSectionId($set);
@@ -209,7 +209,7 @@ class JournalOAI extends OAI {
     public function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit) {
         $result = ['records' => [], 'total' => 0];
         
-        if (!HookRegistry::dispatch('JournalOAI::identifiers', [$this, $from, $until, $set, $offset, $limit, &$result])) {
+        if (!HookRegistry::dispatch('CoreOAI::identifiers', [$this, $from, $until, $set, $offset, $limit, &$result])) {
             $sectionId = null;
             if (isset($set)) {
                 [$journalId, $sectionId] = $this->setSpecToSectionId($set);
@@ -231,7 +231,7 @@ class JournalOAI extends OAI {
     public function sets($offset, $limit) {
         $result = ['data' => [], 'total' => 0];
         
-        if (!HookRegistry::dispatch('JournalOAI::sets', [$this, $offset, $limit, &$result])) {
+        if (!HookRegistry::dispatch('CoreOAI::sets', [$this, $offset, $limit, &$result])) {
             // Call DAO (Expects DAO to be updated to return array)
             $result = $this->dao->getJournalSets($this->journalId, $offset, $limit);
         }

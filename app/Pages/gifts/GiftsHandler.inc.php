@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class GiftsHandler extends Handler {
     
@@ -57,14 +57,14 @@ class GiftsHandler extends Handler {
         $journal = $request->getJournal();
         if (!$journal) $request->redirect(null, 'index');
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptGiftSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'index');
 
         $this->setupTemplate();
 
-        import('classes.subscription.form.GiftIndividualSubscriptionForm');
+        import('core.Modules.subscription.form.GiftIndividualSubscriptionForm');
         $giftSubscriptionForm = new GiftIndividualSubscriptionForm($request);
         $giftSubscriptionForm->initData();
         $giftSubscriptionForm->display();
@@ -82,7 +82,7 @@ class GiftsHandler extends Handler {
         $journal = $request->getJournal();
         if (!$journal) $request->redirect(null, 'index');
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptSubscriptionPayments = $paymentManager->acceptGiftSubscriptionPayments();
         if (!$acceptSubscriptionPayments) $request->redirect(null, 'index');
@@ -93,7 +93,7 @@ class GiftsHandler extends Handler {
         // If buyer is logged in, save buyer user id as part of gift details
         $buyerUserId = $user ? (int) $user->getId() : null;
 
-        import('classes.subscription.form.GiftIndividualSubscriptionForm');
+        import('core.Modules.subscription.form.GiftIndividualSubscriptionForm');
         $giftSubscriptionForm = new GiftIndividualSubscriptionForm($request, $buyerUserId);
         $giftSubscriptionForm->readInputData();
 

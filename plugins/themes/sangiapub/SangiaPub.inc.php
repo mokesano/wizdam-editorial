@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief "sangiapub" theme plugin
  */
 
-import('classes.plugins.ThemePlugin');
+import('core.Modules.plugins.ThemePlugin');
 
 class SangiaPub extends ThemePlugin {
     

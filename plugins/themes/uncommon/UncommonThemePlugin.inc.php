@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief "Uncommon" theme plugin
  */
 
-import('classes.plugins.ThemePlugin');
+import('core.Modules.plugins.ThemePlugin');
 
 class UncommonThemePlugin extends ThemePlugin {
     

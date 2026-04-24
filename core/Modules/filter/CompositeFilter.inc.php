@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/CompositeFilter.inc.php
+ * @file core.Modules.filter/CompositeFilter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * filters into filter networks.
  */
 
-import('lib.wizdam.classes.filter.PersistableFilter');
+import('core.Modules.filter.PersistableFilter');
 
 class CompositeFilter extends PersistableFilter {
     /** @var array An ordered array of sub-filters */

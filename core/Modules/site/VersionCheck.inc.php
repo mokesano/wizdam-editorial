@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/site/VersionCheck.inc.php
+ * @file core.Modules.site/VersionCheck.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -17,8 +17,8 @@ declare(strict_types=1);
 
 define('VERSION_CODE_PATH', 'dbscripts/xml/version.xml');
 
-import('lib.wizdam.classes.db.XMLDAO');
-import('lib.wizdam.classes.site.Version');
+import('core.Modules.db.XMLDAO');
+import('core.Modules.site.Version');
 
 class VersionCheck {
 

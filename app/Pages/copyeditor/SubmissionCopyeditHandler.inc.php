@@ -173,7 +173,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
 
         $send = (int) $request->getUserVar('send') === 1;
 
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
 
         if (ProofreaderAction::proofreadEmail($articleId, 'PROOFREAD_AUTHOR_COMPLETE', $request, $send ? '' : $request->url(null, 'copyeditor', 'authorProofreadingComplete', 'send'))) {
             $request->redirect(null, null, 'submission', $articleId);
@@ -226,7 +226,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
         $galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
         $galley = $galleyDao->getGalley($galleyId, $articleId);
 
-        import('classes.file.ArticleFileManager'); // FIXME
+        import('core.Modules.file.ArticleFileManager'); // FIXME
 
         if (isset($galley)) {
             if ($galley->isHTMLGalley()) {
@@ -291,7 +291,7 @@ class SubmissionCopyeditHandler extends CopyeditorHandler {
             $request->redirect(null, null, 'viewMetadata', $articleId);
         }
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         if (SectionEditorAction::removeArticleCoverPage($this->submission, $formLocale)) {
             $request->redirect(null, null, 'viewMetadata', $articleId);
         }

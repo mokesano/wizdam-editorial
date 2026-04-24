@@ -19,19 +19,19 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.FormHandler
+	 * @extends $.core.controllers.form.FormHandler
 	 *
 	 * @param {jQueryObject} $form the wrapped HTML form element.
 	 * @param {Object} options options to be passed
 	 *  into the validator plug-in.
 	 */
-	$.pkp.controllers.form.ClientFormHandler = function($form, options) {
+	$.core.controllers.form.ClientFormHandler = function($form, options) {
 		options.submitHandler = this.submitForm;
 		this.parent($form, options);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.form.ClientFormHandler,
-			$.pkp.controllers.form.FormHandler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.form.ClientFormHandler,
+			$.core.controllers.form.FormHandler);
 
 
 	//
@@ -45,7 +45,7 @@
 	 * @param {HTMLElement} formElement The wrapped HTML form.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.controllers.form.ClientFormHandler.prototype.submitForm =
+	$.core.controllers.form.ClientFormHandler.prototype.submitForm =
 			function(validator, formElement) {
 		var $form, formData;
 

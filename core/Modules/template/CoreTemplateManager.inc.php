@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/template/CoreTemplateManager.inc.php
+ * @file core.Modules.template/CoreTemplateManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -121,7 +121,7 @@ class CoreTemplateManager extends Smarty {
         $this->assign('baseUrl', $this->request->getBaseUrl());
         $this->assign('requiresFormRequest', $this->request->isPost());
         
-        if ($router instanceof PKPPageRouter) {
+        if ($router instanceof CorePageRouter) {
             $this->assign('requestedPage', $router->getRequestedPage($this->request));
         }
         
@@ -391,7 +391,7 @@ class CoreTemplateManager extends Smarty {
         
         // [WIZDAM CSRF] - AUTOMATIC ACTION-BASED TOKEN INJECTION
         // 1. Import library yang dibutuhkan
-        import('lib.wizdam.classes.validation.ValidatorCSRF');
+        import('core.Modules.validation.ValidatorCSRF');
         $request = Application::get()->getRequest();
         $router = $request->getRouter();
         
@@ -475,7 +475,7 @@ class CoreTemplateManager extends Smarty {
      * @return string JSON message with the template rendered
      */
     public function fetchJson($template, $status = true) {
-        import('lib.wizdam.classes.core.JSONMessage');
+        import('core.Modules.core.JSONMessage');
 
         $json = new JSONMessage($status, $this->fetch($template));
         header('Content-Type: application/json');
@@ -584,7 +584,7 @@ class CoreTemplateManager extends Smarty {
      */
     public function &getFBV() {
         if(!$this->fbv) {
-            import('lib.wizdam.classes.form.FormBuilderVocabulary');
+            import('core.Modules.form.FormBuilderVocabulary');
             $this->fbv = new FormBuilderVocabulary();
         }
         return $this->fbv;
@@ -721,7 +721,7 @@ class CoreTemplateManager extends Smarty {
         $image = isset($params['image'])?$params['image']:null;
         $translate = isset($params['translate'])?false:true;
 
-        import('lib.wizdam.classes.linkAction.request.NullAction');
+        import('core.Modules.linkAction.request.NullAction');
         $key = $translate ? __($key) : $key;
         
         // Smarty assignment
@@ -969,7 +969,7 @@ class CoreTemplateManager extends Smarty {
     }
 
     /**
-     * Generate a URL into a PKPApp.
+     * Generate a URL into a CoreApp.
      * Smarty usage: {url router=ROUTE_PAGE page="myPage" op="myOp" path="extra/path" anchor="myAnchor" escape=true params=$myParams context=$myContext}
      * @param $smarty Smarty
      * @return string the generated URL
@@ -1007,7 +1007,7 @@ class CoreTemplateManager extends Smarty {
 
         $parameters = array_merge($parameters, (array) $params);
 
-        $router = $router ?? (($this->request->getRouter() instanceof PKPComponentRouter) ? ROUTE_COMPONENT : ROUTE_PAGE);
+        $router = $router ?? (($this->request->getRouter() instanceof CoreComponentRouter) ? ROUTE_COMPONENT : ROUTE_PAGE);
 
         $dispatcher = CoreApplication::getDispatcher();
         

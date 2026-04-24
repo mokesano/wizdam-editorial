@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/AuthSourceDAO.inc.php
+ * @file core.Modules.security/AuthSourceDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying AuthSource objects.
  */
 
-import('lib.wizdam.classes.security.AuthSource');
+import('core.Modules.security.AuthSource');
 
 class AuthSourceDAO extends DAO {
     /** @var array List of loaded authentication plugins */

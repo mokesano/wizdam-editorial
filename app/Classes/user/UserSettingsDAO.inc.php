@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/user/UserSettingsDAO.inc.php
+ * @file core.Modules.user/UserSettingsDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.user.CoreUserSettingsDAO');
+import('core.Modules.user.CoreUserSettingsDAO');
 
 class UserSettingsDAO extends CoreUserSettingsDAO {
     

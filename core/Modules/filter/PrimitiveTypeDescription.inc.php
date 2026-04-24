@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/PrimitiveTypeDescription.inc.php
+ * @file core.Modules.filter/PrimitiveTypeDescription.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief Class that describes a primitive input/output type.
  */
 
-import('lib.wizdam.classes.filter.TypeDescription');
-import('lib.wizdam.classes.filter.TypeDescriptionFactory');
+import('core.Modules.filter.TypeDescription');
+import('core.Modules.filter.TypeDescriptionFactory');
 
 class PrimitiveTypeDescription extends TypeDescription {
     /** @var string a PHP primitive type, e.g. 'string' */

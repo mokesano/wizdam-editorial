@@ -15,8 +15,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('classes.handler.Handler');
-import('lib.wizdam.classes.core.JSONMessage');
+import('core.Modules.handler.Handler');
+import('core.Modules.core.JSONMessage');
 
 class ReportGeneratorHandler extends Handler {
     

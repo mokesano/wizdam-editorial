@@ -23,7 +23,7 @@
 	 * The constructor must remain empty because it will
 	 * be replaced on instantiation of the proxy.
 	 */
-	$.pkp.classes.ObjectProxy = function() {
+	$.core.classes.ObjectProxy = function() {
 		return this;
 	};
 
@@ -35,7 +35,7 @@
 	 * @private
 	 * @type {string} The object name of this object.
 	 */
-	$.pkp.classes.ObjectProxy.prototype.objectName_ = '';
+	$.core.classes.ObjectProxy.prototype.objectName_ = '';
 
 
 	//
@@ -54,7 +54,7 @@
 	 * @return {*} The property or undefined if the property
 	 *  was not found.
 	 */
-	$.pkp.classes.ObjectProxy.prototype.self =
+	$.core.classes.ObjectProxy.prototype.self =
 			function(propertyName) {
 		var ctor, foundProperty, args;
 
@@ -93,12 +93,12 @@
 	 * @param {...*} var_args Additional parameters to be passed.
 	 * @return {*} The return value of the parent method.
 	 */
-	$.pkp.classes.ObjectProxy.prototype.parent =
+	$.core.classes.ObjectProxy.prototype.parent =
 			function(opt_methodName, var_args) {
 		var caller, args, foundCaller, ctor;
 
 		// Retrieve a reference to the function that called us.
-		caller = $.pkp.classes.ObjectProxy.prototype.parent.caller;
+		caller = $.core.classes.ObjectProxy.prototype.parent.caller;
 
 		// 1) Check whether the caller is a constructor.
 		if (caller.parent_) {
@@ -144,7 +144,7 @@
 	 * Return the object name of this object
 	 * @return {string} The object name of this object.
 	 */
-	$.pkp.classes.ObjectProxy.prototype.getObjectName = function() {
+	$.core.classes.ObjectProxy.prototype.getObjectName = function() {
 		return this.objectName_;
 	};
 

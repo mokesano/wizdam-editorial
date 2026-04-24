@@ -14,12 +14,12 @@ declare(strict_types=1);
  * @brief URN plugin class
  */
 
-import('classes.plugins.PubIdPlugin');
+import('core.Modules.plugins.PubIdPlugin');
 
 class URNPubIdPlugin extends PubIdPlugin {
 
     //
-    // Implement template methods from PKPPlugin.
+    // Implement template methods from CorePlugin.
     //
     /**
      * Register the plugin.
@@ -37,7 +37,7 @@ class URNPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a name of the plugin.
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      * @return string
      */
     public function getName(): string {
@@ -46,7 +46,7 @@ class URNPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a Display Name of the plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -55,7 +55,7 @@ class URNPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a description of the plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {
@@ -64,7 +64,7 @@ class URNPubIdPlugin extends PubIdPlugin {
 
     /**
      * Get a template of the plugin.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @param bool $inCore
      * @return string
      */

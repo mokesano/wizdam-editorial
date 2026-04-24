@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/core/PKPWizdamStats.inc.php
+ * @file core.Modules.classes/core/CoreStats.inc.php
  * 
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady and Wizdam Team
@@ -18,17 +18,17 @@ declare(strict_types=1);
  */
 
 // Import kelas-kelas yang diperlukan
-import('lib.wizdam.classes.db.DBConnection');
-import('lib.wizdam.classes.cache.CacheManager');
-import('lib.wizdam.classes.core.Core');
-import('lib.wizdam.classes.config.Config');
-import('classes.journal.JournalDAO');
-import('classes.article.ArticleDAO');
-import('classes.article.ArticleGalleyDAO');
-import('classes.issue.IssueDAO');
-import('classes.article.PublishedArticleDAO');
-import('classes.submission.reviewAssignment.ReviewAssignmentDAO');
-import('classes.article.AuthorDAO'); // Diperlukan untuk SiteWideStats
+import('core.Modules.db.DBConnection');
+import('core.Modules.cache.CacheManager');
+import('core.Modules.core.Core');
+import('core.Modules.config.Config');
+import('core.Modules.journal.JournalDAO');
+import('core.Modules.article.ArticleDAO');
+import('core.Modules.article.ArticleGalleyDAO');
+import('core.Modules.issue.IssueDAO');
+import('core.Modules.article.PublishedArticleDAO');
+import('core.Modules.submission.reviewAssignment.ReviewAssignmentDAO');
+import('core.Modules.article.AuthorDAO'); // Diperlukan untuk SiteWideStats
 
 class CoreWizdamStats {
 

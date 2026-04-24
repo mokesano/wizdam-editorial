@@ -50,7 +50,7 @@ class AdminSettingsHandler extends AdminHandler {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.admin.form.SiteSettingsForm');
+        import('core.Modules.admin.form.SiteSettingsForm');
 
         $settingsForm = new SiteSettingsForm();
         if ($settingsForm->isLocaleResubmit()) {
@@ -75,8 +75,8 @@ class AdminSettingsHandler extends AdminHandler {
         
         $site = $request->getSite();
 
-        import('classes.admin.form.SiteSettingsForm');
-        import('classes.file.PublicFileManager'); // [WIZDAM] Explicit import
+        import('core.Modules.admin.form.SiteSettingsForm');
+        import('core.Modules.file.PublicFileManager'); // [WIZDAM] Explicit import
 
         $settingsForm = new SiteSettingsForm();
         $settingsForm->readInputData();
@@ -108,7 +108,7 @@ class AdminSettingsHandler extends AdminHandler {
         } elseif ($settingsForm->validate()) {
             $settingsForm->execute();
             $user = $request->getUser();
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification($user->getId());
             $request->redirect(null, null, 'index');

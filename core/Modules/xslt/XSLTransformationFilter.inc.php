@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/metadata/XSLTransformationFilter.inc.php
+ * @file core.Modules.metadata/XSLTransformationFilter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, No References, Visibility)
  */
 
-import('lib.wizdam.classes.filter.PersistableFilter');
-import('lib.wizdam.classes.xslt.XSLTransformer');
+import('core.Modules.filter.PersistableFilter');
+import('core.Modules.xslt.XSLTransformer');
 
 class XSLTransformationFilter extends PersistableFilter {
     
@@ -28,7 +28,7 @@ class XSLTransformationFilter extends PersistableFilter {
         if (!substr($filterGroup->getInputType(), 0, 5) == 'xml::') fatalError('XSL filters need XML as input.');
 
         // Instantiate the settings of this filter
-        import('lib.wizdam.classes.filter.FilterSetting');
+        import('core.Modules.filter.FilterSetting');
         $this->addSetting(new FilterSetting('xsl', null, null));
         $this->addSetting(new FilterSetting('xslType', null, null));
         $this->addSetting(new FilterSetting('resultType', null, null, FORM_VALIDATOR_OPTIONAL_VALUE));
@@ -116,7 +116,7 @@ class XSLTransformationFilter extends PersistableFilter {
      * @see PersistableFilter::getClassName()
      */
     public function getClassName() {
-        return 'lib.wizdam.classes.xslt.XSLTransformationFilter';
+        return 'core.Modules.xslt.XSLTransformationFilter';
     }
 
 

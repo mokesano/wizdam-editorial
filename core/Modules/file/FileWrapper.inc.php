@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/file/FileWrapper.inc.php
+ * @file core.Modules.file/FileWrapper.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -123,7 +123,7 @@ class FileWrapper {
             $wrapper = new FileWrapper($source, $info);
         } elseif (is_resource($source)) {
             // $source is an already-opened file descriptor.
-            import('lib.wizdam.classes.file.wrappers.ResourceWrapper');
+            import('core.Modules.file.wrappers.ResourceWrapper');
             $wrapper = new ResourceWrapper($source);
         } else {
             // $source should be a URL.
@@ -149,17 +149,17 @@ class FileWrapper {
 
             switch ($scheme) {
                 case 'http':
-                    import('lib.wizdam.classes.file.wrappers.HTTPFileWrapper');
+                    import('core.Modules.file.wrappers.HTTPFileWrapper');
                     $wrapper = new HTTPFileWrapper($source, $info);
                     $wrapper->addHeader('User-Agent', $userAgent);
                     break;
                 case 'https':
-                    import('lib.wizdam.classes.file.wrappers.HTTPSFileWrapper');
+                    import('core.Modules.file.wrappers.HTTPSFileWrapper');
                     $wrapper = new HTTPSFileWrapper($source, $info);
                     $wrapper->addHeader('User-Agent', $userAgent);
                     break;
                 case 'ftp':
-                    import('lib.wizdam.classes.file.wrappers.FTPFileWrapper');
+                    import('core.Modules.file.wrappers.FTPFileWrapper');
                     $wrapper = new FTPFileWrapper($source, $info);
                     break;
                 default:

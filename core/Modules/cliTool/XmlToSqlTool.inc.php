@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/cliTool/XmlToSqlTool.inc.php
+ * @file core.Modules.cliTool/XmlToSqlTool.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,8 +16,8 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.db.DBDataXMLParser');
-import('lib.wizdam.classes.db.DBConnection'); // [WIZDAM] Explicitly import DBConnection
+import('core.Modules.db.DBDataXMLParser');
+import('core.Modules.db.DBConnection'); // [WIZDAM] Explicitly import DBConnection
 
 class XmlToSqlTool extends CommandLineTool {
 

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file pages/login/PKPLoginHandler.inc.php
+ * @file pages/login/CoreLoginHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * - Integrated Modular Security: Turnstile & reCAPTCHA v2/v3
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class CoreLoginHandler extends Handler {
 
@@ -358,7 +358,7 @@ class CoreLoginHandler extends Handler {
             $templateMgr->display('user/lostPassword.tpl');
         } else {
             $site = $request->getSite();
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
             $this->_setMailFrom($request, $mail, $site);
             $mail->assignParams([
@@ -425,7 +425,7 @@ class CoreLoginHandler extends Handler {
             $userDao->updateObject($user);
 
             // Send email with new password
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $mail = new MailTemplate('PASSWORD_RESET');
             $this->_setMailFrom($request, $mail, $site);
             $mail->assignParams([
@@ -441,7 +441,7 @@ class CoreLoginHandler extends Handler {
             $templateMgr->assign('backLinkLabel',  'user.login');
             $templateMgr->display('common/message.tpl');
         } else {
-            import('classes.user.form.LoginChangePasswordForm');
+            import('core.Modules.user.form.LoginChangePasswordForm');
 
             $passwordForm = new LoginChangePasswordForm($confirmHash);
             $passwordForm->initData();
@@ -461,7 +461,7 @@ class CoreLoginHandler extends Handler {
         $this->validate();
         $this->setupTemplate($request);
 
-        import('classes.user.form.LoginChangePasswordForm');
+        import('core.Modules.user.form.LoginChangePasswordForm');
 
         $passwordForm = new LoginChangePasswordForm();
         $passwordForm->initData();
@@ -487,7 +487,7 @@ class CoreLoginHandler extends Handler {
         if ($oneStepReset) {
             $confirmHash = trim((string) $request->getUserVar('confirmHash'));
         }
-        import('classes.user.form.LoginChangePasswordForm');
+        import('core.Modules.user.form.LoginChangePasswordForm');
         $passwordForm = new LoginChangePasswordForm($confirmHash);
         $passwordForm->readInputData();
 

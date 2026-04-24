@@ -19,7 +19,7 @@ declare(strict_types=1);
  * - Strict Constructor & Visibility.
  */
 
-import('lib.wizdam.classes.db.DAO');
+import('core.Modules.db.DAO');
 
 class ExternalFeedDAO extends DAO {
 

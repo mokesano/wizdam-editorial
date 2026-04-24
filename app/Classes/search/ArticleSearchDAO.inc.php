@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/search/ArticleSearchDAO.inc.php
+ * @file core.Modules.search/ArticleSearchDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] FULLTEXT Optimized & PHP 8+ Compatible.
  */
 
-import('classes.search.ArticleSearch');
-import('classes.article.Article'); // Import STATUS_PUBLISHED for type safety
+import('core.Modules.search.ArticleSearch');
+import('core.Modules.article.Article'); // Import STATUS_PUBLISHED for type safety
 
 class ArticleSearchDAO extends DAO {
     // [WIZDAM] Simpan cache di properti class, bukan static variable lokal
@@ -113,7 +113,7 @@ class ArticleSearchDAO extends DAO {
      * @return DBRowIterator
      */
     public function getPhraseResults($journal, array $phrase, ?string $publishedFrom = null, ?string $publishedTo = null, $type = null, int $limit = 500, int $cacheHours = 24) {
-        import('lib.wizdam.classes.db.DBRowIterator');
+        import('core.Modules.db.DBRowIterator');
         
         if (empty($phrase)) {
             return new DBRowIterator(false);

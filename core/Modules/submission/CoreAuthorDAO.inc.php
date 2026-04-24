@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/CoreAuthorDAO.inc.php
+ * @file core.Modules.submission/CoreAuthorDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying CoreAuthor objects.
  */
 
-import('lib.wizdam.classes.submission.CoreAuthor');
+import('core.Modules.submission.CoreAuthor');
 
 class CoreAuthorDAO extends DAO {
     

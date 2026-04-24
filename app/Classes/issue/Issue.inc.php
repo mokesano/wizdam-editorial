@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/issue/Issue.inc.php
+ * @file core.Modules.issue/Issue.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -19,11 +19,11 @@ declare(strict_types=1);
  * @brief Class for Issue. Core entity representing a journal issue.
  */
 
-import('classes.issue.IssueCover');
-import('classes.issue.IssuePublication');
-import('classes.issue.IssueAccess');
-import('classes.issue.IssueDisplay');
-import('classes.issue.IssuePubIdService');
+import('core.Modules.issue.IssueCover');
+import('core.Modules.issue.IssuePublication');
+import('core.Modules.issue.IssueAccess');
+import('core.Modules.issue.IssueDisplay');
+import('core.Modules.issue.IssuePubIdService');
 
 // --- IDENTITY CONSTANTS (ISSUEACCESS) ---
 define('ISSUE_ACCESS_OPEN', 1);

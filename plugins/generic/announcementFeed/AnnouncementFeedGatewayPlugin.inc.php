@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('classes.plugins.GatewayPlugin');
+import('core.Modules.plugins.GatewayPlugin');
 
 class AnnouncementFeedGatewayPlugin extends GatewayPlugin {
     
@@ -159,7 +159,7 @@ class AnnouncementFeedGatewayPlugin extends GatewayPlugin {
         $journalId = $journal->getId();
         
         if ($limitRecentItems && $recentItems > 0) {
-            import('lib.wizdam.classes.db.DBResultRange');
+            import('core.Modules.db.DBResultRange');
             $rangeInfo = new DBResultRange($recentItems, 1);
             $announcements = $announcementDao->getAnnouncementsNotExpiredByAssocId(ASSOC_TYPE_JOURNAL, $journalId, $rangeInfo);
         } else {

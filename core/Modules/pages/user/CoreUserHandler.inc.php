@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 8.1+ Compatibility, Strict Types, Security Hardening
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class CoreUserHandler extends Handler {
     
@@ -53,12 +53,12 @@ class CoreUserHandler extends Handler {
         // [SECURITY FIX] Sanitasi string (Fix variabel undefined $term -> $filter)
         $filter = trim($filter);
 
-        import('lib.wizdam.classes.user.InterestManager');
+        import('core.Modules.user.InterestManager');
         $interestManager = new InterestManager();
 
         $interests = $interestManager->getAllInterests($filter);
 
-        import('lib.wizdam.classes.core.JSONMessage');
+        import('core.Modules.core.JSONMessage');
         $json = new JSONMessage(true, $interests);
         
         header('Content-Type: application/json');
@@ -81,7 +81,7 @@ class CoreUserHandler extends Handler {
             $userDao->updateObject($user);
         }
 
-        import('lib.wizdam.classes.core.JSONMessage');
+        import('core.Modules.core.JSONMessage');
         $json = new JSONMessage(true);
         
         header('Content-Type: application/json');

@@ -67,7 +67,7 @@ class RegistrationHandler extends UserHandler {
         $journal = $request->getJournal();
 
         if ($journal != null) {
-            import('classes.user.form.RegistrationForm');
+            import('core.Modules.user.form.RegistrationForm');
 
             $regForm = new RegistrationForm();
             if ($regForm->isLocaleResubmit()) {
@@ -110,7 +110,7 @@ class RegistrationHandler extends UserHandler {
 
         // [WIZDAM FIX] Validasi token security dengan konteks register
         if (!$this->_validateSecurityTokens($request, 'register')) {
-            import('classes.user.form.RegistrationForm');
+            import('core.Modules.user.form.RegistrationForm');
             $templateMgr = TemplateManager::getManager();
             $this->_assignSecurityVariables($templateMgr, 'register');
             $regForm = new RegistrationForm();
@@ -234,7 +234,7 @@ class RegistrationHandler extends UserHandler {
         if (!$user) $request->redirect(null, 'login');
 
         // Checks user & token
-        import('lib.wizdam.classes.security.AccessKeyManager');
+        import('core.Modules.security.AccessKeyManager');
         $accessKeyManager = new AccessKeyManager();
         $accessKeyHash = AccessKeyManager::generateKeyHash($accessKeyCode);
         $accessKey = $accessKeyManager->validateKey(

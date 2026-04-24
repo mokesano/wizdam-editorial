@@ -41,7 +41,7 @@ class UserGiftHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
 
         // Ensure gift payments are enabled
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptGiftPayments = $paymentManager->acceptGiftPayments();
         if (!$acceptGiftPayments) $request->redirect(null, 'user');
@@ -87,7 +87,7 @@ class UserGiftHandler extends UserHandler {
         if (!$journal) $request->redirect(null, 'user');
 
         // Ensure gift payments are enabled
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptGiftPayments = $paymentManager->acceptGiftPayments();
         if (!$acceptGiftPayments) $request->redirect(null, 'user');
@@ -107,7 +107,7 @@ class UserGiftHandler extends UserHandler {
         );
 
         // Report redeem status to user
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
 
         switch ($status) {

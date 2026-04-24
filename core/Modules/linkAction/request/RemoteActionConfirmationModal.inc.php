@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/linkAction/request/RemoteActionConfirmationModal.inc.php
+ * @file core.Modules.linkAction/request/RemoteActionConfirmationModal.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.linkAction.request.ConfirmationModal');
+import('core.Modules.linkAction.request.ConfirmationModal');
 
 class RemoteActionConfirmationModal extends ConfirmationModal {
     /** @var string|null A URL to be called when the confirmation button is clicked. */

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class RoleBlockPlugin extends BlockPlugin {
     

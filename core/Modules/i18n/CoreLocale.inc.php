@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/i18n/CoreLocale.inc.php
+ * @file core.Modules.i18n/CoreLocale.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  * WIZDAM EDITION: PHP 8 Compatibility, Registry State Fixes
  */
 
-import('lib.wizdam.classes.i18n.LocaleFile');
+import('core.Modules.i18n.LocaleFile');
 
 if (!defined('LOCALE_REGISTRY_FILE')) {
     define('LOCALE_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . 'locales.xml');
@@ -393,7 +393,7 @@ class CoreLocale {
      */
     public static function installLocale($locale) {
         // Install default locale-specific data
-        import('lib.wizdam.classes.db.DBDataXMLParser');
+        import('core.Modules.db.DBDataXMLParser');
 
         $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
         $emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale));

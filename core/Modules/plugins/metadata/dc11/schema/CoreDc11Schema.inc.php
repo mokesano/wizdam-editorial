@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file plugins/metadata/dc11/schema/PKPDc11Schema.inc.php
+ * @file plugins/metadata/dc11/schema/CoreDc11Schema.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -22,7 +22,7 @@ declare(strict_types=1);
  * For details see <http://dublincore.org/documents/dces/>,
  */
 
-import('lib.wizdam.classes.metadata.MetadataSchema');
+import('core.Modules.metadata.MetadataSchema');
 
 class CoreDc11Schema extends MetadataSchema {
     
@@ -59,7 +59,7 @@ class CoreDc11Schema extends MetadataSchema {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPDc11Schema($appSpecificAssocType) {
+    public function CoreDc11Schema($appSpecificAssocType) {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor parent::" . get_class($this) . "(). Please refactor to use parent::__construct().",

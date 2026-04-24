@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/Application.inc.php
+ * @file core.Modules.core/Application.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,9 +15,9 @@ declare(strict_types=1);
  * @brief Class describing this application.
  */
 
-import('lib.wizdam.classes.core.CoreApplication');
-import('classes.statistics.StatisticsHelper');
-import('classes.core.Request');
+import('core.Modules.core.CoreApplication');
+import('core.Modules.statistics.StatisticsHelper');
+import('core.Modules.core.Request');
 
 define('PHP_REQUIRED_VERSION', '7.4.0');
 
@@ -166,14 +166,14 @@ class Application extends CoreApplication {
             'AuthorDAO' => 'classes.article.AuthorDAO',
             'AuthorSubmissionDAO' => 'classes.submission.author.AuthorSubmissionDAO',
             'CategoryDAO' => 'classes.journal.categories.CategoryDAO',
-            'CommentDAO' => 'lib.wizdam.classes.comment.CommentDAO',
+            'CommentDAO' => 'core.Modules.comment.CommentDAO',
             'CopyeditorSubmissionDAO' => 'classes.submission.copyeditor.CopyeditorSubmissionDAO',
             'EditAssignmentDAO' => 'classes.submission.editAssignment.EditAssignmentDAO',
             'EditorSubmissionDAO' => 'classes.submission.editor.EditorSubmissionDAO',
             'EmailTemplateDAO' => 'classes.mail.EmailTemplateDAO',
             'GiftDAO' => 'classes.gift.GiftDAO',
-            'GroupDAO' => 'lib.wizdam.classes.group.GroupDAO',
-            'GroupMembershipDAO' => 'lib.wizdam.classes.group.GroupMembershipDAO',
+            'GroupDAO' => 'core.Modules.group.GroupDAO',
+            'GroupMembershipDAO' => 'core.Modules.group.GroupMembershipDAO',
             'IndividualSubscriptionDAO' => 'classes.subscription.IndividualSubscriptionDAO',
             'InstitutionalSubscriptionDAO' => 'classes.subscription.InstitutionalSubscriptionDAO',
             'IssueDAO' => 'classes.issue.IssueDAO',
@@ -190,15 +190,15 @@ class Application extends CoreApplication {
             'PluginSettingsDAO' => 'classes.plugins.PluginSettingsDAO',
             'ProofreaderSubmissionDAO' => 'classes.submission.proofreader.ProofreaderSubmissionDAO',
             'PublishedArticleDAO' => 'classes.article.PublishedArticleDAO',
-            'QueuedPaymentDAO' => 'lib.wizdam.classes.payment.QueuedPaymentDAO',
+            'QueuedPaymentDAO' => 'core.Modules.payment.QueuedPaymentDAO',
             'ReviewAssignmentDAO' => 'classes.submission.reviewAssignment.ReviewAssignmentDAO',
             'ReviewerSubmissionDAO' => 'classes.submission.reviewer.ReviewerSubmissionDAO',
-            'ReviewFormDAO' => 'lib.wizdam.classes.reviewForm.ReviewFormDAO',
-            'ReviewFormElementDAO' => 'lib.wizdam.classes.reviewForm.ReviewFormElementDAO',
-            'ReviewFormResponseDAO' => 'lib.wizdam.classes.reviewForm.ReviewFormResponseDAO',
+            'ReviewFormDAO' => 'core.Modules.reviewForm.ReviewFormDAO',
+            'ReviewFormElementDAO' => 'core.Modules.reviewForm.ReviewFormElementDAO',
+            'ReviewFormResponseDAO' => 'core.Modules.reviewForm.ReviewFormResponseDAO',
             'RoleDAO' => 'classes.security.RoleDAO',
             'RTDAO' => 'classes.rt.wizdam.RTDAO',
-            'ScheduledTaskDAO' => 'lib.wizdam.classes.scheduledTask.ScheduledTaskDAO',
+            'ScheduledTaskDAO' => 'core.Modules.scheduledTask.ScheduledTaskDAO',
             'SectionDAO' => 'classes.journal.SectionDAO',
             'SectionEditorsDAO' => 'classes.journal.SectionEditorsDAO',
             'SectionEditorSubmissionDAO' => 'classes.submission.sectionEditor.SectionEditorSubmissionDAO',
@@ -241,7 +241,7 @@ class Application extends CoreApplication {
      * @return object
      */
     public function instantiateHelp(): object {
-        import('classes.help.Help');
+        import('core.Modules.help.Help');
         return new Help();
     }
 
@@ -425,10 +425,10 @@ class Application extends CoreApplication {
      * [WIZDAM] Re-implemented: method ini dihapus saat modernisasi
      * tapi masih dipanggil oleh NotificationMailingListForm dan komponen lain.
      * @param $journal Journal|null objek journal aktif
-     * @return OJSPaymentManager
+     * @return AppPaymentManager
      */
     public static function getPaymentManager($journal = null) {
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         
         // Resolve journal jika tidak disuplai
         if ($journal === null) {

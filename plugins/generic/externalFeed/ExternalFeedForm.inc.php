@@ -18,7 +18,7 @@ declare(strict_types=1);
  * - Strict type casting for security.
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ExternalFeedForm extends Form {
 

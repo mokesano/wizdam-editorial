@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file pages/announcement/PKPAnnouncementHandler.inc.php
+ * @file pages/announcement/CoreAnnouncementHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 8.1+ Compatibility, Strict Types, Visibility Modifiers
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class CoreAnnouncementHandler extends Handler {
     

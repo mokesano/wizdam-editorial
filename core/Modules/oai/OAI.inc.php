@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/oai/OAI.inc.php
+ * @file core.Modules.oai/OAI.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -20,9 +20,9 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 7.4 - 8.x Modernization)
  */
 
-import('lib.wizdam.classes.oai.OAIStruct');
-import('lib.wizdam.classes.oai.OAIUtils');
-import('lib.wizdam.classes.plugins.PluginRegistry');
+import('core.Modules.oai.OAIStruct');
+import('core.Modules.oai.OAIUtils');
+import('core.Modules.plugins.PluginRegistry');
 
 class OAI {
     /** @var OAIConfig configuration parameters */

@@ -16,12 +16,12 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.Handler
+	 * @extends $.core.classes.Handler
 	 *
 	 * @param {jQuery} $page the wrapped page element.
 	 * @param {Object} options handler options.
 	 */
-	$.pkp.controllers.PageHandler = function($page, options) {
+	$.core.controllers.PageHandler = function($page, options) {
 		this.parent($page, options);
 
 		this.bind('redirectRequested', this.redirectToUrl);
@@ -37,8 +37,8 @@
 		// to use this.
 		this.bind('gridRefreshRequested', this.gridRefreshRequestedHandler_);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.PageHandler, $.pkp.classes.Handler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.PageHandler, $.core.classes.Handler);
 
 
 	//
@@ -52,7 +52,7 @@
 	 * @param {Event} event The "redirect requested" event.
 	 * @param {string} url The URL to redirect to.
 	 */
-	$.pkp.controllers.PageHandler.prototype.redirectToUrl =
+	$.core.controllers.PageHandler.prototype.redirectToUrl =
 			function(sourceElement, event, url) {
 
 		window.location = url;
@@ -72,14 +72,14 @@
 	 * that triggered the event or the notification content.
 	 * @private
 	 */
-	$.pkp.controllers.PageHandler.prototype.redirectNotifyUserEventHandler_ =
+	$.core.controllers.PageHandler.prototype.redirectNotifyUserEventHandler_ =
 			function(sourceElement, event, params) {
 
 		if (params.status === true) {
 			this.getHtmlElement().parent().trigger('notifyUser', params);
 		} else {
 			// Use the notification helper to redirect the notify user event.
-			$.pkp.classes.notification.NotificationHelper.
+			$.core.classes.notification.NotificationHelper.
 					redirectNotifyUserEvent(this, params);
 		}
 
@@ -94,18 +94,18 @@
 	 * @param {object} eventData The data changed event data.
 	 * @private
 	 */
-	$.pkp.controllers.PageHandler.prototype.redirectDataChangedEventHandler_ =
+	$.core.controllers.PageHandler.prototype.redirectDataChangedEventHandler_ =
 			function(sourceElement, event, eventData) {
 
 		// Get the link action element (that is outside of any grid)
 		// that triggered the redirect event.
 		var $sourceLinkElement = $('a', event.target);
-		var linkActionHandler = $.pkp.classes.Handler.getHandler($sourceLinkElement);
+		var linkActionHandler = $.core.classes.Handler.getHandler($sourceLinkElement);
 		var linkUrl = linkActionHandler.getUrl();
 
 		// Get all grids inside this widget that have a
 		// link action with the same url of the sourceLinkElement.
-		var $grids = $('.pkp_controllers_grid', this.getHtmlElement())
+		var $grids = $('.core_controllers_grid', this.getHtmlElement())
 				.has('a[href=' + linkUrl + ']');
 
 		// Trigger the dataChanged event on found grids,
@@ -146,7 +146,7 @@
 	 * @param {Event} event The "grid refresh requested" event.
 	 * @private
 	 */
-	$.pkp.controllers.PageHandler.prototype.gridRefreshRequestedHandler_ =
+	$.core.controllers.PageHandler.prototype.gridRefreshRequestedHandler_ =
 			function(sourceElement, event) {
 		var updateSourceClassString = 'update_source';
 
@@ -160,7 +160,7 @@
 				var $targetElements = $(this.getHtmlElement())
 						.find('.' + updatableElementsId);
 				if ($targetElements.length > 0) {
-					var $grids = $targetElements.find('.pkp_controllers_grid');
+					var $grids = $targetElements.find('.core_controllers_grid');
 					if ($grids.length > 0) {
 						$grids.each(function() {
 							// Keyword "this" is being used here in the

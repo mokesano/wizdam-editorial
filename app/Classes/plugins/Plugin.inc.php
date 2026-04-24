@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/plugins/Plugin.inc.php
+ * @file core.Modules.plugins/Plugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * MODERNIZED FOR PHP 8.x+
  */
 
-import('lib.wizdam.classes.plugins.PKPPlugin');
+import('core.Modules.plugins.CorePlugin');
 
 class Plugin extends CorePlugin {
     
@@ -29,7 +29,7 @@ class Plugin extends CorePlugin {
     /**
      * Backwards compatible convenience version of
      * the generic getContextSpecificSetting() method.
-     * @see PKPPlugin::getContextSpecificSetting()
+     * @see CorePlugin::getContextSpecificSetting()
      * @param $journalId
      * @param $name
      */
@@ -46,7 +46,7 @@ class Plugin extends CorePlugin {
 
     /**
      * Backwards compatible convenience version of the generic method.
-     * @see PKPPlugin::updateContextSpecificSetting()
+     * @see CorePlugin::updateContextSpecificSetting()
      * @param $journalId int
      * @param $name string The name of the setting
      * @param $value mixed
@@ -71,7 +71,7 @@ class Plugin extends CorePlugin {
     /**
      * For backwards compatibility only.
      * New plug-ins should override getContextSpecificPluginSettingsFile()
-     * @see PKPPlugin::getContextSpecificPluginSettingsFile()
+     * @see CorePlugin::getContextSpecificPluginSettingsFile()
      * @return string|null
      */
     public function getNewJournalPluginSettingsFile(): ?string {

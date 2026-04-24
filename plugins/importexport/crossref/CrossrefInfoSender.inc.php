@@ -15,7 +15,7 @@ declare(strict_types=1);
  * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 
 class CrossrefInfoSender extends ScheduledTask {
@@ -108,7 +108,7 @@ class CrossrefInfoSender extends ScheduledTask {
             if ($notify) {
                 $roleDao = DAORegistry::getDAO('RoleDAO');
                 $journalManagers = $roleDao->getUsersByRoleId(ROLE_ID_JOURNAL_MANAGER, $journal->getId());
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 while ($journalManager = $journalManagers->next()) {
                     $notificationManager->createTrivialNotification($journalManager->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('plugins.importexport.crossref.notification.failed')));

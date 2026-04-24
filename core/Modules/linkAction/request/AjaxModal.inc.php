@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/linkAction/request/AjaxModal.inc.php
+ * @file core.Modules.linkAction/request/AjaxModal.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.linkAction.request.Modal');
+import('core.Modules.linkAction.request.Modal');
 
 class AjaxModal extends Modal {
     /** @var string The URL to be loaded into the modal. */

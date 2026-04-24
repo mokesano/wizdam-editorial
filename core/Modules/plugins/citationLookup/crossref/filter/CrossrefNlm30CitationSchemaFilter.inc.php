@@ -24,8 +24,8 @@ declare(strict_types=1);
  * - Removal of deprecated reference operators
  */
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
-import('lib.wizdam.classes.filter.EmailFilterSetting');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('core.Modules.filter.EmailFilterSetting');
 
 // Asumsikan konstanta ini didefinisikan di global atau config, 
 // tapi jika tidak, define di sini tidak masalah.
@@ -76,7 +76,7 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
     //
     
     public function getClassName(): string {
-        return 'lib.wizdam.plugins.citationLookup.crossref.filter.CrossrefNlm30CitationSchemaFilter';
+        return 'core.Modules.plugins.citationLookup.crossref.filter.CrossrefNlm30CitationSchemaFilter';
     }
 
     //
@@ -155,7 +155,7 @@ class CrossrefNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
      */
     private function _prepareOpenurl10Search(MetadataDescription $citationDescription): ?array {
         // Crosswalk to OpenURL.
-        import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaOpenurl10CrosswalkFilter');
+        import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaOpenurl10CrosswalkFilter');
         
         $nlm30Openurl10Filter = new Nlm30CitationSchemaOpenurl10CrosswalkFilter();
         $openurl10Citation = $nlm30Openurl10Filter->execute($citationDescription);

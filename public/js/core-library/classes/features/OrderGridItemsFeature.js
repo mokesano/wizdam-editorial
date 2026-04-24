@@ -17,13 +17,13 @@
 	 * @constructor
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderGridItemsFeature =
+	$.core.classes.features.OrderGridItemsFeature =
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.classes.features.OrderGridItemsFeature,
-			$.pkp.classes.features.OrderItemsFeature);
+	$.core.classes.Helper.inherits(
+			$.core.classes.features.OrderGridItemsFeature,
+			$.core.classes.features.OrderItemsFeature);
 
 
 	//
@@ -32,7 +32,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderGridItemsFeature.prototype.setupSortablePlugin =
+	$.core.classes.features.OrderGridItemsFeature.prototype.setupSortablePlugin =
 			function() {
 		this.applySortPlgOnElements(
 				this.getGridHtmlElement(), 'tr.orderable', null);
@@ -42,7 +42,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderGridItemsFeature.prototype.saveOrderHandler =
+	$.core.classes.features.OrderGridItemsFeature.prototype.saveOrderHandler =
 			function() {
 		this.parent('saveOrderHandler');
 		var stringifiedData = JSON.stringify(this.getItemsDataId());
@@ -62,7 +62,7 @@
 	 * Get all items data id in a sequence array.
 	 * @return {array} List of all items data.
 	 */
-	$.pkp.classes.features.OrderGridItemsFeature.prototype.getItemsDataId =
+	$.core.classes.features.OrderGridItemsFeature.prototype.getItemsDataId =
 			function() {
 		return this.getRowsDataId(this.getGridHtmlElement());
 	};
@@ -78,7 +78,7 @@
 	 * @param {Object} ajaxContext The AJAX request context.
 	 * @param {Object} jsonData A parsed JSON response object.
 	 */
-	$.pkp.classes.features.OrderGridItemsFeature.prototype.
+	$.core.classes.features.OrderGridItemsFeature.prototype.
 			saveOrderResponseHandler_ = function(ajaxContext, jsonData) {
 		jsonData = this.gridHandler_.handleJson(jsonData);
 		this.toggleState(false);

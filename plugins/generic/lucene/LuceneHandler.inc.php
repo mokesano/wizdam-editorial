@@ -16,10 +16,10 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 import('plugins.generic.lucene.classes.SolrWebService');
-import('lib.wizdam.classes.core.JSONMessage');
-import('classes.search.ArticleSearch');
+import('core.Modules.core.JSONMessage');
+import('core.Modules.search.ArticleSearch');
 
 class LuceneHandler extends Handler {
 

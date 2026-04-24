@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/manager/form/AnnouncementForm.inc.php
+ * @file core.Modules.manager/form/AnnouncementForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.manager.form.CoreAnnouncementForm');
+import('core.Modules.manager.form.CoreAnnouncementForm');
 
 class AnnouncementForm extends CoreAnnouncementForm {
     
@@ -108,7 +108,7 @@ class AnnouncementForm extends CoreAnnouncementForm {
 
         if ($this->getData('notificationToggle')) {
             // Send a notification to associated users
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $roleDao = DAORegistry::getDAO('RoleDAO');
             

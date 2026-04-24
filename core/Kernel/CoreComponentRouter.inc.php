@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/PKPComponentRouter.inc.php
+ * @file core.Modules.core/CoreComponentRouter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -29,8 +29,8 @@ define ('COMPONENT_ROUTER_PARTS_MAXDEPTH', 5);
 define ('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define ('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
-import('lib.wizdam.classes.core.CoreRouter');
-import('classes.core.Request');
+import('core.Modules.core.CoreRouter');
+import('core.Modules.core.Request');
 
 class CoreComponentRouter extends CoreRouter {
     //
@@ -238,7 +238,7 @@ class CoreComponentRouter extends CoreRouter {
         //
         // We only support component/op retrieval from the request
         // if this request is a component request.
-        $currentRequestIsAComponentRequest = ($request->getRouter() instanceof PKPComponentRouter);
+        $currentRequestIsAComponentRequest = ($request->getRouter() instanceof CoreComponentRouter);
         
         if($currentRequestIsAComponentRequest) {
             if (empty($component)) $component = $this->getRequestedComponent($request);
@@ -325,7 +325,7 @@ class CoreComponentRouter extends CoreRouter {
             $translatedAuthorizationMessage .= ' ['.$url.$queryString.']';
         }
         // Return a JSON error message.
-        import('lib.wizdam.classes.core.JSONMessage');
+        import('core.Modules.core.JSONMessage');
         $json = new JSONMessage(false, $translatedAuthorizationMessage);
         header('Content-Type: application/json');
         return $json->getString();

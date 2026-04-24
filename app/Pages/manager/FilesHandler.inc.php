@@ -53,7 +53,7 @@ class FilesHandler extends ManagerHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('lib.wizdam.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
 
         $templateMgr = TemplateManager::getManager();
@@ -119,7 +119,7 @@ class FilesHandler extends ManagerHandler {
         
         $currentPath = $this->_getRealFilesDir($request, $currentDir);
 
-        import('lib.wizdam.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
         if ($fileManager->uploadedFileExists('file')) {
             $destPath = $currentPath . '/' . $this->_cleanFileName($fileManager->getUploadedFileName('file'));
@@ -148,7 +148,7 @@ class FilesHandler extends ManagerHandler {
             $currentPath = $this->_getRealFilesDir($request, $currentDir);
             $newDir = $currentPath . '/' . $this->_cleanFileName($dirName);
 
-            import('lib.wizdam.classes.file.FileManager');
+            import('core.Modules.file.FileManager');
             $fileManager = new FileManager();
             @$fileManager->mkdir($newDir);
         }
@@ -173,7 +173,7 @@ class FilesHandler extends ManagerHandler {
         
         $currentPath = $this->_getRealFilesDir($request, $currentDir);
 
-        import('lib.wizdam.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
 
         if (@is_file($currentPath)) {

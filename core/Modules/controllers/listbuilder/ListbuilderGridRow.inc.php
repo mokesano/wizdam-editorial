@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/listbuilder/ListbuilderGridRow.inc.php
+ * @file core.Modules.controllers/listbuilder/ListbuilderGridRow.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.controllers.grid.GridRow');
+import('core.Modules.controllers.grid.GridRow');
 
 class ListbuilderGridRow extends GridRow {
 
@@ -74,7 +74,7 @@ class ListbuilderGridRow extends GridRow {
 
         if ($this->_hasDeleteItemLink) {
             // Add deletion action (handled in JS-land)
-            import('lib.wizdam.classes.linkAction.request.NullAction');
+            import('core.Modules.linkAction.request.NullAction');
             $this->addAction(
                 new LinkAction(
                     'delete',

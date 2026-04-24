@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/db/DBDataXMLParser.inc.php
+ * @file core.Modules.db/DBDataXMLParser.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * See dbscripts/xml/dtd/xmldata.dtd for the XML schema used.
  */
 
-import('lib.wizdam.classes.xml.XMLParser');
+import('core.Modules.xml.XMLParser');
 
 class DBDataXMLParser {
 

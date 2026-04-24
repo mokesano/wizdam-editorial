@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/CoreRequest.inc.php
+ * @file core.Modules.core/CoreRequest.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -128,7 +128,7 @@ class CoreRequest {
      * @param $url string
      */
     public static function redirectUrlJson($url) {
-        import('lib.wizdam.classes.core.JSONMessage');
+        import('core.Modules.core.JSONMessage');
         $json = new JSONMessage(true);
         $json->setEvent('redirectRequested', $url);
         header('Content-Type: application/json');
@@ -241,7 +241,7 @@ class CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::getIndexUrl()
+     * @see CorePageRouter::getIndexUrl()
      */
     public static function getIndexUrl() {
         static $indexUrl;
@@ -748,7 +748,7 @@ class CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::getContext()
+     * @see CorePageRouter::getContext()
      */
     public static function getContext() {
         $instance = self::_checkThis();
@@ -757,7 +757,7 @@ class CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::getRequestedContextPath()
+     * @see CorePageRouter::getRequestedContextPath()
      */
     public static function getRequestedContextPath($contextLevel = null) {
         $instance = self::_checkThis();
@@ -773,7 +773,7 @@ class CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::getRequestedPage()
+     * @see CorePageRouter::getRequestedPage()
      */
     public static function getRequestedPage() {
         $instance = self::_checkThis();
@@ -782,7 +782,7 @@ class CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::getRequestedOp()
+     * @see CorePageRouter::getRequestedOp()
      */
     public static function getRequestedOp() {
         $instance = self::_checkThis();
@@ -791,7 +791,7 @@ class CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::getRequestedArgs()
+     * @see CorePageRouter::getRequestedArgs()
      */
     public static function getRequestedArgs() {
         $instance = self::_checkThis();
@@ -800,7 +800,7 @@ class CoreRequest {
 
     /**
      * Deprecated
-     * @see PKPPageRouter::url()
+     * @see CorePageRouter::url()
      */
     public static function url($context = null, $page = null, $op = null, $path = null,
             $params = null, $anchor = null, $escape = false) {

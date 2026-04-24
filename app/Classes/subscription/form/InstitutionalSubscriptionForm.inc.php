@@ -5,7 +5,7 @@
  */
  
 /**
- * @file classes/subscription/form/InstitutionalSubscriptionForm.inc.php
+ * @file core.Modules.subscription/form/InstitutionalSubscriptionForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.subscription.form.SubscriptionForm');
+import('core.Modules.subscription.form.SubscriptionForm');
 
 class InstitutionalSubscriptionForm extends SubscriptionForm {
     /**
@@ -155,7 +155,7 @@ class InstitutionalSubscriptionForm extends SubscriptionForm {
     public function execute() {
         $insert = false;
         if (!isset($this->subscription)) {
-            import('classes.subscription.InstitutionalSubscription');
+            import('core.Modules.subscription.InstitutionalSubscription');
             $this->subscription = new InstitutionalSubscription();
             $insert = true;
         }

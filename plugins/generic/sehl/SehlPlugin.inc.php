@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible - Security Optimized)
  */
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class SehlPlugin extends GenericPlugin {
     

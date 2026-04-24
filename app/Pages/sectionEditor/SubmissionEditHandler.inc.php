@@ -83,7 +83,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $sectionDao = DAORegistry::getDAO('SectionDAO');
         $section = $sectionDao->getSection($submission->getSectionId());
         if (!$section) {
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification(
                 $user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('author.submit.form.sectionRequired')]
@@ -106,7 +106,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 
         $templateMgr->assign('sections', $sectionDao->getSectionTitles($journal->getId()));
         if ($enableComments) {
-            import('classes.article.Article');
+            import('core.Modules.article.Article');
             $templateMgr->assign('commentsStatus', $submission->getCommentsStatus());
             $templateMgr->assign('commentsStatusOptions', Article::getCommentsStatusOptions());
         }
@@ -124,7 +124,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
             $templateMgr->assign('helpTopicId', 'editorial.editorsRole.submissionSummary');
         }
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
@@ -187,7 +187,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 
         $templateMgr->assign('editorDecisionOptions', SectionEditorSubmission::getEditorDecisionOptions());
 
-        import('classes.submission.reviewAssignment.ReviewAssignment');
+        import('core.Modules.submission.reviewAssignment.ReviewAssignment');
         $templateMgr->assign('reviewerRatingOptions', ReviewAssignment::getReviewerRatingOptions());
         $templateMgr->assign('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
 
@@ -276,7 +276,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $templateMgr->assign('editorDecisionOptions', SectionEditorSubmission::getEditorDecisionOptions());
         $templateMgr->assign('lastDecision', $lastDecision);
 
-        import('classes.submission.reviewAssignment.ReviewAssignment');
+        import('core.Modules.submission.reviewAssignment.ReviewAssignment');
         $templateMgr->assign('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
         $templateMgr->assign('reviewerRatingOptions', ReviewAssignment::getReviewerRatingOptions());
 
@@ -324,7 +324,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $user = Request::getUser();
         $templateMgr->assign('isEditor', $roleDao->userHasRole($journal->getId(), $user->getId(), ROLE_ID_EDITOR));
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $templateMgr->assign('issueOptions', IssueAction::getIssueOptions());
         $publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
         $publishedArticle = $publishedArticleDao->getPublishedArticleByArticleId($submission->getId());
@@ -336,7 +336,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $templateMgr->assign('submissionAccepted', $submissionAccepted);
         $templateMgr->assign('templates', $journal->getSetting('templates'));
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $completedPaymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
 
@@ -554,7 +554,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $this->validate($articleId, SECTION_EDITOR_ACCESS_REVIEW);
         $submission = $this->submission;
 
-        import('classes.sectionEditor.form.CreateReviewerForm');
+        import('core.Modules.sectionEditor.form.CreateReviewerForm');
         $createReviewerForm = new CreateReviewerForm($articleId);
         $this->setupTemplate(true, $articleId);
 
@@ -951,7 +951,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
             $templateMgr->assign('articleId', $articleId);
             $templateMgr->assign('reviewId', $reviewId);
 
-            import('classes.submission.reviewAssignment.ReviewAssignment');
+            import('core.Modules.submission.reviewAssignment.ReviewAssignment');
             $templateMgr->assign('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
 
             $templateMgr->display('sectionEditor/reviewerRecommendation.tpl');
@@ -1454,7 +1454,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $submission = $this->submission;
         $this->setupTemplate(true, $articleId, 'summary');
 
-        import('classes.submission.form.SuppFileForm');
+        import('core.Modules.submission.form.SuppFileForm');
         $submitForm = new SuppFileForm($submission, $journal);
 
         if ($submitForm->isLocaleResubmit()) {
@@ -1486,7 +1486,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 
         $this->setupTemplate(true, $articleId, 'summary');
 
-        import('classes.submission.form.SuppFileForm');
+        import('core.Modules.submission.form.SuppFileForm');
         $submitForm = new SuppFileForm($submission, $journal, $suppFileId);
         if ($submitForm->isLocaleResubmit()) {
             $submitForm->readInputData();
@@ -1531,14 +1531,14 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $suppFileId = (int) array_shift($args);
         $journal = $request->getJournal();
 
-        import('classes.submission.form.SuppFileForm');
+        import('core.Modules.submission.form.SuppFileForm');
         $submitForm = new SuppFileForm($submission, $journal, $suppFileId);
         $submitForm->readInputData();
 
         if ($submitForm->validate()) {
             $submitForm->execute();
 
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $articleDao = DAORegistry::getDAO('ArticleDAO');
             $article = $articleDao->getArticle($articleId);
@@ -1833,7 +1833,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $articleId = (int) $request->getUserVar('articleId'); 
         $this->validate($articleId, SECTION_EDITOR_ACCESS_EDIT);
     
-        import('classes.submission.form.ArticleGalleyForm');
+        import('core.Modules.submission.form.ArticleGalleyForm');
         $galleyForm = new ArticleGalleyForm($articleId);
         $createRemoteFlag = (bool) ((int) $request->getUserVar('createRemote')); 
         $galleyId = $galleyForm->execute($fileName, $createRemoteFlag);
@@ -1859,7 +1859,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 
         $this->setupTemplate(true, $articleId, 'editing');
 
-        import('classes.submission.form.ArticleGalleyForm');
+        import('core.Modules.submission.form.ArticleGalleyForm');
         $submitForm = new ArticleGalleyForm($articleId, $galleyId);
         if ($submitForm->isLocaleResubmit()) {
             $submitForm->readInputData();
@@ -1881,14 +1881,14 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $this->setupTemplate(true, $articleId, 'editing');
         $submission = $this->submission;
     
-        import('classes.submission.form.ArticleGalleyForm');
+        import('core.Modules.submission.form.ArticleGalleyForm');
         $submitForm = new ArticleGalleyForm($articleId, $galleyId);
     
         $submitForm->readInputData();
         if ($submitForm->validate()) {
             $submitForm->execute();
     
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $articleDao = DAORegistry::getDAO('ArticleDAO');
             $article = $articleDao->getArticle($articleId);
@@ -2013,7 +2013,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
         $galley = $galleyDao->getGalley($galleyId, $articleId);
 
-        import('classes.file.ArticleFileManager'); 
+        import('core.Modules.file.ArticleFileManager'); 
 
         if (isset($galley)) {
             if ($galley->isHTMLGalley()) {
@@ -2043,7 +2043,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $submission = $this->submission;
         $journal = $request->getJournal();
     
-        import('classes.submission.form.SuppFileForm');
+        import('core.Modules.submission.form.SuppFileForm');
     
         $suppFileForm = new SuppFileForm($submission, $journal);
         $suppFileForm->setData('title', [$submission->getLocale() => __('common.untitled')]);
@@ -2145,7 +2145,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $templateMgr->assign('submission', $submission);
 
         $articleFileDao = DAORegistry::getDAO('ArticleFileDAO');
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $templateMgr->assign('attachments', $articleFileDao->getArticleFilesByAssocId($logId, ARTICLE_FILE_ATTACHMENT));
 
         if ($logId) {
@@ -2337,7 +2337,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $signoffDao = DAORegistry::getDAO('SignoffDAO');
     
         if ($userId && $articleId && $roleDao->userHasRole($journal->getId(), $userId, ROLE_ID_PROOFREADER)) {
-            import('classes.submission.proofreader.ProofreaderAction');
+            import('core.Modules.submission.proofreader.ProofreaderAction');
             ProofreaderAction::selectProofreader($userId, $submission, $request);
             $request->redirect(null, null, 'submissionEditing', $articleId);
         } else {
@@ -2423,7 +2423,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $this->validate($articleId, SECTION_EDITOR_ACCESS_EDIT);
         $this->setupTemplate(true, $articleId, 'editing');
 
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         if (ProofreaderAction::proofreadEmail($articleId, 'PROOFREAD_AUTHOR_REQUEST', $request, $send?'':$request->url(null, null, 'notifyAuthorProofreader'))) {
             $request->redirect(null, null, 'submissionEditing', $articleId);
         }
@@ -2441,7 +2441,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $this->validate($articleId, SECTION_EDITOR_ACCESS_EDIT);
         $this->setupTemplate(true, $articleId, 'editing');
 
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         if (ProofreaderAction::proofreadEmail($articleId, 'PROOFREAD_AUTHOR_ACK', $request, $send?'':$request->url(null, null, 'thankAuthorProofreader'))) {
             $request->redirect(null, null, 'submissionEditing', $articleId);
         }
@@ -2495,7 +2495,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $this->validate($articleId, SECTION_EDITOR_ACCESS_EDIT);
         $this->setupTemplate(true, $articleId, 'editing');
 
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         if (ProofreaderAction::proofreadEmail($articleId, 'PROOFREAD_REQUEST', $request, $send?'':$request->url(null, null, 'notifyProofreader'))) {
             $request->redirect(null, null, 'submissionEditing', $articleId);
         }
@@ -2513,7 +2513,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $this->validate($articleId, SECTION_EDITOR_ACCESS_EDIT);
         $this->setupTemplate(true, $articleId, 'editing');
 
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         if (ProofreaderAction::proofreadEmail($articleId, 'PROOFREAD_ACK', $request, $send?'':$request->url(null, null, 'thankProofreader'))) {
             $request->redirect(null, null, 'submissionEditing', $articleId);
         }
@@ -2580,7 +2580,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $signoff->setDateAcknowledged(null);
         $signoffDao->updateObject($signoff);
 
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         if (ProofreaderAction::proofreadEmail($articleId, 'PROOFREAD_LAYOUT_REQUEST', $request, $send?'':$request->url(null, null, 'notifyLayoutEditorProofreader'))) {
             $request->redirect(null, null, 'submissionEditing', $articleId);
         }
@@ -2598,7 +2598,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $this->validate($articleId, SECTION_EDITOR_ACCESS_EDIT);
         $this->setupTemplate(true, $articleId, 'editing');
 
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         if (ProofreaderAction::proofreadEmail($articleId, 'PROOFREAD_LAYOUT_ACK', $request, $send?'':$request->url(null, null, 'thankLayoutEditorProofreader'))) {
             $request->redirect(null, null, 'submissionEditing', $articleId);
         }
@@ -2629,14 +2629,14 @@ class SubmissionEditHandler extends SectionEditorHandler {
             if (!$issue || !$issue->getPublished()) {
                 $fromIssue = $issueDao->getIssueById($publishedArticle->getIssueId(), $journal->getId());
                 if ($fromIssue->getPublished()) {
-                    import('classes.article.ArticleTombstoneManager');
+                    import('core.Modules.article.ArticleTombstoneManager');
                     $articleTombstoneManager = new ArticleTombstoneManager();
                     $articleTombstoneManager->insertArticleTombstone($submission, $journal);
                 }
             }
         }
 
-        import('classes.search.ArticleSearchIndex');
+        import('core.Modules.search.ArticleSearchIndex');
         $articleSearchIndex = new ArticleSearchIndex();
 
         if ($issue) {
@@ -2748,7 +2748,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 
         $this->validate($articleId, SECTION_EDITOR_ACCESS_EDIT);
         $submission = $this->submission;
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
         $journal = $request->getJournal();
@@ -2780,7 +2780,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $journal = $request->getJournal();
         $submission = $this->submission;
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
@@ -2812,7 +2812,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $journal = Request::getJournal();
         $submission = $this->submission;
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
@@ -2846,7 +2846,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 
         $journal = $request->getJournal();
         $templates = $journal->getSetting('templates');
-        import('classes.file.JournalFileManager');
+        import('core.Modules.file.JournalFileManager');
         $journalFileManager = new JournalFileManager($journal);
         $templateId = (int) array_shift($args);
         if ($templateId >= count($templates) || $templateId < 0) $request->redirect(null, 'index');

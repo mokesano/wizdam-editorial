@@ -18,8 +18,8 @@ declare(strict_types=1);
 
 define('SESSION_DISABLE_INIT', 1);
 
-import('classes.oai.JournalOAI');
-import('classes.handler.Handler');
+import('core.Modules.oai.CoreOAI');
+import('core.Modules.handler.Handler');
 
 class OAIHandler extends Handler {
 
@@ -58,7 +58,7 @@ class OAIHandler extends Handler {
 
         // Membuat instance OAI; menggunakan try/catch untuk menangkap error fatal.
         try {
-            $oai = new JournalOAI(
+            $oai = new CoreOAI(
                 new OAIConfig(
                     $request->url(null, 'oai'),
                     Config::getVar('oai', 'repository_id')

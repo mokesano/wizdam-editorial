@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized & Cleaned Up Dead Code
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class RelatedItemsBlockPlugin extends BlockPlugin {
     

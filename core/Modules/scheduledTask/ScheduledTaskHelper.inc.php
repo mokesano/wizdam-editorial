@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/scheduledTask/ScheduledTaskHelper.inc.php
+ * @file core.Modules.scheduledTask/ScheduledTaskHelper.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -66,7 +66,7 @@ class ScheduledTaskHelper {
      */
     public function getMail() {
         // Instantiate a mail object.
-        import('lib.wizdam.classes.mail.Mail');
+        import('core.Modules.mail.Mail');
         return new Mail();
     }
 
@@ -198,7 +198,7 @@ class ScheduledTaskHelper {
      * [MODERNISASI] Defined as static
      */
     public static function clearExecutionLogs() {
-        import('lib.wizdam.classes.file.PrivateFileManager');
+        import('core.Modules.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
     
         $fileMgr->rmtree($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR);    
@@ -209,7 +209,7 @@ class ScheduledTaskHelper {
      * @param $file string
      */
     public function downloadExecutionLog($file) {
-        import('lib.wizdam.classes.file.PrivateFileManager');
+        import('core.Modules.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         $fileMgr->downloadFile($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);    

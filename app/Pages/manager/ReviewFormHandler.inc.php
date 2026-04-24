@@ -105,7 +105,7 @@ class ReviewFormHandler extends ManagerHandler {
                 $templateMgr->assign('pageTitle', 'manager.reviewForms.edit');
             }
 
-            import('classes.manager.form.ReviewFormForm');
+            import('core.Modules.manager.form.ReviewFormForm');
             $reviewFormForm = new ReviewFormForm($reviewFormId);
 
             if ($reviewFormForm->isLocaleResubmit()) {
@@ -139,7 +139,7 @@ class ReviewFormHandler extends ManagerHandler {
         }
         $this->setupTemplate(true, $reviewForm);
 
-        import('classes.manager.form.ReviewFormForm');
+        import('core.Modules.manager.form.ReviewFormForm');
         $reviewFormForm = new ReviewFormForm($reviewFormId);
         $reviewFormForm->readInputData();
 
@@ -392,7 +392,7 @@ class ReviewFormHandler extends ManagerHandler {
         $templateMgr->assign('unusedReviewFormTitles', $unusedReviewFormTitles);
         $templateMgr->assign('reviewFormElements', $reviewFormElements);
         $templateMgr->assign('reviewFormId', $reviewFormId);
-        import('lib.wizdam.classes.reviewForm.ReviewFormElement');
+        import('core.Modules.reviewForm.ReviewFormElement');
         $templateMgr->assign('reviewFormElementTypeOptions', ReviewFormElement::getReviewFormElementTypeOptions());
         $templateMgr->assign('helpTopicId', 'journal.managementPages.reviewForms');
         $templateMgr->display('manager/reviewForms/reviewFormElements.tpl');
@@ -436,7 +436,7 @@ class ReviewFormHandler extends ManagerHandler {
             $templateMgr->assign('pageTitle', 'manager.reviewFormElements.edit');
         }
 
-        import('classes.manager.form.ReviewFormElementForm');
+        import('core.Modules.manager.form.ReviewFormElementForm');
         $reviewFormElementForm = new ReviewFormElementForm($reviewFormId, $reviewFormElementId);
         if ($reviewFormElementForm->isLocaleResubmit()) {
             $reviewFormElementForm->readInputData();
@@ -473,7 +473,7 @@ class ReviewFormHandler extends ManagerHandler {
             $request->redirect(null, null, 'reviewFormElements', [$reviewFormId]);
         }
 
-        import('classes.manager.form.ReviewFormElementForm');
+        import('core.Modules.manager.form.ReviewFormElementForm');
         $reviewFormElementForm = new ReviewFormElementForm($reviewFormId, $reviewFormElementId);
         $reviewFormElementForm->readInputData();
         $formLocale = $reviewFormElementForm->getFormLocale();

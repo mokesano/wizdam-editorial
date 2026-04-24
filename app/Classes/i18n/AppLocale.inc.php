@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/i18n/AppLocale.inc.php
+ * @file core.Modules.i18n/AppLocale.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * WIZDAM EDITION: PHP 8 Compatibility (Static Methods)
  */
 
-import('lib.wizdam.classes.i18n.CoreLocale');
+import('core.Modules.i18n.CoreLocale');
 
 define('LOCALE_COMPONENT_APPLICATION_COMMON', 0x00000101);
 define('LOCALE_COMPONENT_APP_AUTHOR',         0x00000102);

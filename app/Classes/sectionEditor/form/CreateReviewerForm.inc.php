@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/sectionEditor/form/CreateReviewerForm.inc.php
+ * @file core.Modules.sectionEditor/form/CreateReviewerForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class CreateReviewerForm extends Form {
     /** @var int The article this form is for */
@@ -195,7 +195,7 @@ class CreateReviewerForm extends Form {
 
         // Insert the user interests
         $interests = $this->getData('interestsKeywords') ? $this->getData('interestsKeywords') : $this->getData('interestsTextOnly');
-        import('lib.wizdam.classes.user.InterestManager');
+        import('core.Modules.user.InterestManager');
         $interestManager = new InterestManager();
         $interestManager->setInterestsForUser($user, $interests);
 
@@ -209,7 +209,7 @@ class CreateReviewerForm extends Form {
 
         if ($sendNotify) {
             // Send welcome email to user
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $mail = new MailTemplate('REVIEWER_REGISTER');
             $mail->setFrom($journal->getSetting('contactEmail'), $journal->getSetting('contactName'));
             $mail->assignParams(array('username' => $this->getData('username'), 'password' => $password, 'userFullName' => $user->getFullName()));

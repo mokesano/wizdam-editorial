@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
-import('lib.wizdam.classes.core.PKPWizdamStats');
+import('core.Modules.handler.Handler');
+import('core.Modules.core.CoreStats');
 
 class IndexHandler extends Handler {
     
@@ -96,20 +96,20 @@ class IndexHandler extends Handler {
             
             // --- MODIFIKASI DIMULAI (WIZDAM Editor Staff) ---
             // 1. Import kelas handler baru dari core
-            import('lib.wizdam.classes.core.PKPWizdamEditorStaff');
+            import('core.Modules.core.CoreEditorStaff');
             
             // 2. jumlah staff yang ingin ditampilkan (sesuai kebutuhan)
             $maxStaffToShow = 3; 
             
             // 3. Panggil metode statis untuk menjalankan seluruh logika
             //    Metode ini akan menangani cache dan assign $journalManagers & $journalEditors ke Smarty
-            PKPWizdamEditorStaff::displayHomepageStaff($journal, $templateMgr, $maxStaffToShow);
+            CoreEditorStaff::displayHomepageStaff($journal, $templateMgr, $maxStaffToShow);
             // --- MODIFIKASI SELESAI (WIZDAM Editor Staff) ---
             
             // --- BLOK WIZDAM STATS JURNAL DIMULAI ---
             $journalId = $journal->getId();
             try {
-                $journalStats = PKPWizdamStats::getStats($journalId, $forceRefresh);
+                $journalStats = CoreStats::getStats($journalId, $forceRefresh);
                 if (is_array($journalStats) && !isset($journalStats['error'])) {
                     foreach ($journalStats as $key => $value) {
                         $templateMgr->assign($key, $value);
@@ -122,7 +122,7 @@ class IndexHandler extends Handler {
                 }
             } catch (Exception $e) { 
                 if (Config::getVar('debug', 'log_errors')) {
-                    error_log('WizdamStats (Handler): Exception loading PKPWizdamStats for JID ' . $journalId . ': ' . $e->getMessage());
+                    error_log('WizdamStats (Handler): Exception loading CoreStats for JID ' . $journalId . ': ' . $e->getMessage());
                 }
                 $templateMgr->assign('statsError', 'Gagal memuat statistik jurnal.');
             }
@@ -146,7 +146,7 @@ class IndexHandler extends Handler {
             // --- TAMBAHKAN BLOK STATISTIK SITUS INI ---
             try {
                 // Memanggil Mesin #2 (Statistik Seluruh Situs)
-                $siteStats = PKPWizdamStats::getSiteWideStats($forceRefresh);
+                $siteStats = CoreStats::getSiteWideStats($forceRefresh);
                 
                 // --- TAMBAHKAN DEBUGGING DI SINI ---
                 if (Config::getVar('debug', 'log_errors')) { // Hanya log jika debug aktif
@@ -175,7 +175,7 @@ class IndexHandler extends Handler {
                 }
             } catch (Exception $e) { 
                 if (Config::getVar('debug', 'log_errors')) {
-                    error_log('WizdamStats (Handler): Exception loading PKPWizdamStats (Site-Wide): ' . $e->getMessage());
+                    error_log('WizdamStats (Handler): Exception loading CoreStats (Site-Wide): ' . $e->getMessage());
                 }
                 $templateMgr->assign('statsError', 'Gagal memuat statistik situs.');
                 

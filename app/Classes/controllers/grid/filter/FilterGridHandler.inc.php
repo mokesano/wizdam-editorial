@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/filter/FilterGridHandler.inc.php
+ * @file core.Modules.controllers/grid/filter/FilterGridHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,11 +15,11 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.controllers.grid.filter.CoreFilterGridHandler');
+import('core.Modules.controllers.grid.filter.CoreFilterGridHandler');
 
 // import validation classes
-import('classes.handler.validation.HandlerValidatorJournal');
-import('lib.wizdam.classes.handler.validation.HandlerValidatorRoles');
+import('core.Modules.handler.validation.HandlerValidatorJournal');
+import('core.Modules.handler.validation.HandlerValidatorRoles');
 
 class FilterGridHandler extends CoreFilterGridHandler {
     
@@ -63,8 +63,8 @@ class FilterGridHandler extends CoreFilterGridHandler {
         if (!$request) $request = Application::get()->getRequest();
 
         // Make sure the user can change the journal setup.
-        import('classes.security.authorization.OjsJournalAccessPolicy');
-        $this->addPolicy(new OjsJournalAccessPolicy($request, $roleAssignments));
+        import('core.Modules.security.authorization.AppJournalAccessPolicy');
+        $this->addPolicy(new AppJournalAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
     }
 }

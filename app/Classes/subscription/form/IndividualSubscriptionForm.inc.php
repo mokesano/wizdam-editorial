@@ -5,7 +5,7 @@
  */
  
 /**
- * @file classes/subscription/form/IndividualSubscriptionForm.inc.php
+ * @file core.Modules.subscription/form/IndividualSubscriptionForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.subscription.form.SubscriptionForm');
+import('core.Modules.subscription.form.SubscriptionForm');
 
 class IndividualSubscriptionForm extends SubscriptionForm {
 
@@ -89,7 +89,7 @@ class IndividualSubscriptionForm extends SubscriptionForm {
     public function execute() {
         $insert = false;
         if (!isset($this->subscription)) {
-            import('classes.subscription.IndividualSubscription');
+            import('core.Modules.subscription.IndividualSubscription');
             $this->subscription = new IndividualSubscription();
             $insert = true;
         }

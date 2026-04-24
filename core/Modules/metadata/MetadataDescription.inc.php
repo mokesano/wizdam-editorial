@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/metadata/MetadataDescription.inc.php
+ * @file core.Modules.metadata/MetadataDescription.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -21,7 +21,7 @@ declare(strict_types=1);
  * entity instance (DCMI abstract model: described resource, RDF: subject).
  */
 
-import('lib.wizdam.classes.core.DataObject');
+import('core.Modules.core.DataObject');
 
 define('METADATA_DESCRIPTION_REPLACE_ALL', 0x01);
 define('METADATA_DESCRIPTION_REPLACE_PROPERTIES', 0x02);

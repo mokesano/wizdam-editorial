@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/file/EditableFile.inc.php
+ * @file core.Modules.file/EditableFile.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -27,7 +27,7 @@ class EditableFile {
      * @param $filename string
      */
     public function __construct($filename) {
-        import('lib.wizdam.classes.file.FileWrapper');
+        import('core.Modules.file.FileWrapper');
         $this->filename = $filename;
         // Modernisasi: Hapus &
         $wrapper = FileWrapper::wrapper($this->filename);

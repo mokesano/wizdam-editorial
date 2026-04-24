@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/reviewer/ReviewerAction.inc.php
+ * @file core.Modules.submission/reviewer/ReviewerAction.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.submission.common.Action');
+import('core.Modules.submission.common.Action');
 
 class ReviewerAction extends Action {
 
@@ -69,7 +69,7 @@ class ReviewerAction extends Action {
         // Only confirm the review for the reviewer if
         // he has not previously done so.
         if ($reviewAssignment->getDateConfirmed() == null) {
-            import('classes.mail.ArticleMailTemplate');
+            import('core.Modules.mail.ArticleMailTemplate');
             $email = new ArticleMailTemplate($reviewerSubmission, $decline ? 'REVIEW_DECLINE' : 'REVIEW_CONFIRM');
             
             // Must explicitly set sender because we may be here on an access
@@ -91,7 +91,7 @@ class ReviewerAction extends Action {
                 $reviewAssignmentDao->updateReviewAssignment($reviewAssignment);
 
                 // Add log
-                import('classes.article.log.ArticleLog');
+                import('core.Modules.article.log.ArticleLog');
                 ArticleLog::logEventHeadless(
                     $request->getJournal(), 
                     (int) $reviewer->getId(), 
@@ -173,7 +173,7 @@ class ReviewerAction extends Action {
         // Only record the reviewers recommendation if
         // no recommendation has previously been submitted.
         if ($reviewAssignment->getRecommendation() === null || $reviewAssignment->getRecommendation() === '') {
-            import('classes.mail.ArticleMailTemplate');
+            import('core.Modules.mail.ArticleMailTemplate');
             $email = new ArticleMailTemplate($reviewerSubmission, 'REVIEW_COMPLETE');
             // Must explicitly set sender because we may be here on an access
             // key, in which case the user is not technically logged in
@@ -192,7 +192,7 @@ class ReviewerAction extends Action {
                 $reviewAssignmentDao->updateReviewAssignment($reviewAssignment);
 
                 // Add log
-                import('classes.article.log.ArticleLog');
+                import('core.Modules.article.log.ArticleLog');
                 ArticleLog::logEventHeadless(
                     $request->getJournal(), 
                     (int) $reviewer->getId(), 
@@ -252,7 +252,7 @@ class ReviewerAction extends Action {
         // [WIZDAM] Strict Type Guard
         $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
         $reviewAssignment = $reviewAssignmentDao->getById($reviewId);
 
@@ -282,7 +282,7 @@ class ReviewerAction extends Action {
             $reviewer = $userDao->getUser($reviewAssignment->getReviewerId());
 
             // Add log
-            import('classes.article.log.ArticleLog');
+            import('core.Modules.article.log.ArticleLog');
             ArticleLog::logEventHeadless(
                 $request->getJournal(), 
                 (int) $reviewer->getId(), 
@@ -301,7 +301,7 @@ class ReviewerAction extends Action {
      * @param int|null $revision If null, then all revisions are deleted.
      */
     public function deleteReviewerVersion($reviewId, $fileId, $revision = null) {
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
 
         // [WIZDAM] Modern Request Usage
         $request = Application::get()->getRequest();
@@ -324,7 +324,7 @@ class ReviewerAction extends Action {
      */
     public function viewPeerReviewComments($user, $article, $reviewId) {
         if (!HookRegistry::dispatch('ReviewerAction::viewPeerReviewComments', [&$user, &$article, &$reviewId])) {
-            import('classes.submission.form.comment.PeerReviewCommentForm');
+            import('core.Modules.submission.form.comment.PeerReviewCommentForm');
 
             $commentForm = new PeerReviewCommentForm($article, $reviewId, ROLE_ID_REVIEWER);
             $commentForm->setUser($user);
@@ -347,7 +347,7 @@ class ReviewerAction extends Action {
         $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('ReviewerAction::postPeerReviewComment', [&$user, &$article, &$reviewId, &$emailComment])) {
-            import('classes.submission.form.comment.PeerReviewCommentForm');
+            import('core.Modules.submission.form.comment.PeerReviewCommentForm');
 
             $commentForm = new PeerReviewCommentForm($article, $reviewId, ROLE_ID_REVIEWER);
             $commentForm->setUser($user);
@@ -357,7 +357,7 @@ class ReviewerAction extends Action {
                 $commentForm->execute();
 
                 // Send a notification to associated users
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationUsers = $article->getAssociatedUserIds(false, false);
                 foreach ($notificationUsers as $userRole) {
@@ -390,7 +390,7 @@ class ReviewerAction extends Action {
      */
     public function editReviewFormResponse($reviewId, $reviewFormId) {
         if (!HookRegistry::dispatch('ReviewerAction::editReviewFormResponse', [$reviewId, $reviewFormId])) {
-            import('classes.submission.form.ReviewFormResponseForm');
+            import('core.Modules.submission.form.ReviewFormResponseForm');
 
             $reviewForm = new ReviewFormResponseForm($reviewId, $reviewFormId);
             $reviewForm->initData();
@@ -409,7 +409,7 @@ class ReviewerAction extends Action {
         $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('ReviewerAction::saveReviewFormResponse', [$reviewId, $reviewFormId])) {
-            import('classes.submission.form.ReviewFormResponseForm');
+            import('core.Modules.submission.form.ReviewFormResponseForm');
 
             $reviewForm = new ReviewFormResponseForm($reviewId, $reviewFormId);
             $reviewForm->readInputData();
@@ -417,7 +417,7 @@ class ReviewerAction extends Action {
                 $reviewForm->execute();
 
                 // Send a notification to associated users
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
                 $reviewAssignment = $reviewAssignmentDao->getById($reviewId);
@@ -506,7 +506,7 @@ class ReviewerAction extends Action {
         $reviewId = (method_exists($comment, 'getReviewId')) ? $comment->getReviewId() : null;
 
         if (!HookRegistry::dispatch('ReviewerAction::editComment', [&$article, &$comment, &$reviewId])) {
-            import('classes.submission.form.comment.EditCommentForm');
+            import('core.Modules.submission.form.comment.EditCommentForm');
 
             $commentForm = new EditCommentForm($article, $comment);
             $commentForm->initData();

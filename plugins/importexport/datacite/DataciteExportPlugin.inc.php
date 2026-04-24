@@ -171,7 +171,7 @@ class DataciteExportPlugin extends DOIExportPlugin {
         unset($suppFiles);
 
         // Instantiate supp file iterator.
-        import('lib.wizdam.classes.core.VirtualArrayIterator');
+        import('core.Modules.core.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($suppFileData, $totalSuppFiles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the supp file template.
@@ -188,7 +188,7 @@ class DataciteExportPlugin extends DOIExportPlugin {
 
         // Export objects one by one (DataCite does not allow
         // multiple objects per file).
-        $this->import('classes.DataciteExportDom');
+        $this->import('core.Modules.DataciteExportDom');
         $exportFiles = [];
         foreach($objects as $object) {
             // Generate the export XML.

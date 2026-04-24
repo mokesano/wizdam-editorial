@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/user/CoreUser.inc.php
+ * @file core.Modules.user/CoreUser.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -600,7 +600,7 @@ class CoreUser extends DataObject {
      */
     public function getUserInterests() {
         if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-        import('lib.wizdam.classes.user.InterestManager');
+        import('core.Modules.user.InterestManager');
         $interestManager = new InterestManager();
         return $interestManager->getInterestsForUser($this);
     }
@@ -610,7 +610,7 @@ class CoreUser extends DataObject {
      * @return string
      */
     public function getInterestString() {
-        import('lib.wizdam.classes.user.InterestManager');
+        import('core.Modules.user.InterestManager');
         $interestManager = new InterestManager();
         return $interestManager->getInterestsString($this);
     }

@@ -16,10 +16,10 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.rt.RT');
+import('core.Modules.rt.RT');
 
-import('classes.rt.RTDAO');
-import('classes.rt.JournalRT');
+import('core.Modules.rt.RTDAO');
+import('core.Modules.rt.JournalRT');
 
 import('pages.article.ArticleHandler');
 
@@ -368,7 +368,7 @@ class RTHandler extends ArticleHandler {
             $request->redirect(null, $router->getRequestedPage($request));
         }
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $email = new MailTemplate('EMAIL_LINK');
 
         // [SECURITY FIX] Amankan 'send' sebagai flag boolean with (int) trim()
@@ -428,7 +428,7 @@ class RTHandler extends ArticleHandler {
             $request->redirect(null, $router->getRequestedPage($request));
         }
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $email = new MailTemplate();
         $email->setAddressFieldsEnabled(false);
 

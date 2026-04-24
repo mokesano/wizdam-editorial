@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/article/ArticleHTMLGalley.inc.php
+ * @file core.Modules.article/ArticleHTMLGalley.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@ declare(strict_types=1);
  * - Null Safety for Image/File Iteration
  */
 
-import('classes.article.ArticleGalley');
+import('core.Modules.article.ArticleGalley');
 
 class ArticleHTMLGalley extends ArticleGalley {
 
@@ -57,7 +57,7 @@ class ArticleHTMLGalley extends ArticleGalley {
      * @return string
      */
     public function getHTMLContents() {
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $fileManager = new ArticleFileManager($this->getArticleId());
         $contents = $fileManager->readFile($this->getFileId());
         $journal = Request::getJournal();
@@ -96,7 +96,7 @@ class ArticleHTMLGalley extends ArticleGalley {
         // Guideline #5: Removed & from $this for callback
         $contents = preg_replace_callback(
             '/(<[^<>]*")[Oo][Jj][Ss]:\/\/([^"]+)("[^<>]*>)/',
-            array($this, '_handleOjsUrl'),
+            array($this, '_handleAppUrl'),
             (string) $contents
         );
 
@@ -126,7 +126,7 @@ class ArticleHTMLGalley extends ArticleGalley {
      * @param array $matchArray
      * @return string
      */
-    public function _handleOjsUrl($matchArray) {
+    public function _handleAppUrl($matchArray) {
         $url = $matchArray[2];
         $anchor = null;
         if (($i = strpos($url, '#')) !== false) {

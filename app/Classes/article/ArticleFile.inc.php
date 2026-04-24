@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/article/ArticleFile.inc.php
+ * @file core.Modules.article/ArticleFile.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  * - Null Safety on File Paths
  */
 
-import('lib.wizdam.classes.submission.SubmissionFile');
+import('core.Modules.submission.SubmissionFile');
 
 /* File type IDs */
 define('ARTICLE_FILE_SUBMISSION', 0x000001);
@@ -68,7 +68,7 @@ class ArticleFile extends SubmissionFile {
 
         $journalId = $article->getJournalId();
 
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFileManager = new ArticleFileManager($this->getArticleId());
         
         return Config::getVar('files', 'files_dir') . '/journals/' . $journalId .

@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Form for journal managers to modify announcement feed plugin settings
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class SettingsForm extends Form {
 

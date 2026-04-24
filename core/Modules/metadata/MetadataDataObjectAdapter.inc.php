@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/metadata/MetadataDataObjectAdapter.inc.php
+ * @file core.Modules.metadata/MetadataDataObjectAdapter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -21,8 +21,8 @@ declare(strict_types=1);
  * by plug-ins via the filter registry.
  */
 
-import('lib.wizdam.classes.filter.PersistableFilter');
-import('lib.wizdam.classes.metadata.MetadataDescription');
+import('core.Modules.filter.PersistableFilter');
+import('core.Modules.metadata.MetadataDescription');
 
 class MetadataDataObjectAdapter extends PersistableFilter {
     /** @var MetadataSchema */

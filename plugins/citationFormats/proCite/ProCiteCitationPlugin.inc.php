@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief ProCite citation format plugin
  */
 
-import('classes.plugins.CitationPlugin');
+import('core.Modules.plugins.CitationPlugin');
 
 class ProCiteCitationPlugin extends CitationPlugin {
     

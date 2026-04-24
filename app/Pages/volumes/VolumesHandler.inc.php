@@ -38,8 +38,8 @@ declare(strict_types=1);
  *   number = "1", "2", "Supplement", dst          = VALID          → Kondisi B
  */
 
-import('classes.handler.Handler');
-import('classes.issue.IssueAction');
+import('core.Modules.handler.Handler');
+import('core.Modules.issue.IssueAction');
 
 class VolumesHandler extends Handler {
 
@@ -157,7 +157,7 @@ class VolumesHandler extends Handler {
         // ---------------------------------------------------------------
         $volumeTitleString = AppLocale::translate('issue.volume') . ' ' . $volumeId;
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $coverPagePath = $request->getBaseUrl() . '/'
             . $publicFileManager->getJournalFilesPath($journal->getId()) . '/';
@@ -220,7 +220,7 @@ class VolumesHandler extends Handler {
         // =================================================================
         $firstIssue = $issuesArray[0];
 
-        import('lib.wizdam.classes.core.ArrayItemIterator');
+        import('core.Modules.core.ArrayItemIterator');
         $issuesTemplateIterator = new ArrayItemIterator($issuesArray);
 
         $templateMgr->assign('issue',  $firstIssue);
@@ -280,10 +280,10 @@ class VolumesHandler extends Handler {
             return;
         }
 
-        import('lib.wizdam.classes.core.ArrayItemIterator');
+        import('core.Modules.core.ArrayItemIterator');
         $issuesTemplateIterator = new ArrayItemIterator($issuesArray);
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $coverPagePath = $request->getBaseUrl() . '/'
             . $publicFileManager->getJournalFilesPath($journal->getId()) . '/';
@@ -347,7 +347,7 @@ class VolumesHandler extends Handler {
             return;
         }
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
 
         $locale      = AppLocale::getLocale();
@@ -389,7 +389,7 @@ class VolumesHandler extends Handler {
         $templateMgr->assign('issue', $issue);
 
         // Subscription
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $subscriptionRequired      = IssueAction::subscriptionRequired($issue);
         $subscribedUser            = IssueAction::subscribedUser($journal);
         $subscribedDomain          = IssueAction::subscribedDomain($journal);
@@ -430,7 +430,7 @@ class VolumesHandler extends Handler {
         $templateMgr->assign('showGalleyLinks',        $journal->getSetting('showGalleyLinks'));
 
         // Payment
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         if ($paymentManager->onlyPdfEnabled()) {
             $templateMgr->assign('restrictOnlyPdf', true);

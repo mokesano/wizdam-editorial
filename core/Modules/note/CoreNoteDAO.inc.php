@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/note/PKPNoteDAO.inc.php
+ * @file core.Modules.note/CoreNoteDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -27,9 +27,9 @@ class CoreNoteDAO extends DAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPNoteDAO() {
+    public function CoreNoteDAO() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPNoteDAO(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreNoteDAO(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }
@@ -135,7 +135,7 @@ class CoreNoteDAO extends DAO {
         // WIZDAM UPDATE: HookRegistry::dispatch
         // $note (object) passed by value
         // $row (array) passed by reference
-        HookRegistry::dispatch('PKPNoteDAO::_returnNoteFromRow', array($note, &$row));
+        HookRegistry::dispatch('CoreNoteDAO::_returnNoteFromRow', array($note, &$row));
 
         return $note;
     }

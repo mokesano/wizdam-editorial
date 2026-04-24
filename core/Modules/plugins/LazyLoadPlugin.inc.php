@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/plugins/CachedPlugin.inc.php
+ * @file core.Modules.plugins/CachedPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@ declare(strict_types=1);
  * - Parent constructor call updated
  */
 
-import('classes.plugins.Plugin');
+import('core.Modules.plugins.Plugin');
 
 class LazyLoadPlugin extends Plugin {
     
@@ -30,8 +30,8 @@ class LazyLoadPlugin extends Plugin {
     }
 
     /**
-	 * Override public methods from PKPPlugin.
-     * @see PKPPlugin::register()
+	 * Override public methods from CorePlugin.
+     * @see CorePlugin::register()
 	 * @param category
 	 * @param path
      * @param lazyLoad
@@ -46,8 +46,8 @@ class LazyLoadPlugin extends Plugin {
     }
 
     /**
-     * Override protected methods from PKPPlugin
-     * @see PKPPlugin::getName()
+     * Override protected methods from CorePlugin
+     * @see CorePlugin::getName()
      * @return string
      */
     public function getName(): string {
@@ -64,14 +64,14 @@ class LazyLoadPlugin extends Plugin {
      
     /**
      * Determine whether or not this plugin is currently enabled.
-	 * @see PKPPlugin::getContextSpecificSetting()
+	 * @see CorePlugin::getContextSpecificSetting()
 	 * @param string $request
 	 * @param mixed $request
      * @return bool
      */
     public function getEnabled($request = null): bool {
         // [WIZDAM FIX] CLI/Acron Guard (PHP 7.4 - 8.4+ Safe)
-        // Cegah fatal error: Jika Aplikasi belum diinisialisasi (null) saat tugas latar belakang, tidak mungkin ada konteks. Kembalikan false secara aman tanpa mengakses PKPPlugin.
+        // Cegah fatal error: Jika Aplikasi belum diinisialisasi (null) saat tugas latar belakang, tidak mungkin ada konteks. Kembalikan false secara aman tanpa mengakses CorePlugin.
         if (!CoreApplication::getApplication()) {
             return false;
         }
@@ -81,7 +81,7 @@ class LazyLoadPlugin extends Plugin {
 
     /**
      * Set whether or not this plugin is currently enabled.
-	 * @see PKPPlugin::updateContextSpecificSetting()
+	 * @see CorePlugin::updateContextSpecificSetting()
 	 * @param bool $enabled
 	 * @param mixed $request
 	 * @return bool

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/payment/wizdam/AppCompletedPaymentDAO.inc.php
+ * @file core.Modules.payment/wizdam/AppCompletedPaymentDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -10,13 +10,13 @@ declare(strict_types=1);
  *
  * @class AppCompletedPaymentDAO
  * @ingroup payment
- * @see OJSCompletedPayment, Payment
+ * @see AppCompletedPayment, Payment
  *
  * @brief Operations for retrieving and querying past payments
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.payment.AppCompletedPayment');
+import('core.Modules.payment.AppCompletedPayment');
 
 class AppCompletedPaymentDAO extends DAO {
 
@@ -67,7 +67,7 @@ class AppCompletedPaymentDAO extends DAO {
 
     /**
      * Insert a new completed payment.
-     * @param $completedPayment OJSCompletedPayment
+     * @param $completedPayment AppCompletedPayment
      */
     public function insertCompletedPayment($completedPayment) {
         $this->update(
@@ -92,7 +92,7 @@ class AppCompletedPaymentDAO extends DAO {
 
     /**
      * Update an existing completed payment.
-     * @param $completedPayment OJSCompletedPayment
+     * @param $completedPayment AppCompletedPayment
      * @return boolean
      */
     public function updateObject($completedPayment) {
@@ -360,14 +360,14 @@ class AppCompletedPaymentDAO extends DAO {
 
     /**
      * Return a new data object.
-     * @return OJSCompletedPayment
+     * @return AppCompletedPayment
      */
     public function newDataObject() {
         return new AppCompletedPayment();
     }
 
     /**
-     * Internal function to return a OJSCompletedPayment object from a row.
+     * Internal function to return a AppCompletedPayment object from a row.
      * @param $row array
      * @return CompletedPayment
      */

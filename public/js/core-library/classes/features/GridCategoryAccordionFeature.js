@@ -17,13 +17,13 @@
 	 * @constructor
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature =
+	$.core.classes.features.GridCategoryAccordionFeature =
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.classes.features.GridCategoryAccordionFeature,
-			$.pkp.classes.features.Feature);
+	$.core.classes.Helper.inherits(
+			$.core.classes.features.GridCategoryAccordionFeature,
+			$.core.classes.features.Feature);
 
 
 	//
@@ -33,7 +33,7 @@
 	 * Get the css class for the extend accordion action.
 	 * @return {string} Extend link action css class.
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+	$.core.classes.features.GridCategoryAccordionFeature.prototype.
 			getExpandClass = function() {
 		return 'expanded';
 	};
@@ -43,7 +43,7 @@
 	 * Get the css class for the collapse accordion action.
 	 * @return {string} Collapse link action css class.
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+	$.core.classes.features.GridCategoryAccordionFeature.prototype.
 			getCollapseClass = function() {
 		return 'collapsed';
 	};
@@ -55,7 +55,7 @@
 	 * @param {jQuery} $context The context element.
 	 * @return {jQuery} Link actions.
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+	$.core.classes.features.GridCategoryAccordionFeature.prototype.
 			getAccordionLinks = function($context) {
 		var collapseSelector = '.' + this.getCollapseClass();
 		var expandSelector = '.' + this.getExpandClass();
@@ -66,7 +66,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.init =
+	$.core.classes.features.GridCategoryAccordionFeature.prototype.init =
 			function() {
 		$('.grid_header_bar .expand_all', this.getGridHtmlElement()).
 				click(this.callbackWrapper(this.expandAllClickHandler_, this));
@@ -89,7 +89,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.replaceElement =
+	$.core.classes.features.GridCategoryAccordionFeature.prototype.replaceElement =
 			function($newContent) {
 		this.bindCategoryAccordionControls_($newContent);
 		// Make sure the category items are visible.
@@ -107,7 +107,7 @@
 	 * @param {jQuery} $element The context element.
 	 * @private
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+	$.core.classes.features.GridCategoryAccordionFeature.prototype.
 			bindCategoryAccordionControls_ = function($element) {
 		var $accordionLinkActions = this.getAccordionLinks($element);
 		$accordionLinkActions.click(
@@ -119,7 +119,7 @@
 	 * Hide all grid empty placeholders.
 	 * @private
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+	$.core.classes.features.GridCategoryAccordionFeature.prototype.
 			hideEmptyPlaceholders_ = function() {
 		var $emptyPlaceholders = $('tbody.empty',
 				this.getGridHtmlElement());
@@ -134,7 +134,7 @@
 	 * @param {Event=} opt_event The triggering event.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+	$.core.classes.features.GridCategoryAccordionFeature.prototype.
 			expandAllClickHandler_ = function(callingContext, opt_event) {
 		$(callingContext).hide();
 		$('.grid_header_bar .collapse_all').show();
@@ -152,7 +152,7 @@
 	 * @param {Event=} opt_event The triggering event.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+	$.core.classes.features.GridCategoryAccordionFeature.prototype.
 			collapseAllClickHandler_ = function(callingContext, opt_event) {
 		$(callingContext).hide();
 		$('.grid_header_bar .expand_all').show();
@@ -172,7 +172,7 @@
 	 * @param {Event=} opt_event The triggering event.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+	$.core.classes.features.GridCategoryAccordionFeature.prototype.
 			accordionRowClickHandler_ = function(callingContext, opt_event) {
 
 		var $link = $(callingContext);
@@ -212,7 +212,7 @@
 	 * is executed.
 	 * @private
 	 */
-	$.pkp.classes.features.GridCategoryAccordionFeature.prototype.
+	$.core.classes.features.GridCategoryAccordionFeature.prototype.
 			updateGridActions_ = function() {
 		// Only execute if grid is visible.
 		if (!this.getGridHtmlElement().is(':visible')) {

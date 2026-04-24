@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/form/IssueForm.inc.php
+ * @file core.Modules.form/IssueForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,8 +20,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x (Removed create_function)
  */
 
-import('lib.wizdam.classes.form.Form');
-import('classes.issue.Issue'); // Bring in constants
+import('core.Modules.form.Form');
+import('core.Modules.issue.Issue'); // Bring in constants
 
 class IssueForm extends Form {
     /** @var Issue|null current issue */
@@ -127,7 +127,7 @@ class IssueForm extends Form {
             $this->addErrorField('publicIssueId');
         }
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
 
         if ($publicFileManager->uploadedFileExists('coverPage')) {
@@ -146,7 +146,7 @@ class IssueForm extends Form {
         }
 
         // Verify additional fields from public identifer plug-ins.
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->validate((int) $journal->getId(), $this, $issue);
 
@@ -195,7 +195,7 @@ class IssueForm extends Form {
                 'originalStyleFileName' => $issue->getOriginalStyleFileName()
             ];
             // consider the additional field names from the public identifer plugins
-            import('classes.plugins.PubIdPluginHelper');
+            import('core.Modules.plugins.PubIdPluginHelper');
             $pubIdPluginHelper = new PubIdPluginHelper();
             $pubIdPluginHelper->init($this, $issue);
 
@@ -314,7 +314,7 @@ class IssueForm extends Form {
             'resetArticlePublicationDates'
         ]);
         // consider the additional field names from the public identifer plugins
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->readInputData($this);
 
@@ -416,7 +416,7 @@ class IssueForm extends Form {
         else $issue->setOpenAccessDate(null);
 
         // consider the additional field names from the public identifer plugins
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->execute($this, $issue);
 
@@ -434,7 +434,7 @@ class IssueForm extends Form {
             $issue->setId($issueId);
         }
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         if ($publicFileManager->uploadedFileExists('coverPage')) {
             $journal = $request->getJournal();

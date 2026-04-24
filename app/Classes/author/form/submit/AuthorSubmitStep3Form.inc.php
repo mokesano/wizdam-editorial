@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/author/form/submit/AuthorSubmitStep3Form.inc.php
+ * @file core.Modules.author/form/submit/AuthorSubmitStep3Form.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('classes.author.form.submit.AuthorSubmitForm');
+import('core.Modules.author.form.submit.AuthorSubmitForm');
 
 class AuthorSubmitStep3Form extends AuthorSubmitForm {
 
@@ -57,7 +57,7 @@ class AuthorSubmitStep3Form extends AuthorSubmitForm {
         ));
 
         // Add ORCiD validation
-        import('lib.wizdam.classes.validation.ValidatorORCID');
+        import('core.Modules.validation.ValidatorORCID');
         // [WIZDAM] Replaced create_function with Closure
         $this->addCheck(new FormValidatorArrayCustom(
             $this, 'authors', 'required', 'user.profile.form.orcidInvalid',

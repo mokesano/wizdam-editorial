@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief User plugin DOM functions for export
  */
 
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.xml.XMLCustomWriter');
 
 define('USERS_DTD_URL', 'http://wizdam.sfu.ca/wizdam/dtds/users.dtd');
 define('USERS_DTD_ID', '-//Wizdam/Wizdam Users XML//EN');
@@ -98,7 +98,7 @@ class UserExportDom {
                 }
             }
 
-            import('lib.wizdam.classes.user.InterestManager');
+            import('core.Modules.user.InterestManager');
             $interestManager = new InterestManager();
             $interests = $interestManager->getInterestsForUser($user);
             if (is_array($interests)) {

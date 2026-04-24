@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/pages/help/HelpHandler.inc.php
+ * @file core.Modules.pages/help/HelpHandler.inc.php
  *
  * Copyright (c) 2013-2025 Simon Fraser University Library
  * Copyright (c) 2003-2025 John Willinsky
@@ -22,12 +22,12 @@ if (!defined('HELP_DEFAULT_TOPIC')) define('HELP_DEFAULT_TOPIC', 'index/topic/00
 if (!defined('HELP_DEFAULT_TOC')) define('HELP_DEFAULT_TOC', 'index/toc/000000');
 
 // Imports (Wizdam Core Pathing)
-import('lib.wizdam.classes.help.HelpToc');
-import('lib.wizdam.classes.help.HelpTocDAO');
-import('lib.wizdam.classes.help.HelpTopic');
-import('lib.wizdam.classes.help.HelpTopicDAO');
-import('lib.wizdam.classes.help.HelpTopicSection');
-import('classes.handler.Handler'); // Akan otomatis mencari Handler terdekat (Core/App)
+import('core.Modules.help.HelpToc');
+import('core.Modules.help.HelpTocDAO');
+import('core.Modules.help.HelpTopic');
+import('core.Modules.help.HelpTopicDAO');
+import('core.Modules.help.HelpTopicSection');
+import('core.Modules.handler.Handler'); // Akan otomatis mencari Handler terdekat (Core/App)
 
 class HelpHandler extends Handler {
     
@@ -69,7 +69,7 @@ class HelpHandler extends Handler {
         $this->setupTemplate();
         $templateMgr = TemplateManager::getManager();
         
-        import('classes.help.Help');
+        import('core.Modules.help.Help');
         $help = Help::getHelp(); 
 
         $templateMgr->assign('helpToc', $help->getTableOfContents());

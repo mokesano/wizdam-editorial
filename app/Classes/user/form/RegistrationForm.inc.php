@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/user/form/RegistrationForm.inc.php
+ * @file core.Modules.user/form/RegistrationForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -23,7 +23,7 @@ declare(strict_types=1);
  * - TRUE MODULAR SECURITY: Decoupled Default Captcha, reCAPTCHA, and Turnstile
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class RegistrationForm extends Form {
 
@@ -62,7 +62,7 @@ class RegistrationForm extends Form {
             // PILAR 3: DEFAULT CAPTCHA (Gambar) (HANYA JIKA TURNSTILE & RECAPTCHA OFF)
             if (!$this->turnstileEnabled && !$this->reCaptchaEnabled) {
                 if (Config::getVar('captcha', 'captcha') && Config::getVar('captcha', 'captcha_on_register')) {
-                    import('lib.wizdam.classes.captcha.CaptchaManager');
+                    import('core.Modules.captcha.CaptchaManager');
                     $captchaManager = new CaptchaManager();
                     if ($captchaManager->isEnabled()) {
                         $this->captchaEnabled = true;
@@ -272,7 +272,7 @@ class RegistrationForm extends Form {
         
         // 1. Eksekusi logic UI berdasarkan Flag
         if ($this->captchaEnabled) {
-            import('lib.wizdam.classes.captcha.CaptchaManager');
+            import('core.Modules.captcha.CaptchaManager');
             $captchaManager = new CaptchaManager();
             $captcha = $captchaManager->createCaptcha();
             if ($captcha) {
@@ -535,7 +535,7 @@ class RegistrationForm extends Form {
             if (!$userId) { return false; }
 
             $interests = $this->getData('interestsKeywords') ? $this->getData('interestsKeywords') : $this->getData('interestsTextOnly');
-            import('lib.wizdam.classes.user.InterestManager');
+            import('core.Modules.user.InterestManager');
             $interestManager = new InterestManager();
             $interestManager->setInterestsForUser($user, $interests);
 
@@ -565,9 +565,9 @@ class RegistrationForm extends Form {
         }
 
         if (!$this->existingUser) {
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             if ($requireValidation) {
-                import('lib.wizdam.classes.security.AccessKeyManager');
+                import('core.Modules.security.AccessKeyManager');
                 $accessKeyManager = new AccessKeyManager();
                 $accessKey = $accessKeyManager->createKey('RegisterContext', $user->getId(), null, Config::getVar('email', 'validation_timeout'));
 

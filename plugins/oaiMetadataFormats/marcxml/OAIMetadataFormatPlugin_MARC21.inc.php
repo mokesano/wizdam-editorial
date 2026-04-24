@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief marc21 metadata format plugin for OAI.
  */
 
-import('lib.wizdam.classes.plugins.OAIMetadataFormatPlugin');
+import('core.Modules.plugins.OAIMetadataFormatPlugin');
 
 class OAIMetadataFormatPlugin_MARC21 extends OAIMetadataFormatPlugin {
 

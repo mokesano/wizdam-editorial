@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/journal/category/CategoryDAO.inc.php
+ * @file core.Modules.journal/category/CategoryDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM] Cache mechanism updated to use .wiz extension
  */
 
-import('lib.wizdam.classes.controlledVocab.ControlledVocabDAO');
+import('core.Modules.controlledVocab.ControlledVocabDAO');
 
 define('CATEGORY_SYMBOLIC', 'category');
 

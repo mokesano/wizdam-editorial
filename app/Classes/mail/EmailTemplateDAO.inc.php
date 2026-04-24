@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/mail/EmailTemplateDAO.inc.php
+ * @file core.Modules.mail/EmailTemplateDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -17,8 +17,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Signature Polyfill
  */
 
-import('lib.wizdam.classes.mail.CoreEmailTemplateDAO');
-import('lib.wizdam.classes.mail.EmailTemplate');
+import('core.Modules.mail.CoreEmailTemplateDAO');
+import('core.Modules.mail.EmailTemplate');
 
 class EmailTemplateDAO extends CoreEmailTemplateDAO {
     

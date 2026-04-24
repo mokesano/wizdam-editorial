@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/process/ProcessDAO.inc.php
+ * @file core.Modules.process/ProcessDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -62,7 +62,7 @@ define('PROCESS_MAX_PARALLELISM', 20);
 // to problems when networks are slow.
 define('PROCESS_MAX_KEY_VALID', 10);
 
-import('lib.wizdam.classes.process.Process');
+import('core.Modules.process.Process');
 
 class ProcessDAO extends DAO {
     

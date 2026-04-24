@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/ContextRequiredPolicy.inc.php
+ * @file core.Modules.security/authorization/ContextRequiredPolicy.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Policy to deny access if a context cannot be found in the request.
  */
 
-import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
+import('core.Modules.security.authorization.AuthorizationPolicy');
 
 class ContextRequiredPolicy extends AuthorizationPolicy {
     /** @var CoreRequest */

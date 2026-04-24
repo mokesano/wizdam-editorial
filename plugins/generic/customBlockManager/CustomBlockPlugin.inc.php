@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Plugin to handle individual custom blocks.
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class CustomBlockPlugin extends BlockPlugin {
     

@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @brief ABNT citation format plugin
  */
 
-import('classes.plugins.CitationPlugin');
+import('core.Modules.plugins.CitationPlugin');
 
 class AbntCitationPlugin extends CitationPlugin {
     

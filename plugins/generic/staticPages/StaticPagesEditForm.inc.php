@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class StaticPagesEditForm extends Form {
     
@@ -113,7 +113,7 @@ class StaticPagesEditForm extends Form {
         // Enable TinyMCE with specific params
         $additionalHeadData = $templateMgr->get_template_vars('additionalHeadData');
 
-        import('classes.file.JournalFileManager');
+        import('core.Modules.file.JournalFileManager');
         $publicFileManager = new PublicFileManager();
         $tinyMCE_script = '
         <script language="javascript" type="text/javascript" src="'.Request::getBaseUrl().'/'.TINYMCE_JS_PATH.'/tiny_mce.js"></script>

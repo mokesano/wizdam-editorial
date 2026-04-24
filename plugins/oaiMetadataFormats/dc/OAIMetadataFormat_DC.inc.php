@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] REFACTOR: PHP 8.1+ Compatibility
  */
 
-import('lib.wizdam.plugins.oaiMetadataFormats.dc.PKPOAIMetadataFormat_DC');
+import('core.Modules.plugins.oaiMetadataFormats.dc.CoreOAIMetadataFormat_DC');
 
 class OAIMetadataFormat_DC extends CoreOAIMetadataFormat_DC {
 
@@ -51,7 +51,7 @@ class OAIMetadataFormat_DC extends CoreOAIMetadataFormat_DC {
 
     /**
      * Convert an article to an OAI Dublin Core XML document.
-     * @see lib/wizdam/plugins/oaiMetadataFormats/dc/PKPOAIMetadataFormat_DC::toXml()
+     * @see core.Modules.plugins/oaiMetadataFormats/dc/CoreOAIMetadataFormat_DC::toXml()
      *
      * [WIZDAM NOTE]
      * Signature disesuaikan persis dengan Parent:

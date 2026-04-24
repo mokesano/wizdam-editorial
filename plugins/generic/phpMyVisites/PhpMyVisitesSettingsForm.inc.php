@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Form for journal managers to modify phpMyVisites plugin settings
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class PhpMyVisitesSettingsForm extends Form {
 

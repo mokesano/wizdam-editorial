@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/help/HelpTopicDAO.inc.php
+ * @file core.Modules.help/HelpTopicDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,9 +15,9 @@ declare(strict_types=1);
  * @brief Operations for retrieving HelpTopic objects.
  */
 
-import('lib.wizdam.classes.help.HelpTopic');
-import('lib.wizdam.classes.help.CoreHelp');
-import('lib.wizdam.classes.help.HelpTopicSection'); // Import yang hilang
+import('core.Modules.help.HelpTopic');
+import('core.Modules.help.CoreHelp');
+import('core.Modules.help.HelpTopicSection'); // Import yang hilang
 
 class HelpTopicDAO extends XMLDAO {
     

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/user/form/ProfileForm.inc.php
+ * @file core.Modules.user/form/ProfileForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - Secure Obfuscated Profile Image Naming
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ProfileForm extends Form {
 
@@ -56,7 +56,7 @@ class ProfileForm extends Form {
         $this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array($user->getId(), true), true));
         
         // [WIZDAM SECURITY] Gunakan Validator CSRF yang kita buat sebelumnya!
-        import('lib.wizdam.classes.form.validation.FormValidatorCSRF');
+        import('core.Modules.form.validation.FormValidatorCSRF');
         $this->addCheck(new FormValidatorCSRF($this));
         
         $this->addCheck(new FormValidatorPost($this));
@@ -83,7 +83,7 @@ class ProfileForm extends Form {
         $profileImage = $user->getSetting('profileImage');
         if (!$profileImage) return false;
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $fileManager = new PublicFileManager();
         if ($fileManager->removeSiteFile($profileImage['uploadName'])) {
             return $user->updateSetting('profileImage', null);
@@ -98,7 +98,7 @@ class ProfileForm extends Form {
      * @return boolean
      */
     public function uploadProfileImage() {
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $fileManager = new PublicFileManager();
 
         $user = $this->user;
@@ -315,7 +315,7 @@ class ProfileForm extends Form {
         }
         
         // Panggil Engine CSRF yang sudah Anda buat
-        import('lib.wizdam.classes.validation.ValidatorCSRF');
+        import('core.Modules.validation.ValidatorCSRF');
         $templateMgr->assign('csrfToken', ValidatorCSRF::generateToken());
 
         $templateMgr->assign('profileImage', $user->getSetting('profileImage'));
@@ -341,7 +341,7 @@ class ProfileForm extends Form {
         $user = $request->getUser();
         if (!$user) return; // Safety
 
-        import('lib.wizdam.classes.user.InterestManager');
+        import('core.Modules.user.InterestManager');
         $interestManager = new InterestManager();
 
         $this->_data = array(
@@ -457,7 +457,7 @@ class ProfileForm extends Form {
 
         // Insert the user interests
         $interests = $this->getData('interestsKeywords') ? $this->getData('interestsKeywords') : $this->getData('interestsTextOnly');
-        import('lib.wizdam.classes.user.InterestManager');
+        import('core.Modules.user.InterestManager');
         $interestManager = new InterestManager();
         $interestManager->setInterestsForUser($user, $interests);
 

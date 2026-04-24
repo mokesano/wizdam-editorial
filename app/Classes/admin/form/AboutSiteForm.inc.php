@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/admin/form/AboutSiteForm.inc.php
+ * @file core.Modules.admin/form/AboutSiteForm.inc.php
  *
  * @class AboutSiteForm
  * @ingroup admin_form
@@ -10,7 +10,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class AboutSiteForm extends Form {
 

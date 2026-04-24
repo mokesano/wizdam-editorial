@@ -20,7 +20,7 @@ define('DRIVER_ACCESS_EMBARGOED', 2);
 define('DRIVER_ACCESS_DELAYED', 3);
 define('DRIVER_ACCESS_RESTRICTED', 4);
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class DRIVERPlugin extends GenericPlugin {
 
@@ -57,8 +57,8 @@ class DRIVERPlugin extends GenericPlugin {
 
             // Add DRIVER set to OAI results
             HookRegistry::register('OAIDAO::getJournalSets', array($this, 'sets'));
-            HookRegistry::register('JournalOAI::records', array($this, 'recordsOrIdentifiers'));
-            HookRegistry::register('JournalOAI::identifiers', array($this, 'recordsOrIdentifiers'));
+            HookRegistry::register('CoreOAI::records', array($this, 'recordsOrIdentifiers'));
+            HookRegistry::register('CoreOAI::identifiers', array($this, 'recordsOrIdentifiers'));
             HookRegistry::register('OAIDAO::_returnRecordFromRow', array($this, 'addSet'));
             HookRegistry::register('OAIDAO::_returnIdentifierFromRow', array($this, 'addSet'));
 
@@ -118,9 +118,9 @@ class DRIVERPlugin extends GenericPlugin {
             $driverDao->setOAI($journalOAI);
             
             $funcName = '';
-            if ($hookName == 'JournalOAI::records') {
+            if ($hookName == 'CoreOAI::records') {
                 $funcName = '_returnRecordFromRow';
-            } else if ($hookName == 'JournalOAI::identifiers') {
+            } else if ($hookName == 'CoreOAI::identifiers') {
                 $funcName = '_returnIdentifierFromRow';
             }
             

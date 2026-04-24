@@ -62,7 +62,7 @@ class AdminCategoriesHandler extends AdminHandler {
         // Unused variable removed: $categoryEntryDao
 
         $categoriesArray = $categoryDao->getCategories();
-        import('lib.wizdam.classes.core.ArrayItemIterator');
+        import('core.Modules.core.ArrayItemIterator');
         $categories = ArrayItemIterator::fromRangeInfo($categoriesArray, $rangeInfo);
 
         $templateMgr = TemplateManager::getManager();
@@ -161,7 +161,7 @@ class AdminCategoriesHandler extends AdminHandler {
         $this->validate($request, $categoryId);
 
         $this->setupTemplate($request, $this->category, true);
-        import('classes.journal.categories.CategoryForm');
+        import('core.Modules.journal.categories.CategoryForm');
 
         $templateMgr = TemplateManager::getManager();
         $templateMgr->assign('pageTitle',
@@ -206,7 +206,7 @@ class AdminCategoriesHandler extends AdminHandler {
         }
         $this->setupTemplate($request, $category);
 
-        import('classes.journal.categories.CategoryForm');
+        import('core.Modules.journal.categories.CategoryForm');
 
         $categoryForm = new CategoryForm($category);
         $categoryForm->readInputData();

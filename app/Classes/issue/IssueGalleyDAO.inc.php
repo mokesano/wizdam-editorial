@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/issue/IssueGalleyDAO.inc.php
+ * @file core.Modules.issue/IssueGalleyDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying IssueGalley objects.
  */
 
-import('classes.issue.IssueGalley');
+import('core.Modules.issue.IssueGalley');
 
 class IssueGalleyDAO extends DAO {
 

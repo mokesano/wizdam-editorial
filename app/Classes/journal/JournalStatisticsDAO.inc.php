@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/journal/JournalStatisticsDAO.inc.php
+ * @file core.Modules.journal/JournalStatisticsDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -85,7 +85,7 @@ class JournalStatisticsDAO extends DAO {
     public function getArticleStatistics($journalId, $sectionIds = null, $dateStart = null, $dateEnd = null) {
         // Bring in status constants
         if (!class_exists('Article')) {
-            import('classes.article.Article');
+            import('core.Modules.article.Article');
         }
 
         $params = array((int) $journalId);
@@ -156,7 +156,7 @@ class JournalStatisticsDAO extends DAO {
                     }
                 }
 
-                import('classes.submission.common.Action');
+                import('core.Modules.submission.common.Action');
                 switch ($row['decision']) {
                     case SUBMISSION_EDITOR_DECISION_ACCEPT:
                         $returner['submissionsAccept']++;

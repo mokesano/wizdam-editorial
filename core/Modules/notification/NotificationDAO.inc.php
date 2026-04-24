@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/notification/NotificationDAO.inc.php
+ * @file core.Modules.notification/NotificationDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying Notification objects.
  */
 
-import('classes.notification.Notification');
+import('core.Modules.notification.Notification');
 
 class NotificationDAO extends DAO {
     

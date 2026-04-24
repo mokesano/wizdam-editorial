@@ -20,11 +20,11 @@ define('VERSION_FILE', '/version.xml');
 define('INSTALL_FILE', '/install.xml');
 define('UPGRADE_FILE', '/upgrade.xml');
 
-import('lib.wizdam.classes.site.Version');
-import('lib.wizdam.classes.site.VersionCheck');
-import('lib.wizdam.classes.file.FileManager');
-import('classes.install.Install');
-import('classes.install.Upgrade');
+import('core.Modules.site.Version');
+import('core.Modules.site.VersionCheck');
+import('core.Modules.file.FileManager');
+import('core.Modules.install.Install');
+import('core.Modules.install.Upgrade');
 import('pages.manager.ManagerHandler');
 
 class PluginManagementHandler extends ManagerHandler {
@@ -188,7 +188,7 @@ class PluginManagementHandler extends ManagerHandler {
         $user = null;
 
         if ((int) $request->getUserVar('uploadPlugin')) {
-            import('classes.file.TemporaryFileManager');
+            import('core.Modules.file.TemporaryFileManager');
             $temporaryFileManager = new TemporaryFileManager();
             $user = $request->getUser();
         } else {

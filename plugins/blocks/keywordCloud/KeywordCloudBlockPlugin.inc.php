@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM STATUS] DEPRECATED UI PATTERN. Safe for PHP 8, but recommended for removal.
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 define('KEYWORD_BLOCK_MAX_ITEMS', 20);
 define('KEYWORD_BLOCK_CACHE_DAYS', 2);

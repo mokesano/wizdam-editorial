@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class UserHandler extends Handler {
     
@@ -287,7 +287,7 @@ class UserHandler extends Handler {
         $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $captchaId = (int) array_shift($args);
-        import('lib.wizdam.classes.captcha.CaptchaManager');
+        import('core.Modules.captcha.CaptchaManager');
         $captchaManager = new CaptchaManager();
         if ($captchaManager->isEnabled()) {
             $captchaDao = DAORegistry::getDAO('CaptchaDAO');

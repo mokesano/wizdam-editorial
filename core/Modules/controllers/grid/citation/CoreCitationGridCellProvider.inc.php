@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/citation/PKPCitationGridCellProvider.inc.php
+ * @file core.Modules.controllers/grid/citation/CoreCitationGridCellProvider.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x Strict Standards.
  */
 
-import('lib.wizdam.classes.controllers.grid.DataObjectGridCellProvider');
+import('core.Modules.controllers.grid.DataObjectGridCellProvider');
 
 class CoreCitationGridCellProvider extends DataObjectGridCellProvider {
     
@@ -29,7 +29,7 @@ class CoreCitationGridCellProvider extends DataObjectGridCellProvider {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPCitationGridCellProvider() {
+    public function CoreCitationGridCellProvider() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor parent::'" . get_class($this) . "'. Please refactor to parent::__construct().", 

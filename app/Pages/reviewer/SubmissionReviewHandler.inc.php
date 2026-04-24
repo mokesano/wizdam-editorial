@@ -75,7 +75,7 @@ class SubmissionReviewHandler extends ReviewerHandler {
         $templateMgr->assign('journal', $journal);
         $templateMgr->assign('reviewGuidelines', $journal->getLocalizedSetting('reviewGuidelines'));
 
-        import('classes.submission.reviewAssignment.ReviewAssignment');
+        import('core.Modules.submission.reviewAssignment.ReviewAssignment');
         $templateMgr->assign('reviewerRecommendationOptions', ReviewAssignment::getReviewerRecommendationOptions());
         $templateMgr->assign('helpTopicId', 'editorial.reviewersRole.review');
         $templateMgr->display('reviewer/submission.tpl');

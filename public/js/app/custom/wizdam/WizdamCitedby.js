@@ -701,7 +701,7 @@
                                pdfUrl = pdfUrl.replace('/article/download/', '/article/view/');
                            }
                            
-                           // Khusus untuk platform OJS
+                           // Khusus untuk platform Core
                            if (pdfUrl && pdfUrl.match(/\/(index\.php\/[^\/]+\/article\/download\/\d+\/\d+)/)) {
                                pdfUrl = pdfUrl.replace('/download/', '/viewFile/');
                            }

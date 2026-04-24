@@ -23,7 +23,7 @@ switch ($op) {
 	case 'search':
 	case 'chat': // <--- WIZDAM CHATBOX ROUTE
 		define('HANDLER_CLASS', 'HelpHandler');
-		import('lib.wizdam.pages.help.HelpHandler');
+		import('core.Modules.pages.help.HelpHandler');
 		break;
 }
 

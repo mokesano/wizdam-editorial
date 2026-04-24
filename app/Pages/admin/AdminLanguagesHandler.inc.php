@@ -70,7 +70,7 @@ class AdminLanguagesHandler extends AdminHandler {
         $templateMgr->assign('uninstalledLocales', array_diff(array_keys(AppLocale::getAllLocales()), $site->getInstalledLocales()));
         $templateMgr->assign('helpTopicId', 'site.siteManagement');
 
-        import('classes.i18n.LanguageAction');
+        import('core.Modules.i18n.LanguageAction');
         $languageAction = new LanguageAction();
         if ($languageAction->isDownloadAvailable()) {
             $templateMgr->assign('downloadAvailable', true);
@@ -126,7 +126,7 @@ class AdminLanguagesHandler extends AdminHandler {
 
         $user = $request->getUser();
 
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification($user->getId());
 
@@ -219,7 +219,7 @@ class AdminLanguagesHandler extends AdminHandler {
 
             $user = $request->getUser();
 
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification($user->getId());
         }
@@ -248,7 +248,7 @@ class AdminLanguagesHandler extends AdminHandler {
 
             $user = $request->getUser();
 
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification($user->getId());
         }
@@ -302,7 +302,7 @@ class AdminLanguagesHandler extends AdminHandler {
 
         $locale = trim((string) $request->getUserVar('locale'));
 
-        import('classes.i18n.LanguageAction');
+        import('core.Modules.i18n.LanguageAction');
         $languageAction = new LanguageAction();
 
         if (!$languageAction->isDownloadAvailable()) $request->redirect(null, null, 'languages');
@@ -323,7 +323,7 @@ class AdminLanguagesHandler extends AdminHandler {
 
         $user = $request->getUser();
 
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $params = ['locale' => $locale];
         $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_LOCALE_INSTALLED, $params);

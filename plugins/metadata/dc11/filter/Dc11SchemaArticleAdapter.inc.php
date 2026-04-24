@@ -11,14 +11,14 @@ declare(strict_types=1);
  * @class Dc11SchemaArticleAdapter
  * @ingroup plugins_metadata_dc11_filter
  * @see Article
- * @see PKPDc11Schema
+ * @see CoreDc11Schema
  *
  * @brief Abstract base class for meta-data adapters that
  * injects/extracts Dublin Core schema compliant meta-data into/from
  * an PublishedArticle object.
  */
 
-import('lib.wizdam.classes.metadata.MetadataDataObjectAdapter');
+import('core.Modules.metadata.MetadataDataObjectAdapter');
 
 class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
     

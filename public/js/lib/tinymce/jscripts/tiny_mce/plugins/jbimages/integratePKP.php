@@ -1,12 +1,12 @@
 <?php
 /**
- * @class IntegratePKP
+ * @class IntegrateApp
  *
  * Integrates Wizdam applications with the jbimages image upload utility for TinyMCE
  */
 
 
-class IntegratePKP {
+class IntegrateApp {
 	/* @var $baseDir string Path to the base OxS directory */
 	var $baseDir;
 
@@ -81,7 +81,7 @@ class IntegratePKP {
 			// User is logged in
 			$siteDir = $this->baseDir . '/' . $publicDir . '/site/';
 			if (!file_exists($siteDir . '/images/')) {
-				import('lib.wizdam.classes.file.FileManager');
+				import('core.Modules.file.FileManager');
 				$fileManager = new FileManager();
 
 				// Check that the public/site/ directory exists and is writeable
@@ -95,7 +95,7 @@ class IntegratePKP {
 			}
 			//Check if user's image directory exists, else create it
 			if (Validation::isLoggedIn() && !file_exists($siteDir . '/images/' . $user->getUsername())) {
-				import('lib.wizdam.classes.file.FileManager');
+				import('core.Modules.file.FileManager');
 				$fileManager = new FileManager();
 
 				// Check that the public/site/images/ directory exists and is writeable
@@ -125,7 +125,7 @@ class IntegratePKP {
 	 * Get the absolute path to the user's image upload directory
 	 * @return string
 	 */
-	public function getPKPImageUploadPath() {
+	public function getAppImageUploadPath() {
 		if (isset($this->baseDir) && isset($this->imageDir)) {
 			return $this->baseDir . '/' . $this->imageDir;
 		}
@@ -137,7 +137,7 @@ class IntegratePKP {
 	 * Get the URL (minus domain name) for the user's image upload directory
 	 * @return string
 	 */
-	public function getPKPImageUrl() {
+	public function getAppImageUrl() {
 		if (isset($this->baseUrl) && isset($this->imageDir)) {
 			$url = $this->baseUrl . '/' . $this->imageDir;
 			$urlParts = parse_url($url);

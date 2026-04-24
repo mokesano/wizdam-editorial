@@ -17,13 +17,13 @@
 	 * @constructor
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature =
+	$.core.classes.features.OrderListbuilderItemsFeature =
 			function(gridHandler, options) {
 		this.parent(gridHandler, options);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.classes.features.OrderListbuilderItemsFeature,
-			$.pkp.classes.features.OrderItemsFeature);
+	$.core.classes.Helper.inherits(
+			$.core.classes.features.OrderListbuilderItemsFeature,
+			$.core.classes.features.OrderItemsFeature);
 
 
 	//
@@ -32,7 +32,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.addFeatureHtml =
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.addFeatureHtml =
 			function($gridElement, options) {
 		this.parent('addFeatureHtml', $gridElement, options);
 
@@ -50,7 +50,7 @@
 	/**
 	 * Set up the sortable plugin.
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.
 			setupSortablePlugin = function() {
 		this.applySortPlgOnElements(
 				this.getGridHtmlElement(), 'tr.orderable', null);
@@ -63,7 +63,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.init =
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.init =
 			function() {
 		this.parent('init');
 		this.toggleItemsDragMode();
@@ -73,7 +73,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.toggleState =
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.toggleState =
 			function(isOrdering) {
 		this.parent('toggleState', isOrdering);
 		this.toggleContentHandlers_();
@@ -83,7 +83,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.storeRowOrder =
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.storeRowOrder =
 			function(index, $row) {
 		var seq = index + 1;
 		var $orderableInput = $row.find('.itemSequence');
@@ -96,7 +96,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.saveOrderHandler =
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.saveOrderHandler =
 			function() {
 		this.parent('saveOrderHandler');
 		this.toggleState(false);
@@ -107,7 +107,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.
 			updateOrderCallback = function(contextElement, event, ui) {
 		this.parent('updateOrderCallback');
 		var $rows = this.gridHandler_.getRows();
@@ -118,7 +118,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.
 			clickOrderHandler = function() {
 		var $selects = $('select:visible', this.getGridHtmlElement());
 		if ($selects.length > 0) {
@@ -138,7 +138,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.appendElement =
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.appendElement =
 			function($newElement) {
 		this.parent('appendElement', $newElement);
 		this.formatAndStoreNewRow_($newElement);
@@ -148,7 +148,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.replaceElement =
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.replaceElement =
 			function($newContent) {
 		this.parent('replaceElement', $newContent);
 		this.formatAndStoreNewRow_($newContent);
@@ -163,7 +163,7 @@
 	 * @private
 	 * @return {jQuery} Sequence input.
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.
 			getSequenceInput_ = function() {
 		return $('<input type="hidden" name="newRowId[sequence]" ' +
 				'class="itemSequence" />');
@@ -174,7 +174,7 @@
 	 * Enable/disable row content handlers.
 	 * @private
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.
 			toggleContentHandlers_ = function() {
 		var $rows = this.gridHandler_.getRows();
 		var index, limit;
@@ -194,7 +194,7 @@
 	 * @private
 	 * @param {jQuery} $row The new row element.
 	 */
-	$.pkp.classes.features.OrderListbuilderItemsFeature.prototype.
+	$.core.classes.features.OrderListbuilderItemsFeature.prototype.
 			formatAndStoreNewRow_ = function($row) {
 		var $sequenceInput = this.getSequenceInput_();
 		$row.append($sequenceInput);

@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class AdminHandler extends Handler {
     
@@ -70,7 +70,7 @@ class AdminHandler extends Handler {
         // Display a warning message if there is a new version of Wizdam available
         $newVersionAvailable = false;
         if (Config::getVar('general', 'show_upgrade_warning')) {
-            import('lib.wizdam.classes.site.VersionCheck');
+            import('core.Modules.site.VersionCheck');
             if ($latestVersion = VersionCheck::checkIfNewVersionExists()) {
                 $newVersionAvailable = true;
                 $templateMgr->assign('latestVersion', $latestVersion);
@@ -123,7 +123,7 @@ class AdminHandler extends Handler {
         // I will use standard call:
         // $this->setupTemplate(true); 
         
-        import('classes.admin.form.AboutSiteForm');
+        import('core.Modules.admin.form.AboutSiteForm');
         $form = new AboutSiteForm();
         
         if (!$request->isPost()) {
@@ -143,7 +143,7 @@ class AdminHandler extends Handler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
         
-        import('classes.admin.form.AboutSiteForm');
+        import('core.Modules.admin.form.AboutSiteForm');
         $form = new AboutSiteForm();
         
         // --- PERBAIKAN ALUR LOGIKA ---
@@ -158,7 +158,7 @@ class AdminHandler extends Handler {
             $form->execute();
             
             // --- PERBAIKAN NOTIFIKASI ---
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             
             // Parameter 1: Dapatkan ID pengguna dari request

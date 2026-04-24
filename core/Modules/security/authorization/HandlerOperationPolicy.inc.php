@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/HandlerOperationPolicy.inc.php
+ * @file core.Modules.security/authorization/HandlerOperationPolicy.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * to control access to handler operations.
  */
 
-import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
+import('core.Modules.security.authorization.AuthorizationPolicy');
 
 class HandlerOperationPolicy extends AuthorizationPolicy {
     /** @var CoreRequest */

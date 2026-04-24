@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file plugins/citationLookup/pubmed/PKPPubmedCitationLookupPlugin.inc.php
+ * @file plugins/citationLookup/pubmed/CorePubmedCitationLookupPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -21,7 +21,7 @@ declare(strict_types=1);
  * - Explicit Type Hinting & Return Types
  */
 
-import('classes.plugins.Plugin');
+import('core.Modules.plugins.Plugin');
 
 class CorePubmedCitationLookupPlugin extends Plugin {
     
@@ -33,11 +33,11 @@ class CorePubmedCitationLookupPlugin extends Plugin {
     }
 
     //
-    // Override protected template methods from PKPPlugin
+    // Override protected template methods from CorePlugin
     //
     
     /**
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @param string $category
      * @param string $path
      * @param int|null $mainContextId
@@ -52,7 +52,7 @@ class CorePubmedCitationLookupPlugin extends Plugin {
     }
 
     /**
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      * @return string
      */
     public function getName(): string {
@@ -60,7 +60,7 @@ class CorePubmedCitationLookupPlugin extends Plugin {
     }
 
     /**
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -68,7 +68,7 @@ class CorePubmedCitationLookupPlugin extends Plugin {
     }
 
     /**
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {

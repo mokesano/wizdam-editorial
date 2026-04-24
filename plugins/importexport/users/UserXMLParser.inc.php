@@ -15,7 +15,7 @@ declare(strict_types=1);
  * See dbscripts/xml/dtd/users.dtd for the XML schema used.
  */
 
-import('lib.wizdam.classes.xml.XMLParser');
+import('core.Modules.xml.XMLParser');
 
 class UserXMLParser {
 
@@ -206,7 +206,7 @@ class UserXMLParser {
 
         if ($sendNotify) {
             // Set up mail template to send to added users
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $mail = new MailTemplate('USER_REGISTER');
 
             $journalDao = DAORegistry::getDAO('JournalDAO');
@@ -406,7 +406,7 @@ class UserXMLParser {
 /**
  * Helper class representing a user imported from a user data file.
  */
-import('classes.user.User');
+import('core.Modules.user.User');
 
 class ImportedUser extends User {
 

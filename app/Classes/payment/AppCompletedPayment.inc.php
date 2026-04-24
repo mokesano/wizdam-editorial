@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/payment/wizdam/OJSCompletedPayment.inc.php
+ * @file core.Modules.payment/wizdam/AppCompletedPayment.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2006-2009 Gunther Eysenbach, Juan Pablo Alperin, MJ Suhonos
@@ -19,7 +19,7 @@ declare(strict_types=1);
  * @brief Class describing a payment ready to be in the database.
  * * MODERNIZED FOR WIZDAM FORK
  */
-import('lib.wizdam.classes.payment.Payment');
+import('core.Modules.payment.Payment');
 
 class AppCompletedPayment extends Payment {
     /** @var int */
@@ -43,7 +43,7 @@ class AppCompletedPayment extends Payment {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function OJSCompletedPayment() {
+    public function AppCompletedPayment() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor " . get_class($this) . "(). Please refactor to use __construct().",
@@ -264,7 +264,7 @@ class AppCompletedPayment extends Payment {
 
                 // Try to return gift details in description
                 if ($gift) {
-                    import('classes.gift.Gift');
+                    import('core.Modules.gift.Gift');
 
                     if ($gift->getGiftType() == GIFT_TYPE_SUBSCRIPTION) {
                         $subscriptionTypeDao = DAORegistry::getDAO('SubscriptionTypeDAO');

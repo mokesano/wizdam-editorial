@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/PKPProcessAccessPolicy.inc.php
+ * @file core.Modules.security/authorization/CoreProcessAccessPolicy.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * that authorizes a process to execute.
  */
 
-import('lib.wizdam.classes.security.authorization.PKPPublicAccessPolicy');
+import('core.Modules.security.authorization.CorePublicAccessPolicy');
 
 class CoreProcessAccessPolicy extends CorePublicAccessPolicy {
     /** @var string the process authorization token */
@@ -44,9 +44,9 @@ class CoreProcessAccessPolicy extends CorePublicAccessPolicy {
      * @param $operations array|string
      * @param $message string
      */
-    public function PKPProcessAccessPolicy($request, $args, $operations, $message = 'user.authorization.processAuthenticationTokenRequired') {
+    public function CoreProcessAccessPolicy($request, $args, $operations, $message = 'user.authorization.processAuthenticationTokenRequired') {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPProcessAccessPolicy(). Please refactor to use parent::__construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreProcessAccessPolicy(). Please refactor to use parent::__construct().",
             E_USER_DEPRECATED
         );
         self::__construct($request, $args, $operations, $message);

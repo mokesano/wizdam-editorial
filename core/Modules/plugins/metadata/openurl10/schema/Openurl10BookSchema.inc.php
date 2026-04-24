@@ -22,7 +22,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.plugins.metadata.openurl10.schema.Openurl10JournalBookBaseSchema');
+import('core.Modules.plugins.metadata.openurl10.schema.Openurl10JournalBookBaseSchema');
 
 define('OPENURL10_GENRE_BOOK', 'book');
 define('OPENURL10_GENRE_BOOKITEM', 'bookitem');
@@ -38,7 +38,7 @@ class Openurl10BookSchema extends Openurl10JournalBookBaseSchema {
         // [WIZDAM FIX] Modern Parent Constructor Call
         parent::__construct(
             'openurl-1.0-book',
-            'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10BookSchema'
+            'core.Modules.plugins.metadata.openurl10.schema.Openurl10BookSchema'
         );
 
         // Add meta-data properties that only appear in the OpenURL book standard

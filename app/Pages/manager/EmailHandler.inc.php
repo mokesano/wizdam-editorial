@@ -59,7 +59,7 @@ class EmailHandler extends ManagerHandler {
         $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
         $emailTemplates = $emailTemplateDao->getEmailTemplates(AppLocale::getLocale(), $journal->getId());
 
-        import('lib.wizdam.classes.core.ArrayItemIterator');
+        import('core.Modules.core.ArrayItemIterator');
         $emailTemplates = ArrayItemIterator::fromRangeInfo($emailTemplates, $rangeInfo);
 
         $templateMgr = TemplateManager::getManager();
@@ -94,7 +94,7 @@ class EmailHandler extends ManagerHandler {
 
         $emailKey = !isset($args) || empty($args) ? null : $args[0];
 
-        import('classes.manager.form.EmailTemplateForm');
+        import('core.Modules.manager.form.EmailTemplateForm');
 
         $emailTemplateForm = new EmailTemplateForm($emailKey, $journal);
         $emailTemplateForm->initData();
@@ -114,7 +114,7 @@ class EmailHandler extends ManagerHandler {
         if (!$request) $request = Application::get()->getRequest();
         $journal = $request->getJournal();
 
-        import('classes.manager.form.EmailTemplateForm');
+        import('core.Modules.manager.form.EmailTemplateForm');
 
         // [SECURITY FIX] Terapkan trim() untuk sanitasi string
         $emailKey = trim((string) $request->getUserVar('emailKey'));
@@ -270,7 +270,7 @@ class EmailHandler extends ManagerHandler {
      */
     public function exportEmails($args, $request) {
         $this->validate();
-        import('lib.wizdam.classes.xml.XMLCustomWriter');
+        import('core.Modules.xml.XMLCustomWriter');
         
         // [SECURITY FIX] Gunakan array_map untuk memaksa semua elemen menjadi integer
         $selectedEmailKeys = (array) $request->getUserVar('tplId');
@@ -329,7 +329,7 @@ class EmailHandler extends ManagerHandler {
      */
     public function uploadEmails($args, $request) {
         $this->validate();
-        import('lib.wizdam.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
 
         $journal = $request->getJournal();
@@ -368,7 +368,7 @@ class EmailHandler extends ManagerHandler {
      */
     protected function _saveEmailTemplates($filePath, $journal) {
         $this->validate();
-        import('lib.wizdam.classes.xml.XMLParser');
+        import('core.Modules.xml.XMLParser');
         $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
         
         $xmlParser = new XMLParser();
@@ -443,7 +443,7 @@ class EmailHandler extends ManagerHandler {
      */
     protected function _showMessage($request, $success = true) {
         $this->validate();
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
 
         AppLocale::requireComponents(LOCALE_COMPONENT_CORE_MANAGER);

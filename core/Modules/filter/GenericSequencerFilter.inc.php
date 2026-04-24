@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/GenericSequencerFilter.inc.php
+ * @file core.Modules.filter/GenericSequencerFilter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * the result of the last filter in the chain to the caller.
  */
 
-import('lib.wizdam.classes.filter.CompositeFilter');
+import('core.Modules.filter.CompositeFilter');
 
 class GenericSequencerFilter extends CompositeFilter {
     
@@ -52,7 +52,7 @@ class GenericSequencerFilter extends CompositeFilter {
      * @see PersistableFilter::getClassName()
      */
     public function getClassName() {
-        return 'lib.wizdam.classes.filter.GenericSequencerFilter';
+        return 'core.Modules.filter.GenericSequencerFilter';
     }
 
 

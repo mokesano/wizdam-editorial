@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Erudit plugin DOM functions for export
  */
 
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.xml.XMLCustomWriter');
 
 class EruditExportDom {
 
@@ -203,7 +203,7 @@ class EruditExportDom {
         $bodyNode = XMLCustomWriter::createElement($doc, 'body');
         XMLCustomWriter::appendChild($root, $bodyNode);
 
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFileManager = new ArticleFileManager($article->getId());
         $file = $articleFileManager->getFile($galley->getFileId());
 

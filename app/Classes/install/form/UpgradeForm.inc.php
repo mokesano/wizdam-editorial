@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/install/form/UpgradeForm.inc.php
+ * @file core.Modules.install/form/UpgradeForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('classes.install.Upgrade');
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.install.Upgrade');
+import('core.Modules.form.Form');
 
 class UpgradeForm extends Form {
 

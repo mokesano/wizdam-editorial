@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/article/PublishedArticleDAO.inc.php
+ * @file core.Modules.article/PublishedArticleDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 7.4+ Compatible & Optimized
  */
 
-import('classes.article.PublishedArticle');
+import('core.Modules.article.PublishedArticle');
 
 class PublishedArticleDAO extends DAO {
     public $articleDao;

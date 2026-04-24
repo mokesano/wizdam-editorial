@@ -122,7 +122,7 @@ class BookForReviewAuthorDAO extends DAO {
     public function _returnAuthorFromRow($row) {
         // [MODERNISASI] Hapus referensi & pada PluginRegistry
         $bfrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $bfrPlugin->import('classes.BookForReviewAuthor');
+        $bfrPlugin->import('core.Modules.BookForReviewAuthor');
 
         $author = new BookForReviewAuthor();
         $author->setId($row['author_id']);

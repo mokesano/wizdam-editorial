@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/cache/XCacheCache.inc.php
+ * @file core.Modules.cache/XCacheCache.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -18,7 +18,7 @@ declare(strict_types=1);
  */
 
 // Import FileCache sebagai pengganti
-import('lib.wizdam.classes.cache.FileCache');
+import('core.Modules.cache.FileCache');
 
 class XCacheCache extends FileCache {
     

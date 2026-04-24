@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/cache/FileCache.inc.php
+ * @file core.Modules.cache/FileCache.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Serialized + GZIP Compressed Cache (.wiz)
  */
 
-import('lib.wizdam.classes.cache.GenericCache');
+import('core.Modules.cache.GenericCache');
 
 class FileCache extends GenericCache {
     

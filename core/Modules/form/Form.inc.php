@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/form/Form.inc.php
+ * @file core.Modules.form/Form.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -23,32 +23,32 @@ declare(strict_types=1);
  * - HTML Entity Handling
  */
 
-import('lib.wizdam.classes.form.FormError');
-import('lib.wizdam.classes.form.FormBuilderVocabulary');
+import('core.Modules.form.FormError');
+import('core.Modules.form.FormBuilderVocabulary');
 
 // Import all form validators for convenient use in sub-classes
-import('lib.wizdam.classes.form.validation.FormValidatorAlphaNum');
-import('lib.wizdam.classes.form.validation.FormValidatorArray');
-import('lib.wizdam.classes.form.validation.FormValidatorArrayCustom');
-import('lib.wizdam.classes.form.validation.FormValidatorControlledVocab');
-import('lib.wizdam.classes.form.validation.FormValidatorCustom');
-import('lib.wizdam.classes.form.validation.FormValidatorCaptcha');
-import('lib.wizdam.classes.form.validation.FormValidatorReCaptcha');
-import('lib.wizdam.classes.form.validation.FormValidatorDate');
-import('lib.wizdam.classes.form.validation.FormValidatorEmail');
-import('lib.wizdam.classes.form.validation.FormValidatorInSet');
-import('lib.wizdam.classes.form.validation.FormValidatorLength');
-import('lib.wizdam.classes.form.validation.FormValidatorListbuilder');
-import('lib.wizdam.classes.form.validation.FormValidatorLocale');
-import('lib.wizdam.classes.form.validation.FormValidatorLocaleEmail');
-import('lib.wizdam.classes.form.validation.FormValidatorPost');
-import('lib.wizdam.classes.form.validation.FormValidatorRegExp');
-import('lib.wizdam.classes.form.validation.FormValidatorUri');
-import('lib.wizdam.classes.form.validation.FormValidatorUrl');
-import('lib.wizdam.classes.form.validation.FormValidatorLocaleUrl');
-import('lib.wizdam.classes.form.validation.FormValidatorISSN');
-import('lib.wizdam.classes.form.validation.FormValidatorORCID');
-import('lib.wizdam.classes.form.validation.FormValidatorCSRF');
+import('core.Modules.form.validation.FormValidatorAlphaNum');
+import('core.Modules.form.validation.FormValidatorArray');
+import('core.Modules.form.validation.FormValidatorArrayCustom');
+import('core.Modules.form.validation.FormValidatorControlledVocab');
+import('core.Modules.form.validation.FormValidatorCustom');
+import('core.Modules.form.validation.FormValidatorCaptcha');
+import('core.Modules.form.validation.FormValidatorReCaptcha');
+import('core.Modules.form.validation.FormValidatorDate');
+import('core.Modules.form.validation.FormValidatorEmail');
+import('core.Modules.form.validation.FormValidatorInSet');
+import('core.Modules.form.validation.FormValidatorLength');
+import('core.Modules.form.validation.FormValidatorListbuilder');
+import('core.Modules.form.validation.FormValidatorLocale');
+import('core.Modules.form.validation.FormValidatorLocaleEmail');
+import('core.Modules.form.validation.FormValidatorPost');
+import('core.Modules.form.validation.FormValidatorRegExp');
+import('core.Modules.form.validation.FormValidatorUri');
+import('core.Modules.form.validation.FormValidatorUrl');
+import('core.Modules.form.validation.FormValidatorLocaleUrl');
+import('core.Modules.form.validation.FormValidatorISSN');
+import('core.Modules.form.validation.FormValidatorORCID');
+import('core.Modules.form.validation.FormValidatorCSRF');
 
 class Form {
 
@@ -285,7 +285,7 @@ class Form {
 
             if (!$this->isValid() && $user) {
                 // Create a form error notification.
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification(
                     $user->getId(), NOTIFICATION_TYPE_FORM_ERROR, array('contents' => $this->getErrorsArray())

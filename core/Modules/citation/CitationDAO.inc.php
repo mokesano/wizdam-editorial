@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/citation/CitationDAO.inc.php
+ * @file core.Modules.citation/CitationDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -23,7 +23,7 @@ declare(strict_types=1);
 define('CITATION_PARSER_FILTER_GROUP', 'plaintext=>nlm30-element-citation');
 define('CITATION_LOOKUP_FILTER_GROUP', 'nlm30-element-citation=>nlm30-element-citation');
 
-import('lib.wizdam.classes.citation.Citation');
+import('core.Modules.citation.Citation');
 
 class CitationDAO extends DAO {
     /**
@@ -129,7 +129,7 @@ class CitationDAO extends DAO {
         $this->deleteObjectsByAssocId($assocType, $assocId);
 
         // Tokenize raw citations
-        import('lib.wizdam.classes.citation.CitationListTokenizerFilter');
+        import('core.Modules.citation.CitationListTokenizerFilter');
         $citationTokenizer = new CitationListTokenizerFilter();
         $citationStrings = $citationTokenizer->execute($rawCitationList);
 
@@ -620,7 +620,7 @@ class CitationDAO extends DAO {
             $filterGroup->setOutputType($filterGroup->getOutputType().'[]');
 
             // Instantiate the citation multiplexer filter.
-            import('lib.wizdam.classes.filter.GenericMultiplexerFilter');
+            import('core.Modules.filter.GenericMultiplexerFilter');
             $citationMultiplexer = new GenericMultiplexerFilter($filterGroup, $transformationDefinition['displayName']);
 
             // Don't fail just because one of the web services
@@ -637,7 +637,7 @@ class CitationDAO extends DAO {
             }
 
             // Instantiate the citation de-multiplexer filter.
-            import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationDemultiplexerFilter');
+            import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationDemultiplexerFilter');
             $citationDemultiplexer = new Nlm30CitationDemultiplexerFilter();
             $citationDemultiplexer->setOriginalDescription($originalDescription);
             $citationDemultiplexer->setOriginalRawCitation($citation->getRawCitation());
@@ -645,11 +645,11 @@ class CitationDAO extends DAO {
 
             // Combine multiplexer and de-multiplexer to form the
             // final citation filter network.
-            import('lib.wizdam.classes.filter.GenericSequencerFilter');
+            import('core.Modules.filter.GenericSequencerFilter');
             $citationFilterNet = new GenericSequencerFilter(
                     PersistableFilter::tempGroup(
                             $filterGroup->getInputType(),
-                            'class::lib.wizdam.classes.citation.Citation'),
+                            'class::core.Modules.citation.Citation'),
                     'Citation Filter Network');
             $citationFilterNet->addFilter($citationMultiplexer);
             $citationFilterNet->addFilter($citationDemultiplexer);

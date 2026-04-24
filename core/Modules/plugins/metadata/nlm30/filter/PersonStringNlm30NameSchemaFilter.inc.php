@@ -18,7 +18,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Reference Fixes
  */
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
 
 class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
     /** @var int */
@@ -46,7 +46,7 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
         $this->_filterDegrees = (bool) $filterDegrees;
 
         $inputType = 'primitive::string';
-        $outputType = 'metadata::lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema(*)';
+        $outputType = 'metadata::core.Modules.plugins.metadata.nlm30.schema.Nlm30NameSchema(*)';
         if ($filterMode == PERSON_STRING_FILTER_MULTIPLE) $outputType .= '[]';
 
         parent::__construct($inputType, $outputType, $filterMode);
@@ -263,7 +263,7 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
         $personRegexPrefixedDoubleSurname = "(?P<prefix>(?:".$personRegex['prefix'].")?)(?P<surname>".$personRegex['double-surname'].")";
 
         // Instantiate the target person description
-        $personDescription = new MetadataDescription('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema', $this->_assocType);
+        $personDescription = new MetadataDescription('core.Modules.plugins.metadata.nlm30.schema.Nlm30NameSchema', $this->_assocType);
 
         // Clean the person string
         $personString = trim($personString);

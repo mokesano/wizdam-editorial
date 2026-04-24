@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/search/SearchFileParser.inc.php
+ * @file core.Modules.search/SearchFileParser.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -131,11 +131,11 @@ class SearchFileParser {
             case 'text/xml':
             case 'application/xhtml':
             case 'application/xml':
-                import('classes.search.SearchHTMLParser');
+                import('core.Modules.search.SearchHTMLParser');
                 $returner = new SearchHTMLParser($path);
                 break;
             default:
-                import('classes.search.SearchHelperParser');
+                import('core.Modules.search.SearchHelperParser');
                 $returner = new SearchHelperParser($type, $path);
         }
         return $returner;

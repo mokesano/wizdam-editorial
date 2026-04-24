@@ -26,9 +26,9 @@ declare(strict_types=1);
  * - Removed reference operators
  */
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
-import('lib.wizdam.classes.filter.FilterSetting');
-import('lib.wizdam.classes.metadata.MetadataDescription');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('core.Modules.filter.FilterSetting');
+import('core.Modules.metadata.MetadataDescription');
 
 // Define constants safely
 if (!defined('WORLDCAT_WEBSERVICE_SEARCH')) {
@@ -86,7 +86,7 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
      * @return string
      */
     public function getClassName(): string {
-        return 'lib.wizdam.plugins.citationLookup.worldcat.filter.WorldcatNlm30CitationSchemaFilter';
+        return 'core.Modules.plugins.citationLookup.worldcat.filter.WorldcatNlm30CitationSchemaFilter';
     }
 
     //

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/AuthorizationDecisionManager.inc.php
+ * @file core.Modules.security/authorization/AuthorizationDecisionManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -25,7 +25,7 @@ declare(strict_types=1);
  * applicable).
  */
 
-import('lib.wizdam.classes.security.authorization.PolicySet');
+import('core.Modules.security.authorization.PolicySet');
 
 define('AUTHORIZATION_NOT_APPLICABLE', 0x03);
 

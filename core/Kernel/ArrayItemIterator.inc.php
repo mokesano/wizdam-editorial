@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/ArrayItemIterator.inc.php
+ * @file core.Modules.core/ArrayItemIterator.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.core.ItemIterator');
+import('core.Modules.core.ItemIterator');
 
 class ArrayItemIterator extends ItemIterator {
     /** @var array The array of contents of this iterator. */
@@ -188,7 +188,7 @@ class ArrayItemIterator extends ItemIterator {
      * @return object DBResultRange
      */
     public function getLastPageRangeInfo() {
-        import('lib.wizdam.classes.db.DBResultRange');
+        import('core.Modules.db.DBResultRange');
         $returner = new DBResultRange(
             $this->itemsPerPage,
             $this->getPageCount()

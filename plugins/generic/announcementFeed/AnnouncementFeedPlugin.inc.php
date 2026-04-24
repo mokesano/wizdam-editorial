@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe & Strict Standards.
  */
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class AnnouncementFeedPlugin extends GenericPlugin {
     
@@ -113,7 +113,7 @@ class AnnouncementFeedPlugin extends GenericPlugin {
             $router = $request->getRouter();
             
             // [WIZDAM FIX] Replaced is_a with instanceof
-            if (!($router instanceof PKPPageRouter)) return false;
+            if (!($router instanceof CorePageRouter)) return false;
 
             $templateManager = $args[0];
             $currentJournal = $templateManager->get_template_vars('currentJournal');
@@ -183,7 +183,7 @@ class AnnouncementFeedPlugin extends GenericPlugin {
                         $form->execute();
                         
                         // [WIZDAM MODERNIZATION] Use NotificationManager
-                        import('classes.notification.NotificationManager');
+                        import('core.Modules.notification.NotificationManager');
                         $notificationMgr = new NotificationManager();
                         $notificationMgr->createTrivialNotification(
                             $request->getUser()->getId(),

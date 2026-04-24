@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/oai/CoreOAIDAO.inc.php
+ * @file core.Modules.oai/CoreOAIDAO.inc.php
  * HIGH PERFORMANCE BASE: Enables Pre-loading for OAI
  *
  * Base DAO class for OAI operations in Wizdam/Wizdam.
@@ -11,12 +11,12 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 7.4 - 8.x Modernization)
  */
 
-import('lib.wizdam.classes.oai.OAIStruct');
-import('lib.wizdam.classes.db.DBResultRange');
+import('core.Modules.oai.OAIStruct');
+import('core.Modules.db.DBResultRange');
 
 class CoreOAIDAO extends DAO {
 
-    /** @var JournalOAI|PKPOAI Reference to the OAI handler */
+    /** @var CoreOAI|CoreOAI Reference to the OAI handler */
     public $oai;
 
     /**
@@ -42,7 +42,7 @@ class CoreOAIDAO extends DAO {
     /**
      * Assign the OAI handler object.
      *
-     * @param mixed $oai OAI handler (JournalOAI or subclass)
+     * @param mixed $oai OAI handler (CoreOAI or subclass)
      * @return void
      */
     public function setOAI($oai) {

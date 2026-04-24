@@ -18,7 +18,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.modal.CallbackConfirmationModalHandler
+	 * @extends $.core.controllers.modal.CallbackConfirmationModalHandler
 	 *
 	 * @param {jQuery} $handledElement The modal.
 	 * @param {Object} options Non-default options to configure
@@ -31,7 +31,7 @@
 	 *  - All options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
-	$.pkp.controllers.modal.ButtonConfirmationModalHandler =
+	$.core.controllers.modal.ButtonConfirmationModalHandler =
 			function($handledElement, options) {
 
 		// Bind our own handler to the parent's confirmation callback.
@@ -43,9 +43,9 @@
 		this.$button_ = options.$button;
 
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.modal.ButtonConfirmationModalHandler,
-			$.pkp.controllers.modal.CallbackConfirmationModalHandler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.modal.ButtonConfirmationModalHandler,
+			$.core.controllers.modal.CallbackConfirmationModalHandler);
 
 
 	//
@@ -56,7 +56,7 @@
 	 * @private
 	 * @type {jQuery}
 	 */
-	$.pkp.controllers.modal.CallbackConfirmationModalHandler.prototype.
+	$.core.controllers.modal.CallbackConfirmationModalHandler.prototype.
 			$button_ = null;
 
 
@@ -67,7 +67,7 @@
 	 * Callback that clicks the handling element.
 	 * @protected
 	 */
-	$.pkp.controllers.modal.ButtonConfirmationModalHandler.prototype.
+	$.core.controllers.modal.ButtonConfirmationModalHandler.prototype.
 			clickButton = function() {
 
 		var $button = this.$button_;

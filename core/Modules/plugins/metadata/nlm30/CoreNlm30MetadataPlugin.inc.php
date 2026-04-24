@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file plugins/metadata/nlm30/PKPNlm30MetadataPlugin.inc.php
+ * @file plugins/metadata/nlm30/CoreNlm30MetadataPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.plugins.MetadataPlugin');
+import('core.Modules.plugins.MetadataPlugin');
 
 class CoreNlm30MetadataPlugin extends MetadataPlugin {
 
@@ -32,25 +32,25 @@ class CoreNlm30MetadataPlugin extends MetadataPlugin {
 
 
 	//
-	// Override protected template methods from PKPPlugin
+	// Override protected template methods from CorePlugin
 	//
 	
 	/**
-	 * @see PKPPlugin::getName()
+	 * @see CorePlugin::getName()
 	 */
 	function getName(): string {
 		return 'Nlm30MetadataPlugin';
 	}
 
 	/**
-	 * @see PKPPlugin::getDisplayName()
+	 * @see CorePlugin::getDisplayName()
 	 */
 	function getDisplayName(): string {
 		return __('plugins.metadata.nlm30.displayName');
 	}
 
 	/**
-	 * @see PKPPlugin::getDescription()
+	 * @see CorePlugin::getDescription()
 	 */
 	function getDescription(): string {
 		return __('plugins.metadata.nlm30.description');

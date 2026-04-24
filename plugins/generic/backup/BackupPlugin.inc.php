@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe CLI Execution & Resource Mgmt.
  */
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class BackupPlugin extends GenericPlugin {
     
@@ -249,7 +249,7 @@ class BackupPlugin extends GenericPlugin {
 
     /**
      * Perform management operations for this plugin
-     * @see PKPPlugin::manage()
+     * @see CorePlugin::manage()
      * @param string $verb
      * @param array $args
      * @param string $message
@@ -263,7 +263,7 @@ class BackupPlugin extends GenericPlugin {
                 $this->updateSetting(0, 'enabled', true);
                 
                 // [WIZDAM] Gunakan NotificationManager
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationMgr = new NotificationManager();
                 $notificationMgr->createTrivialNotification(
                     $request->getUser()->getId(),
@@ -276,7 +276,7 @@ class BackupPlugin extends GenericPlugin {
                 $this->updateSetting(0, 'enabled', false);
                 
                 // [WIZDAM] Gunakan NotificationManager
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationMgr = new NotificationManager();
                 $notificationMgr->createTrivialNotification(
                     $request->getUser()->getId(),

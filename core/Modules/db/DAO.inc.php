@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/db/DAO.inc.php
+ * @file core.Modules.db/DAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -21,9 +21,9 @@ declare(strict_types=1);
  * [MODERNISASI] Refactored for PHP 7.4+ Compatibility
  */
 
-import('lib.wizdam.classes.db.DBConnection');
-import('lib.wizdam.classes.db.DAOResultFactory');
-import('lib.wizdam.classes.core.DataObject');
+import('core.Modules.db.DBConnection');
+import('core.Modules.db.DAOResultFactory');
+import('core.Modules.core.DataObject');
 
 define('SORT_DIRECTION_ASC', 0x00001);
 define('SORT_DIRECTION_DESC', 0x00002);
@@ -633,7 +633,7 @@ class DAO {
         }
 
         // Create and render the JSON message
-        import('lib.wizdam.classes.core.JSONMessage');
+        import('core.Modules.core.JSONMessage');
         $json = new JSONMessage(true);
         $json->setEvent('dataChanged', $eventData);
         header('Content-Type: application/json');

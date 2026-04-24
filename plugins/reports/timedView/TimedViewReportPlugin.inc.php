@@ -18,7 +18,7 @@ define('TIMED_VIEW_REPORT_YEAR_OFFSET_PAST', '-20');
 define('TIMED_VIEW_REPORT_YEAR_OFFSET_FUTURE', '+0');
 define('APP_METRIC_TYPE_TIMED_VIEWS', 'wizdam::timedViews');
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 
 class TimedViewReportPlugin extends ReportPlugin {
     

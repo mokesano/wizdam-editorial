@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. Reference safe for PHP 8.
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class SubscriptionBlockPlugin extends BlockPlugin {
     
@@ -110,7 +110,7 @@ class SubscriptionBlockPlugin extends BlockPlugin {
             }
         }
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         // [MODERNISASI] Hapus referensi &
         $paymentManager = new AppPaymentManager($request);
 

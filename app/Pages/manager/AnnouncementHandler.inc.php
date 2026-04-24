@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.pages.manager.PKPAnnouncementHandler');
+import('core.Modules.pages.manager.CoreAnnouncementHandler');
 
 class AnnouncementHandler extends CoreAnnouncementHandler {
     
@@ -43,7 +43,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
 
     /**
      * Display a list of announcements for the current journal.
-     * @see PKPAnnouncementHandler::announcements
+     * @see CoreAnnouncementHandler::announcements
      * @param array $args
      * @param CoreRequest $request
      */
@@ -55,7 +55,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
 
     /**
      * Display a list of announcement types for the current journal.
-     * @see PKPAnnouncementHandler::announcementTypes
+     * @see CoreAnnouncementHandler::announcementTypes
      * @param array $args
      * @param CoreRequest $request
      */
@@ -66,7 +66,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::getContextId()
+     * @see CoreAnnouncementHandler::getContextId()
      * @param CoreRequest $request
      * @return int|null
      */
@@ -79,7 +79,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_getAnnouncements
+     * @see CoreAnnouncementHandler::_getAnnouncements
      * [WIZDAM] Removed & reference return
      * @param CoreRequest $request
      * @param object|null $rangeInfo
@@ -94,7 +94,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_getAnnouncementTypes
+     * @see CoreAnnouncementHandler::_getAnnouncementTypes
      * [WIZDAM] Removed & reference return
      * @param CoreRequest $request
      * @param object|null $rangeInfo

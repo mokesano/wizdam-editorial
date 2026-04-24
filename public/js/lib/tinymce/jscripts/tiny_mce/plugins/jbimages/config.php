@@ -26,9 +26,9 @@
 
 	/* Wizdam Customization, 01/03/2012; Determine img_path from external file */
 	require_once('integratePKP.php');
-	$integratePKP = new IntegratePKP();
+	$integrateApp = new IntegrateApp();
 
-	$config['img_path'] = $integratePKP->getPKPImageUrl();
+	$config['img_path'] = $integrateApp->getAppImageUrl();
 
 
 /*-------------------------------------------------------------------
@@ -127,7 +127,7 @@
 -------------------------------------------------------------------*/
 
 	/* Wizdam Customization, 01/03/2012; Specify upload path */
-	$config['upload_path'] = $integratePKP->getPKPImageUploadPath();
+	$config['upload_path'] = $integrateApp->getAppImageUploadPath();
 
 
 /*-------------------------------------------------------------------

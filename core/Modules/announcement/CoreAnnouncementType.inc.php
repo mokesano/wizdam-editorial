@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/announcement/PKPAnnouncementType.inc.php
+ * @file core.Modules.announcement/CoreAnnouncementType.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -10,7 +10,7 @@ declare(strict_types=1);
  *
  * @class CoreAnnouncementType
  * @ingroup announcement
- * @see AnnouncementTypeDAO, AnnouncementTypeForm, PKPAnnouncementTypeDAO, CoreAnnouncementTypeForm
+ * @see AnnouncementTypeDAO, AnnouncementTypeForm, CoreAnnouncementTypeDAO, CoreAnnouncementTypeForm
  *
  * @brief Basic class describing an announcement type.
  *
@@ -32,9 +32,9 @@ class CoreAnnouncementType extends DataObject {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPAnnouncementType() {
+    public function CoreAnnouncementType() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class PKPAnnouncementType uses deprecated constructor parent::PKPAnnouncementType(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class CoreAnnouncementType uses deprecated constructor parent::CoreAnnouncementType(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }

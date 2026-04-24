@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/UserGroupAssignment.inc.php
+ * @file core.Modules.security/UserGroupAssignment.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Describes user roles within the system and the associated permissions.
  */
 
-import('lib.wizdam.classes.security.UserGroup');
+import('core.Modules.security.UserGroup');
 
 class UserGroupAssignment extends DataObject {
     /** @var UserGroup the UserGroup object associated with this assignment **/

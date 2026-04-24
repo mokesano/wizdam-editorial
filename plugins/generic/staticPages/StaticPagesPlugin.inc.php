@@ -15,13 +15,13 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Get the display name of this plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -30,7 +30,7 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Get a description of the plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {
@@ -54,7 +54,7 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Register the plugin, attaching to hooks as necessary.
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @param $category string
      * @param $path string
      * @return boolean
@@ -97,7 +97,7 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Display verbs for the management interface.
-     * @see PKPPlugin::getManagementVerbs()
+     * @see CorePlugin::getManagementVerbs()
      * @param $verbs array
      * @param $request CoreRequest
      * @return array
@@ -114,7 +114,7 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Perform management functions
-     * @see PKPPlugin::manage()
+     * @see CorePlugin::manage()
      * @param $verb string
      * @param $args array
      * @param $message string
@@ -232,7 +232,7 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Get the filename of the ADODB schema for this plugin.
-     * @see PKPPlugin::getInstallSchemaFile()
+     * @see CorePlugin::getInstallSchemaFile()
      * @return string|null
      */
     public function getInstallSchemaFile(): ?string {

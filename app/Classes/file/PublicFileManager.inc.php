@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/file/PublicFileManager.inc.php
+ * @file core.Modules.file/PublicFileManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Wrapper class for uploading files to a site/journal's public directory.
  */
 
-import('lib.wizdam.classes.file.CorePublicFileManager');
+import('core.Modules.file.CorePublicFileManager');
 
 class PublicFileManager extends CorePublicFileManager {
     

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/note/NoteDAO.inc.php
+ * @file core.Modules.note/NoteDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -10,15 +10,15 @@ declare(strict_types=1);
  *
  * @class NoteDAO
  * @ingroup note
- * @see PKPNoteDAO
+ * @see CoreNoteDAO
  *
- * @brief Wizdam extension of PKPNoteDAO
+ * @brief Wizdam extension of CoreNoteDAO
  *
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.note.PKPNoteDAO');
-import('classes.note.Note');
+import('core.Modules.note.CoreNoteDAO');
+import('core.Modules.note.Note');
 
 class NoteDAO extends CoreNoteDAO {
     /** @var ArticleFileDAO */

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/journal/JournalDAO.inc.php
+ * @file core.Modules.journal/JournalDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 import ('classes.journal.Journal');
-import('lib.wizdam.classes.metadata.MetadataTypeDescription');
+import('core.Modules.metadata.MetadataTypeDescription');
 
 define('JOURNAL_FIELD_TITLE', 1);
 define('JOURNAL_FIELD_SEQUENCE', 2);

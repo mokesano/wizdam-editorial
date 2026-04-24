@@ -15,11 +15,11 @@ declare(strict_types=1);
  * Terintegrasi dengan Smart Router, SecurityHashService, dan Ownership Validation.
  */
 
-import('classes.handler.Handler');
-import('lib.wizdam.classes.services.CertificateService');
-import('lib.wizdam.classes.services.PdfService');
-import('lib.wizdam.classes.services.QrCodeService');
-import('lib.wizdam.classes.security.SecurityHashService');
+import('core.Modules.handler.Handler');
+import('core.Modules.services.CertificateService');
+import('core.Modules.services.PdfService');
+import('core.Modules.services.QrCodeService');
+import('core.Modules.security.SecurityHashService');
 
 class CertificateHandler extends Handler {
     
@@ -145,7 +145,7 @@ class CertificateHandler extends Handler {
      * @param string $localeKey The locale key for the error message
      */
     private function _redirectWithError($request, string $localeKey): void {
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $user = $request->getUser();
         

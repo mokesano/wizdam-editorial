@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/PKPProfiler.inc.php
+ * @file core.Modules.core/CoreProfiler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -33,9 +33,9 @@ class CoreProfiler {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPProfiler() {
+    public function CoreProfiler() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPProfiler(). Please refactor to parent::__construct().", 
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreProfiler(). Please refactor to parent::__construct().", 
             E_USER_DEPRECATED
         );
         self::__construct();
@@ -81,9 +81,9 @@ class CoreDBProfiler {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPDBProfiler() {
+    public function CoreDBProfiler() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPDBProfiler(). Please refactor to parent::__construct().", 
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreDBProfiler(). Please refactor to parent::__construct().", 
             E_USER_DEPRECATED
         );
         self::__construct();

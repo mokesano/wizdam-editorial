@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief Dublin Core version 1.1 metadata plugin
  */
 
-import('lib.wizdam.plugins.metadata.dc11.PKPDc11MetadataPlugin');
+import('core.Modules.plugins.metadata.dc11.CoreDc11MetadataPlugin');
 
 class Dc11MetadataPlugin extends CoreDc11MetadataPlugin {
 

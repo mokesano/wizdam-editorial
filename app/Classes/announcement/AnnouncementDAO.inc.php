@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/announcement/AnnouncementDAO.inc.php
+ * @file core.Modules.announcement/AnnouncementDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -21,8 +21,8 @@ declare(strict_types=1);
  */
 
 
-import('classes.announcement.Announcement');
-import('lib.wizdam.classes.announcement.PKPAnnouncementDAO');
+import('core.Modules.announcement.Announcement');
+import('core.Modules.announcement.CoreAnnouncementDAO');
 
 class AnnouncementDAO extends CoreAnnouncementDAO {
     
@@ -44,7 +44,7 @@ class AnnouncementDAO extends CoreAnnouncementDAO {
     }
 
     /**
-     * @see PKPAnnouncementDAO::newDataObject
+     * @see CoreAnnouncementDAO::newDataObject
      * @return Announcement
      */
     public function newDataObject() {

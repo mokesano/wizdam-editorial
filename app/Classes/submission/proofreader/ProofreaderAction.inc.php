@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/submission/proofreader/ProofreaderAction.inc.php
+ * @file core.Modules.submission/proofreader/ProofreaderAction.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & HookRegistry::dispatch
  */
 
-import('classes.submission.common.Action');
+import('core.Modules.submission.common.Action');
 
 class ProofreaderAction extends Action {
 
@@ -46,8 +46,8 @@ class ProofreaderAction extends Action {
             $proofreader = $userDao->getById((int) $userId);
             if (!isset($proofreader)) return;
             
-            import('classes.article.log.ArticleLog');
-            import('classes.article.log.ArticleEventLogEntry');
+            import('core.Modules.article.log.ArticleLog');
+            import('core.Modules.article.log.ArticleEventLogEntry');
             ArticleLog::logEvent($request, $article, ARTICLE_LOG_PROOFREAD_ASSIGN, 'log.proofread.assign', ['assignerName' => $user->getFullName(), 'proofreaderName' => $proofreader->getFullName()]);
         }
     }
@@ -71,7 +71,7 @@ class ProofreaderAction extends Action {
         $user = $request->getUser();
         $ccs = [];
 
-        import('classes.mail.ArticleMailTemplate');
+        import('core.Modules.mail.ArticleMailTemplate');
         $email = new ArticleMailTemplate($sectionEditorSubmission, $mailType);
 
         switch($mailType) {
@@ -439,7 +439,7 @@ class ProofreaderAction extends Action {
     public static function viewProofreadComments($article) {
         // [WIZDAM] HookRegistry::dispatch
         if (!HookRegistry::dispatch('ProofreaderAction::viewProofreadComments', [&$article])) {
-            import('classes.submission.form.comment.ProofreadCommentForm');
+            import('core.Modules.submission.form.comment.ProofreadCommentForm');
 
             $commentForm = new ProofreadCommentForm($article, ROLE_ID_PROOFREADER);
             $commentForm->initData();
@@ -456,7 +456,7 @@ class ProofreaderAction extends Action {
     public static function postProofreadComment($article, $emailComment, $request) {
         // [WIZDAM] HookRegistry::dispatch
         if (!HookRegistry::dispatch('ProofreaderAction::postProofreadComment', [&$article, &$emailComment])) {
-            import('classes.submission.form.comment.ProofreadCommentForm');
+            import('core.Modules.submission.form.comment.ProofreadCommentForm');
 
             $commentForm = new ProofreadCommentForm($article, ROLE_ID_PROOFREADER);
             $commentForm->readInputData();
@@ -465,7 +465,7 @@ class ProofreaderAction extends Action {
                 $commentForm->execute();
 
                 // Send a notification to associated users
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationUsers = $article->getAssociatedUserIds(true, false);
                 foreach ($notificationUsers as $userRole) {
@@ -494,7 +494,7 @@ class ProofreaderAction extends Action {
     public static function viewLayoutComments($article) {
         // [WIZDAM] HookRegistry::dispatch
         if (!HookRegistry::dispatch('ProofreaderAction::viewLayoutComments', [&$article])) {
-            import('classes.submission.form.comment.LayoutCommentForm');
+            import('core.Modules.submission.form.comment.LayoutCommentForm');
 
             $commentForm = new LayoutCommentForm($article, ROLE_ID_PROOFREADER);
             $commentForm->initData();
@@ -511,7 +511,7 @@ class ProofreaderAction extends Action {
     public static function postLayoutComment($article, $emailComment, $request) {
         // [WIZDAM] HookRegistry::dispatch
         if (!HookRegistry::dispatch('ProofreaderAction::postLayoutComment', [&$article, &$emailComment])) {
-            import('classes.submission.form.comment.LayoutCommentForm');
+            import('core.Modules.submission.form.comment.LayoutCommentForm');
 
             $commentForm = new LayoutCommentForm($article, ROLE_ID_PROOFREADER);
             $commentForm->readInputData();
@@ -520,7 +520,7 @@ class ProofreaderAction extends Action {
                 $commentForm->execute();
 
                 // Send a notification to associated users
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationUsers = $article->getAssociatedUserIds(true, false);
                 foreach ($notificationUsers as $userRole) {

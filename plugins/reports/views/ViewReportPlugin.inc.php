@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief View report plugin
  */
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 
 define('APP_METRIC_TYPE_LEGACY_DEFAULT', 'wizdam::legacyDefault');
 
@@ -90,7 +90,7 @@ class ViewReportPlugin extends ReportPlugin {
         $articleIssueIdentificationMap = [];
         $result = [];
 
-        import('lib.wizdam.classes.db.DBResultRange');
+        import('core.Modules.db.DBResultRange');
         $dbResultRange = new DBResultRange(STATISTICS_MAX_ROWS);
         $page = 1; // Start page normally at 1, original code had 3? Assuming correction to standard logic or keeping logic if offset intended. Original: $page = 3. Keeping logical structure but usually page starts at 1.
 

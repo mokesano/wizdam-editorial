@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 define('STOP_FORUM_SPAM_API_ENDPOINT', 'http://www.stopforumspam.com/api?');
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class StopForumSpamPlugin extends GenericPlugin {
     

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 import("core.classes.core.VirtualArrayIterator");
 
 class BrowseHandler extends Handler {

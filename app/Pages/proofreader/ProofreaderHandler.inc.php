@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.submission.proofreader.ProofreaderAction');
-import('classes.handler.Handler');
+import('core.Modules.submission.proofreader.ProofreaderAction');
+import('core.Modules.handler.Handler');
 
 class ProofreaderHandler extends Handler {
     /** @var object|null submission associated with the request */
@@ -137,7 +137,7 @@ class ProofreaderHandler extends Handler {
             SUBMISSION_FIELD_DATE_PROOFREADING_COMPLETE => 'submissions.proofreadingComplete'
         ]);
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
         $templateMgr->assign('helpTopicId', 'editorial.proofreadersRole.submissions');
@@ -164,7 +164,7 @@ class ProofreaderHandler extends Handler {
             ? [[Request::url(null, 'user'), 'navigation.user'], [Request::url(null, 'proofreader'), 'user.role.proofreader']]
             : [[Request::url(null, 'user'), 'navigation.user'], [Request::url(null, 'proofreader'), 'user.role.proofreader']];
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         $submissionCrumb = SectionEditorAction::submissionBreadcrumb($articleId, $parentPage, 'proofreader');
         if (isset($submissionCrumb)) {
             $pageHierarchy = array_merge($pageHierarchy, $submissionCrumb);

@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file plugins/metadata/dc11/PKPDc11MetadataPlugin.inc.php
+ * @file plugins/metadata/dc11/CoreDc11MetadataPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.plugins.MetadataPlugin');
+import('core.Modules.plugins.MetadataPlugin');
 
 class CoreDc11MetadataPlugin extends MetadataPlugin {
 
@@ -32,24 +32,24 @@ class CoreDc11MetadataPlugin extends MetadataPlugin {
 
 
 	//
-	// Override protected template methods from PKPPlugin
+	// Override protected template methods from CorePlugin
 	//
 	/**
-	 * @see PKPPlugin::getName()
+	 * @see CorePlugin::getName()
 	 */
 	function getName(): string {
 		return 'Dc11MetadataPlugin';
 	}
 
 	/**
-	 * @see PKPPlugin::getDisplayName()
+	 * @see CorePlugin::getDisplayName()
 	 */
 	function getDisplayName(): string {
 		return __('plugins.metadata.dc11.displayName');
 	}
 
 	/**
-	 * @see PKPPlugin::getDescription()
+	 * @see CorePlugin::getDescription()
 	 */
 	function getDescription(): string {
 		return __('plugins.metadata.dc11.description');

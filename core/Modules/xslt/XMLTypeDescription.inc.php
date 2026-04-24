@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/XMLTypeDescription.inc.php
+ * @file core.Modules.filter/XMLTypeDescription.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -25,8 +25,8 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, No References, Visibility)
  */
 
-import('lib.wizdam.classes.filter.TypeDescription');
-import('lib.wizdam.classes.filter.TypeDescriptionFactory');
+import('core.Modules.filter.TypeDescription');
+import('core.Modules.filter.TypeDescriptionFactory');
 
 define('XML_TYPE_DESCRIPTION_VALIDATE_NONE', '*');
 define('XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA', 'schema');

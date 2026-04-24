@@ -19,7 +19,7 @@ declare(strict_types=1);
  * them into a single "best" citation.
  */
 
-import('lib.wizdam.classes.filter.Filter');
+import('core.Modules.filter.Filter');
 
 class Nlm30CitationDemultiplexerFilter extends Filter {
     /**
@@ -41,8 +41,8 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
         $this->setDisplayName('Join several NLM Citation descriptions into a single citation'); // Only for internal debugging.
 
         parent::__construct(
-            'metadata::lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)[]',
-            'class::lib.wizdam.classes.citation.Citation'
+            'metadata::core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)[]',
+            'class::core.Modules.citation.Citation'
         );
     }
 
@@ -219,7 +219,7 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
         assert($scoreThreshold >= 0 && $scoreThreshold <= 100);
 
         // Create the target citation description.
-        $targetDescription = new MetadataDescription('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
+        $targetDescription = new MetadataDescription('core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
 
         // Step 1: List all values and max scores that have been identified for a given element
         //         but only include values from results above a given scoring threshold

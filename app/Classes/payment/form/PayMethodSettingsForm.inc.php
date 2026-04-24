@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/payments/wizdam/form/PaymentSettingsForm.inc.php
+ * @file core.Modules.payments/wizdam/form/PaymentSettingsForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2006-2009 Gunther Eysenbach, Juan Pablo Alperin, MJ Suhonos
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class PayMethodSettingsForm extends Form {
     

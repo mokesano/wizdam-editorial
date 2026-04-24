@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file plugins/metadata/nlm30/filter/PKPSubmissionNlm30XmlFilter.inc.php
+ * @file plugins/metadata/nlm30/filter/CoreSubmissionNlm30XmlFilter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -21,7 +21,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.citation.TemplateBasedReferencesListFilter');
+import('core.Modules.citation.TemplateBasedReferencesListFilter');
 
 class CoreSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
     /**
@@ -34,15 +34,15 @@ class CoreSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
         parent::__construct($filterGroup);
 
         // Set the output filter.
-        $this->setData('citationOutputFilterName', 'lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaNlm30XmlFilter');
+        $this->setData('citationOutputFilterName', 'core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaNlm30XmlFilter');
         // Set the metadata schema.
-        $this->setData('metadataSchemaName', 'lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+        $this->setData('metadataSchemaName', 'core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
     }
 
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPSubmissionNlm30XmlFilter($filterGroup) {
+    public function CoreSubmissionNlm30XmlFilter($filterGroup) {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor " . get_class($this) . "(). Please refactor to use __construct().",
@@ -63,7 +63,7 @@ class CoreSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
     public function getCitationOutputFilterTypeDescriptions() {
         // FIXME: Add NLM citation-element + name validation (requires partial NLM DTD, XSD or RelaxNG), see #5648.
         return [
-            'metadata::lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+            'metadata::core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
             'xml::*'
         ];
     }
@@ -76,7 +76,7 @@ class CoreSubmissionNlm30XmlFilter extends TemplateBasedReferencesListFilter {
      * @return string
      */
     public function getClassName() {
-        return 'lib.wizdam.plugins.metadata.nlm30.filter.PKPSubmissionNlm30XmlFilter';
+        return 'core.Modules.plugins.metadata.nlm30.filter.CoreSubmissionNlm30XmlFilter';
     }
 
     //

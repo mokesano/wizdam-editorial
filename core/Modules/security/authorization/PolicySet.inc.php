@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/PolicySet.inc.php
+ * @file core.Modules.security/authorization/PolicySet.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -23,7 +23,7 @@ define('COMBINING_PERMIT_OVERRIDES', 0x02);
 
 // Include the authorization policy class which contains
 // definitions for the deny and permit effects.
-import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
+import('core.Modules.security.authorization.AuthorizationPolicy');
 
 class PolicySet {
     /** @var array */

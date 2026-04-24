@@ -20,18 +20,18 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.classes.features = $.pkp.classes.features || {};
+	$.core.classes.features = $.core.classes.features || {};
 
 
 
 	/**
 	 * @constructor
-	 * @extends $.pkp.classes.ObjectProxy
-	 * @param {$.pkp.controllers.grid.GridHandler} gridHandler The grid
+	 * @extends $.core.classes.ObjectProxy
+	 * @param {$.core.controllers.grid.GridHandler} gridHandler The grid
 	 *  handler object.
 	 * @param {Array} options Associated options.
 	 */
-	$.pkp.classes.features.Feature =
+	$.core.classes.features.Feature =
 			function(gridHandler, options) {
 		this.gridHandler_ = gridHandler;
 		this.options_ = options;
@@ -45,9 +45,9 @@
 	/**
 	 * The grid that this feature is attached to.
 	 * @private
-	 * @type {$.pkp.controllers.grid.GridHandler}
+	 * @type {$.core.controllers.grid.GridHandler}
 	 */
-	$.pkp.classes.features.Feature.prototype.gridHandler_ = null;
+	$.core.classes.features.Feature.prototype.gridHandler_ = null;
 
 
 	/**
@@ -55,7 +55,7 @@
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.classes.features.Feature.prototype.options_ = null;
+	$.core.classes.features.Feature.prototype.options_ = null;
 
 
 	//
@@ -67,7 +67,7 @@
 	 * by the components that this feature is attached to, in the
 	 * moment of the attachment.
 	 */
-	$.pkp.classes.features.Feature.prototype.init =
+	$.core.classes.features.Feature.prototype.init =
 			function() {
 		throw new Error('Abstract method!');
 	};
@@ -82,7 +82,7 @@
 	 * @return {boolean} Always returns false.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.classes.features.Feature.prototype.appendElement =
+	$.core.classes.features.Feature.prototype.appendElement =
 			function($newElement) {
 		return false;
 	};
@@ -95,7 +95,7 @@
 	 * @return {boolean} Always returns false.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.classes.features.Feature.prototype.replaceElement =
+	$.core.classes.features.Feature.prototype.replaceElement =
 			function($newContent) {
 		return false;
 	};
@@ -108,10 +108,10 @@
 	/**
 	 * Use the grid handler object and call the
 	 * callback wrapper method there.
-	 * @see $.pkp.classes.Handler.callbackWrapper()
+	 * @see $.core.classes.Handler.callbackWrapper()
 	 * @return {Function} Callback function.
 	 */
-	$.pkp.classes.features.Feature.prototype.callbackWrapper =
+	$.core.classes.features.Feature.prototype.callbackWrapper =
 			function(callback, opt_context) {
 		return this.gridHandler_.callbackWrapper(callback, opt_context);
 	};
@@ -124,7 +124,7 @@
 	 * @param {Object} options Feature options.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.classes.features.Feature.prototype.addFeatureHtml =
+	$.core.classes.features.Feature.prototype.addFeatureHtml =
 			function($gridElement, options) {
 		// Default implementation does nothing.
 		return;
@@ -138,7 +138,7 @@
 	 *
 	 * @return {jQueryObject} Return the grid's HTML element.
 	 */
-	$.pkp.classes.features.Feature.prototype.getGridHtmlElement =
+	$.core.classes.features.Feature.prototype.getGridHtmlElement =
 			function() {
 		return this.gridHandler_.getHtmlElement();
 	};

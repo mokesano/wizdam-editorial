@@ -17,7 +17,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.modal.ConfirmationModalHandler
+	 * @extends $.core.controllers.modal.ConfirmationModalHandler
 	 *
 	 * @param {jQuery} $handledElement The modal.
 	 * @param {Object} options Non-default options to configure
@@ -31,7 +31,7 @@
 	 *  - All options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
-	$.pkp.controllers.modal.CallbackConfirmationModalHandler =
+	$.core.controllers.modal.CallbackConfirmationModalHandler =
 			function($handledElement, options) {
 
 		this.parent($handledElement, options);
@@ -39,9 +39,9 @@
 		// Configure the callback to be called when the modal closes.
 		this.confirmationCallback_ = options.confirmationCallback;
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.modal.CallbackConfirmationModalHandler,
-			$.pkp.controllers.modal.ConfirmationModalHandler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.modal.CallbackConfirmationModalHandler,
+			$.core.controllers.modal.ConfirmationModalHandler);
 
 
 	//
@@ -53,7 +53,7 @@
 	 * @private
 	 * @type {?function()}
 	 */
-	$.pkp.controllers.modal.CallbackConfirmationModalHandler.prototype.
+	$.core.controllers.modal.CallbackConfirmationModalHandler.prototype.
 			confirmationCallback_ = null;
 
 
@@ -63,7 +63,7 @@
 	 * @private
 	 * @type {boolean}
 	 */
-	$.pkp.controllers.modal.CallbackConfirmationModalHandler.prototype.
+	$.core.controllers.modal.CallbackConfirmationModalHandler.prototype.
 			triggerCallbackOnClose_ = false;
 
 
@@ -71,7 +71,7 @@
 	// Protected methods
 	//
 	/** @inheritDoc */
-	$.pkp.controllers.modal.CallbackConfirmationModalHandler.prototype.
+	$.core.controllers.modal.CallbackConfirmationModalHandler.prototype.
 			checkOptions = function(options) {
 		// Check the mandatory options of the ModalHandler handler.
 		if (!this.parent('checkOptions', options)) {
@@ -93,7 +93,7 @@
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
 	 */
-	$.pkp.controllers.modal.CallbackConfirmationModalHandler.prototype.
+	$.core.controllers.modal.CallbackConfirmationModalHandler.prototype.
 			modalConfirm = function(dialogElement) {
 
 		// Close the modal. We have to close the modal first because
@@ -106,7 +106,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.modal.CallbackConfirmationModalHandler.prototype.
+	$.core.controllers.modal.CallbackConfirmationModalHandler.prototype.
 			dialogClose = function(dialogElement) {
 
 		// Call the configured confirmation callback after the

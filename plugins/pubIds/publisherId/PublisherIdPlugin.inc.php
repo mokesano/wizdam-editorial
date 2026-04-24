@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Modernized for ScholarWizdam (PHP 7.4/8.x Compatibility)
  */
 
-import('classes.plugins.PubIdPlugin');
+import('core.Modules.plugins.PubIdPlugin');
 
 class PublisherIdPlugin extends PubIdPlugin {
     /**

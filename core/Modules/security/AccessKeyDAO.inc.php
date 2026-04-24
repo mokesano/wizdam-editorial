@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/AccessKeyDAO.inc.php
+ * @file core.Modules.security/AccessKeyDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying AccessKey objects.
  */
 
-import('lib.wizdam.classes.security.AccessKey');
+import('core.Modules.security.AccessKey');
 
 class AccessKeyDAO extends DAO {
     

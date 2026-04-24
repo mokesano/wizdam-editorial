@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/plugins/AuthPlugin.inc.php
+ * @file core.Modules.plugins/AuthPlugin.inc.php
  *
  * @class AuthPlugin
  * @ingroup plugins
@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 
 define('AUTH_PLUGIN_CATEGORY', 'auth');
-import('classes.plugins.Plugin');
+import('core.Modules.plugins.Plugin');
 
 class AuthPlugin extends Plugin {
 

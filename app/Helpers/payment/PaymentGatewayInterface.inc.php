@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/payment/PaymentGatewayInterface.inc.php
+ * @file core.Modules.classes/payment/PaymentGatewayInterface.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @brief Kontrak standar untuk semua Payment Gateway di ekosistem WIZDAM.
  */
 
-import('lib.wizdam.classes.invoice.Invoice');
+import('core.Modules.invoice.Invoice');
 
 interface PaymentGatewayInterface {
     

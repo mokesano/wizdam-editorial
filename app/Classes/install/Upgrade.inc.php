@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/install/Upgrade.inc.php
+ * @file core.Modules.install/Upgrade.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@ declare(strict_types=1);
  * [WIZDAM FORK v3.4] - PHP 8.4+ Strict Mode
  */
 
-import('lib.wizdam.classes.install.Installer');
+import('core.Modules.install.Installer');
 
 class Upgrade extends Installer {
 
@@ -49,7 +49,7 @@ class Upgrade extends Installer {
      * @return bool
      */
     public function rebuildSearchIndex(): bool {
-        import('classes.search.ArticleSearchIndex');
+        import('core.Modules.search.ArticleSearchIndex');
         $articleSearchIndex = new ArticleSearchIndex();
         $articleSearchIndex->rebuildIndex();
         return true;
@@ -64,7 +64,7 @@ class Upgrade extends Installer {
         $journalDao = DAORegistry::getDAO('JournalDAO');
         $articleDao = DAORegistry::getDAO('ArticleDAO');
         $authorSubmissionDao = DAORegistry::getDAO('AuthorSubmissionDAO');
-        import('classes.submission.author.AuthorAction');
+        import('core.Modules.submission.author.AuthorAction');
 
         $journals = $journalDao->getJournals();
         while ($journal = $journals->next()) {
@@ -599,7 +599,7 @@ class Upgrade extends Installer {
      * @return bool
      */
     public function separateSubscriptions(): bool {
-        import('classes.subscription.InstitutionalSubscription');
+        import('core.Modules.subscription.InstitutionalSubscription');
         $subscriptionDao = DAORegistry::getDAO('SubscriptionDAO');
 
         // Retrieve all subscriptions from pre-2.3 subscriptions table
@@ -962,7 +962,7 @@ class Upgrade extends Installer {
      * @return bool
      */
     public function removeAuthorRevisedFilesFromSignoffs(): bool {
-        import('classes.article.Article');
+        import('core.Modules.article.Article');
         $signoffDao = DAORegistry::getDAO('SignoffDAO'); /* @var $signoffDao SignoffDAO */
 
         $result = $signoffDao->retrieve(

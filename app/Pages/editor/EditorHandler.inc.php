@@ -78,7 +78,7 @@ class EditorHandler extends SectionEditorHandler {
         $templateMgr->assign('fieldOptions', $this->_getSearchFieldOptions());
         $templateMgr->assign('dateFieldOptions', $this->_getDateFieldOptions());
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         // Note: register_function is legacy Smarty. Consider update if upgrading Smarty.
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
@@ -154,7 +154,7 @@ class EditorHandler extends SectionEditorHandler {
                     $submissionsArray = array_reverse($submissionsArray);
                 }
                 // Convert submission array back to an ItemIterator class
-                import('lib.wizdam.classes.core.ArrayItemIterator');
+                import('core.Modules.core.ArrayItemIterator');
                 $submissions = ArrayItemIterator::fromRangeInfo($submissionsArray, $rangeInfo);
             } else {
                 $rawSubmissions = $editorSubmissionDao->_getUnfilteredEditorSubmissions(
@@ -362,7 +362,7 @@ class EditorHandler extends SectionEditorHandler {
         $templateMgr->assign('fieldOptions', $this->_getSearchFieldOptions());
         $templateMgr->assign('dateFieldOptions', $this->_getDateFieldOptions());
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
 
@@ -607,7 +607,7 @@ class EditorHandler extends SectionEditorHandler {
 
         if ($article->getJournalId() == $journal->getId() && ($status == STATUS_DECLINED || $status == STATUS_ARCHIVED)) {
             // Delete article files
-            import('classes.file.ArticleFileManager');
+            import('core.Modules.file.ArticleFileManager');
             $articleFileManager = new ArticleFileManager($articleId);
             $articleFileManager->deleteArticleTree();
 
@@ -653,7 +653,7 @@ class EditorHandler extends SectionEditorHandler {
             $pageHierarchy = [[$request->url(null, 'user'), 'navigation.user'], [$request->url(null, $isLayoutEditor?'layoutEditor':'editor'), $isLayoutEditor?'user.role.layoutEditor':'user.role.editor'], [$request->url(null, $isLayoutEditor?'layoutEditor':'editor', 'futureIssues'), 'issue.issues']];
         }
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         $submissionCrumb = SectionEditorAction::submissionBreadcrumb($articleId, $parentPage, 'editor');
         if (isset($submissionCrumb)) {
             $pageHierarchy = array_merge($pageHierarchy, $submissionCrumb);

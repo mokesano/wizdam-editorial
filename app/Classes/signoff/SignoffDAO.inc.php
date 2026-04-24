@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/signoff/SignoffDAO.inc.php
+ * @file core.Modules.signoff/SignoffDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying Signoff objects.
  */
 
-import('lib.wizdam.classes.signoff.PKPSignoffDAO');
+import('core.Modules.signoff.CoreSignoffDAO');
 
 class SignoffDAO extends CoreSignoffDAO {
     

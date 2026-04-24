@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Fixed PHP 8 ArgumentCountError & Parameter Mismatch
  */
 
-import('classes.plugins.PaymethodPlugin');
+import('core.Modules.plugins.PaymethodPlugin');
 
 class ManualPaymentPlugin extends PaymethodPlugin {
     
@@ -114,7 +114,7 @@ class ManualPaymentPlugin extends PaymethodPlugin {
      * @return bool True iff the plugin is configured
      */
     public function isConfigured(): bool {
-        // Selalu return true agar OJSPaymentManager tidak membunuh halaman
+        // Selalu return true agar AppPaymentManager tidak membunuh halaman
         return true; 
     }
 
@@ -334,20 +334,20 @@ class ManualPaymentPlugin extends PaymethodPlugin {
         $queuedPaymentId = isset($args[1]) ? ((int) $args[1]) : 0;
 
         // Bypass Application kernel, direct instantiation
-        import('classes.payment.AppPaymentManager');
-        if (!class_exists('OJSPaymentManager')) {
-            error_log("ManualPaymentPlugin: OJSPaymentManager class not found.");
+        import('core.Modules.payment.AppPaymentManager');
+        if (!class_exists('AppPaymentManager')) {
+            error_log("ManualPaymentPlugin: AppPaymentManager class not found.");
             $request->redirect(null, 'index');
         }
         
-        $wizdamPaymentManager = new \OJSPaymentManager($request);
+        $wizdamPaymentManager = new \AppPaymentManager($request);
         $queuedPayment = $wizdamPaymentManager->getQueuedPayment($queuedPaymentId);
         
         if (!$queuedPayment) $request->redirect(null, 'index');
 
         switch ($op) {
             case 'notify':
-                import('classes.mail.MailTemplate');
+                import('core.Modules.mail.MailTemplate');
                 AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
                 
                 $contactName = $context->getSetting('contactName');

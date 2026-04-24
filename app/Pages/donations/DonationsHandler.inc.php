@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class DonationsHandler extends Handler {
     
@@ -61,7 +61,7 @@ class DonationsHandler extends Handler {
             $args = $request->getRequestedArgs();
         }
     
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $journal = $request->getJournal();
 

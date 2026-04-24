@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/codelist/ONIXParserDOMHandler.inc.php
+ * @file core.Modules.codelist/ONIXParserDOMHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -20,8 +20,8 @@ declare(strict_types=1);
  * Example:  <xs:simpleType name="List30">...</xs:simpleType>
  */
 
-import('lib.wizdam.classes.xml.XMLParserDOMHandler');
-import('lib.wizdam.classes.xml.XMLNode');
+import('core.Modules.xml.XMLParserDOMHandler');
+import('core.Modules.xml.XMLNode');
 
 class ONIXParserDOMHandler extends XMLParserDOMHandler {
 

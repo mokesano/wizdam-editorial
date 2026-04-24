@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/CoreString.inc.php
+ * @file core.Modules.core/CoreString.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -619,20 +619,20 @@ class CoreString {
             . '(p|&#0*80;?|&#x0*50;?|&#0*112;?|&#x0*70;?)\s*'
             . '(t|&#0*84;?|&#x0*54;?|&#0*116;?|&#x0*74;?)\s*'
             . '(:|&#0*58;?|&#x0*3a;?)/i';
-        $html = preg_replace($preg, '\1\8PKPCleaned', $html);
+        $html = preg_replace($preg, '\1\8CoreCleaned', $html);
 
         /* Get all on<foo>="bar()". NEVER allow these. */
         $html =    preg_replace('/([\s"\']+'
             . '(o|&#0*79;?|&#0*4f;?|&#0*111;?|&#0*6f;?)'
             . '(n|&#0*78;?|&#0*4e;?|&#0*110;?|&#0*6e;?)'
-            . '\w+)\s*=/i', '\1PKPCleaned=', $html);
+            . '\w+)\s*=/i', '\1CoreCleaned=', $html);
 
         $pattern = [
             '|<([^>]*)&{.*}([^>]*)>|',
             '|<([^>]*)mocha:([^>]*)>|i',
             '|<([^>]*)binding:([^>]*)>|i'
         ];
-        $replace = ['<&{;}\3>', '<\1PKPCleaned:\2>', '<\1PKPCleaned:\2>'];
+        $replace = ['<&{;}\3>', '<\1CoreCleaned:\2>', '<\1CoreCleaned:\2>'];
         $html = preg_replace($pattern, $replace, $html);
 
         return $html;
@@ -723,7 +723,7 @@ class CoreString {
      * @return string
      */
     public static function utf8_normalize(string $str): string {
-        import('lib.wizdam.classes.core.Transcoder');
+        import('core.Modules.core.Transcoder');
 
         if (self::hasMBString()) {
             // NB: CP-1252 often segfaults; we've left it out here but it will detect as 'ISO-8859-1'

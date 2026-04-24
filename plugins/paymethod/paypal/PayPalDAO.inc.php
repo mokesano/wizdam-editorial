@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.db.DAO');
+import('core.Modules.db.DAO');
 
 class PayPalDAO extends DAO {
     

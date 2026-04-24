@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief Public identifier import/export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
 define('PID_DTD_URL', 'http://wizdam.sfu.ca/wizdam/dtds/2.3/pubIds.dtd');
 define('PID_DTD_ID', '-//Wizdam//Wizdam PubIds XML//EN');
@@ -45,7 +45,7 @@ class PubIdImportExportPlugin extends ImportExportPlugin {
 
     /**
      * Register the plugin.
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @param string $category
      * @param string $path
      * @return bool
@@ -86,7 +86,7 @@ class PubIdImportExportPlugin extends ImportExportPlugin {
 
     /**
      * Get the path to the templates.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @return string
      */
     public function getTemplatePath(): string {
@@ -136,7 +136,7 @@ class PubIdImportExportPlugin extends ImportExportPlugin {
                 $templateMgr->display($this->getTemplatePath() . 'selectIssue.tpl');
                 break;
             case 'import':
-                import('classes.file.TemporaryFileManager');
+                import('core.Modules.file.TemporaryFileManager');
                 $user = $request->getUser();
                 $temporaryFileManager = new TemporaryFileManager();
 

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/metadata/MetadataDescriptionDAO.inc.php
+ * @file core.Modules.metadata/MetadataDescriptionDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying MetadataDescription objects.
  */
 
-import('lib.wizdam.classes.metadata.MetadataDescription');
+import('core.Modules.metadata.MetadataDescription');
 
 class MetadataDescriptionDAO extends DAO {
     
@@ -197,11 +197,11 @@ class MetadataDescriptionDAO extends DAO {
      */
     public function _resolveSchemaIdentifierToMetadataSchemaName($metadataSchemaId) {
         static $metadataSchemaMapping = array(
-            'nlm30:nlm-3.0-element-citation' => 'lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
-            'nlm30:nlm-3.0-name' => 'lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema',
-            'openurl10:openurl-1.0-journal' => 'lib.wizdam.plugins.metadata.nlm30.schema.Openurl10JournalSchema',
-            'openurl10:openurl-1.0-book' => 'lib.wizdam.plugins.metadata.nlm30.schema.Openurl10BookSchema',
-            'openurl10:openurl-1.0-dissertation' => 'lib.wizdam.plugins.metadata.nlm30.schema.Openurl10DissertationSchema'
+            'nlm30:nlm-3.0-element-citation' => 'core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
+            'nlm30:nlm-3.0-name' => 'core.Modules.plugins.metadata.nlm30.schema.Nlm30NameSchema',
+            'openurl10:openurl-1.0-journal' => 'core.Modules.plugins.metadata.nlm30.schema.Openurl10JournalSchema',
+            'openurl10:openurl-1.0-book' => 'core.Modules.plugins.metadata.nlm30.schema.Openurl10BookSchema',
+            'openurl10:openurl-1.0-dissertation' => 'core.Modules.plugins.metadata.nlm30.schema.Openurl10DissertationSchema'
         );
 
         // Map the metadata schema identifier to a metadata schema class name.
@@ -253,7 +253,7 @@ class MetadataDescriptionDAO extends DAO {
         // use the meta-data persistence infrastructure of the
         // DAO and DataObject classes to persist our meta-data
         // description.
-        import('lib.wizdam.classes.metadata.MetadataDescriptionDummyAdapter');
+        import('core.Modules.metadata.MetadataDescriptionDummyAdapter');
         $metadataAdapter = new MetadataDescriptionDummyAdapter($metadataDescription);
         $metadataDescription->addSupportedMetadataAdapter($metadataAdapter);
 

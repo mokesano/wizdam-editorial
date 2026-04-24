@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/services/CartService.inc.php
+ * @file core.Modules.classes/services/CartService.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -14,10 +14,10 @@ declare(strict_types=1);
  * database dan kalkulasi finansial melalui Service Layer terkait.
  */
 
-import('lib.wizdam.classes.cart.CartItemDAO');
-import('lib.wizdam.classes.services.TaxVatService');
-import('lib.wizdam.classes.services.RedeemService');
-import('lib.wizdam.classes.services.DiscountService');
+import('core.Modules.cart.CartItemDAO');
+import('core.Modules.services.TaxVatService');
+import('core.Modules.services.RedeemService');
+import('core.Modules.services.DiscountService');
 
 class CartService {
     

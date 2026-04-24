@@ -15,8 +15,8 @@ declare(strict_types=1);
  * @brief Review report DAO
  */
 
-import('classes.article.ArticleComment');
-import('lib.wizdam.classes.db.DBRowIterator');
+import('core.Modules.article.ArticleComment');
+import('core.Modules.db.DBRowIterator');
 
 class ReviewReportDAO extends DAO {
     

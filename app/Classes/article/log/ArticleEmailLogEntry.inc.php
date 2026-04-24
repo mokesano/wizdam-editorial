@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/article/log/ArticleEmailLogEntry.inc.php
+ * @file core.Modules.article/log/ArticleEmailLogEntry.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.log.EmailLogEntry');
+import('core.Modules.log.EmailLogEntry');
 
 // Editor events                      0x30000000
 define('ARTICLE_EMAIL_EDITOR_NOTIFY_AUTHOR',             0x30000001);

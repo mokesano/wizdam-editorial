@@ -127,7 +127,7 @@ class PluginHandler extends ManagerHandler {
             
             if ($message) {
                 $user = $request->getUser();
-                import('classes.notification.NotificationManager');
+                import('core.Modules.notification.NotificationManager');
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification($user->getId(), $message, $messageParams);
             }

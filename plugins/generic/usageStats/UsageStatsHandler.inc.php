@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Handle usage stats page requests (opt-out, privacy information)
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class UsageStatsHandler extends Handler {
 

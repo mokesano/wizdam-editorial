@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/listbuilder/ListbuilderHandler.inc.php
+ * @file core.Modules.controllers/listbuilder/ListbuilderHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,10 +15,10 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.controllers.grid.GridHandler');
-import('lib.wizdam.classes.controllers.listbuilder.ListbuilderGridRow');
-import('lib.wizdam.classes.controllers.listbuilder.ListbuilderGridColumn');
-import('lib.wizdam.classes.controllers.listbuilder.MultilingualListbuilderGridColumn');
+import('core.Modules.controllers.grid.GridHandler');
+import('core.Modules.controllers.listbuilder.ListbuilderGridRow');
+import('core.Modules.controllers.listbuilder.ListbuilderGridColumn');
+import('core.Modules.controllers.listbuilder.MultilingualListbuilderGridColumn');
 
 /* Listbuilder source types: text-based, pulldown, ... */
 define_exposed('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
@@ -70,7 +70,7 @@ class ListbuilderHandler extends GridHandler {
         parent::initialize($request);
 
         if ($addItemLink) {
-            import('lib.wizdam.classes.linkAction.request.NullAction');
+            import('core.Modules.linkAction.request.NullAction');
             $this->addAction(
                 new LinkAction(
                     'addItem',
@@ -227,7 +227,7 @@ class ListbuilderHandler extends GridHandler {
         if (!$insertionCallback) $insertionCallback = [$this, 'insertEntry'];
         if (!$updateCallback) $updateCallback = [$this, 'updateEntry'];
 
-        import('lib.wizdam.classes.core.JSONManager');
+        import('core.Modules.core.JSONManager');
         $jsonManager = new JSONManager();
         
         // [WIZDAM] Critical Fix: Treat data as string for decoding.

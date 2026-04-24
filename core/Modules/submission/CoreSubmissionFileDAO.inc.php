@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/PKPSubmissionFileDAO.inc.php
+ * @file core.Modules.submission/CoreSubmissionFileDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -21,7 +21,7 @@ declare(strict_types=1);
  * access behaviour depending on the type of the accessed file.
  */
 
-import('lib.wizdam.classes.file.CoreFileDAO');
+import('core.Modules.file.CoreFileDAO');
 
 class CoreSubmissionFileDAO extends CoreFileDAO {
     
@@ -41,9 +41,9 @@ class CoreSubmissionFileDAO extends CoreFileDAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPSubmissionFileDAO() {
+    public function CoreSubmissionFileDAO() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPSubmissionFileDAO(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreSubmissionFileDAO(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }
@@ -282,7 +282,7 @@ class CoreSubmissionFileDAO extends CoreFileDAO {
             $targetFilePath = $updatedFile->getFilePath();
             // assert($previousFilePath != $targetFilePath && !file_exists($targetFilePath));
             
-            import('lib.wizdam.classes.file.FileManager');
+            import('core.Modules.file.FileManager');
             $fileManager = new FileManager();
             $fileManager->copyFile($previousFilePath, $targetFilePath);
 

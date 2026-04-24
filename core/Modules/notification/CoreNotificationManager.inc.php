@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/notification/CoreNotificationManager.inc.php
+ * @file core.Modules.notification/CoreNotificationManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class for Notification Manager.
  */
 
-import('classes.notification.Notification');
+import('core.Modules.notification.Notification');
 
 class CoreNotificationManager {
     
@@ -452,7 +452,7 @@ class CoreNotificationManager {
         $user = $userDao->getById($userId);
         AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $site = $request->getSite();
         $mail = new MailTemplate('NOTIFICATION', null, null, null, false, true);
         $mail->setReplyTo($site->getLocalizedContactEmail(), $site->getLocalizedContactName());
@@ -482,7 +482,7 @@ class CoreNotificationManager {
         AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
 
         foreach ($mailList as $recipient) {
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $context = $request->getContext();
             $site = $request->getSite();
             $router = $request->getRouter();
@@ -509,7 +509,7 @@ class CoreNotificationManager {
      * @param $template string The mail template to use
      */
     public function sendMailingListEmail($request, $email, $token, $template) {
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $site = $request->getSite();
         $router = $request->getRouter();
         $dispatcher = $router->getDispatcher();

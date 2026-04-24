@@ -50,7 +50,7 @@ class JournalLanguagesHandler extends ManagerHandler {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.manager.form.LanguageSettingsForm');
+        import('core.Modules.manager.form.LanguageSettingsForm');
 
         $settingsForm = new LanguageSettingsForm();
         $settingsForm->initData();
@@ -69,7 +69,7 @@ class JournalLanguagesHandler extends ManagerHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.manager.form.LanguageSettingsForm');
+        import('core.Modules.manager.form.LanguageSettingsForm');
 
         $settingsForm = new LanguageSettingsForm();
         $settingsForm->readInputData();
@@ -77,7 +77,7 @@ class JournalLanguagesHandler extends ManagerHandler {
         if ($settingsForm->validate()) {
             $settingsForm->execute();
             $user = $request->getUser();
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification($user->getId());
             $request->redirect(null, null, 'index');
@@ -123,7 +123,7 @@ class JournalLanguagesHandler extends ManagerHandler {
         $user = $request->getUser();
 
         // Display a notification
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification($user->getId());
         $request->redirect(null, null, 'languages');

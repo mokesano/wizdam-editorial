@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/rt/wizdam/JournalRTAdmin.inc.php
+ * @file core.Modules.rt/wizdam/JournalRTAdmin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.rt.RTAdmin');
-import('classes.rt.RTDAO');
+import('core.Modules.rt.RTAdmin');
+import('core.Modules.rt.RTDAO');
 
 define('RT_DIRECTORY', 'rt');
 define('DEFAULT_RT_LOCALE', 'en_US');
@@ -57,7 +57,7 @@ class JournalRTAdmin extends RTAdmin {
      * @param bool $deleteBeforeLoad
      */
     public function restoreVersions($deleteBeforeLoad = true) {
-        import('lib.wizdam.classes.rt.RTXMLParser');
+        import('core.Modules.rt.RTXMLParser');
         $parser = new RTXMLParser();
 
         if ($deleteBeforeLoad) {
@@ -87,7 +87,7 @@ class JournalRTAdmin extends RTAdmin {
      * @param string $filename
      */
     public function importVersion($filename) {
-        import('lib.wizdam.classes.rt.RTXMLParser');
+        import('core.Modules.rt.RTXMLParser');
         $parser = new RTXMLParser();
 
         $version = $parser->parse($filename);

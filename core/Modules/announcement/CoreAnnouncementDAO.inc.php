@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/announcement/PKPAnnouncementDAO.inc.php
+ * @file core.Modules.announcement/CoreAnnouncementDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -10,7 +10,7 @@ declare(strict_types=1);
  *
  * @class CoreAnnouncementDAO
  * @ingroup announcement
- * @see Announcement, PKPAnnouncement
+ * @see Announcement, CoreAnnouncement
  *
  * @brief Operations for retrieving and modifying Announcement objects.
  *
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - Date Logic Safety
  */
 
-import('lib.wizdam.classes.announcement.PKPAnnouncement');
+import('core.Modules.announcement.CoreAnnouncement');
 
 class CoreAnnouncementDAO extends DAO {
     
@@ -34,9 +34,9 @@ class CoreAnnouncementDAO extends DAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPAnnouncementDAO() {
+    public function CoreAnnouncementDAO() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class PKPAnnouncementDAO uses deprecated constructor. Please refactor to __construct().', E_USER_DEPRECATED);
+            trigger_error('Class CoreAnnouncementDAO uses deprecated constructor. Please refactor to __construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }

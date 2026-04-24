@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/linkAction/request/RedirectAction.inc.php
+ * @file core.Modules.linkAction/request/RedirectAction.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.linkAction.request.LinkActionRequest');
+import('core.Modules.linkAction.request.LinkActionRequest');
 
 class RedirectAction extends LinkActionRequest {
     /** @var string The URL this action will invoke */

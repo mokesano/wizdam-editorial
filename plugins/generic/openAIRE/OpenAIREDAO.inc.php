@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('classes.oai.OAIDAO');
+import('core.Modules.oai.OAIDAO');
 
 class OpenAIREDAO extends OAIDAO {
 
@@ -40,7 +40,7 @@ class OpenAIREDAO extends OAIDAO {
 
     /**
      * Set parent OAI object.
-     * @param JournalOAI $oai
+     * @param CoreOAI $oai
      */
     public function setOAI($oai) {
         $this->oai = $oai;

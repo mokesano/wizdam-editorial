@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class ManagerHandler extends Handler {
     
@@ -72,7 +72,7 @@ class ManagerHandler extends Handler {
         // Display a warning message if there is a new version of Wizdam available
         $newVersionAvailable = false;
         if (Config::getVar('general', 'show_upgrade_warning')) {
-            import('lib.wizdam.classes.site.VersionCheck');
+            import('core.Modules.site.VersionCheck');
             if ($latestVersion = VersionCheck::checkIfNewVersionExists()) {
                 $newVersionAvailable = true;
                 $templateMgr->assign('latestVersion', $latestVersion);
@@ -120,7 +120,7 @@ class ManagerHandler extends Handler {
         $journal = $request->getJournal();
         $user = $request->getUser();
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         
         // [SECURITY FIX] Amankan 'template' dan 'locale' (string key) trim()
         $templateKey = trim((string) ($request->getUserVar('template') ?? ''));

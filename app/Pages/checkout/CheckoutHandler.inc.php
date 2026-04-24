@@ -12,8 +12,8 @@ declare(strict_types=1);
  * @brief Controller antarmuka untuk 3-Tahap Checkout (Cart -> Billing -> Payment/Finalize).
  */
 
-import('classes.handler.Handler');
-import('lib.wizdam.classes.services.CheckoutService');
+import('core.Modules.handler.Handler');
+import('core.Modules.services.CheckoutService');
 
 class CheckoutHandler extends Handler {
     
@@ -64,7 +64,7 @@ class CheckoutHandler extends Handler {
         $this->setupTemplate($request);
         if (!$request) $request = Application::get()->getRequest();
         
-        import('lib.wizdam.classes.validation.ValidatorCSRF');
+        import('core.Modules.validation.ValidatorCSRF');
         // Token untuk form utama
         $submitToken = ValidatorCSRF::generateSignedToken('checkoutSubmit', []);
         // Token khusus untuk AJAX
@@ -170,7 +170,7 @@ class CheckoutHandler extends Handler {
 
         // 1. Validasi CSRF yang mewajibkan argumen
         $this->validate(null, $request);
-        import('lib.wizdam.classes.validation.ValidatorCSRF');
+        import('core.Modules.validation.ValidatorCSRF');
         $authToken = $request->getUserVar('checkoutAuthToken');
         if (!ValidatorCSRF::checkToken($authToken, 'checkoutAuth', [], true)) {
             $request->redirect(null, 'checkout', 'cart', [$articleId]);
@@ -277,7 +277,7 @@ class CheckoutHandler extends Handler {
         $this->setupTemplate($request);
         if (!$request) $request = Application::get()->getRequest();
         
-        import('lib.wizdam.classes.validation.ValidatorCSRF');
+        import('core.Modules.validation.ValidatorCSRF');
         $billingToken = ValidatorCSRF::generateSignedToken('billing', []);
 
         $queuedPaymentId = isset($args[0]) ? (int) $args[0] : 0;
@@ -347,7 +347,7 @@ class CheckoutHandler extends Handler {
         $summary = $this->checkoutService->calculateCartSummary($queuedPaymentId);
         
         // payment() — TAMBAHKAN sebelum assign
-        import('lib.wizdam.classes.validation.ValidatorCSRF');
+        import('core.Modules.validation.ValidatorCSRF');
         $finalizeToken = ValidatorCSRF::generateSignedToken('finalize', []);
 
         $templateMgr = TemplateManager::getManager($request);
@@ -381,7 +381,7 @@ class CheckoutHandler extends Handler {
             // JIKA SUKSES: 
             // Kita sudah punya Invoice ID dan Hash Keamanan. 
             // Lempar pengguna ke halaman BillingHandler untuk melihat Kuitansi Resmi dan Membayar!
-            import('lib.wizdam.classes.security.SecurityHashService');
+            import('core.Modules.security.SecurityHashService');
             $hashService = new SecurityHashService();
             
             $invoiceId = $invoice->getInvoiceId();

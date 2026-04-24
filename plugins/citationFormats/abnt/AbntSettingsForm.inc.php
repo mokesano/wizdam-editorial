@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @brief Form for journal managers to modify ABNT Citation plugin settings
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class AbntSettingsForm extends Form {
 
@@ -119,7 +119,7 @@ class AbntSettingsForm extends Form {
         }
 
         // Modern UX: Send notification confirming save
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationMgr = new NotificationManager();
         $user = Request::getUser();
         if ($user) {

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/FilterDAO.inc.php
+ * @file core.Modules.filter/FilterDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying Filter objects.
  */
 
-import('lib.wizdam.classes.filter.Filter');
+import('core.Modules.filter.Filter');
 
 class FilterDAO extends DAO {
     /** @var array names of additional settings for the currently persisted/retrieved filter */

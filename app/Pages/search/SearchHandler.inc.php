@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.search.ArticleSearch');
-import('classes.handler.Handler');
+import('core.Modules.search.ArticleSearch');
+import('core.Modules.handler.Handler');
 
 class SearchHandler extends Handler {
     
@@ -210,7 +210,7 @@ class SearchHandler extends Handler {
         $journal = $request->getJournal();
         $authorDao = DAORegistry::getDAO('AuthorDAO');
         
-        import('classes.user.UserDAO');
+        import('core.Modules.user.UserDAO');
         $userDao = DAORegistry::getDAO('UserDAO');
 
         if (isset($args[0]) && $args[0] == 'view') {
@@ -320,7 +320,7 @@ class SearchHandler extends Handler {
                 $journalId = $article->getJournalId();
 
                 if (!isset($issues[$issueId])) {
-                    import('classes.issue.IssueAction');
+                    import('core.Modules.issue.IssueAction');
                     $issue = $issueDao->getIssueById($issueId);
                     $issues[$issueId] = $issue;
                     $issuesUnavailable[$issueId] = IssueAction::subscriptionRequired($issue) && (!IssueAction::subscribedUser($journal, $issueId, $articleId) && !IssueAction::subscribedDomain($journal, $issueId, $articleId));
@@ -408,7 +408,7 @@ class SearchHandler extends Handler {
                 $authors[$key] = $author;
             }
 
-            import('lib.wizdam.classes.core.VirtualArrayIterator');
+            import('core.Modules.core.VirtualArrayIterator');
             $itemsPerPage = ($rangeInfo && $rangeInfo->isValid()) ? $rangeInfo->getCount() : max(1, count($authors));
             $authorsIterator = new VirtualArrayIterator($authors, $authorsFactory->getCount(), $authorsFactory->getPage(), $itemsPerPage);
 
@@ -465,7 +465,7 @@ class SearchHandler extends Handler {
             }
         }
         
-        import('lib.wizdam.classes.core.VirtualArrayIterator');
+        import('core.Modules.core.VirtualArrayIterator');
         // Masukkan array yang sudah diekstrak tadi ke Iterator
         $results = new VirtualArrayIterator($resultsArray, $totalResults, $rangeInfo->getPage(), $rangeInfo->getCount());
 

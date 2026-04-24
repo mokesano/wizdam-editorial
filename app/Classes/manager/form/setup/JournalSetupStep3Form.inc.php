@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/manager/form/setup/JournalSetupStep3Form.inc.php
+ * @file core.Modules.manager/form/setup/JournalSetupStep3Form.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.manager.form.setup.JournalSetupForm');
+import('core.Modules.manager.form.setup.JournalSetupForm');
 
 class JournalSetupStep3Form extends JournalSetupForm {
     
@@ -141,7 +141,7 @@ class JournalSetupStep3Form extends JournalSetupForm {
         $templateMgr->addJavaScript('public/js/core-library/functions/jqueryValidatorI18n.js');
 
         // Mail Logic
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $mail = new MailTemplate('SUBMISSION_ACK');
         if ($mail->isEnabled()) {
             $templateMgr->assign('submissionAckEnabled', true);

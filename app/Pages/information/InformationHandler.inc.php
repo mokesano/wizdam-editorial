@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class InformationHandler extends Handler {
     

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/mail/SMTPMailer.inc.php
+ * @file core.Modules.mail/SMTPMailer.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * TODO: TLS support
  */
 
-import('lib.wizdam.classes.mail.Mail');
+import('core.Modules.mail.Mail');
 
 class SMTPMailer {
 

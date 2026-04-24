@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/article/AuthorDAO.inc.php
+ * @file core.Modules.article/AuthorDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,9 +20,9 @@ declare(strict_types=1);
  * - Optimized Profile Mapping Logic
  */
 
-import('classes.article.Author');
-import('classes.article.Article');
-import('lib.wizdam.classes.submission.CoreAuthorDAO');
+import('core.Modules.article.Author');
+import('core.Modules.article.Article');
+import('core.Modules.submission.CoreAuthorDAO');
 
 class AuthorDAO extends CoreAuthorDAO {
     

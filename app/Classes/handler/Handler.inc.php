@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/Handler.inc.php
+ * @file core.Modules.core/Handler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,9 +15,9 @@ declare(strict_types=1);
  * WIZDAM EDITION: PHP 8 Compatibility (Clean Inheritance) & Modular Security
  */
 
-import('lib.wizdam.classes.handler.CoreHandler');
-import('classes.handler.validation.HandlerValidatorJournal');
-import('classes.handler.validation.HandlerValidatorSubmissionComment');
+import('core.Modules.handler.CoreHandler');
+import('core.Modules.handler.validation.HandlerValidatorJournal');
+import('core.Modules.handler.validation.HandlerValidatorSubmissionComment');
 
 class Handler extends CoreHandler {
     
@@ -76,7 +76,7 @@ class Handler extends CoreHandler {
         // PILAR 3: DEFAULT CAPTCHA (Fallback)
         // Hanya render Captcha gambar jika Turnstile DAN reCAPTCHA dimatikan
         if (!$turnstileEnabled && !$reCaptchaEnabled) {
-            import('lib.wizdam.classes.captcha.CaptchaManager');
+            import('core.Modules.captcha.CaptchaManager');
             $captchaManager = new CaptchaManager();
             $captchaEnabled = $captchaManager->isEnabledForContext($context);
             
@@ -172,7 +172,7 @@ class Handler extends CoreHandler {
 
         // --- LAYER 2: FALLBACK DEFAULT CAPTCHA ---
         // Dieksekusi HANYA JIKA Turnstile OFF dan reCAPTCHA OFF
-        import('lib.wizdam.classes.captcha.CaptchaManager');
+        import('core.Modules.captcha.CaptchaManager');
         $captchaManager = new CaptchaManager();
         $captchaEnabled = $captchaManager->isEnabledForContext($context);
         

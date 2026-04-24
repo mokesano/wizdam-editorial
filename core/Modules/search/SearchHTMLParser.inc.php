@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/search/SearchHTMLParser.inc.php
+ * @file core.Modules.search/SearchHTMLParser.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief Class to extract text from an HTML file.
  */
 
-import('lib.wizdam.classes.search.SearchFileParser');
-import('lib.wizdam.classes.core.CoreString');
+import('core.Modules.search.SearchFileParser');
+import('core.Modules.core.CoreString');
 
 class SearchHTMLParser extends SearchFileParser {
 

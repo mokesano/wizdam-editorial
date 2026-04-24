@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/subscription/form/SubscriptionPolicyForm.inc.php
+ * @file core.Modules.subscription/form/SubscriptionPolicyForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -17,7 +17,7 @@
 define('SUBSCRIPTION_OPEN_ACCESS_DELAY_MIN', '0');
 define('SUBSCRIPTION_OPEN_ACCESS_DELAY_MAX', '60');
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 
 class SubscriptionPolicyForm extends Form {

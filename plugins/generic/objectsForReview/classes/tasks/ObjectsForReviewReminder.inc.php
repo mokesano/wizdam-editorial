@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe. Resource Optimized.
  */
 
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 class ObjectsForReviewReminder extends ScheduledTask {
     
@@ -69,7 +69,7 @@ class ObjectsForReviewReminder extends ScheduledTask {
             'editorialContactSignature' => strip_tags($editor->getContactSignature())
         );
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $mail = new MailTemplate($emailKey);
         $mail->setFrom($editor->getEmail(), $editor->getFullName());
         $mail->addRecipient($author->getEmail(), $author->getFullName());

@@ -18,8 +18,8 @@ declare(strict_types=1);
  * DRY Principle, and N+1 Query Optimization.
  */
 
-import('classes.handler.Handler');
-import('lib.wizdam.classes.core.CoreString');
+import('core.Modules.handler.Handler');
+import('core.Modules.core.CoreString');
 
 class PoliciesHandler extends Handler {
 
@@ -350,7 +350,7 @@ class PoliciesHandler extends Handler {
         $templateMgr->assign('sectionEditorEntriesBySection', $sectionEditorEntriesBySection);
         $templateMgr->assign('pageTitle', 'about.sectionPolicies');
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('paymentConfigured', $paymentManager->isConfigured());
 
@@ -523,7 +523,7 @@ class PoliciesHandler extends Handler {
         $templateMgr->assign('customPolicies', $processedCustomItems);
 
         $router = $request->getRouter();
-        if ($router instanceof PKPPageRouter) {
+        if ($router instanceof CorePageRouter) {
             $requestedOp = $router->getRequestedOp($request);
 
             if ($requestedOp !== 'index') {

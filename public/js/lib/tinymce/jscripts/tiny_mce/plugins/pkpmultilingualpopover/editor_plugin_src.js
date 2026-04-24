@@ -10,18 +10,18 @@
 	tinymce.create('tinymce.plugins.PKPMultilingualPopover', {
 		init : function(ed, url) {
 			var t = this;
-			if(top.$.pkp.controllers.form.MultilingualInputHandler.receiveEditorEvent) {
+			if(top.$.core.controllers.form.MultilingualInputHandler.receiveEditorEvent) {
 				ed.onInit.add(function(ed) { t.blurEvent(ed); });
 
 				ed.onEvent.add(function(ed, event) {
-					top.$.pkp.controllers.form.MultilingualInputHandler.receiveEditorEvent(ed.editorId, event);
+					top.$.core.controllers.form.MultilingualInputHandler.receiveEditorEvent(ed.editorId, event);
 				});
 			}
 		},
 
 		blurEvent : function(ed) {
 			tinyMCE.dom.Event.add(ed.getWin(), "blur", function(event) {
-					top.$.pkp.controllers.form.MultilingualInputHandler.receiveEditorEvent(ed.editorId, event);
+					top.$.core.controllers.form.MultilingualInputHandler.receiveEditorEvent(ed.editorId, event);
 				});
 			},
 

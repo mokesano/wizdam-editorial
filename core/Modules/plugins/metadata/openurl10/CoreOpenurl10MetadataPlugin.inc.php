@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file plugins/metadata/openurl10/PKPOpenurl10MetadataPlugin.inc.php
+ * @file plugins/metadata/openurl10/CoreOpenurl10MetadataPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -22,7 +22,7 @@ declare(strict_types=1);
  * - Explicit Visibility & Return Types
  */
 
-import('lib.wizdam.classes.plugins.MetadataPlugin');
+import('core.Modules.plugins.MetadataPlugin');
 
 class CoreOpenurl10MetadataPlugin extends MetadataPlugin {
     
@@ -34,11 +34,11 @@ class CoreOpenurl10MetadataPlugin extends MetadataPlugin {
     }
 
     //
-    // Override protected template methods from PKPPlugin
+    // Override protected template methods from CorePlugin
     //
     
     /**
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      * @return string The name of this plugin
      */
     public function getName(): string {
@@ -46,7 +46,7 @@ class CoreOpenurl10MetadataPlugin extends MetadataPlugin {
     }
 
     /**
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string Human-readable name of plugin
      */
     public function getDisplayName(): string {
@@ -54,7 +54,7 @@ class CoreOpenurl10MetadataPlugin extends MetadataPlugin {
     }
 
     /**
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string Human-readable description of plugin
      */
     public function getDescription(): string {

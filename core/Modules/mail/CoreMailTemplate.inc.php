@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/mail/CoreMailTemplate.inc.php
+ * @file core.Modules.mail/CoreMailTemplate.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.mail.Mail');
+import('core.Modules.mail.Mail');
 
 define('MAIL_ERROR_INVALID_EMAIL', 0x000001);
 
@@ -182,7 +182,7 @@ class CoreMailTemplate extends Mail {
      * @return void
      */
     public function displayEditForm($formActionUrl, $hiddenFormParams = null, $alternateTemplate = null, $additionalParameters = []) {
-        import('lib.wizdam.classes.form.Form');
+        import('core.Modules.form.Form');
         $form = new Form($alternateTemplate != null ? $alternateTemplate : 'email/email.tpl');
         
         // [WIZDAM] Request Singleton
@@ -319,7 +319,7 @@ class CoreMailTemplate extends Mail {
      * @param int $userId
      */
     public function _handleAttachments($userId) {
-        import('classes.file.TemporaryFileManager');
+        import('core.Modules.file.TemporaryFileManager');
         $temporaryFileManager = new TemporaryFileManager();
 
         $this->attachmentsEnabled = true;
@@ -368,7 +368,7 @@ class CoreMailTemplate extends Mail {
      * @param int $userId
      */
     public function _clearAttachments($userId) {
-        import('classes.file.TemporaryFileManager');
+        import('core.Modules.file.TemporaryFileManager');
         $temporaryFileManager = new TemporaryFileManager();
 
         // [WIZDAM] Request Singleton

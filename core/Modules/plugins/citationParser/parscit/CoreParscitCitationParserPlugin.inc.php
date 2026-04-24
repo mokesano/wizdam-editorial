@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file plugins/citationParser/parscit/PKPParscitCitationParserPlugin.inc.php
+ * @file plugins/citationParser/parscit/CoreParscitCitationParserPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -22,7 +22,7 @@ declare(strict_types=1);
  * - Explicit Visibility & Return Types
  */
 
-import('classes.plugins.Plugin');
+import('core.Modules.plugins.Plugin');
 
 class CoreParscitCitationParserPlugin extends Plugin {
     
@@ -34,11 +34,11 @@ class CoreParscitCitationParserPlugin extends Plugin {
     }
 
     //
-    // Override protected template methods from PKPPlugin
+    // Override protected template methods from CorePlugin
     //
     
     /**
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @param string $category
      * @param string $path
      */
@@ -51,7 +51,7 @@ class CoreParscitCitationParserPlugin extends Plugin {
     }
 
     /**
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      * @return string
      */
     public function getName(): string {
@@ -59,7 +59,7 @@ class CoreParscitCitationParserPlugin extends Plugin {
     }
 
     /**
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -67,7 +67,7 @@ class CoreParscitCitationParserPlugin extends Plugin {
     }
 
     /**
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {

@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/codelist/CodelistItem.inc.php
+ * @file core.Modules.codelist/CodelistItem.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky

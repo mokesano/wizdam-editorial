@@ -16,21 +16,21 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.classes.linkAction = $.pkp.classes.linkAction || {};
+	$.core.classes.linkAction = $.core.classes.linkAction || {};
 
 
 
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.ObjectProxy
+	 * @extends $.core.classes.ObjectProxy
 	 *
 	 * @param {jQueryObject} $linkActionElement The element the link
 	 *  action was attached to.
 	 * @param {Object} options Configuration of the link action
 	 *  request.
 	 */
-	$.pkp.classes.linkAction.LinkActionRequest =
+	$.core.classes.linkAction.LinkActionRequest =
 			function($linkActionElement, options) {
 
 		// Save the reference to the link action element.
@@ -58,7 +58,7 @@
 	 * @protected
 	 * @type {Object}
 	 */
-	$.pkp.classes.linkAction.LinkActionRequest.prototype.
+	$.core.classes.linkAction.LinkActionRequest.prototype.
 			$linkActionElement = null;
 
 
@@ -67,7 +67,7 @@
 	 * @protected
 	 * @type {Object}
 	 */
-	$.pkp.classes.linkAction.LinkActionRequest.prototype.options = null;
+	$.core.classes.linkAction.LinkActionRequest.prototype.options = null;
 
 
 	//
@@ -81,7 +81,7 @@
 	 * @return {boolean} Should return false to stop event propagation.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.classes.linkAction.LinkActionRequest.prototype.activate =
+	$.core.classes.linkAction.LinkActionRequest.prototype.activate =
 			function(element, event) {
 
 		this.getLinkActionElement().trigger('actionStart');
@@ -96,7 +96,7 @@
 	 *
 	 * @return {boolean} Should return false to stop event propagation.
 	 */
-	$.pkp.classes.linkAction.LinkActionRequest.prototype.finish =
+	$.core.classes.linkAction.LinkActionRequest.prototype.finish =
 			function() {
 
 		// Execute the finish callback if there is one.
@@ -113,7 +113,7 @@
 	 * Get the link action request url.
 	 * @return {?string} The link action request url.
 	 */
-	$.pkp.classes.linkAction.LinkActionRequest.prototype.getUrl =
+	$.core.classes.linkAction.LinkActionRequest.prototype.getUrl =
 			function() {
 		if (this.options.url) {
 			return this.options.url;
@@ -130,7 +130,7 @@
 	 * Retrieve the link action request options.
 	 * @return {Object} The link action request options.
 	 */
-	$.pkp.classes.linkAction.LinkActionRequest.prototype.getOptions = function() {
+	$.core.classes.linkAction.LinkActionRequest.prototype.getOptions = function() {
 		return this.options;
 	};
 
@@ -139,7 +139,7 @@
 	 * Retrieve the element the link action was attached to.
 	 * @return {Object} The element the link action was attached to.
 	 */
-	$.pkp.classes.linkAction.LinkActionRequest.prototype.
+	$.core.classes.linkAction.LinkActionRequest.prototype.
 			getLinkActionElement = function() {
 
 		return this.$linkActionElement;

@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief DOAJ import/export plugin DOM functions for export
  */
 
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.xml.XMLCustomWriter');
 
 class DOAJExportDom {
 

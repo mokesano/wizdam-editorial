@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/notification/NotificationManager.inc.php
+ * @file core.Modules.notification/NotificationManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class for Notification Manager.
  */
 
-import('lib.wizdam.classes.notification.CoreNotificationManager');
+import('core.Modules.notification.CoreNotificationManager');
 
 class NotificationManager extends CoreNotificationManager {
     
@@ -359,7 +359,7 @@ class NotificationManager extends CoreNotificationManager {
         $journal = $request->getJournal();
         if (!$journal) return array();
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
 
         $settings = array(

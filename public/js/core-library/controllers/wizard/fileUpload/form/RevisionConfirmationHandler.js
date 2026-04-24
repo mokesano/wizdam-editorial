@@ -16,12 +16,12 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.AjaxFormHandler
+	 * @extends $.core.controllers.form.AjaxFormHandler
 	 *
 	 * @param {jQuery} $form The wrapped HTML form element.
 	 * @param {Object} options Form validation options.
 	 */
-	$.pkp.controllers.wizard.fileUpload.form.RevisionConfirmationHandler =
+	$.core.controllers.wizard.fileUpload.form.RevisionConfirmationHandler =
 			function($form, options) {
 
 		this.parent($form, options);
@@ -32,9 +32,9 @@
 		// Subscribe to wizard events.
 		this.bind('wizardAdvanceRequested', this.wizardAdvanceRequested);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.wizard.fileUpload.form.RevisionConfirmationHandler,
-			$.pkp.controllers.form.AjaxFormHandler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.wizard.fileUpload.form.RevisionConfirmationHandler,
+			$.core.controllers.form.AjaxFormHandler);
 
 
 	//
@@ -46,7 +46,7 @@
 	 * @param {HTMLElement} wizardElement The calling wizard.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.wizard.fileUpload.form.RevisionConfirmationHandler.
+	$.core.controllers.wizard.fileUpload.form.RevisionConfirmationHandler.
 			prototype.wizardAdvanceRequested = function(wizardElement, event) {
 
 		var $confirmationForm = this.getHtmlElement();
@@ -63,7 +63,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.wizard.fileUpload.form.RevisionConfirmationHandler.
+	$.core.controllers.wizard.fileUpload.form.RevisionConfirmationHandler.
 			prototype.handleResponse = function(formElement, jsonData) {
 
 		if (jsonData.status === true) {

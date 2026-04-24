@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/feature/OrderItemsFeature.inc.php
+ * @file core.Modules.controllers/grid/feature/OrderItemsFeature.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.controllers.grid.feature.GridFeature');
+import('core.Modules.controllers.grid.feature.GridFeature');
 
 class OrderItemsFeature extends GridFeature {
 
@@ -113,7 +113,7 @@ class OrderItemsFeature extends GridFeature {
         $grid = $args['grid'];
 
         if ($this->isOrderActionNecessary()) {
-            import('lib.wizdam.classes.linkAction.request.NullAction');
+            import('core.Modules.linkAction.request.NullAction');
             $grid->addAction(
                 new LinkAction(
                     'orderItems',
@@ -151,7 +151,7 @@ class OrderItemsFeature extends GridFeature {
             $row->setTemplate('controllers/grid/gridRow.tpl');
         }
 
-        import('lib.wizdam.classes.linkAction.request.NullAction');
+        import('core.Modules.linkAction.request.NullAction');
         $row->addAction(
             new LinkAction(
                 'moveItem',

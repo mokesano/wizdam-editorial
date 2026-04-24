@@ -24,7 +24,7 @@ declare(strict_types=1);
  * - Explicit Visibility & Type Hints
  */
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
 
 class Nlm30CitationSchemaMlaFilter extends Nlm30CitationSchemaCitationOutputFormatFilter {
     
@@ -48,7 +48,7 @@ class Nlm30CitationSchemaMlaFilter extends Nlm30CitationSchemaCitationOutputForm
      * @return string the class name of this filter
      */
     public function getClassName(): string {
-        return 'lib.wizdam.plugins.citationOutput.mla.filter.Nlm30CitationSchemaMlaFilter';
+        return 'core.Modules.plugins.citationOutput.mla.filter.Nlm30CitationSchemaMlaFilter';
     }
 
 

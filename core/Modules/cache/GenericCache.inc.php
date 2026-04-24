@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/cache/GenericCache.inc.php
+ * @file core.Modules.cache/GenericCache.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky

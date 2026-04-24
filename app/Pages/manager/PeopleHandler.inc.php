@@ -502,7 +502,7 @@ class PeopleHandler extends ManagerHandler {
             return $templateMgr->display('common/error.tpl');
         }
 
-        import('classes.manager.form.UserManagementForm');
+        import('core.Modules.manager.form.UserManagementForm');
 
         $templateMgr->assign('roleSettings', $this->retrieveRoleAssignmentPreferences($journal->getId()));
 
@@ -555,7 +555,7 @@ class PeopleHandler extends ManagerHandler {
         }
 
         if (!empty($oldUserIds) && !empty($newUserId)) {
-            import('classes.user.UserAction');
+            import('core.Modules.user.UserAction');
             foreach ($oldUserIds as $oldUserId) {
                 UserAction::mergeUsers($oldUserId, $newUserId);
             }
@@ -768,7 +768,7 @@ class PeopleHandler extends ManagerHandler {
             return $templateMgr->display('common/error.tpl');
         }
 
-        import('classes.manager.form.UserManagementForm');
+        import('core.Modules.manager.form.UserManagementForm');
 
         $userForm = new UserManagementForm($userId);
 

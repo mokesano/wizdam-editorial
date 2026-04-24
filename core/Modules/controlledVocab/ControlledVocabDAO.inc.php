@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controlledVocab/ControlledVocabDAO.inc.php
+ * @file core.Modules.controlledVocab/ControlledVocabDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying ControlledVocab objects.
  */
 
-import('lib.wizdam.classes.controlledVocab.ControlledVocab');
+import('core.Modules.controlledVocab.ControlledVocab');
 
 class ControlledVocabDAO extends DAO {
     

@@ -275,7 +275,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
             $articleData = array_slice($articleData, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
         }
         // Instantiate article iterator.
-        import('lib.wizdam.classes.core.VirtualArrayIterator');
+        import('core.Modules.core.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($articleData, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the article template.
@@ -324,7 +324,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
         // Additional locale file.
         AppLocale::requireComponents(array(LOCALE_COMPONENT_WIZDAM_EDITOR));
 
-        $this->import('classes.CrossRefExportDom');
+        $this->import('core.Modules.CrossRefExportDom');
         $dom = new CrossRefExportDom($request, $this, $journal, $this->getCache());
         $doc = $dom->generate($objects);
         if ($doc === false) {
@@ -348,7 +348,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
      */
     public function processMarkRegistered($request, $exportType, $objects, $journal): void {
         $articleDao = DAORegistry::getDAO('ArticleDAO');  /* @var $articleDao ArticleDAO */
-        $this->import('classes.CrossRefExportDom');
+        $this->import('core.Modules.CrossRefExportDom');
         $dom = new CrossRefExportDom($request, $this, $journal, $this->getCache());
         $statusUpdatePossible = $this->getSetting($journal->getId(), 'username') && $this->getSetting($journal->getId(), 'password');
         foreach($objects as $object) {
@@ -442,7 +442,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
      */
     public function updateDepositStatus($request, $journal, $article) {
         $articleDao = DAORegistry::getDAO('ArticleDAO');  /* @var $articleDao ArticleDAO */
-        import('lib.wizdam.classes.core.JSONManager');
+        import('core.Modules.core.JSONManager');
         $jsonManager = new JSONManager();
 
         // Prepare HTTP session.

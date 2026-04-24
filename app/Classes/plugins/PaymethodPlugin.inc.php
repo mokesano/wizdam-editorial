@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/plugins/PaymethodPlugin.inc.php
+ * @file core.Modules.plugins/PaymethodPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2006-2009 Gunther Eysenbach, Juan Pablo Alperin, MJ Suhonos
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Signature Fixes
  */
 
-import('classes.plugins.Plugin');
+import('core.Modules.plugins.Plugin');
 
 class PaymethodPlugin extends Plugin {
     

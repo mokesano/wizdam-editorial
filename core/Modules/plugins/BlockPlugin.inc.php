@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/plugins/BlockPlugin.inc.php
+ * @file core.Modules.plugins/BlockPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@ define('BLOCK_CONTEXT_LEFT_SIDEBAR',		0x00000001);
 define('BLOCK_CONTEXT_RIGHT_SIDEBAR',		0x00000002);
 define('BLOCK_CONTEXT_HOMEPAGE',		0x00000003);
 
-import('lib.wizdam.classes.plugins.LazyLoadPlugin');
+import('core.Modules.plugins.LazyLoadPlugin');
 
 class BlockPlugin extends LazyLoadPlugin {
     
@@ -30,12 +30,12 @@ class BlockPlugin extends LazyLoadPlugin {
     }
 
 	/*
-	 * Override public methods from PKPPlugin
+	 * Override public methods from CorePlugin
 	 */
 
 	/**
 	 * Register the plugin to its associated hooks.
-	 * @see PKPPlugin::register()
+	 * @see CorePlugin::register()
 	 * @param $category string
 	 * @param $path string
 	 * @return bool True if registration succeeded, false if it failed.
@@ -54,12 +54,12 @@ class BlockPlugin extends LazyLoadPlugin {
 	}
 
 	/*
-	 * Override protected methods from PKPPlugin
+	 * Override protected methods from CorePlugin
 	 */
 
 	/**
 	 * Get the sequence information for this plugin.
-	 * @see PKPPlugin::getSeq()
+	 * @see CorePlugin::getSeq()
 	 * NB: In the case of block plugins, higher numbers move
 	 * plugins down the page compared to other blocks.
 	 */

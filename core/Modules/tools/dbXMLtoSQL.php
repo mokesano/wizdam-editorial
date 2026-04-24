@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 require(__DIR__ . '/bootstrap.inc.php');
 
-import('lib.wizdam.classes.cliTool.XmlToSqlTool');
+import('core.Modules.cliTool.XmlToSqlTool');
 
 /** Default XML file to parse if none is specified */
 define('DATABASE_XML_FILE', 'dbscripts/xml/wizdam_schema.xml');

@@ -14,9 +14,9 @@ declare(strict_types=1);
  * @brief Native import/export plugin DOM functions for export
  */
 
-import('lib.wizdam.classes.xml.XMLCustomWriter');
-import('classes.file.PublicFileManager');
-import('classes.file.ArticleFileManager');
+import('core.Modules.xml.XMLCustomWriter');
+import('core.Modules.file.PublicFileManager');
+import('core.Modules.file.ArticleFileManager');
 
 class NativeExportDom {
 

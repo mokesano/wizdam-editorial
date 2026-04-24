@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * Optimized for Connection Pooling & Memory Management
  */
 
-import('lib.wizdam.classes.task.FileLoader');
+import('core.Modules.task.FileLoader');
 
 /** 
  * These are rules defined by the COUNTER project.

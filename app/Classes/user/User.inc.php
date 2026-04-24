@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/user/User.inc.php
+ * @file core.Modules.user/User.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Basic class describing users existing in the system.
  */
 
-import('lib.wizdam.classes.user.CoreUser');
+import('core.Modules.user.CoreUser');
 
 class User extends CoreUser {
 

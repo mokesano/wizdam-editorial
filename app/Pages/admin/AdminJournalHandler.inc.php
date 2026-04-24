@@ -76,7 +76,7 @@ class AdminJournalHandler extends AdminHandler {
         $this->validate();
         $this->setupTemplate();
 
-        import('classes.admin.form.JournalSiteSettingsForm');
+        import('core.Modules.admin.form.JournalSiteSettingsForm');
         $settingsForm = new JournalSiteSettingsForm(!isset($args) || empty($args) ? null : $args[0]);
 
         if ($settingsForm->isLocaleResubmit()) {
@@ -99,7 +99,7 @@ class AdminJournalHandler extends AdminHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.admin.form.JournalSiteSettingsForm');
+        import('core.Modules.admin.form.JournalSiteSettingsForm');
 
         $journalId = (int) $request->getUserVar('journalId');
         $settingsForm = new JournalSiteSettingsForm($journalId);
@@ -112,7 +112,7 @@ class AdminJournalHandler extends AdminHandler {
 
             $user = $request->getUser();
 
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification($user->getId());
             $request->redirect(null, null, 'journals');
@@ -140,13 +140,13 @@ class AdminJournalHandler extends AdminHandler {
             if ($journalDao->deleteJournalById($journalId)) {
                 // Delete journal file tree
                 // FIXME move this somewhere better.
-                import('lib.wizdam.classes.file.FileManager');
+                import('core.Modules.file.FileManager');
                 $fileManager = new FileManager();
 
                 $journalPath = Config::getVar('files', 'files_dir') . '/journals/' . $journalId;
                 $fileManager->rmtree($journalPath);
 
-                import('classes.file.PublicFileManager');
+                import('core.Modules.file.PublicFileManager');
                 $publicFileManager = new PublicFileManager();
                 $publicFileManager->rmtree($publicFileManager->getJournalFilesPath($journalId));
             }

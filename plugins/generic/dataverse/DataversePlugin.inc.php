@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored into a Clean Architecture Orchestration Hub for PHP 8.4
  */
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 // HTTP status codes
 define('DATAVERSE_PLUGIN_HTTP_STATUS_OK',         200);
@@ -56,19 +56,19 @@ class DataversePlugin extends GenericPlugin {
         
         if ($success && $this->getEnabled()) {
             // Register DAOs
-            $this->import('classes.DataverseStudyDAO');
+            $this->import('core.Modules.DataverseStudyDAO');
             $dataverseStudyDao = new DataverseStudyDAO($this->getName());
             DAORegistry::registerDAO('DataverseStudyDAO', $dataverseStudyDao);
 
-            $this->import('classes.DataverseFileDAO');          
+            $this->import('core.Modules.DataverseFileDAO');          
             $dataverseFileDao = new DataverseFileDAO($this->getName());         
             DAORegistry::registerDAO('DataverseFileDAO', $dataverseFileDao);
 
             // [WIZDAM ARCHITECTURE] Instantiate Delegators
-            $this->import('classes.api.DataverseApiClient');
-            $this->import('classes.services.StudyService');
-            $this->import('classes.hooks.FormHookDelegator');
-            $this->import('classes.hooks.UIHookDelegator');
+            $this->import('core.Modules.api.DataverseApiClient');
+            $this->import('core.Modules.services.StudyService');
+            $this->import('core.Modules.hooks.FormHookDelegator');
+            $this->import('core.Modules.hooks.UIHookDelegator');
 
             $apiClient = new DataverseApiClient($this);
             $studyService = new StudyService($this, $apiClient);
@@ -192,7 +192,7 @@ class DataversePlugin extends GenericPlugin {
         
         switch ($verb) {
             case 'connect':
-                $this->import('classes.form.DataverseAuthForm');
+                $this->import('core.Modules.form.DataverseAuthForm');
                 $form = new DataverseAuthForm($this, $journal->getId());
                 
                 if ($request->getUserVar('cancel')) {
@@ -213,7 +213,7 @@ class DataversePlugin extends GenericPlugin {
                 return true;
                 
             case 'select':
-                $this->import('classes.form.DataverseSelectForm');
+                $this->import('core.Modules.form.DataverseSelectForm');
                 $form = new DataverseSelectForm($this, $journal->getId());
                 
                 if ($request->getUserVar('cancel')) {
@@ -234,7 +234,7 @@ class DataversePlugin extends GenericPlugin {
                 return true;
                 
             case 'settings':
-                $this->import('classes.form.SettingsForm');
+                $this->import('core.Modules.form.SettingsForm');
                 $form = new SettingsForm($this, $journal->getId());
                 
                 if ($request->getUserVar('cancel')) {

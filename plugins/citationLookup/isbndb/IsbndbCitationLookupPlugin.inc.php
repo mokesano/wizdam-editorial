@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief ISBNdb citation database connector plug-in.
  */
 
-import('lib.wizdam.plugins.citationLookup.isbndb.PKPIsbndbCitationLookupPlugin');
+import('core.Modules.plugins.citationLookup.isbndb.CoreIsbndbCitationLookupPlugin');
 
 class IsbndbCitationLookupPlugin extends CoreIsbndbCitationLookupPlugin {
     

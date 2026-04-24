@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/handler/HandlerValidatorCustom.inc.php
+ * @file core.Modules.handler/HandlerValidatorCustom.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class to represent a page validation check.
  */
 
-import('lib.wizdam.classes.handler.validation.HandlerValidator');
+import('core.Modules.handler.validation.HandlerValidator');
 
 class HandlerValidatorCustom extends HandlerValidator {
     /** @var callable The user supplied function to call */

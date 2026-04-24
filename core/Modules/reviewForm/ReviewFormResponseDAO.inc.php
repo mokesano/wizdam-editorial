@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/reviewForm/ReviewFormResponseDAO.inc.php
+ * @file core.Modules.reviewForm/ReviewFormResponseDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, No References, Visibility, Hook Dispatch)
  */
 
-import ('lib.wizdam.classes.reviewForm.ReviewFormResponse');
+import ('core.Modules.reviewForm.ReviewFormResponse');
 
 class ReviewFormResponseDAO extends DAO {
 

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/cache/MemcacheCache.inc.php
+ * @file core.Modules.cache/MemcacheCache.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 8 Safe & Modernized
  */
 
-import('lib.wizdam.classes.cache.GenericCache');
+import('core.Modules.cache.GenericCache');
 
 // FIXME This should use connection pooling
 // WARNING: This cache MUST be loaded in batch, or else many cache

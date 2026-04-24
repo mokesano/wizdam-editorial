@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief COinS plugin class
  */
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class CoinsPlugin extends GenericPlugin {
     

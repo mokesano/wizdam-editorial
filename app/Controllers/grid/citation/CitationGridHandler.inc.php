@@ -15,11 +15,11 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.controllers.grid.citation.PKPCitationGridHandler');
+import('core.Modules.controllers.grid.citation.CoreCitationGridHandler');
 
 // import validation classes
-import('classes.handler.validation.HandlerValidatorJournal');
-import('lib.wizdam.classes.handler.validation.HandlerValidatorRoles');
+import('core.Modules.handler.validation.HandlerValidatorJournal');
+import('core.Modules.handler.validation.HandlerValidatorRoles');
 
 class CitationGridHandler extends CoreCitationGridHandler {
     
@@ -63,8 +63,8 @@ class CitationGridHandler extends CoreCitationGridHandler {
      */
     public function authorize($request, &$args, $roleAssignments) {
         // Make sure the user can edit the submission in the request.
-        import('classes.security.authorization.OjsSubmissionAccessPolicy');
-        $this->addPolicy(new OjsSubmissionAccessPolicy($request, $args, $roleAssignments, 'assocId'));
+        import('core.Modules.security.authorization.AppSubmissionAccessPolicy');
+        $this->addPolicy(new AppSubmissionAccessPolicy($request, $args, $roleAssignments, 'assocId'));
         return parent::authorize($request, $args, $roleAssignments);
     }
 
@@ -89,11 +89,11 @@ class CitationGridHandler extends CoreCitationGridHandler {
     }
 
     //
-    // Override methods from PKPCitationGridHandler
+    // Override methods from CoreCitationGridHandler
     //
 
     /**
-     * @see PKPCitationGridHandler::exportCitations()
+     * @see CoreCitationGridHandler::exportCitations()
      * @param array $args
      * @param CoreRequest $request
      */

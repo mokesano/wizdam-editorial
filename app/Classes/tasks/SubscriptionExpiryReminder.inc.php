@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/tasks/SubscriptionExpiryReminder.inc.php
+ * @file core.Modules.tasks/SubscriptionExpiryReminder.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class to perform automated reminders for reviewers.
  */
 
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 define('SECONDS_PER_WEEK', 7 * 24 * 60 * 60);
 
@@ -94,7 +94,7 @@ class SubscriptionExpiryReminder extends ScheduledTask {
             'subscriptionContactSignature' => $subscriptionContactSignature
         );
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $mail = new MailTemplate($emailKey, $journal->getPrimaryLocale(), false, $journal, false, true);
         $mail->setFrom($subscriptionEmail, $subscriptionName);
         $mail->addRecipient($user->getEmail(), $user->getFullName());

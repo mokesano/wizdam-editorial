@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/announcement/PKPAnnouncement.inc.php
+ * @file core.Modules.announcement/CoreAnnouncement.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  *
  * @class CoreAnnouncement
  * @ingroup announcement
- * @see AnnouncementDAO, PKPAnnouncementDAO
+ * @see AnnouncementDAO, CoreAnnouncementDAO
  *
  * @brief Basic class describing a announcement.
  *
@@ -39,9 +39,9 @@ class CoreAnnouncement extends DataObject {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPAnnouncement() {
+    public function CoreAnnouncement() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class PKPAnnouncement uses deprecated constructor parent::PKPAnnouncement(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class CoreAnnouncement uses deprecated constructor parent::CoreAnnouncement(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }

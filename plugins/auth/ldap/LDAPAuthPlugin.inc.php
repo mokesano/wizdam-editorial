@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 7.4/8.0+ (Strict Types, LDAP Objects, Signature Fixes)
  */
 
-import('classes.plugins.AuthPlugin');
+import('core.Modules.plugins.AuthPlugin');
 
 class LDAPAuthPlugin extends AuthPlugin {
     

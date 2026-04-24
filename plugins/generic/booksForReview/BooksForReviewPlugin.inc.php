@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe & Resource Optimized.
  */
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 define('BFR_MODE_FULL',         0x01);
 define('BFR_MODE_METADATA',     0x02);
@@ -52,8 +52,8 @@ class BooksForReviewPlugin extends GenericPlugin {
         $success = parent::register($category, $path);
         $this->addLocaleData();
         if ($success && $this->getEnabled()) {
-            $this->import('classes.BookForReviewDAO');
-            $this->import('classes.BookForReviewAuthorDAO');
+            $this->import('core.Modules.BookForReviewDAO');
+            $this->import('core.Modules.BookForReviewAuthorDAO');
 
             // [MODERNISASI] Hapus referensi &
             $bfrAuthorDao = new BookForReviewAuthorDAO($this->getName());
@@ -210,7 +210,7 @@ class BooksForReviewPlugin extends GenericPlugin {
 
                     if ($authorId == $userId) {
                         $status = $book->getStatus();
-                        $this->import('classes.BookForReview');
+                        $this->import('core.Modules.BookForReview');
 
                         if ($status == BFR_STATUS_ASSIGNED || $status == BFR_STATUS_MAILED) {
                             $book->setStatus(BFR_STATUS_SUBMITTED);
@@ -477,7 +477,7 @@ class BooksForReviewPlugin extends GenericPlugin {
             $book = $bfrDao->getSubmittedBookForReviewByArticle($journalId, $articleId);
 
             if ($book) {
-                import('classes.file.PublicFileManager');
+                import('core.Modules.file.PublicFileManager');
                 $publicFileManager = new PublicFileManager();
                 $baseCoverPagePath = Request::getBaseUrl() . '/';
                 $baseCoverPagePath .= $publicFileManager->getJournalFilesPath($journalId) . '/';

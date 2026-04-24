@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief "Custom" theme plugin
  */
 
-import('classes.plugins.ThemePlugin');
+import('core.Modules.plugins.ThemePlugin');
 
 class CustomThemePlugin extends ThemePlugin
 {
@@ -80,7 +80,7 @@ class CustomThemePlugin extends ThemePlugin
     {
         $journal = Request::getJournal();
         if ($journal && $this->getSetting($journal->getId(), 'customThemePerJournal')) {
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $fileManager = new PublicFileManager();
             return $fileManager->getJournalFilesPath($journal->getId());
         }

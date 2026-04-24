@@ -18,7 +18,7 @@ declare(strict_types=1);
  * - Added Google SSO Integration
  */
 
-import('lib.wizdam.pages.login.PKPLoginHandler');
+import('core.Modules.pages.login.CoreLoginHandler');
 
 class LoginHandler extends CoreLoginHandler {
 

@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/citation/Citation.inc.php
+ * @file core.Modules.citation/Citation.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -27,9 +27,9 @@ define('CITATION_PARSED', 0x03);
 define('CITATION_LOOKED_UP', 0x04);
 define('CITATION_APPROVED', 0x05);
 
-import('lib.wizdam.classes.core.DataObject');
-import('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter');
+import('core.Modules.core.DataObject');
+import('core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter');
 
 class Citation extends DataObject {
     /** @var int citation state (raw, edited, parsed, looked-up) */

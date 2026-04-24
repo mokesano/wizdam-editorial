@@ -25,7 +25,7 @@ define('NOTIFICATION_TYPE_SWORD_ENABLED',       NOTIFICATION_TYPE_PLUGIN_BASE + 
 define('NOTIFICATION_TYPE_SWORD_DEPOSIT_COMPLETE',      NOTIFICATION_TYPE_PLUGIN_BASE + 0x0000003);
 define('NOTIFICATION_TYPE_SWORD_AUTO_DEPOSIT_COMPLETE',     NOTIFICATION_TYPE_PLUGIN_BASE + 0x0000004);
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class SwordPlugin extends GenericPlugin {
 
@@ -165,9 +165,9 @@ class SwordPlugin extends GenericPlugin {
         // The most recent decision was an "Accept"; perform auto deposits.
         $journal = Request::getJournal();
         $depositPoints = $this->getSetting($journal->getId(), 'depositPoints');
-        import('classes.sword.OJSSwordDeposit');
+        import('core.Modules.sword.AppSwordDeposit');
 
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
 
         $sendDepositNotification = $this->getSetting($journal->getId(), 'allowAuthorSpecify') ? true : false;
@@ -201,7 +201,7 @@ class SwordPlugin extends GenericPlugin {
         if ($sendDepositNotification) {
             $submittingUser = $sectionEditorSubmission->getUser();
 
-            import('classes.mail.ArticleMailTemplate');
+            import('core.Modules.mail.ArticleMailTemplate');
             $contactName = $journal->getSetting('contactName');
             $contactEmail = $journal->getSetting('contactEmail');
             $mail = new ArticleMailTemplate($sectionEditorSubmission, 'SWORD_DEPOSIT_NOTIFICATION', null, null, $journal, true, true);
@@ -234,7 +234,7 @@ class SwordPlugin extends GenericPlugin {
         $type = $notification->getType();
         assert(isset($type));
 
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
 
         switch ($type) {

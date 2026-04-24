@@ -24,7 +24,7 @@ declare(strict_types=1);
  * - Explicit Type Hints
  */
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 
 if (!defined('PARSCIT_WEBSERVICE')) {
     define('PARSCIT_WEBSERVICE', 'http://aye.comp.nus.edu.sg/parsCit/parsCit.cgi');
@@ -51,7 +51,7 @@ class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFil
      * @return string
      */
     public function getClassName(): string {
-        return 'lib.wizdam.plugins.citationParser.parscit.filter.ParscitRawCitationNlm30CitationSchemaFilter';
+        return 'core.Modules.plugins.citationParser.parscit.filter.ParscitRawCitationNlm30CitationSchemaFilter';
     }
 
     //

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/citation/WebService.inc.php
+ * @file core.Modules.citation/WebService.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -21,7 +21,7 @@ define('WEBSERVICE_MICROSECONDS_BEFORE_RETRY', 100000);
 define('WEBSERVICE_RESPONSE_OK', 200);
 define('WEBSERVICE_RESPONSE_CREATED', 201);
 
-import('lib.wizdam.classes.webservice.WebServiceRequest');
+import('core.Modules.webservice.WebServiceRequest');
 
 class WebService {
     /** @var string */

@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/install/CoreInstall.inc.php
+ * @file core.Modules.install/CoreInstall.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -23,7 +23,7 @@ declare(strict_types=1);
  * - Update the config file with installation parameters.
  */
 
-import('lib.wizdam.classes.install.Installer');
+import('core.Modules.install.Installer');
 
 class CoreInstall extends Installer {
 
@@ -128,7 +128,7 @@ class CoreInstall extends Installer {
         } else {
             // Create required subdirectories
             $dirsToCreate = $this->getCreateDirectories();
-            import('lib.wizdam.classes.file.FileManager');
+            import('core.Modules.file.FileManager');
             $fileManager = new FileManager();
             foreach ($dirsToCreate as $dirName) {
                 $dirToCreate = $this->getParam('filesDir') . '/' . $dirName;
@@ -150,7 +150,7 @@ class CoreInstall extends Installer {
         } else {
             // Create required subdirectories
             $dirsToCreate = $this->getCreateDirectories();
-            import('lib.wizdam.classes.file.FileManager');
+            import('core.Modules.file.FileManager');
             $fileManager = new FileManager();
             foreach ($dirsToCreate as $dirName) {
                 $dirToCreate = $publicFilesDir . '/' . $dirName;

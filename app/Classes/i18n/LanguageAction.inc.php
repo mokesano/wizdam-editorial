@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/i18n/LanguageAction.inc.php
+ * @file core.Modules.i18n/LanguageAction.inc.php
  * @defgroup admin
  *
  * Copyright (c) 2013-2019 Simon Fraser University

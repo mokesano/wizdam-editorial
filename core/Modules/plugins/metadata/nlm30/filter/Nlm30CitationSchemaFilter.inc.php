@@ -15,19 +15,19 @@ declare(strict_types=1);
  * NLM citation metadata descriptions.
  */
 
-import('lib.wizdam.classes.filter.PersistableFilter');
-import('lib.wizdam.classes.filter.BooleanFilterSetting');
+import('core.Modules.filter.PersistableFilter');
+import('core.Modules.filter.BooleanFilterSetting');
 
-import('lib.wizdam.classes.metadata.MetadataDescription');
-import('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
-import('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema');
-import('lib.wizdam.plugins.metadata.nlm30.filter.PersonStringNlm30NameSchemaFilter');
-import('lib.wizdam.classes.metadata.DateStringNormalizerFilter');
+import('core.Modules.metadata.MetadataDescription');
+import('core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+import('core.Modules.plugins.metadata.nlm30.schema.Nlm30NameSchema');
+import('core.Modules.plugins.metadata.nlm30.filter.PersonStringNlm30NameSchemaFilter');
+import('core.Modules.metadata.DateStringNormalizerFilter');
 
-import('lib.wizdam.classes.webservice.XmlWebService');
+import('core.Modules.webservice.XmlWebService');
 
-import('lib.wizdam.classes.xml.XMLHelper');
-import('lib.wizdam.classes.xslt.XSLTransformationFilter');
+import('core.Modules.xml.XMLHelper');
+import('core.Modules.xslt.XSLTransformationFilter');
 
 class Nlm30CitationSchemaFilter extends PersistableFilter {
     /** @var array */
@@ -127,7 +127,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
      * @return array
      */
     public function constructSearchStrings($searchTemplates, $citationDescription) {
-        import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter');
+        import('core.Modules.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter');
         $personStringFilter = new Nlm30NameSchemaPersonStringFilter();
 
         $firstAuthorSurname = $firstAuthor = '';
@@ -352,7 +352,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
      * @return MetadataDescription|null
      */
     public function getNlm30CitationDescriptionFromMetadataArray($metadataArray) {
-        $citationDescription = new MetadataDescription('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
+        $citationDescription = new MetadataDescription('core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
 
         $metadataArray = arrayClean($metadataArray);
         if (!$citationDescription->setStatements($metadataArray)) {

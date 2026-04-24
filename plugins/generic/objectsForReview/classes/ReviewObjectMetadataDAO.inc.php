@@ -92,7 +92,7 @@ class ReviewObjectMetadataDAO extends DAO {
      */
     public function newDataObject() {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ReviewObjectMetadata');
+        $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
         return new ReviewObjectMetadata();
     }
 
@@ -351,7 +351,7 @@ class ReviewObjectMetadataDAO extends DAO {
      */
     public function getTextareaReviewObjectMetadataIds($reviewObjectTypeId) {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ReviewObjectMetadata');
+        $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
 
         $result = $this->retrieve(
             'SELECT metadata_id FROM review_object_metadata WHERE review_object_type_id = ? AND metadata_type = ? ORDER BY seq',

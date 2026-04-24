@@ -16,9 +16,9 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.submission.layoutEditor.LayoutEditorAction');
-import('classes.submission.proofreader.ProofreaderAction');
-import('classes.handler.Handler');
+import('core.Modules.submission.layoutEditor.LayoutEditorAction');
+import('core.Modules.submission.proofreader.ProofreaderAction');
+import('core.Modules.handler.Handler');
 
 class LayoutEditorHandler extends Handler {
     
@@ -195,7 +195,7 @@ class LayoutEditorHandler extends Handler {
             SUBMISSION_FIELD_DATE_PROOFREADING_COMPLETE => 'submissions.proofreadingComplete'
         ]);
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         // Note: register_function might be deprecated depending on Smarty version.
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
@@ -329,7 +329,7 @@ class LayoutEditorHandler extends Handler {
         $pageHierarchy = $subclass ? [[$request->url(null, 'user'), 'navigation.user'], [$request->url(null, 'layoutEditor'), 'user.role.layoutEditor']]
                 : [[$request->url(null, 'user'), 'navigation.user']];
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         $submissionCrumb = SectionEditorAction::submissionBreadcrumb($articleId, $parentPage, 'layoutEditor');
         if (isset($submissionCrumb)) {
             $pageHierarchy = array_merge($pageHierarchy, $submissionCrumb);
@@ -344,7 +344,7 @@ class LayoutEditorHandler extends Handler {
      */
     public function instructions($args, $request) {
         $this->setupTemplate();
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         if (!isset($args[0]) || !LayoutEditorAction::instructions($args[0], ['layout', 'proof', 'referenceLinking'])) {
             $request->redirect(null, $request->getRequestedPage());
         }

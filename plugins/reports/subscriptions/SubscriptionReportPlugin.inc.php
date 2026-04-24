@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Subscription report plugin
  */
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 
 class SubscriptionReportPlugin extends ReportPlugin {
     

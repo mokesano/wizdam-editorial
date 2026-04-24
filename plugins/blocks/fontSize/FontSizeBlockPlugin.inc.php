@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM STATUS] Legacy Feature. Consider Repurposing.
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class FontSizeBlockPlugin extends BlockPlugin {
 

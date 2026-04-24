@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/PKPSiteAccessPolicy.inc.php
+ * @file core.Modules.security/authorization/CoreSiteAccessPolicy.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
 
 define('SITE_ACCESS_ALL_ROLES', 0x01);
 
-import('lib.wizdam.classes.security.authorization.PolicySet');
+import('core.Modules.security.authorization.PolicySet');
 
 class CoreSiteAccessPolicy extends PolicySet {
     /** @var CoreRequest */
@@ -32,12 +32,12 @@ class CoreSiteAccessPolicy extends PolicySet {
         $siteRolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
         
         if(is_array($roleAssignments)) {
-            import('lib.wizdam.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+            import('core.Modules.security.authorization.RoleBasedHandlerOperationPolicy');
             foreach($roleAssignments as $role => $operations) {
                 $siteRolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
             }
         } elseif ($roleAssignments === SITE_ACCESS_ALL_ROLES) {
-            import('lib.wizdam.classes.security.authorization.PKPPublicAccessPolicy');
+            import('core.Modules.security.authorization.CorePublicAccessPolicy');
             $siteRolePolicy->addPolicy(new CorePublicAccessPolicy($request, $operations));
         } else {
             fatalError('Invalid role assignments!');
@@ -48,9 +48,9 @@ class CoreSiteAccessPolicy extends PolicySet {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPSiteAccessPolicy($request, $operations, $roleAssignments, $message = 'user.authorization.loginRequired') {
+    public function CoreSiteAccessPolicy($request, $operations, $roleAssignments, $message = 'user.authorization.loginRequired') {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPSiteAccessPolicy(). Please refactor to use parent::__construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreSiteAccessPolicy(). Please refactor to use parent::__construct().",
             E_USER_DEPRECATED
         );
         self::__construct($request, $operations, $roleAssignments, $message);

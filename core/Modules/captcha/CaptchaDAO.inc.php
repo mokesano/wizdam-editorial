@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/captcha/CaptchaDAO.inc.php
+ * @file core.Modules.captcha/CaptchaDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.captcha.Captcha');
+import('core.Modules.captcha.Captcha');
 
 class CaptchaDAO extends DAO {
     

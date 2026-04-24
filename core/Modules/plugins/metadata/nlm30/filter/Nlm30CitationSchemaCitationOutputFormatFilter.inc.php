@@ -16,8 +16,8 @@ declare(strict_types=1);
  * via smarty template.
  */
 
-import('lib.wizdam.classes.filter.TemplateBasedFilter');
-import('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+import('core.Modules.filter.TemplateBasedFilter');
+import('core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 
 // This is a brand name so doesn't have to be translated...
 define('GOOGLE_SCHOLAR_TAG', '[Google Scholar]');

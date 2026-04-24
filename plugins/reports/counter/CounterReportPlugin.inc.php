@@ -17,13 +17,13 @@ declare(strict_types=1);
 define('APP_METRIC_TYPE_LEGACY_COUNTER', 'wizdam::legacyCounterPlugin');
 define('COUNTER_CLASS_SUFFIX', '.inc.php');
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 import('plugins.reports.counter.classes.CounterReport');
 
 class CounterReportPlugin extends ReportPlugin {
 
     /**
-     * @see PKPPlugin::register($category, $path)
+     * @see CorePlugin::register($category, $path)
      */
     public function register(string $category, string $path, $mainContextId = null): bool {
         $success = parent::register($category, $path, $mainContextId);
@@ -35,7 +35,7 @@ class CounterReportPlugin extends ReportPlugin {
     }
 
     /**
-     * @see PKPPlugin::getLocaleFilename($locale)
+     * @see CorePlugin::getLocaleFilename($locale)
      */
     public function getLocaleFilename($locale) {
         $localeFilenames = parent::getLocaleFilename($locale);
@@ -51,28 +51,28 @@ class CounterReportPlugin extends ReportPlugin {
     }
 
     /**
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      */
     public function getName(): string {
         return 'CounterReportPlugin';
     }
 
     /**
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      */
     public function getDisplayName(): string {
         return __('plugins.reports.counter');
     }
 
     /**
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      */
     public function getDescription(): string {
         return __('plugins.reports.counter.description');
     }
 
     /**
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      */
     public function getTemplatePath($inCore = false): string {
         return parent::getTemplatePath($inCore) . 'templates/';
@@ -173,7 +173,7 @@ class CounterReportPlugin extends ReportPlugin {
     public function display($args, $request) {
         parent::display($args, $request);
         // We need these constants
-        import('classes.statistics.StatisticsHelper');
+        import('core.Modules.statistics.StatisticsHelper');
 
         $this->setBreadcrumbs();
         $available = $this->getValidReports();
@@ -238,7 +238,7 @@ class CounterReportPlugin extends ReportPlugin {
                         $errormessage = __('plugins.reports.counter.error.badRequest');
                     }
                     $user = Request::getUser();
-                    import('classes.notification.NotificationManager');
+                    import('core.Modules.notification.NotificationManager');
                     $notificationManager = new NotificationManager();
                     $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => $errormessage]);
             }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/subscription/SubscriptionDAO.inc.php
+ * @file core.Modules.subscription/SubscriptionDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,8 +15,8 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.subscription.Subscription');
-import('classes.subscription.SubscriptionType');
+import('core.Modules.subscription.Subscription');
+import('core.Modules.subscription.SubscriptionType');
 
 define('SUBSCRIPTION_USER',             0x01);
 define('SUBSCRIPTION_MEMBERSHIP',        0x02);

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/signoff/PKPSignoffDAO.inc.php
+ * @file core.Modules.signoff/CoreSignoffDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - Null Safety
  */
 
-import('lib.wizdam.classes.signoff.Signoff');
+import('core.Modules.signoff.Signoff');
 
 class CoreSignoffDAO extends DAO {
     
@@ -34,9 +34,9 @@ class CoreSignoffDAO extends DAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPSignoffDAO() {
+    public function CoreSignoffDAO() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class PKPSignoffDAO uses deprecated constructor parent::PKPSignoffDAO(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class CoreSignoffDAO uses deprecated constructor parent::CoreSignoffDAO(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }

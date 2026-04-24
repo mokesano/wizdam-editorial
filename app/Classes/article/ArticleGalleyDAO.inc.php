@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/article/ArticleGalleyDAO.inc.php
+ * @file core.Modules.article/ArticleGalleyDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,8 +20,8 @@ declare(strict_types=1);
  * - Hook Dispatch
  */
 
-import('classes.article.ArticleGalley');
-import('classes.article.ArticleHTMLGalley');
+import('core.Modules.article.ArticleGalley');
+import('core.Modules.article.ArticleHTMLGalley');
 
 class ArticleGalleyDAO extends DAO {
     /** Helper file DAOs. */

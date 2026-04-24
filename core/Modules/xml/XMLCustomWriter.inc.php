@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/xml/XMLCustomWriter.inc.php
+ * @file core.Modules.xml/XMLCustomWriter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Static Methods, No References)
  */
 
-import ('lib.wizdam.classes.xml.XMLNode');
-import ('lib.wizdam.classes.xml.XMLComment');
+import ('core.Modules.xml.XMLNode');
+import ('core.Modules.xml.XMLComment');
 
 class XMLCustomWriter {
     

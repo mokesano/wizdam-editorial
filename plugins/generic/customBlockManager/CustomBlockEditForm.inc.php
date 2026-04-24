@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Form for editing individual custom block content.
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class CustomBlockEditForm extends Form {
 
@@ -129,7 +129,7 @@ class CustomBlockEditForm extends Form {
         $templateMgr = TemplateManager::getManager();
         $additionalHeadData = $templateMgr->get_template_vars('additionalHeadData');
         
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         
         $baseUrl = Request::getBaseUrl();

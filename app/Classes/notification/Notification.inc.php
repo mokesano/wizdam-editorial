@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/notification/Notification.inc.php
+ * @file core.Modules.notification/Notification.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -48,8 +48,8 @@ define('NOTIFICATION_TYPE_BOOK_AUTHOR_ASSIGNED',    0x3000008);
 define('NOTIFICATION_TYPE_BOOK_AUTHOR_DENIED',      0x3000009);
 define('NOTIFICATION_TYPE_BOOK_AUTHOR_REMOVED',     0x300000A);
 
-import('lib.wizdam.classes.notification.CoreNotification');
-import('lib.wizdam.classes.notification.NotificationDAO');
+import('core.Modules.notification.CoreNotification');
+import('core.Modules.notification.NotificationDAO');
 
 class Notification extends CoreNotification {
 

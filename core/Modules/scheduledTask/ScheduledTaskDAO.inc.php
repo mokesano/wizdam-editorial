@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/scheduledTask/ScheduledTaskDAO.inc.php
+ * @file core.Modules.scheduledTask/ScheduledTaskDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Database-backed Task Registry (PHP 7.4/8.x Compatible)
  */
 
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 class ScheduledTaskDAO extends DAO {
     

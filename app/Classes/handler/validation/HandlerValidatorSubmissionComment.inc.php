@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/handler/HandlerValidatorSubmissionComment.inc.php
+ * @file core.Modules.handler/HandlerValidatorSubmissionComment.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class to validate that a comment exists (by id) and that the current user has access
  */
 
-import('lib.wizdam.classes.handler.validation.HandlerValidator');
+import('core.Modules.handler.validation.HandlerValidator');
 
 class HandlerValidatorSubmissionComment extends HandlerValidator {
     /** @var int */

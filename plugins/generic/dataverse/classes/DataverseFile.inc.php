@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized for PHP 8.4, Strict Typing, and Null-Safety.
  */
 
-// [WIZDAM FIX] import('classes.article.SuppFile') dihapus karena tidak relevan dengan DataObject
+// [WIZDAM FIX] import('core.Modules.article.SuppFile') dihapus karena tidak relevan dengan DataObject
 
 class DataverseFile extends DataObject {
     

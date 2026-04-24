@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class DOIExportSettingsForm extends Form {
 

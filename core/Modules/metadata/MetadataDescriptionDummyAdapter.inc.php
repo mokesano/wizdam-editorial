@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/metadata/MetadataDescriptionDummyAdapter.inc.php
+ * @file core.Modules.metadata/MetadataDescriptionDummyAdapter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * description object for direct metadata description persistence.
  */
 
-import('lib.wizdam.classes.metadata.MetadataDataObjectAdapter');
+import('core.Modules.metadata.MetadataDataObjectAdapter');
 
 class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
     
@@ -53,7 +53,7 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
      * @see PersistableFilter::getClassName()
      */
     public function getClassName() {
-        return 'lib.wizdam.classes.metadata.MetadataDescriptionDummyAdapter';
+        return 'core.Modules.metadata.MetadataDescriptionDummyAdapter';
     }
 
 

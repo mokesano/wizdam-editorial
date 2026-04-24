@@ -19,7 +19,7 @@ declare(strict_types=1);
  * - Strict Syntax Compliance.
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class ExternalFeedBlockPlugin extends BlockPlugin {
     
@@ -127,7 +127,7 @@ class ExternalFeedBlockPlugin extends BlockPlugin {
         $externalFeedDao = DAORegistry::getDAO('ExternalFeedDAO');
         
         $plugin->import('simplepie.SimplePie');
-        import('lib.wizdam.classes.core.CoreString');
+        import('core.Modules.core.CoreString');
     
         $feeds = $externalFeedDao->getExternalFeedsByJournalId($journal->getId());
         $externalFeeds = array();

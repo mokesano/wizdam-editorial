@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/checkout/services/InvoiceService.inc.php
+ * @file core.Modules.classes/checkout/services/InvoiceService.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -13,8 +13,8 @@ declare(strict_types=1);
  * @brief Jantung pengelola tagihan. Menangani bisnis proses pembayaran.
  */
 
-import('lib.wizdam.classes.checkout.Invoice');
-import('lib.wizdam.classes.checkout.InvoiceDAO');
+import('core.Modules.checkout.Invoice');
+import('core.Modules.checkout.InvoiceDAO');
 
 class InvoiceService {
     

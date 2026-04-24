@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/tasks/OpenAccessNotification.inc.php
+ * @file core.Modules.tasks/OpenAccessNotification.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief Class to perform automated email notifications when an issue becomes open access.
  */
 
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 class OpenAccessNotification extends ScheduledTask {
 
@@ -56,7 +56,7 @@ class OpenAccessNotification extends ScheduledTask {
     public function sendNotification ($users, $journal, $issue) {
         if ($users->getCount() != 0) {
 
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $email = new MailTemplate('OPEN_ACCESS_NOTIFY', $journal->getPrimaryLocale(), false, $journal, false, true);
 
             $email->setSubject($email->getSubject($journal->getPrimaryLocale()));

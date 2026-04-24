@@ -20,10 +20,10 @@ declare(strict_types=1);
  */
 
 // import the base Handler
-import('lib.wizdam.classes.handler.CoreHandler');
+import('core.Modules.handler.CoreHandler');
 
 // import JSON class for API responses
-import('lib.wizdam.classes.core.JSONMessage');
+import('core.Modules.core.JSONMessage');
 
 class UserApiHandler extends CoreHandler {
     
@@ -58,7 +58,7 @@ class UserApiHandler extends CoreHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('lib.wizdam.classes.security.authorization.PKPSiteAccessPolicy');
+        import('core.Modules.security.authorization.CoreSiteAccessPolicy');
         $this->addPolicy(new CoreSiteAccessPolicy(
             $request,
             ['updateUserMessageState'],

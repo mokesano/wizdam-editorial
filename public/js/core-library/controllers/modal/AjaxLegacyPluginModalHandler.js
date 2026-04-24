@@ -22,20 +22,20 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.modal.AjaxModalHandler
+	 * @extends $.core.controllers.modal.AjaxModalHandler
 	 *
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler =
+	$.core.controllers.modal.AjaxLegacyPluginModalHandler =
 			function($handledElement, options) {
 		this.parent($handledElement, options);
 
 		this.bind('refreshLegacyPluginModal',
 				this.callbackWrapper(this.refreshModalHandler_));
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.modal.AjaxLegacyPluginModalHandler,
-			$.pkp.controllers.modal.AjaxModalHandler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.modal.AjaxLegacyPluginModalHandler,
+			$.core.controllers.modal.AjaxModalHandler);
 
 
 	//
@@ -46,14 +46,14 @@
 	 * @private
 	 * @type {string}
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.url_ = null;
+	$.core.controllers.modal.AjaxLegacyPluginModalHandler.prototype.url_ = null;
 
 
 	//
 	// Protected methods.
 	//
 	/** @inheritDoc */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.dialogOpen =
+	$.core.controllers.modal.AjaxLegacyPluginModalHandler.prototype.dialogOpen =
 			function(dialogElement) {
 		// Make sure that the modal will remain on screen.
 		var $dialogElement = $(dialogElement);
@@ -81,7 +81,7 @@
 	 * @param {Boolean} submit Use the url to submit the forms inside this
 	 *  modal?
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.refreshModal_ =
+	$.core.controllers.modal.AjaxLegacyPluginModalHandler.prototype.refreshModal_ =
 			function(url, content, submit) {
 
 		var $dialogElement = $(this.getHtmlElement());
@@ -117,7 +117,7 @@
 	 * Modal refresh callback. Transform html elements.
 	 * @private
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
+	$.core.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
 			refreshModalCallback_ = function() {
 		var $dialogElement = this.getHtmlElement();
 
@@ -125,7 +125,7 @@
 		var $newTitle = $('h2', $dialogElement);
 		if ($newTitle.length > 0) {
 			var $currentTitle = $dialogElement.parent()
-					.find('.pkp_controllers_modal_titleBar h2');
+					.find('.core_controllers_modal_titleBar h2');
 			$currentTitle.replaceWith($newTitle);
 		}
 
@@ -201,7 +201,7 @@
 	 * @param {Event} event Incoming event.
 	 * @param {string} url Modal refresh URL.
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.
+	$.core.controllers.modal.AjaxLegacyPluginModalHandler.
 			prototype.refreshModalHandler_ =
 			function($context, modalHtmlElement, event, url) {
 		// Refresh modal using the event data as url to fetch the content.
@@ -229,7 +229,7 @@
 	 * @param {Object} clickLinkHandler The function to be called when
 	 * the click event is triggered.
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.bindClickEvent_ =
+	$.core.controllers.modal.AjaxLegacyPluginModalHandler.prototype.bindClickEvent_ =
 			function(contextElement, linkElement, clickLinkHandler) {
 		var $link = $(linkElement);
 
@@ -263,7 +263,7 @@
 	 * @param {Object} onclickHandler On-click handler.
 	 * @return {boolean} Event handling status.
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
+	$.core.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
 			clickLinkHandler_ = function(contextElement, event, onclickHandler) {
 		event.preventDefault();
 
@@ -304,7 +304,7 @@
 	 * @param {Event} event Incoming event.
 	 * @return {boolean} Event handling status.
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
+	$.core.controllers.modal.AjaxLegacyPluginModalHandler.prototype.
 			submitFormHandler_ = function(form, event) {
 		// Get the element that triggered the event.
 		var $form = $(form);
@@ -326,7 +326,7 @@
 	 * @param {Object} element Containing element.
 	 * @param {Object} jsonData Server response.
 	 */
-	$.pkp.controllers.modal.AjaxLegacyPluginModalHandler.prototype.handleResponse_ =
+	$.core.controllers.modal.AjaxLegacyPluginModalHandler.prototype.handleResponse_ =
 			function(element, jsonData) {
 
 		jsonData = this.handleJson(jsonData);

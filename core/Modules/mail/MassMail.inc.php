@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/mail/MassMail.inc.php
+ * @file core.Modules.mail/MassMail.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.mail.MailTemplate');
+import('core.Modules.mail.MailTemplate');
 
 class MassMail extends MailTemplate {
     /** @var callable|null */

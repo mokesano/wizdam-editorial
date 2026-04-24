@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class UsageStatsPlugin extends GenericPlugin {
 
@@ -59,7 +59,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
 
     //
-    // Implement methods from PKPPlugin.
+    // Implement methods from CorePlugin.
     //
     /**
      * Registers the plugin.
@@ -111,7 +111,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Get the plugin display name.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -120,7 +120,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Get the plugin description.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {
@@ -129,7 +129,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Determine whether this is a site plugin.
-     * @see PKPPlugin::isSitePlugin()
+     * @see CorePlugin::isSitePlugin()
      * @return bool
      */
     public function isSitePlugin(): bool {
@@ -138,7 +138,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Get the path to the plugin settings file.
-     * @see PKPPlugin::getInstallSitePluginSettingsFile()
+     * @see CorePlugin::getInstallSitePluginSettingsFile()
      * @return string|null
      */
     public function getInstallSitePluginSettingsFile(): ?string {
@@ -147,7 +147,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Get the path to the plugin schema file.
-     * @see PKPPlugin::getInstallSchemaFile()
+     * @see CorePlugin::getInstallSchemaFile()
      * @return string|null
      */
     public function getInstallSchemaFile(): ?string {
@@ -156,7 +156,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Get the template path for this plugin.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @return string
      */
     public function getTemplatePath(): string {
@@ -165,7 +165,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Handle management verbs.
-     * @see PKPPlugin::manage()
+     * @see CorePlugin::manage()
      * @param $verb string
      * @param $args array
      * @param $message string
@@ -259,7 +259,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
     /**
      * Callback to load the usage stats handler.
-     * @see PKPPageRouter::route()
+     * @see CorePageRouter::route()
      * @param $hookName string
      * @param $args array
      * @return boolean
@@ -371,7 +371,7 @@ class UsageStatsPlugin extends GenericPlugin {
     * @return string
     */
     public function getFilesPath() {
-        import('lib.wizdam.classes.file.PrivateFileManager');
+        import('core.Modules.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         return realpath($fileMgr->getBasePath()) . DIRECTORY_SEPARATOR . 'usageStats';
@@ -465,7 +465,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
         $usageLogEntry = implode(' ', $desiredParams) . PHP_EOL;
 
-        import('lib.wizdam.classes.file.PrivateFileManager');
+        import('core.Modules.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         // Get the current day filename.

@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
  
  
-import('lib.wizdam.classes.db.DAO');
+import('core.Modules.db.DAO');
 
 class StaticPagesDAO extends DAO {
     

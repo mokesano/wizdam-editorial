@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ReviewObjectTypeForm extends Form {
 
@@ -38,7 +38,7 @@ class ReviewObjectTypeForm extends Form {
         $journal = Request::getJournal();
         $journalId = $journal->getId();
 
-        $ofrPlugin->import('classes.ReviewObjectType');
+        $ofrPlugin->import('core.Modules.ReviewObjectType');
         $reviewObjectTypeDao = DAORegistry::getDAO('ReviewObjectTypeDAO');
         if (!empty($typeId)) {
             $this->reviewObjectType = $reviewObjectTypeDao->getById((int) $typeId, $journalId);
@@ -116,7 +116,7 @@ class ReviewObjectTypeForm extends Form {
         $journal = Request::getJournal();
         $journalId = $journal->getId();
 
-        $ofrPlugin->import('classes.ReviewObjectType');
+        $ofrPlugin->import('core.Modules.ReviewObjectType');
         $reviewObjectTypeDao = DAORegistry::getDAO('ReviewObjectTypeDAO');
         
         if ($this->reviewObjectType == null) {
@@ -134,7 +134,7 @@ class ReviewObjectTypeForm extends Form {
             $reviewObjectTypeDao->updateObject($reviewObjectType);
         } else {
             //install common metadata
-            $ofrPlugin->import('classes.ReviewObjectMetadata');
+            $ofrPlugin->import('core.Modules.ReviewObjectMetadata');
             $multipleOptionsTypes = ReviewObjectMetadata::getMultipleOptionsTypes();
             $dtdTypes = ReviewObjectMetadata::getMetadataDTDTypes();
 

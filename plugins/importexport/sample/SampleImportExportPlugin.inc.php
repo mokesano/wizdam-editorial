@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Sample import/export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
+import('core.Modules.plugins.ImportExportPlugin');
 
 class SampleImportExportPlugin extends ImportExportPlugin {
 

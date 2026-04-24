@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM] MODERNIZED FOR PHP 8.x compatibility.
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ObjectForReviewAssignmentForm extends Form {
 
@@ -117,7 +117,7 @@ class ObjectForReviewAssignmentForm extends Form {
      */
     public function execute($object = null) {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ObjectForReviewAssignment');
+        $ofrPlugin->import('core.Modules.ObjectForReviewAssignment');
 
         $journal = Request::getJournal();
         $journalId = $journal->getId();

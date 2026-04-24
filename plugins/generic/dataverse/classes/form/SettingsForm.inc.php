@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized for PHP 8.4 with Dependency Injection.
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 import('plugins.generic.tinymce.TinyMCEPlugin');
 
 class SettingsForm extends Form {
@@ -205,7 +205,7 @@ class SettingsForm extends Form {
         if ($this->getData('fetchTermsOfUse') === "0") return true;
 
         // [WIZDAM FIX] Inject DataverseApiClient to fetch terms of use
-        $this->_plugin->import('classes.api.DataverseApiClient');
+        $this->_plugin->import('core.Modules.api.DataverseApiClient');
         $apiClient = new DataverseApiClient($this->_plugin);
         $dvTermsOfUse = $apiClient->getTermsOfUse($this->_journalId);
         

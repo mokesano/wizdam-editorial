@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/trends/WizdamTrendsManager.inc.php
+ * @file core.Modules.trends/WizdamTrendsManager.inc.php
  *
  * [WIZDAM] - Service class untuk mempopulasi data Trends.
  * Memastikan assignment Smarty 100% presisi dengan legacy WIZDAM:

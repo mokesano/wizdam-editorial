@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/plugins/PubIdPlugin.inc.php
+ * @file core.Modules.plugins/PubIdPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Abstract class for public identifiers plugins
  */
 
-import('classes.plugins.Plugin');
+import('core.Modules.plugins.Plugin');
 
 class PubIdPlugin extends Plugin {
 
@@ -40,12 +40,12 @@ class PubIdPlugin extends Plugin {
     }
 
     //
-    // Implement template methods from PKPPlugin
+    // Implement template methods from CorePlugin
     //
     
     /**
      * Registers the plugin and its hooks.
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @param string $category
      * @param string $path
      * @param int|null $mainContextId
@@ -66,7 +66,7 @@ class PubIdPlugin extends Plugin {
 
     /**
      * Get the management verbs for this plugin.
-     * @see PKPPlugin::getManagementVerbs()
+     * @see CorePlugin::getManagementVerbs()
      * @param array $verbs
      * @param Request|null $request
      * @return array
@@ -96,7 +96,7 @@ class PubIdPlugin extends Plugin {
 
     /**
      * Handle management actions for this plugin.
-     * @see PKPPlugin::manage()
+     * @see CorePlugin::manage()
      * @param string $verb
      * @param array $args
      * @param string|null $message

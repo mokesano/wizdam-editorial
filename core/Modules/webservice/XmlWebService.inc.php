@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/citation/XmlWebService.inc.php
+ * @file core.Modules.citation/XmlWebService.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, No References, Visibility)
  */
 
-import('lib.wizdam.classes.webservice.WebService');
-import('lib.wizdam.classes.xslt.XSLTransformer');
+import('core.Modules.webservice.WebService');
+import('core.Modules.xslt.XSLTransformer');
 
 class XmlWebService extends WebService {
     /** @var integer */

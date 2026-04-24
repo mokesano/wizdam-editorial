@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/FilterHelper.inc.php
+ * @file core.Modules.filter/FilterHelper.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -25,7 +25,7 @@ class FilterHelper {
     public static function installFilterGroups($filterGroupsNode) {
         // Install filter groups.
         $filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
-        import('lib.wizdam.classes.filter.FilterGroup');
+        import('core.Modules.filter.FilterGroup');
 
         foreach ($filterGroupsNode->getChildren() as $filterGroupNode) { /* @var $filterGroupNode XMLNode */
             $filterGroupSymbolic = $filterGroupNode->getAttribute('symbolic');

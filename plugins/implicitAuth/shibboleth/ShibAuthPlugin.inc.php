@@ -15,7 +15,7 @@ declare(strict_types=1);
  * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.plugins.ImplicitAuthPlugin');
+import('core.Modules.plugins.ImplicitAuthPlugin');
 
 class ShibAuthPlugin extends ImplicitAuthPlugin {
 

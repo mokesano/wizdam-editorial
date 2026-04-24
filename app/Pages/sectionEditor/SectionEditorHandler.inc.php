@@ -19,8 +19,8 @@ declare(strict_types=1);
 // Filter section
 define('FILTER_SECTION_ALL', 0);
 
-import('classes.submission.sectionEditor.SectionEditorAction');
-import('classes.handler.Handler');
+import('core.Modules.submission.sectionEditor.SectionEditorAction');
+import('core.Modules.handler.Handler');
 
 class SectionEditorHandler extends Handler {
     /** @var object|null submission associated with the request */
@@ -211,7 +211,7 @@ class SectionEditorHandler extends Handler {
             SUBMISSION_FIELD_DATE_PROOFREADING_COMPLETE => 'submissions.proofreadingComplete'
         ]);
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         $templateMgr->register_function('print_issue_id', [$issueAction, 'smartyPrintIssueId']);
         $templateMgr->assign('sort', $sort);
@@ -252,7 +252,7 @@ class SectionEditorHandler extends Handler {
             ? [[$request->url(null, 'user'), 'navigation.user'], [$request->url(null, $roleSymbolic), $roleKey], [$request->url(null, $roleSymbolic), 'article.submissions']]
             : [[$request->url(null, 'user'), 'navigation.user'], [$request->url(null, $roleSymbolic), $roleKey]];
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         $submissionCrumb = SectionEditorAction::submissionBreadcrumb($articleId, $parentPage, $roleSymbolic);
         if (isset($submissionCrumb)) {
             $pageHierarchy = array_merge($pageHierarchy, $submissionCrumb);
@@ -270,7 +270,7 @@ class SectionEditorHandler extends Handler {
         $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->setupTemplate();
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         if (!isset($args[0]) || !ProofreaderAction::instructions($args[0], ['copy', 'layout', 'proof', 'referenceLinking'])) {
             $request->redirect(null, null, 'index');
         }

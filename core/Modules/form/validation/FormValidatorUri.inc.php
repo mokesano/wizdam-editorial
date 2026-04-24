@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/form/validation/FormValidatorUri.inc.php
+ * @file core.Modules.form/validation/FormValidatorUri.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.form.validation.FormValidator');
+import('core.Modules.form.validation.FormValidator');
 
 class FormValidatorUri extends FormValidator {
     
@@ -30,7 +30,7 @@ class FormValidatorUri extends FormValidator {
      * @param array|null $allowedSchemes the allowed URI schemes
      */
     public function __construct($form, $field, $type, $message, ?array $allowedSchemes = null) {
-        import('lib.wizdam.classes.validation.ValidatorUri');
+        import('core.Modules.validation.ValidatorUri');
         $validator = new ValidatorUri($allowedSchemes);
         parent::__construct($form, $field, $type, $message, $validator);
     }

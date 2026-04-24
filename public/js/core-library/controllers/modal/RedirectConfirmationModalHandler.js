@@ -16,7 +16,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.modal.ConfirmationModalHandler
+	 * @extends $.core.controllers.modal.ConfirmationModalHandler
 	 *
 	 * @param {jQuery} $handledElement The clickable element
 	 *  the modal will be attached to.
@@ -31,7 +31,7 @@
 	 *  - All options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
-	$.pkp.controllers.modal.RedirectConfirmationModalHandler =
+	$.core.controllers.modal.RedirectConfirmationModalHandler =
 			function($handledElement, options) {
 
 		this.parent($handledElement, options);
@@ -40,9 +40,9 @@
 		// the modal closes.
 		this.remoteUrl_ = options.remoteUrl;
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.modal.RedirectConfirmationModalHandler,
-			$.pkp.controllers.modal.ConfirmationModalHandler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.modal.RedirectConfirmationModalHandler,
+			$.core.controllers.modal.ConfirmationModalHandler);
 
 
 	//
@@ -54,7 +54,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.modal.RedirectConfirmationModalHandler.prototype.
+	$.core.controllers.modal.RedirectConfirmationModalHandler.prototype.
 			remoteUrl_ = null;
 
 
@@ -62,7 +62,7 @@
 	// Protected methods
 	//
 	/** @inheritDoc */
-	$.pkp.controllers.modal.RedirectConfirmationModalHandler.prototype.
+	$.core.controllers.modal.RedirectConfirmationModalHandler.prototype.
 			checkOptions = function(options) {
 
 		// Check the mandatory options of the ModalHandler handler.
@@ -87,7 +87,7 @@
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
 	 */
-	$.pkp.controllers.modal.RedirectConfirmationModalHandler.prototype.
+	$.core.controllers.modal.RedirectConfirmationModalHandler.prototype.
 			modalConfirm = function(dialogElement) {
 
 		document.location = this.remoteUrl_;

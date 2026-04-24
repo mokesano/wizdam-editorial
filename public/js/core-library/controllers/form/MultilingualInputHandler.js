@@ -17,19 +17,19 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.Handler
+	 * @extends $.core.classes.Handler
 	 *
 	 * @param {jQuery} $popover the wrapped HTML element.
 	 * @param {Object} options options to be passed
 	 *  into the validator plug-in.
 	 */
-	$.pkp.controllers.form.MultilingualInputHandler = function($popover, options) {
+	$.core.controllers.form.MultilingualInputHandler = function($popover, options) {
 		// Bind to the focus of the primary language (the first input)
 		// open the pop-over
 
 		var $popoverNode = null;
 
-		if ($popover.hasClass('pkpTagit')) {
+		if ($popover.hasClass('coreTagit')) {
 			$popoverNode = $popover.find(':input').filter(':visible');
 		} else {
 			$popoverNode = $popover.find(':input').first();
@@ -43,9 +43,9 @@
 
 		this.parent($popover, options);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.form.MultilingualInputHandler,
-			$.pkp.classes.Handler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.form.MultilingualInputHandler,
+			$.core.classes.Handler);
 
 
 	//
@@ -57,7 +57,7 @@
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.controllers.form.MultilingualInputHandler.prototype.
+	$.core.controllers.form.MultilingualInputHandler.prototype.
 			popoverCloseTimer_ = null;
 
 
@@ -65,7 +65,7 @@
 	// Public methods
 	//
 	/**
-	 * External hook for the 'pkpmultilingualpopover' plugin for TinyMCE.
+	 * External hook for the 'coremultilingualpopover' plugin for TinyMCE.
 	 *
 	 * This method is called when an event is triggered within the editor.
 	 * We are only interested in click or keyup events and must re-examine
@@ -78,7 +78,7 @@
 	 * @param {Event} event An Event object representing the event which
 	 *  occurred within the TinyMCE window's own DOM.
 	 */
-	$.pkp.controllers.form.MultilingualInputHandler.prototype.receiveEditorEvent =
+	$.core.controllers.form.MultilingualInputHandler.prototype.receiveEditorEvent =
 			function(editorId, event) {
 		if (event.type == 'click' || event.type == 'keyup') {
 			clearTimeout(this.popoverTimer);
@@ -105,7 +105,7 @@
 	 *		element in the set to show.
 	 * @param {Event} event The event that triggered the action.
 	 */
-	$.pkp.controllers.form.MultilingualInputHandler.prototype.multilingualShow =
+	$.core.controllers.form.MultilingualInputHandler.prototype.multilingualShow =
 			function(multilingualInput, event) {
 
 		var $popover = this.getHtmlElement();
@@ -127,7 +127,7 @@
 	 *		multilingual set to hide.
 	 * @param {Event} event The event that triggered the action.
 	 */
-	$.pkp.controllers.form.MultilingualInputHandler.prototype.multilingualHide =
+	$.core.controllers.form.MultilingualInputHandler.prototype.multilingualHide =
 			function(multilingualInput, event) {
 
 		// Use a timeout to give the other element a chance to acquire the focus.

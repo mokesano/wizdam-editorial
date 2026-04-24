@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/form/validation/FormValidatorInSet.inc.php
+ * @file core.Modules.form/validation/FormValidatorInSet.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.form.validation.FormValidator');
+import('core.Modules.form.validation.FormValidator');
 
 class FormValidatorInSet extends FormValidator {
 
@@ -57,7 +57,7 @@ class FormValidatorInSet extends FormValidator {
      * @return boolean
      */
     public function isValid() {
-        import('lib.wizdam.classes.validation.ValidatorInSet');
+        import('core.Modules.validation.ValidatorInSet');
         $validator = new ValidatorInSet($this->_acceptedValues);
         return $this->isEmptyAndOptional() || $validator->isValid($this->getFieldValue());
     }

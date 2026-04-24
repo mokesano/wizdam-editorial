@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 // Define TinyMCE paths with unix-style separators for inclusion in browser.
 define('TINYMCE_INSTALL_PATH', 'public/js/lib/tinymce');
@@ -377,7 +377,7 @@ class TinyMCEPlugin extends GenericPlugin {
     public function callback($hookName, $args) {
         // Only pages requests interest us here
         $request = Registry::get('request');
-        if (!($request->getRouter() instanceof PKPPageRouter)) return null;
+        if (!($request->getRouter() instanceof CorePageRouter)) return null;
 
         $templateManager = $args[0];
 

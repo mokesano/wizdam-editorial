@@ -16,9 +16,9 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.rt.RTDAO');
-import('classes.rt.JournalRT');
-import('classes.handler.Handler');
+import('core.Modules.rt.RTDAO');
+import('core.Modules.rt.JournalRT');
+import('core.Modules.handler.Handler');
 
 class ArticleHandler extends Handler {
     
@@ -189,7 +189,7 @@ class ArticleHandler extends Handler {
         $templateMgr->assign('galleys', $galleys);
         
         if (!$galley) {
-            import('classes.issue.IssueAction');
+            import('core.Modules.issue.IssueAction');
 
             if ($issue) {
                 $templateMgr->assign('subscriptionRequired', IssueAction::subscriptionRequired($issue));
@@ -200,7 +200,7 @@ class ArticleHandler extends Handler {
 
             $templateMgr->assign('showGalleyLinks', $journal->getSetting('showGalleyLinks'));
 
-            import('classes.payment.AppPaymentManager');
+            import('core.Modules.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             if ( $paymentManager->onlyPdfEnabled() ) {
                 $templateMgr->assign('restrictOnlyPdf', true);
@@ -211,7 +211,7 @@ class ArticleHandler extends Handler {
 
             // Article cover page.
             if (isset($article) && $article->getLocalizedFileName() && $article->getLocalizedShowCoverPage() && !$article->getLocalizedHideCoverPageAbstract()) {
-                import('classes.file.PublicFileManager');
+                import('core.Modules.file.PublicFileManager');
                 $publicFileManager = new PublicFileManager();
                 $coverPagePath = $request->getBaseUrl() . '/';
                 $coverPagePath .= $publicFileManager->getJournalFilesPath($journal->getId()) . '/';
@@ -445,7 +445,7 @@ class ArticleHandler extends Handler {
 
         // HookRegistry keeps & for object references in array
         if (!HookRegistry::dispatch('ArticleHandler::viewFile', [&$article, &$galley, &$fileId])) {
-            import('classes.submission.common.Action');
+            import('core.Modules.submission.common.Action');
             Action::viewFile($article->getId(), $fileId);
         }
     }
@@ -472,7 +472,7 @@ class ArticleHandler extends Handler {
         if ($article && $galley) {
             $fileId = $galley->getFileId();
             if (!HookRegistry::dispatch('ArticleHandler::downloadFile', [&$article, &$galley, &$fileId])) {
-                import('classes.file.ArticleFileManager');
+                import('core.Modules.file.ArticleFileManager');
                 $articleFileManager = new ArticleFileManager($article->getId());
                 $articleFileManager->downloadFile($fileId);
             }
@@ -500,7 +500,7 @@ class ArticleHandler extends Handler {
         }
 
         if ($article && $suppFile && !HookRegistry::dispatch('ArticleHandler::downloadSuppFile', [&$article, &$suppFile])) {
-            import('classes.file.ArticleFileManager');
+            import('core.Modules.file.ArticleFileManager');
             $articleFileManager = new ArticleFileManager($article->getId());
             if ($suppFile->getRemoteURL()) {
                 $request->redirectUrl($suppFile->getRemoteURL());
@@ -536,7 +536,7 @@ class ArticleHandler extends Handler {
         
         parent::validate(null, $request);
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
 
         $router = $request->getRouter();
         $journal = $router->getContext($request);
@@ -592,7 +592,7 @@ class ArticleHandler extends Handler {
                 // Subscription Access
                 $subscribedUser = IssueAction::subscribedUser($journal, $issue->getId(), $publishedArticle->getId());
 
-                import('classes.payment.AppPaymentManager');
+                import('core.Modules.payment.AppPaymentManager');
                 $paymentManager = new AppPaymentManager($request);
 
                 $purchasedIssue = false;

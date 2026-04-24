@@ -12,12 +12,12 @@ declare(strict_types=1);
  * URL Target: /{context}/trends/popular ATAU /index/trends/popular
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class MostPopularHandler extends Handler {
 
     public function authorize($request, $args, $roleAssignments) {
-        import('lib.wizdam.classes.security.authorization.ContextRequiredPolicy');
+        import('core.Modules.security.authorization.ContextRequiredPolicy');
         // Set context required false, agar bisa diakses di site level maupun journal level
         $this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noContext', false));
         return parent::authorize($request, $args, $roleAssignments);

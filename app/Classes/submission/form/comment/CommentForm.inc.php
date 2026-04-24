@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/form/comment/CommentForm.inc.php
+ * @file core.Modules.submission/form/comment/CommentForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class CommentForm extends Form {
 
@@ -161,7 +161,7 @@ class CommentForm extends Form {
         $articleCommentDao = DAORegistry::getDAO('ArticleCommentDAO');
         $journal = $request->getJournal();
 
-        import('classes.mail.ArticleMailTemplate');
+        import('core.Modules.mail.ArticleMailTemplate');
         $email = new ArticleMailTemplate($article, 'SUBMISSION_COMMENT');
         $email->setFrom($this->user->getEmail(), $this->user->getFullName());
 

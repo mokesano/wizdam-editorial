@@ -20,11 +20,11 @@ declare(strict_types=1);
  * - Enhanced DOM safety checks
  */
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
-import('lib.wizdam.classes.filter.EmailFilterSetting');
-import('lib.wizdam.classes.metadata.MetadataDescription');
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter'); // Dynamic import moved up
-import('lib.wizdam.classes.metadata.DateStringNormalizerFilter');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('core.Modules.filter.EmailFilterSetting');
+import('core.Modules.metadata.MetadataDescription');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter'); // Dynamic import moved up
+import('core.Modules.metadata.DateStringNormalizerFilter');
 
 // Define constants safely
 if (!defined('PUBMED_WEBSERVICE_ESEARCH')) {
@@ -84,7 +84,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
      * @return string
      */
     public function getClassName(): string {
-        return 'lib.wizdam.plugins.citationLookup.pubmed.filter.PubmedNlm30CitationSchemaFilter';
+        return 'core.Modules.plugins.citationLookup.pubmed.filter.PubmedNlm30CitationSchemaFilter';
     }
 
     //
@@ -343,7 +343,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
                 $metadata['person-group[@person-group-type="author"]'] = [];
             }
 
-            $authorDescription = new MetadataDescription('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema', ASSOC_TYPE_AUTHOR);
+            $authorDescription = new MetadataDescription('core.Modules.plugins.metadata.nlm30.schema.Nlm30NameSchema', ASSOC_TYPE_AUTHOR);
 
             // Surname
             $lastNameNodes = $authorNode->getElementsByTagName("LastName");

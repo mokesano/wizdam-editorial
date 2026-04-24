@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/ClassTypeDescription.inc.php
+ * @file core.Modules.filter/ClassTypeDescription.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -13,11 +13,11 @@ declare(strict_types=1);
  *
  * @brief A type description that validates objects by class type.
  *
- * Example type identifier: 'class::lib.wizdam.classes.submission.Submission'
+ * Example type identifier: 'class::core.Modules.submission.Submission'
  */
 
-import('lib.wizdam.classes.filter.TypeDescription');
-import('lib.wizdam.classes.filter.TypeDescriptionFactory');
+import('core.Modules.filter.TypeDescription');
+import('core.Modules.filter.TypeDescriptionFactory');
 
 class ClassTypeDescription extends TypeDescription {
     /** @var string a valid class name */

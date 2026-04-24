@@ -18,7 +18,7 @@ declare(strict_types=1);
  */
 
 import ('classes.issue.IssueAction');
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class IssueHandler extends Handler {
     
@@ -287,7 +287,7 @@ class IssueHandler extends Handler {
 
         $publishedIssuesIterator = $issueDao->getPublishedIssues($journal->getId(), $rangeInfo);
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $coverPagePath = $request->getBaseUrl() . '/';
         $coverPagePath .= $publicFileManager->getJournalFilesPath($journal->getId()) . '/';
@@ -456,7 +456,7 @@ class IssueHandler extends Handler {
 
         if (!$issueId) $request->redirect(null, 'index');
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
 
         $journal   = $request->getJournal();
         $journalId = $journal->getId();
@@ -503,7 +503,7 @@ class IssueHandler extends Handler {
                 $subscribedUser = IssueAction::subscribedUser($journal, $issueId);
 
                 if (!$subscribedUser) {
-                    import('classes.payment.AppPaymentManager');
+                    import('core.Modules.payment.AppPaymentManager');
                     $paymentManager = new AppPaymentManager($request);
 
                     if ($paymentManager->purchaseIssueEnabled() || $paymentManager->membershipEnabled()) {
@@ -563,7 +563,7 @@ class IssueHandler extends Handler {
         $galleyDao = DAORegistry::getDAO('IssueGalleyDAO');
 
         if (!HookRegistry::dispatch('IssueHandler::viewFile', [&$issue, &$galley])) {
-            import('classes.file.IssueFileManager');
+            import('core.Modules.file.IssueFileManager');
             $issueFileManager = new IssueFileManager($issue->getId());
             return $issueFileManager->downloadFile($galley->getFileId(), $inline);
         }
@@ -601,7 +601,7 @@ class IssueHandler extends Handler {
 
             $locale = AppLocale::getLocale();
 
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $publicFileManager = new PublicFileManager();
             $coverPagePath     = $request->getBaseUrl() . '/';
             $coverPagePath    .= $publicFileManager->getJournalFilesPath($journalId) . '/';
@@ -632,7 +632,7 @@ class IssueHandler extends Handler {
             $templateMgr->assign('showToc', $showToc);
             $templateMgr->assign('issue', $issue);
 
-            import('classes.issue.IssueAction');
+            import('core.Modules.issue.IssueAction');
             $subscriptionRequired    = IssueAction::subscriptionRequired($issue);
             $subscribedUser          = IssueAction::subscribedUser($journal);
             $subscribedDomain        = IssueAction::subscribedDomain($journal);
@@ -662,7 +662,7 @@ class IssueHandler extends Handler {
             $templateMgr->assign('subscribedDomain', $subscribedDomain);
             $templateMgr->assign('showGalleyLinks', $journal->getSetting('showGalleyLinks'));
 
-            import('classes.payment.AppPaymentManager');
+            import('core.Modules.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             if ($paymentManager->onlyPdfEnabled()) {
                 $templateMgr->assign('restrictOnlyPdf', true);
@@ -677,7 +677,7 @@ class IssueHandler extends Handler {
         }
 
         if ($issue && $styleFileName = $issue->getStyleFileName()) {
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $publicFileManager = new PublicFileManager();
             $templateMgr->addStyleSheet(
                 $request->getBaseUrl() . '/' . $publicFileManager->getJournalFilesPath($journalId) . '/' . $styleFileName

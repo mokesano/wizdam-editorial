@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/codelist/QualifierDAO.inc.php
+ * @file core.Modules.codelist/QualifierDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,8 +16,8 @@ declare(strict_types=1);
  *
  */
 
-import('lib.wizdam.classes.codelist.Qualifier');
-import('lib.wizdam.classes.codelist.CodelistItemDAO');
+import('core.Modules.codelist.Qualifier');
+import('core.Modules.codelist.CodelistItemDAO');
 
 class QualifierDAO extends CodelistItemDAO {
 

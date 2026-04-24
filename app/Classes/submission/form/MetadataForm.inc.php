@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/form/MetadataForm.inc.php
+ * @file core.Modules.submission/form/MetadataForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & HookRegistry::dispatch
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 define('COVER_PAGE_IMAGE_NAME', 'coverPage');
 
@@ -106,7 +106,7 @@ class MetadataForm extends Form {
             ));
 
             // Add ORCiD validation
-            import('lib.wizdam.classes.validation.ValidatorORCID');
+            import('core.Modules.validation.ValidatorORCID');
             $this->addCheck(new FormValidatorArrayCustom($this, 'authors', 'required', 'user.profile.form.orcidInvalid', 
                 function($orcid) {
                     $validator = new ValidatorORCID();
@@ -198,7 +198,7 @@ class MetadataForm extends Form {
                 'hideAuthor' => $article->getHideAuthor()
             ];
             // consider the additional field names from the public identifer plugins
-            import('classes.plugins.PubIdPluginHelper');
+            import('core.Modules.plugins.PubIdPluginHelper');
             $pubIdPluginHelper = new PubIdPluginHelper();
             $pubIdPluginHelper->init($this, $article);
 
@@ -275,7 +275,7 @@ class MetadataForm extends Form {
         }
 
         if ($this->isEditor) {
-            import('classes.article.Article');
+            import('core.Modules.article.Article');
             $hideAuthorOptions = [
                 AUTHOR_TOC_DEFAULT => AppLocale::Translate('editor.article.hideTocAuthorDefault'),
                 AUTHOR_TOC_HIDE => AppLocale::Translate('editor.article.hideTocAuthorHide'),
@@ -330,7 +330,7 @@ class MetadataForm extends Form {
             $this->readUserVars(['copyrightHolder', 'copyrightYear', 'licenseURL']);
         }
         // consider the additional field names from the public identifer plugins
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->readInputData($this);
 
@@ -347,7 +347,7 @@ class MetadataForm extends Form {
      */
     public function validate($callHooks = true) {
         // Verify that an image cover, if supplied, is actually an image.
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         if ($publicFileManager->uploadedFileExists(COVER_PAGE_IMAGE_NAME)) {
             $type = $publicFileManager->getUploadedFileType(COVER_PAGE_IMAGE_NAME);
@@ -362,7 +362,7 @@ class MetadataForm extends Form {
         // Verify additional fields from public identifer plug-ins.
         $request = Application::get()->getRequest();
         $journal = $request->getJournal();
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->validate((int)$journal->getId(), $this, $this->article);
 
@@ -395,7 +395,7 @@ class MetadataForm extends Form {
         $section = $sectionDao->getSection($article->getSectionId());
         $article->setAbstract($this->getData('abstract'), null); // Localized
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         if ($publicFileManager->uploadedFileExists(COVER_PAGE_IMAGE_NAME)) {
             $journal = $request->getJournal();
@@ -464,7 +464,7 @@ class MetadataForm extends Form {
             $article->setHideAuthor($this->getData('hideAuthor') ? $this->getData('hideAuthor') : 0);
         }
         // consider the additional field names from the public identifer plugins
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->execute($this, $article);
 
@@ -529,7 +529,7 @@ class MetadataForm extends Form {
         $articleDao->updateArticle($article);
 
         // Update search index
-        import('classes.search.ArticleSearchIndex');
+        import('core.Modules.search.ArticleSearchIndex');
         $articleSearchIndex = new ArticleSearchIndex();
         $articleSearchIndex->articleMetadataChanged($article);
         $articleSearchIndex->articleChangesFinished();

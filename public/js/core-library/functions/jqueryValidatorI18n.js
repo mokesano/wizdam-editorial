@@ -13,7 +13,7 @@
  */
 function jqueryValidatorI18n(baseUrl, locale) {
 	var scriptPrefix;
-	scriptPrefix = baseUrl + "/lib/pkp/js/lib/jquery/plugins/validate/localization/messages_";
+	scriptPrefix = baseUrl + "/core/Library/js/lib/jquery/plugins/validate/localization/messages_";
 	switch(locale) {
 		//TODO: add all other PKP supported locales
 		// French

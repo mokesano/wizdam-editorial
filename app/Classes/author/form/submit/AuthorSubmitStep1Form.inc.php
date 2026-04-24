@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/author/form/submit/AuthorSubmitStep1Form.inc.php
+ * @file core.Modules.author/form/submit/AuthorSubmitStep1Form.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 
-import('classes.author.form.submit.AuthorSubmitForm');
+import('core.Modules.author.form.submit.AuthorSubmitForm');
 
 class AuthorSubmitStep1Form extends AuthorSubmitForm {
 
@@ -80,7 +80,7 @@ class AuthorSubmitStep1Form extends AuthorSubmitForm {
         $templateMgr->assign('sectionOptions', ['0' => __('author.submit.selectSection')] + $sectionDao->getSectionTitles($journal->getId(), !$isEditor));
 
         // Set up required Payment Related Information
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($this->request);
         if ($paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);

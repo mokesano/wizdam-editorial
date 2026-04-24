@@ -2,23 +2,23 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/OjsSubmissionAccessPolicy.inc.php
+ * @file core.Modules.security/authorization/AppSubmissionAccessPolicy.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class OjsSubmissionAccessPolicy
+ * @class AppSubmissionAccessPolicy
  * @ingroup security_authorization
  *
  * @brief Class to control access to Wizdam's submission editing components
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.security.authorization.internal.JournalPolicy');
-import('lib.wizdam.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+import('core.Modules.security.authorization.internal.JournalPolicy');
+import('core.Modules.security.authorization.RoleBasedHandlerOperationPolicy');
 
-class OjsSubmissionAccessPolicy extends JournalPolicy {
+class AppSubmissionAccessPolicy extends JournalPolicy {
     
     /**
      * Constructor
@@ -43,7 +43,7 @@ class OjsSubmissionAccessPolicy extends JournalPolicy {
         // valid section editor submission in the request.
         // FIXME: We should find a way to check whether the user actually
         // is a (section) editor before we execute this expensive policy.
-        import('classes.security.authorization.internal.SectionEditorSubmissionRequiredPolicy');
+        import('core.Modules.security.authorization.internal.SectionEditorSubmissionRequiredPolicy');
         $editorsPolicy->addPolicy(new SectionEditorSubmissionRequiredPolicy($request, $args, $submissionParameterName));
 
         $editorRolesPolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
@@ -57,7 +57,7 @@ class OjsSubmissionAccessPolicy extends JournalPolicy {
         $sectionEditorPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_SECTION_EDITOR, $roleAssignments[ROLE_ID_SECTION_EDITOR]));
 
         // 2) ... but only if the requested submission has been explicitly assigned to them.
-        import('classes.security.authorization.internal.SectionSubmissionAssignmentPolicy');
+        import('core.Modules.security.authorization.internal.SectionSubmissionAssignmentPolicy');
         $sectionEditorPolicy->addPolicy(new SectionSubmissionAssignmentPolicy($request));
         $editorRolesPolicy->addPolicy($sectionEditorPolicy);
 
@@ -73,14 +73,14 @@ class OjsSubmissionAccessPolicy extends JournalPolicy {
 
         // 1) Copyeditors can only access editorial components when a valid
         //    copyeditor submission is in the request ...
-        import('classes.security.authorization.internal.CopyeditorSubmissionRequiredPolicy');
+        import('core.Modules.security.authorization.internal.CopyeditorSubmissionRequiredPolicy');
         $copyeditorPolicy->addPolicy(new CopyeditorSubmissionRequiredPolicy($request, $args, $submissionParameterName));
 
         // 2) ... If that's the case then copyeditors can access all remote operations ...
         $copyeditorPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, ROLE_ID_COPYEDITOR, $roleAssignments[ROLE_ID_SECTION_EDITOR]));
 
         // 3) ... but only if the requested submission has been explicitly assigned to them.
-        import('classes.security.authorization.internal.CopyeditorSubmissionAssignmentPolicy');
+        import('core.Modules.security.authorization.internal.CopyeditorSubmissionAssignmentPolicy');
         $copyeditorPolicy->addPolicy(new CopyeditorSubmissionAssignmentPolicy($request));
 
         $submissionEditingPolicy->addPolicy($copyeditorPolicy);
@@ -93,9 +93,9 @@ class OjsSubmissionAccessPolicy extends JournalPolicy {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function OjsSubmissionAccessPolicy($request, $args, $roleAssignments, $submissionParameterName = 'articleId') {
+    public function AppSubmissionAccessPolicy($request, $args, $roleAssignments, $submissionParameterName = 'articleId') {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::OjsSubmissionAccessPolicy(). Please refactor to use parent::__construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::AppSubmissionAccessPolicy(). Please refactor to use parent::__construct().",
             E_USER_DEPRECATED
         );
         self::__construct($request, $args, $roleAssignments, $submissionParameterName);

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/template/TemplateManager.inc.php
+ * @file core.Modules.template/TemplateManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,9 +16,9 @@ declare(strict_types=1);
  * WIZDAM EDITION: Singleton Fix & PHP 8 Compatibility
  */
 
-import('classes.search.ArticleSearch');
-import('classes.file.PublicFileManager');
-import('lib.wizdam.classes.template.CoreTemplateManager');
+import('core.Modules.search.ArticleSearch');
+import('core.Modules.file.PublicFileManager');
+import('core.Modules.template.CoreTemplateManager');
 
 class TemplateManager extends CoreTemplateManager {
     
@@ -108,7 +108,7 @@ class TemplateManager extends CoreTemplateManager {
                     $this->addStyleSheet($this->request->getBaseUrl() . '/' . $publicFileManager->getJournalFilesPath($journal->getId()) . '/' . $journalStyleSheet['uploadName']);
                 }
 
-                import('classes.payment.AppPaymentManager');
+                import('core.Modules.payment.AppPaymentManager');
                 $paymentManager = new AppPaymentManager($this->request);
                 $this->assign('journalPaymentsEnabled', $paymentManager->isConfigured());
 
@@ -179,7 +179,7 @@ class TemplateManager extends CoreTemplateManager {
      * @return numerical help topic id
      */
     public function smartyGetHelpId($params, &$smarty) {
-        import('classes.help.Help');
+        import('core.Modules.help.Help');
         $help = Help::getHelp();
         if (isset($params) && !empty($params)) {
             if (isset($params['key'])) {
@@ -207,7 +207,7 @@ class TemplateManager extends CoreTemplateManager {
      * @return anchor link to related help topic
      */
     public function smartyHelpTopic($params, &$smarty) {
-        import('classes.help.Help');
+        import('core.Modules.help.Help');
         $help = Help::getHelp();
         if (isset($params) && !empty($params)) {
             $translatedKey = isset($params['key']) ? $help->translate($params['key']) : $help->translate('');

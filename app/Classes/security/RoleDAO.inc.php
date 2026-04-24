@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/RoleDAO.inc.php
+ * @file core.Modules.security/RoleDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 7.4+ Compatible
  */
 
-import('classes.security.Role');
+import('core.Modules.security.Role');
 
 class RoleDAO extends DAO {
     public $userDao;

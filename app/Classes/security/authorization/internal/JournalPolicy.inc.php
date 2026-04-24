@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/internal/JournalPolicy.inc.php
+ * @file core.Modules.security/authorization/internal/JournalPolicy.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.security.authorization.PolicySet');
+import('core.Modules.security.authorization.PolicySet');
 
 class JournalPolicy extends PolicySet {
     
@@ -28,7 +28,7 @@ class JournalPolicy extends PolicySet {
         parent::__construct();
 
         // Ensure that we have a journal in the context.
-        import('lib.wizdam.classes.security.authorization.ContextRequiredPolicy');
+        import('core.Modules.security.authorization.ContextRequiredPolicy');
         $this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noJournal'));
     }
 

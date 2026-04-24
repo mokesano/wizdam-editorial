@@ -17,23 +17,23 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.pages = $.pkp.pages || {};
+	$.core.pages = $.core.pages || {};
 
 
 	/** @type {Object} */
-	$.pkp.pages.search = $.pkp.pages.search || {};
+	$.core.pages.search = $.core.pages.search || {};
 
 
 
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.FormHandler
+	 * @extends $.core.controllers.form.FormHandler
 	 *
 	 * @param {jQueryObject} $form The wrapped HTML form element.
 	 * @param {Object} options Configuration of the form handler.
 	 */
-	$.pkp.pages.search.SearchFormHandler = function($form, options) {
+	$.core.pages.search.SearchFormHandler = function($form, options) {
 		// Focus the main query field and select all text.
 		$form.find('input[name="query"]').focus().select();
 
@@ -43,9 +43,9 @@
 		options.transformButtons = false;
 		this.parent($form, options);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.pages.search.SearchFormHandler,
-			$.pkp.controllers.form.FormHandler);
+	$.core.classes.Helper.inherits(
+			$.core.pages.search.SearchFormHandler,
+			$.core.controllers.form.FormHandler);
 
 
 	//
@@ -59,7 +59,7 @@
 	 * @param {HTMLElement} formElement The wrapped HTML form.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.pages.search.SearchFormHandler.prototype.submitForm =
+	$.core.pages.search.SearchFormHandler.prototype.submitForm =
 			function(validator, formElement) {
 		var $form, allBlank, formFields, i, max;
 
@@ -76,7 +76,7 @@
 		}
 
 		if (allBlank) {
-			alert($.pkp.locale.search_noKeywordError);
+			alert($.core.locale.search_noKeywordError);
 			return;
 		}
 

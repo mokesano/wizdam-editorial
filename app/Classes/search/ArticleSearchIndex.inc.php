@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/search/ArticleSearchIndex.inc.php
+ * @file core.Modules.search/ArticleSearchIndex.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -89,7 +89,7 @@ class ArticleSearchIndex {
         );
 
         if ($hookResult === false || is_null($hookResult)) {
-            import('classes.file.ArticleFileManager');
+            import('core.Modules.file.ArticleFileManager');
             $fileManager = new ArticleFileManager($articleId);
             $file = $fileManager->getFile($fileId);
 

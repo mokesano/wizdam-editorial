@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/mail/Mail.inc.php
+ * @file core.Modules.mail/Mail.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -654,7 +654,7 @@ class Mail extends DataObject {
             // Removed & from reference
             $smtp = Registry::get('smtpMailer', true, null);
             if ($smtp === null) {
-                import('lib.wizdam.classes.mail.SMTPMailer');
+                import('core.Modules.mail.SMTPMailer');
                 $smtp = new SMTPMailer();
             }
             $sent = $smtp->mail($this, $recipients, $subject, $mailBody, $headers);

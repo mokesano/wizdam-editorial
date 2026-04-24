@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/UserRolesRequiredPolicy.inc.php
+ * @file core.Modules.security/authorization/UserRolesRequiredPolicy.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * users with no roles, we don't deny access when no user roles are found.
  */
 
-import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
+import('core.Modules.security.authorization.AuthorizationPolicy');
 
 class UserRolesRequiredPolicy extends AuthorizationPolicy {
     /** @var CoreRequest */

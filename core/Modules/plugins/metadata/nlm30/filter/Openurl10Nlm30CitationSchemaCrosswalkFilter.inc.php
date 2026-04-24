@@ -21,7 +21,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30Openurl10CrosswalkFilter');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30Openurl10CrosswalkFilter');
 
 class Openurl10Nlm30CitationSchemaCrosswalkFilter extends Nlm30Openurl10CrosswalkFilter {
     
@@ -31,8 +31,8 @@ class Openurl10Nlm30CitationSchemaCrosswalkFilter extends Nlm30Openurl10Crosswal
     public function __construct() {
         $this->setDisplayName('Crosswalk from Open URL to NLM Citation');
         parent::__construct(
-            'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10BaseSchema',
-            'lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema'
+            'core.Modules.plugins.metadata.openurl10.schema.Openurl10BaseSchema',
+            'core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema'
         );
     }
 
@@ -67,10 +67,10 @@ class Openurl10Nlm30CitationSchemaCrosswalkFilter extends Nlm30Openurl10Crosswal
         $nullVar = null;
 
         // Instantiate the target description.
-        $output = new MetadataDescription('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema', $input->getAssocType());
+        $output = new MetadataDescription('core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema', $input->getAssocType());
 
         // Parse au statements into name descriptions
-        import('lib.wizdam.plugins.metadata.nlm30.filter.PersonStringNlm30NameSchemaFilter');
+        import('core.Modules.plugins.metadata.nlm30.filter.PersonStringNlm30NameSchemaFilter');
         $personStringFilter = new PersonStringNlm30NameSchemaFilter(ASSOC_TYPE_AUTHOR);
         $authors = $input->getStatement('au');
         if (is_array($authors) && count($authors)) {

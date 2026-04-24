@@ -22,7 +22,7 @@ declare(strict_types=1);
  * - Safety: Graceful Error Handling (No WSOD)
  */
 
-import('classes.plugins.PaymethodPlugin');
+import('core.Modules.plugins.PaymethodPlugin');
 
 class PayPalPlugin extends PaymethodPlugin {
 
@@ -35,7 +35,7 @@ class PayPalPlugin extends PaymethodPlugin {
 
     /**
      * Get name of plugin.
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      * @return string
      */
     public function getName(): string {
@@ -64,7 +64,7 @@ class PayPalPlugin extends PaymethodPlugin {
      * @param string $path
      * @param int|null $mainContextId
      * @return bool
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      */
     public function register(string $category, string $path, $mainContextId = null): bool {
         if (parent::register($category, $path, $mainContextId)) {
@@ -339,7 +339,7 @@ class PayPalPlugin extends PaymethodPlugin {
 
     /**
      * Handle requests
-     * @see PKPPlugin::handle()
+     * @see CorePlugin::handle()
      * @param array $args
      * @param Request $request
      * @return void
@@ -350,7 +350,7 @@ class PayPalPlugin extends PaymethodPlugin {
         
         if (!$journal) return parent::handle($args, $request);
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         
         $contactName = $journal->getSetting('supportName') ?: $journal->getSetting('contactName');
         $contactEmail = $journal->getSetting('supportEmail') ?: $journal->getSetting('contactEmail');
@@ -412,7 +412,7 @@ class PayPalPlugin extends PaymethodPlugin {
                             );
 
                             $queuedPaymentId = $request->getUserVar('custom');
-                            import('classes.payment.AppPaymentManager');
+                            import('core.Modules.payment.AppPaymentManager');
                             $wizdamPaymentManager = new AppPaymentManager($request);
                             $queuedPayment = $wizdamPaymentManager->getQueuedPayment($queuedPaymentId);
 

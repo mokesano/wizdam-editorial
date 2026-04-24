@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/reviewAssignment/ReviewAssignmentDAO.inc.php
+ * @file core.Modules.submission/reviewAssignment/ReviewAssignmentDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -17,8 +17,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & HookRegistry::dispatch
  */
 
-import('classes.submission.reviewAssignment.ReviewAssignment');
-import('lib.wizdam.classes.submission.reviewAssignment.CoreReviewAssignmentDAO');
+import('core.Modules.submission.reviewAssignment.ReviewAssignment');
+import('core.Modules.submission.reviewAssignment.CoreReviewAssignmentDAO');
 
 class ReviewAssignmentDAO extends CoreReviewAssignmentDAO {
     public $articleFileDao = null;

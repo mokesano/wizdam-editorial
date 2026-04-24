@@ -82,7 +82,7 @@ class AssetRouter {
         if (!$fileName) { header('HTTP/1.0 404 Not Found'); exit; }
 
         // ... (LOGIKA PATH SAMA SEPERTI SEBELUMNYA) ...
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $pubMgr = new PublicFileManager();
         $sourcePath = $pubMgr->getJournalFilesPath($journalId) . '/' . $fileName;
 
@@ -103,7 +103,7 @@ class AssetRouter {
             $this->outputFile($targetPath);
         } elseif (file_exists($sourcePath)) {
             if (!file_exists($targetDir)) @mkdir($targetDir, 0777, true);
-            import('lib.wizdam.classes.file.FileManager');
+            import('core.Modules.file.FileManager');
             $fm = new FileManager();
             
             // Jika width 0 (original), lakukan copy saja

@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/submission/form/ArticleGalleyForm.inc.php
+ * @file core.Modules.submission/form/ArticleGalleyForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -21,7 +21,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class ArticleGalleyForm extends Form {
     /** @var int|null the ID of the article */
@@ -126,7 +126,7 @@ class ArticleGalleyForm extends Form {
         }
 
         // Verify additional fields from public identifer plug-ins.
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->validate((int) $journal->getId(), $this, $this->galley);
 
@@ -149,7 +149,7 @@ class ArticleGalleyForm extends Form {
             $this->_data = [];
         }
         // consider the additional field names from the public identifer plugins
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->init($this, $this->galley);
 
@@ -170,7 +170,7 @@ class ArticleGalleyForm extends Form {
             ]
         );
         // consider the additional field names from the public identifer plugins
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->readInputData($this);
     }
@@ -183,7 +183,7 @@ class ArticleGalleyForm extends Form {
      */
     public function execute($fileName = null, $createRemote = false) {
         $request = Application::get()->getRequest();
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFileManager = new ArticleFileManager($this->articleId);
         $galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
 
@@ -208,7 +208,7 @@ class ArticleGalleyForm extends Form {
                 }
 
                 // Update file search index
-                import('classes.search.ArticleSearchIndex');
+                import('core.Modules.search.ArticleSearchIndex');
                 $articleSearchIndex = new ArticleSearchIndex();
                 $articleSearchIndex->articleFileChanged(
                     (int) $this->articleId, 
@@ -242,7 +242,7 @@ class ArticleGalleyForm extends Form {
             }
 
             // consider the additional field names from the public identifer plugins
-            import('classes.plugins.PubIdPluginHelper');
+            import('core.Modules.plugins.PubIdPluginHelper');
             $pubIdPluginHelper = new PubIdPluginHelper();
             $pubIdPluginHelper->execute($this, $galley);
 
@@ -325,7 +325,7 @@ class ArticleGalleyForm extends Form {
 
         if ($fileId) {
             // Update file search index
-            import('classes.search.ArticleSearchIndex');
+            import('core.Modules.search.ArticleSearchIndex');
             $articleSearchIndex = new ArticleSearchIndex();
             // [WIZDAM] Pastikan baris 331 juga menggunakan casting integer
             $articleSearchIndex->articleFileChanged((int)$this->articleId, (int)ARTICLE_SEARCH_GALLEY_FILE, (int)$galley->getFileId());
@@ -342,7 +342,7 @@ class ArticleGalleyForm extends Form {
      * Upload an image to an HTML galley.
      */
     public function uploadImage() {
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $fileManager = new ArticleFileManager($this->articleId);
         $galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
 
@@ -370,7 +370,7 @@ class ArticleGalleyForm extends Form {
      * @param int $imageId the file ID of the image
      */
     public function deleteImage($imageId) {
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $fileManager = new ArticleFileManager($this->articleId);
         $galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
 

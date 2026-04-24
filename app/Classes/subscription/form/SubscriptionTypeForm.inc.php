@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/subscription/form/SubscriptionTypeForm.inc.php
+ * @file core.Modules.subscription/form/SubscriptionTypeForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -14,7 +14,7 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class SubscriptionTypeForm extends Form {
     /** @var typeId int the ID of the subscription type being edited */

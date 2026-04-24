@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/article/ArticleGalley.inc.php
+ * @file core.Modules.article/ArticleGalley.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  * - Null Safety
  */
 
-import('classes.article.ArticleFile');
+import('core.Modules.article.ArticleFile');
 
 class ArticleGalley extends ArticleFile {
 

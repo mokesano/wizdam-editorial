@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/handler/HandlerValidatorJournal.inc.php
+ * @file core.Modules.handler/HandlerValidatorJournal.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class to validate if a Journal is present
  */
 
-import('lib.wizdam.classes.handler.validation.HandlerValidator');
+import('core.Modules.handler.validation.HandlerValidator');
 
 class HandlerValidatorJournal extends HandlerValidator {
     

@@ -16,21 +16,21 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.linkAction.LinkActionRequest
+	 * @extends $.core.classes.linkAction.LinkActionRequest
 	 *
 	 * @param {jQuery} $linkActionElement The element the link
 	 *  action was attached to.
 	 * @param {Object} options Configuration of the link action
 	 *  request.
 	 */
-	$.pkp.classes.linkAction.AjaxRequest =
+	$.core.classes.linkAction.AjaxRequest =
 			function($linkActionElement, options) {
 
 		this.parent($linkActionElement, options);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.classes.linkAction.AjaxRequest,
-			$.pkp.classes.linkAction.LinkActionRequest);
+	$.core.classes.Helper.inherits(
+			$.core.classes.linkAction.AjaxRequest,
+			$.core.classes.linkAction.LinkActionRequest);
 
 
 	//
@@ -39,13 +39,13 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.linkAction.AjaxRequest.prototype.activate =
+	$.core.classes.linkAction.AjaxRequest.prototype.activate =
 			function(element, event) {
 
 		var returnValue = this.parent('activate', element, event),
 				options = this.getOptions();
 
-		var responseHandler = $.pkp.classes.Helper.curry(
+		var responseHandler = $.core.classes.Helper.curry(
 				this.handleResponse, this);
 		switch (options.requestType) {
 			case 'get':
@@ -67,7 +67,7 @@
 	 * Handle the AJAX response.
 	 * @param {Object} jsonData The data returned by the server.
 	 */
-	$.pkp.classes.linkAction.AjaxRequest.prototype.handleResponse =
+	$.core.classes.linkAction.AjaxRequest.prototype.handleResponse =
 			function(jsonData) {
 
 		var $linkActionHandler = this.getLinkActionElement().data('pkp.handler');

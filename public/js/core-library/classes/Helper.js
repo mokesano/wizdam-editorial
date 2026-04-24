@@ -17,21 +17,21 @@
 (function($) {
 
     // Create PKP namespaces.
-    $.pkp = $.pkp || { };
-    $.pkp.classes = $.pkp.classes || { };
-    $.pkp.controllers = $.pkp.controllers || { };
-    $.pkp.controllers.form = $.pkp.controllers.form || {};
-    $.pkp.plugins = $.pkp.plugins || {};
-    $.pkp.plugins.blocks = $.pkp.plugins.blocks || {};
-    $.pkp.plugins.generic = $.pkp.plugins.generic || {};
+    $.core = $.core || { };
+    $.core.classes = $.core.classes || { };
+    $.core.controllers = $.core.controllers || { };
+    $.core.controllers.form = $.core.controllers.form || {};
+    $.core.plugins = $.core.plugins || {};
+    $.core.plugins.blocks = $.core.plugins.blocks || {};
+    $.core.plugins.generic = $.core.plugins.generic || {};
 
     /**
      * Helper singleton
      * @constructor
      *
-     * @extends $.pkp.classes.ObjectProxy
+     * @extends $.core.classes.ObjectProxy
      */
-    $.pkp.classes.Helper = function() {
+    $.core.classes.Helper = function() {
         throw new Error('Trying to instantiate the Helper singleton!');
     };
 
@@ -45,7 +45,7 @@
      * @private
      * @type {Array}
      */
-    $.pkp.classes.Helper.CHARS_ = ['0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    $.core.classes.Helper.CHARS_ = ['0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ',
         'abcdefghijklmnopqrstuvwxyz'].join('').split('');
 
 
@@ -57,14 +57,14 @@
      *
      * @return {string} an RFC4122v4 compliant UUID.
      */
-    $.pkp.classes.Helper.uuid = function() {
+    $.core.classes.Helper.uuid = function() {
         // MODERNIZATION: Use native crypto API if available (much better randomness)
         if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
             return crypto.randomUUID();
         }
 
         // Fallback for older browsers
-        var chars = $.pkp.classes.Helper.CHARS_, uuid = new Array(36), rnd = 0, r, i;
+        var chars = $.core.classes.Helper.CHARS_, uuid = new Array(36), rnd = 0, r, i;
         for (i = 0; i < 36; i++) {
             if (i == 8 || i == 13 || i == 18 || i == 23) {
                 uuid[i] = '-';
@@ -91,7 +91,7 @@
      * @param {Function} Child Constructor of the child object.
      * @param {Function} Parent Constructor of the parent object.
      */
-    $.pkp.classes.Helper.inherits = function(Child, Parent) {
+    $.core.classes.Helper.inherits = function(Child, Parent) {
         // Safety check
         if (!Parent || !Parent.prototype) {
              console.error('Helper.inherits: Parent constructor is invalid or undefined.');
@@ -126,13 +126,13 @@
      * @param {string} objectName The name of an object.
      * @param {Array} args The arguments to be passed
      * into the object's constructor.
-     * @return {$.pkp.classes.ObjectProxy} the instantiated object.
+     * @return {$.core.classes.ObjectProxy} the instantiated object.
      */
-    $.pkp.classes.Helper.objectFactory = function(objectName, args) {
+    $.core.classes.Helper.objectFactory = function(objectName, args) {
         var ObjectConstructor, ObjectProxyInstance, objectInstance;
 
         // Resolve the object name.
-        ObjectConstructor = $.pkp.classes.Helper.resolveObjectName(objectName);
+        ObjectConstructor = $.core.classes.Helper.resolveObjectName(objectName);
 
         if (!ObjectConstructor) {
             // MODERNIZATION: Fail gracefully instead of crashing
@@ -141,17 +141,17 @@
         }
 
         // Create a new proxy constructor instance.
-        ObjectProxyInstance = $.pkp.classes.Helper.getObjectProxyInstance();
+        ObjectProxyInstance = $.core.classes.Helper.getObjectProxyInstance();
 
         // Copy static members over from the object proxy.
-        $.extend(true, ObjectProxyInstance, $.pkp.classes.ObjectProxy);
+        $.extend(true, ObjectProxyInstance, $.core.classes.ObjectProxy);
 
         // Let the proxy inherit from the proxied object.
-        $.pkp.classes.Helper.inherits(ObjectProxyInstance, ObjectConstructor);
+        $.core.classes.Helper.inherits(ObjectProxyInstance, ObjectConstructor);
 
         // Enrich the new proxy constructor prototype
         $.extend(true, ObjectProxyInstance.prototype,
-                $.pkp.classes.ObjectProxy.prototype);
+                $.core.classes.ObjectProxy.prototype);
 
         // Instantiate the proxy with the proxied object.
         objectInstance = new ObjectProxyInstance(objectName, args);
@@ -165,7 +165,7 @@
      * @param {string} objectName The object name to resolve.
      * @return {Function} The constructor of the object.
      */
-    $.pkp.classes.Helper.resolveObjectName = function(objectName) {
+    $.core.classes.Helper.resolveObjectName = function(objectName) {
         var objectNameParts, i, functionName, ObjectConstructor;
 
         if (!objectName) return null;
@@ -209,7 +209,7 @@
      * Create a new instance of a proxy constructor.
      * @return {Function} a new proxy instance.
      */
-    $.pkp.classes.Helper.getObjectProxyInstance = function() {
+    $.core.classes.Helper.getObjectProxyInstance = function() {
         /**
          * @constructor
          * @param {string} objectName The name of the proxied object.
@@ -241,9 +241,9 @@
      * @param {Function} Constructor The target object's constructor.
      * @param {string} mixinObjectName The object name of interface
      */
-    $.pkp.classes.Helper.injectMixin = function(Constructor, mixinObjectName) {
+    $.core.classes.Helper.injectMixin = function(Constructor, mixinObjectName) {
         // Retrieve an instance of the mix-in interface implementation.
-        var mixin = $.pkp.classes.Helper.objectFactory(mixinObjectName, []);
+        var mixin = $.core.classes.Helper.objectFactory(mixinObjectName, []);
         
         if (mixin) {
             // Inject the mix-in into the target constructor.
@@ -259,7 +259,7 @@
      * @param {Object} context Specifies the object which |this| should point to.
      * @return {!Function} A partially-applied form of the function.
      */
-    $.pkp.classes.Helper.curry = function(fn, context) {
+    $.core.classes.Helper.curry = function(fn, context) {
         // MODERNIZATION: Use native bind (ECMAScript 5+)
         if (fn.bind && typeof fn.bind === 'function') {
              // Create an array of arguments, starting from the 3rd argument (index 2)

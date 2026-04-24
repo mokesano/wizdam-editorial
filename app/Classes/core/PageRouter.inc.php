@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/PageRouter.inc.php
+ * @file core.Modules.core/PageRouter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - [v2] Degradasi Routing Bertingkat: Issue → Volume → Year → Archive
  */
 
-import('lib.wizdam.classes.core.PKPPageRouter');
+import('core.Modules.core.CorePageRouter');
 
 class PageRouter extends CorePageRouter {
 

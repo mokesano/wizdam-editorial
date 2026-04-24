@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/help/AppHelpMappingFile.inc.php
+ * @file core.Modules.help/AppHelpMappingFile.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.help.HelpMappingFile');
+import('core.Modules.help.HelpMappingFile');
 
 class AppHelpMappingFile extends HelpMappingFile {
     

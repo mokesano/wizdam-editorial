@@ -156,7 +156,7 @@ class StudyService {
 
         $study = null;
         if ($datasetData && isset($datasetData['persistentId'])) {
-            $this->plugin->import('classes.DataverseStudy');
+            $this->plugin->import('core.Modules.DataverseStudy');
             $study = new DataverseStudy();
             $study->setSubmissionId($article->getId());
             // Di Native API, URI dan ID direpresentasikan oleh Persistent ID (DOI)
@@ -201,7 +201,7 @@ class StudyService {
 
         $allUploaded = true;
         
-        $this->plugin->import('classes.DataverseFile');         
+        $this->plugin->import('core.Modules.DataverseFile');         
         $dvFileDao = DAORegistry::getDAO('DataverseFileDAO');
 
         foreach ($suppFiles as $suppFile) {
@@ -243,7 +243,7 @@ class StudyService {
      * @return bool
      */
     public function releaseStudy($study, $journal, $user, $request): bool {
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();       
         $persistentId = (string) $study->getPersistentUri();
 
@@ -283,7 +283,7 @@ class StudyService {
             $dataverseStudyDao->deleteStudy($study);
         }
 
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification($userId, $studyDeleted ? NOTIFICATION_TYPE_DATAVERSE_STUDY_DELETED : NOTIFICATION_TYPE_DATAVERSE_ERROR);
         

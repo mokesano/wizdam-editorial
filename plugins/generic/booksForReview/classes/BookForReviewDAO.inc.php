@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe. No References.
  */
 
-import('lib.wizdam.classes.db.DAO');
+import('core.Modules.db.DAO');
 
 /* These constants are used for user-selectable search fields. */
 define('BFR_FIELD_PUBLISHER',    'publisher');
@@ -122,7 +122,7 @@ class BookForReviewDAO extends DAO {
      */
     public function _returnBookForReviewFromRow($row) {
         $bfrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $bfrPlugin->import('classes.BookForReview');
+        $bfrPlugin->import('core.Modules.BookForReview');
 
         $book = new BookForReview();
         $book->setId($row['book_id']);
@@ -329,7 +329,7 @@ class BookForReviewDAO extends DAO {
             $this->bookForReviewAuthorDao->deleteAuthorsByBookForReview($bookId);
 
             // Delete cover image files (for all locales) from the filesystem
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $publicFileManager = new PublicFileManager();
             $locales = AppLocale::getSupportedLocales();
             
@@ -372,7 +372,7 @@ class BookForReviewDAO extends DAO {
      */
     public function getBooksForReviewByAuthor($journalId, $userId, $rangeInfo = null) {
         $bfrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $bfrPlugin->import('classes.BookForReview');
+        $bfrPlugin->import('core.Modules.BookForReview');
 
         $sql = 'SELECT DISTINCT bfr.*
                 FROM books_for_review bfr
@@ -399,7 +399,7 @@ class BookForReviewDAO extends DAO {
      */
     public function getBooksForReviewAssignedByAuthor($journalId, $userId, $rangeInfo = null) {
         $bfrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $bfrPlugin->import('classes.BookForReview');
+        $bfrPlugin->import('core.Modules.BookForReview');
 
         $sql = 'SELECT DISTINCT bfr.*
                 FROM books_for_review bfr
@@ -429,7 +429,7 @@ class BookForReviewDAO extends DAO {
      */
     public function getBooksForReviewByDateDue($journalId, $dateDue, $rangeInfo = null) {
         $bfrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $bfrPlugin->import('classes.BookForReview');
+        $bfrPlugin->import('core.Modules.BookForReview');
 
         $sql = sprintf(
             'SELECT DISTINCT bfr.*
@@ -516,7 +516,7 @@ class BookForReviewDAO extends DAO {
      */
     public function getSubmittedBookForReviewByArticle($journalId, $articleId) {
         $bfrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $bfrPlugin->import('classes.BookForReview');
+        $bfrPlugin->import('core.Modules.BookForReview');
 
         $result = $this->retrieve(
             'SELECT *
@@ -545,7 +545,7 @@ class BookForReviewDAO extends DAO {
      */
     public function getSubmittedBookForReviewIdByArticle($journalId, $articleId) {
         $bfrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $bfrPlugin->import('classes.BookForReview');
+        $bfrPlugin->import('core.Modules.BookForReview');
 
         $result = $this->retrieve(
             'SELECT book_id 
@@ -571,7 +571,7 @@ class BookForReviewDAO extends DAO {
      */
     public function getBooksForReviewStatusCount($journalId, $status = null, $userId = null) {
         $bfrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $bfrPlugin->import('classes.BookForReview');
+        $bfrPlugin->import('core.Modules.BookForReview');
 
         $sql = 'SELECT COUNT(*)
                 FROM books_for_review bfr
@@ -597,7 +597,7 @@ class BookForReviewDAO extends DAO {
      */
     public function getStatusCounts($journalId, $userId = null) {
         $bfrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $bfrPlugin->import('classes.BookForReview');
+        $bfrPlugin->import('core.Modules.BookForReview');
         $counts = array();
 
         $counts[BFR_STATUS_AVAILABLE] = $this->getBooksForReviewStatusCount($journalId, BFR_STATUS_AVAILABLE, $userId);
@@ -616,7 +616,7 @@ class BookForReviewDAO extends DAO {
         $book = $this->getBookForReview($bookId);
 
         if ($book) {
-            import('classes.file.PublicFileManager');
+            import('core.Modules.file.PublicFileManager');
             $publicFileManager = new PublicFileManager();
             
             $fileName = $book->getFileName($locale);

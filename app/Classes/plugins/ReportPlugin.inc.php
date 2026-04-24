@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/plugins/ReportPlugin.inc.php
+ * @file core.Modules.plugins/ReportPlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Abstract class for report plugins
  */
 
-import('classes.plugins.Plugin');
+import('core.Modules.plugins.Plugin');
 
 class ReportPlugin extends Plugin {
 
@@ -42,7 +42,7 @@ class ReportPlugin extends Plugin {
     /**
      * Retrieve a range of aggregate, filtered, ordered metric values, i.e.
      * a statistics report.
-     * @see <http://wizdam.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
+     * @see <http://wizdam.sfu.ca/wiki/index.php/CoreStatsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
      * for a full specification of the input and output format of this method.
      * @param null|string|array $metricType metrics selection
      * @param string|array $columns column (aggregation level) selection
@@ -206,7 +206,7 @@ class ReportPlugin extends Plugin {
 
     /**
      * Set the page's breadcrumbs, given the plugin's tree of items to append.
-     * @see PKPPageRouter::url() for generating the URLs for the breadcrumbs.
+     * @see CorePageRouter::url() for generating the URLs for the breadcrumbs.
      * @param array $crumbs Array ($url, $name, $isTranslated)
      * @param bool $subclass
      */
@@ -281,7 +281,7 @@ class ReportPlugin extends Plugin {
 
     /**
      * Extend the {url ...} smarty to support reporting plugins.
-     * @see PKPPageRouter::url() for the supported parameters.
+     * @see CorePageRouter::url() for the supported parameters.
      * @param array $params
      * @param Smarty $smarty The Smarty instance.
      * @return string The generated URL.

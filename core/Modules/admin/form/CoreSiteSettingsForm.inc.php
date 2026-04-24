@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/admin/form/CoreSiteSettingsForm.inc.php
+ * @file core.Modules.admin/form/CoreSiteSettingsForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 define('SITE_MIN_PASSWORD_LENGTH', 12);
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class CoreSiteSettingsForm extends Form {
     
@@ -177,7 +177,7 @@ class CoreSiteSettingsForm extends Form {
      * Uploads custom site stylesheet.
      */
     public function uploadSiteStyleSheet() {
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         
         // [WIZDAM] Fetch site via singleton for file operations
@@ -205,7 +205,7 @@ class CoreSiteSettingsForm extends Form {
      * @param string $locale
      */
     public function uploadPageHeaderTitleImage($locale) {
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         
         // [WIZDAM] Fetch site via singleton

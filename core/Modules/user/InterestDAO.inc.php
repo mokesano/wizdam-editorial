@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/user/InterestDAO.inc.php
+ * @file core.Modules.user/InterestDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying a user's review interests.
  */
 
-import('lib.wizdam.classes.controlledVocab.ControlledVocabDAO');
+import('core.Modules.controlledVocab.ControlledVocabDAO');
 
 define('CONTROLLED_VOCAB_INTEREST', 'interest');
 
@@ -112,7 +112,7 @@ class InterestDAO extends ControlledVocabDAO {
         });
 
         // Turn back into an iterator.
-        import('lib.wizdam.classes.core.ArrayItemIterator');
+        import('core.Modules.core.ArrayItemIterator');
         return new ArrayItemIterator($interests);
     }
 

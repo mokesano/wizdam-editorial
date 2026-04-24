@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 7.4/8.0+ (Strict Types, NotificationManager Integration)
  */
 
-import('classes.plugins.ImportExportPlugin');
+import('core.Modules.plugins.ImportExportPlugin');
 
 // Export types.
 define('DOI_EXPORT_ISSUES', 0x01);
@@ -81,7 +81,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         if (!($this->_cache instanceof PubObjectCache)) {
             // Instantiate the cache.
             if (!class_exists('PubObjectCache')) { 
-                $this->import('classes.PubObjectCache');
+                $this->import('core.Modules.PubObjectCache');
             }
             $this->_cache = new PubObjectCache();
         }
@@ -89,12 +89,12 @@ class DOIExportPlugin extends ImportExportPlugin {
     }
 
     //
-    // Implement template methods from PKPPlugin
+    // Implement template methods from CorePlugin
     //
 
     /**
      * Register the plugin.
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @param string $category
      * @param string $path
      * @param int|null $mainContextId
@@ -111,7 +111,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Get the path to the templates.
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @param bool $inCore
      * @return string
      */
@@ -121,7 +121,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Get the context-specific plugin settings file.
-     * @see PKPPlugin::getInstallSitePluginSettingsFile()
+     * @see CorePlugin::getInstallSitePluginSettingsFile()
      * @return string
      */
     public function getContextSpecificPluginSettingsFile(): string {
@@ -130,7 +130,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
     /**
      * Get the locale filename for the plugin.
-     * @see PKPPlugin::getLocaleFilename($locale)
+     * @see CorePlugin::getLocaleFilename($locale)
      * @param string $locale
      * @return array
      */
@@ -1124,7 +1124,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         unset($articles);
 
         // Instantiate article iterator.
-        import('lib.wizdam.classes.core.VirtualArrayIterator');
+        import('core.Modules.core.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($articleData, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the article template.
@@ -1183,7 +1183,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         unset($galleys);
 
         // Instantiate galley iterator.
-        import('lib.wizdam.classes.core.VirtualArrayIterator');
+        import('core.Modules.core.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($galleyData, $totalGalleys, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the galley template.
@@ -1509,7 +1509,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      */
     public function _instantiateSettingsForm($journal) {
         $settingsFormClassName = $this->getSettingsFormClassName();
-        $this->import('classes.form.' . $settingsFormClassName);
+        $this->import('core.Modules.form.' . $settingsFormClassName);
         $settingsForm = new $settingsFormClassName($this, $journal->getId());
         return $settingsForm;
     }
@@ -1526,7 +1526,7 @@ class DOIExportPlugin extends ImportExportPlugin {
         // Optimization: Instantiate directly without static caching if simpler, 
         // or check class existence if lazy loading is needed.
         if (!class_exists('NotificationManager')) {
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
         }
         $notificationManager = new NotificationManager();
 

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/gift/GiftDAO.inc.php
+ * @file core.Modules.gift/GiftDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * @brief Wizdam extension of CoreGiftDAO
  */
 
-import('lib.wizdam.classes.gift.CoreGiftDAO');
-import('classes.gift.Gift');
+import('core.Modules.gift.CoreGiftDAO');
+import('core.Modules.gift.Gift');
 
 define('GIFT_REDEEM_STATUS_ERROR_SUBSCRIPTION_TYPE_INVALID', 0x10);
 define('GIFT_REDEEM_STATUS_ERROR_SUBSCRIPTION_NON_EXPIRING', 0x11);
@@ -129,7 +129,7 @@ class GiftDAO extends CoreGiftDAO {
             }
         } else {
             // Otherwise, create a new individual subscription for user
-            import('classes.subscription.IndividualSubscription');
+            import('core.Modules.subscription.IndividualSubscription');
             $subscription = new IndividualSubscription();
 
             $subscription->setJournalId($journalId);

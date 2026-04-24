@@ -129,7 +129,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
 
         // Ensure announcement is valid and for this context
         if ($this->_announcementIsValid($request, $announcementId)) {
-            import('classes.manager.form.AnnouncementForm');
+            import('core.Modules.manager.form.AnnouncementForm');
 
             $templateMgr = TemplateManager::getManager();
             $templateMgr->append('pageHierarchy', [$request->url(null, 'manager', 'announcements'), 'manager.announcements']);
@@ -179,7 +179,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
 
         $router = $request->getRouter();
 
-        import('classes.manager.form.AnnouncementForm');
+        import('core.Modules.manager.form.AnnouncementForm');
 
         $announcementId = $request->getUserVar('announcementId') == null ? null : (int) $request->getUserVar('announcementId');
         $announcementDao = DAORegistry::getDAO('AnnouncementDAO');
@@ -287,7 +287,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
 
         // Ensure announcement type is valid and for this context
         if ($this->_announcementTypeIsValid($request, $typeId)) {
-            import('classes.manager.form.AnnouncementTypeForm');
+            import('core.Modules.manager.form.AnnouncementTypeForm');
 
             $templateMgr = TemplateManager::getManager();
             $templateMgr->append('pageHierarchy', [$request->url(null, 'manager', 'announcementTypes'), 'manager.announcementTypes']);
@@ -335,7 +335,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
 
         $router = $request->getRouter();
 
-        import('classes.manager.form.AnnouncementTypeForm');
+        import('core.Modules.manager.form.AnnouncementTypeForm');
 
         $typeId = $request->getUserVar('typeId') == null ? null : (int) $request->getUserVar('typeId');
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');

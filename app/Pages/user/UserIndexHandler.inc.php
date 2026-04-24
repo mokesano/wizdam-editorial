@@ -123,7 +123,7 @@ class UserIndexHandler extends UserHandler {
                     || $subscriptionTypeDao->subscriptionTypesExistByInstitutional($journalId, true)) ? true : false;
             $templateMgr->assign('subscriptionsEnabled', $subscriptionsEnabled);
 
-            import('classes.payment.AppPaymentManager');
+            import('core.Modules.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             $acceptGiftPayments = $paymentManager->acceptGiftPayments();
             $templateMgr->assign('acceptGiftPayments', $acceptGiftPayments);

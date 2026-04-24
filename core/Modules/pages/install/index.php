@@ -23,7 +23,7 @@ switch ($op) {
 	case 'upgrade':
 	case 'installUpgrade':
 		define('HANDLER_CLASS', 'CoreInstallHandler');
-		import('lib.wizdam.pages.install.CoreInstallHandler');
+		import('core.Modules.pages.install.CoreInstallHandler');
 		break;
 }
 

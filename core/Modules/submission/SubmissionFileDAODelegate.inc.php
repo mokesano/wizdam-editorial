@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/SubmissionFileDAODelegate.inc.php
+ * @file core.Modules.submission/SubmissionFileDAODelegate.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * to retrieve and modify SubmissionFile objects.
  */
 
-import('lib.wizdam.classes.db.DAO');
+import('core.Modules.db.DAO');
 
 class SubmissionFileDAODelegate extends DAO {
     

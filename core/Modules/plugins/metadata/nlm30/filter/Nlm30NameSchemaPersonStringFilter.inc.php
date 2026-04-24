@@ -18,7 +18,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Reference Fixes
  */
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
 
 class Nlm30NameSchemaPersonStringFilter extends Nlm30PersonStringFilter {
     /** @var string */
@@ -42,7 +42,7 @@ class Nlm30NameSchemaPersonStringFilter extends Nlm30PersonStringFilter {
         assert(is_string($delimiter));
         $this->_delimiter = $delimiter;
 
-        $inputType = 'metadata::lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema(*)';
+        $inputType = 'metadata::core.Modules.plugins.metadata.nlm30.schema.Nlm30NameSchema(*)';
         $outputType = 'primitive::string';
         if ($filterMode == PERSON_STRING_FILTER_MULTIPLE) $inputType .= '[]';
 

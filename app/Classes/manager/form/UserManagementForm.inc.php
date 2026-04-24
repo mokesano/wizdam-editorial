@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/manager/form/UserManagementForm.inc.php
+ * @file core.Modules.manager/form/UserManagementForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class UserManagementForm extends Form {
 
@@ -211,7 +211,7 @@ class UserManagementForm extends Form {
             $userDao = DAORegistry::getDAO('UserDAO');
             $user = $userDao->getById($this->userId);
 
-            import('lib.wizdam.classes.user.InterestManager');
+            import('core.Modules.user.InterestManager');
             $interestManager = new InterestManager();
 
             if ($user != null) {
@@ -448,7 +448,7 @@ class UserManagementForm extends Form {
 
             if ($sendNotify) {
                 // Send welcome email to user
-                import('classes.mail.MailTemplate');
+                import('core.Modules.mail.MailTemplate');
                 $mail = new MailTemplate('USER_REGISTER');
                 $mail->setFrom($journal->getSetting('contactEmail'), $journal->getSetting('contactName'));
                 $mail->assignParams(['username' => $this->getData('username'), 'password' => $password, 'userFullName' => $user->getFullName()]);
@@ -459,7 +459,7 @@ class UserManagementForm extends Form {
 
         // Insert the user interests
         $interests = $this->getData('interestsKeywords') ? $this->getData('interestsKeywords') : $this->getData('interestsTextOnly');
-        import('lib.wizdam.classes.user.InterestManager');
+        import('core.Modules.user.InterestManager');
         $interestManager = new InterestManager();
         $interestManager->setInterestsForUser($user, $interests);
     }

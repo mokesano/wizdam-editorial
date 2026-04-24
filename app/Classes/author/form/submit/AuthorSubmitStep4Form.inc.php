@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/author/form/submit/AuthorSubmitStep4Form.inc.php
+ * @file core.Modules.author/form/submit/AuthorSubmitStep4Form.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('classes.author.form.submit.AuthorSubmitForm');
+import('core.Modules.author.form.submit.AuthorSubmitForm');
 
 class AuthorSubmitStep4Form extends AuthorSubmitForm {
     /**

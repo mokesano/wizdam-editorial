@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/FilterSetting.inc.php
+ * @file core.Modules.filter/FilterSetting.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class that describes a configurable filter setting.
  */
 
-import('lib.wizdam.classes.form.validation.FormValidator');
+import('core.Modules.form.validation.FormValidator');
 
 class FilterSetting {
     /** @var string the (internal) name of the setting */

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/citation/CitationListTokenizerFilter.inc.php
+ * @file core.Modules.citation/CitationListTokenizerFilter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.filter.Filter');
+import('core.Modules.filter.Filter');
 
 class CitationListTokenizerFilter extends Filter {
     /**

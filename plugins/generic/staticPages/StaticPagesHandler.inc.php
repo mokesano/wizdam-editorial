@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class StaticPagesHandler extends Handler {
     

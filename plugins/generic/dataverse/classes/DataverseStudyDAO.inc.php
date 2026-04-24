@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized for PHP 8.4, Strict Typing, and Null-Safety.
  */
 
-import('lib.wizdam.classes.db.DAO');
+import('core.Modules.db.DAO');
 import('plugins.generic.dataverse.classes.DataverseStudy'); // [WIZDAM FIX] Import absolut
 
 class DataverseStudyDAO extends DAO {

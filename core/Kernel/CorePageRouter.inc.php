@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/PKPPageRouter.inc.php
+ * @file core.Modules.core/CorePageRouter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -18,7 +18,7 @@ declare(strict_types=1);
 define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
 
-import('lib.wizdam.classes.core.CoreRouter');
+import('core.Modules.core.CoreRouter');
 
 class CorePageRouter extends CoreRouter {
     
@@ -45,10 +45,10 @@ class CorePageRouter extends CoreRouter {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPPageRouter() {
+    public function CorePageRouter() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
-                "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPPageRouter(). Please refactor to parent::__construct().",
+                "Class '" . get_class($this) . "' uses deprecated constructor parent::CorePageRouter(). Please refactor to parent::__construct().",
                 E_USER_DEPRECATED
             );
         }
@@ -318,7 +318,7 @@ class CorePageRouter extends CoreRouter {
 
         // Page and Operation
         // [WIZDAM FIX] Replaced is_a() with instanceof
-        $currentRequestIsAPageRequest = ($request->getRouter() instanceof PKPPageRouter);
+        $currentRequestIsAPageRequest = ($request->getRouter() instanceof CorePageRouter);
 
         // Determine the operation
         if ($op) {
@@ -411,7 +411,7 @@ class CorePageRouter extends CoreRouter {
     public function _getRequestedUrlParts($callback, $request) {
         $url = null;
         // [WIZDAM FIX] instanceof check
-        assert($request->getRouter() instanceof PKPPageRouter);
+        assert($request->getRouter() instanceof CorePageRouter);
         $isPathInfoEnabled = $request->isPathInfoEnabled();
 
         if ($isPathInfoEnabled) {

@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.plugins.metadata.openurl10.PKPOpenurl10MetadataPlugin');
+import('core.Modules.plugins.metadata.openurl10.CoreOpenurl10MetadataPlugin');
 
 class Openurl10MetadataPlugin extends CoreOpenurl10MetadataPlugin {
     

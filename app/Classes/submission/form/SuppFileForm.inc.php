@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/form/SuppFileForm.inc.php
+ * @file core.Modules.submission/form/SuppFileForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class SuppFileForm extends Form {
     /** @var int|null the ID of the supplementary file */
@@ -165,7 +165,7 @@ class SuppFileForm extends Form {
         }
 
         // Verify additional fields from public identifer plug-ins.
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->validate($journal->getId(), $this, $this->suppFile);
 
@@ -201,7 +201,7 @@ class SuppFileForm extends Form {
             ];
         }
         // consider the additional field names from the public identifer plugins
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->init($this, $suppFile);
 
@@ -231,7 +231,7 @@ class SuppFileForm extends Form {
             ]
         );
         // consider the additional field names from the public identifer plugins
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->readInputData($this);
     }
@@ -243,13 +243,13 @@ class SuppFileForm extends Form {
      * @return int the supplementary file ID
      */
     public function execute($fileName = null, $createRemote = false) {
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFileManager = new ArticleFileManager($this->article->getId());
         $suppFileDao = DAORegistry::getDAO('SuppFileDAO');
 
         $fileName = isset($fileName) ? $fileName : 'uploadSuppFile';
 
-        import('classes.search.ArticleSearchIndex');
+        import('core.Modules.search.ArticleSearchIndex');
         $articleSearchIndex = new ArticleSearchIndex();
         
         if (isset($this->suppFile)) {
@@ -328,7 +328,7 @@ class SuppFileForm extends Form {
         $suppFile->setShowReviewers($this->getData('showReviewers') == 1 ? 1 : 0);
         $suppFile->setStoredPubId('publisher-id', $this->getData('publicSuppFileId'));
         // consider the additional field names from the public identifer plugins
-        import('classes.plugins.PubIdPluginHelper');
+        import('core.Modules.plugins.PubIdPluginHelper');
         $pubIdPluginHelper = new PubIdPluginHelper();
         $pubIdPluginHelper->execute($this, $suppFile);
     }

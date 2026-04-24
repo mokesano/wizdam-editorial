@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Scheduled task to register DOIs to the Medra server.
  */
 
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 class MedraInfoSender extends ScheduledTask {
     

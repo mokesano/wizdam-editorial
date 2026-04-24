@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 import('pages.rtadmin.RTAdminHandler');
-import('classes.rt.JournalRTAdmin'); // [WIZDAM] Explicit import
+import('core.Modules.rt.JournalRTAdmin'); // [WIZDAM] Explicit import
 
 class RTVersionHandler extends RTAdminHandler {
     
@@ -56,7 +56,7 @@ class RTVersionHandler extends RTAdminHandler {
         $rtDao = DAORegistry::getDAO('RTDAO');
         $journal = $request->getJournal();
 
-        import('classes.rt.form.VersionForm');
+        import('core.Modules.rt.form.VersionForm');
         $versionForm = new VersionForm(null, $journal->getId());
 
         if (isset($args[0]) && $args[0]=='save') {
@@ -188,7 +188,7 @@ class RTVersionHandler extends RTAdminHandler {
         $version = $rtDao->getVersion($versionId, $journal->getId());
 
         if (isset($version)) {
-            import('classes.rt.form.VersionForm');
+            import('core.Modules.rt.form.VersionForm');
             $this->setupTemplate(true, $version);
             $versionForm = new VersionForm($versionId, $journal->getId());
             $versionForm->initData();
@@ -237,7 +237,7 @@ class RTVersionHandler extends RTAdminHandler {
         $version = $rtDao->getVersion($versionId, $journal->getId());
 
         if (isset($version)) {
-            import('classes.rt.form.VersionForm');
+            import('core.Modules.rt.form.VersionForm');
             $versionForm = new VersionForm($versionId, $journal->getId());
             $versionForm->readInputData();
             $versionForm->execute();

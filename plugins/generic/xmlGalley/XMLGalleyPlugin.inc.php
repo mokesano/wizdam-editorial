@@ -15,7 +15,7 @@ declare(strict_types=1);
  * MODERNIZED FOR PHP 7.4+ & SCHOLARWIZDAM FORK
  */
 
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class XMLGalleyPlugin extends GenericPlugin {
     
@@ -92,7 +92,7 @@ class XMLGalleyPlugin extends GenericPlugin {
 
     /**
      * Get the filename of the ADODB schema for this plugin.
-     * @see PKPPlugin::getInstallSchemaFile()
+     * @see CorePlugin::getInstallSchemaFile()
      * @return string|null
      */
     public function getInstallSchemaFile(): ?string {
@@ -310,7 +310,7 @@ class XMLGalleyPlugin extends GenericPlugin {
                 } elseif (Request::getUserVar('uploadCustomXSL')) {
                     $form->readInputData();
 
-                    import('classes.file.JournalFileManager');
+                    import('core.Modules.file.JournalFileManager');
 
                     // if the a valid custom XSL is uploaded, process it
                     $fileManager = new JournalFileManager($journal);
@@ -348,7 +348,7 @@ class XMLGalleyPlugin extends GenericPlugin {
                 // if we are deleting an existing custom XSL sheet
                 } elseif (Request::getUserVar('deleteCustomXSL')) {
 
-                    import('classes.file.JournalFileManager');
+                    import('core.Modules.file.JournalFileManager');
 
                     // if the a valid custom XSL is uploaded, process it
                     $fileManager = new JournalFileManager($journal);

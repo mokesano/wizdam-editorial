@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/feature/OrderGridItemsFeature.inc.php
+ * @file core.Modules.controllers/grid/feature/OrderGridItemsFeature.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.controllers.grid.feature.OrderItemsFeature');
+import('core.Modules.controllers.grid.feature.OrderItemsFeature');
 
 class OrderGridItemsFeature extends OrderItemsFeature {
 
@@ -63,7 +63,7 @@ class OrderGridItemsFeature extends OrderItemsFeature {
         $request = $args['request'];
         $grid = $args['grid'];
 
-        import('lib.wizdam.classes.core.JSONManager');
+        import('core.Modules.core.JSONManager');
         $jsonManager = new JSONManager();
         $data = $jsonManager->decode($request->getUserVar('data'));
 

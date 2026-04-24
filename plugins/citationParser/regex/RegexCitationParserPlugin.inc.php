@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief Regular extraction based citation extraction plug-in.
  */
 
-import('lib.wizdam.plugins.citationParser.regex.PKPRegexCitationParserPlugin');
+import('core.Modules.plugins.citationParser.regex.CoreRegexCitationParserPlugin');
 
 class RegexCitationParserPlugin extends CoreRegexCitationParserPlugin {
     

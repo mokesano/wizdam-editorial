@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Simple resolver gateway plugin
  */
 
-import('classes.plugins.GatewayPlugin');
+import('core.Modules.plugins.GatewayPlugin');
 
 class ResolverPlugin extends GatewayPlugin {
 

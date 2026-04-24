@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/search/ArticleSearch.inc.php
+ * @file core.Modules.search/ArticleSearch.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -31,7 +31,7 @@ define('ARTICLE_SEARCH_INDEX_TERMS',        0x00000078);
 
 define('ARTICLE_SEARCH_DEFAULT_RESULT_LIMIT', 20);
 
-import('classes.search.ArticleSearchIndex');
+import('core.Modules.search.ArticleSearchIndex');
 
 class ArticleSearch {
 
@@ -362,7 +362,7 @@ class ArticleSearch {
                 if (!isset($issueCache[$issueId])) {
                     $issue = $issueDao->getIssueById($issueId);
                     $issueCache[$issueId] = $issue;
-                    import('classes.issue.IssueAction');
+                    import('core.Modules.issue.IssueAction');
                     $issueAvailabilityCache[$issueId] = !IssueAction::subscriptionRequired($issue) || IssueAction::subscribedUser($journalCache[$journalId], $issueId, $articleId) || IssueAction::subscribedDomain($journalCache[$journalId], $issueId, $articleId);
                 }
 
@@ -443,7 +443,7 @@ class ArticleSearch {
 
         $results = ArticleSearch::formatResults($results);
 
-        import('lib.wizdam.classes.core.VirtualArrayIterator');
+        import('core.Modules.core.VirtualArrayIterator');
         $returner = new VirtualArrayIterator($results, $totalResults, $page, $itemsPerPage);
         return $returner;
     }

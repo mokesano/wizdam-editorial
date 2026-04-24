@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/rt/RTAdmin.inc.php
+ * @file core.Modules.rt/RTAdmin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, Visibility, Annotations)
  */
 
-import('lib.wizdam.classes.rt.RTStruct');
+import('core.Modules.rt.RTStruct');
 
 class RTAdmin {
 

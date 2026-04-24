@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @class Mods34SchemaSubmissionAdapter
  * @ingroup plugins_metadata_mods34_filter
  * @see Submission
- * @see PKPMods34Schema
+ * @see CoreMods34Schema
  *
  * @brief Abstract base class for meta-data adapters that
  * injects/extracts MODS schema compliant meta-data into/from
@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.metadata.MetadataDataObjectAdapter');
+import('core.Modules.metadata.MetadataDataObjectAdapter');
 
 class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
     
@@ -80,7 +80,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
         if (is_array($nameDescriptions)) {
             foreach($nameDescriptions as $nameDescription) { /* @var $nameDescription MetadataDescription */
                 // Check that we find the expected name schema.
-                assert($nameDescription->getMetadataSchemaName() == 'lib.wizdam.plugins.metadata.mods34.schema.Mods34NameSchema');
+                assert($nameDescription->getMetadataSchemaName() == 'core.Modules.plugins.metadata.mods34.schema.Mods34NameSchema');
 
                 // Retrieve the name type and role.
                 $nameType = $nameDescription->getStatement('[@type]');
@@ -237,7 +237,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
         $authors = $submission->getAuthors();
         foreach($authors as $author) { /* @var $author Author */
             // Create a new name description.
-            $authorDescription = new MetadataDescription('lib.wizdam.plugins.metadata.mods34.schema.Mods34NameSchema', ASSOC_TYPE_AUTHOR);
+            $authorDescription = new MetadataDescription('core.Modules.plugins.metadata.mods34.schema.Mods34NameSchema', ASSOC_TYPE_AUTHOR);
 
             // Type
             $authorType = 'personal';
@@ -289,7 +289,7 @@ class Mods34SchemaSubmissionAdapter extends MetadataDataObjectAdapter {
         // translations in the cataloging language.
         $supportingAgency = $submission->getSponsor($catalogingLocale);
         if ($supportingAgency) {
-            $supportingAgencyDescription = new MetadataDescription('lib.wizdam.plugins.metadata.mods34.schema.Mods34NameSchema', ASSOC_TYPE_AUTHOR);
+            $supportingAgencyDescription = new MetadataDescription('core.Modules.plugins.metadata.mods34.schema.Mods34NameSchema', ASSOC_TYPE_AUTHOR);
             $sponsorNameType = 'corporate';
             $supportingAgencyDescription->addStatement('[@type]', $sponsorNameType);
             $supportingAgencyDescription->addStatement('namePart', $supportingAgency);

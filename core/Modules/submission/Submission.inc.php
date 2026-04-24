@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/submission/Submission.inc.php
+ * @file core.Modules.submission/Submission.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -120,7 +120,7 @@ class Submission extends DataObject {
     public function getAuthorEmails() {
         $authors = $this->getAuthors();
 
-        import('lib.wizdam.classes.mail.Mail');
+        import('core.Modules.mail.Mail');
         $returner = array();
         foreach($authors as $author) {
             $returner[] = Mail::encodeDisplayName($author->getFullName()) . ' <' . $author->getEmail() . '>';

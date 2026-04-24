@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/reviewAssignment/ReviewAssignment.inc.php
+ * @file core.Modules.submission/reviewAssignment/ReviewAssignment.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.submission.reviewAssignment.CoreReviewAssignment');
+import('core.Modules.submission.reviewAssignment.CoreReviewAssignment');
 
 class ReviewAssignment extends CoreReviewAssignment {
     
@@ -91,7 +91,7 @@ class ReviewAssignment extends CoreReviewAssignment {
      */
     public static function getReviewerRecommendationOptions() {
         // Bring in reviewer constants
-        import('classes.submission.reviewer.ReviewerSubmission');
+        import('core.Modules.submission.reviewer.ReviewerSubmission');
 
         static $reviewerRecommendationOptions = [
             '' => 'common.chooseOne',

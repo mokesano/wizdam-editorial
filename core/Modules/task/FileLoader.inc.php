@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/task/FileLoader.php
+ * @file core.Modules.task/FileLoader.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 define('FILE_LOADER_RETURN_TO_STAGING', 0x01);
 
@@ -240,7 +240,7 @@ class FileLoader extends ScheduledTask {
                 if ($install) {
                     // Try installing the folder if it is missing.
                     if ($fileManager === null) {
-                        import('lib.wizdam.classes.file.FileManager');
+                        import('core.Modules.file.FileManager');
                         $fileManager = new FileManager();
                     }
                     $fileManager->mkdirtree($path);

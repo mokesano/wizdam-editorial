@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Quick Submit one-page submission plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
+import('core.Modules.plugins.ImportExportPlugin');
 
 class QuickSubmitPlugin extends ImportExportPlugin {
 

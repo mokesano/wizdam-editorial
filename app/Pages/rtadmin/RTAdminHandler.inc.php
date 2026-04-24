@@ -17,8 +17,8 @@ declare(strict_types=1);
  * [WIZDAM CLEANUP] Amputasi total fitur "Validate URLs" dan cURL usang.
  */
 
-import('classes.rt.JournalRTAdmin');
-import('classes.handler.Handler');
+import('core.Modules.rt.JournalRTAdmin');
+import('core.Modules.handler.Handler');
 
 class RTAdminHandler extends Handler {
     

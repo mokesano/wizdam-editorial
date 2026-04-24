@@ -22,7 +22,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.plugins.metadata.openurl10.schema.Openurl10JournalBookBaseSchema');
+import('core.Modules.plugins.metadata.openurl10.schema.Openurl10JournalBookBaseSchema');
 
 define('OPENURL10_GENRE_JOURNAL', 'journal');
 define('OPENURL10_GENRE_ISSUE', 'issue');
@@ -39,7 +39,7 @@ class Openurl10JournalSchema extends Openurl10JournalBookBaseSchema {
         // Pass schema name and class name to the parent
         parent::__construct(
             'openurl-1.0-journal',
-            'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10JournalSchema'
+            'core.Modules.plugins.metadata.openurl10.schema.Openurl10JournalSchema'
         );
 
         // Add meta-data properties that only appear in the OpenURL journal standard

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/handler/validation/HandlerValidator.inc.php
+ * @file core.Modules.handler/validation/HandlerValidator.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky

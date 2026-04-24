@@ -50,8 +50,8 @@ class ManagerPaymentHandler extends ManagerHandler {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.AppPaymentAction');
-        OJSPaymentAction::payments($args);
+        import('core.Modules.payment.AppPaymentAction');
+        AppPaymentAction::payments($args);
     }
      
     /**
@@ -66,8 +66,8 @@ class ManagerPaymentHandler extends ManagerHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.payment.AppPaymentAction');
-        $success = OJSPaymentAction::savePaymentSettings($args);
+        import('core.Modules.payment.AppPaymentAction');
+        $success = AppPaymentAction::savePaymentSettings($args);
 
         if ($success) {
             $templateMgr = TemplateManager::getManager();
@@ -91,8 +91,8 @@ class ManagerPaymentHandler extends ManagerHandler {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.AppPaymentAction');
-        OJSPaymentAction::viewPayments($args);
+        import('core.Modules.payment.AppPaymentAction');
+        AppPaymentAction::viewPayments($args);
     }
 
     /** 
@@ -104,8 +104,8 @@ class ManagerPaymentHandler extends ManagerHandler {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.AppPaymentAction');
-        OJSPaymentAction::viewPayment($args);
+        import('core.Modules.payment.AppPaymentAction');
+        AppPaymentAction::viewPayment($args);
     }
 
     /**
@@ -117,8 +117,8 @@ class ManagerPaymentHandler extends ManagerHandler {
         $this->validate();
         $this->setupTemplate(true);
 
-        import('classes.payment.AppPaymentAction');
-        OJSPaymentAction::payMethodSettings();
+        import('core.Modules.payment.AppPaymentAction');
+        AppPaymentAction::payMethodSettings();
     }
     
     /**
@@ -133,8 +133,8 @@ class ManagerPaymentHandler extends ManagerHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.payment.AppPaymentAction');
-        $success = OJSPaymentAction::savePayMethodSettings();
+        import('core.Modules.payment.AppPaymentAction');
+        $success = AppPaymentAction::savePayMethodSettings();
 
         if ($success) {
             $templateMgr = TemplateManager::getManager();

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/file/CoreTemporaryFileManager.inc.php
+ * @file core.Modules.file/CoreTemporaryFileManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class defining operations for temporary file management.
  */
 
-import('lib.wizdam.classes.file.PrivateFileManager');
+import('core.Modules.file.PrivateFileManager');
 
 class CoreTemporaryFileManager extends PrivateFileManager {
     

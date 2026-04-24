@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/help/HelpTopicSection.inc.php
+ * @file core.Modules.help/HelpTopicSection.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/site/VersionDAO.inc.php
+ * @file core.Modules.site/VersionDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 7.4+ Compatible & Custom Logic Preserved
  */
 
-import('lib.wizdam.classes.site.Version');
+import('core.Modules.site.Version');
 
 class VersionDAO extends DAO {
     

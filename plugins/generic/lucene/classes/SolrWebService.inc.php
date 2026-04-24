@@ -39,11 +39,11 @@ define('SOLR_AUTOSUGGEST_FACETING', 0x02);
 define('SOLR_INDEXING_MAX_BATCHSIZE', 200);
 
 
-import('lib.wizdam.classes.webservice.WebServiceRequest');
-import('lib.wizdam.classes.webservice.XmlWebService');
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.webservice.WebServiceRequest');
+import('core.Modules.webservice.XmlWebService');
+import('core.Modules.xml.XMLCustomWriter');
 import('plugins.generic.lucene.classes.SolrSearchRequest');
-import('classes.search.ArticleSearch');
+import('core.Modules.search.ArticleSearch');
 
 class SolrWebService extends XmlWebService {
 
@@ -1134,7 +1134,7 @@ class SolrWebService extends XmlWebService {
 	 */
 	private function _indexingTransaction($sendXmlCallback, $batchSize = SOLR_INDEXING_MAX_BATCHSIZE, $journalId = null) {
 		// Retrieve a batch of "changed" articles.
-		import('lib.wizdam.classes.db.DBResultRange');
+		import('core.Modules.db.DBResultRange');
 		$range = new DBResultRange($batchSize);
 		$articleDao = DAORegistry::getDAO('ArticleDAO'); /* @var $articleDao ArticleDAO */
 		$changedArticlesIterator = $articleDao->getBySetting(
@@ -1667,7 +1667,7 @@ class SolrWebService extends XmlWebService {
 			'qf' => $fieldList,
 			// NB: mm=1 is equivalent to implicit OR
 			// This deviates from previous Wizdam practice, please see
-			// http://wizdam.sfu.ca/wiki/index.php/OJSdeSearchConcept#Query_Parser
+			// http://wizdam.sfu.ca/wiki/index.php/CoreSearchConcept#Query_Parser
 			// for the rationale of this change.
 			'mm' => '1'
 		);
@@ -1724,7 +1724,7 @@ class SolrWebService extends XmlWebService {
 		// Construct a subquery.
 		// NB: mm=1 is equivalent to implicit OR
 		// This deviates from previous Wizdam practice, please see
-		// http://wizdam.sfu.ca/wiki/index.php/OJSdeSearchConcept#Query_Parser
+		// http://wizdam.sfu.ca/wiki/index.php/CoreSearchConcept#Query_Parser
 		// for the rationale of this change.
 		$subQuery = "+_query_:\"{!edismax mm=1 qf='$fieldList' v=\$fieldAlias}\"";
 
@@ -1997,7 +1997,7 @@ class SolrWebService extends XmlWebService {
 		if (!$issue->getPublished() || $article->getStatus() != STATUS_PUBLISHED) return false;
 
 		// Make sure the requesting party is authorized to acces the article/issue.
-		import('classes.issue.IssueAction');
+		import('core.Modules.issue.IssueAction');
 		$subscriptionRequired = IssueAction::subscriptionRequired($issue, $journal);
 		if ($subscriptionRequired) {
 			$isSubscribedDomain = IssueAction::subscribedDomain($journal, $issue->getId(), $article->getId());

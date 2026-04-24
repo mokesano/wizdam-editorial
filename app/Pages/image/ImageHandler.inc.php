@@ -15,8 +15,8 @@ declare(strict_types=1);
  * Custom Image Resizing & Caching Handler
  */
 
-import('classes.handler.Handler');
-import('lib.wizdam.classes.file.FileManager');
+import('core.Modules.handler.Handler');
+import('core.Modules.file.FileManager');
 
 class ImageHandler extends Handler {
 
@@ -115,7 +115,7 @@ class ImageHandler extends Handler {
         }
 
         // 3. Setup Path
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $journalBase = $publicFileManager->getJournalFilesPath($journal->getId());
         

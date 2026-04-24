@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/tasks/ReviewReminder.inc.php
+ * @file core.Modules.tasks/ReviewReminder.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class to perform automated reminders for reviewers.
  */
 
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 define('REVIEW_REMIND_AUTO', 'REVIEW_REMIND_AUTO');
 define('REVIEW_REQUEST_REMIND_AUTO', 'REVIEW_REQUEST_REMIND_AUTO');
@@ -62,7 +62,7 @@ class ReviewReminder extends ScheduledTask {
         $reviewer = $userDao->getUser($reviewAssignment->getReviewerId());
         if (!isset($reviewer)) return false;
 
-        import('classes.mail.ArticleMailTemplate');
+        import('core.Modules.mail.ArticleMailTemplate');
 
         $reviewerAccessKeysEnabled = $journal->getSetting('reviewerAccessKeysEnabled');
 
@@ -75,7 +75,7 @@ class ReviewReminder extends ScheduledTask {
 
         $urlParams = array();
         if ($reviewerAccessKeysEnabled) {
-            import('lib.wizdam.classes.security.AccessKeyManager');
+            import('core.Modules.security.AccessKeyManager');
             $accessKeyManager = new AccessKeyManager();
 
             // Key lifetime is the typical review period plus four weeks

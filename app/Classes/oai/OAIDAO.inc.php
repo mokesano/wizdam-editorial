@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/oai/wizdam/OAIDAO.inc.php
+ * @file core.Modules.oai/wizdam/OAIDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,8 +14,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] REFACTOR: PHP 8.1+ Compatibility, HookRegistry::dispatch
  */
 
-import('lib.wizdam.classes.oai.CoreOAIDAO');
-import('classes.issue.Issue');
+import('core.Modules.oai.CoreOAIDAO');
+import('core.Modules.issue.Issue');
 
 class OAIDAO extends CoreOAIDAO {
 

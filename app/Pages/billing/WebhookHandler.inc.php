@@ -14,11 +14,11 @@ declare(strict_types=1);
  * Dilengkapi dengan pengamanan Signature, Idempotency, dan Retry-Handling.
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 // Memanggil WIZDAM Services dari folder semantik
-import('lib.wizdam.classes.services.InvoiceService');
-import('lib.wizdam.classes.services.PaymentSettingsService');
+import('core.Modules.services.InvoiceService');
+import('core.Modules.services.PaymentSettingsService');
 
 class WebhookHandler extends Handler {
     
@@ -57,13 +57,13 @@ class WebhookHandler extends Handler {
 
         // Inisialisasi Gateway menggunakan Factory Pattern sederhana
         if ($gatewayName === 'midtrans') {
-            import('lib.wizdam.classes.payment.MidtransGateway');
+            import('core.Modules.payment.MidtransGateway');
             $gateway = new MidtransGateway(
                 $settingsService->getMidtransServerKey(), 
                 $settingsService->isProduction()
             );
         } elseif ($gatewayName === 'xendit') {
-            import('lib.wizdam.classes.payment.XenditGateway');
+            import('core.Modules.payment.XenditGateway');
             $gateway = new XenditGateway(
                 $settingsService->getXenditApiKey(),
                 $settingsService->getXenditWebhookToken()

@@ -33,7 +33,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.metadata.MetadataSchema');
+import('core.Modules.metadata.MetadataSchema');
 
 class Mods34NameSchema extends MetadataSchema {
     
@@ -45,7 +45,7 @@ class Mods34NameSchema extends MetadataSchema {
         parent::__construct(
             'mods-3.4-name',
             'mods34',
-            'lib.wizdam.plugins.metadata.mods34.schema.Mods34NameSchema',
+            'core.Modules.plugins.metadata.mods34.schema.Mods34NameSchema',
             [ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR]
         );
 

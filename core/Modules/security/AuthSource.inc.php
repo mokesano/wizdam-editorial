@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/AuthSource.inc.php
+ * @file core.Modules.security/AuthSource.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Describes an authentication source.
  */
 
-import('classes.plugins.AuthPlugin');
+import('core.Modules.plugins.AuthPlugin');
 
 class AuthSource extends DataObject {
     

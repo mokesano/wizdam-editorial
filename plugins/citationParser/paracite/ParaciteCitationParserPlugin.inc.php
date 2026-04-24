@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief ParaCite citation extraction connector plug-in.
  */
 
-import('lib.wizdam.plugins.citationParser.paracite.PKPParaciteCitationParserPlugin');
+import('core.Modules.plugins.citationParser.paracite.CoreParaciteCitationParserPlugin');
 
 class ParaciteCitationParserPlugin extends CoreParaciteCitationParserPlugin {
     

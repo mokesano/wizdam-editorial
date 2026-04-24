@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.xml.XMLCustomWriter');
 
 define('DOI_EXPORT_FILETYPE_PDF', 'PDF');
 define('DOI_EXPORT_FILETYPE_HTML', 'HTML');

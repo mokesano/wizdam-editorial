@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file plugins/oaiMetadata/dc/PKPOAIMetadataFormatPlugin_DC.inc.php
+ * @file plugins/oaiMetadata/dc/CoreOAIMetadataFormatPlugin_DC.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 7.4 - 8.x Modernization)
  */
 
-import('lib.wizdam.classes.plugins.OAIMetadataFormatPlugin');
+import('core.Modules.plugins.OAIMetadataFormatPlugin');
 
 class CoreOAIMetadataFormatPlugin_DC extends OAIMetadataFormatPlugin {
     
@@ -29,9 +29,9 @@ class CoreOAIMetadataFormatPlugin_DC extends OAIMetadataFormatPlugin {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPOAIMetadataFormatPlugin_DC() {
+    public function CoreOAIMetadataFormatPlugin_DC() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPOAIMetadataFormatPlugin_DC(). Please refactor to use parent::__construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreOAIMetadataFormatPlugin_DC(). Please refactor to use parent::__construct().",
             E_USER_DEPRECATED
         );
         self::__construct();

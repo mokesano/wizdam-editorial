@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/article/Article.inc.php
+ * @file core.Modules.article/Article.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -53,7 +53,7 @@ define ('ARTICLE_ACCESS_ISSUE_DEFAULT', 0);
 define ('ARTICLE_ACCESS_OPEN', 1);
 define ('ARTICLE_ACCESS_SUBSCRIPTION', 2);
 
-import('lib.wizdam.classes.submission.Submission');
+import('core.Modules.submission.Submission');
 
 class Article extends Submission {
     

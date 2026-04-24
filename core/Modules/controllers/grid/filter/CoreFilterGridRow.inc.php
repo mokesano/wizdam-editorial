@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/filter/PKPFilterGridRow.inc.php
+ * @file core.Modules.controllers/grid/filter/CoreFilterGridRow.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.controllers.grid.GridRow');
+import('core.Modules.controllers.grid.GridRow');
 
 class CoreFilterGridRow extends GridRow {
     
@@ -29,7 +29,7 @@ class CoreFilterGridRow extends GridRow {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPFilterGridRow() {
+    public function CoreFilterGridRow() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor parent::'" . get_class($this) . "'. Please refactor to parent::__construct().", 

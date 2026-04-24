@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED & BUG #5152 RESOLVED FOR WIZDAM FORK
  */
 
-import('classes.article.ArticleGalleyDAO');
+import('core.Modules.article.ArticleGalleyDAO');
 
 class ArticleXMLGalleyDAO extends ArticleGalleyDAO {
     

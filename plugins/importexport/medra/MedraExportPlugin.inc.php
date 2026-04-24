@@ -120,7 +120,7 @@ class MedraExportPlugin extends DOIExportPlugin {
         assert(!is_null($schema));
 
         // Create the XML DOM and document.
-        $this->import('classes.O4DOIExportDom');
+        $this->import('core.Modules.O4DOIExportDom');
         $dom = new O4DOIExportDom($request, $this, $schema, $journal, $this->getCache(), $exportIssuesAs);
         $doc = $dom->generate($objects);
         if ($doc === false) {
@@ -149,7 +149,7 @@ class MedraExportPlugin extends DOIExportPlugin {
     public function registerDoi($request, $journal, $objects, $file) {
         // Use a different endpoint for testing and
         // production.
-        $this->import('classes.MedraWebservice');
+        $this->import('core.Modules.MedraWebservice');
         $endpoint = ($this->isTestMode($request) ? MEDRA_WS_ENDPOINT_DEV : MEDRA_WS_ENDPOINT);
 
         // Get credentials.

@@ -90,7 +90,7 @@ switch ($op) {
 	//
 	case 'getInterests':
 		define('HANDLER_CLASS', 'CoreUserHandler');
-		import('lib.wizdam.pages.user.CoreUserHandler');
+		import('core.Modules.pages.user.CoreUserHandler');
 		break;
 }
 

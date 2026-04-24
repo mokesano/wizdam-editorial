@@ -23,7 +23,7 @@ declare(strict_types=1);
  * * [WIZDAM EDITION] REFACTOR: PHP 8.1+ Signature Compatibility Fix
  */
 
-import('lib.wizdam.plugins.metadata.mods34.filter.Mods34SchemaSubmissionAdapter');
+import('core.Modules.plugins.metadata.mods34.filter.Mods34SchemaSubmissionAdapter');
 
 class Mods34SchemaArticleAdapter extends Mods34SchemaSubmissionAdapter {
 
@@ -116,7 +116,7 @@ class Mods34SchemaArticleAdapter extends Mods34SchemaSubmissionAdapter {
         
         if (!$article instanceof Article) {
              // Fail safe
-             return new MetadataDescription('lib.wizdam.plugins.metadata.mods34.schema.Mods34Schema', ASSOC_TYPE_ARTICLE);
+             return new MetadataDescription('core.Modules.plugins.metadata.mods34.schema.Mods34Schema', ASSOC_TYPE_ARTICLE);
         }
 
         // Extract meta-data from the submission.

@@ -2,7 +2,7 @@
  * @defgroup js_controllers_wizard
  */
 // Create the files namespace
-jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
+jQuery.core.controllers.wizard = jQuery.core.controllers.wizard || { };
 
 /**
  * @file js/controllers/wizard/WizardHandler.js
@@ -22,13 +22,13 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.TabHandler
+	 * @extends $.core.controllers.TabHandler
 	 *
 	 * @param {jQuery} $wizard A wrapped HTML element that
 	 *  represents the wizard.
 	 * @param {Object} options Wizard options.
 	 */
-	$.pkp.controllers.wizard.WizardHandler = function($wizard, options) {
+	$.core.controllers.wizard.WizardHandler = function($wizard, options) {
 		this.parent($wizard, options);
 
 		// Start the wizard.
@@ -46,8 +46,8 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 		this.bind('formInvalid', this.formInvalid);
 		this.bind('formSubmitted', this.formSubmitted);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.wizard.WizardHandler, $.pkp.controllers.TabHandler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.wizard.WizardHandler, $.core.controllers.TabHandler);
 
 
 	//
@@ -58,7 +58,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @private
 	 * @type {jQuery}
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.$continueButton_ = null;
+	$.core.controllers.wizard.WizardHandler.prototype.$continueButton_ = null;
 
 
 	/**
@@ -66,7 +66,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @private
 	 * @type {jQuery}
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.$progressIndicator_ = null;
+	$.core.controllers.wizard.WizardHandler.prototype.$progressIndicator_ = null;
 
 
 	/**
@@ -74,7 +74,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.continueButtonText_ = null;
+	$.core.controllers.wizard.WizardHandler.prototype.continueButtonText_ = null;
 
 
 	/**
@@ -82,7 +82,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.finishButtonText_ = null;
+	$.core.controllers.wizard.WizardHandler.prototype.finishButtonText_ = null;
 
 
 	//
@@ -99,7 +99,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @param {Event} event The triggered event.
 	 * @return {boolean} Should return false to stop event propagation.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.continueRequest =
+	$.core.controllers.wizard.WizardHandler.prototype.continueRequest =
 			function(buttonElement, event) {
 
 		// Trigger the "advance requested" event on the current
@@ -124,7 +124,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @param {HTMLElement} formElement The form that triggered the event.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.formValid =
+	$.core.controllers.wizard.WizardHandler.prototype.formValid =
 			function(formElement, event) {
 
 		// The default implementation enables the continue button
@@ -140,7 +140,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @param {HTMLElement} formElement The form that triggered the event.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.formInvalid =
+	$.core.controllers.wizard.WizardHandler.prototype.formInvalid =
 			function(formElement, event) {
 
 		// The default implementation disables the continue button
@@ -156,7 +156,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @param {HTMLElement} formElement The form that triggered the event.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.formSubmitted =
+	$.core.controllers.wizard.WizardHandler.prototype.formSubmitted =
 			function(formElement, event) {
 
 		// The default implementation advances the wizard.
@@ -175,7 +175,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @param {Event} event The triggered event.
 	 * @return {boolean} Should return false to stop event propagation.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.cancelRequest =
+	$.core.controllers.wizard.WizardHandler.prototype.cancelRequest =
 			function(buttonElement, event) {
 
 		// this is a 'cancel' click, so unregister forms without prompting.
@@ -212,7 +212,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @return {Boolean} Return false if not overridden and if check form
 	 * returns true.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.wizardCancelRequested =
+	$.core.controllers.wizard.WizardHandler.prototype.wizardCancelRequested =
 			function(wizardElement, event) {
 
 		if (this.checkForm_(true)) {
@@ -237,7 +237,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 *  which the event was triggered.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.wizardAdvanceRequested =
+	$.core.controllers.wizard.WizardHandler.prototype.wizardAdvanceRequested =
 			function(wizardElement, event) {
 
 		// If we find a form then submit it.
@@ -269,7 +269,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 *  which the event was triggered.
 	 * @param {Event} event The triggered event.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.wizardAdvance =
+	$.core.controllers.wizard.WizardHandler.prototype.wizardAdvance =
 			function(wizardElement, event) {
 
 		// The wizard can only be advanced one step at a time.
@@ -313,7 +313,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * (Re-)Start the wizard.
 	 * @protected
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.startWizard = function() {
+	$.core.controllers.wizard.WizardHandler.prototype.startWizard = function() {
 
 		// Retrieve the wizard element.
 		var $wizard = this.getHtmlElement();
@@ -345,7 +345,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * Bind wizard events to default event handlers.
 	 * @protected
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.bindWizardEvents = function() {
+	$.core.controllers.wizard.WizardHandler.prototype.bindWizardEvents = function() {
 		this.bind('wizardCancelRequested', this.wizardCancelRequested);
 		this.bind('wizardAdvanceRequested', this.wizardAdvanceRequested);
 		this.bind('wizardAdvance', this.wizardAdvance);
@@ -357,7 +357,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @protected
 	 * @return {number} The current wizard step.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.
+	$.core.controllers.wizard.WizardHandler.prototype.
 			getCurrentStep = function() {
 
 		return this.getCurrentTabIndex();
@@ -369,7 +369,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @protected
 	 * @return {jQuery} The continue button.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.
+	$.core.controllers.wizard.WizardHandler.prototype.
 			getContinueButton = function() {
 
 		return this.$continueButton_;
@@ -381,7 +381,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @protected
 	 * @return {jQuery} The progress indicator.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.
+	$.core.controllers.wizard.WizardHandler.prototype.
 			getProgressIndicator = function() {
 
 		return this.$progressIndicator_;
@@ -393,7 +393,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @protected
 	 * @return {?string} The text to display on the continue button.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.
+	$.core.controllers.wizard.WizardHandler.prototype.
 			getContinueButtonText = function() {
 
 		return this.continueButtonText_;
@@ -406,7 +406,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @return {?string} The text to display on the continue button
 	 *  in the last wizard step.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.
+	$.core.controllers.wizard.WizardHandler.prototype.
 			getFinishButtonText = function() {
 
 		return this.finishButtonText_;
@@ -417,7 +417,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * Count the wizard steps.
 	 * @return {number} The current number of wizard steps.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.
+	$.core.controllers.wizard.WizardHandler.prototype.
 			getNumberOfSteps = function() {
 
 		var $wizard = this.getHtmlElement();
@@ -434,7 +434,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @private
 	 * @return {?jQuery} The form (if any).
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.getForm_ = function() {
+	$.core.controllers.wizard.WizardHandler.prototype.getForm_ = function() {
 		// If we find a form in the current tab then return it.
 		var $tabContent = this.getCurrentTab().children().first();
 		if ($tabContent.is('form')) {
@@ -451,7 +451,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 *
 	 * @private
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.advanceOrClose_ =
+	$.core.controllers.wizard.WizardHandler.prototype.advanceOrClose_ =
 			function() {
 		var currentStep = this.getCurrentStep(),
 				lastStep = this.getNumberOfSteps() - 1;
@@ -471,13 +471,13 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @return {boolean} Whether or not they wish to cancel.
 	 * @private
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.checkForm_ =
+	$.core.controllers.wizard.WizardHandler.prototype.checkForm_ =
 			function(prompt) {
 		var $form = this.getForm_();
-		var handler = $.pkp.classes.Handler.getHandler($('#' + $form.attr('id')));
+		var handler = $.core.classes.Handler.getHandler($('#' + $form.attr('id')));
 		if (prompt) {
 			if (handler.formChangesTracked) {
-				if (!confirm($.pkp.locale.form_dataHasChanged)) {
+				if (!confirm($.core.locale.form_dataHasChanged)) {
 					return true; // the user has clicked cancel, they wish to stay.
 				} else {
 					handler.cancelForm();
@@ -496,7 +496,7 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 	 * @param {jQuery} $wizard The wizard element.
 	 * @param {Object} options The wizard options.
 	 */
-	$.pkp.controllers.wizard.WizardHandler.prototype.addWizardButtons_ =
+	$.core.controllers.wizard.WizardHandler.prototype.addWizardButtons_ =
 			function($wizard, options) {
 
 		// Add space before wizard buttons.
@@ -517,12 +517,12 @@ jQuery.pkp.controllers.wizard = jQuery.pkp.controllers.wizard || { };
 		if (options.continueButtonText) {
 			// Add continue/finish button.
 			var $continueButton = $(['<button id="continueButton"',
-				'class="button pkp_helpers_align_right">', options.continueButtonText,
+				'class="button core_helpers_align_right">', options.continueButtonText,
 				'</button>'].join('')).button();
 			$wizardButtons.append($continueButton);
 
 			var $progressIndicator = $(
-					'<div class="pkp_helpers_progressIndicator"></div>');
+					'<div class="core_helpers_progressIndicator"></div>');
 			$wizardButtons.append($progressIndicator);
 
 			$continueButton.

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/RestrictedSiteAccessPolicy.inc.php
+ * @file core.Modules.security/authorization/RestrictedSiteAccessPolicy.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * contains such a setting.
  */
 
-import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
+import('core.Modules.security.authorization.AuthorizationPolicy');
 
 class RestrictedSiteAccessPolicy extends AuthorizationPolicy {
     /** @var CoreRouter */
@@ -62,7 +62,7 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy {
      */
     public function effect() {
         // Modernized type check
-        if ($this->_router instanceof PKPPageRouter) {
+        if ($this->_router instanceof CorePageRouter) {
             $page = $this->_router->getRequestedPage($this->_request);
         } else {
             $page = null;

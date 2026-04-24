@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/filter/CoreFilterGridHandler.inc.php
+ * @file core.Modules.controllers/grid/filter/CoreFilterGridHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,14 +16,14 @@ declare(strict_types=1);
  */
 
 // import grid base classes
-import('lib.wizdam.classes.controllers.grid.GridHandler');
+import('core.Modules.controllers.grid.GridHandler');
 
 // import filter grid specific classes
-import('lib.wizdam.classes.controllers.grid.filter.PKPFilterGridRow');
-import('lib.wizdam.classes.controllers.grid.filter.FilterGridCellProvider');
+import('core.Modules.controllers.grid.filter.CoreFilterGridRow');
+import('core.Modules.controllers.grid.filter.FilterGridCellProvider');
 
 // import metadata framework classes
-import('lib.wizdam.classes.metadata.MetadataDescription');
+import('core.Modules.metadata.MetadataDescription');
 
 
 class CoreFilterGridHandler extends GridHandler {
@@ -228,7 +228,7 @@ class CoreFilterGridHandler extends GridHandler {
         }
 
         // Form handling
-        import('lib.wizdam.classes.controllers.grid.filter.form.FilterForm');
+        import('core.Modules.controllers.grid.filter.form.FilterForm');
         
         // Strict Type Safety: Ensure null is not passed where string is expected
         $formTitle = $this->getTitle() ?? ''; 
@@ -260,7 +260,7 @@ class CoreFilterGridHandler extends GridHandler {
         $filter = $this->getFilterFromArgs($request, $args, true);
 
         // Form initialization
-        import('lib.wizdam.classes.controllers.grid.filter.form.FilterForm');
+        import('core.Modules.controllers.grid.filter.form.FilterForm');
         
         // Type Safety
         $formTitle = $this->getTitle() ?? ''; 

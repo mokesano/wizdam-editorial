@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/mail/CoreEmailTemplateDAO.inc.php
+ * @file core.Modules.mail/CoreEmailTemplateDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -10,7 +10,7 @@ declare(strict_types=1);
  *
  * @class CoreEmailTemplateDAO
  * @ingroup mail
- * @see PKPEmailTemplate
+ * @see CoreEmailTemplate
  *
  * @brief Operations for retrieving and modifying Email Template objects.
  */

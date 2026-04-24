@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Form to allow login to an external DuraCloud service.
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class DuraCloudLoginForm extends Form {
 

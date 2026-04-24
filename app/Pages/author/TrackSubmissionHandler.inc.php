@@ -56,14 +56,14 @@ class TrackSubmissionHandler extends AuthorHandler {
 
         // If the submission is incomplete, allow the author to delete it.
         if ($authorSubmission->getSubmissionProgress() != 0) {
-            import('classes.file.ArticleFileManager');
+            import('core.Modules.file.ArticleFileManager');
             $articleFileManager = new ArticleFileManager($articleId);
             $articleFileManager->deleteArticleTree();
 
             $articleDao = DAORegistry::getDAO('ArticleDAO');
             $articleDao->deleteArticleById($articleId);
 
-            import('classes.search.ArticleSearchIndex');
+            import('core.Modules.search.ArticleSearchIndex');
             $articleSearchIndex = new ArticleSearchIndex();
             $articleSearchIndex->articleDeleted($articleId);
             $articleSearchIndex->articleChangesFinished();
@@ -130,7 +130,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         // 2. Menangkap semua anomali: 
         // Entah datanya hilang di tabel 'issues' atau hilang di 'published_articles', jika $issue masih null, kita paksa buat objek kosong.
         if (!$issue) {
-            import('classes.issue.Issue'); // Mencegah fatal error 'Class Issue not found'
+            import('core.Modules.issue.Issue'); // Mencegah fatal error 'Class Issue not found'
             $issue = new Issue();
         }
 
@@ -151,11 +151,11 @@ class TrackSubmissionHandler extends AuthorHandler {
         $templateMgr->assign('revisedFile', $submission->getRevisedFile());
         $templateMgr->assign('suppFiles', $submission->getSuppFiles());
 
-        import('classes.submission.sectionEditor.SectionEditorSubmission');
+        import('core.Modules.submission.sectionEditor.SectionEditorSubmission');
         $templateMgr->assign('editorDecisionOptions', SectionEditorSubmission::getEditorDecisionOptions());
 
         // Set up required Payment Related Information
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
@@ -227,7 +227,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         $templateMgr->assign('revisedFile', $authorSubmission->getRevisedFile());
         $templateMgr->assign('suppFiles', $authorSubmission->getSuppFiles());
         $templateMgr->assign('lastEditorDecision', $lastDecision);
-        import('classes.submission.sectionEditor.SectionEditorSubmission');
+        import('core.Modules.submission.sectionEditor.SectionEditorSubmission');
         $templateMgr->assign('editorDecisionOptions', SectionEditorSubmission::getEditorDecisionOptions());
         $templateMgr->assign('helpTopicId', 'editorial.authorsRole.review');
         $templateMgr->display('author/submissionReview.tpl');
@@ -248,7 +248,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         if ($authorSubmission->getStatus() != STATUS_PUBLISHED && $authorSubmission->getStatus() != STATUS_ARCHIVED) {
             $this->setupTemplate($request, true, $articleId, 'summary');
 
-            import('classes.submission.form.SuppFileForm');
+            import('core.Modules.submission.form.SuppFileForm');
 
             $submitForm = new SuppFileForm($authorSubmission, $journal);
 
@@ -277,7 +277,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         if ($authorSubmission->getStatus() != STATUS_PUBLISHED && $authorSubmission->getStatus() != STATUS_ARCHIVED) {
             $this->setupTemplate($request, true, $articleId, 'summary');
 
-            import('classes.submission.form.SuppFileForm');
+            import('core.Modules.submission.form.SuppFileForm');
 
             $journal = $request->getJournal();
             $submitForm = new SuppFileForm($authorSubmission, $journal, $suppFileId);
@@ -330,7 +330,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         $this->setupTemplate($request, true, $articleId, 'summary');
 
         if ($authorSubmission->getStatus() != STATUS_PUBLISHED && $authorSubmission->getStatus() != STATUS_ARCHIVED) {
-            import('classes.submission.form.SuppFileForm');
+            import('core.Modules.submission.form.SuppFileForm');
 
             $journal = $request->getJournal();
             $submitForm = new SuppFileForm($authorSubmission, $journal, $suppFileId);
@@ -362,7 +362,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         $this->setupTemplate($request, true, $articleId);
 
         AuthorAction::copyeditUnderway($submission);
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         ProofreaderAction::proofreadingUnderway($submission, 'SIGNOFF_PROOFREADING_AUTHOR');
 
         $templateMgr = TemplateManager::getManager();
@@ -449,7 +449,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         $submission = $this->submission;
         $journal = $request->getJournal();
 
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
         $publicFileManager->removeJournalFile($journal->getId(),$submission->getFileName($formLocale));
         $submission->setFileName('', $formLocale);
@@ -550,7 +550,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 
         $send = (int) $request->getUserVar('send');
 
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
 
         if (ProofreaderAction::proofreadEmail($articleId, 'PROOFREAD_AUTHOR_COMPLETE', $request, $send?'':$request->url(null, 'author', 'authorProofreadingComplete'))) {
             $request->redirect(null, null, 'submissionEditing', $articleId);
@@ -605,7 +605,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         $galleyDao = DAORegistry::getDAO('ArticleGalleyDAO');
         $galley = $galleyDao->getGalley($galleyId, $articleId);
 
-        import('classes.file.ArticleFileManager'); // FIXME
+        import('core.Modules.file.ArticleFileManager'); // FIXME
 
         if (isset($galley)) {
             if ($galley->isHTMLGalley()) {
@@ -660,7 +660,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 
         $journal = $request->getJournal();
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
@@ -683,7 +683,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 
         $journal = $request->getJournal();
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 
@@ -706,7 +706,7 @@ class TrackSubmissionHandler extends AuthorHandler {
 
         $journal = $request->getJournal();
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $user = $request->getUser();
 

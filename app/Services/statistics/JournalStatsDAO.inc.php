@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/statistics/JournalStatsDAO.inc.php
+ * @file core.Modules.statistics/JournalStatsDAO.inc.php
  * 
  * Copyright (c) 2024-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady and Wizdam Team
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @version 2.0 (Strict MVC & PHP 8+ Compliant)
  */
 
-import('classes.db.DAO');
+import('core.Modules.db.DAO');
 
 // Pastikan konstanta Wizdam tersedia
 if (!defined('ASSOC_TYPE_JOURNAL')) define('ASSOC_TYPE_JOURNAL', 256);
@@ -176,7 +176,7 @@ class JournalStatsDAO extends DAO {
     public function getUniqueAuthorsCount(int $journalId): int {
         $count = 0;
         try {
-            // Diadaptasi langsung dari PKPWizdamStats::getSiteWideStats
+            // Diadaptasi langsung dari CoreStats::getSiteWideStats
             $result = $this->retrieve(
                 "SELECT COUNT(DISTINCT a.author_id) AS total 
                  FROM authors a 

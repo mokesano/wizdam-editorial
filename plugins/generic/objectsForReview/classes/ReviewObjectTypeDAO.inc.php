@@ -92,7 +92,7 @@ class ReviewObjectTypeDAO extends DAO {
      */
     public function newDataObject() {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ReviewObjectType');
+        $ofrPlugin->import('core.Modules.ReviewObjectType');
         return new ReviewObjectType();
     }
 

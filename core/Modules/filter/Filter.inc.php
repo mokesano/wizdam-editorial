@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/Filter.inc.php
+ * @file core.Modules.filter/Filter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,9 +16,9 @@ declare(strict_types=1);
  * and return another well-specified data type.
  */
 
-import('lib.wizdam.classes.core.DataObject');
-import('lib.wizdam.classes.filter.TypeDescription');
-import('lib.wizdam.classes.filter.TypeDescriptionFactory');
+import('core.Modules.core.DataObject');
+import('core.Modules.filter.TypeDescription');
+import('core.Modules.filter.TypeDescriptionFactory');
 
 class Filter extends DataObject {
     /** @var TypeDescription */
@@ -343,7 +343,7 @@ class Filter extends DataObject {
             // If we found any runtime restrictions then construct a
             // runtime environment from the settings.
             if ($hasRuntimeSettings) {
-                import('lib.wizdam.classes.core.RuntimeEnvironment');
+                import('core.Modules.core.RuntimeEnvironment');
                 $this->_runtimeEnvironment = new RuntimeEnvironment($phpVersionMin, $phpVersionMax, $phpExtensions, $externalPrograms);
             } else {
                 // Set null so that we don't try to construct

@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/plugins/PKPPlugin.inc.php
+ * @file core.Modules.plugins/CorePlugin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -288,7 +288,7 @@ class CorePlugin {
         // Construct the well-known filter configuration file names.
         $filterConfigFile = $this->getPluginPath().'/filter/'.PLUGIN_FILTER_DATAFILE;
         return [
-            './lib/wizdam/' . $filterConfigFile,
+            './core.Modules/' . $filterConfigFile,
             './' . $filterConfigFile
         ];
     }
@@ -350,9 +350,9 @@ class CorePlugin {
      */
     public function addHelpData($locale = null): bool {
         if ($locale == '') $locale = AppLocale::getLocale();
-        import('classes.help.Help');
+        import('core.Modules.help.Help');
         $help = Help::getHelp();
-        import('lib.wizdam.classes.help.PluginHelpMappingFile');
+        import('core.Modules.help.PluginHelpMappingFile');
         $pluginHelpMapping = new PluginHelpMappingFile($this);
         $help->addMappingFile($pluginHelpMapping);
         return true;
@@ -447,7 +447,7 @@ class CorePlugin {
                 // Metode 1: Coba via Router modern
                 if ($request) {
                     $router = $request->getRouter();
-                    if (is_a($router, 'PKPPageRouter')) {
+                    if (is_a($router, 'CorePageRouter')) {
                         $mainContext = $router->getContext($request, 1);
                     }
                 }
@@ -487,12 +487,12 @@ class CorePlugin {
         $masterLocale = MASTER_LOCALE;
         $baseLocaleFilename = $this->getPluginPath() . "/locale/$locale/locale.xml";
         $baseMasterLocaleFilename = $this->getPluginPath() . "/locale/$masterLocale/locale.xml";
-        $libPkpFilename = "lib/wizdam/$baseLocaleFilename";
-        $masterLibPkpFilename = "lib/wizdam/$baseMasterLocaleFilename";
+        $libCoreFilename = "core.Modules/$baseLocaleFilename";
+        $masterLibCoreFilename = "core.Modules/$baseMasterLocaleFilename";
         
         $filenames = [];
         if (file_exists($baseMasterLocaleFilename)) $filenames[] = $baseLocaleFilename;
-        if (file_exists($masterLibPkpFilename)) $filenames[] = $libPkpFilename;
+        if (file_exists($masterLibCoreFilename)) $filenames[] = $libCoreFilename;
         
         return $filenames;
     }

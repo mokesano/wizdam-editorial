@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/codelist/ONIXCodelistItemDAO.inc.php
+ * @file core.Modules.codelist/ONIXCodelistItemDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  *
  */
 
-import('lib.wizdam.classes.codelist.ONIXCodelistItem');
+import('core.Modules.codelist.ONIXCodelistItem');
 
 class ONIXCodelistItemDAO extends DAO {
 
@@ -97,12 +97,12 @@ class ONIXCodelistItemDAO extends DAO {
             $xmlDao = new XMLDAO();
             $listName = $this->getListName(); // i.e., 'List30'
             
-            import('lib.wizdam.classes.codelist.ONIXParserDOMHandler');
+            import('core.Modules.codelist.ONIXParserDOMHandler');
             $handler = new ONIXParserDOMHandler($listName);
 
-            import('lib.wizdam.classes.xslt.XSLTransformer');
-            import('lib.wizdam.classes.file.FileManager');
-            import('classes.file.TemporaryFileManager');
+            import('core.Modules.xslt.XSLTransformer');
+            import('core.Modules.file.FileManager');
+            import('core.Modules.file.TemporaryFileManager');
 
             $temporaryFileManager = new TemporaryFileManager();
             $fileManager = new FileManager();

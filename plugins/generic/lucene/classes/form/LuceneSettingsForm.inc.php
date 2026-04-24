@@ -16,8 +16,8 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.wizdam.classes.form.Form');
-import('lib.wizdam.classes.form.validation.FormValidatorBoolean');
+import('core.Modules.form.Form');
+import('core.Modules.form.validation.FormValidatorBoolean');
 
 // These are the first few letters of an md5 of '##placeholder##'.
 // FIXME: Any better idea how to prevent a password clash?

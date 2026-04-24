@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @class TimedViewReportForm
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class TimedViewReportForm extends Form {
 
@@ -153,7 +153,7 @@ class TimedViewReportForm extends Form {
             $metricType = APP_METRIC_TYPE_COUNTER;
         }
 
-        import('lib.wizdam.classes.db.DBResultRange');
+        import('core.Modules.db.DBResultRange');
         $dbResultRange = new DBResultRange(STATISTICS_MAX_ROWS);
 
         $metricsDao = DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */

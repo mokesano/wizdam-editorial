@@ -297,7 +297,7 @@ class UIHookDelegator {
         
         $type = $notification->getType();
         
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
 
         switch ($type) {

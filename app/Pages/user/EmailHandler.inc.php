@@ -143,13 +143,13 @@ class EmailHandler extends UserHandler {
             if (!$article || ($article && $article->getJournalId() !== $journal->getId())) $hasAccess = false;
 
             if ($hasAccess) {
-                import('classes.mail.ArticleMailTemplate');
+                import('core.Modules.mail.ArticleMailTemplate');
                 $email = new ArticleMailTemplate($articleDao->getArticle($articleId), $template);
             }
         }
 
         if ($email === null) {
-            import('classes.mail.MailTemplate');
+            import('core.Modules.mail.MailTemplate');
             $email = new MailTemplate($template);
         }
 

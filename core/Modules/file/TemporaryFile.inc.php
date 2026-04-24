@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/file/TemporaryFile.inc.php
+ * @file core.Modules.file/TemporaryFile.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Temporary file class.
  */
 
-import('lib.wizdam.classes.file.CoreFile');
+import('core.Modules.file.CoreFile');
 
 class TemporaryFile extends CoreFile {
 
@@ -41,7 +41,7 @@ class TemporaryFile extends CoreFile {
      * @return string
      */
     public function getFilePath() {
-        import('lib.wizdam.classes.file.CoreTemporaryFileManager');
+        import('core.Modules.file.CoreTemporaryFileManager');
         $temporaryFileManager = new CoreTemporaryFileManager();
         return $temporaryFileManager->getBasePath() . $this->getFileName();
     }

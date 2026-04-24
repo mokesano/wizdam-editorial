@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/codelist/CodelistItemDAO.inc.php
+ * @file core.Modules.codelist/CodelistItemDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  *
  */
 
-import('lib.wizdam.classes.codelist.CodelistItem');
+import('core.Modules.codelist.CodelistItem');
 
 class CodelistItemDAO extends DAO {
 

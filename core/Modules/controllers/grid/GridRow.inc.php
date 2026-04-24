@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/GridRow.inc.php
+ * @file core.Modules.controllers/grid/GridRow.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -22,7 +22,7 @@ declare(strict_types=1);
 define('GRID_ACTION_POSITION_ROW_CLICK', 'row-click');
 define('GRID_ACTION_POSITION_ROW_LEFT', 'row-left');
 
-import('lib.wizdam.classes.controllers.grid.GridBodyElement');
+import('core.Modules.controllers.grid.GridBodyElement');
 
 class GridRow extends GridBodyElement {
 

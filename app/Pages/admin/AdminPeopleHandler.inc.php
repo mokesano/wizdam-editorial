@@ -65,7 +65,7 @@ class AdminPeopleHandler extends AdminHandler {
 
         if (!empty($oldUserIds) && !empty($newUserId)) {
             // Both user IDs have been selected. Merge the accounts.
-            import('classes.user.UserAction');
+            import('core.Modules.user.UserAction');
             foreach ($oldUserIds as $oldUserId) {
                 UserAction::mergeUsers($oldUserId, $newUserId);
             }

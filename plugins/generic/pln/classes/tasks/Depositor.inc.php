@@ -16,8 +16,8 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('classes.file.JournalFileManager');
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('core.Modules.file.JournalFileManager');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 class Depositor extends ScheduledTask {
 
@@ -75,9 +75,9 @@ class Depositor extends ScheduledTask {
             if (!$this->_plugin->getSetting($journal->getId(), 'enabled')) continue;
 
             $this->_plugin->registerDAOs();
-            $this->_plugin->import('classes.Deposit');
-            $this->_plugin->import('classes.DepositObject');
-            $this->_plugin->import('classes.DepositPackage');
+            $this->_plugin->import('core.Modules.Deposit');
+            $this->_plugin->import('core.Modules.DepositObject');
+            $this->_plugin->import('core.Modules.DepositPackage');
             
             $this->addExecutionLogEntry(__('plugins.generic.pln.notifications.processing_for', ['title' => $journal->getLocalizedTitle()]), SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
             

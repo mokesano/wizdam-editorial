@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/issue/form/IssueGalleyForm.inc.php
+ * @file core.Modules.issue/form/IssueGalleyForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class IssueGalleyForm extends Form {
     /** @var int|null the ID of the issue */
@@ -225,7 +225,7 @@ class IssueGalleyForm extends Form {
      * @return int|null the galley ID
      */
     public function execute($fileName = null) {
-        import('classes.file.IssueFileManager');
+        import('core.Modules.file.IssueFileManager');
         $issueFileManager = new IssueFileManager($this->getIssueId());
         $galleyDao = DAORegistry::getDAO('IssueGalleyDAO');
 

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/form/validation/FormValidatorORCID.inc.php
+ * @file core.Modules.form/validation/FormValidatorORCID.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.form.validation.FormValidator');
+import('core.Modules.form.validation.FormValidator');
 
 class FormValidatorORCID extends FormValidator {
     
@@ -27,7 +27,7 @@ class FormValidatorORCID extends FormValidator {
      * @param string $message the error message for validation failures (i18n key)
      */
     public function __construct($form, $field, $type, $message) {
-        import('lib.wizdam.classes.validation.ValidatorORCID');
+        import('core.Modules.validation.ValidatorORCID');
         $validator = new ValidatorORCID();
         parent::__construct($form, $field, $type, $message, $validator);
     }

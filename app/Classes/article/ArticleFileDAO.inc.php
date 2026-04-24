@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/article/ArticleFileDAO.inc.php
+ * @file core.Modules.article/ArticleFileDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,8 +20,8 @@ declare(strict_types=1);
  * - Hook Dispatch
  */
 
-import('lib.wizdam.classes.file.CoreFileDAO');
-import('classes.article.ArticleFile');
+import('core.Modules.file.CoreFileDAO');
+import('core.Modules.article.ArticleFile');
 
 class ArticleFileDAO extends CoreFileDAO {
 
@@ -207,7 +207,7 @@ class ArticleFileDAO extends CoreFileDAO {
      * @return array ArticleFiles
      */
     public function getArticleFilesByAssocId($assocId, $fileStage) {
-        import('classes.file.ArticleFileManager');
+        import('core.Modules.file.ArticleFileManager');
         $articleFiles = array();
 
         $result = $this->retrieve(

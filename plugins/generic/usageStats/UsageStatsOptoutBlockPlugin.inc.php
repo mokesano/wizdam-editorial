@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Opt-out component.
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 
@@ -43,11 +43,11 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
     }
 
     //
-    // Implement template methods from PKPPlugin.
+    // Implement template methods from CorePlugin.
     //
     /**
      * Get whether or not management functions should be hidden
-     * @see PKPPlugin::getHideManagement()
+     * @see CorePlugin::getHideManagement()
      * @return boolean
      */
     public function getHideManagement(): bool {
@@ -56,7 +56,7 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 
     /**
      * Get the name of this plugin
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      * @return string
      */
     public function getName(): string {
@@ -65,7 +65,7 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 
     /**
      * Get the display name of this plugin
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -74,7 +74,7 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 
     /**
      * Get the description of this plugin
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {
@@ -83,7 +83,7 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 
     /**
      * Indicate that this is not a site-wide plugin
-     * @see PKPPlugin::isSitePlugin()
+     * @see CorePlugin::isSitePlugin()
      * @return boolean
      */
     public function isSitePlugin(): bool {
@@ -92,7 +92,7 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 
     /**
      * Get the plugin path
-     * @see PKPPlugin::getPluginPath()
+     * @see CorePlugin::getPluginPath()
      * @return string
      */
     public function getPluginPath(): string {
@@ -103,7 +103,7 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 
     /**
      * Get the template path
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @return string
      */
     public function getTemplatePath(): string {
@@ -114,7 +114,7 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 
     /**
      * Get the sequence of this plugin
-     * @see PKPPlugin::getSeq()
+     * @see CorePlugin::getSeq()
      * @return integer
      */
     public function getSeq(): int {

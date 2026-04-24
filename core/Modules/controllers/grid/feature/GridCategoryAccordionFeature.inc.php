@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/feature/GridCategoryAccordionFeature.inc.php
+ * @file core.Modules.controllers/grid/feature/GridCategoryAccordionFeature.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x Strict Standards.
  */
 
-import('lib.wizdam.classes.controllers.grid.feature.GridFeature');
-import('lib.wizdam.classes.linkAction.request.NullAction');
+import('core.Modules.controllers.grid.feature.GridFeature');
+import('core.Modules.linkAction.request.NullAction');
 
 class GridCategoryAccordionFeature extends GridFeature {
 

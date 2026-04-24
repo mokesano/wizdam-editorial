@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class AboutHandler extends Handler {
     
@@ -79,7 +79,7 @@ class AboutHandler extends Handler {
             }
             
             // Hide membership if the payment method is not configured
-            import('classes.payment.AppPaymentManager');
+            import('core.Modules.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             $templateMgr->assign('paymentConfigured', $paymentManager->isConfigured());
 
@@ -551,7 +551,7 @@ class AboutHandler extends Handler {
         $templateMgr->assign('sectionEditorEntriesBySection', $sectionEditorEntriesBySection);
         // --- AKHIR MODIFIKASI UTAMA ---
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('paymentConfigured', $paymentManager->isConfigured());
 
@@ -593,7 +593,7 @@ class AboutHandler extends Handler {
         $individualSubscriptionTypes = $subscriptionTypeDao->getSubscriptionTypesByInstitutional($journalId, false, false);
         $institutionalSubscriptionTypes = $subscriptionTypeDao->getSubscriptionTypesByInstitutional($journalId, true, false);
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $acceptGiftSubscriptionPayments = $paymentManager->acceptGiftSubscriptionPayments();
 
@@ -626,7 +626,7 @@ class AboutHandler extends Handler {
         
         $journal = $request->getJournal();
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
 
         $membershipEnabled = $paymentManager->membershipEnabled();
@@ -829,14 +829,14 @@ class AboutHandler extends Handler {
         $journal = $request->getJournal();
         $templateMgr = TemplateManager::getManager($request);
 
-        // 3. --- MULAI BLOK PKPWizdamStats ---
-        import('lib.wizdam.classes.core.PKPWizdamStats');
+        // 3. --- MULAI BLOK CoreStats ---
+        import('core.Modules.core.CoreStats');
         $refreshStats = $request->getUserVar('refresh_stats');
         $forceRefresh = trim((string) $refreshStats) == 'true';
 
         try {
             // Panggil mesin statistik utama
-            $journalStats = PKPWizdamStats::getStats($journal->getId(), $forceRefresh);
+            $journalStats = CoreStats::getStats($journal->getId(), $forceRefresh);
             
             if (is_array($journalStats) && !isset($journalStats['error'])) {
                 // Kirim SEMUA data statistik ke template
@@ -856,12 +856,12 @@ class AboutHandler extends Handler {
             }
         } catch (Exception $e) { 
             if (Config::getVar('debug', 'log_errors')) {
-                error_log('WizdamStats (Handler): Exception loading PKPWizdamStats for Statistics Page: ' . $e->getMessage());
+                error_log('WizdamStats (Handler): Exception loading CoreStats for Statistics Page: ' . $e->getMessage());
             }
             $templateMgr->assign('statsError', 'Gagal memuat statistik jurnal.');
             $templateMgr->assign('statsJsonPath', '');
         }
-        // --- AKHIR BLOK PKPWizdamStats ---
+        // --- AKHIR BLOK CoreStats ---
 
         $templateMgr->assign('helpTopicId','user.about'); 
         $templateMgr->display('about/statistics.tpl');

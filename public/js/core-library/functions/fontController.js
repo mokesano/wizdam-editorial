@@ -28,9 +28,9 @@ function fontSize(container, target, minSize, defSize, maxSize, baseUrl) {
 	var cookie = 'font-size';
 
 	//Now we'll add the font size changer interface in container
-	var smallFontHtml = "<a href='javascript:void(0);' class='pkp_controllers_fontController_smallFont' title='" + minCaption +"'>" + minCaption + "</a> ";
-	var defFontHtml = "<a href='javascript:void(0);' class='pkp_controllers_fontController_defaultFont' title='" + defCaption +"'>" + defCaption + "</a> ";
-	var largeFontHtml = "<a href='javascript:void(0);' class='pkp_controllers_fontController_largeFont' title='" + maxCaption +"'>" + maxCaption + "</a> ";
+	var smallFontHtml = "<a href='javascript:void(0);' class='core_controllers_fontController_smallFont' title='" + minCaption +"'>" + minCaption + "</a> ";
+	var defFontHtml = "<a href='javascript:void(0);' class='core_controllers_fontController_defaultFont' title='" + defCaption +"'>" + defCaption + "</a> ";
+	var largeFontHtml = "<a href='javascript:void(0);' class='core_controllers_fontController_largeFont' title='" + maxCaption +"'>" + maxCaption + "</a> ";
 	$(container).html(smallFontHtml + defFontHtml + largeFontHtml);
 
 	//Read cookie & sets the fontsize
@@ -42,42 +42,42 @@ function fontSize(container, target, minSize, defSize, maxSize, baseUrl) {
 	}
 
 	//on clicking small font button, font size is decreased by 1px
-	$(container + " .pkp_controllers_fontController_smallFont").click(function(){
+	$(container + " .core_controllers_fontController_smallFont").click(function(){
 		var curSize = parseInt($(target).css("font-size"), 10);
 		var newSize = curSize - 1;
 		if (newSize >= minSize) {
 			$(target).css('font-size', newSize);
 		}
 		if (newSize <= minSize) {
-			$(container + " .pkp_controllers_fontController_smallFont").addClass("pkp_controllers_fontController_sdisabled");
+			$(container + " .core_controllers_fontController_smallFont").addClass("core_controllers_fontController_sdisabled");
 		}
 		if (newSize < maxSize) {
-			$(container + " .pkp_controllers_fontController_largeFont").removeClass("pkp_controllers_fontController_ldisabled");
+			$(container + " .core_controllers_fontController_largeFont").removeClass("core_controllers_fontController_ldisabled");
 		}
 		updatefontCookie(newSize, baseUrl); //sets the cookie
 
 	});
 
 	//on clicking default font size button, font size is reset
-	$(container + " .pkp_controllers_fontController_defaultFont").click(function(){
+	$(container + " .core_controllers_fontController_defaultFont").click(function(){
 		$(target).css('font-size', defSize);
-		$(container + " .pkp_controllers_fontController_smallFont").removeClass("pkp_controllers_fontController_sdisabled");
-		$(container + " .pkp_controllers_fontController_largeFont").removeClass("pkp_controllers_fontController_ldisabled");
+		$(container + " .core_controllers_fontController_smallFont").removeClass("core_controllers_fontController_sdisabled");
+		$(container + " .core_controllers_fontController_largeFont").removeClass("core_controllers_fontController_ldisabled");
 		updatefontCookie(defSize, baseUrl);
 	});
 
 	//on clicking large font size button, font size is incremented by 1 to the maximum limit
-	$(container + " .pkp_controllers_fontController_largeFont").click(function(){
+	$(container + " .core_controllers_fontController_largeFont").click(function(){
 		var curSize = parseInt($(target).css("font-size"), 10);
 		var newSize = curSize + 1;
 		if (newSize <= maxSize) {
 			$(target).css('font-size', newSize);
 		}
 		if (newSize > minSize) {
-			$(container + " .pkp_controllers_fontController_smallFont").removeClass("pkp_controllers_fontController_sdisabled");
+			$(container + " .core_controllers_fontController_smallFont").removeClass("core_controllers_fontController_sdisabled");
 		}
 		if (newSize >= maxSize) {
-			$(container + " .pkp_controllers_fontController_largeFont").addClass("pkp_controllers_fontController_ldisabled");
+			$(container + " .core_controllers_fontController_largeFont").addClass("core_controllers_fontController_ldisabled");
 		}
 		updatefontCookie(newSize, baseUrl);
 	});

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief dc metadata format plugin for OAI.
  */
 
-import('lib.wizdam.plugins.oaiMetadataFormats.dc.PKPOAIMetadataFormatPlugin_DC');
+import('core.Modules.plugins.oaiMetadataFormats.dc.CoreOAIMetadataFormatPlugin_DC');
 
 class OAIMetadataFormatPlugin_DC extends CoreOAIMetadataFormatPlugin_DC {
     

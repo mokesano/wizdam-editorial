@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.plugins.AuthPlugin');
-import('lib.wizdam.classes.security.AuthSourceDAO');
+import('core.Modules.plugins.AuthPlugin');
+import('core.Modules.security.AuthSourceDAO');
 import('pages.admin.AdminHandler');
 
 class AuthSourcesHandler extends AdminHandler {
@@ -128,7 +128,7 @@ class AuthSourcesHandler extends AdminHandler {
         
         $this->setupTemplate($request, true);
 
-        import('classes.security.form.AuthSourceSettingsForm');
+        import('core.Modules.security.form.AuthSourceSettingsForm');
         $form = new AuthSourceSettingsForm((int) array_shift($args));
         $form->initData();
         $form->display();
@@ -145,7 +145,7 @@ class AuthSourcesHandler extends AdminHandler {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('classes.security.form.AuthSourceSettingsForm');
+        import('core.Modules.security.form.AuthSourceSettingsForm');
         $form = new AuthSourceSettingsForm((int) array_shift($args));
         $form->readInputData();
         $form->execute();

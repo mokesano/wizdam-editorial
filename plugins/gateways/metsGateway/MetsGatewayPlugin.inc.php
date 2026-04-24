@@ -15,8 +15,8 @@ declare(strict_types=1);
  * * [WIZDAM EDITION v3.4] Refactored for PHP 8.x Strict Compliance
  */
 
-import('classes.plugins.GatewayPlugin');
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.GatewayPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
 class METSGatewayPlugin extends GatewayPlugin {
     

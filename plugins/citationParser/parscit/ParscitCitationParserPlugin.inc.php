@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief ParsCit citation extraction connector plug-in.
  */
 
-import('lib.wizdam.plugins.citationParser.parscit.PKPParscitCitationParserPlugin');
+import('core.Modules.plugins.citationParser.parscit.CoreParscitCitationParserPlugin');
 
 class ParscitCitationParserPlugin extends CoreParscitCitationParserPlugin {
     

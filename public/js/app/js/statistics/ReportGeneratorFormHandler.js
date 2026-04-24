@@ -16,14 +16,14 @@
 (function($) {
 
 	/** @type {Object} */
-	$.pkp.statistics = $.pkp.statistics || {};
+	$.core.statistics = $.core.statistics || {};
 
 
 
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.form.AjaxFormHandler
+	 * @extends $.core.controllers.form.AjaxFormHandler
 	 *\
 	 * @param {jQueryObject} $form The wrapped HTML form element.
 	 * @param {{
@@ -53,7 +53,7 @@
 	 *   }} options Handler options.
 
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler = function($form, options) {
+	$.core.statistics.ReportGeneratorFormHandler = function($form, options) {
 
 		var $issueSelectElement, $objectTypeSelectElement,
 				$countrySelectElement, $metricTypeSelectElement,
@@ -177,9 +177,9 @@
 
 		this.addOptionalColumnsClass_();
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.statistics.ReportGeneratorFormHandler,
-			$.pkp.controllers.form.AjaxFormHandler);
+	$.core.classes.Helper.inherits(
+			$.core.statistics.ReportGeneratorFormHandler,
+			$.core.controllers.form.AjaxFormHandler);
 
 
 	//
@@ -190,7 +190,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			fetchFormUrl_ = null;
 
 
@@ -199,7 +199,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			fetchArticlesUrl_ = null;
 
 
@@ -208,7 +208,7 @@
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			$metricTypeSelectElement_ = {};
 
 
@@ -217,7 +217,7 @@
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			$reportTemplateSelectElement_ = {};
 
 
@@ -226,7 +226,7 @@
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			$articleSelectElement_ = {};
 
 
@@ -235,7 +235,7 @@
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			$regionSelectElement_ = {};
 
 
@@ -244,7 +244,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			fetchRegionsUrl_ = null;
 
 
@@ -253,7 +253,7 @@
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			$fileAssocTypes_ = {};
 
 
@@ -262,7 +262,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			rangeByDaySelector_ = null;
 
 
@@ -271,7 +271,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			rangeByMonthSelector_ = null;
 
 
@@ -280,7 +280,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			startDayElementSelector_ = null;
 
 
@@ -289,7 +289,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			endDayElementSelector_ = null;
 
 
@@ -298,7 +298,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			timeFilterWrapperSelector_ = null;
 
 
@@ -307,7 +307,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			columnsSelector_ = null;
 
 
@@ -316,7 +316,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			fileTypeSelectSelector_ = null;
 
 
@@ -325,7 +325,7 @@
 	 * @private
 	 * @type {Object}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			optionalColumns_ = {};
 
 
@@ -334,7 +334,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			aggregationOptionsSelector_ = null;
 
 
@@ -344,7 +344,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.handleResponse =
+	$.core.statistics.ReportGeneratorFormHandler.prototype.handleResponse =
 			function(formElement, jsonData) {
 		/** @type {{reportUrl: string}|Object|boolean|null} data */
 		var data = this.handleJson(jsonData);
@@ -372,7 +372,7 @@
 	 *
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.fetchFormHandler_ =
+	$.core.statistics.ReportGeneratorFormHandler.prototype.fetchFormHandler_ =
 			function() {
 		var $metricTypeSelectedOption, $reportTemplateSelectedOption,
 				$timeFilterElements, timeFilterValues, args = {};
@@ -420,7 +420,7 @@
 	 * @param {Object} callingContext The calling element or object.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.fetchArticleInfoHandler_ =
+	$.core.statistics.ReportGeneratorFormHandler.prototype.fetchArticleInfoHandler_ =
 			function(callingContext) {
 		var $issueSelectElement, $issueSelectedOptions, issueId;
 
@@ -449,7 +449,7 @@
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			updateArticleSelectCallback_ = function(ajaxContext, jsonData) {
 		var $articleSelectElement, limit, content, i,
 				/** @type {{content: string}|Object|boolean|null} */ handledJson;
@@ -477,7 +477,7 @@
 	 * @param {Object} callingContext The calling element or object.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			updateFileTypeSelectHandler_ = function(callingContext) {
 		var $objectTypeElement, $objectTypeSelectedOptions, assocType, i;
 
@@ -510,7 +510,7 @@
 	 * @param {Object} callingContext The calling element or object.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.fetchRegionHandler_ =
+	$.core.statistics.ReportGeneratorFormHandler.prototype.fetchRegionHandler_ =
 			function(callingContext) {
 		var $countrySelectElement, $countrySelectedOptions, countryId;
 
@@ -539,7 +539,7 @@
 	 * @return {boolean} Should return false to stop event processing.
 	 */
 	/*jslint unparam: true*/
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			updateRegionSelectCallback_ = function(ajaxContext, jsonData) {
 		var $regionSelectElement, limit, content, i,
 				/** @type {{content: string}|Object|boolean|null} */ handledJson;
@@ -566,7 +566,7 @@
 	 *
 	 * @private
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			currentTimeElementsClickHandler_ =
 					function() {
 		this.dateRangeElementsWrapper_.hide();
@@ -580,7 +580,7 @@
 	 *
 	 * @param {Object} callingContext The calling element or object.
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			rangeTimeElementsClickHandler_ =
 					function(callingContext) {
 
@@ -606,7 +606,7 @@
 	 * @param {Object} callingContext The calling element or object.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			aggregationOptionsChangeHandler_ =
 					function(callingContext) {
 		var $aggregationOption, $columns, $column;
@@ -631,7 +631,7 @@
 	 *
 	 * @private
 	 */
-	$.pkp.statistics.ReportGeneratorFormHandler.prototype.
+	$.core.statistics.ReportGeneratorFormHandler.prototype.
 			addOptionalColumnsClass_ = function() {
 		var columnName, optionalColumns, $columns,
 				$aggregationOptions, $orderByColumns;

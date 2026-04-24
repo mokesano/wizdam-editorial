@@ -19,12 +19,12 @@
     /**
      * @constructor
      *
-     * @extends $.pkp.classes.Handler
+     * @extends $.core.classes.Handler
      *
      * @param {jQueryObject} $form the wrapped HTML form element.
      * @param {Object} options options to configure the form handler.
      */
-    $.pkp.controllers.form.FormHandler = function($form, options) {
+    $.core.controllers.form.FormHandler = function($form, options) {
         this.parent($form, options);
 
         // Check whether we really got a form.
@@ -113,20 +113,20 @@
         $form.on('change', ':input', this.callbackWrapper(this.formChange));
     };
     
-    $.pkp.classes.Helper.inherits(
-            $.pkp.controllers.form.FormHandler,
-            $.pkp.classes.Handler);
+    $.core.classes.Helper.inherits(
+            $.core.controllers.form.FormHandler,
+            $.core.classes.Handler);
 
 
     //
     // Private properties
     //
-    $.pkp.controllers.form.FormHandler.prototype.callerSubmitHandler_ = null;
-    $.pkp.controllers.form.FormHandler.prototype.cancelRedirectUrl_ = null;
-    $.pkp.controllers.form.FormHandler.prototype.trackFormChanges_ = true;
-    $.pkp.controllers.form.FormHandler.prototype.formChangesTracked = false;
-    $.pkp.controllers.form.FormHandler.prototype.disableControlsOnSubmit = false;
-    $.pkp.controllers.form.FormHandler.prototype.enableDisablePairs_ = null;
+    $.core.controllers.form.FormHandler.prototype.callerSubmitHandler_ = null;
+    $.core.controllers.form.FormHandler.prototype.cancelRedirectUrl_ = null;
+    $.core.controllers.form.FormHandler.prototype.trackFormChanges_ = true;
+    $.core.controllers.form.FormHandler.prototype.formChangesTracked = false;
+    $.core.controllers.form.FormHandler.prototype.disableControlsOnSubmit = false;
+    $.core.controllers.form.FormHandler.prototype.enableDisablePairs_ = null;
 
 
     //
@@ -142,7 +142,7 @@
 	 *  error messages and the corresponding HTMLElements.
 	 */
     /*jslint unparam: true*/
-    $.pkp.controllers.form.FormHandler.prototype.showErrors =
+    $.core.controllers.form.FormHandler.prototype.showErrors =
             function(validator, errorMap, errorList) {
 
         // ensure that rich content elements have their
@@ -171,7 +171,7 @@
 	 * @param {Event} event The formChange event.
 	 */
     /*jslint unparam: true*/
-    $.pkp.controllers.form.FormHandler.prototype.formChange =
+    $.core.controllers.form.FormHandler.prototype.formChange =
             function(formElement, event) {
 
         if (this.trackFormChanges_ && !this.formChangesTracked) {
@@ -192,7 +192,7 @@
 	 * @return {boolean} true.
 	 * @protected
 	 */
-    $.pkp.controllers.form.FormHandler.prototype.disableFormControls =
+    $.core.controllers.form.FormHandler.prototype.disableFormControls =
             function() {
 
         if (this.disableControlsOnSubmit) {
@@ -209,7 +209,7 @@
 	 * @return {boolean} true.
 	 * @protected
 	 */
-    $.pkp.controllers.form.FormHandler.prototype.enableFormControls =
+    $.core.controllers.form.FormHandler.prototype.enableFormControls =
             function() {
 
         this.getHtmlElement().find(':submit').removeAttr('disabled').
@@ -226,7 +226,7 @@
 	 * @return {boolean} false.
 	 */
     /*jslint unparam: true*/
-    $.pkp.controllers.form.FormHandler.prototype.cancelForm =
+    $.core.controllers.form.FormHandler.prototype.cancelForm =
             function(cancelButton, event) {
 
         // Trigger the "form canceled" event and unregister the form.
@@ -246,7 +246,7 @@
 	 * @return {boolean} false.
 	 */
     /*jslint unparam: true*/
-    $.pkp.controllers.form.FormHandler.prototype.resetForm =
+    $.core.controllers.form.FormHandler.prototype.resetForm =
             function(resetButton, event) {
 
         //unregister the form.
@@ -268,7 +268,7 @@
 	 *
 	 * @param {Object} validator The validator plug-in.
 	 */
-    $.pkp.controllers.form.FormHandler.prototype.submitFormWithoutValidation =
+    $.core.controllers.form.FormHandler.prototype.submitFormWithoutValidation =
             function(validator) {
 
         // NB: When setting a submitHandler in jQuery's validator
@@ -296,7 +296,7 @@
 	 *
 	 * @private
 	 */
-    $.pkp.controllers.form.FormHandler.prototype.initializeTinyMCE_ =
+    $.core.controllers.form.FormHandler.prototype.initializeTinyMCE_ =
             function() {
 
         if (typeof tinyMCE !== 'undefined') {
@@ -335,7 +335,7 @@
 	 * @param {Object} validator The validator plug-in.
 	 * @param {HTMLElement} formElement The wrapped HTML form.
 	 */
-    $.pkp.controllers.form.FormHandler.prototype.submitHandler_ =
+    $.core.controllers.form.FormHandler.prototype.submitHandler_ =
             function(validator, formElement) {
 
         // Notify any nested formWidgets of the submit action.
@@ -347,7 +347,7 @@
             return;
         }
 
-        $(formElement).find('.pkp_helpers_progressIndicator').show();
+        $(formElement).find('.core_helpers_progressIndicator').show();
 
         this.trigger('unregisterChangedForm');
 
@@ -361,7 +361,7 @@
                 console.error('External submit handler failed:', e);
                 // Re-enable controls so user is not stuck
                 this.enableFormControls(); 
-                $(formElement).find('.pkp_helpers_progressIndicator').hide();
+                $(formElement).find('.core_helpers_progressIndicator').hide();
             }
         } else {
             // No form submission handler was provided. Use the usual method.
@@ -376,7 +376,7 @@
 	 * @return {boolean} true.
 	 * @private
 	 */
-    $.pkp.controllers.form.FormHandler.prototype.pushTinyMCEChanges_ =
+    $.core.controllers.form.FormHandler.prototype.pushTinyMCEChanges_ =
             function() {
         // ensure that rich content elements have their
         // values stored before validation.
@@ -396,7 +396,7 @@
 	 *
 	 * @return {boolean} true.
 	 */
-    $.pkp.controllers.form.FormHandler.prototype.setupEnableDisablePairs =
+    $.core.controllers.form.FormHandler.prototype.setupEnableDisablePairs =
             function() {
         var formElement, key;
 
@@ -416,7 +416,7 @@
 	 * @return {boolean} true.
 	 * @private
 	 */
-    $.pkp.controllers.form.FormHandler.prototype.toggleDependentElement_ =
+    $.core.controllers.form.FormHandler.prototype.toggleDependentElement_ =
             function(sourceElement) {
         var formElement, elementId, targetElement;
 

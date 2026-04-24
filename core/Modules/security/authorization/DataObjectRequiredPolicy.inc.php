@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/authorization/DataObjectRequiredPolicy.inc.php
+ * @file core.Modules.security/authorization/DataObjectRequiredPolicy.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Abstract base class for policies that check for a data object from a parameter.
  */
 
-import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
+import('core.Modules.security.authorization.AuthorizationPolicy');
 
 class DataObjectRequiredPolicy extends AuthorizationPolicy {
     /** @var CoreRequest */
@@ -119,7 +119,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
         // Removed & from getRouter()
         $router = $this->_request->getRouter();
         switch(true) {
-            case $router instanceof PKPPageRouter:
+            case $router instanceof CorePageRouter:
                 if ( is_numeric($this->_request->getUserVar($this->_parameterName)) ) {
                     // We may expect a object id in the user vars
                     return (int) $this->_request->getUserVar($this->_parameterName);
@@ -129,7 +129,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
                 }
                 break;
 
-            case $router instanceof PKPComponentRouter:
+            case $router instanceof CoreComponentRouter:
                 // We expect a named object id argument.
                 if (isset($this->_args[$this->_parameterName])
                         && is_numeric($this->_args[$this->_parameterName])) {

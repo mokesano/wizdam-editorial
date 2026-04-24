@@ -37,9 +37,9 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
-import('lib.wizdam.plugins.metadata.nlm30.filter.Openurl10Nlm30CitationSchemaCrosswalkFilter');
-import('lib.wizdam.classes.filter.SetFilterSetting');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('core.Modules.plugins.metadata.nlm30.filter.Openurl10Nlm30CitationSchemaCrosswalkFilter');
+import('core.Modules.filter.SetFilterSetting');
 
 define('CITATION_PARSER_PARACITE_STANDARD', 'Standard');
 define('CITATION_PARSER_PARACITE_CITEBASE', 'Citebase');
@@ -86,7 +86,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
      * @return string
      */
     public function getClassName(): string {
-        return 'lib.wizdam.plugins.citationParser.paracite.filter.ParaciteRawCitationNlm30CitationSchemaFilter';
+        return 'core.Modules.plugins.citationParser.paracite.filter.ParaciteRawCitationNlm30CitationSchemaFilter';
     }
 
 
@@ -228,7 +228,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
                     }
                     unset($metadata['title']);
                 }
-                $openurl10SchemaName = 'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10BookSchema';
+                $openurl10SchemaName = 'core.Modules.plugins.metadata.openurl10.schema.Openurl10BookSchema';
                 $openurl10SchemaClass = 'Openurl10BookSchema';
                 break;
 
@@ -248,7 +248,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
                     }
                     unset($metadata['title']);
                 }
-                $openurl10SchemaName = 'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10JournalSchema';
+                $openurl10SchemaName = 'core.Modules.plugins.metadata.openurl10.schema.Openurl10JournalSchema';
                 $openurl10SchemaClass = 'Openurl10JournalSchema';
                 break;
         }

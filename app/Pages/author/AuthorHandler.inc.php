@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('classes.submission.author.AuthorAction');
-import('classes.handler.Handler');
+import('core.Modules.submission.author.AuthorAction');
+import('core.Modules.handler.Handler');
 
 class AuthorHandler extends Handler {
     /** @var AuthorSubmission|null */
@@ -124,7 +124,7 @@ class AuthorHandler extends Handler {
                 $submissionsArray = array_reverse($submissionsArray);
             }
             // Convert submission array back to an ItemIterator class
-            import('lib.wizdam.classes.core.ArrayItemIterator');
+            import('core.Modules.core.ArrayItemIterator');
             $submissions = ArrayItemIterator::fromRangeInfo($submissionsArray, $rangeInfo);
         } else {
             $submissions = $authorSubmissionDao->getAuthorSubmissions($user->getId(), $journal->getId(), $active, $rangeInfo, $sort, $sortDirection);
@@ -140,7 +140,7 @@ class AuthorHandler extends Handler {
         $templateMgr->assign('submissions', $submissions);
 
         // assign payment 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
 
         if ( $paymentManager->isConfigured() ) {        
@@ -153,7 +153,7 @@ class AuthorHandler extends Handler {
             $templateMgr->assign('completedPaymentDAO', $completedPaymentDAO);
         }
 
-        import('classes.issue.IssueAction');
+        import('core.Modules.issue.IssueAction');
         $issueAction = new IssueAction();
         
         // Note: register_function might be deprecated depending on Smarty version, consider registering plugin/modifier.
@@ -244,7 +244,7 @@ class AuthorHandler extends Handler {
         $pageHierarchy = $subclass ? [[$request->url(null, 'user'), 'navigation.user'], [$request->url(null, 'author'), 'user.role.author'], [$request->url(null, 'author'), 'article.submissions']]
             : [[$request->url(null, 'user'), 'navigation.user'], [$request->url(null, 'author'), 'user.role.author']];
 
-        import('classes.submission.sectionEditor.SectionEditorAction');
+        import('core.Modules.submission.sectionEditor.SectionEditorAction');
         $submissionCrumb = SectionEditorAction::submissionBreadcrumb($articleId, $parentPage, 'author');
         if (isset($submissionCrumb)) {
             $pageHierarchy = array_merge($pageHierarchy, $submissionCrumb);
@@ -258,7 +258,7 @@ class AuthorHandler extends Handler {
      * @param CoreRequest $request
      */
     public function instructions($args, $request = null) {
-        import('classes.submission.proofreader.ProofreaderAction');
+        import('core.Modules.submission.proofreader.ProofreaderAction');
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
         

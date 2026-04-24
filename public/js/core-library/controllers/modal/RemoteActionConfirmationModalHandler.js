@@ -16,7 +16,7 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.controllers.modal.ConfirmationModalHandler
+	 * @extends $.core.controllers.modal.ConfirmationModalHandler
 	 *
 	 * @param {jQuery} $handledElement The clickable element
 	 *  the modal will be attached to.
@@ -31,7 +31,7 @@
 	 *  - All options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
-	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler =
+	$.core.controllers.modal.RemoteActionConfirmationModalHandler =
 			function($handledElement, options) {
 
 		this.parent($handledElement, options);
@@ -40,9 +40,9 @@
 		// the modal closes.
 		this.remoteAction_ = options.remoteAction;
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.controllers.modal.RemoteActionConfirmationModalHandler,
-			$.pkp.controllers.modal.ConfirmationModalHandler);
+	$.core.classes.Helper.inherits(
+			$.core.controllers.modal.RemoteActionConfirmationModalHandler,
+			$.core.controllers.modal.ConfirmationModalHandler);
 
 
 	//
@@ -54,7 +54,7 @@
 	 * @private
 	 * @type {?string}
 	 */
-	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
+	$.core.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
 			remoteAction_ = null;
 
 
@@ -62,7 +62,7 @@
 	// Protected methods
 	//
 	/** @inheritDoc */
-	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
+	$.core.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
 			checkOptions = function(options) {
 
 		// Check the mandatory options of the ModalHandler handler.
@@ -87,7 +87,7 @@
 	 * @param {HTMLElement} dialogElement The element the
 	 *  dialog was created on.
 	 */
-	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
+	$.core.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
 			modalConfirm = function(dialogElement) {
 
 		$.post(this.remoteAction_,
@@ -101,7 +101,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
+	$.core.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
 			remoteResponse = function(ajaxOptions, jsonData) {
 
 		jsonData = this.parent('remoteResponse', ajaxOptions, jsonData);

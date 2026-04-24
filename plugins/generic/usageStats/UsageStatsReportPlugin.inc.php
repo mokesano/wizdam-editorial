@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Default statistics report plugin (and metrics provider)
  */
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 
 define('APP_METRIC_TYPE_COUNTER', 'wizdam::counter');
 
@@ -22,7 +22,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
 
     /**
      * Register the plugin.
-     * @see PKPPlugin::register()
+     * @see CorePlugin::register()
      * @param string $category
      * @param string $path
      * @return bool True on success
@@ -35,7 +35,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
 
     /**
      * Get the name of this plugin.
-     * @see PKPPlugin::getName()
+     * @see CorePlugin::getName()
      * @return string
      */
     public function getName(): string {
@@ -44,7 +44,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
 
     /**
      * Get the display name of this plugin.
-     * @see PKPPlugin::getDisplayName()
+     * @see CorePlugin::getDisplayName()
      * @return string
      */
     public function getDisplayName(): string {
@@ -53,7 +53,7 @@ class UsageStatsReportPlugin extends ReportPlugin {
 
     /**
      * Get the description of this plugin.
-     * @see PKPPlugin::getDescription()
+     * @see CorePlugin::getDescription()
      * @return string
      */
     public function getDescription(): string {

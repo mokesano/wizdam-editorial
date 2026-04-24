@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 define('CUSTOM_LOCALE_DIR', 'customLocale');
-import('lib.wizdam.classes.plugins.GenericPlugin');
+import('core.Modules.plugins.GenericPlugin');
 
 class CustomLocalePlugin extends GenericPlugin {
     
@@ -62,7 +62,7 @@ class CustomLocalePlugin extends GenericPlugin {
                 $publicFilesDir = Config::getVar('files', 'public_files_dir');
                 $customLocalePathBase = $publicFilesDir . DIRECTORY_SEPARATOR . 'journals' . DIRECTORY_SEPARATOR . $journalId . DIRECTORY_SEPARATOR . CUSTOM_LOCALE_DIR . DIRECTORY_SEPARATOR . $locale . DIRECTORY_SEPARATOR;
 
-                import('lib.wizdam.classes.file.FileManager');
+                import('core.Modules.file.FileManager');
                 $fileManager = new FileManager();
                 foreach ($localeFiles as $localeFile) {
                     $customLocalePath = $customLocalePathBase . $localeFile->getFilename();
@@ -103,7 +103,7 @@ class CustomLocalePlugin extends GenericPlugin {
         $publicFilesDir = Config::getVar('files', 'public_files_dir');
         $customLocalePath = $publicFilesDir . DIRECTORY_SEPARATOR . 'journals' . DIRECTORY_SEPARATOR . $journalId . DIRECTORY_SEPARATOR . CUSTOM_LOCALE_DIR . DIRECTORY_SEPARATOR . $locale . DIRECTORY_SEPARATOR . $localeFilename;
 
-        import('lib.wizdam.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
         if ($fileManager->fileExists($customLocalePath)) {
             AppLocale::registerLocaleFile($locale, $customLocalePath, false);

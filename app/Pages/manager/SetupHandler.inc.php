@@ -219,7 +219,7 @@ class SetupHandler extends ManagerHandler {
                     $router = $request->getRouter();
                     $journal = $router->getContext($request);
                     $templates = $journal->getSetting('templates');
-                    import('classes.file.JournalFileManager');
+                    import('core.Modules.file.JournalFileManager');
                     $journalFileManager = new JournalFileManager($journal);
                     if ((int) $request->getUserVar('addTemplate')) {
                         // Add a layout template
@@ -412,7 +412,7 @@ class SetupHandler extends ManagerHandler {
         $router = $request->getRouter();
         $journal = $router->getContext($request);
         $templates = $journal->getSetting('templates');
-        import('classes.file.JournalFileManager');
+        import('core.Modules.file.JournalFileManager');
         $journalFileManager = new JournalFileManager($journal);
         $templateId = (int) array_shift($args);
         if ($templateId >= count($templates) || $templateId < 0) $request->redirect(null, null, 'setup');

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/services/PdfService.inc.php
+ * @file core.Modules.classes/services/PdfService.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -14,8 +14,8 @@ declare(strict_types=1);
  */
 
 require_once(Core::getBaseDir() . '/lib/wizdam/library/autoload.php');
-import('lib.wizdam.classes.invoice.Invoice');
-import('lib.wizdam.classes.security.DigitalSignatureService');
+import('core.Modules.invoice.Invoice');
+import('core.Modules.security.DigitalSignatureService');
 
 use Mpdf\Mpdf;
 use Mpdf\Output\Destination;
@@ -57,7 +57,7 @@ class PdfService {
      * @return void
      */
     public function generateInvoicePdf(Invoice $invoice, string $qrCodeBase64): void {
-        import('lib.wizdam.classes.services.InvoiceService');
+        import('core.Modules.services.InvoiceService');
         $invoiceService = new InvoiceService();
         $flatData = $invoiceService->getInvoiceSummary($invoice);
 

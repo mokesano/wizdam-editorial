@@ -15,7 +15,7 @@ declare(strict_types=1);
  * MODERNIZED FOR PHP 7.4+ (Fork Version)
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class UsageStatsSettingsForm extends Form {
 
@@ -105,7 +105,7 @@ class UsageStatsSettingsForm extends Form {
         // Make sure optional columns data makes sense.
         if (in_array(STATISTICS_DIMENSION_CITY, $optionalColumns) && !in_array(STATISTICS_DIMENSION_REGION, $optionalColumns)) {
             $user = Request::getUser();
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification(
                 $user->getId(), NOTIFICATION_TYPE_WARNING, array('contents' => __('plugins.generic.usageStats.settings.optionalColumns.cityRequiresRegion'))

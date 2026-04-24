@@ -14,12 +14,12 @@ declare(strict_types=1);
  *
  * @class Dc11Schema
  * @ingroup plugins_metadata_dc11_schema
- * @see PKPDc11Schema
+ * @see CoreDc11Schema
  *
  * @brief Wizdam-specific implementation of the Dc11Schema.
  */
 
-import('lib.wizdam.plugins.metadata.dc11.schema.PKPDc11Schema');
+import('core.Modules.plugins.metadata.dc11.schema.CoreDc11Schema');
 
 class Dc11Schema extends CoreDc11Schema {
 

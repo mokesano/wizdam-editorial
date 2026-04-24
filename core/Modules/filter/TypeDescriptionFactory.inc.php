@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/TypeDescriptionFactory.inc.php
+ * @file core.Modules.filter/TypeDescriptionFactory.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -118,11 +118,11 @@ class TypeDescriptionFactory {
      */
     protected function _namespaceMap($namespace) { // Menggunakan protected
         static $namespaceMap = array(
-            TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE => 'lib.wizdam.classes.filter.PrimitiveTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_CLASS => 'lib.wizdam.classes.filter.ClassTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_METADATA => 'lib.wizdam.classes.metadata.MetadataTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_XML => 'lib.wizdam.classes.xslt.XMLTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => 'lib.wizdam.classes.validation.ValidatorTypeDescription'
+            TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE => 'core.Modules.filter.PrimitiveTypeDescription',
+            TYPE_DESCRIPTION_NAMESPACE_CLASS => 'core.Modules.filter.ClassTypeDescription',
+            TYPE_DESCRIPTION_NAMESPACE_METADATA => 'core.Modules.metadata.MetadataTypeDescription',
+            TYPE_DESCRIPTION_NAMESPACE_XML => 'core.Modules.xslt.XMLTypeDescription',
+            TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => 'core.Modules.validation.ValidatorTypeDescription'
         );
         if (!isset($namespaceMap[$namespace])) return null;
         return $namespaceMap[$namespace];

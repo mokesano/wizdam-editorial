@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/citation/TemplateBasedReferencesListFilter.inc.php
+ * @file core.Modules.citation/TemplateBasedReferencesListFilter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.filter.TemplateBasedFilter');
+import('core.Modules.filter.TemplateBasedFilter');
 
 class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
     
@@ -27,7 +27,7 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
      */
     public function __construct($filterGroup) {
         // Add the persistable filter settings.
-        import('lib.wizdam.classes.filter.FilterSetting');
+        import('core.Modules.filter.FilterSetting');
         $this->addSetting(new FilterSetting('citationOutputFilterName', null, null));
         $this->addSetting(new FilterSetting('metadataSchemaName', null, null));
 

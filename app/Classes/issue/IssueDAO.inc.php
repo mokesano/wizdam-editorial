@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/issue/IssueDAO.inc.php
+ * @file core.Modules.issue/IssueDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -484,7 +484,7 @@ class IssueDAO extends DAO {
      * @param $issue Issue
      */
     public function deleteIssue($issue) {
-        import('classes.file.PublicFileManager');
+        import('core.Modules.file.PublicFileManager');
         $publicFileManager = new PublicFileManager();
 
         if (is_array($issue->getFileName(null))) foreach ($issue->getFileName(null) as $fileName) {
@@ -509,7 +509,7 @@ class IssueDAO extends DAO {
         $issueFileDao = DAORegistry::getDAO('IssueFileDAO');
         $issueFileDao->deleteIssueFiles($issueId);
 
-        import('classes.file.IssueFileManager');
+        import('core.Modules.file.IssueFileManager');
         $issueFileManager = new IssueFileManager($issueId);
         $issueFileManager->deleteIssueTree();
 

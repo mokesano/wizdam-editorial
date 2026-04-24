@@ -88,7 +88,7 @@ class ObjectForReviewPersonDAO extends DAO {
      */
     public function newDataObject() {
         $ofrPlugin = PluginRegistry::getPlugin('generic', $this->parentPluginName);
-        $ofrPlugin->import('classes.ObjectForReviewPerson');
+        $ofrPlugin->import('core.Modules.ObjectForReviewPerson');
         return new ObjectForReviewPerson();
     }
 

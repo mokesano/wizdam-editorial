@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/session/SessionDAO.inc.php
+ * @file core.Modules.session/SessionDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 7.4+ Compatible & Hardened
  */
 
-import('lib.wizdam.classes.session.Session');
+import('core.Modules.session.Session');
 
 class SessionDAO extends DAO {
     

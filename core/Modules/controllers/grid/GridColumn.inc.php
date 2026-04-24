@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/GridColumn.inc.php
+ * @file core.Modules.controllers/grid/GridColumn.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -22,7 +22,7 @@ define('COLUMN_ALIGNMENT_LEFT', 'left');
 define('COLUMN_ALIGNMENT_CENTER', 'center');
 define('COLUMN_ALIGNMENT_RIGHT', 'right');
 
-import('lib.wizdam.classes.controllers.grid.GridBodyElement');
+import('core.Modules.controllers.grid.GridBodyElement');
 
 class GridColumn extends GridBodyElement {
     /** @var string|null the column title i18n key */
@@ -123,7 +123,7 @@ class GridColumn extends GridBodyElement {
         
         // [WIZDAM] Lazy load default provider if none exists
         if ($provider === null) {
-            import('lib.wizdam.classes.controllers.grid.ArrayGridCellProvider');
+            import('core.Modules.controllers.grid.ArrayGridCellProvider');
             $provider = new ArrayGridCellProvider();
             $this->setCellProvider($provider);
         }

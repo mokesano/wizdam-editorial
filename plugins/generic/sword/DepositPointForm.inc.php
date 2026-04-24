@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 define('SWORD_PASSWORD_SLUG', '******');
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class DepositPointForm extends Form {
 

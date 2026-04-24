@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/linkAction/request/Modal.inc.php
+ * @file core.Modules.linkAction/request/Modal.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -18,7 +18,7 @@ declare(strict_types=1);
 define('MODAL_WIDTH_DEFAULT', '710');
 define('MODAL_WIDTH_AUTO', 'auto');
 
-import('lib.wizdam.classes.linkAction.request.LinkActionRequest');
+import('core.Modules.linkAction.request.LinkActionRequest');
 
 class Modal extends LinkActionRequest {
     /** @var string|null The localized title of the modal. */

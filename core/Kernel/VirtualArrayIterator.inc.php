@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/VirtualArrayIterator.inc.php
+ * @file core.Modules.core/VirtualArrayIterator.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x Strict Standards.
  */
 
-import('lib.wizdam.classes.core.ItemIterator');
+import('core.Modules.core.ItemIterator');
 
 class VirtualArrayIterator extends ItemIterator {
     /** * @var array|null The array of contents of this iterator. 

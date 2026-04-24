@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/editAssignment/EditAssignmentDAO.inc.php
+ * @file core.Modules.submission/editAssignment/EditAssignmentDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & HookRegistry::dispatch
  */
 
-import('classes.submission.editAssignment.EditAssignment');
+import('core.Modules.submission.editAssignment.EditAssignment');
 
 class EditAssignmentDAO extends DAO {
     

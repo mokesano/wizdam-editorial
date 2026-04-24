@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/author/AuthorSubmissionDAO.inc.php
+ * @file core.Modules.submission/author/AuthorSubmissionDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & HookRegistry::dispatch
  */
 
-import('classes.submission.author.AuthorSubmission');
+import('core.Modules.submission.author.AuthorSubmission');
 
 class AuthorSubmissionDAO extends DAO {
     public $articleDao = null;

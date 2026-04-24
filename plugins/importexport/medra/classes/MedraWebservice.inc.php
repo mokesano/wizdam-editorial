@@ -17,7 +17,7 @@ declare(strict_types=1);
  * it doesn't support multipart SOAP messages.
  */
 
-import('lib.wizdam.classes.xml.XMLNode');
+import('core.Modules.xml.XMLNode');
 
 define('MEDRA_WS_ENDPOINT_DEV', 'https://medra.dev.cineca.it/servlet/ws/medraWS');
 define('MEDRA_WS_ENDPOINT', 'https://www.medra.org/servlet/ws/medraWS');

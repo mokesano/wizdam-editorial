@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
+import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
 
 class Nlm30CitationSchemaNlm30XmlFilter extends Nlm30CitationSchemaCitationOutputFormatFilter {
     /**
@@ -51,7 +51,7 @@ class Nlm30CitationSchemaNlm30XmlFilter extends Nlm30CitationSchemaCitationOutpu
      * @return string
      */
     public function getClassName() {
-        return 'lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaNlm30XmlFilter';
+        return 'core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaNlm30XmlFilter';
     }
 
     //

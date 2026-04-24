@@ -5,7 +5,7 @@
  */
 
 /**
- * @file classes/subscription/form/GiftIndividualSubscriptionForm.inc.php
+ * @file core.Modules.subscription/form/GiftIndividualSubscriptionForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class GiftIndividualSubscriptionForm extends Form {
     /** @var $request CoreRequest */
@@ -148,8 +148,8 @@ class GiftIndividualSubscriptionForm extends Form {
         $journalId = $journal->getId();
 
         // Create new gift and save details
-        import('classes.gift.Gift');
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.gift.Gift');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($this->request);
         $paymentPlugin = $paymentManager->getPaymentPlugin();
 

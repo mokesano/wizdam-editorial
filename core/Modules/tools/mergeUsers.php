@@ -99,7 +99,7 @@ class mergeUsers extends CommandLineTool {
         }
 
         // Both user IDs are valid. Merge the accounts.
-        import('classes.user.UserAction');
+        import('core.Modules.user.UserAction');
         // [WIZDAM] Casting IDs to int for strict safety, although DAO should handle it.
         UserAction::mergeUsers((int)$oldUserId, (int)$newUserId);
 

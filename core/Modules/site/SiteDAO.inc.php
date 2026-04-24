@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/site/SiteDAO.inc.php
+ * @file core.Modules.site/SiteDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying the Site object.
  */
 
-import('lib.wizdam.classes.site.Site');
+import('core.Modules.site.Site');
 
 class SiteDAO extends DAO {
     

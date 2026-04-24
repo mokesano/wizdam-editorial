@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/cache/APCuCache.inc.php
+ * @file core.Modules.cache/APCuCache.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM] Renamed from APCCache to APCuCache to reflect modern PHP usage.
  */
 
-import('lib.wizdam.classes.cache.GenericCache');
+import('core.Modules.cache.GenericCache');
 
 // Helper class untuk menyimpan nilai boolean false
 // (Karena apcu_fetch mengembalikan false jika gagal, kita butuh cara membedakannya)

@@ -15,8 +15,8 @@ declare(strict_types=1);
  * MODERNIZED FOR SCHOLARWIZDAM FORK (PHP 7/8 Ready)
  */
 
-import('classes.article.ArticleHTMLGalley');
-import('classes.article.SuppFileDAO');
+import('core.Modules.article.ArticleHTMLGalley');
+import('core.Modules.article.SuppFileDAO');
 
 class ArticleXMLGalley extends ArticleHTMLGalley {
     
@@ -120,7 +120,7 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
                     break;
                 case 'custom';
                     // get file path for custom XSL sheet
-                    import('classes.file.JournalFileManager');
+                    import('core.Modules.file.JournalFileManager');
                     $journalFileManager = new JournalFileManager($journal);
                     $xslSheet = $journalFileManager->filesDir . $xmlGalleyPlugin->getSetting($journal->getId(), 'customXSL');
                     break;
@@ -169,7 +169,7 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
         // Perform replacement for wizdam://... URLs
         $contents = CoreString::regexp_replace_callback(
             '/(<[^<>]*")[Oo][Jj][Ss]:\/\/([^"]+)("[^<>]*>)/',
-            array($this, '_handleOjsUrl'),
+            array($this, '_handleAppUrl'),
             $contents
         );
 
@@ -201,7 +201,7 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
      * @return boolean
      */
     public function viewFileContents() {
-        import('lib.wizdam.classes.file.FileManager');
+        import('core.Modules.file.FileManager');
         $fileManager = new FileManager();
         $pdfFileName = CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . 'fc-xsltGalley-' . str_replace($fileManager->parseFileExtension($this->getFileName()), 'pdf', $this->getFileName());
 
@@ -241,7 +241,7 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
             }
 
             // create temporary FO file and write the contents
-            import('classes.file.TemporaryFileManager');
+            import('core.Modules.file.TemporaryFileManager');
             $temporaryFileManager = new TemporaryFileManager();
             $tempFoName = $temporaryFileManager->filesDir . $this->getFileName() . '-' . $this->getId() . '.fo';
 

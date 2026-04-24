@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/cliTool/ScheduledTaskTool.inc.php
+ * @file core.Modules.cliTool/ScheduledTaskTool.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -20,10 +20,10 @@ if (!defined('TASKS_REGISTRY_FILE')) {
     define('TASKS_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . '/scheduledTasks.xml');
 }
 
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
-import('lib.wizdam.classes.scheduledTask.ScheduledTaskHelper');
-import('lib.wizdam.classes.scheduledTask.ScheduledTaskDAO');
-import('lib.wizdam.classes.xml.XMLParser'); // [WIZDAM] Explicit Import
+import('core.Modules.scheduledTask.ScheduledTask');
+import('core.Modules.scheduledTask.ScheduledTaskHelper');
+import('core.Modules.scheduledTask.ScheduledTaskDAO');
+import('core.Modules.xml.XMLParser'); // [WIZDAM] Explicit Import
 
 class ScheduledTaskTool extends CommandLineTool {
 

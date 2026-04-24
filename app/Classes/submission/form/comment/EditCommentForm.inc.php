@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/form/comment/EditCommentForm.inc.php
+ * @file core.Modules.submission/form/comment/EditCommentForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class EditCommentForm extends Form {
 
@@ -315,7 +315,7 @@ class EditCommentForm extends Form {
      * @param object $request CoreRequest
      */
     public function email($recipients, $request) {
-        import('classes.mail.ArticleMailTemplate');
+        import('core.Modules.mail.ArticleMailTemplate');
         $email = new ArticleMailTemplate($this->article, 'SUBMISSION_COMMENT');
         $journal = $request->getJournal();
         if ($journal) $email->setFrom($journal->getSetting('contactEmail'), $journal->getSetting('contactName'));

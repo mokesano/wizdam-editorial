@@ -16,8 +16,8 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('classes.file.JournalFileManager');
-import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('core.Modules.file.JournalFileManager');
+import('core.Modules.scheduledTask.ScheduledTask');
 
 class DepositPackage {
 

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/form/validation/FormValidatorControlledVocab.inc.php
+ * @file core.Modules.form/validation/FormValidatorControlledVocab.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.wizdam.classes.form.validation.FormValidator');
+import('core.Modules.form.validation.FormValidator');
 
 class FormValidatorControlledVocab extends FormValidator {
     
@@ -30,7 +30,7 @@ class FormValidatorControlledVocab extends FormValidator {
      * @param int $assocId
      */
     public function __construct($form, $field, $type, $message, $symbolic, $assocType, $assocId) {
-        import('lib.wizdam.classes.validation.ValidatorControlledVocab');
+        import('core.Modules.validation.ValidatorControlledVocab');
         // [WIZDAM] PHP 8 Safety: Ensure IDs are integers
         $validator = new ValidatorControlledVocab($symbolic, (int)$assocType, (int)$assocId);
         parent::__construct($form, $field, $type, $message, $validator);

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/file/IssueFileManager.inc.php
+ * @file core.Modules.file/IssueFileManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -17,8 +17,8 @@ declare(strict_types=1);
  * [issue id]/public
  */
 
-import('lib.wizdam.classes.file.FileManager');
-import('classes.issue.IssueFile');
+import('core.Modules.file.FileManager');
+import('core.Modules.issue.IssueFile');
 
 class IssueFileManager extends FileManager {
 

@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief Users import/export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
 class UserImportExportPlugin extends ImportExportPlugin {
 
@@ -103,7 +103,7 @@ class UserImportExportPlugin extends ImportExportPlugin {
                 $sendNotify = (bool) Request::getUserVar('sendNotify');
                 $continueOnError = (bool) Request::getUserVar('continueOnError');
 
-                import('lib.wizdam.classes.file.FileManager');
+                import('core.Modules.file.FileManager');
                 $fileManager = new FileManager();
                 
                 if (($userFile = $fileManager->getUploadedFilePath('userFile')) !== false) {
@@ -279,7 +279,7 @@ class UserImportExportPlugin extends ImportExportPlugin {
                 $sendNotify = in_array('send_notify', $flags);
                 $continueOnError = in_array('continue_on_error', $flags);
 
-                import('lib.wizdam.classes.file.FileManager');
+                import('core.Modules.file.FileManager');
 
                 // Import the uploaded file
                 $parser = new UserXMLParser($journal->getId());

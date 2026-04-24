@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/metadata/MetadataProperty.inc.php
+ * @file core.Modules.metadata/MetadataProperty.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -372,7 +372,7 @@ class MetadataProperty {
 
                             if (is_integer($value)) {
                                 // Validate with controlled vocabulary validator
-                                import('lib.wizdam.classes.validation.ValidatorControlledVocab');
+                                import('core.Modules.validation.ValidatorControlledVocab');
                                 $validator = new ValidatorControlledVocab($symbolic, $assocType, $assocId);
                                 if ($validator->isValid($value)) {
                                     return array(METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam);
@@ -383,7 +383,7 @@ class MetadataProperty {
 
                         case METADATA_PROPERTY_TYPE_URI:
                             // Validate with the URI validator
-                            import('lib.wizdam.classes.validation.ValidatorUri');
+                            import('core.Modules.validation.ValidatorUri');
                             $validator = new ValidatorUri();
                             if ($validator->isValid($value)) return array(METADATA_PROPERTY_TYPE_URI => null);
                             break;

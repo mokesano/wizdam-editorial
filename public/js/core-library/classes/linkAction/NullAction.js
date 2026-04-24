@@ -16,21 +16,21 @@
 	/**
 	 * @constructor
 	 *
-	 * @extends $.pkp.classes.linkAction.LinkActionRequest
+	 * @extends $.core.classes.linkAction.LinkActionRequest
 	 *
 	 * @param {jQuery} $linkActionElement The element the link
 	 *  action was attached to.
 	 * @param {Object} options Configuration of the link action
 	 *  request.
 	 */
-	$.pkp.classes.linkAction.NullAction =
+	$.core.classes.linkAction.NullAction =
 			function($linkActionElement, options) {
 
 		this.parent($linkActionElement, options);
 	};
-	$.pkp.classes.Helper.inherits(
-			$.pkp.classes.linkAction.NullAction,
-			$.pkp.classes.linkAction.LinkActionRequest);
+	$.core.classes.Helper.inherits(
+			$.core.classes.linkAction.NullAction,
+			$.core.classes.linkAction.LinkActionRequest);
 
 
 	//
@@ -39,7 +39,7 @@
 	/**
 	 * @inheritDoc
 	 */
-	$.pkp.classes.linkAction.NullAction.prototype.activate =
+	$.core.classes.linkAction.NullAction.prototype.activate =
 			function(element, event) {
 
 		return this.parent('activate', element, event);

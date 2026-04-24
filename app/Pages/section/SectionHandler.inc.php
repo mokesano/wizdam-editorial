@@ -18,7 +18,7 @@ declare(strict_types=1);
  * Supports Sub-routes: /section/slug/about, /section/slug/articles
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 class SectionHandler extends Handler {
 
@@ -41,7 +41,7 @@ class SectionHandler extends Handler {
     /**
      * Menampilkan halaman about section.
      * URL: /{context}/section/{slug}/about
-     * [WIZDAM] $args[0] berisi slug section karena PKPPageRouter
+     * [WIZDAM] $args[0] berisi slug section karena CorePageRouter
      * meletakkan segmen sebelum $op di dalam $args.
      * @param array $args
      * @param CoreRequest|null $request
@@ -88,7 +88,7 @@ class SectionHandler extends Handler {
 
     /**
      * [WIZDAM] Entry point untuk semua slug section.
-     * PKPPageRouter sudah menangani kebab-case → camelCase.
+     * CorePageRouter sudah menangani kebab-case → camelCase.
      * __call() hanya menangani slug dinamis — sub-route ditangani method eksplisit.
      * @param string $op slug section dalam camelCase dari router
      * @param array $arguments args dari router
@@ -202,7 +202,7 @@ class SectionHandler extends Handler {
         $offset       = ($currentPage - 1) * $itemsPerPage;
         $pageArticles = array_slice($allFiltered, $offset, $itemsPerPage);
 
-        import('lib.wizdam.classes.core.VirtualArrayIterator');
+        import('core.Modules.core.VirtualArrayIterator');
         $articlesIterator = new VirtualArrayIterator(
             $pageArticles,
             $totalCount,
@@ -231,7 +231,7 @@ class SectionHandler extends Handler {
     // =========================================================================
 
     /**
-     * Resolve Section dari op yang sudah dinormalisasi PKPPageRouter.
+     * Resolve Section dari op yang sudah dinormalisasi CorePageRouter.
      * Router sudah mengkonversi kebab-case → camelCase sebelum sampai ke sini.
      * getSectionUrlTitle() menghasilkan format yang sama — satu sumber kebenaran.
      * @param string $op

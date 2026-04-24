@@ -19,7 +19,7 @@ declare(strict_types=1);
 require(dirname(__DIR__) . '/tools/bootstrap.inc.php');
 
 // Bring in the file loader folder constants.
-import('lib.wizdam.classes.task.FileLoader');
+import('core.Modules.task.FileLoader');
 
 class CopyAccessLogFileTool extends CommandLineTool {
 

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/user/InterestsEntryDAO.inc.php
+ * @file core.Modules.user/InterestsEntryDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,8 +15,8 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying a user's review interests.
  */
 
-import('lib.wizdam.classes.user.InterestEntry');
-import('lib.wizdam.classes.controlledVocab.ControlledVocabEntryDAO');
+import('core.Modules.user.InterestEntry');
+import('core.Modules.controlledVocab.ControlledVocabEntryDAO');
 
 class InterestEntryDAO extends ControlledVocabEntryDAO {
     

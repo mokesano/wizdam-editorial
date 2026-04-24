@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Repurposed: Author/Reviewer/Editor Information Center
  */
 
-import('lib.wizdam.classes.plugins.BlockPlugin');
+import('core.Modules.plugins.BlockPlugin');
 
 class InformationBlockPlugin extends BlockPlugin {
     

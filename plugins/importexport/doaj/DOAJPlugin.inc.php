@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief DOAJ import/export plugin
  */
 
-import('lib.wizdam.classes.xml.XMLCustomWriter');
-import('classes.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
 
 // Export types.
 define('DOAJ_EXPORT_ISSUES', 0x01);
@@ -57,7 +57,7 @@ class DOAJPlugin extends ImportExportPlugin {
         if (!$this->_cache instanceof PubObjectCache) {
             // Instantiate the cache.
             if (!class_exists('PubObjectCache')) { // Bug #7848
-                $this->import('classes.PubObjectCache');
+                $this->import('core.Modules.PubObjectCache');
             }
             $this->_cache = new PubObjectCache();
         }
@@ -77,7 +77,7 @@ class DOAJPlugin extends ImportExportPlugin {
     }
 
     /**
-     * @see PKPPlugin::getTemplatePath()
+     * @see CorePlugin::getTemplatePath()
      * @return string
      */
     public function getTemplatePath($inCore = false): string {
@@ -148,7 +148,7 @@ class DOAJPlugin extends ImportExportPlugin {
      * @return bool
      */
     protected function _exportJournal($journal, $selectedObjects, $outputFile = null): bool {
-        $this->import('classes.DOAJExportDom');
+        $this->import('core.Modules.DOAJExportDom');
         $doc = XMLCustomWriter::createDocument();
 
         $journalNode = DOAJExportDom::generateJournalDom($doc, $journal, $selectedObjects);
@@ -255,7 +255,7 @@ class DOAJPlugin extends ImportExportPlugin {
         unset($issueIterator);
 
         // Instantiate issue iterator.
-        import('lib.wizdam.classes.core.ArrayItemIterator');
+        import('core.Modules.core.ArrayItemIterator');
         $rangeInfo = Handler::getRangeInfo('issues');
         $iterator = new ArrayItemIterator($issues, $rangeInfo->getPage(), $rangeInfo->getCount());
 
@@ -294,7 +294,7 @@ class DOAJPlugin extends ImportExportPlugin {
             $paginatedArticles = array_slice($articles, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
             
             // Instantiate article iterator.
-            import('lib.wizdam.classes.core.VirtualArrayIterator');
+            import('core.Modules.core.VirtualArrayIterator');
             $iterator = new VirtualArrayIterator($paginatedArticles, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
             // Prepare and display the article template.
@@ -487,7 +487,7 @@ class DOAJPlugin extends ImportExportPlugin {
         static $notificationManager = null;
 
         if (is_null($notificationManager)) {
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
         }
 

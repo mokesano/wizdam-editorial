@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - Modernized directory handling (__DIR__)
  */
 
-import('lib.wizdam.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaFilter');
+import('core.Modules.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaFilter');
 
 class IsbndbIsbnNlm30CitationSchemaFilter extends IsbndbNlm30CitationSchemaFilter {
     
@@ -40,7 +40,7 @@ class IsbndbIsbnNlm30CitationSchemaFilter extends IsbndbNlm30CitationSchemaFilte
      * @see PersistableFilter::getClassName()
      */
     public function getClassName(): string {
-        return 'lib.wizdam.plugins.citationLookup.isbndb.filter.IsbndbIsbnNlm30CitationSchemaFilter';
+        return 'core.Modules.plugins.citationLookup.isbndb.filter.IsbndbIsbnNlm30CitationSchemaFilter';
     }
 
     //

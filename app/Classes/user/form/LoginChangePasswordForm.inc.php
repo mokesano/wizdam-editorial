@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/user/form/LoginChangePasswordForm.inc.php
+ * @file core.Modules.user/form/LoginChangePasswordForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  * - Visibility Explicit
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class LoginChangePasswordForm extends Form {
 

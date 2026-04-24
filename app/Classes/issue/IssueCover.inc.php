@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/issue/IssueCover.inc.php
+ * @file core.Modules.issue/IssueCover.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady

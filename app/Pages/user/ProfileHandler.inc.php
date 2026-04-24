@@ -79,7 +79,7 @@ class ProfileHandler extends UserHandler {
         $this->validate();
         $this->setupTemplate($request, true);
 
-        import('classes.user.form.ProfileForm');
+        import('core.Modules.user.form.ProfileForm');
 
         $profileForm = new ProfileForm();
         if ($profileForm->isLocaleResubmit()) {
@@ -103,7 +103,7 @@ class ProfileHandler extends UserHandler {
         $this->setupTemplate($request);
         $dataModified = false;
 
-        import('classes.user.form.ProfileForm');
+        import('core.Modules.user.form.ProfileForm');
 
         $profileForm = new ProfileForm();
         $profileForm->readInputData();
@@ -179,7 +179,7 @@ class ProfileHandler extends UserHandler {
         $this->validate();
         $this->setupTemplate($request, true);
 
-        import('classes.user.form.ChangePasswordForm');
+        import('core.Modules.user.form.ChangePasswordForm');
 
         $passwordForm = new ChangePasswordForm();
         $passwordForm->initData();
@@ -197,7 +197,7 @@ class ProfileHandler extends UserHandler {
 
         $this->validate();
 
-        import('classes.user.form.ChangePasswordForm');
+        import('core.Modules.user.form.ChangePasswordForm');
 
         $passwordForm = new ChangePasswordForm();
         $passwordForm->readInputData();

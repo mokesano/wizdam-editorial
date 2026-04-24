@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/gift/Gift.inc.php
+ * @file core.Modules.gift/Gift.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class for an Wizdam Gift.
  */
 
-import('lib.wizdam.classes.gift.CoreGift');
+import('core.Modules.gift.CoreGift');
 
 define('GIFT_TYPE_SUBSCRIPTION', 0x01);
 

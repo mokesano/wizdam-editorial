@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/GridHandler.inc.php
+ * @file core.Modules.controllers/grid/GridHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,18 +16,18 @@ declare(strict_types=1);
  */
 
 // Import the base Handler.
-import('lib.wizdam.classes.handler.CoreHandler');
+import('core.Modules.handler.CoreHandler');
 
 // Import action class.
-import('lib.wizdam.classes.linkAction.LinkAction');
-import('lib.wizdam.classes.linkAction.LegacyLinkAction');
+import('core.Modules.linkAction.LinkAction');
+import('core.Modules.linkAction.LegacyLinkAction');
 
 // Import grid classes.
-import('lib.wizdam.classes.controllers.grid.GridColumn');
-import('lib.wizdam.classes.controllers.grid.GridRow');
+import('core.Modules.controllers.grid.GridColumn');
+import('core.Modules.controllers.grid.GridRow');
 
 // Import JSON class for use with all AJAX requests.
-import('lib.wizdam.classes.core.JSONMessage');
+import('core.Modules.core.JSONMessage');
 
 // Grid specific action positions.
 define('GRID_ACTION_POSITION_DEFAULT', 'default');
@@ -583,7 +583,7 @@ class GridHandler extends CoreHandler {
      * @see CoreHandler::getRangeInfo()
      */
     public function getRangeInfo($rangeName, $contextData = null) {
-        import('lib.wizdam.classes.db.DBResultRange');
+        import('core.Modules.db.DBResultRange');
         return new DBResultRange(-1, -1);
     }
 
@@ -874,7 +874,7 @@ class GridHandler extends CoreHandler {
     public function _renderCellInternally($request, $row, $column) {
         $element = $row->getData();
         if ($element === null && $row->getIsModified()) {
-            import('lib.wizdam.classes.controllers.grid.GridCellProvider');
+            import('core.Modules.controllers.grid.GridCellProvider');
             $cellProvider = new GridCellProvider();
             return $cellProvider->render($request, $row, $column);
         }

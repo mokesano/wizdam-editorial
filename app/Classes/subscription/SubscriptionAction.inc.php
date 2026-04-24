@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/subscription/SubscriptionAction.inc.php
+ * @file core.Modules.subscription/SubscriptionAction.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -232,10 +232,10 @@ class SubscriptionAction {
             }
 
             if ($institutional) {
-                import('classes.subscription.form.InstitutionalSubscriptionForm');
+                import('core.Modules.subscription.form.InstitutionalSubscriptionForm');
                 $subscriptionForm = new InstitutionalSubscriptionForm($subscriptionId, $userId);
             } else {
-                import('classes.subscription.form.IndividualSubscriptionForm');
+                import('core.Modules.subscription.form.IndividualSubscriptionForm');
                 $subscriptionForm = new IndividualSubscriptionForm($subscriptionId, $userId);
             }
             if ($subscriptionForm->isLocaleResubmit()) {
@@ -296,7 +296,7 @@ class SubscriptionAction {
         $templateMgr->assign('search', $searchQuery);
         $templateMgr->assign('searchInitial', Request::getUserVar('searchInitial'));
 
-        import('classes.security.Validation');
+        import('core.Modules.security.Validation');
         $templateMgr->assign('isJournalManager', Validation::isJournalManager());
 
         $templateMgr->assign('fieldOptions', Array(
@@ -330,10 +330,10 @@ class SubscriptionAction {
         if (($subscriptionId != null && $subscriptionDao->getSubscriptionJournalId($subscriptionId) == $journal->getId()) || $subscriptionId == null) {
 
             if ($institutional) {
-                import('classes.subscription.form.InstitutionalSubscriptionForm');
+                import('core.Modules.subscription.form.InstitutionalSubscriptionForm');
                 $subscriptionForm = new InstitutionalSubscriptionForm($subscriptionId);
             } else {
-                import('classes.subscription.form.IndividualSubscriptionForm');
+                import('core.Modules.subscription.form.IndividualSubscriptionForm');
                 $subscriptionForm = new IndividualSubscriptionForm($subscriptionId);
             }
             $subscriptionForm->readInputData();
@@ -491,7 +491,7 @@ class SubscriptionAction {
         // Ensure subscription type is valid and for this journal
         if (($subscriptionTypeId != null && $subscriptionTypeDao->getSubscriptionTypeJournalId($subscriptionTypeId) == $journal->getId()) || $subscriptionTypeId == null) {
 
-            import('classes.subscription.form.SubscriptionTypeForm');
+            import('core.Modules.subscription.form.SubscriptionTypeForm');
 
             $templateMgr = TemplateManager::getManager();
             $subscriptionTypeCreated = Request::getUserVar('subscriptionTypeCreated') == 1 ? 1 : 0;
@@ -527,7 +527,7 @@ class SubscriptionAction {
      * Save changes to a subscription type.
      */
     public function updateSubscriptionType() {
-        import('classes.subscription.form.SubscriptionTypeForm');
+        import('core.Modules.subscription.form.SubscriptionTypeForm');
 
         $journal = Request::getJournal();
         $subscriptionTypeId = Request::getUserVar('typeId') == null ? null : (int) Request::getUserVar('typeId');
@@ -562,7 +562,7 @@ class SubscriptionAction {
      * @param $request CoreRequest
      */
     public function subscriptionPolicies($args, $request) {
-        import('classes.subscription.form.SubscriptionPolicyForm');
+        import('core.Modules.subscription.form.SubscriptionPolicyForm');
 
         $templateMgr = TemplateManager::getManager();
         $templateMgr->assign('helpTopicId', 'journal.managementPages.subscriptions');
@@ -571,7 +571,7 @@ class SubscriptionAction {
             $templateMgr->assign('scheduledTasksEnabled', true);
         }
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('acceptSubscriptionPayments', $paymentManager->acceptSubscriptionPayments());                
 
@@ -590,7 +590,7 @@ class SubscriptionAction {
      * @param $request CoreRequest
      */
     public function saveSubscriptionPolicies($args, $request) {
-        import('classes.subscription.form.SubscriptionPolicyForm');
+        import('core.Modules.subscription.form.SubscriptionPolicyForm');
 
         $subscriptionPolicyForm = new SubscriptionPolicyForm();
         $subscriptionPolicyForm->readInputData();
@@ -602,7 +602,7 @@ class SubscriptionAction {
             $templateMgr->assign('scheduledTasksEnabled', true);
         }
 
-        import('classes.payment.AppPaymentManager');
+        import('core.Modules.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
         $templateMgr->assign('acceptSubscriptionPayments', $paymentManager->acceptSubscriptionPayments());                
 
@@ -674,7 +674,7 @@ class SubscriptionAction {
                 break;
         }
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $mail = new MailTemplate($mailTemplateKey);
         $mail->setFrom($subscriptionContactEmail, $subscriptionContactName);
         $mail->addRecipient($subscriptionContactEmail, $subscriptionContactName);

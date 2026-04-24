@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/cliTool/UpgradeTool.php
+ * @file core.Modules.cliTool/UpgradeTool.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -18,9 +18,9 @@ declare(strict_types=1);
 
 define('RUNNING_UPGRADE', 1);
 
-import('classes.install.Upgrade');
-import('lib.wizdam.classes.site.Version');
-import('lib.wizdam.classes.site.VersionCheck');
+import('core.Modules.install.Upgrade');
+import('core.Modules.site.Version');
+import('core.Modules.site.VersionCheck');
 
 class UpgradeTool extends CommandLineTool {
 

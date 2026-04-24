@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/ValidatorTypeDescription.inc.php
+ * @file core.Modules.filter/ValidatorTypeDescription.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, Visibility, No Ref Params)
  */
 
-import('lib.wizdam.classes.filter.PrimitiveTypeDescription');
+import('core.Modules.filter.PrimitiveTypeDescription');
 
 class ValidatorTypeDescription extends PrimitiveTypeDescription {
     /** @var string the validator class name */
@@ -98,7 +98,7 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription {
         if (!parent::checkType($object)) return false;
 
         // Instantiate and call validator
-        import('lib.wizdam.classes.validation.'.$this->_validatorClassName);
+        import('core.Modules.validation.'.$this->_validatorClassName);
         assert(class_exists($this->_validatorClassName));
         
         // Note: eval() is maintained here as it parses the dynamic arguments string defined in XML/String descriptors.

@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file plugins/metadata/mods34/schema/PKPMods34Schema.inc.php
+ * @file plugins/metadata/mods34/schema/CoreMods34Schema.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -42,7 +42,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.wizdam.classes.metadata.MetadataSchema');
+import('core.Modules.metadata.MetadataSchema');
 
 class CoreMods34Schema extends MetadataSchema {
     
@@ -410,7 +410,7 @@ class CoreMods34Schema extends MetadataSchema {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPMods34Schema($appSpecificAssocType = null, $useAuthoritiesForSubject = false) {
+    public function CoreMods34Schema($appSpecificAssocType = null, $useAuthoritiesForSubject = false) {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor parent::" . get_class($this) . "(). Please refactor to use parent::__construct().",

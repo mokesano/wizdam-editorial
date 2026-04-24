@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief METS/MODS XML metadata export plugin
  */
 
-import('classes.plugins.ImportExportPlugin');
-import('lib.wizdam.classes.xml.XMLCustomWriter');
+import('core.Modules.plugins.ImportExportPlugin');
+import('core.Modules.xml.XMLCustomWriter');
 
 class METSExportPlugin extends ImportExportPlugin {
 

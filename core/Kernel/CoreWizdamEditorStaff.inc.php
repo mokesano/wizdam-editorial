@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/wizdam/classes/core/PKPWizdamEditorStaff.inc.php
+ * @file core.Modules.classes/core/CoreEditorStaff.inc.php
  *
  * @brief Sistem cache data staff jurnal (Manager dan Editor) untuk homepage.
  * Versi core dari skrip tema kustom.
@@ -12,12 +12,12 @@ declare(strict_types=1);
  */
 
 // Import DAO yang dibutuhkan
-// import('classes.security.RoleDAO');
-// import('classes.user.UserDAO');
-// import('classes.user.UserSettingsDAO');
-// import('classes.journal.JournalDAO');
-// import('classes.user.User');
-// import('classes.i18n.CountryDAO'); // Path yang benar
+// import('core.Modules.security.RoleDAO');
+// import('core.Modules.user.UserDAO');
+// import('core.Modules.user.UserSettingsDAO');
+// import('core.Modules.journal.JournalDAO');
+// import('core.Modules.user.User');
+// import('core.Modules.i18n.CountryDAO'); // Path yang benar
 
 class CoreWizdamEditorStaff {
 

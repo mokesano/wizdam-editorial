@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/install/form/InstallForm.inc.php
+ * @file core.Modules.install/form/InstallForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,9 +20,9 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x and Modern Prudent Standards
  */
 
-import('classes.install.Install');
-import('lib.wizdam.classes.site.VersionCheck');
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.install.Install');
+import('core.Modules.site.VersionCheck');
+import('core.Modules.form.Form');
 
 class InstallForm extends Form {
 

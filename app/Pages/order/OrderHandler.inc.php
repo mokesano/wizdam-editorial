@@ -16,12 +16,12 @@ declare(strict_types=1);
  * dan melakukan Checkout untuk men-generate Invoice resmi ke domain Billing.
  */
 
-import('classes.handler.Handler');
+import('core.Modules.handler.Handler');
 
 // Mengimpor Service Layer Wizdam Frontedge
-import('lib.wizdam.classes.checkout.services.CartService');
-import('lib.wizdam.classes.checkout.services.InvoiceService');
-import('lib.wizdam.classes.security.SecurityHashService');
+import('core.Modules.checkout.services.CartService');
+import('core.Modules.checkout.services.InvoiceService');
+import('core.Modules.security.SecurityHashService');
 
 class OrderHandler extends Handler {
     
@@ -101,7 +101,7 @@ class OrderHandler extends Handler {
             $this->_redirectWithError($request, 'order.error.invalidMethod', 'cart');
         }
 
-        import('lib.wizdam.classes.validation.ValidatorCSRF');
+        import('core.Modules.validation.ValidatorCSRF');
         if (!ValidatorCSRF::checkToken($request->getUserVar('csrfToken'))) {
             $this->_redirectWithError($request, 'order.error.csrfInvalid', 'cart');
         }
@@ -127,7 +127,7 @@ class OrderHandler extends Handler {
             $hash = $this->securityHashService->generateHash('invoice', (int) $invoice->getId());
 
             // 6. Buat Notifikasi Sukses
-            import('classes.notification.NotificationManager');
+            import('core.Modules.notification.NotificationManager');
             $notificationManager = new NotificationManager();
             $notificationManager->createTrivialNotification(
                 $user->getId(), 
@@ -150,7 +150,7 @@ class OrderHandler extends Handler {
      * Menggantikan penggunaan die() demi UX yang sempurna.
      */
     private function _redirectWithError($request, string $localeKey, string $targetOp = 'cart'): void {
-        import('classes.notification.NotificationManager');
+        import('core.Modules.notification.NotificationManager');
         $notificationManager = new NotificationManager();
         $user = $request->getUser();
         

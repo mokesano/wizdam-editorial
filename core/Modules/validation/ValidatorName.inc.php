@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/validation/ValidatorName.inc.php
+ * @file core.Modules.validation/ValidatorName.inc.php
  *
  * @class ValidatorName
  * @ingroup validation
@@ -11,7 +11,7 @@ declare(strict_types=1);
  * Rejects dummy characters, repeating single characters, and universal dummy abbreviations.
  */
 
-import('lib.wizdam.classes.validation.Validator');
+import('core.Modules.validation.Validator');
 
 class ValidatorName extends Validator {
     

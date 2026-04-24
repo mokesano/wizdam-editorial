@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/layoutEditor/LayoutEditorSubmissionDAO.inc.php
+ * @file core.Modules.submission/layoutEditor/LayoutEditorSubmissionDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & HookRegistry::dispatch
  */
 
-import('classes.submission.layoutEditor.LayoutEditorSubmission');
+import('core.Modules.submission.layoutEditor.LayoutEditorSubmission');
 
 class LayoutEditorSubmissionDAO extends DAO {
     /** Helper DAOs */

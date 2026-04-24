@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief Article report DAO
  */
 
-import('classes.submission.common.Action');
-import('lib.wizdam.classes.db.DBRowIterator');
+import('core.Modules.submission.common.Action');
+import('core.Modules.db.DBRowIterator');
 
 class ArticleReportDAO extends DAO {
     

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/notification/CoreNotification.inc.php
+ * @file core.Modules.notification/CoreNotification.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class for Notification.
  */
 
-import('lib.wizdam.classes.notification.NotificationDAO');
+import('core.Modules.notification.NotificationDAO');
 
 define('UNSUBSCRIBED_USER_NOTIFICATION',            0);
 

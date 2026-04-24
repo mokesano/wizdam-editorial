@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/db/DAORegistry.inc.php
+ * @file core.Modules.db/DAORegistry.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * MODERNIZED FOR PHP 7.4+
  */
 
-import('lib.wizdam.classes.db.DAO');
+import('core.Modules.db.DAO');
 
 class DAORegistry {
 

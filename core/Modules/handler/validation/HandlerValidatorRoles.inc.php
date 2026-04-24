@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/handler/HandlerValidatorRoles.inc.php
+ * @file core.Modules.handler/HandlerValidatorRoles.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * NB: Deprecated - please use RoleBasedHandlerOperationPolicy instead.
  */
 
-import('lib.wizdam.classes.handler.validation.HandlerValidatorPolicy');
-import('lib.wizdam.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+import('core.Modules.handler.validation.HandlerValidatorPolicy');
+import('core.Modules.security.authorization.RoleBasedHandlerOperationPolicy');
 
 class HandlerValidatorRoles extends HandlerValidatorPolicy {
     /**

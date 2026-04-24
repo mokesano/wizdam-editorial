@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/group/GroupDAO.inc.php
+ * @file core.Modules.group/GroupDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying Group objects.
  */
 
-import ('lib.wizdam.classes.group.Group');
+import ('core.Modules.group.Group');
 
 class GroupDAO extends DAO {
     

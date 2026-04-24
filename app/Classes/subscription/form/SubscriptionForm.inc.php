@@ -5,7 +5,7 @@
  */
 
 /**
- * @file classes/subscription/form/SubscriptionForm.inc.php
+ * @file core.Modules.subscription/form/SubscriptionForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class SubscriptionForm extends Form {
 
@@ -354,7 +354,7 @@ class SubscriptionForm extends Form {
             'subscriptionContactSignature' => $subscriptionContactSignature
         );
 
-        import('classes.mail.MailTemplate');
+        import('core.Modules.mail.MailTemplate');
         $mail = new MailTemplate($mailTemplateKey);
         $mail->setFrom($subscriptionEmail, $subscriptionName);
         $mail->addRecipient($user->getEmail(), $user->getFullName());

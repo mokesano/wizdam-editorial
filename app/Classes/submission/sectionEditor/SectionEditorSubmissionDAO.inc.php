@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/sectionEditor/SectionEditorSubmissionDAO.inc.php
+ * @file core.Modules.submission/sectionEditor/SectionEditorSubmissionDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -20,12 +20,12 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & HookRegistry::dispatch
  */
 
-import('classes.submission.sectionEditor.SectionEditorSubmission');
+import('core.Modules.submission.sectionEditor.SectionEditorSubmission');
 
 // Bring in editor decision constants
-import('classes.submission.author.AuthorSubmission');
-import('classes.submission.common.Action');
-import('classes.submission.reviewer.ReviewerSubmission');
+import('core.Modules.submission.author.AuthorSubmission');
+import('core.Modules.submission.common.Action');
+import('core.Modules.submission.reviewer.ReviewerSubmission');
 
 class SectionEditorSubmissionDAO extends DAO {
     // [WIZDAM] Properties initialized to null for cPanel linter compatibility

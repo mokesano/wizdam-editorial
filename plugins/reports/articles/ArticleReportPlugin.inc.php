@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @brief Article report plugin
  */
 
-import('classes.plugins.ReportPlugin');
+import('core.Modules.plugins.ReportPlugin');
 
 class ArticleReportPlugin extends ReportPlugin {
     
@@ -88,7 +88,7 @@ class ArticleReportPlugin extends ReportPlugin {
 
         AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR, LOCALE_COMPONENT_WIZDAM_SUBMISSION);
 
-        import('classes.article.Article');
+        import('core.Modules.article.Article');
         $decisionMessages = [
             SUBMISSION_EDITOR_DECISION_ACCEPT => __('editor.article.decision.accept'),
             SUBMISSION_EDITOR_DECISION_PENDING_REVISIONS => __('editor.article.decision.pendingRevisions'),
@@ -126,7 +126,7 @@ class ArticleReportPlugin extends ReportPlugin {
         $fp = fopen('php://output', 'wt');
         CoreString::fputcsv($fp, array_values($columns));
 
-        import('classes.article.Article'); // Bring in getStatusMap function
+        import('core.Modules.article.Article'); // Bring in getStatusMap function
         $statusMap = Article::getStatusMap();
 
         $authorIndex = 0;

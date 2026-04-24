@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Form for custom block manager settings.
  */
 
-import('lib.wizdam.classes.form.Form');
+import('core.Modules.form.Form');
 
 class SettingsForm extends Form {
 

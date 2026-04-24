@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/filter/GenericMultiplexerFilter.inc.php
+ * @file core.Modules.filter/GenericMultiplexerFilter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  * to a de-multiplexer filter.
  */
 
-import('lib.wizdam.classes.filter.CompositeFilter');
+import('core.Modules.filter.CompositeFilter');
 
 class GenericMultiplexerFilter extends CompositeFilter {
     /**
@@ -81,7 +81,7 @@ class GenericMultiplexerFilter extends CompositeFilter {
      * @see PersistentFilter::getClassName()
      */
     public function getClassName() {
-        return 'lib.wizdam.classes.filter.GenericMultiplexerFilter';
+        return 'core.Modules.filter.GenericMultiplexerFilter';
     }
 
 

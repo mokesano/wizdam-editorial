@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/notification/form/NotificationMailingListForm.inc.php
+ * @file core.Modules.notification/form/NotificationMailingListForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -22,8 +22,8 @@ declare(strict_types=1);
  * - TRUE MODULAR SECURITY: Decoupled Default Captcha, reCAPTCHA, and Turnstile
  */
 
-import('lib.wizdam.classes.form.Form');
-import('classes.notification.Notification');
+import('core.Modules.form.Form');
+import('core.Modules.notification.Notification');
 
 class NotificationMailingListForm extends Form {
     
@@ -53,7 +53,7 @@ class NotificationMailingListForm extends Form {
         // PILAR 3: DEFAULT CAPTCHA (HANYA JIKA TURNSTILE & RECAPTCHA OFF)
         if (!$this->turnstileEnabled && !$this->reCaptchaEnabled) {
             if (Config::getVar('captcha', 'captcha') && Config::getVar('captcha', 'captcha_on_mailinglist')) {
-                import('lib.wizdam.classes.captcha.CaptchaManager');
+                import('core.Modules.captcha.CaptchaManager');
                 $captchaManager = new CaptchaManager();
                 if ($captchaManager->isEnabled()) {
                     $this->captchaEnabled = true;
@@ -243,7 +243,7 @@ class NotificationMailingListForm extends Form {
         // 3. Default Captcha Wizdam
         $templateMgr->assign('captchaEnabled', $this->captchaEnabled);
         if ($this->captchaEnabled) {
-            import('lib.wizdam.classes.captcha.CaptchaManager');
+            import('core.Modules.captcha.CaptchaManager');
             $captchaManager = new CaptchaManager();
             $captcha = $captchaManager->createCaptcha();
             if ($captcha) {
@@ -270,7 +270,7 @@ class NotificationMailingListForm extends Form {
             $settings['allowRegAuthor'] = $context->getSetting('allowRegAuthor');
             
             // Periksa metode langganan jika ini adalah jurnal spesifik
-            import('classes.payment.AppPaymentManager');
+            import('core.Modules.payment.AppPaymentManager');
             $paymentManager = new AppPaymentManager($request);
             $settings['subscriptionsEnabled'] = $paymentManager->acceptGiftSubscriptionPayments() || $paymentManager->acceptSubscriptionPayments();
         }

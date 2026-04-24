@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Null Safety
  */
 
-import('lib.wizdam.pages.announcement.PKPAnnouncementHandler');
+import('core.Modules.pages.announcement.CoreAnnouncementHandler');
 
 class AnnouncementHandler extends CoreAnnouncementHandler {
     
@@ -73,7 +73,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_getAnnouncementsEnabled()
+     * @see CoreAnnouncementHandler::_getAnnouncementsEnabled()
      * @param CoreRequest $request
      * @return bool
      */
@@ -84,7 +84,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_getAnnouncements()
+     * @see CoreAnnouncementHandler::_getAnnouncements()
      * [MODERNISASI] Menghapus tanda & reference return
      * @param CoreRequest $request
      * @param object|null $rangeInfo
@@ -108,7 +108,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_getAnnouncementsIntroduction()
+     * @see CoreAnnouncementHandler::_getAnnouncementsIntroduction()
      * @param CoreRequest $request
      * @return string
      */
@@ -119,7 +119,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     }
 
     /**
-     * @see PKPAnnouncementHandler::_announcementIsValid()
+     * @see CoreAnnouncementHandler::_announcementIsValid()
      * @param CoreRequest $request
      * @param int $announcementId
      * @return bool

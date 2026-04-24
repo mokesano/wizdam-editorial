@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/user/UserDAO.inc.php
+ * @file core.Modules.user/UserDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 7.4+ Compatible
  */
 
-import('classes.user.User');
-import('lib.wizdam.classes.user.CoreUserDAO');
+import('core.Modules.user.User');
+import('core.Modules.user.CoreUserDAO');
 
 class UserDAO extends CoreUserDAO {
     

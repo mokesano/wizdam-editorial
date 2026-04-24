@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/help/HelpTocDAO.inc.php
+ * @file core.Modules.help/HelpTocDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving HelpToc objects.
  */
 
-import('lib.wizdam.classes.help.HelpToc');
+import('core.Modules.help.HelpToc');
 
 class HelpTocDAO extends XMLDAO {
     
@@ -146,7 +146,7 @@ class HelpTocDAO extends XMLDAO {
         // Add Topics
         if (isset($data['topic'])) {
             foreach ($data['topic'] as $topicData) {
-                import('lib.wizdam.classes.help.HelpTopic'); // Pastikan HelpTopic di-import
+                import('core.Modules.help.HelpTopic'); // Pastikan HelpTopic di-import
                 $topic = new HelpTopic();
                 $topic->setId($topicData['attributes']['id']);
                 $topic->setTitle($topicData['attributes']['title']);

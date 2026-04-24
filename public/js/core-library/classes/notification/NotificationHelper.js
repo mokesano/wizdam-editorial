@@ -2,7 +2,7 @@
  * @defgroup js_classes_notification
  */
 // Define the namespace
-$.pkp.classes.notification = $.pkp.classes.notification || {};
+$.core.classes.notification = $.core.classes.notification || {};
 
 
 /**
@@ -19,7 +19,7 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
  */
 (function($) {
 
-	$.pkp.classes.notification.NotificationHelper = function() {};
+	$.core.classes.notification.NotificationHelper = function() {};
 
 
 	//
@@ -52,12 +52,12 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 	 * bubbles up the event so the site handler can show general
 	 * notifications.
 	 *
-	 * @param {$.pkp.classes.Handler} handler The widget handler that is
+	 * @param {$.core.classes.Handler} handler The widget handler that is
 	 * handling the notify user event.
 	 * @param {HTMLElement} triggerElement The element that triggered the
 	 * notify user event.
 	 */
-	$.pkp.classes.notification.NotificationHelper.redirectNotifyUserEvent =
+	$.core.classes.notification.NotificationHelper.redirectNotifyUserEvent =
 			function(handler, triggerElement) {
 
 		// Sometimes the notification handler will bubble up
@@ -82,8 +82,8 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 		// If the trigger element is inside a grid, let the site
 		// handler show TRIVIAL notifications.
 		var trivialAlreadyHandled = false;
-		if (!(handler instanceof $.pkp.controllers.SiteHandler)) {
-			if ($(triggerElement).parents('.pkp_controllers_grid').length > 0) {
+		if (!(handler instanceof $.core.controllers.SiteHandler)) {
+			if ($(triggerElement).parents('.core_controllers_grid').length > 0) {
 				$handledElement.parent().trigger('notifyUser');
 				trivialAlreadyHandled = true;
 			}
@@ -116,7 +116,7 @@ $.pkp.classes.notification = $.pkp.classes.notification || {};
 			for (j = 0, parentsLength = $elementParents.length;
 					j < parentsLength; j++) {
 				handler = $($elementParents[j]).data('pkp.handler');
-				if ((handler instanceof $.pkp.classes.Handler)) {
+				if ((handler instanceof $.core.classes.Handler)) {
 					$elementParentWidget = $($elementParents[j]);
 					break;
 				}

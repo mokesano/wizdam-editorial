@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/log/EmailLogDAO.inc.php
+ * @file core.Modules.log/EmailLogDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class for inserting/accessing email log entries.
  */
 
-import ('lib.wizdam.classes.log.EmailLogEntry');
+import ('core.Modules.log.EmailLogEntry');
 
 class EmailLogDAO extends DAO {
     
