@@ -1,7 +1,7 @@
 <oai_marc status="c" type="a" level="m" encLvl="3" catForm="u" xmlns="http://www.openarchives.org/OAI/1.1/oai_marc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/1.1/oai_marc http://www.openarchives.org/OAI/1.1/oai_marc.xsd">
 {**
  * plugins/oaiMetadataFormats/marc/record.tpl
- * Copyright (c) 2013-2019 Simon Fraser University
+ * Copyright (c) 2013-2019 Sangia Publishing House
  * Distributed under the GNU GPL v2.
  * REFACTORED: Wizdam Edition (Single Line Header for XML Safety)
  *}

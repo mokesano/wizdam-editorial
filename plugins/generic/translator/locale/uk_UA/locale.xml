@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/translator/locale/uk_UA/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -14,8 +14,8 @@
 <locale name="uk_UA" full_name="Українська">
 	<message key="plugins.generic.translator.name">Модуль перекладача</message>
 	<message key="plugins.generic.translator.description">Цей модуль дозволяє веб-орієнтовану підтримку перекладу файлів.</message>
-	<message key="plugins.generic.translator.longdescription">У цьому інтерфейсі адміністратор сайту може створювати, змінювати та перевіряти переклади OJS. Цей модуль загальносистемний, він не може використовуватись для налаштування окремого журналу на платформі OJS. Якщо Ви виправили переклад або створили новий, будь ласка, розгляньте можливість надіслати його Public Knowledge Project для включення до майбутніх випусків дистрибутиву.</message>
-	<message key="plugins.generic.translator.localeDescription">На цій сторінці відображені всі компоненти перекладу OJS, які може редагувати перекладач. Повний переклад має містити переклади всіх компонентів.</message>
+	<message key="plugins.generic.translator.longdescription">У цьому інтерфейсі адміністратор сайту може створювати, змінювати та перевіряти переклади Wizdam Editorial. Цей модуль загальносистемний, він не може використовуватись для налаштування окремого журналу на платформі Wizdam Editorial. Якщо Ви виправили переклад або створили новий, будь ласка, розгляньте можливість надіслати його Public Knowledge Project для включення до майбутніх випусків дистрибутиву.</message>
+	<message key="plugins.generic.translator.localeDescription">На цій сторінці відображені всі компоненти перекладу Wizdam Editorial, які може редагувати перекладач. Повний переклад має містити переклади всіх компонентів.</message>
 	
 	<message key="plugins.generic.translator.tarMissing">Функція експорту цього модуля була деактивована, оскільки у системі не знайдена сконфігурована утиліта tar. Будь ласка, переконайтеся, що програма tar встановлена, а потім налаштуйте шлях до утиліти tar у розділі [cli] файлу config.inc.php!</message>
 	

@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/users/locale/de_DE/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
@@ -49,7 +49,7 @@ Beispiele:
 	<message key="plugins.importexport.users.import.errorsOccurred">Import fehlerhaft</message>
 	<message key="plugins.importexport.users.import.confirmUsers">Bestätigen Sie, dass Sie diese Benutzer/innen in das System importieren wollen</message>
 	<message key="plugins.importexport.users.import.warning">Warnung</message>
-	<message key="plugins.importexport.users.import.encryptionMismatch">{$importHash} Passworte können nicht genutzt werden; OJS ist für {$ojsHash} konfiguriert. Wenn Sie fortfahren, müssen Sie die importierten Passworte zurücksetzen.</message>
+	<message key="plugins.importexport.users.import.encryptionMismatch">{$importHash} Passworte können nicht genutzt werden; Wizdam Editorial ist für {$ojsHash} konfiguriert. Wenn Sie fortfahren, müssen Sie die importierten Passworte zurücksetzen.</message>
 	<message key="plugins.importexport.users.unknownJournal">Unbekannter Zeitschriftpfad "{$journalPath}".</message>
 
 	<message key="plugins.importexport.users.export.exportUsers">Benutzer/innen exportieren</message>

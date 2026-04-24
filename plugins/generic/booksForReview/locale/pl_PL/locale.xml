@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/booksForReview/locale/pl_PL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Books for review plugin localization strings for the en_US (U.S. English) locale.
@@ -125,7 +125,7 @@
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderBeforeDays2">day(s) before the review due date.</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays1">Send authors a reminder email</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays2">day(s) after the review due date.</message>
-	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Note:</strong> To activate these options, the site administrator must enable the <tt>scheduled_tasks</tt> option in the OJS configuration file. Additional server configuration may be required to support this functionality (which may not be possible on all servers), as indicated in the OJS documentation.]]></message>
+	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Note:</strong> To activate these options, the site administrator must enable the <tt>scheduled_tasks</tt> option in the Wizdam Editorial configuration file. Additional server configuration may be required to support this functionality (which may not be possible on all servers), as indicated in the Wizdam Editorial documentation.]]></message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformation">Additional Information</message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformationDescription">Additional information published along with the books for review.</message>
 	<message key="plugins.generic.booksForReview.settings.dueWeeksRequired">Please specify the number of weeks for when book reviews are due.</message>

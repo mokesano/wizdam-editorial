@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/datacite/locale/da_DK/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -22,7 +22,7 @@
 		with access to the DataCite service for minting persistent identifiers (DOIs)
 		and registering associated metadata. If you do not have your own username and
 		password you'll still be able to export into the DataCite XML format but you
-		cannot register your DOIs with DataCite from within OJS.
+		cannot register your DOIs with DataCite from within Wizdam Editorial.
 		Please note that the password will be saved as plain text, i.e. not encrypted, due
 		to the DataCite registration service requirements.]]></message>
 

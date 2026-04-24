@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/piwik/locale/cs_CZ/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Piwik plugin localization strings
@@ -15,7 +15,7 @@
 
 	<!-- Piwik -->
 	<message key="plugins.generic.piwik.displayName">Plugin Piwik</message>
-	<message key="plugins.generic.piwik.description"><![CDATA[Propojte OJS s Piwik, volně dostupnou a otevřenou aplikací pro analýzu provozu webu. Požaduje, aby byl Piwik nainstalován. Na <a href="http://piwik.org/" title="piwik site">stránce Piwik</a> najdete více informací.]]></message>
+	<message key="plugins.generic.piwik.description"><![CDATA[Propojte Wizdam Editorial s Piwik, volně dostupnou a otevřenou aplikací pro analýzu provozu webu. Požaduje, aby byl Piwik nainstalován. Na <a href="http://piwik.org/" title="piwik site">stránce Piwik</a> najdete více informací.]]></message>
 
 	<!-- Piwik Settings Management -->
 	<message key="plugins.generic.piwik.manager.settings">Nastavení</message>

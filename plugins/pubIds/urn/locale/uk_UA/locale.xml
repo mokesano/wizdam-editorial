@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/urn/locale/uk_UA/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * URN plugin localization strings
@@ -16,17 +16,17 @@
 
 	<!-- plugin -->
 	<message key="plugins.pubIds.urn.displayName">URN</message>
-	<message key="plugins.pubIds.urn.description">Цей модуль дозволяє призначення уніфікованих імен ресурсів (URN) для опублікованих об'єктів (випусків, статей, гранок та супровідних файлів) OJS.</message>
+	<message key="plugins.pubIds.urn.description">Цей модуль дозволяє призначення уніфікованих імен ресурсів (URN) для опублікованих об'єктів (випусків, статей, гранок та супровідних файлів) Wizdam Editorial.</message>
 
 	<!-- URN manager options, setting -->
-	<message key="plugins.pubIds.urn.manager.settings.description">Щоб мати можливість використовувати URN у OJS, будь ласка, пройдіть кілька кроків налаштувань:</message>
+	<message key="plugins.pubIds.urn.manager.settings.description">Щоб мати можливість використовувати URN у Wizdam Editorial, будь ласка, пройдіть кілька кроків налаштувань:</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSettings">Налаштування URN</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix">Префікс URN</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix.description">Префікс URN є постійною незмінною частиною URN (наприклад, "urn:nbn:de:0000-").</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix">Суфікс URN</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default">Використовувати стандартний шаблон.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default.description"><![CDATA[%j.v%vi%i - для випусків<br />%j.v%vi%i.%a - для статей<br />%j.v%vi%i.%a.g%g - для гранок <br />%j.v%vi%i.%a.s%s - для супровідних файлів.]]></message>
-	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Використовуйте поданий нижче шаблон для генерації суфіксів URN. Синтаксис шаблону наступний: %j - ініціали журналу, %v - номер тому, %i - номер випуску, %Y - рік, %a - ідентифікатор статті в OJS, %g - ідентифікатор гранки в OJS, %s - ідентифікатор супровідного файлу в OJS, %p - номери сторінок.</message>
+	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Використовуйте поданий нижче шаблон для генерації суфіксів URN. Синтаксис шаблону наступний: %j - ініціали журналу, %v - номер тому, %i - номер випуску, %Y - рік, %a - ідентифікатор статті в Wizdam Editorial, %g - ідентифікатор гранки в Wizdam Editorial, %s - ідентифікатор супровідного файлу в Wizdam Editorial, %p - номери сторінок.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.issues">для випусків</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.articles">для статей</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.galleys">для гранок</message>

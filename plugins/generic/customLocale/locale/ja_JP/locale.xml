@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/customLocale/locale/ja_JP/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ja_JP (日本語) locale.
@@ -14,11 +14,11 @@
  
 <locale name="ja_JP" full_name="日本語">
 	<message key="plugins.generic.customLocale.name">カスタムロケールプラグイン</message>
-	<message key="plugins.generic.customLocale.description">OJSのユーザインターフェースで使用されるデフォルトのテキストをカスタマイズできるようにします。</message>
+	<message key="plugins.generic.customLocale.description">Wizdam Editorialのユーザインターフェースで使用されるデフォルトのテキストをカスタマイズできるようにします。</message>
 
 	<message key="plugins.generic.customLocale.longDescription">この雑誌に現在設定されているすべてのロケールを表示しています。</message>
 	<message key="plugins.generic.customLocale.localeDescription">選択したロケールで利用可能なすべてのファイルを表示しています。</message>
-	<message key="plugins.generic.customLocale.fileDescription">該当するカスタムテキストフィールドにテキストを入力してください。OJSのデフォルトテキストを使用する場合は、カスタムフィールドを空白のままにしてください。</message>
+	<message key="plugins.generic.customLocale.fileDescription">該当するカスタムテキストフィールドにテキストを入力してください。Wizdam Editorialのデフォルトテキストを使用する場合は、カスタムフィールドを空白のままにしてください。</message>
 	<message key="plugins.generic.customLocale.localeName">ロケール名</message>
 	<message key="plugins.generic.customLocale.localeKey">キー</message>
 	<message key="plugins.generic.customLocale.localeKeyValue">値</message>

@@ -3,11 +3,11 @@
 <!--
   * plugins/importexport/native/sample.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Sample import document for the OJS 2.x native XML import/export format.
+  * Sample import document for the Wizdam Editorial 2.x native XML import/export format.
   *
   -->
 <issues>

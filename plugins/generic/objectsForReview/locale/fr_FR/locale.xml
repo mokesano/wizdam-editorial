@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/objectsForReview/locale/fr_FR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Objects for review plugin localization strings
@@ -85,7 +85,7 @@
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderBeforeDays2">jour(s) restants avant la date d'échéance du compte rendu d'objet.</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays1">Envoyer à l'auteur un courriel de rappel</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays2">jour(s) restants après la date d'échéance du compte rendu.</message>
-	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>À noter :</strong> Pour activer ces options, l'administrateur du site doit activer l'option<tt>scheduled_tasks</tt>dans le fichier de configuration d'OJS. Comme indiqué dans la documentation OJS, des configurations supplémentaires pourront être nécessaires au fonctionnement de cette fonctionnalité (cela peut ne pas être possible sur tous les serveurs).]]></message>
+	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>À noter :</strong> Pour activer ces options, l'administrateur du site doit activer l'option<tt>scheduled_tasks</tt>dans le fichier de configuration d'Wizdam Editorial. Comme indiqué dans la documentation Wizdam Editorial, des configurations supplémentaires pourront être nécessaires au fonctionnement de cette fonctionnalité (cela peut ne pas être possible sur tous les serveurs).]]></message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformation">Informations complémentaires</message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformationDescription">Informations complémentaires publiées avec la liste des comptes rendus d'objet.</message>
 

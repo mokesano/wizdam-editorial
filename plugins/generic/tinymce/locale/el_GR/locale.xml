@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/tinymce/locale/el_GR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the Greek locale.
@@ -21,8 +21,8 @@
  
 <locale name="el_GR" full_name="ελληνικά">	
 	<message key="plugins.generic.tinymce.name">Πρόσθετο TinyMCE</message>
-	<message key="plugins.generic.tinymce.description"><![CDATA[Το πρόσθετο αυτό ενεργοποιεί την WYSIWYG (What You See Is What You Get) επεξεργασία των πεδίων κειμένου του OJS με την χρήση του επεξεργαστή περιεχομένου <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a>.]]></message>
-	<message key="plugins.generic.tinymce.descriptionDisabled"><![CDATA[Το πρόσθετο αυτό ενεργοποιεί την WYSIWYG (What You See Is What You Get) επεξεργασία των πεδίων κειμένου του OJS με την χρήση του  επεξεργαστή περιεχομένου <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a>. <strong>Το TinyMCE δεν έχει εγκατασταθεί. Παρακαλούμε εγκαταστήστε το στο {$tinyMcePath}.</strong>]]></message>
+	<message key="plugins.generic.tinymce.description"><![CDATA[Το πρόσθετο αυτό ενεργοποιεί την WYSIWYG (What You See Is What You Get) επεξεργασία των πεδίων κειμένου του Wizdam Editorial με την χρήση του επεξεργαστή περιεχομένου <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a>.]]></message>
+	<message key="plugins.generic.tinymce.descriptionDisabled"><![CDATA[Το πρόσθετο αυτό ενεργοποιεί την WYSIWYG (What You See Is What You Get) επεξεργασία των πεδίων κειμένου του Wizdam Editorial με την χρήση του  επεξεργαστή περιεχομένου <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a>. <strong>Το TinyMCE δεν έχει εγκατασταθεί. Παρακαλούμε εγκαταστήστε το στο {$tinyMcePath}.</strong>]]></message>
 
 	<message key="plugins.generic.tinymce.settings">Ρυθμίσεις</message>
 </locale>

@@ -3,11 +3,11 @@
 <!--
   * plugins/generic/externalFeed/locale/es_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_(es_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Spanish_(es_ES)
   *
   * External feed plugin localization strings
   -->
@@ -58,7 +58,7 @@
 	<message key="plugins.generic.externalFeed.form.titleRequired">Indique un título para este canal</message>
 	<message key="plugins.generic.externalFeed.form.feedUrl">URL</message>
 	<message key="plugins.generic.externalFeed.form.feedUrlValid">Indique una URL de canal válida (http:// incluido)</message>
-	<message key="plugins.generic.externalFeed.form.feedUrlDescription">La URL del canal de sindicación RSS/Atom externo (p. ej. http://pkp.sfu.ca/blog/feed)</message>
+	<message key="plugins.generic.externalFeed.form.feedUrlDescription">La URL del canal de sindicación RSS/Atom externo (p. ej. http://wizdam.sangia.org/blog/feed)</message>
 	<message key="plugins.generic.externalFeed.form.display">Mostrar</message>
 	<message key="plugins.generic.externalFeed.form.displayHomepage">Mostrar en la página de inicio</message>
 	<message key="plugins.generic.externalFeed.form.displayBlockNone">No mostrar en el bloque</message>

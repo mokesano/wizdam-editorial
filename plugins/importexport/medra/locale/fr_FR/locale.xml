@@ -4,8 +4,8 @@
 <!--
   * @file plugins/importexport/medra/locale/fr_FR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -15,7 +15,7 @@
 	<message key="plugins.importexport.medra.displayName">Plugiciel d'exportation / d'enregistrement mEDRA</message>
 	<message key="plugins.importexport.medra.description">Exporte les métadonnées des numéros, articles et les épreuves dans Onix pour format DOI (O4GOI) et enregistre les DOI avec l'agence d'enregistrement mEDRA.</message>
 
-	<message key="plugins.importexport.medra.intro"><![CDATA[Si vous voulez enregistrer vos DOI avec mEDRA, suivez les directives au <a href="http://www.medra.org/en/guide.htm" target="_blank">Page d'accueil mEDRA</a> pour recevoir un nom d'utilisateur ainsi qu'un mot de passe. Si vous n'avez pas de nom d'utilisateur ou de mot de passe vous serez toujours en mesure d'exporter dans le format XML mEDRA (Onix pour DOI) mais vous ne pourrez pas enregistrer vos DOI avec mEDRA depuis OJS.
+	<message key="plugins.importexport.medra.intro"><![CDATA[Si vous voulez enregistrer vos DOI avec mEDRA, suivez les directives au <a href="http://www.medra.org/en/guide.htm" target="_blank">Page d'accueil mEDRA</a> pour recevoir un nom d'utilisateur ainsi qu'un mot de passe. Si vous n'avez pas de nom d'utilisateur ou de mot de passe vous serez toujours en mesure d'exporter dans le format XML mEDRA (Onix pour DOI) mais vous ne pourrez pas enregistrer vos DOI avec mEDRA depuis Wizdam Editorial.
 S'il vous plaît, notez que le mot de passe sera sauvegardé en texte brute et non pas chiffré, à cause des exigences du service d'enregistrement de mEDRA.]]></message>
 
 	<message key="plugins.importexport.medra.settings.description"><![CDATA[S'il vous plaît <a href="{$settingsUrl}">configurez</a> le plugiciel d'export mEDRA avant de l'utiliser pour la première fois.]]></message>

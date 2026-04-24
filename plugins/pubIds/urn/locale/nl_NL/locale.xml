@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/urn/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -19,14 +19,14 @@
 	<message key="plugins.pubIds.urn.description">Deze plugin maak het mogelijk om Uniform Resource Names toe te kennen aan objecten (nummers, artikelen, proeven en aanvullende bestanden)</message>
 
 	<!-- URN manager options, setting -->
-	<message key="plugins.pubIds.urn.manager.settings.description">Voer de volgende stappen uit om URN's toe te kennen en beheren vanuit OJS:</message>
+	<message key="plugins.pubIds.urn.manager.settings.description">Voer de volgende stappen uit om URN's toe te kennen en beheren vanuit Wizdam Editorial:</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSettings">URN Instellingen</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix">URN voorvoegsel</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix.description">Het URN vorvoegsel is het onveranderlijke deel van de URN (bv. "urn:nbn:de:0000-").</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix">URN Achtervoegsel</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default">Gebruik standaardpatronen</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default.description"><![CDATA[%j.v%vi%i voor nummers<br />%j.v%vi%i.%a voor artikelen<br />%j.v%vi%i.%a.g%g voor proeven <br />%j.v%vi%i.%a.s%s voor aanvullende bestanden.]]></message>
-	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Gebruik het patroon dat hieronder is ingevoerd om URN achtervoegsels te genereren. Gebruik %j voor de initialen van het tijdschrift, %v voor volume, %i voor het nummer, %Y voor het jaar, %a voor het OJS artikelnummer, %g voor het OJS nummer van de proef, %s voor het OJS bestands ID van een aanvullend bestand en %p voor een paginanummer.</message>
+	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Gebruik het patroon dat hieronder is ingevoerd om URN achtervoegsels te genereren. Gebruik %j voor de initialen van het tijdschrift, %v voor volume, %i voor het nummer, %Y voor het jaar, %a voor het Wizdam Editorial artikelnummer, %g voor het Wizdam Editorial nummer van de proef, %s voor het Wizdam Editorial bestands ID van een aanvullend bestand en %p voor een paginanummer.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.issues">voor nummers</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.articles">voor artikelen</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.galleys">voor proeven</message>

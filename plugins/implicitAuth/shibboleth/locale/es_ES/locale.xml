@@ -3,11 +3,11 @@
 <!--
   * plugins/implicitAuth/shibboleth/locale/es_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_(es_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Spanish_(es_ES)
   *
   * Localization strings
   *
@@ -16,5 +16,5 @@
  
 <locale name="es_ES" full_name="Español (España)">
 	<message key="plugins.implicitAuth.shibboleth.displayName">ShibAuthPlugin</message>
-	<message key="plugins.implicitAuth.shibboleth.description">ShibAuthPlugin. Este módulo está presente en todo el sitio web y está habilitado en el archivo de configuración de OJS.</message>
+	<message key="plugins.implicitAuth.shibboleth.description">ShibAuthPlugin. Este módulo está presente en todo el sitio web y está habilitado en el archivo de configuración de Wizdam Editorial.</message>
 </locale>

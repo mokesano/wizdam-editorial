@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/users/locale/id_ID/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the id_ID (Bahasa Indonesia) locale.
@@ -49,7 +49,7 @@ Contoh:
 	<message key="plugins.importexport.users.import.errorsOccurred">Terjadi kesalahan saat prose impor</message>
 	<message key="plugins.importexport.users.import.confirmUsers">Konfirmasikan bahwa ini adalah pengguna yang Anda ingin mengimpor ke dalam sistem</message>
 	<message key="plugins.importexport.users.import.warning">Peringatan</message>
-	<message key="plugins.importexport.users.import.encryptionMismatch">Tidak dapat menggunakan hash kata kunci dengan {$importHash}; OJS dikonfigurasikan untuk menggunakan {$ojsHash}. Jika Anda melanjutkan, Anda harus memuat ulang kata kunci pengguna yang di impor</message>
+	<message key="plugins.importexport.users.import.encryptionMismatch">Tidak dapat menggunakan hash kata kunci dengan {$importHash}; Wizdam Editorial dikonfigurasikan untuk menggunakan {$ojsHash}. Jika Anda melanjutkan, Anda harus memuat ulang kata kunci pengguna yang di impor</message>
 	<message key="plugins.importexport.users.unknownJournal">Path jurnal tidak diketahui "{$journalPath}" dispesifikasikan.</message>
 
 	<message key="plugins.importexport.users.export.exportUsers">Ekspor Pengguna</message>

@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/users/locale/pt_PT/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the pt_PT (Português (Portugal)) locale.
@@ -50,7 +50,7 @@ Examplos:
 	<message key="plugins.importexport.users.import.errorsOccurred">Erros ocorridos durante a importação</message>
 	<message key="plugins.importexport.users.import.confirmUsers">Confirme se estes são os utilizadores que pretende importar para o sistema</message>
 	<message key="plugins.importexport.users.import.warning">Advertência</message>
-	<message key="plugins.importexport.users.import.encryptionMismatch">Não é possível usar senhas com erro {$importHash}; OJS é configurado para usar {$ojsHash}. Se prosseguir, será necessário restaurar as senhas dos utilizadores importados.</message>
+	<message key="plugins.importexport.users.import.encryptionMismatch">Não é possível usar senhas com erro {$importHash}; Wizdam Editorial é configurado para usar {$ojsHash}. Se prosseguir, será necessário restaurar as senhas dos utilizadores importados.</message>
 	<message key="plugins.importexport.users.unknownJournal">Um caminho desconhecido do jornal "{$journalPath}" foi especificado..</message>
 
 	<message key="plugins.importexport.users.export.exportUsers">Exportar Utilizadores</message>

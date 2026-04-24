@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/piwik/locale/zh_CN/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Piwik plugin localization strings
@@ -15,7 +15,7 @@
 
 	<!-- Piwik -->
 	<message key="plugins.generic.piwik.displayName">Piwik 插件</message>
-	<message key="plugins.generic.piwik.description"><![CDATA[OJS和Piwik兼容，一个免费和开源网站流量分析应用。条件是已安装Piwik插件。更多信息详见<a href="http://piwik.org/" title="piwik site">Piwik 网站</a>。]]></message>
+	<message key="plugins.generic.piwik.description"><![CDATA[Wizdam Editorial和Piwik兼容，一个免费和开源网站流量分析应用。条件是已安装Piwik插件。更多信息详见<a href="http://piwik.org/" title="piwik site">Piwik 网站</a>。]]></message>
 
 	<!-- Piwik Settings Management -->
 	<message key="plugins.generic.piwik.manager.settings">设置</message>

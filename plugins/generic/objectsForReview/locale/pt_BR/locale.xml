@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/objectsForReview/locale/pt_BR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Objects for review plugin localization strings for the pt_BR (Português (Brasil)) locale.
@@ -78,7 +78,7 @@
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderBeforeDays2">dia(s) antes da data de conclusão.</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays1">Enviar lembrete ao autor</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays2">dia(s) após a data de conclusão.</message>
-	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Nota:</strong> Para ativar estas opções, o administrador do sistema deve habilitar a opção <tt>scheduled_tasks</tt> no arquivo de configuração do OJS. Configurações adicionais no servidor de hospedagem pode ser necessárias para suportar esta funcionalidade (o que pode não ser possível em todos os servidores), conforme indicado na documentação do OJS.]]></message>
+	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Nota:</strong> Para ativar estas opções, o administrador do sistema deve habilitar a opção <tt>scheduled_tasks</tt> no arquivo de configuração do Wizdam Editorial. Configurações adicionais no servidor de hospedagem pode ser necessárias para suportar esta funcionalidade (o que pode não ser possível em todos os servidores), conforme indicado na documentação do Wizdam Editorial.]]></message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformation">Informações adicionais</message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformationDescription">Informações adicionais publicadas com a lista de objetos para revisão.</message>
 	<message key="plugins.generic.objectsForReview.search.field.title">Título</message>

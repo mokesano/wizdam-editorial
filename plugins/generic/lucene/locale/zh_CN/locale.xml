@@ -4,11 +4,11 @@
 <!--
   * plugins/generic/lucene/locale/zh_CN/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * OJS solr/lucene search plugin localization strings
+  * Wizdam Editorial solr/lucene search plugin localization strings
   -->
  
 <locale name="zh_CN" full_name="简体中文">
@@ -30,7 +30,7 @@
 	<message key="plugins.generic.lucene.message.indexingIncomplete">在搜索时出现错误： {$numProcessed}  不在{$batchCount}进程中。 (在{$numDeleted}批次中 删除文件).</message>
 	<message key="plugins.generic.lucene.message.indexOnline">在线搜索{$numDocs}文档。</message>
 	<message key="plugins.generic.lucene.message.pullIndexingDisabled">Pull搜索无法启动。请在Lucene插件设置中启动该项。</message>
-	<message key="plugins.generic.lucene.message.searchServiceOffline">可惜OJS搜索服务当前不在线。</message>
+	<message key="plugins.generic.lucene.message.searchServiceOffline">可惜Wizdam Editorial搜索服务当前不在线。</message>
 	<message key="plugins.generic.lucene.message.techAdminInformed">期刊的技术管理员已知晓这个问题。</message>
 	<message key="plugins.generic.lucene.message.webServiceError">Lucene 网站服务器返回一个错误。</message>
 
@@ -70,8 +70,8 @@
 	<message key="plugins.generic.lucene.settings.featureDescription">Luence插件提供多项选择搜索功能。大多数功能都是默认启用但是也可以禁用或者调整。</message>
 	<message key="plugins.generic.lucene.settings.highlighting">突出（显示包含查询关键字的一小段节选）</message>
 	<message key="plugins.generic.lucene.settings.instId">独特设置的ID</message>
-	<message key="plugins.generic.lucene.settings.instIdRequired">请在Solr 搜索服务器上输入一个能够识别OJS设置的ID。</message>
-	<message key="plugins.generic.lucene.settings.instIdInstructions">如果你使用中央搜索服务器，那么您需要为OJS装置提供一个独特的装置ID，分享相同的搜索指引。这可以是任意的文本，但它必须与每一个参与OJS服务器是不同的（例如，服务器的静态IP地址，如果每个服务器都有OJS装置）。</message>
+	<message key="plugins.generic.lucene.settings.instIdRequired">请在Solr 搜索服务器上输入一个能够识别Wizdam Editorial设置的ID。</message>
+	<message key="plugins.generic.lucene.settings.instIdInstructions">如果你使用中央搜索服务器，那么您需要为Wizdam Editorial装置提供一个独特的装置ID，分享相同的搜索指引。这可以是任意的文本，但它必须与每一个参与Wizdam Editorial服务器是不同的（例如，服务器的静态IP地址，如果每个服务器都有Wizdam Editorial装置）。</message>
 	<message key="plugins.generic.lucene.settings.internalError">无效的选择。</message>
 	<message key="plugins.generic.lucene.settings.luceneSettings">Lucene 插件：设置</message>
 	<message key="plugins.generic.lucene.settings.password">密码</message>

@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/translator/locale/cs_CZ/locale.xml
   *
-  * Copyright (c) 2014-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2014-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for this plugin in Czech.
@@ -17,8 +17,8 @@
 <locale name="cs_CZ" full_name="Čeština">
 	<message key="plugins.generic.translator.name">Překladový Plugin</message>
 	<message key="plugins.generic.translator.description">Tento plugin umožňuje přes web spravovat soubory překladu.</message>
-	<message key="plugins.generic.translator.longdescription"><![CDATA[Tato část umožňuje správcovi stránek vytvářet, upravovat a kontrolovat překlady OJS. Změny jsou aplikovány na všechny stránky a neměly by být použity pro přizpůsobení jednoho OJS časopisu. Pokud upravíte nebo vytvoříte překlad, zvažte, prosím, jeho zaslání do Public Knowledge Project pro možnost distribuce s budoucím vydáním. Na stránkách PKP najdete <a href="http://pkp.sfu.ca/wiki/index.php?title=OJS:_Czech_%28cs_CZ%29">kontakt na národního koordinátora překladů</a>, se kterým můžete překlady zkoordinovat.]]></message>
-	<message key="plugins.generic.translator.localeDescription">Tato stránka ukazuje všechny součásti OJS překladu a dává překladateli možnost každou z nich editovat. Kompletní překlad by měl obsahovat překlad všech součástí.</message>
+	<message key="plugins.generic.translator.longdescription"><![CDATA[Tato část umožňuje správcovi stránek vytvářet, upravovat a kontrolovat překlady Wizdam Editorial. Změny jsou aplikovány na všechny stránky a neměly by být použity pro přizpůsobení jednoho Wizdam Editorial časopisu. Pokud upravíte nebo vytvoříte překlad, zvažte, prosím, jeho zaslání do Public Knowledge Project pro možnost distribuce s budoucím vydáním. Na stránkách Wizdam najdete <a href="http://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Czech_%28cs_CZ%29">kontakt na národního koordinátora překladů</a>, se kterým můžete překlady zkoordinovat.]]></message>
+	<message key="plugins.generic.translator.localeDescription">Tato stránka ukazuje všechny součásti Wizdam Editorial překladu a dává překladateli možnost každou z nich editovat. Kompletní překlad by měl obsahovat překlad všech součástí.</message>
 
 	<message key="plugins.generic.translator.localeName">Název jazykové lokalizace</message>
 	<message key="plugins.generic.translator.localeKey">Klíč</message>

@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/objectsForReview/locale/zh_CN/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Objects for review plugin localization strings for the en_US (U.S. English) locale.
@@ -85,7 +85,7 @@
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderBeforeDays2">评审期限几天前</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays1">给作者发提醒邮件</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays2">评审期限几天后</message>
-	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>注意：</strong>为激活这些选项，网站管理员必须在OJS配置文件中启用<tt>scheduled_tasks</tt>选项。并且其他服务器配置也得支持该功能（不是所有的服务器都能实现），在OJS文档中说明。]]></message>
+	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>注意：</strong>为激活这些选项，网站管理员必须在Wizdam Editorial配置文件中启用<tt>scheduled_tasks</tt>选项。并且其他服务器配置也得支持该功能（不是所有的服务器都能实现），在Wizdam Editorial文档中说明。]]></message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformation">附加信息</message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformationDescription">附加信息和随评审对象一起出版</message>
 

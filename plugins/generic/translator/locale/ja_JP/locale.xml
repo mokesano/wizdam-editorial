@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/translator/locale/ja_JP/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ja_JP locale.
@@ -15,8 +15,8 @@
 <locale name="ja_JP" full_name="日本語">
 	<message key="plugins.generic.translator.name">翻訳プラグイン</message>
 	<message key="plugins.generic.translator.description">翻訳ファイルの保守をWeb上で行えるようにします。</message>
-	<message key="plugins.generic.translator.longdescription">この画面を使って、OJSの翻訳ファイルを作成、変更、検査することができます。このファイルはサイト全体に関するものであり、個別のOJS雑誌をカスタマイズすることはできません。翻訳ファイルを修正または作成した場合は、将来のリリースで配布できるようにPublic Knowledge プロジェクトへの投稿を検討してください。</message>
-	<message key="plugins.generic.translator.localeDescription">OJS翻訳パックを構成するすべてのファイルを表示しています。翻訳者は各ファイルを編集することができます。翻訳パックを完全なものにするには全てのファイルを翻訳する必要があります。</message>
+	<message key="plugins.generic.translator.longdescription">この画面を使って、Wizdam Editorialの翻訳ファイルを作成、変更、検査することができます。このファイルはサイト全体に関するものであり、個別のWizdam Editorial雑誌をカスタマイズすることはできません。翻訳ファイルを修正または作成した場合は、将来のリリースで配布できるようにPublic Knowledge プロジェクトへの投稿を検討してください。</message>
+	<message key="plugins.generic.translator.localeDescription">Wizdam Editorial翻訳パックを構成するすべてのファイルを表示しています。翻訳者は各ファイルを編集することができます。翻訳パックを完全なものにするには全てのファイルを翻訳する必要があります。</message>
 
 	<message key="plugins.generic.translator.localeName">ロケール名</message>
 	<message key="plugins.generic.translator.localeKey">キー</message>

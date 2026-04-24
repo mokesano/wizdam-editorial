@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/tinymce/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the nl_NL (Nederlands) locale.
@@ -16,8 +16,8 @@
  
 <locale name="nl_NL" full_name="Nederlands">
 	<message key="plugins.generic.tinymce.name">TinyMCE Plugin</message>
-	<message key="plugins.generic.tinymce.description"><![CDATA[Deze plugin verzorgt WYSIWYG bewerken in OJS tekstvelden met behulp van de <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a> content editor.]]></message>
-	<message key="plugins.generic.tinymce.descriptionDisabled"><![CDATA[Deze plugin verzorgt WYSIWYG bewerken in OJS tekstvelden met behulp van de <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a> content editor. <strong>TinyMCE is momenteel niet geïnstalleerd. Installeer het in {$tinyMcePath}.</strong>]]></message>
+	<message key="plugins.generic.tinymce.description"><![CDATA[Deze plugin verzorgt WYSIWYG bewerken dalam Wizdam Editorial tekstvelden met behulp van de <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a> content editor.]]></message>
+	<message key="plugins.generic.tinymce.descriptionDisabled"><![CDATA[Deze plugin verzorgt WYSIWYG bewerken dalam Wizdam Editorial tekstvelden met behulp van de <a href="http://tinymce.moxiecode.com" target="_new">TinyMCE</a> content editor. <strong>TinyMCE is momenteel niet geïnstalleerd. Installeer het in {$tinyMcePath}.</strong>]]></message>
 
 	<message key="plugins.generic.tinymce.settings">Instellingen</message>
 </locale>

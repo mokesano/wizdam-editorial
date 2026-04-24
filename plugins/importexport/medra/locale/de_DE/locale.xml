@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/medra/locale/de_DE/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
@@ -20,7 +20,7 @@
 		<a href="http://www.medra.org/de/guide.htm" target="_blank">mEDRA-Homepage</a>,
 		um einen Benutzer/innennamen und ein Passwort zu erhalten. Wenn Sie nicht über Benutzer/innennamen und
 		Passwort verfügen, werden Sie immerhin in der Lage sein, in das mEDRA-XML-Format (Onix for DOI) zu exportieren,
-		aber Sie können Ihre DOI nicht aus OJS heraus bei mEDRA registrieren.
+		aber Sie können Ihre DOI nicht aus Wizdam Editorial heraus bei mEDRA registrieren.
 		Bitte beachten Sie, dass das Passwort im Klartext, d.h. unverschlüsselt, gespeichert werden
 		wird, da der mEDRA-Registrierungsdienst dies erfordert.
 	]]></message>

@@ -4,8 +4,8 @@
 <!--
   * @file plugins/importexport/medra/locale/es_AR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -18,7 +18,7 @@
 	<message key="plugins.importexport.medra.intro"><![CDATA[Si quiere registrar DOIs con mEDRA, por favor siga los pasos en la
 		<a href="http://www.medra.org/en/guide.htm" target="_blank">página de mEDRA </a>
 		para recibir un nombre de usuario y una clave.Si no tiene su nombre de usuario y su clave propios, seguirá siendo capaz de exportar  en el formato XML de mEDRA (Onix para DOI)
-		pero no podrá registrar sus  DOIs en mEDRA desde OJS. 
+		pero no podrá registrar sus  DOIs en mEDRA desde Wizdam Editorial. 
 		Por favor note que la clave no se almacenara en la base de datos de forma encriptada debido a los requerimientos del servicio de registro de mEDRA.]]></message>
 
 	<message key="plugins.importexport.medra.settings.description"><![CDATA[Por favor <a href="{$settingsUrl}">configure</a> el plugin de exportación mEDRA  antes de usarlo por primera vez.]]></message>

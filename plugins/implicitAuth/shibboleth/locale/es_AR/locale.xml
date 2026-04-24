@@ -4,8 +4,8 @@
 <!--
   * locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the es_AR (Español (Argentina)) locale.
@@ -16,6 +16,6 @@
  
 <locale name="es_AR" full_name="Español (Argentina)">
 	<message key="plugins.implicitAuth.shibboleth.displayName">Plugin ShibAuth</message>
-	<message key="plugins.implicitAuth.shibboleth.description">ShibAuthPlugin. Este es un plugin para todo el sitio y está habilitado en el archivo de configuración de OJS.
+	<message key="plugins.implicitAuth.shibboleth.description">ShibAuthPlugin. Este es un plugin para todo el sitio y está habilitado en el archivo de configuración de Wizdam Editorial.
 Plugin de autentificación con Shibboleth.</message>
 </locale>

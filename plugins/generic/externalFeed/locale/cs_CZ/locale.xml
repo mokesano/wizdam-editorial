@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/externalFeed/locale/cs_CZ/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * External feed plugin localization strings
@@ -58,7 +58,7 @@
 	<message key="plugins.generic.externalFeed.form.titleRequired">Vložte, prosím, název tohoto kanálu</message>
 	<message key="plugins.generic.externalFeed.form.feedUrl">URL</message>
 	<message key="plugins.generic.externalFeed.form.feedUrlValid">Vložte, prosím, platné URL  kanálu zpráv (včetně http://)</message>
-	<message key="plugins.generic.externalFeed.form.feedUrlDescription">URL externího kanálu Atom/RSS (např. http://pkp.sfu.ca/blog/feed)</message>
+	<message key="plugins.generic.externalFeed.form.feedUrlDescription">URL externího kanálu Atom/RSS (např. http://wizdam.sangia.org/blog/feed)</message>
 	<message key="plugins.generic.externalFeed.form.display">Zobrazit</message>
 	<message key="plugins.generic.externalFeed.form.displayHomepage">Zobrazit na domovské stránce</message>
 	<message key="plugins.generic.externalFeed.form.displayBlockNone">Nezobrazovat v bloku</message>

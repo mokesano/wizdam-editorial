@@ -4,8 +4,8 @@
 <!--
   * locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the es_ES (Español (Argentina)) locale.
@@ -15,8 +15,8 @@
 <locale name="es_AR" full_name="Español (Argentina)">
 	<message key="plugins.generic.translator.name">Complemento de traducción</message>
 	<message key="plugins.generic.translator.description">Este complemento permite el mantenimiento on-line de los archivos de traducción.</message>
-	<message key="plugins.generic.translator.longdescription">Esta zona permite al administrador global modificar la traducción de OJS. Afecta a todas las revistas alojadas. Si decide corregir o crear una traducción, por favor considere enviarla al proyecto Public Knowledge Project para distribuirla en nuevas versiones.</message>
-	<message key="plugins.generic.translator.localeDescription">Esta página muestra todos los componentes de una traducción de OJS y proporciona al traductor la posibilidad de editar cada uno de ellos. Una traducción completa de OJS debe contener traducciones completas de todos los componentes.</message>
+	<message key="plugins.generic.translator.longdescription">Esta zona permite al administrador global modificar la traducción de Wizdam Editorial. Afecta a todas las revistas alojadas. Si decide corregir o crear una traducción, por favor considere enviarla al proyecto Public Knowledge Project para distribuirla en nuevas versiones.</message>
+	<message key="plugins.generic.translator.localeDescription">Esta página muestra todos los componentes de una traducción de Wizdam Editorial y proporciona al traductor la posibilidad de editar cada uno de ellos. Una traducción completa de Wizdam Editorial debe contener traducciones completas de todos los componentes.</message>
 
 	<message key="plugins.generic.translator.localeName">Nombre idioma</message>
 	<message key="plugins.generic.translator.localeKey">Clave</message>

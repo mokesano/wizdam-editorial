@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/externalFeed/locale/id_ID/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -59,7 +59,7 @@
 <message key="plugins.generic.externalFeed.form.titleRequired"> Sediakan judul untuk feed ini </message> 
 	<message key="plugins.generic.externalFeed.form.feedUrl">URL</message> 
 	<message key="plugins.generic.externalFeed.form.feedUrlValid"> Sediakan URL feed valid (termasuk http://)</message> 
-	<message key="plugins.generic.externalFeed.form.feedUrlDescription"> URL eksternal Atom/RSS syndication feed (e.g. http://pkp.sfu.ca/blog/feed)</message> 
+	<message key="plugins.generic.externalFeed.form.feedUrlDescription"> URL eksternal Atom/RSS syndication feed (e.g. http://wizdam.sangia.org/blog/feed)</message> 
 	<message key="plugins.generic.externalFeed.form.display"> Tampilan </message> 
 	<message key="plugins.generic.externalFeed.form.displayHomepage"> Tampilan di homepage </message> 
 	<message key="plugins.generic.externalFeed.form.displayBlockNone"> Jangan tampilkan di blok </message> 

@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/medra/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -18,7 +18,7 @@
 	<message key="plugins.importexport.medra.intro"><![CDATA[Als u DOI's bij mEDRA wilt registreren, volg dan de aanwijzingen op de
 		<a href="http://www.medra.org/en/guide.htm" target="_blank">mEDRA homepage</a>
 		om een gebruikersnaam en een wachtwoord te verkrijgen. Als u geen eigen gebruikersnaam en wachtwoord heeft, kunt u nog steeds exporteren naar het mEDRA XML formaat (Onix for DOI)
-		maar u kunt uw DOI's niet registreren bij mEDRA vanuit OJS. 
+		maar u kunt uw DOI's niet registreren bij mEDRA vanuit Wizdam Editorial. 
 		Merk op dat het wachtwoord als gewone tekst wordt opgeslagen, dus niet versleuteld. Dit vanwege
 		de mEDRA registratie vereisten.]]></message>
 

@@ -4,11 +4,11 @@
 <!--
   * plugins/generic/lucene/locale/cs_CZ/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * OJS solr/lucene search plugin localization strings
+  * Wizdam Editorial solr/lucene search plugin localization strings
   * Translation Jiří Dlouhý  
   -->
  
@@ -31,7 +31,7 @@
 	<message key="plugins.generic.lucene.message.indexingIncomplete">Během indexace došlo k chybě: Bylo zpracováno {$numProcessed} z celkového počtu úloh ke zpracování {$batchCount} ({$numDeleted} počet smazaných úloh).</message>
 	<message key="plugins.generic.lucene.message.indexOnline">Index s {$numDocs} dokumentů online.</message>
 	<message key="plugins.generic.lucene.message.pullIndexingDisabled">"Pull indexování" není povoleno. Povolte ho, prosím, v nastavení pluginu Lucene.</message>
-	<message key="plugins.generic.lucene.message.searchServiceOffline">OJS vyhledávací služba je, bohužel, momentálně offline.</message>
+	<message key="plugins.generic.lucene.message.searchServiceOffline">Wizdam Editorial vyhledávací služba je, bohužel, momentálně offline.</message>
 	<message key="plugins.generic.lucene.message.techAdminInformed">Technický správce tohoto časopisu byl informován.</message>
 	<message key="plugins.generic.lucene.message.webServiceError">Webová služba Lucene vrátila chybu.</message>
 
@@ -74,8 +74,8 @@
 	<message key="plugins.generic.lucene.settings.featureDescription">Lucene plugin poskytuje několik možností hledání. Většina těchto možnosti je standardně zapnuta, ale je možno je zakázat při jemném ladění hledání.</message>
 	<message key="plugins.generic.lucene.settings.highlighting">Zvýraznění (zobrazit stručný výtažek z plného textu každého článku, obsahující hledaná klíčová slova)</message>
 	<message key="plugins.generic.lucene.settings.instId">Unikátní ID instalace</message>
-	<message key="plugins.generic.lucene.settings.instIdRequired">Vložte, prosím, ID, která jedinečně identifikuje tuto instalaci OJS vzhledem k Solr vyhledávacímu serveru.</message>
-	<message key="plugins.generic.lucene.settings.instIdInstructions">Pokud používáte centrální vyhledávací server, budete muset poskytnout unikátní ID pro každou instalaci OJS, která sdílí tento vyhledávací server. Může to být libovolný text, ale musí být odlišný pro každý ze zúčastněných serverů (např. statická IP adresa serveru, pokud máte na každém serveru jednu instalaci OJS).</message>
+	<message key="plugins.generic.lucene.settings.instIdRequired">Vložte, prosím, ID, která jedinečně identifikuje tuto instalaci Wizdam Editorial vzhledem k Solr vyhledávacímu serveru.</message>
+	<message key="plugins.generic.lucene.settings.instIdInstructions">Pokud používáte centrální vyhledávací server, budete muset poskytnout unikátní ID pro každou instalaci Wizdam Editorial, která sdílí tento vyhledávací server. Může to být libovolný text, ale musí být odlišný pro každý ze zúčastněných serverů (např. statická IP adresa serveru, pokud máte na každém serveru jednu instalaci Wizdam Editorial).</message>
 	<message key="plugins.generic.lucene.settings.internalError">Chybná volba.</message>
 	<message key="plugins.generic.lucene.settings.luceneSettings">Plugin Lucene: Nastavení</message>
 	<message key="plugins.generic.lucene.settings.password">Heslo</message>

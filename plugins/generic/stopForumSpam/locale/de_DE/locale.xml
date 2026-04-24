@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/stopForumSpam/locale/de_DE/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Stop Forum Spam plugin localization strings
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
@@ -14,11 +14,11 @@
 <locale name="de_DE" full_name="Deutsch (Deutschland)">
 
 	<message key="plugins.generic.stopForumSpam.displayName">Plugin "Stop Forum Spam"</message>
-	<message key="plugins.generic.stopForumSpam.description"><![CDATA[Verbinde OJS mit dem Stop-Forum-Spam-Präventionssystem, das die Menge an Spam-Registrierungen reduzieren soll.]]></message>
+	<message key="plugins.generic.stopForumSpam.description"><![CDATA[Verbinde Wizdam Editorial mit dem Stop-Forum-Spam-Präventionssystem, das die Menge an Spam-Registrierungen reduzieren soll.]]></message>
 
 	<message key="plugins.generic.stopForumSpam.manager.settings">Einstellungen</message>
 	<message key="plugins.generic.stopForumSpam.manager.stopForumSpamSettings">Stop-Forum-Spam-Einstellungen</message>
-	<message key="plugins.generic.stopForumSpam.manager.settings.description"><![CDATA[<p>Wenn dieses Plug-In aktiviert ist, wird OJS überprüfen, ob eine eingegebene Benutzer/innenregistrierung Elemente enthält, die auf der Stop-Forum-Spam-Liste stehen. In diesem Fall werden Registrierungen abgelehnt.</p>]]></message>
+	<message key="plugins.generic.stopForumSpam.manager.settings.description"><![CDATA[<p>Wenn dieses Plug-In aktiviert ist, wird Wizdam Editorial überprüfen, ob eine eingegebene Benutzer/innenregistrierung Elemente enthält, die auf der Stop-Forum-Spam-Liste stehen. In diesem Fall werden Registrierungen abgelehnt.</p>]]></message>
 	<message key="plugins.generic.stopForumSpam.manager.settings.checkIp">IP der Registrierung überprüfen</message>
 	<message key="plugins.generic.stopForumSpam.manager.settings.checkEmail">E-Mail-Adresse der Registrierung überprüfen</message>
 	<message key="plugins.generic.stopForumSpam.manager.settings.checkUsername">Benutzer/innenname der Registrierung überprüfen (nur mit Vorsicht aktivieren!)</message>

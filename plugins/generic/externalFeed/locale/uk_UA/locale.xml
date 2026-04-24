@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/externalFeed/locale/uk_UA/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * External feed plugin localization strings for the uk_UA (Українська) locale.
@@ -60,7 +60,7 @@
        <message key="plugins.generic.externalFeed.form.titleRequired">Будь ласка, вкажіть заголовок для цієї стрічки</message>
        <message key="plugins.generic.externalFeed.form.feedUrl">URL</message>
        <message key="plugins.generic.externalFeed.form.feedUrlValid">Будь ласка, вкажіть коректну адресу URL стрічки (з префіксом http://)</message>
-       <message key="plugins.generic.externalFeed.form.feedUrlDescription">Адреса URL зовнішньої стрічки синдикації Atom/RSS (наприклад, http://pkp.sfu.ca/blog/feed)</message>
+       <message key="plugins.generic.externalFeed.form.feedUrlDescription">Адреса URL зовнішньої стрічки синдикації Atom/RSS (наприклад, http://wizdam.sangia.org/blog/feed)</message>
        <message key="plugins.generic.externalFeed.form.display">Відображення</message>
        <message key="plugins.generic.externalFeed.form.displayHomepage">Відображати на домашній сторінці</message>
        <message key="plugins.generic.externalFeed.form.displayBlockNone">Не відображати блоком</message>

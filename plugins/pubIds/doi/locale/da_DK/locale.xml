@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/doi/locale/da_DK/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * DOI plugin localization strings
@@ -13,11 +13,11 @@
  
 <locale name="da_DK" full_name="Dansk">
 	<message key="plugins.pubIds.doi.displayName">DOI</message>
-	<message key="plugins.pubIds.doi.description">Dette plug-in gør det muligt at tildele DOI’er (Digital Object Identifiers) til numre, artikler, satsskibe og supplerende filer i OJS.</message>
+	<message key="plugins.pubIds.doi.description">Dette plug-in gør det muligt at tildele DOI’er (Digital Object Identifiers) til numre, artikler, satsskibe og supplerende filer i Wizdam Editorial.</message>
 
 	<!-- settings form -->
 	<message key="plugins.pubIds.doi.manager.settings.doiSettings">DOI plug-in-indstillinger</message>
-	<message key="plugins.pubIds.doi.manager.settings.description">Konfigurer dette DOI plug-in, så det bliver muligt at administrere og bruge DOI’er i OJS:</message>
+	<message key="plugins.pubIds.doi.manager.settings.description">Konfigurer dette DOI plug-in, så det bliver muligt at administrere og bruge DOI’er i Wizdam Editorial:</message>
 	
 	<message key="plugins.pubIds.doi.manager.settings.doiObjects">Tidsskriftsindhold</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiObjectsRequired">Vælg de elementer, der skal DOI-registreres.</message>
@@ -33,7 +33,7 @@
 
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffix">DOI-suffiks</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixDescription">Et DOI-suffiks kan antage en hvilken som helst form, men det skal være unikt for hvert enkelt udgivet element under samme DOI-præfiksgruppe:</message>
-	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Brug nedenstående format til at generere DOI-suffikser ud fra. Anvend %j til tidsskriftsinitialer, %v til årgangsnummer, %i til nummeret i årgangen, %Y til året, %a til OJS-artikel-id, %g til OJS-satsskibs-id, %s til OJS-supplerende fil-id %p til sidenummer.</message>
+	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Brug nedenstående format til at generere DOI-suffikser ud fra. Anvend %j til tidsskriftsinitialer, %v til årgangsnummer, %i til nummeret i årgangen, %Y til året, %a til Wizdam Editorial-artikel-id, %g til Wizdam Editorial-satsskibs-id, %s til Wizdam Editorial-supplerende fil-id %p til sidenummer.</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.issues">til numre</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.articles">til artikler</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.galleys">til satsskibe</message>

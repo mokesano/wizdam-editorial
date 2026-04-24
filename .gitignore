@@ -11,9 +11,13 @@ __pycache__/
 *.out
 
 # Dependencies
-vendor/
 node_modules/
-composer.lock
+venv/
+.venv/
+julia-*/
+zig*/
+target/
+.gradle/
 
 # Logs and temp files
 *.log
@@ -24,26 +28,17 @@ composer.lock
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
 # Editors
 .vscode/
 .idea/
 
-# OS specific
+# System files
 .DS_Store
 Thumbs.db
 
-# Build and distribution
-dist/
-build/
-target/
-.gradle/
-
-# Cache directories
-.cache/
-.mypy_cache/
-.pytest_cache/
+# Coverage
 coverage/
 htmlcov/
 .coverage
@@ -72,22 +67,4 @@ htmlcov/
 *.tar.xz
 *.tar.zst
 
-# Backup and swap files
-*~
-*.bak
-*.backup
-
-# IDE specific
-*.swp
-*.swo
-
-# PHP specific
-*.php~
-*.php.bak
-
-# Web assets that might be generated
-*.min.js
-*.min.css
-*.bundle.js
-*.bundle.css
 ```

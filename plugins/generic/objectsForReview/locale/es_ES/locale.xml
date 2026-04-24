@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/objectsForReview/locale/es_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Objects for review plugin localization strings for the en_US (U.S. English) locale.
@@ -85,7 +85,7 @@
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderBeforeDays2">días antes de la fecha límite de revisión.</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays1">Mandar un email de recordatorio a los autores</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays2">días tras la fecha límite para la revisión.</message>
-	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Note:</strong> To activate these options, the site administrator must enable the <tt>scheduled_tasks</tt> option in the OJS configuration file. Additional server configuration may be required to support this functionality (which may not be possible on all servers), as indicated in the OJS documentation.]]></message>
+	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Note:</strong> To activate these options, the site administrator must enable the <tt>scheduled_tasks</tt> option in the Wizdam Editorial configuration file. Additional server configuration may be required to support this functionality (which may not be possible on all servers), as indicated in the Wizdam Editorial documentation.]]></message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformation">Información adicional</message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformationDescription">Información adicional publicada a través de la lista de objetos a revisar.</message>
 

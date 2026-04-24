@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/usageStats/locale/cs_CZ/locale.xml
   *
-  * Copyright (c) 2014-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2014-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -24,10 +24,10 @@
 	<message key="plugins.generic.usageStats.displayName">Statistiky využití</message>
 	<message key="plugins.generic.usageStats.description">Present data objects usage statistics. Can use server access log files to extract statistics.</message>
 	
-	<message key="plugins.reports.usageStats.report.displayName">Statistika využití OJS</message>
-	<message key="plugins.reports.usageStats.report.description">OJS standardní zpráva využití (COUNTER ready)</message>
+	<message key="plugins.reports.usageStats.report.displayName">Statistika využití Wizdam Editorial</message>
+	<message key="plugins.reports.usageStats.report.description">Wizdam Editorial standardní zpráva využití (COUNTER ready)</message>
 	
-	<message key="plugins.reports.usageStats.metricType">OJS/POČÍTADLO</message>
+	<message key="plugins.reports.usageStats.metricType">Wizdam Editorial/POČÍTADLO</message>
 	<message key="plugins.reports.usageStats.metricType.full">Statistika Open Journal Systems (COUNTER ready)</message>
 	<message key="plugins.generic.usageStats.usageStatsLoaderName">Statistika nahrávání souborů</message>
 	<message key="plugins.generic.usageStats.removeUrlError">Řádek číslo {$lineNumber} v souboru {$file} obsahuje url, ze kterého nejde odstranit základní url.</message>

@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/users/locale/el_GR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the Greek locale.
@@ -55,7 +55,7 @@
 	<message key="plugins.importexport.users.import.errorsOccurred">Εμφανίστηκαν σφάλματα κατά την διάρκεια της εισαγωγής</message>
 	<message key="plugins.importexport.users.import.confirmUsers">Επιβεβαιώστε ότι αυτοί είναι οι χρήστες που θέλετε να εισάγετε στο σύστημα</message>
 	<message key="plugins.importexport.users.import.warning">Προειδοποίηση</message>
-	<message key="plugins.importexport.users.import.encryptionMismatch">Δεν μπορείτε να χρησιμοποιήσετε κωδικούς πρόσβασης για τους οποίους έχει δημιουργηθεί σύνοψη με το  {$importHash}. Το OJS έχει ρυθμιστεί ώστε να χρησιμοποιεί το {$ojsHash}. Αν συνεχίσετε θα πρέπει να επαναφέρετε τους κωδικούς πρόσβασης των εισηγμένων χρηστών.</message>
+	<message key="plugins.importexport.users.import.encryptionMismatch">Δεν μπορείτε να χρησιμοποιήσετε κωδικούς πρόσβασης για τους οποίους έχει δημιουργηθεί σύνοψη με το  {$importHash}. Το Wizdam Editorial έχει ρυθμιστεί ώστε να χρησιμοποιεί το {$ojsHash}. Αν συνεχίσετε θα πρέπει να επαναφέρετε τους κωδικούς πρόσβασης των εισηγμένων χρηστών.</message>
 	<message key="plugins.importexport.users.unknownJournal">Ορίστηκε μια άγνωστη διαδρομή περιοδικού "{$journalPath}".</message>
 
 	<message key="plugins.importexport.users.export.exportUsers">Εξαγωγή χρηστών</message>

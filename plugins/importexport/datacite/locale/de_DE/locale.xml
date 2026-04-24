@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/datacite/locale/de_DE/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * Localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
@@ -23,7 +23,7 @@
 		Zugang zum DataCite-Dienst zum Ausstellen persistenter Kennungen (DOI) und zur
 		Registrierung zugehöriger Metadaten ermöglicht. Wenn Sie über keinen eigenen Benutzer/innennamen und
 		kein eigenes Passwort verfügen, können Sie immerhin in das DataCite-XML-Format exportieren, aber Sie
-		können Ihre DOI nicht aus OJS heraus bei DataCite registrieren.
+		können Ihre DOI nicht aus Wizdam Editorial heraus bei DataCite registrieren.
 		Bitte beachten Sie, dass das Passwort im Klartext, d.h. unverschlüsselt, gespeichert werden
 		wird, da der DataCite-Registrierungsdienst dies erfordert.
 	]]></message>
@@ -35,7 +35,7 @@
 	<message key="plugins.importexport.datacite.settings.form.usernameRequired">Bitte geben Sie den Benutzer/innennamen (symbol) ein, den Sie von DataCite erhalten haben. Der Benutzer/innenname darf keinen Doppelpunkt enthalten.</message>
 	<message key="plugins.importexport.datacite.settings.form.passwordRequired">Bitte geben Sie das Passwort ein, das Sie von DataCite erhalten haben.</message>
 	<message key="plugins.importexport.datacite.settings.form.automaticRegistration">DOI automatisch registrieren</message>
-	<message key="plugins.importexport.datacite.settings.form.automaticRegistration.description"><![CDATA[OJS wird DOI automatisch bei DataCite registrieren, sobald ein Artikel neu veröffentlicht wird. Bitte beachten Sie, dass dieser Prozess etwas Zeit im Anschluss an die Publikation braucht. Sie können alle noch unregistrierten DOI in der <a href="{$unregisteredURL}">Liste unregistrierter Artikel</a> sehen.]]></message>
+	<message key="plugins.importexport.datacite.settings.form.automaticRegistration.description"><![CDATA[Wizdam Editorial wird DOI automatisch bei DataCite registrieren, sobald ein Artikel neu veröffentlicht wird. Bitte beachten Sie, dass dieser Prozess etwas Zeit im Anschluss an die Publikation braucht. Sie können alle noch unregistrierten DOI in der <a href="{$unregisteredURL}">Liste unregistrierter Artikel</a> sehen.]]></message>
  
 	<message key="plugins.importexport.datacite.export.suppFiles">Zusatzdateien exportieren</message>
 	<message key="plugins.importexport.datacite.export.selectSuppFile">Wählen Sie Zusatzdateien aus</message>

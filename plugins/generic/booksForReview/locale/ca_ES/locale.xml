@@ -3,11 +3,11 @@
 <!--
   * @file plugins/generic/booksForReview/locale/ca_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_(ca_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Catalan_(ca_ES)
   *
   * Books for review plugin localization strings for the ca_ES (Català) locale.
   -->
@@ -127,7 +127,7 @@
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderBeforeDays2">dia(es) abans de la data de termini de la revisió.</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays1">Envia als autors/ores un recordatori per correu electrònic</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays2">dia(es) després de la data de termini de la revisió.</message>
-	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Nota:</strong>Per activar aquestes opcions, l'administrador/a del lloc ha d'habilitar l'opció <tt>tasques_planificades</ tt> al fitxer de configuració de l'OJS. És possible que es requereixi una configuració addicional del servidor per admetre aquesta funció (potser no tots els servidors la permetin) seguint les indicacions en la documentació del OCS.]]></message>
+	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Nota:</strong>Per activar aquestes opcions, l'administrador/a del lloc ha d'habilitar l'opció <tt>tasques_planificades</ tt> al fitxer de configuració de l'Wizdam Editorial. És possible que es requereixi una configuració addicional del servidor per admetre aquesta funció (potser no tots els servidors la permetin) seguint les indicacions en la documentació del OCS.]]></message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformation">Informació addicional</message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformationDescription">Informació addicional publicada juntament amb els llibres per revisar.</message>
 	<message key="plugins.generic.booksForReview.settings.dueWeeksRequired">Indiqueu el nombre de setmanes de termini per a les revisions de llibre.</message>

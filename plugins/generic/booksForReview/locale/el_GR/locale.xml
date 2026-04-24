@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/booksForReview/locale/el_GR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Books for review plugin localization strings for the el_GR locale.
@@ -151,7 +151,7 @@
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderBeforeDays2">ημέρες για την προθεσμία ολοκλήρωσης της κριτικής.</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays1">Αποστολή email υπενθύμισης στους συγγραφείς</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays2">ημέρες μετά την προθεσμία ολοκλήρωσης της κριτικής.</message>
-	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Σημείωση:</strong> Για να ενεργοποιήσετε αυτές τις επιλογές, ο διαχιειρστής ιστοτόπου πρέπει να ενεργοποιήσεις την επιλογή <tt>scheduled_tasks</tt> στο αρχείο ρυθμίσεων του OJS. Μπορεί να απαιτηθούν πρόσθετες ρυθμίσεις του server για να υποστηριχθεί αυτή η λειτουργία (κάτι που μπορεί να μην είναι δυνατόν σε όλους τους servers), όπως προβλέπεται στην σχετική τεκμηρίωση του OJS.]]></message>
+	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Σημείωση:</strong> Για να ενεργοποιήσετε αυτές τις επιλογές, ο διαχιειρστής ιστοτόπου πρέπει να ενεργοποιήσεις την επιλογή <tt>scheduled_tasks</tt> στο αρχείο ρυθμίσεων του Wizdam Editorial. Μπορεί να απαιτηθούν πρόσθετες ρυθμίσεις του server για να υποστηριχθεί αυτή η λειτουργία (κάτι που μπορεί να μην είναι δυνατόν σε όλους τους servers), όπως προβλέπεται στην σχετική τεκμηρίωση του Wizdam Editorial.]]></message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformation">Πρόσθετες πληροφορίες</message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformationDescription">Πρόσθετες πληροφορίες δημοσιευμένες μαζί με τα βιβλία για κριτική.</message>
 	<message key="plugins.generic.booksForReview.settings.dueWeeksRequired">Παρακαλούμε καθορίστε τον αριθμό των εβδομάδων μέχρι την προθεσμία ολοκλήρωσης τη κριτικής.</message>

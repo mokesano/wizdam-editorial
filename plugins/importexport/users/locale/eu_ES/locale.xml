@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/users/locale/eu_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the eu_ES (Euskara) locale.
@@ -50,7 +50,7 @@ Adibideak:
 	<message key="plugins.importexport.users.import.errorsOccurred">Erroreak gertatu dira inportazioan</message>
 	<message key="plugins.importexport.users.import.confirmUsers">Berretsi hauek direla sistemara inportatu nahi dituzun erabiltzaileak</message>
 	<message key="plugins.importexport.users.import.warning">Abisua</message>
-	<message key="plugins.importexport.users.import.encryptionMismatch">Ezin da erabili "{$importHash}"ekin xehatutako pasahitzik; {$ojsHash} erabiltzeko konfiguratuta dago OJS. Jarraitzen baduzu, inportatutako erabiltzaileen pasahitzak berrezarri beharko dituzu.</message>
+	<message key="plugins.importexport.users.import.encryptionMismatch">Ezin da erabili "{$importHash}"ekin xehatutako pasahitzik; {$ojsHash} erabiltzeko konfiguratuta dago Wizdam Editorial. Jarraitzen baduzu, inportatutako erabiltzaileen pasahitzak berrezarri beharko dituzu.</message>
 	<message key="plugins.importexport.users.unknownJournal">Aldizkariaren bide ezezaguna: {$journalPath}</message>
 
 	<message key="plugins.importexport.users.export.exportUsers">Esportatu erabiltzaileak</message>

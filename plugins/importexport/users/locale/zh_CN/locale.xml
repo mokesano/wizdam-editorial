@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/users/locale/zh_CN/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the zh_CN (简体中文) locale.
@@ -47,7 +47,7 @@
 	<message key="plugins.importexport.users.import.errorsOccurred">导入出错</message>
 	<message key="plugins.importexport.users.import.confirmUsers">确认这些用户都是你想导入到系统中</message>
 	<message key="plugins.importexport.users.import.warning">警告</message>
-	<message key="plugins.importexport.users.import.encryptionMismatch">无法使用{$importHash}来加密用户密码；OJS将依据期配置使用{$ojsHash}。如果继续，你需要重置导入用户的密码。(Cannot use passwords hashed with {$importHash}; OJS is configured to use {$ojsHash}. If you continue, you will need to reset the imported users' passwords.</message>
+	<message key="plugins.importexport.users.import.encryptionMismatch">无法使用{$importHash}来加密用户密码；Wizdam Editorial将依据期配置使用{$ojsHash}。如果继续，你需要重置导入用户的密码。(Cannot use passwords hashed with {$importHash}; Wizdam Editorial is configured to use {$ojsHash}. If you continue, you will need to reset the imported users' passwords.</message>
 	<message key="plugins.importexport.users.unknownJournal">指定了一个未知的期刊路径.</message>
 
 	<message key="plugins.importexport.users.export.exportUsers">导出用户</message>

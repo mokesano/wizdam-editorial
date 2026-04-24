@@ -4,8 +4,8 @@
 <!--
   * locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the es_AR (Español (Argentina)) locale.
@@ -14,11 +14,11 @@
  
 <locale name="es_AR" full_name="Español (Argentina)">
 	<message key="plugins.generic.customLocale.name">"Plugin" Locale Personalizado</message>
-	<message key="plugins.generic.customLocale.description">Este "plugin" permite la personalización de la interfaz de texto de usuario por defecto usada por OJS.</message>
+	<message key="plugins.generic.customLocale.description">Este "plugin" permite la personalización de la interfaz de texto de usuario por defecto usada por Wizdam Editorial.</message>
 
 	<message key="plugins.generic.customLocale.longDescription">Esta página lista todos los locales instalados actualmente para la revista.</message>
 	<message key="plugins.generic.customLocale.localeDescription">Esta página lista todos los archivos disponibles para el locale seleccionado.</message>
-	<message key="plugins.generic.customLocale.fileDescription">Ingrese texto en el correspondiente campo de texto personalizado. Deje el campo de texto personalizado en blanco si el texto por defecto de OJS debe ser usado.</message>
+	<message key="plugins.generic.customLocale.fileDescription">Ingrese texto en el correspondiente campo de texto personalizado. Deje el campo de texto personalizado en blanco si el texto por defecto de Wizdam Editorial debe ser usado.</message>
 	<message key="plugins.generic.customLocale.localeName">Nombre del Locale</message>
 	<message key="plugins.generic.customLocale.localeKey">Clave</message>
 	<message key="plugins.generic.customLocale.localeKeyValue">Valor</message>

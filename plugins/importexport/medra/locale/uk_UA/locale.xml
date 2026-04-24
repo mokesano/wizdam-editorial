@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/medra/locale/uk_UA/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -16,7 +16,7 @@
 	<message key="plugins.importexport.medra.description">Експорт метаданих випусків, статей та супровідних файлів у формат Onix for DOI (O4DOI) та реєстрація DOI через реєстраційну агенцію mEDRA.</message>
 
 	<message key="plugins.importexport.medra.intro"><![CDATA[Якщо Ви хочете реєструвати DOI через реєстраційну агенцію mEDRA, будь ласка, ознайомтеся з інструкціями щодо отримання імені користувача та пароля на
-		<a href="http://www.medra.org/en/guide.htm" target="_blank">веб-сайті mEDRA</a>. Якщо Ви не маєте імені користувача та пароля, Ви все одно можете проводити експорт у формат mEDRA XML (Onix for DOI), але у цьому випадку Ви не зможете реєструвати DOI через агенцію mEDRA у середовищі OJS. 
+		<a href="http://www.medra.org/en/guide.htm" target="_blank">веб-сайті mEDRA</a>. Якщо Ви не маєте імені користувача та пароля, Ви все одно можете проводити експорт у формат mEDRA XML (Onix for DOI), але у цьому випадку Ви не зможете реєструвати DOI через агенцію mEDRA у середовищі Wizdam Editorial. 
 		Будь ласка, зауважте, що через вимоги реєстраційної служби mEDRA Ваш пароль буде зберігатися у системі в текстовому форматі, тобто у незашифрованому вигляді.]]></message>
 
 	<message key="plugins.importexport.medra.settings.description"><![CDATA[Перед першим використанням, будь ласка, <a href="{$settingsUrl}">налаштуйте</a> модуль експорту mEDRA.]]></message>

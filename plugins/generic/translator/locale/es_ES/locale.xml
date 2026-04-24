@@ -3,11 +3,11 @@
 <!--
   * plugins/generic/translator/locale/es_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Spanish_(es_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Spanish_(es_ES)
   *
   * Localization strings
   -->
@@ -15,8 +15,8 @@
 <locale name="es_ES" full_name="Español (España)">
 	<message key="plugins.generic.translator.name">Módulo de traducción</message>
 	<message key="plugins.generic.translator.description">Este módulo permite el mantenimiento basado en web de archivos de traducción.</message>
-	<message key="plugins.generic.translator.longdescription">Este área permite que el administrador/a del sitio web pueda crear, modificar y comprobar las traducciones del OJS. Está disponible en todo el sitio web y no debe utilizarse para personalizar una única revista del OJS. Si corrige o crea una traducción, considere entregarla al Public Knowledge Project para su distribución en próximas publicaciones.</message>
-	<message key="plugins.generic.translator.localeDescription">Esta página enumera todos los componentes de una traducción OJS y ofrece al traductor/a la posibilidad de editar cada uno de ellos. Se considera que una traducción es íntegra cuando contiene traducciones completas de todos sus componentes.</message>
+	<message key="plugins.generic.translator.longdescription">Este área permite que el administrador/a del sitio web pueda crear, modificar y comprobar las traducciones del Wizdam Editorial. Está disponible en todo el sitio web y no debe utilizarse para personalizar una única revista del Wizdam Editorial. Si corrige o crea una traducción, considere entregarla al Public Knowledge Project para su distribución en próximas publicaciones.</message>
+	<message key="plugins.generic.translator.localeDescription">Esta página enumera todos los componentes de una traducción Wizdam Editorial y ofrece al traductor/a la posibilidad de editar cada uno de ellos. Se considera que una traducción es íntegra cuando contiene traducciones completas de todos sus componentes.</message>
 	
 	<message key="plugins.generic.translator.tarMissing">La función de exportación de este módulo se desactivó porque no se pudo encontrar el archivo binario tar configurado en el sistema. Asegúrese de que tiene el programa tar instalado y configure la ruta hacia el archivo binario tar en la sección config.inc.php [cli] section!</message>
 	

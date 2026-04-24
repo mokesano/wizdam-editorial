@@ -4,8 +4,8 @@
 <!--
   * plugins/paymethod/manual/locale/el_GR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the Greek locale.
@@ -21,7 +21,7 @@
  
 <locale name="el_GR" full_name="ελληνικά">	
 	<message key="plugins.paymethod.manual.displayName">Χειρωνακτική Πληρωμή Εισφορών</message>
-	<message key="plugins.paymethod.manual.description">Ο διαχεριστής του περιοδικού θα καταγράφει χειρωνακτικά τις εισπράξεις πληρωμών των χρηστών (ανεξάρτητα από το OJS).</message>
+	<message key="plugins.paymethod.manual.description">Ο διαχεριστής του περιοδικού θα καταγράφει χειρωνακτικά τις εισπράξεις πληρωμών των χρηστών (ανεξάρτητα από το Wizdam Editorial).</message>
 	<message key="plugins.paymethod.manual">Χειρωνακτική Πληρωμή Εισφορών</message>
 	<message key="plugins.paymethod.manual.settings">Ρυθμίσεις Χειρωνακτικής Πληρωμής Εισφορών</message>
 	<message key="plugins.paymethod.manual.settings.instructions">Οδηγίες</message>

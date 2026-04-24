@@ -3,15 +3,15 @@
 <!--
   * jetty-logging.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Parts of this file were reused from the solr example application and are
   * goverened by the Apache License Version 2.0. See LICENSE-APACHE-2.0.txt in
   * the plugin's root directory.
   *
-  * OJS solr/lucene search plugin jetty default configuration.
+  * Wizdam Editorial solr/lucene search plugin jetty default configuration.
   * 
   * NB: You may have to customize this file for a secure central server
   * deployment.

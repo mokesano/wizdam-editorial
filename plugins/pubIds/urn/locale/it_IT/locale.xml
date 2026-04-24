@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/urn/locale/it_IT/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * URN plugin localization strings
@@ -16,10 +16,10 @@
 
 	<!-- plugin -->
 	<message key="plugins.pubIds.urn.displayName">URN</message>
-	<message key="plugins.pubIds.urn.description">Questo plugin abilita l'assegnazione di URN agli oggetti (fascicoli, articoli, gabbie e file supplementari) in OJS.</message>
+	<message key="plugins.pubIds.urn.description">Questo plugin abilita l'assegnazione di URN agli oggetti (fascicoli, articoli, gabbie e file supplementari) dalam Wizdam Editorial.</message>
 
 	<!-- URN manager options, setting -->
-	<message key="plugins.pubIds.urn.manager.settings.description">Seguire i seguenti passaggi per abilitare la gestione di URN in OJS:</message>
+	<message key="plugins.pubIds.urn.manager.settings.description">Seguire i seguenti passaggi per abilitare la gestione di URN dalam Wizdam Editorial:</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSettings">Impostazioni URN</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix">Prefisso URN</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix.description">The URN prefix is the fix, never changing part of the URN (e.g. "urn:nbn:de:0000-").</message>

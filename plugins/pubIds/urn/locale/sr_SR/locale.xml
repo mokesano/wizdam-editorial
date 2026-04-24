@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/urn/locale/sr_SR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * URN plugin localization strings
@@ -16,17 +16,17 @@
 
 	<!-- plugin -->
 	<message key="plugins.pubIds.urn.displayName">URN</message>
-	<message key="plugins.pubIds.urn.description">Ovaj dodatak omogućuje dodeljivanje jedinstvenih imena resursa (Uniform Resource Names) objektima (jedinicama, člancima, prikazima i dodatnim fajlovima) u OJS-u.</message>
+	<message key="plugins.pubIds.urn.description">Ovaj dodatak omogućuje dodeljivanje jedinstvenih imena resursa (Uniform Resource Names) objektima (jedinicama, člancima, prikazima i dodatnim fajlovima) u Wizdam Editorial-u.</message>
 
 	<!-- URN manager options, setting -->
-	<message key="plugins.pubIds.urn.manager.settings.description">Uradite sledeće korake podešavanja da bi bili u mogućnosti da upravljate i koristite URN-ove u OJS-u:</message>
+	<message key="plugins.pubIds.urn.manager.settings.description">Uradite sledeće korake podešavanja da bi bili u mogućnosti da upravljate i koristite URN-ove u Wizdam Editorial-u:</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSettings">URN podešavanja</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix">URN prefiks</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix.description">URN prefiks je fiksan, nepromenjiv deo URN-a (npr. "urn:nbn:de:0000-").</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix">URN sufiks</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default">Koristi predefinisane obrasce.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default.description"><![CDATA[%j.v%vi%i za jedinice<br />%j.v%vi%i.%a za članke<br />%j.v%vi%i.%a.g%g za prikaze <br />%j.v%vi%i.%a.s%s za dodatne fajlove.]]></message>
-	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Koristi obrasce unešene niže za kreiranje URN sufiksa. Koristi %j za inicijale časopisa, %v za vol., %i za broj, %Y za godinu, %a za OJS ID članka, %g za OJS ID prikaza, %s za OJS ID dodatnog fajla i %p za broj strane.</message>
+	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Koristi obrasce unešene niže za kreiranje URN sufiksa. Koristi %j za inicijale časopisa, %v za vol., %i za broj, %Y za godinu, %a za Wizdam Editorial ID članka, %g za Wizdam Editorial ID prikaza, %s za Wizdam Editorial ID dodatnog fajla i %p za broj strane.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.issues">za jedinicu (broj)</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.articles">za članak</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.galleys">za prikaz</message>

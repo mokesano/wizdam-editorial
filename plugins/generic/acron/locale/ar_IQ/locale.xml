@@ -4,8 +4,8 @@
 <!--
   * locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2000-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2000-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the ar_IQ (العربية) locale.
@@ -14,7 +14,7 @@
  
 <locale name="ar_IQ" full_name="العربية">
 	<message key="plugins.generic.acron.name">إضافة Acron</message>
-	<message key="plugins.generic.acron.description"><![CDATA[هذه الإضافة تحاول تقليل إعتمادية OJS على أدوات الجدولة الدورية، مثل: 'cron.']]></message>
+	<message key="plugins.generic.acron.description"><![CDATA[هذه الإضافة تحاول تقليل إعتمادية Wizdam Editorial على أدوات الجدولة الدورية، مثل: 'cron.']]></message>
 	<message key="plugins.generic.acron.enabled">إضافة Acron تم تمكينها.</message>
 	<message key="plugins.generic.acron.disabled">إضافة Acron تم تعطيلها.</message>
 

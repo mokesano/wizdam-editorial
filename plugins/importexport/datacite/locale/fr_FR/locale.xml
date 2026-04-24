@@ -4,8 +4,8 @@
 <!--
   * @file plugins/importexport/datacite/locale/fr_FR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -15,7 +15,7 @@
 	<message key="plugins.importexport.datacite.displayName">Plugiciel DataCite d'exportation / d'enregistrement</message>
 	<message key="plugins.importexport.datacite.description">Exporte ou enregistre les métadonnées d'un numéro, un article ou une épreuve et les fichiers supplémentaires dans un format DataCite.</message>
 
-	<message key="plugins.importexport.datacite.intro"><![CDATA[Si vous désirez enregistrer vos DOI avec DataCite, veuillez contacter l'administrateur via la <a href="http://datacite.org/contact" target="_blank">Page d'accueil de DataCite</a>, qui vous réfèrera à votre organisation DataCite locale. Une fois que vous aurez établi un contact avec l'organisation membre, on vous fournira des accès au service DataCite pour demander des identifiants permanents (DOIs) et enregistrer les métadonnées associées. Si vous n'avez pas de nom d'utilisateur ni de mot de passe, vous serez tout de même en mesure d'exporter dans le format XML de DataCite mais vous ne pourrez pas enregistrer vos DOI avec DataCite à partir d'OJS. Veuillez noter que le mot de passe sera sauvegardé en texte brut et non pas chiffré à cause des exigences d'enregistrement du service DataCite.]]></message>
+	<message key="plugins.importexport.datacite.intro"><![CDATA[Si vous désirez enregistrer vos DOI avec DataCite, veuillez contacter l'administrateur via la <a href="http://datacite.org/contact" target="_blank">Page d'accueil de DataCite</a>, qui vous réfèrera à votre organisation DataCite locale. Une fois que vous aurez établi un contact avec l'organisation membre, on vous fournira des accès au service DataCite pour demander des identifiants permanents (DOIs) et enregistrer les métadonnées associées. Si vous n'avez pas de nom d'utilisateur ni de mot de passe, vous serez tout de même en mesure d'exporter dans le format XML de DataCite mais vous ne pourrez pas enregistrer vos DOI avec DataCite à partir d'Wizdam Editorial. Veuillez noter que le mot de passe sera sauvegardé en texte brut et non pas chiffré à cause des exigences d'enregistrement du service DataCite.]]></message>
 
 	<message key="plugins.importexport.datacite.settings.description"><![CDATA[S'il vous plaît <a href="{$settingsUrl}">veuillez configurer</a> le plugiciel d'export DataCite avant de l'utiliser pour la première fois.]]></message>
  

@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/usageStats/locale/pt_BR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -24,10 +24,10 @@
 	<message key="plugins.generic.usageStats.displayName">Estatísticas de uso</message>
 	<message key="plugins.generic.usageStats.description">Apresentar estatísticas de uso de objetos de dados. Pode usar arquivos de log de acesso para extrair estatísticas.</message>
 	
-	<message key="plugins.reports.usageStats.report.displayName">Relatório de estatísticas de uso do OJS</message>
-	<message key="plugins.reports.usageStats.report.description">Relatório de estatísticas de uso padrão do OJS (pronto para COUNTER)</message>
+	<message key="plugins.reports.usageStats.report.displayName">Relatório de estatísticas de uso do Wizdam Editorial</message>
+	<message key="plugins.reports.usageStats.report.description">Relatório de estatísticas de uso padrão do Wizdam Editorial (pronto para COUNTER)</message>
 	
-	<message key="plugins.reports.usageStats.metricType">OJS/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType">Wizdam Editorial/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Estatísticas Open Journal Systems (pronto para COUNTER)</message>
 	<message key="plugins.generic.usageStats.usageStatsLoaderName">Estatísticas de uso do carregador de arquivos</message>
 	<message key="plugins.generic.usageStats.removeUrlError">A linha {$lineNumber} do arquivo {$file} contém uma URL que o sistema não pode consegue remover a URL base.</message>

@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/users/locale/cs_CZ/locale.xml
   *
-  * Copyright (c) 2014-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2014-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the cs_CZ (Čeština) locale.
@@ -47,7 +47,7 @@ Příklady:
 	<message key="plugins.importexport.users.import.errorsOccurred">Během importu došlo k chybám</message>
 	<message key="plugins.importexport.users.import.confirmUsers">Potvrďte, že toto jsou uživatelé, které chcete importovat do systému</message>
 	<message key="plugins.importexport.users.import.warning">Varování</message>
-	<message key="plugins.importexport.users.import.encryptionMismatch">Nelze použít hesla šifrovaná pomocí {$importHash}; OJS je nakofigurováno pro použití {$ojsHash}. Pokud budete pokračovat, budete muset resetovat hesla importovaných uživatelů.</message>
+	<message key="plugins.importexport.users.import.encryptionMismatch">Nelze použít hesla šifrovaná pomocí {$importHash}; Wizdam Editorial je nakofigurováno pro použití {$ojsHash}. Pokud budete pokračovat, budete muset resetovat hesla importovaných uživatelů.</message>
 	<message key="plugins.importexport.users.unknownJournal">Byla specifikována neznámá cesta k časopisu "{$journalPath}".</message>
 
 	<message key="plugins.importexport.users.export.exportUsers">Exportovat uživatele</message>

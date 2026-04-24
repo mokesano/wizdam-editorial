@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/urn/locale/pt_BR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -16,17 +16,17 @@
 
 	<!-- plugin -->
 	<message key="plugins.pubIds.urn.displayName">URN</message>
-	<message key="plugins.pubIds.urn.description">Este plugin habilita a atribuição de Nomes Uniformes de Recursos (URN) a objetos (edições, artigos, composições e arquivos suplementares) no OJS.</message>
+	<message key="plugins.pubIds.urn.description">Este plugin habilita a atribuição de Nomes Uniformes de Recursos (URN) a objetos (edições, artigos, composições e arquivos suplementares) no Wizdam Editorial.</message>
 
 	<!-- URN manager options, setting -->
-	<message key="plugins.pubIds.urn.manager.settings.description"><![CDATA[Execute os passos de configuração a seguir para poder gerenciar e usar URNs no OJS:]]></message>
+	<message key="plugins.pubIds.urn.manager.settings.description"><![CDATA[Execute os passos de configuração a seguir para poder gerenciar e usar URNs no Wizdam Editorial:]]></message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSettings">Configurações</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix">Prefixo URN</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix.description">O prefixo URN é a parte fixa, inalterável do URN (ex.: "urn:nbn:de:0000-").</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix">Sufixo URN</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default">Usar padrões predefinidos.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default.description"><![CDATA[%j.v%vi%i para edições<br />%j.v%vi%i.%a para artigos<br />%j.v%vi%i.%a.g%g para composições<br />%j.v%vi%i.%a.s%s para arquivos suplementares.]]></message>
-	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Use o padrão a seguir para gerar sufixos URN. Use %j iniciais da publicação, %v para o volume, %i para a edição, %Y para o ano, %a para o ID do artigo OJS, %g para o ID da composição OJS, %s para o ID do arquivo suplementar OJS e %p para o número da página.</message>
+	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Use o padrão a seguir para gerar sufixos URN. Use %j iniciais da publicação, %v para o volume, %i para a edição, %Y para o ano, %a para o ID do artigo Wizdam Editorial, %g para o ID da composição Wizdam Editorial, %s para o ID do arquivo suplementar Wizdam Editorial e %p para o número da página.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.issues">para edições</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.articles">para artigos</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.galleys">para composições</message>

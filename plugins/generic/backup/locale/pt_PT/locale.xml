@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/backup/locale/pt_PT/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2000-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2000-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -17,7 +17,7 @@
 	<message key="plugins.generic.backup.description">Este plugin gera uma cópia de segurança da instalação.</message>
 
 	<message key="plugins.generic.backup.link">Descarregar cópia de segurança</message>
-	<message key="plugins.generic.backup.longdescription"><![CDATA[<p>Os seguintes links permitem ao administrador descarregar um backup completo dos vários componentes da instalação do OJS. Um backup completo contém <strong>todos</strong> os componentes da revista. Consulte a documentação técnica para mais informação.</p>]]></message>
+	<message key="plugins.generic.backup.longdescription"><![CDATA[<p>Os seguintes links permitem ao administrador descarregar um backup completo dos vários componentes da instalação do Wizdam Editorial. Um backup completo contém <strong>todos</strong> os componentes da revista. Consulte a documentação técnica para mais informação.</p>]]></message>
 	<message key="plugins.generic.backup.db">Base de dados</message>
 	<message key="plugins.generic.backup.files">Ficheiros</message>
 	<message key="plugins.generic.backup.code">Código fonte</message>

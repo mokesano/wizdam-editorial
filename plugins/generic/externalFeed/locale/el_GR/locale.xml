@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/externalFeed/locale/el_GR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * External feed plugin localization strings for the el_GR (ελληνικά) locale.
@@ -58,7 +58,7 @@
 	<message key="plugins.generic.externalFeed.form.titleRequired">Παρακαλούμε δώστε έναν τίτλο για αυτή τη ροή</message>
 	<message key="plugins.generic.externalFeed.form.feedUrl">URL</message>
 	<message key="plugins.generic.externalFeed.form.feedUrlValid">Παρακαλώ εισάγεται ένα έγκυροURL ροής (συμπεριλάβετε το http://)</message>
-	<message key="plugins.generic.externalFeed.form.feedUrlDescription">Το URL της εξωτερικής Atom/RSS ροής (π.χ. http://pkp.sfu.ca/blog/feed)</message>
+	<message key="plugins.generic.externalFeed.form.feedUrlDescription">Το URL της εξωτερικής Atom/RSS ροής (π.χ. http://wizdam.sangia.org/blog/feed)</message>
 	<message key="plugins.generic.externalFeed.form.display">Εμφάνιση</message>
 	<message key="plugins.generic.externalFeed.form.displayHomepage">Εμφάνιση στην αρχική σελίδα</message>
 	<message key="plugins.generic.externalFeed.form.displayBlockNone">Να μην εμφανίζεται σε δομική μονάδα</message>

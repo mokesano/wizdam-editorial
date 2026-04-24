@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/users/locale/uk_UA/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Translated by Denys Solovianenko, 2011
@@ -49,7 +49,7 @@
        <message key="plugins.importexport.users.import.errorsOccurred">Під час імпорту виникли помилки</message>
        <message key="plugins.importexport.users.import.confirmUsers">Підтвердіть, що це саме ті користувачі, яких Ви хочете імпортувати до системи</message>
        <message key="plugins.importexport.users.import.warning">Попередження</message>
-       <message key="plugins.importexport.users.import.encryptionMismatch">Паролі з криптографічним ключем {$importHash} неприйнятні; система OJS налаштована на використання ключа {$ojsHash}. Якщо Ви продовжите процес, потім Вам необхідно буде скинути паролі для імпортованих користувачів.</message>
+       <message key="plugins.importexport.users.import.encryptionMismatch">Паролі з криптографічним ключем {$importHash} неприйнятні; система Wizdam Editorial налаштована на використання ключа {$ojsHash}. Якщо Ви продовжите процес, потім Вам необхідно буде скинути паролі для імпортованих користувачів.</message>
        <message key="plugins.importexport.users.unknownJournal">Вказаний невідомий шлях журналу "{$journalPath}".</message>
 
        <message key="plugins.importexport.users.export.exportUsers">Експорт користувачів</message>

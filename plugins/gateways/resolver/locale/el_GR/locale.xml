@@ -4,8 +4,8 @@
 <!--
   * plugins/gateways/resolver/locale/el_GR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the Greek locale.
@@ -22,6 +22,6 @@
 <locale name="el_GR" full_name="ελληνικά">	
 	<message key="plugins.gateways.resolver.displayName">Πρόσθετο Αναλυτή Παραπομπών</message>
 	<message key="plugins.gateways.resolver.description">Το πρόσθετο αυτό αναλύει τεύχη και άρθρα σύμφωνα με τις πληροφορίες παραπομπής.</message>
-	<message key="plugins.gateways.resolver.errors.errorMessage">Δεν ειναι δυνατή η ανάλυση μιας μοναδικής οντότητας με την χρήση των συγκεκριμένων πληροφοριών παραπομπής. Σιγουρευτείτε ότι οι σχετικές πληροφορίες είναι αναλυτικές και αναφέρονται σε μια οντότητα της συγκεκριμένης εγκατάστασης του OJS.</message>
+	<message key="plugins.gateways.resolver.errors.errorMessage">Δεν ειναι δυνατή η ανάλυση μιας μοναδικής οντότητας με την χρήση των συγκεκριμένων πληροφοριών παραπομπής. Σιγουρευτείτε ότι οι σχετικές πληροφορίες είναι αναλυτικές και αναφέρονται σε μια οντότητα της συγκεκριμένης εγκατάστασης του Wizdam Editorial.</message>
 	<message key="plugins.gateways.resolver.exportHoldings">Εξαγωγή Πληροφοριών</message>
 </locale>

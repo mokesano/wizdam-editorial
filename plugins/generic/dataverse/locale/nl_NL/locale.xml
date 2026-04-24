@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/dataverse/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Dataverse plugin localization strings
@@ -58,7 +58,7 @@
 	<message key="plugins.generic.dataverse.settings.citationFormatDescription">Kies het formaat van de citatie zoals die wordt getoond in de studie catalogus informatie.</message>
 	<message key="plugins.generic.dataverse.settings.citationFormat.apa">APA Citatie stijl</message>
 	<message key="plugins.generic.dataverse.settings.pubIdType">Publieke identificatie type</message>
-	<message key="plugins.generic.dataverse.settings.pubIdTypeDescription"><![CDATA[Kies welk type publieke identificatie wordt gebuikt om aan het artikel te refereren. Als er geen <a href="{$pubIdsUrl}">public identifier plugins</a> ingeschakeld zijn, zullen citaties gebruik maken van OJS URLs.]]></message>
+	<message key="plugins.generic.dataverse.settings.pubIdTypeDescription"><![CDATA[Kies welk type publieke identificatie wordt gebuikt om aan het artikel te refereren. Als er geen <a href="{$pubIdsUrl}">public identifier plugins</a> ingeschakeld zijn, zullen citaties gebruik maken van Wizdam Editorial URLs.]]></message>
 	<message key="plugins.generic.dataverse.settings.workflow">Workflow instellingen</message>
 	<message key="plugins.generic.dataverse.settings.requireData">Vereis dat bestanden</message>
 	<message key="plugins.generic.dataverse.settings.requireDataDescription">Vereis dat inzendingen databestanden bevatten die gedeponeerd zijn in Dataverse.</message>
@@ -82,7 +82,7 @@
      </li>
      <li>
        <p>Richtlijnen voor Data Citatie</p>
-       <p>Als uw data wordt met uw manuscript wordt ingezonden via het inzendingsformulier van OJS, dan zal Harvard Dataverse automatisch een citatie genereren. Mocht uw data al in een repository gedeponeerd zijn, dan kunt u dit data citatie formaat gebruiken bij het inzenden van uw manuscript:</p>
+       <p>Als uw data wordt met uw manuscript wordt ingezonden via het inzendingsformulier van Wizdam Editorial, dan zal Harvard Dataverse automatisch een citatie genereren. Mocht uw data al in een repository gedeponeerd zijn, dan kunt u dit data citatie formaat gebruiken bij het inzenden van uw manuscript:</p>
        <p>Author(s), Year, Dataset Title, Global Persistent Identifier, Data Repository or Archive, version and subset.</p>
        <p>Voor meer informatie over best practices voor data citatie, zie <a href="http://www.force11.org/datacitation">Force11's Data Citation Principles</a>.</p>
      </li>
@@ -92,7 +92,7 @@
 	<message key="plugins.generic.dataverse.settings.default.checklist"><![CDATA[<ol>
    <li><p>Als u datasets wilt delen over onderzoek met menselijke deelnemmers, bekijk dan eerst hierboven de richtlijnen daarover.</p></li>
    <li><p>Bereid uw dataset voor op deponeren door de replicatierichtlijnen te bekijken: <a href="http://thedata.org/book/replication-guidelines">http://thedata.org/book/replication-guidelines</a></p></li>
-   <li><p>Als u deponeert in het Harvard Dataverse, kunt u uw dataset tegelijk met uw manuscript in OJS inzenden in {$journal}. De data zal automatisch gedeponeerd worden in het Harvard Dataverse en er wordt een data citatie met een persistente URL gegenereerd (DOI), waarmee u anderen uw data kunt laten citeren als uw artikel gepubliceerd is.</p></li>
+   <li><p>Als u deponeert in het Harvard Dataverse, kunt u uw dataset tegelijk met uw manuscript dalam Wizdam Editorial inzenden in {$journal}. De data zal automatisch gedeponeerd worden in het Harvard Dataverse en er wordt een data citatie met een persistente URL gegenereerd (DOI), waarmee u anderen uw data kunt laten citeren als uw artikel gepubliceerd is.</p></li>
    <li><p>Als uw dataset al in een openbaar archief zit, kunt u een data citatie met een persistente URL opgeven. Zie de auteursrichtlijnen voor richtlijnen voor data citatie.</p></li>
    </ol>]]></message>
 	<message key="plugins.generic.dataverse.settings.default.reviewPolicy.extras">Bekijk voorbeeldrichtlijnen</message>

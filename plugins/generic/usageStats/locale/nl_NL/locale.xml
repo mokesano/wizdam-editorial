@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/usageStats/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -31,9 +31,9 @@
 	<message key="plugins.generic.usageStats.noCounterBotList">De COUNTER bot list could kon niet gevonden worden, of er zijn er meerdere. Het bestand {$file} kon niet verwerkt worden</message>
 	<message key="plugins.generic.usageStats.failedCounterBotList">De COUNTER bot list {$botlist} kon niet geopend worden. Het bestand {$file} kon niet verwerkt worden.</message>
 	
-	<message key="plugins.reports.usageStats.report.displayName">OJS gebruiksstatistieken rapport</message>
-	<message key="plugins.reports.usageStats.report.description">OJS standaard gebruiksstatistieken rapport (geschikt voor COUNTER)</message>
+	<message key="plugins.reports.usageStats.report.displayName">Wizdam Editorial gebruiksstatistieken rapport</message>
+	<message key="plugins.reports.usageStats.report.description">Wizdam Editorial standaard gebruiksstatistieken rapport (geschikt voor COUNTER)</message>
 	
-	<message key="plugins.reports.usageStats.metricType">OJS/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType">Wizdam Editorial/COUNTER</message>
 	<message key="plugins.reports.usageStats.metricType.full">Open Journal Systems statistics (COUNTER ready)</message>
 </locale>

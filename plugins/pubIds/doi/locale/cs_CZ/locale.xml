@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/doi/locale/cs_CZ/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * DOI plugin localization strings
@@ -13,11 +13,11 @@
 
 <locale name="cs_CZ" full_name="Čeština">
 	<message key="plugins.pubIds.doi.displayName">DOI</message>
-	<message key="plugins.pubIds.doi.description">Tento plugin umožňuje přiřazení čísla DOI (Digital Object Identifier) číslům, článkům a sazebnicím a doplňkovým souborům v OJS</message>
+	<message key="plugins.pubIds.doi.description">Tento plugin umožňuje přiřazení čísla DOI (Digital Object Identifier) číslům, článkům a sazebnicím a doplňkovým souborům v Wizdam Editorial</message>
 
 	<!-- settings form -->
 	<message key="plugins.pubIds.doi.manager.settings.doiSettings">Nastavení pluginu DOI</message>
-	<message key="plugins.pubIds.doi.manager.settings.description">Nastavte, prosím, plugin DOI, abyste mohli používat a DOI v rámci OJS.</message>
+	<message key="plugins.pubIds.doi.manager.settings.description">Nastavte, prosím, plugin DOI, abyste mohli používat a DOI v rámci Wizdam Editorial.</message>
 	
 	<message key="plugins.pubIds.doi.manager.settings.doiObjects">Obsah časopisu</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiObjectsRequired">Vyberte, prosím, objekty, kterým má být přiřazeno DOI.</message>
@@ -34,7 +34,7 @@
 
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffix">DOI Suffix</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixDescription">DOI suffix může mít libovolnou podobu, ale v rámci všech publikovaných objektů se stejným DOI prefixem musí mít unikátní podobu:</message>
-	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Použijte vzor zadaný níže ke generaci DOI suffixů. Použijte %j pro iniciály časopisu, %v pro svazek, %i pro číslo, %Y pro rok, %a pro ID článku v rámci OJS, %g pro ID sazebnice v rámci OJS, %s pro ID doplňkového souboru v rámci OJS, %p pro číslo stránky a %x pro "Uživatelský identifikátor" (Musí být nastaven v Kroku 4.3 nastavení).</message>
+	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Použijte vzor zadaný níže ke generaci DOI suffixů. Použijte %j pro iniciály časopisu, %v pro svazek, %i pro číslo, %Y pro rok, %a pro ID článku v rámci Wizdam Editorial, %g pro ID sazebnice v rámci Wizdam Editorial, %s pro ID doplňkového souboru v rámci Wizdam Editorial, %p pro číslo stránky a %x pro "Uživatelský identifikátor" (Musí být nastaven v Kroku 4.3 nastavení).</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.issues">pro čísla</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.articles">pro články</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.galleys">pro sazebnice</message>

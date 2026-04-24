@@ -3,22 +3,22 @@
 <!--
   * plugins/pubIds/doi/locale/ca_ES/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * Credits: https://pkp.sfu.ca/wiki/index.php?title=OJS:_Catalan_(ca_ES)
+  * Credits: https://wizdam.sangia.org/wiki/index.php?title=Wizdam Editorial:_Catalan_(ca_ES)
   *
   * DOI plugin localization strings
   -->
  
 <locale name="ca_ES" full_name="Català">
 	<message key="plugins.pubIds.doi.displayName">Mòdul DOI</message>
-	<message key="plugins.pubIds.doi.description">This plugin enables the assignment of the Digital Object Identifiers to issues, articles, galleys and supplementary files in OJS.</message>
+	<message key="plugins.pubIds.doi.description">This plugin enables the assignment of the Digital Object Identifiers to issues, articles, galleys and supplementary files dalam Wizdam Editorial.</message>
 
 	<!-- settings form -->
 	<message key="plugins.pubIds.doi.manager.settings.doiSettings">Configuració del mòdul DOI</message>
-	<message key="plugins.pubIds.doi.manager.settings.description">Please configure the DOI plug-in to be able to manage and use DOIs in OJS:</message>
+	<message key="plugins.pubIds.doi.manager.settings.description">Please configure the DOI plug-in to be able to manage and use DOIs dalam Wizdam Editorial:</message>
 	
 	<message key="plugins.pubIds.doi.manager.settings.doiObjects">Contingut de la revista</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiObjectsRequired">Please choose the objects DOIs should be assigned to.</message>
@@ -34,7 +34,7 @@
 
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffix">DOI Suffix</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixDescription">A DOI suffix can take any form, but must be unique among all publishing objects with the same DOI prefix assigned:</message>
-	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Use the pattern entered below to generate DOI suffixes. Use %j for journal initials, %v for the volume number, %i for the issue number, %Y for the year, %a for the OJS article ID, %g for the OJS galley ID, %s for the OJS supplementary file ID and %p for the page number.</message>
+	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern">Use the pattern entered below to generate DOI suffixes. Use %j for journal initials, %v for the volume number, %i for the issue number, %Y for the year, %a for the Wizdam Editorial article ID, %g for the Wizdam Editorial galley ID, %s for the Wizdam Editorial supplementary file ID and %p for the page number.</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.issues">for issues</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.articles">for articles</message>
 	<message key="plugins.pubIds.doi.manager.settings.doiSuffixPattern.galleys">for galleys</message>

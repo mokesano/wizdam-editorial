@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/users/locale/sr_SR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the sr_SR (Cрпски) locale.
@@ -48,7 +48,7 @@ Primeri:
 	<message key="plugins.importexport.users.import.errorsOccurred">Došlo je do grešaka prilikom uvoza</message>
 	<message key="plugins.importexport.users.import.confirmUsers">Potvrdite da su ovo korisnici koje želite da uvezete u sistem.</message>
 	<message key="plugins.importexport.users.import.warning">Upozorenje</message>
-	<message key="plugins.importexport.users.import.encryptionMismatch">Ne mogu se koristiti lozinke u hešu sa  {$importHash}; OJS je konfigurisan da koristi {$ojsHash}. Ukoliko nastavite moraćete da resetujete lozinke uvezenih korisnika.</message>
+	<message key="plugins.importexport.users.import.encryptionMismatch">Ne mogu se koristiti lozinke u hešu sa  {$importHash}; Wizdam Editorial je konfigurisan da koristi {$ojsHash}. Ukoliko nastavite moraćete da resetujete lozinke uvezenih korisnika.</message>
 	<message key="plugins.importexport.users.unknownJournal">Definisana je nepoznata putanja časopisa "{$journalPath}".</message>
 
 	<message key="plugins.importexport.users.export.exportUsers">Izvezi korisnike</message>

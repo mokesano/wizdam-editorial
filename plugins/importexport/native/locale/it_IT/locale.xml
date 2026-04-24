@@ -4,8 +4,8 @@
 <!--
   * plugins/importexport/native/locale/it_IT/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the it_IT (Italiano) locale.
@@ -51,7 +51,7 @@ I seguenti formati sono accettati:
 	<message key="plugins.importexport.native.import.articles.description">Il file che stai importando contiene uno o più articoli. Devi scegliere un fascicolo e una sezione per importare questi articoli; se non desideri importarli tutti dentro la stessa sezione e fascicolo, puoi separarli in diversi file XML o spostarli in sezioni e fascicoli appropriati dopo l'importazione.</message>
 
 	<message key="plugins.importexport.native.import">Importa dati</message>
-	<message key="plugins.importexport.native.import.description"><![CDATA[Questo plugin supporta l'import dei dati basandosi su native.dtd Document Type Definition. I root nodes supportati sono &lt;article&gt;, &lt;articles&gt;, &lt;issue&gt;, and &lt;issues&gt;. Vedi istruzioni dettagliate alla pagina <a href="http://pkp.sfu.ca/wiki/index.php/Importing_and_Exporting_Data#Articles_and_Issues_XML_Plugin">http://pkp.sfu.ca/wiki/index.php/Importing_and_Exporting_Data#Articles_and_Issues_XML_Plugin</a>]]></message>
+	<message key="plugins.importexport.native.import.description"><![CDATA[Questo plugin supporta l'import dei dati basandosi su native.dtd Document Type Definition. I root nodes supportati sono &lt;article&gt;, &lt;articles&gt;, &lt;issue&gt;, and &lt;issues&gt;. Vedi istruzioni dettagliate alla pagina <a href="http://wizdam.sangia.org/wiki/index.php/Importing_and_Exporting_Data#Articles_and_Issues_XML_Plugin">http://wizdam.sangia.org/wiki/index.php/Importing_and_Exporting_Data#Articles_and_Issues_XML_Plugin</a>]]></message>
 
 	<message key="plugins.importexport.native.import.error">Errore durante l'importazione</message>
 	<message key="plugins.importexport.native.import.error.description">Uno o più errori si sono presentati durante l'import. Si prega di controllare che il formato del file importato si adatti alle richieste. I dettagli degli errori sono elencati di sotto.</message>

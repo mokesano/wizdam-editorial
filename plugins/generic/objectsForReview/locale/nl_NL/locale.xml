@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/objectsForReview/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Objects for review plugin localization strings.
@@ -85,7 +85,7 @@
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderBeforeDays2">dag(en) voor het review verwacht wordt.</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays1">Stuur auteurs een herinneringsmail</message>
 	<message key="plugins.generic.objectsForReview.settings.enableDueReminderAfterDays2">dag(en) nadat het review verwacht werd.</message>
-	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Noot:</strong> Om deze opties te activeren moet de sitebeheerder de <tt>scheduled_tasks</tt> optie in het OJS configuratiebestand inschakelen. Additionele configuratie van de serveren nodig zijn om dit mogelijk te maken (wat wellicht niet op alle servers mogelijk is), zoals aangegeven in de OJS documentatie..]]></message>
+	<message key="plugins.generic.objectsForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Noot:</strong> Om deze opties te activeren moet de sitebeheerder de <tt>scheduled_tasks</tt> optie in het Wizdam Editorial configuratiebestand inschakelen. Additionele configuratie van de serveren nodig zijn om dit mogelijk te maken (wat wellicht niet op alle servers mogelijk is), zoals aangegeven in de Wizdam Editorial documentatie..]]></message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformation">Additionele informatie</message>
 	<message key="plugins.generic.objectsForReview.settings.additionalInformationDescription">Additionele informatie die bij de te reviewen objecten wordt gepubliceerd.</message>
 

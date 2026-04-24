@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/usageStats/locale/it_IT/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -48,7 +48,7 @@
 	<message key="plugins.generic.usageStats.failedCounterBotList">La lista COUNTER dei bot {$botlist} non può essere aperta. Il file {$file} non può essere processato.</message>
 	
 	<message key="plugins.reports.usageStats.report.displayName">Report delle statistiche d'uso</message>
-	<message key="plugins.reports.usageStats.report.description">Report delle statistiche OJS (compatibili COUNTER)</message>
+	<message key="plugins.reports.usageStats.report.description">Report delle statistiche Wizdam Editorial (compatibili COUNTER)</message>
 	
 	<message key="plugins.reports.usageStats.optout.displayName">Informazioni sulla privacy delle statistiche d'uso</message>
 	<message key="plugins.reports.usageStats.optout.description">Informazioni sulla privacy delle statistiche d'uso</message>
@@ -77,6 +77,6 @@
 		<p>Ricordati che i log generali del server non sono toccati dalla tua decisione di essere escluso dal rilevamento statistico degli accessi. Fai riferimento alla nostra <a href="{$privacyStatementUrl}">privacy statement</a>.</p>]]></message>
 
 	
-	<message key="plugins.reports.usageStats.metricType">OJS/COUNTER</message>
-	<message key="plugins.reports.usageStats.metricType.full">Statistiche OJS (compatibili COUNTER)</message>
+	<message key="plugins.reports.usageStats.metricType">Wizdam Editorial/COUNTER</message>
+	<message key="plugins.reports.usageStats.metricType.full">Statistiche Wizdam Editorial (compatibili COUNTER)</message>
 </locale>

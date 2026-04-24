@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/acron/locale/nl_NL/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2000-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2000-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings.
@@ -14,7 +14,7 @@
 
 <locale name="nl_NL" full_name="Nederlands">
 	<message key="plugins.generic.acron.name">Acron Plugin</message>
-	<message key="plugins.generic.acron.description">Deze plugin probeert de afhankelijkheid van OJS van periodieke taken tools als 'cron' te verminderen.</message>
+	<message key="plugins.generic.acron.description">Deze plugin probeert de afhankelijkheid van Wizdam Editorial van periodieke taken tools als 'cron' te verminderen.</message>
 	<message key="plugins.generic.acron.enabled">The Acron Plugin is ingeschakeld.</message>
 	<message key="plugins.generic.acron.disabled">The Acron Pluginis uitgeschakeld.</message>
 

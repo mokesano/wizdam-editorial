@@ -4,8 +4,8 @@
 <!--
   * @file plugins/generic/booksForReview/locale/fr_CA/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Books for review plugin localization strings for the en_US (U.S. English) locale.
@@ -125,7 +125,7 @@
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderBeforeDays2">jour(s) avant la date d'échéance du compte rendu.</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays1">Send authors a reminder email</message>
 	<message key="plugins.generic.booksForReview.settings.enableDueReminderAfterDays2">day(s) after the review due date.</message>
-	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Note :</strong> Pour activer ces options, l'administrateur du site doit activer l'option <tt>scheduled_tasks</tt>  dans le fichier de configuration d'OJS. Des configurations serveurs supplémentaires pourraient être nécessaires afin de prendre en charge cette fonctionnalité (laquelle peut ne pas être disponible sur tous les serveurs), tel qu'indiqué dans la documentation d'OJS.]]></message>
+	<message key="plugins.generic.booksForReview.settings.scheduledTasksDisabled"><![CDATA[<strong>Note :</strong> Pour activer ces options, l'administrateur du site doit activer l'option <tt>scheduled_tasks</tt>  dans le fichier de configuration d'Wizdam Editorial. Des configurations serveurs supplémentaires pourraient être nécessaires afin de prendre en charge cette fonctionnalité (laquelle peut ne pas être disponible sur tous les serveurs), tel qu'indiqué dans la documentation d'Wizdam Editorial.]]></message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformation">Informations supplémentaires</message>
 	<message key="plugins.generic.booksForReview.settings.additionalInformationDescription">Informations supplémentaires publiées conjointement aux comptes rendus de livre.</message>
 	<message key="plugins.generic.booksForReview.settings.dueWeeksRequired">Veuillez spécifier le nombre de semaines pour l'échéance des comptes rendus de livre.</message>

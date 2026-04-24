@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/openAIRE/locale/sr_SR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * OpenAIRE plugin localization strings for the sr_SR (Cрпски) locale.
@@ -13,7 +13,7 @@
  
 <locale name="sr_SR" full_name="Cрпски">
 	<message key="plugins.generic.openAIRE.displayName">OpenAIRE</message>
-	<message key="plugins.generic.openAIRE.description">OpenAIRE dodatak dodaje projectID element metapodataka i proširuje OAI-PMH interfejs u skladu sa smernicama OpenAIRE 1.1 , pomažući OJS časopisu da postane OpenAIRE kompatibilan.</message>
+	<message key="plugins.generic.openAIRE.description">OpenAIRE dodatak dodaje projectID element metapodataka i proširuje OAI-PMH interfejs u skladu sa smernicama OpenAIRE 1.1 , pomažući Wizdam Editorial časopisu da postane OpenAIRE kompatibilan.</message>
 	<message key="plugins.generic.openAIRE.projectID">ID projekta</message>
 	<message key="plugins.generic.openAIRE.metadata">OpenAIRE specifični metapodaci</message>
 	<message key="plugins.generic.openAIRE.projectID.description">ID projekta jednak je Grant Agreement broju)</message>

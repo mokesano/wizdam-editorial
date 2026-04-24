@@ -4,8 +4,8 @@
 <!--
   * locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * External feed plugin localization strings for the en_US (U.S. English) locale.
@@ -58,7 +58,7 @@
 	<message key="plugins.generic.externalFeed.form.titleRequired">Please provide a title for this feed</message>
 	<message key="plugins.generic.externalFeed.form.feedUrl">URL</message>
 	<message key="plugins.generic.externalFeed.form.feedUrlValid">Please provide a valid feed URL (include http://)</message>
-	<message key="plugins.generic.externalFeed.form.feedUrlDescription">The URL of the external Atom/RSS syndication feed (e.g. http://pkp.sfu.ca/blog/feed)</message>
+	<message key="plugins.generic.externalFeed.form.feedUrlDescription">The URL of the external Atom/RSS syndication feed (e.g. http://wizdam.sangia.org/blog/feed)</message>
 	<message key="plugins.generic.externalFeed.form.display">Display</message>
 	<message key="plugins.generic.externalFeed.form.displayHomepage">Display on homepage</message>
 	<message key="plugins.generic.externalFeed.form.displayBlockNone">Do not display in block</message>

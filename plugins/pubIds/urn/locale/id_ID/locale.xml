@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/urn/locale/id_ID/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * URN plugin localization strings
@@ -16,17 +16,17 @@
 
 	<!-- plugin -->
 	<message key="plugins.pubIds.urn.displayName">URN</message>
-	<message key="plugins.pubIds.urn.description">Plugin ini mengaktifkan penugasan Uniform Resource Names untuk objek (terbitan, artikel, galley dan file tambahan) dalam OJS.</message>
+	<message key="plugins.pubIds.urn.description">Plugin ini mengaktifkan penugasan Uniform Resource Names untuk objek (terbitan, artikel, galley dan file tambahan) dalam Wizdam Editorial.</message>
 
 	<!-- URN manager options, setting -->
-	<message key="plugins.pubIds.urn.manager.settings.description"><![CDATA[Silahkan ikuti langkap setup untuk dapat mengatur dan menggunakan URN dalam OJS:]]></message>
+	<message key="plugins.pubIds.urn.manager.settings.description"><![CDATA[Silahkan ikuti langkap setup untuk dapat mengatur dan menggunakan URN dalam Wizdam Editorial:]]></message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSettings">Pengaturan URN</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix">Awalan URN</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix.description"><![CDATA[Awalan URN sudah baku, jangan pernah mengubah bagian URN (contoh "urn:nbn:de:0000-").]]></message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix">Akhiran URN</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default">Gunakan pola default.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default.description"><![CDATA[%j.v%vi%i untuk terbitan<br />%j.v%vi%i.%a untuk artikel<br />%j.v%vi%i.%a.g%g untuk galley <br />%j.v%vi%i.%a.s%s untuk file tambahan.]]></message>
-	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Gunakan pola seperti di bawah ini untuk menciptakan akhiran URN. Gunakan %j untuk inisial jurnal, %v untuk nomor volume, %i untuk nomor terbitan, %Y untuk tahun, %a ID artikel OJS, %g untuk ID galley OJS, %s untuk ID file tambahan OJS dan %p untuk nomor halaman.</message>
+	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Gunakan pola seperti di bawah ini untuk menciptakan akhiran URN. Gunakan %j untuk inisial jurnal, %v untuk nomor volume, %i untuk nomor terbitan, %Y untuk tahun, %a ID artikel Wizdam Editorial, %g untuk ID galley Wizdam Editorial, %s untuk ID file tambahan Wizdam Editorial dan %p untuk nomor halaman.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.issues">untuk terbitan</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.articles">untuk artikel</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.galleys">untuk galley</message>

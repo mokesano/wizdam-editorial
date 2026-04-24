@@ -3,8 +3,8 @@
 <!-- 
   * plugins/importexport/users/locale/hr_HR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the hr_HR (Hrvatski) locale.
@@ -55,5 +55,5 @@ Primjeri:
 	<message key="plugins.importexport.users.export.errorsOccurred">Pogreške koje su se pojavile prilikom iznošenja</message>
 	<message key="plugins.importexport.users.export.couldNotWriteFile">Nije moguće pisati po datoteci "{$fileName}".</message>
 	<message key="plugins.importexport.users.import.warning">Upozorenje</message>
-	<message key="plugins.importexport.users.import.encryptionMismatch">Nije moguće koristiti lozinke pohranjene hash funkcijom {$importHash}; OJS je podešen da koristi {$ojsHash}. Ukoliko nastavite, morat ćete ponovno postaviti lozinke ovako unesenih korisnika.</message>
+	<message key="plugins.importexport.users.import.encryptionMismatch">Nije moguće koristiti lozinke pohranjene hash funkcijom {$importHash}; Wizdam Editorial je podešen da koristi {$ojsHash}. Ukoliko nastavite, morat ćete ponovno postaviti lozinke ovako unesenih korisnika.</message>
 </locale>

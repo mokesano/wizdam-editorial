@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/phpMyVisites/locale/id_ID/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * phpMyVisites plugin localization strings for the en_US (U.S. English) locale.
@@ -16,7 +16,7 @@
 
 	<!-- phpMyVisites -->
 	<message key="plugins.generic.phpmv.displayName">Plugin phpMyVisites</message>
-	<message key="plugins.generic.phpmv.description"><![CDATA[Gabungkan OJS dengan phpMyVisites, aplikasi analis lalu lintas situs web sumber terbuka. Memerlukan phpMyVisites sudah diinstal. Lihat <a href="http://www.phpmyvisites.us/" title="phpMyVisites site">situs phpMyVisites</a> untuk informasi lebih lanjut.]]></message>
+	<message key="plugins.generic.phpmv.description"><![CDATA[Gabungkan Wizdam Editorial dengan phpMyVisites, aplikasi analis lalu lintas situs web sumber terbuka. Memerlukan phpMyVisites sudah diinstal. Lihat <a href="http://www.phpmyvisites.us/" title="phpMyVisites site">situs phpMyVisites</a> untuk informasi lebih lanjut.]]></message>
 	<!-- Manajemen Pengaturan phpMyVisites -->
 	<message key="plugins.generic.phpmv.manager.settings">Pengaturan</message>
 	<message key="plugins.generic.phpmv.manager.phpmvSettings">Pengaturan phpMyVisites</message>

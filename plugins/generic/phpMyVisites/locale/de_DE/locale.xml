@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/phpMyVisites/locale/de_DE/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   * phpMyVisites plugin localization strings for the de_DE (Deutsch (Deutschland)) locale.
   * Please contact Marco Tullney, marco.tullney@fu-berlin.de, with any questions regarding this translation.
@@ -15,7 +15,7 @@
 
 	<!-- phpMyVisites -->
 	<message key="plugins.generic.phpmv.displayName">phpMyVisites-Plug-In</message>
-	<message key="plugins.generic.phpmv.description"><![CDATA[Integration von OJS mit phpMyVisites, einer Open-Source-Applikation zur Traffic- und Nutzungsanalyse. Voraussetzung ist, dass phpMyVisites bereits installiert ist. Siehe <a href="http://www.phpmyvisites.us/" title="phpMyVisites site">phpMyVisites</a> für weitere Informationen.]]></message>
+	<message key="plugins.generic.phpmv.description"><![CDATA[Integration von Wizdam Editorial mit phpMyVisites, einer Open-Source-Applikation zur Traffic- und Nutzungsanalyse. Voraussetzung ist, dass phpMyVisites bereits installiert ist. Siehe <a href="http://www.phpmyvisites.us/" title="phpMyVisites site">phpMyVisites</a> für weitere Informationen.]]></message>
 	<!-- phpMyVisites-Einstellungen verwalten -->
 	<message key="plugins.generic.phpmv.manager.settings">Einstellungen</message>
 	<message key="plugins.generic.phpmv.manager.phpmvSettings">phpMyVisites-Einstellungen</message>

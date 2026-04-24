@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/translator/locale/el_GR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings for the Greek  locale.
@@ -22,8 +22,8 @@
 <locale name="el_GR" full_name="ελληνικά">	
 	<message key="plugins.generic.translator.name">Πρόσθετο Μετάφρασης</message>
 	<message key="plugins.generic.translator.description">Το πρόσθετο αυτό επιτρέπει την δικτυακή διαχείριση των αρχείων μετάφρασης.</message>
-	<message key="plugins.generic.translator.longdescription">Σε αυτή την περιοχή ο Διαχειριστής του Ιστοτόπου μπορεί να δημιουργήσει, επεξεργαστεί και να ελέγξει τις μεταφράσεις του OJS. Αυτό γίνεται σε επίπεδο ιστοτόπου συστήματος και δεν θα πρέπει να χρησιμοποιείται για τη διαμόρφωση ενός μόνο περιοδικού. Αν διορθώνεται ή δημιουργείτε μια μετάφραση, παρακαλούμε σκεφτείτε το ενδεχόμενο να την υποβάλετε στο Public Knowledge Project για διανομή με μελλοντικές εκδόσεις.</message>
-	<message key="plugins.generic.translator.localeDescription">Η σελίδα αυτή παραθέτει όλα τα συστατικά μιας OJS μετάφρασης και παρέχει την δυνατότητα στον μεταφραστή να επεξεργαστεί το καθένα από αυτά. Μια πλήρης μετάφραση του OJS θα πρέπει να περιλαμβάνει την μετάφραση όλων αυτών των συστατικών.</message>
+	<message key="plugins.generic.translator.longdescription">Σε αυτή την περιοχή ο Διαχειριστής του Ιστοτόπου μπορεί να δημιουργήσει, επεξεργαστεί και να ελέγξει τις μεταφράσεις του Wizdam Editorial. Αυτό γίνεται σε επίπεδο ιστοτόπου συστήματος και δεν θα πρέπει να χρησιμοποιείται για τη διαμόρφωση ενός μόνο περιοδικού. Αν διορθώνεται ή δημιουργείτε μια μετάφραση, παρακαλούμε σκεφτείτε το ενδεχόμενο να την υποβάλετε στο Public Knowledge Project για διανομή με μελλοντικές εκδόσεις.</message>
+	<message key="plugins.generic.translator.localeDescription">Η σελίδα αυτή παραθέτει όλα τα συστατικά μιας Wizdam Editorial μετάφρασης και παρέχει την δυνατότητα στον μεταφραστή να επεξεργαστεί το καθένα από αυτά. Μια πλήρης μετάφραση του Wizdam Editorial θα πρέπει να περιλαμβάνει την μετάφραση όλων αυτών των συστατικών.</message>
 
 	<message key="plugins.generic.translator.localeName">Όνομα Γλώσσας</message>
 	<message key="plugins.generic.translator.localeKey">Κλειδί</message>

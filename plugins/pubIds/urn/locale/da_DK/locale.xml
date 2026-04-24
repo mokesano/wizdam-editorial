@@ -4,8 +4,8 @@
 <!--
   * plugins/pubIds/urn/locale/da_DK/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * URN plugin localization strings
@@ -16,17 +16,17 @@
 
 	<!-- plugin -->
 	<message key="plugins.pubIds.urn.displayName">URN</message>
-	<message key="plugins.pubIds.urn.description">Dette plug-in gør det muligt at tildele Uniform Resource Names til emnerne (numre, artikler, satsskibe og supplerende filer) i OJS</message>
+	<message key="plugins.pubIds.urn.description">Dette plug-in gør det muligt at tildele Uniform Resource Names til emnerne (numre, artikler, satsskibe og supplerende filer) i Wizdam Editorial</message>
 
 	<!-- URN manager options, setting -->
-	<message key="plugins.pubIds.urn.manager.settings.description">Please do the following setup steps to be able to manage and use URNs in OJS:</message>
+	<message key="plugins.pubIds.urn.manager.settings.description">Please do the following setup steps to be able to manage and use URNs dalam Wizdam Editorial:</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSettings">URN Settings</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix">URN Prefix</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnPrefix.description">The URN prefix is the fix, never changing part of the URN (e.g. "urn:nbn:de:0000-").</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix">URN Suffix</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default">Use default patterns.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.default.description"><![CDATA[%j.v%vi%i for issues<br />%j.v%vi%i.%a for articles<br />%j.v%vi%i.%a.g%g for galleys <br />%j.v%vi%i.%a.s%s for supplementary files.]]></message>
-	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Use the pattern entered below to generate URN suffixes. Use %j for journal initials, %v for the volume number, %i for the issue number, %Y for the year, %a for the OJS article ID, %g for the OJS galley ID, %s for the OJS supplementary file ID and %p for the page number.</message>
+	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern">Use the pattern entered below to generate URN suffixes. Use %j for journal initials, %v for the volume number, %i for the issue number, %Y for the year, %a for the Wizdam Editorial article ID, %g for the Wizdam Editorial galley ID, %s for the Wizdam Editorial supplementary file ID and %p for the page number.</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.issues">for issues</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.articles">for articles</message>
 	<message key="plugins.pubIds.urn.manager.settings.urnSuffix.pattern.galleys">for galleys</message>

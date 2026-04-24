@@ -4,11 +4,11 @@
 <!--
   * plugins/generic/lucene/locale/tr_TR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
-  * OJS solr/lucene search plugin localization strings
+  * Wizdam Editorial solr/lucene search plugin localization strings
   -->
  
 <locale name="tr_TR" full_name="Türkçe">
@@ -51,7 +51,7 @@
 	<message key="plugins.generic.lucene.settings.spellcheck">Alternatif heceleme önerileri (alternatif arama terimleri görüntüle)</message>
 	<message key="plugins.generic.lucene.sectionForm.ranking.never">Asla Gösterme</message>
 	<message key="plugins.generic.lucene.sectionForm.ranking.normal">Normal</message>
-	<message key="plugins.generic.lucene.message.searchServiceOffline">Maalesef OJS arama servisi geçici olarak çevrimdışı.</message>
+	<message key="plugins.generic.lucene.message.searchServiceOffline">Maalesef Wizdam Editorial arama servisi geçici olarak çevrimdışı.</message>
 	<message key="plugins.generic.lucene.message.webServiceError">Lucene web servisi bir hata verdi.</message>
 	<message key="plugins.generic.lucene.results.didYouMean">Bunumu demek istediniz</message>
 	<message key="plugins.generic.lucene.results.similarDocuments">basit dokümanlar</message>

@@ -4,8 +4,8 @@
 <!--
   * plugins/generic/driver/locale/pt_BR/locale.xml
   *
-  * Copyright (c) 2013-2019 Simon Fraser University
-  * Copyright (c) 2003-2019 John Willinsky
+  * Copyright (c) 2013-2019 Sangia Publishing House
+  * Copyright (c) 2003-2019 Rochmady and Wizdam Team
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Plugin localization strings
@@ -13,5 +13,5 @@
  
 <locale name="pt_BR" full_name="Português (Brasil)">
 	<message key="plugins.generic.driver.displayName">DRIVER</message>
-	<message key="plugins.generic.driver.description">O plugin DRIVER estende a interface OAI-PMH de acordo com as Diretrizes DRIVER 2.0, auxiliando publicações OJS a atenderem ao padrão DRIVER.</message>
+	<message key="plugins.generic.driver.description">O plugin DRIVER estende a interface OAI-PMH de acordo com as Diretrizes DRIVER 2.0, auxiliando publicações Wizdam Editorial a atenderem ao padrão DRIVER.</message>
 </locale>
