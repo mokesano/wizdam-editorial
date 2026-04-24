@@ -188,7 +188,7 @@ class ReferralPlugin extends GenericPlugin {
                     $referralsArray[] = $referral;
                 }
                 // Turn the array back into an interator for display
-                import('core.Modules.core.VirtualArrayIterator');
+                import('core.Kernel.VirtualArrayIterator');
                 $referrals = new VirtualArrayIterator($referralsArray, $referrals->getCount(), $referrals->getPage(), $rangeInfo->getCount());
 
                 $templateMgr->assign('articleTitles', $articleTitles);

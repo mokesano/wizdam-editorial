@@ -475,7 +475,7 @@ class CoreTemplateManager extends Smarty {
      * @return string JSON message with the template rendered
      */
     public function fetchJson($template, $status = true) {
-        import('core.Modules.core.JSONMessage');
+        import('core.Kernel.JSONMessage');
 
         $json = new JSONMessage($status, $this->fetch($template));
         header('Content-Type: application/json');

@@ -196,14 +196,14 @@ class ArticleHTMLGalley extends ArticleGalley {
                     break;
                 case 'sitepublic':
                     array_shift($urlParts);
-                    import ('classes.file.PublicFileManager');
+                    import ('app.Domain.file.PublicFileManager');
                     $publicFileManager = new PublicFileManager();
                     $url = Request::getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath() . '/' . implode('/', $urlParts) . ($anchor?'#' . $anchor:'');
                     break;
                 case 'public':
                     array_shift($urlParts);
                     $journal = Request::getJournal();
-                    import ('classes.file.PublicFileManager');
+                    import ('app.Domain.file.PublicFileManager');
                     $publicFileManager = new PublicFileManager();
                     if ($journal) {
                         $url = Request::getBaseUrl() . '/' . $publicFileManager->getJournalFilesPath($journal->getId()) . '/' . implode('/', $urlParts) . ($anchor?'#' . $anchor:'');

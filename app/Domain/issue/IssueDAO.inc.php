@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying Issue objects.
  */
 
-import ('classes.issue.Issue');
+import ('app.Domain.issue.Issue');
 
 class IssueDAO extends DAO {
     /** @var array Cache storage */

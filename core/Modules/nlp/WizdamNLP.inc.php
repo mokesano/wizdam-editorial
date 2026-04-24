@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 // Imports Wizdam untuk string utility
 if (!class_exists('CoreString')) {
-    import('core.Modules.core.CoreString'); 
+    import('core.Kernel.CoreString'); 
 }
 
 class WizdamNLP {

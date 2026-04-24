@@ -58,7 +58,7 @@ class CoreUserHandler extends Handler {
 
         $interests = $interestManager->getAllInterests($filter);
 
-        import('core.Modules.core.JSONMessage');
+        import('core.Kernel.JSONMessage');
         $json = new JSONMessage(true, $interests);
         
         header('Content-Type: application/json');
@@ -81,7 +81,7 @@ class CoreUserHandler extends Handler {
             $userDao->updateObject($user);
         }
 
-        import('core.Modules.core.JSONMessage');
+        import('core.Kernel.JSONMessage');
         $json = new JSONMessage(true);
         
         header('Content-Type: application/json');

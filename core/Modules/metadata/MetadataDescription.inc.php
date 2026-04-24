@@ -21,7 +21,7 @@ declare(strict_types=1);
  * entity instance (DCMI abstract model: described resource, RDF: subject).
  */
 
-import('core.Modules.core.DataObject');
+import('core.Kernel.DataObject');
 
 define('METADATA_DESCRIPTION_REPLACE_ALL', 0x01);
 define('METADATA_DESCRIPTION_REPLACE_PROPERTIES', 0x02);

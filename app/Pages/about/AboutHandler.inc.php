@@ -830,7 +830,7 @@ class AboutHandler extends Handler {
         $templateMgr = TemplateManager::getManager($request);
 
         // 3. --- MULAI BLOK CoreStats ---
-        import('core.Modules.core.CoreStats');
+        import('core.Kernel.CoreStats');
         $refreshStats = $request->getUserVar('refresh_stats');
         $forceRefresh = trim((string) $refreshStats) == 'true';
 

@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 import('core.Modules.search.SearchFileParser');
-import('core.Modules.core.CoreString');
+import('core.Kernel.CoreString');
 
 class SearchHTMLParser extends SearchFileParser {
 

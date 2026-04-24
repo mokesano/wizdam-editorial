@@ -30,7 +30,7 @@ class MetadataBuilder {
         $this->publishedArticleDAO = DAORegistry::getDAO('PublishedArticleDAO');
         
         // Wizdam 2.x DAO Import
-        import('classes.submission.sectionEditor.SectionEditorSubmissionDAO');
+        import('app.Domain.submission.sectionEditor.SectionEditorSubmissionDAO');
         $this->sectionEditorSubmissionDAO = DAORegistry::getDAO('SectionEditorSubmissionDAO');
     }
 

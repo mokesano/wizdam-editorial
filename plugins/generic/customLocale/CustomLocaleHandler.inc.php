@@ -57,7 +57,7 @@ class CustomLocaleHandler extends Handler {
         $rangeInfo = Handler::getRangeInfo('locales');
 
         $templateMgr = TemplateManager::getManager();
-        import('core.Modules.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $templateMgr->assign('locales', new ArrayItemIterator($journal->getSupportedLocaleNames(), $rangeInfo->getPage(), $rangeInfo->getCount()));
         $templateMgr->assign('masterLocale', MASTER_LOCALE);
         $templateMgr->display($plugin->getTemplatePath() . 'index.tpl');
@@ -84,7 +84,7 @@ class CustomLocaleHandler extends Handler {
         $templateMgr = TemplateManager::getManager();
         $localeFilesRangeInfo = Handler::getRangeInfo('localeFiles');
 
-        import('core.Modules.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $templateMgr->assign('localeFiles', new ArrayItemIterator($localeFiles, $localeFilesRangeInfo->getPage(), $localeFilesRangeInfo->getCount()));
         $templateMgr->assign('locale', $locale);
         $templateMgr->assign('masterLocale', MASTER_LOCALE);
@@ -155,7 +155,7 @@ class CustomLocaleHandler extends Handler {
 
         $templateMgr->assign('filename', $filename);
         $templateMgr->assign('locale', $locale);
-        import('core.Modules.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $templateMgr->assign('referenceLocaleContents', new ArrayItemIterator($referenceLocaleContents, $referenceLocaleContentsRangeInfo->getPage(), $referenceLocaleContentsRangeInfo->getCount()));
         $templateMgr->assign('localeContents', $localeContents);
 

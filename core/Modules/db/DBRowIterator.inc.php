@@ -15,7 +15,7 @@ declare(strict_types=1);
  * for generating objects from DAOs.
  */
 
-import('core.Modules.core.ItemIterator');
+import('core.Kernel.ItemIterator');
 
 class DBRowIterator extends ItemIterator {
     

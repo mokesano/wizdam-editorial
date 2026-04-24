@@ -182,7 +182,7 @@ class JSONMessage {
         }
 
         // Encode the object.
-        import('core.Modules.core.JSONManager');
+        import('core.Kernel.JSONManager');
         $jsonManager = new JSONManager();
         return $jsonManager->encode($jsonObject);
     }

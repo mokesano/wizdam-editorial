@@ -15,9 +15,9 @@ declare(strict_types=1);
  * @brief Class describing this application.
  */
 
-import('core.Modules.core.CoreApplication');
+import('core.Kernel.CoreApplication');
 import('core.Modules.statistics.StatisticsHelper');
-import('core.Modules.core.Request');
+import('core.Kernel.Request');
 
 define('PHP_REQUIRED_VERSION', '7.4.0');
 

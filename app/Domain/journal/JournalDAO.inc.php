@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 7.4+ Compatible & Cleaned References
  */
 
-import ('classes.journal.Journal');
+import ('app.Domain.journal.Journal');
 import('core.Modules.metadata.MetadataTypeDescription');
 
 define('JOURNAL_FIELD_TITLE', 1);

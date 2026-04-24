@@ -227,7 +227,7 @@ class ListbuilderHandler extends GridHandler {
         if (!$insertionCallback) $insertionCallback = [$this, 'insertEntry'];
         if (!$updateCallback) $updateCallback = [$this, 'updateEntry'];
 
-        import('core.Modules.core.JSONManager');
+        import('core.Kernel.JSONManager');
         $jsonManager = new JSONManager();
         
         // [WIZDAM] Critical Fix: Treat data as string for decoding.

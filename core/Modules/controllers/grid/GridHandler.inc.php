@@ -27,7 +27,7 @@ import('core.Modules.controllers.grid.GridColumn');
 import('core.Modules.controllers.grid.GridRow');
 
 // Import JSON class for use with all AJAX requests.
-import('core.Modules.core.JSONMessage');
+import('core.Kernel.JSONMessage');
 
 // Grid specific action positions.
 define('GRID_ACTION_POSITION_DEFAULT', 'default');

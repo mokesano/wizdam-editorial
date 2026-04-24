@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 import('core.Modules.handler.Handler');
 import('plugins.generic.lucene.classes.SolrWebService');
-import('core.Modules.core.JSONMessage');
+import('core.Kernel.JSONMessage');
 import('core.Modules.search.ArticleSearch');
 
 class LuceneHandler extends Handler {

@@ -26,7 +26,7 @@ define('EDITOR_SECTION_ISSUES', 2);
 define('FILTER_EDITOR_ALL', 0);
 define('FILTER_EDITOR_ME', 1);
 
-import ('classes.submission.editor.EditorAction');
+import ('app.Domain.submission.editor.EditorAction');
 
 class EditorHandler extends SectionEditorHandler {
     
@@ -154,7 +154,7 @@ class EditorHandler extends SectionEditorHandler {
                     $submissionsArray = array_reverse($submissionsArray);
                 }
                 // Convert submission array back to an ItemIterator class
-                import('core.Modules.core.ArrayItemIterator');
+                import('core.Kernel.ArrayItemIterator');
                 $submissions = ArrayItemIterator::fromRangeInfo($submissionsArray, $rangeInfo);
             } else {
                 $rawSubmissions = $editorSubmissionDao->_getUnfilteredEditorSubmissions(

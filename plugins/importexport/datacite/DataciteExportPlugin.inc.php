@@ -171,7 +171,7 @@ class DataciteExportPlugin extends DOIExportPlugin {
         unset($suppFiles);
 
         // Instantiate supp file iterator.
-        import('core.Modules.core.VirtualArrayIterator');
+        import('core.Kernel.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($suppFileData, $totalSuppFiles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the supp file template.

@@ -63,7 +63,7 @@ class CoreApplication {
         if (defined('E_NOTICE')) $errorReportingLevel &= ~E_NOTICE;
         @error_reporting($errorReportingLevel);
 
-        import('core.Modules.core.CoreProfiler');
+        import('core.Kernel.CoreProfiler');
         $wizdamProfiler = new CoreProfiler();
 
         Console::logMemory('', 'CoreApplication::construct');
@@ -71,9 +71,9 @@ class CoreApplication {
 
         mt_srand((int) ((double) microtime() * 1000000));
 
-        import('core.Modules.core.Core');
-        import('core.Modules.core.CoreString');
-        import('core.Modules.core.Registry');
+        import('core.Kernel.Core');
+        import('core.Kernel.CoreString');
+        import('core.Kernel.Registry');
         import('core.Modules.config.Config');
 
         if ((bool) Config::getVar('debug', 'display_errors')) {
@@ -83,7 +83,7 @@ class CoreApplication {
         Registry::set('application', $this);
         
         // Request dibuat DI SINI, sebelum komponen lain memintanya.
-        import('core.Modules.core.Request');
+        import('core.Kernel.Request');
         $request = new Request();
         Registry::set('request', $request);
         // ---------------------------
@@ -161,7 +161,7 @@ class CoreApplication {
         $dispatcher = Registry::get('dispatcher', true, null);
 
         if ($dispatcher === null) {
-            import('core.Modules.core.Dispatcher');
+            import('core.Kernel.Dispatcher');
             $dispatcher = new Dispatcher();
             Registry::set('dispatcher', $dispatcher);
 

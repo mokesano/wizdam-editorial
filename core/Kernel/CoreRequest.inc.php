@@ -128,7 +128,7 @@ class CoreRequest {
      * @param $url string
      */
     public static function redirectUrlJson($url) {
-        import('core.Modules.core.JSONMessage');
+        import('core.Kernel.JSONMessage');
         $json = new JSONMessage(true);
         $json->setEvent('redirectRequested', $url);
         header('Content-Type: application/json');

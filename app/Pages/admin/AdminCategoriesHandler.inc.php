@@ -62,7 +62,7 @@ class AdminCategoriesHandler extends AdminHandler {
         // Unused variable removed: $categoryEntryDao
 
         $categoriesArray = $categoryDao->getCategories();
-        import('core.Modules.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $categories = ArrayItemIterator::fromRangeInfo($categoriesArray, $rangeInfo);
 
         $templateMgr = TemplateManager::getManager();

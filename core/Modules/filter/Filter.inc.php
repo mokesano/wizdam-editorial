@@ -16,7 +16,7 @@ declare(strict_types=1);
  * and return another well-specified data type.
  */
 
-import('core.Modules.core.DataObject');
+import('core.Kernel.DataObject');
 import('core.Modules.filter.TypeDescription');
 import('core.Modules.filter.TypeDescriptionFactory');
 
@@ -343,7 +343,7 @@ class Filter extends DataObject {
             // If we found any runtime restrictions then construct a
             // runtime environment from the settings.
             if ($hasRuntimeSettings) {
-                import('core.Modules.core.RuntimeEnvironment');
+                import('core.Kernel.RuntimeEnvironment');
                 $this->_runtimeEnvironment = new RuntimeEnvironment($phpVersionMin, $phpVersionMax, $phpExtensions, $externalPrograms);
             } else {
                 // Set null so that we don't try to construct

@@ -100,7 +100,7 @@ class RTContextHandler extends RTAdminHandler {
             // [WIZDAM] Removed assign_by_ref
             $templateMgr->assign('version', $version);
 
-            import('core.Modules.core.ArrayItemIterator');
+            import('core.Kernel.ArrayItemIterator');
             $templateMgr->assign('contexts', new ArrayItemIterator($version->getContexts(), $rangeInfo->getPage(), $rangeInfo->getCount()));
 
             $templateMgr->assign('helpTopicId', 'journal.managementPages.readingTools.contexts');

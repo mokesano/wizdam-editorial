@@ -23,7 +23,7 @@ declare(strict_types=1);
 
 import('core.Modules.db.DBConnection');
 import('core.Modules.db.DAOResultFactory');
-import('core.Modules.core.DataObject');
+import('core.Kernel.DataObject');
 
 define('SORT_DIRECTION_ASC', 0x00001);
 define('SORT_DIRECTION_DESC', 0x00002);
@@ -633,7 +633,7 @@ class DAO {
         }
 
         // Create and render the JSON message
-        import('core.Modules.core.JSONMessage');
+        import('core.Kernel.JSONMessage');
         $json = new JSONMessage(true);
         $json->setEvent('dataChanged', $eventData);
         header('Content-Type: application/json');

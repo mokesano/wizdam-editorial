@@ -18,7 +18,7 @@ declare(strict_types=1);
 import('core.Modules.plugins.GatewayPlugin');
 import('core.Modules.site.VersionCheck');
 import('core.Modules.db.DBResultRange');
-import('core.Modules.core.ArrayItemIterator');
+import('core.Kernel.ArrayItemIterator');
 
 define('PLN_PLUGIN_PING_ARTICLE_COUNT', 12);
 

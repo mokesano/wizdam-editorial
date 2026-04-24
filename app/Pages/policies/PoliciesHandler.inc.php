@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 import('core.Modules.handler.Handler');
-import('core.Modules.core.CoreString');
+import('core.Kernel.CoreString');
 
 class PoliciesHandler extends Handler {
 

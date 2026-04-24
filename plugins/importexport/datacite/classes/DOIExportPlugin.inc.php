@@ -1139,7 +1139,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		unset($articles);
 
 		// Instantiate article iterator.
-		import('core.Modules.core.VirtualArrayIterator');
+		import('core.Kernel.VirtualArrayIterator');
 		$iterator = new VirtualArrayIterator($articleData, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
 		// Prepare and display the article template.
@@ -1202,7 +1202,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		unset($galleys);
 
 		// Instantiate galley iterator.
-		import('core.Modules.core.VirtualArrayIterator');
+		import('core.Kernel.VirtualArrayIterator');
 		$iterator = new VirtualArrayIterator($galleyData, $totalGalleys, $rangeInfo->getPage(), $rangeInfo->getCount());
 
 		// Prepare and display the galley template.

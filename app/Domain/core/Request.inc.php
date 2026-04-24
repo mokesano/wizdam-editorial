@@ -16,7 +16,7 @@
  * WIZDAM EDITION: PHP 8 Compatibility (Static & Strict Types)
  */
 
-import('core.Modules.core.CoreRequest');
+import('core.Kernel.CoreRequest');
 
 class Request extends CoreRequest {
     

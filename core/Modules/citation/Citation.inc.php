@@ -27,7 +27,7 @@ define('CITATION_PARSED', 0x03);
 define('CITATION_LOOKED_UP', 0x04);
 define('CITATION_APPROVED', 0x05);
 
-import('core.Modules.core.DataObject');
+import('core.Kernel.DataObject');
 import('core.Modules.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 import('core.Modules.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter');
 

@@ -408,7 +408,7 @@ class SearchHandler extends Handler {
                 $authors[$key] = $author;
             }
 
-            import('core.Modules.core.VirtualArrayIterator');
+            import('core.Kernel.VirtualArrayIterator');
             $itemsPerPage = ($rangeInfo && $rangeInfo->isValid()) ? $rangeInfo->getCount() : max(1, count($authors));
             $authorsIterator = new VirtualArrayIterator($authors, $authorsFactory->getCount(), $authorsFactory->getPage(), $itemsPerPage);
 
@@ -465,7 +465,7 @@ class SearchHandler extends Handler {
             }
         }
         
-        import('core.Modules.core.VirtualArrayIterator');
+        import('core.Kernel.VirtualArrayIterator');
         // Masukkan array yang sudah diekstrak tadi ke Iterator
         $results = new VirtualArrayIterator($resultsArray, $totalResults, $rangeInfo->getPage(), $rangeInfo->getCount());
 

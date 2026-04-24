@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying Section objects.
  */
 
-import ('classes.journal.Section');
+import ('app.Domain.journal.Section');
 
 class SectionDAO extends DAO {
     /** @var array Cache storage */

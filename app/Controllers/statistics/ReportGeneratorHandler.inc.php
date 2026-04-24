@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 import('core.Modules.handler.Handler');
-import('core.Modules.core.JSONMessage');
+import('core.Kernel.JSONMessage');
 
 class ReportGeneratorHandler extends Handler {
     

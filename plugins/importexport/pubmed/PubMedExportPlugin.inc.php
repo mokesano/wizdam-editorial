@@ -140,7 +140,7 @@ class PubMedExportPlugin extends ImportExportPlugin {
                 if ($rangeInfo->isValid()) {
                     $articleIds = array_slice($articleIds, $rangeInfo->getCount() * ($rangeInfo->getPage() - 1), $rangeInfo->getCount());
                 }
-                import('core.Modules.core.VirtualArrayIterator');
+                import('core.Kernel.VirtualArrayIterator');
                 $iterator = new VirtualArrayIterator(ArticleSearch::formatResults($articleIds), $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
                 $templateMgr->assign('articles', $iterator);
                 $templateMgr->display($this->getTemplatePath() . 'articles.tpl');

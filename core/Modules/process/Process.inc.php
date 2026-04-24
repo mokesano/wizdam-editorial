@@ -23,7 +23,7 @@ declare(strict_types=1);
 // Process types
 define('PROCESS_TYPE_CITATION_CHECKING', 0x01);
 
-import('core.Modules.core.DataObject');
+import('core.Kernel.DataObject');
 
 class Process extends DataObject {
     

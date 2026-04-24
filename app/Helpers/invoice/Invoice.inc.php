@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @brief Data Object yang merepresentasikan satu entitas Tagihan (Global Level).
  */
 
-import('core.Modules.core.DataObject');
+import('core.Kernel.DataObject');
 
 class Invoice extends DataObject {
     

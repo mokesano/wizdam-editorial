@@ -18,7 +18,7 @@ declare(strict_types=1);
 define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
 
-import('core.Modules.core.CoreRouter');
+import('core.Kernel.CoreRouter');
 
 class CorePageRouter extends CoreRouter {
     

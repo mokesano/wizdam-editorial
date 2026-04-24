@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 
-import('core.Modules.core.ItemIterator');
+import('core.Kernel.ItemIterator');
 
 class ArrayItemIterator extends ItemIterator {
     /** @var array The array of contents of this iterator. */

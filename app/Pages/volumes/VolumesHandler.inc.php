@@ -220,7 +220,7 @@ class VolumesHandler extends Handler {
         // =================================================================
         $firstIssue = $issuesArray[0];
 
-        import('core.Modules.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $issuesTemplateIterator = new ArrayItemIterator($issuesArray);
 
         $templateMgr->assign('issue',  $firstIssue);
@@ -280,7 +280,7 @@ class VolumesHandler extends Handler {
             return;
         }
 
-        import('core.Modules.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $issuesTemplateIterator = new ArrayItemIterator($issuesArray);
 
         import('core.Modules.file.PublicFileManager');

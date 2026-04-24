@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM v2] Degradasi URL bertingkat: Issue → Volume → Year → Archive
  */
 
-import ('classes.issue.IssueAction');
+import ('app.Domain.issue.IssueAction');
 import('core.Modules.handler.Handler');
 
 class IssueHandler extends Handler {

@@ -65,7 +65,7 @@ class CommandLineTool {
         // [WIZDAM LEGACY SUPPORT]
         // Ideally we should use a CLIRouter, but legacy plugins expect a PageRouter context.
         // We maintain this for compatibility with the existing ecosystem.
-        import('core.Modules.core.PageRouter');
+        import('core.Kernel.PageRouter');
         $router = new PageRouter();
         $router->setApplication($application);
         $request->setRouter($router);

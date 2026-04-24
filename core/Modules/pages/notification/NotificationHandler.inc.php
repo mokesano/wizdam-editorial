@@ -406,7 +406,7 @@ class NotificationHandler extends Handler {
             }
         }
 
-        import('core.Modules.core.JSONMessage');
+        import('core.Kernel.JSONMessage');
         $json = new JSONMessage();
 
         if (is_array($notifications) && !empty($notifications)) {

@@ -112,7 +112,7 @@ class InterestDAO extends ControlledVocabDAO {
         });
 
         // Turn back into an iterator.
-        import('core.Modules.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         return new ArrayItemIterator($interests);
     }
 

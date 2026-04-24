@@ -103,7 +103,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature {
         $request = $args['request'];
         $grid = $args['grid'];
 
-        import('core.Modules.core.JSONManager');
+        import('core.Kernel.JSONManager');
         $jsonManager = new JSONManager();
         $data = $jsonManager->decode($request->getUserVar('data'));
         

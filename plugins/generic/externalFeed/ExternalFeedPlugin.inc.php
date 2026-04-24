@@ -237,7 +237,7 @@ class ExternalFeedPlugin extends GenericPlugin {
                 $this->import('simplepie.SimplePie');
                 
                 // PENTING: Import CoreString agar tidak error Class Not Found
-                import('core.Modules.core.CoreString');
+                import('core.Kernel.CoreString');
 
                 $feeds = $externalFeedDao->getExternalFeedsByJournalId($journal->getId());
                 $processedFeeds = array(); 

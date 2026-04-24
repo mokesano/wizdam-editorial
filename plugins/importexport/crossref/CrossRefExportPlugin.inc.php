@@ -275,7 +275,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
             $articleData = array_slice($articleData, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
         }
         // Instantiate article iterator.
-        import('core.Modules.core.VirtualArrayIterator');
+        import('core.Kernel.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($articleData, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the article template.
@@ -442,7 +442,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
      */
     public function updateDepositStatus($request, $journal, $article) {
         $articleDao = DAORegistry::getDAO('ArticleDAO');  /* @var $articleDao ArticleDAO */
-        import('core.Modules.core.JSONManager');
+        import('core.Kernel.JSONManager');
         $jsonManager = new JSONManager();
 
         // Prepare HTTP session.

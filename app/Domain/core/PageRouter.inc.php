@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - [v2] Degradasi Routing Bertingkat: Issue → Volume → Year → Archive
  */
 
-import('core.Modules.core.CorePageRouter');
+import('core.Kernel.CorePageRouter');
 
 class PageRouter extends CorePageRouter {
 

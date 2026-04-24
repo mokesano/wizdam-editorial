@@ -32,7 +32,7 @@ class ReviewObjectTypesEditorHandler extends Handler {
 		$types = $reviewObjectTypeDao->getTypeIdsAlphabetizedByContext($journalId);
 		$totalResults = count($types);
 		$types = array_slice($types, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
-		import('core.Modules.core.VirtualArrayIterator');
+		import('core.Kernel.VirtualArrayIterator');
 		$results = new VirtualArrayIterator($types, $totalResults, $rangeInfo->getPage(), $rangeInfo->getCount());
 
 		$this->setupTemplate($request);

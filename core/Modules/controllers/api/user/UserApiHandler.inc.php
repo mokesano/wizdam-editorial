@@ -23,7 +23,7 @@ declare(strict_types=1);
 import('core.Modules.handler.CoreHandler');
 
 // import JSON class for API responses
-import('core.Modules.core.JSONMessage');
+import('core.Kernel.JSONMessage');
 
 class UserApiHandler extends CoreHandler {
     

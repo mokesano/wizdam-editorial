@@ -41,7 +41,7 @@ declare(strict_types=1);
  * contributions to certain filter groups (e.g. citation parsers).
  */
 
-import('core.Modules.core.DataObject');
+import('core.Kernel.DataObject');
 
 class FilterGroup extends DataObject {
     

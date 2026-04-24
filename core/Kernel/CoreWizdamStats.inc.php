@@ -20,7 +20,7 @@ declare(strict_types=1);
 // Import kelas-kelas yang diperlukan
 import('core.Modules.db.DBConnection');
 import('core.Modules.cache.CacheManager');
-import('core.Modules.core.Core');
+import('core.Kernel.Core');
 import('core.Modules.config.Config');
 import('core.Modules.journal.JournalDAO');
 import('core.Modules.article.ArticleDAO');

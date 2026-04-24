@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 import('core.Modules.handler.Handler');
-import('core.Modules.core.CoreStats');
+import('core.Kernel.CoreStats');
 
 class IndexHandler extends Handler {
     
@@ -96,7 +96,7 @@ class IndexHandler extends Handler {
             
             // --- MODIFIKASI DIMULAI (WIZDAM Editor Staff) ---
             // 1. Import kelas handler baru dari core
-            import('core.Modules.core.CoreEditorStaff');
+            import('core.Kernel.CoreEditorStaff');
             
             // 2. jumlah staff yang ingin ditampilkan (sesuai kebutuhan)
             $maxStaffToShow = 3; 

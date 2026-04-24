@@ -59,7 +59,7 @@ class EmailHandler extends ManagerHandler {
         $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
         $emailTemplates = $emailTemplateDao->getEmailTemplates(AppLocale::getLocale(), $journal->getId());
 
-        import('core.Modules.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $emailTemplates = ArrayItemIterator::fromRangeInfo($emailTemplates, $rangeInfo);
 
         $templateMgr = TemplateManager::getManager();

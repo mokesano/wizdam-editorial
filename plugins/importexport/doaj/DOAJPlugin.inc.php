@@ -255,7 +255,7 @@ class DOAJPlugin extends ImportExportPlugin {
         unset($issueIterator);
 
         // Instantiate issue iterator.
-        import('core.Modules.core.ArrayItemIterator');
+        import('core.Kernel.ArrayItemIterator');
         $rangeInfo = Handler::getRangeInfo('issues');
         $iterator = new ArrayItemIterator($issues, $rangeInfo->getPage(), $rangeInfo->getCount());
 
@@ -294,7 +294,7 @@ class DOAJPlugin extends ImportExportPlugin {
             $paginatedArticles = array_slice($articles, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
             
             // Instantiate article iterator.
-            import('core.Modules.core.VirtualArrayIterator');
+            import('core.Kernel.VirtualArrayIterator');
             $iterator = new VirtualArrayIterator($paginatedArticles, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
             // Prepare and display the article template.

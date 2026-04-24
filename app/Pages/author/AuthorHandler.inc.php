@@ -124,7 +124,7 @@ class AuthorHandler extends Handler {
                 $submissionsArray = array_reverse($submissionsArray);
             }
             // Convert submission array back to an ItemIterator class
-            import('core.Modules.core.ArrayItemIterator');
+            import('core.Kernel.ArrayItemIterator');
             $submissions = ArrayItemIterator::fromRangeInfo($submissionsArray, $rangeInfo);
         } else {
             $submissions = $authorSubmissionDao->getAuthorSubmissions($user->getId(), $journal->getId(), $active, $rangeInfo, $sort, $sortDirection);

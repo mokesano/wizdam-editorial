@@ -29,8 +29,8 @@ define ('COMPONENT_ROUTER_PARTS_MAXDEPTH', 5);
 define ('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define ('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
-import('core.Modules.core.CoreRouter');
-import('core.Modules.core.Request');
+import('core.Kernel.CoreRouter');
+import('core.Kernel.Request');
 
 class CoreComponentRouter extends CoreRouter {
     //
@@ -325,7 +325,7 @@ class CoreComponentRouter extends CoreRouter {
             $translatedAuthorizationMessage .= ' ['.$url.$queryString.']';
         }
         // Return a JSON error message.
-        import('core.Modules.core.JSONMessage');
+        import('core.Kernel.JSONMessage');
         $json = new JSONMessage(false, $translatedAuthorizationMessage);
         header('Content-Type: application/json');
         return $json->getString();

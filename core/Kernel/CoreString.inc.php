@@ -723,7 +723,7 @@ class CoreString {
      * @return string
      */
     public static function utf8_normalize(string $str): string {
-        import('core.Modules.core.Transcoder');
+        import('core.Kernel.Transcoder');
 
         if (self::hasMBString()) {
             // NB: CP-1252 often segfaults; we've left it out here but it will detect as 'ISO-8859-1'

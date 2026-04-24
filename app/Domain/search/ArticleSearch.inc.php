@@ -443,7 +443,7 @@ class ArticleSearch {
 
         $results = ArticleSearch::formatResults($results);
 
-        import('core.Modules.core.VirtualArrayIterator');
+        import('core.Kernel.VirtualArrayIterator');
         $returner = new VirtualArrayIterator($results, $totalResults, $page, $itemsPerPage);
         return $returner;
     }

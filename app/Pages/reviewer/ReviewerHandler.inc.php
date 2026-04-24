@@ -105,7 +105,7 @@ class ReviewerHandler extends Handler {
             }
 
             // Convert submission array back to an ItemIterator class
-            import('core.Modules.core.ArrayItemIterator');
+            import('core.Kernel.ArrayItemIterator');
             $submissions = ArrayItemIterator::fromRangeInfo($submissionsArray, $rangeInfo);
         } else {
             $submissions = $reviewerSubmissionDao->getReviewerSubmissionsByReviewerId($user->getId(), $journal->getId(), $active, $rangeInfo, $sort, $sortDirection);

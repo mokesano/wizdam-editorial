@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x Strict Standards.
  */
 
-import('core.Modules.core.ItemIterator');
+import('core.Kernel.ItemIterator');
 
 class VirtualArrayIterator extends ItemIterator {
     /** * @var array|null The array of contents of this iterator. 

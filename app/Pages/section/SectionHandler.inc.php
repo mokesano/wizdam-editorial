@@ -202,7 +202,7 @@ class SectionHandler extends Handler {
         $offset       = ($currentPage - 1) * $itemsPerPage;
         $pageArticles = array_slice($allFiltered, $offset, $itemsPerPage);
 
-        import('core.Modules.core.VirtualArrayIterator');
+        import('core.Kernel.VirtualArrayIterator');
         $articlesIterator = new VirtualArrayIterator(
             $pageArticles,
             $totalCount,
