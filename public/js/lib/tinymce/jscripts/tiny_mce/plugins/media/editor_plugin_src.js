@@ -47,6 +47,10 @@
 		return obj;
 	};
 
+	function escapeRegExp(str) {
+		return (str + '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+
 	tinymce.create('tinymce.plugins.MediaPlugin', {
 		init : function(ed, url) {
 			var self = this, lookup = {}, i, y, item, name;
