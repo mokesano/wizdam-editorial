@@ -12,6 +12,10 @@
 	var rootAttributes = tinymce.explode('id,name,width,height,style,align,class,hspace,vspace,bgcolor,type'), excludedAttrs = tinymce.makeMap(rootAttributes.join(',')), Node = tinymce.html.Node,
 		mediaTypes, scriptRegExp, JSON = tinymce.util.JSON, mimeTypes;
 
+	function escapeRegExp(str) {
+		return (str + '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	}
+
 	// Media types supported by this plugin
 	mediaTypes = [
 		// Type, clsid:s, mime types, codebase
