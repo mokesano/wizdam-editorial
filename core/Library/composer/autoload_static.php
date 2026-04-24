@@ -44,6 +44,7 @@ class ComposerStaticInitf5b869e270d60ee3419e8e65ef6a0366
             'Wizdam\\Modules\\' => 15,
             'Wizdam\\Kernel\\' => 14,
             'Wizdam\\Core\\' => 12,
+            'WizdamDebugToolbar\\' => 19,
         ),
         'S' =>
         array (
@@ -120,6 +121,10 @@ class ComposerStaticInitf5b869e270d60ee3419e8e65ef6a0366
         'Wizdam\\Core\\' =>
         array (
             0 => __DIR__ . '/../../..' . '/core/Includes',
+        ),
+        'WizdamDebugToolbar\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src',
         ),
         'Symfony\\Polyfill\\Php80\\' =>
         array (
@@ -3472,6 +3477,24 @@ class ComposerStaticInitf5b869e270d60ee3419e8e65ef6a0366
         'WebService' => __DIR__ . '/../../..' . '/core/Modules/webservice/WebService.inc.php',
         'WebServiceRequest' => __DIR__ . '/../../..' . '/core/Modules/webservice/WebServiceRequest.inc.php',
         'WizardModal' => __DIR__ . '/../../..' . '/core/Modules/linkAction/request/WizardModal.inc.php',
+        'WizdamDebugToolbar\\Adapters\\AdodbDatabaseAdapter' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Adapters/AdodbDatabaseAdapter.php',
+        'WizdamDebugToolbar\\Adapters\\WizdamRouterAdapter' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Adapters/WizdamRouterAdapter.php',
+        'WizdamDebugToolbar\\Collectors\\BaseCollector' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Collectors/BaseCollector.php',
+        'WizdamDebugToolbar\\Collectors\\Config' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Collectors/Config.php',
+        'WizdamDebugToolbar\\Collectors\\Database' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Collectors/Database.php',
+        'WizdamDebugToolbar\\Collectors\\Events' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Collectors/Events.php',
+        'WizdamDebugToolbar\\Collectors\\Files' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Collectors/Files.php',
+        'WizdamDebugToolbar\\Collectors\\History' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Collectors/History.php',
+        'WizdamDebugToolbar\\Collectors\\Logs' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Collectors/Logs.php',
+        'WizdamDebugToolbar\\Collectors\\Routes' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Collectors/Routes.php',
+        'WizdamDebugToolbar\\Collectors\\Timers' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Collectors/Timers.php',
+        'WizdamDebugToolbar\\Collectors\\Views' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Collectors/Views.php',
+        'WizdamDebugToolbar\\DebugToolbar' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/DebugToolbar.php',
+        'WizdamDebugToolbar\\Interfaces\\CollectorInterface' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Interfaces/CollectorInterface.php',
+        'WizdamDebugToolbar\\Interfaces\\DatabaseAdapterInterface' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Interfaces/DatabaseAdapterInterface.php',
+        'WizdamDebugToolbar\\Interfaces\\RouterInterface' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Interfaces/RouterInterface.php',
+        'WizdamDebugToolbar\\Interfaces\\TemplateEngineInterface' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Interfaces/TemplateEngineInterface.php',
+        'WizdamDebugToolbar\\Middleware\\DebugToolbarMiddleware' => __DIR__ . '/..' . '/wizdamdebug/debug-toolbar/src/Middleware/DebugToolbarMiddleware.php',
         'WizdamNLP' => __DIR__ . '/../../..' . '/core/Modules/nlp/WizdamNLP.inc.php',
         'WorldcatCitationLookupPlugin' => __DIR__ . '/../../..' . '/plugins/citationLookup/worldcat/WorldcatCitationLookupPlugin.inc.php',
         'WorldcatNlm30CitationSchemaFilter' => __DIR__ . '/../../..' . '/core/Modules/plugins/citationLookup/worldcat/filter/WorldcatNlm30CitationSchemaFilter.inc.php',
