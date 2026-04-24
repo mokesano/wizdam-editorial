@@ -946,10 +946,18 @@
        const doiElement = document.querySelector('.anchor.doi');
        if (doiElement) {
            const href = doiElement.getAttribute('href');
-           if (href && href.includes('https://doi.org/')) {
-               const doi = href.split('https://doi.org/')[1];
-               if (doi) {
-                   loadCitingArticles(doi);
+           if (href) {
+               try {
+                   const parsedUrl = new URL(href, window.location.origin);
+                   const isAllowedDoiHost = parsedUrl.protocol === 'https:' && parsedUrl.hostname === 'doi.org';
+                   if (isAllowedDoiHost) {
+                       const doi = parsedUrl.pathname.replace(/^\/+/, '');
+                       if (doi) {
+                           loadCitingArticles(doi);
+                       }
+                   }
+               } catch (error) {
+                   console.warn('[Wizdam API]: Invalid DOI URL format:', href);
                }
            }
        }
