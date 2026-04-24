@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.file.FileManager');
+import('lib.wizdam.classes.file.FileManager');
 
 class JournalFileManager extends FileManager {
 

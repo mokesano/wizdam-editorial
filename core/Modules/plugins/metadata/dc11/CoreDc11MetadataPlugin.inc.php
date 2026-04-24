@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.plugins.MetadataPlugin');
+import('lib.wizdam.classes.plugins.MetadataPlugin');
 
 class CoreDc11MetadataPlugin extends MetadataPlugin {
 

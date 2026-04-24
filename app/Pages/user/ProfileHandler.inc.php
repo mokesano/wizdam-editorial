@@ -48,10 +48,10 @@ class ProfileHandler extends UserHandler {
      * [WIZDAM ARCHITECTURE] New dedicated semantic method for viewing own profile.
      * URL: /user/my-profile
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function myProfile($args = [], $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         
         // Wajib login
         $this->validate();
@@ -70,11 +70,11 @@ class ProfileHandler extends UserHandler {
     /**
      * Display form to edit user's profile.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function updateProfile($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         $this->setupTemplate($request, true);
@@ -93,11 +93,11 @@ class ProfileHandler extends UserHandler {
     /**
      * Validate and save changes to user's profile.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function saveProfile($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         $this->setupTemplate($request);
@@ -131,10 +131,10 @@ class ProfileHandler extends UserHandler {
      * View the public user profile for a user, specified by user ID,
      * if that user should be exposed for public view.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function publicProfile($args, $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate(false); // Tidak wajib login
         
@@ -170,11 +170,11 @@ class ProfileHandler extends UserHandler {
     /**
      * Display form to change user's password.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function changePassword($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         $this->setupTemplate($request, true);
@@ -189,11 +189,11 @@ class ProfileHandler extends UserHandler {
     /**
      * Save user's new password.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function savePassword($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
 
@@ -216,7 +216,7 @@ class ProfileHandler extends UserHandler {
      * Menampilkan halaman khusus Linked Accounts
      * URL Akses: /user/linked-accounts
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function linkedAccounts($args, $request) {
         // Validasi akses: Pastikan pengguna sudah login

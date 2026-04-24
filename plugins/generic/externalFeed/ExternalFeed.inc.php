@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @ingroup plugins_generic_externalFeed
  *
  * @brief Basic class describing an external feed.
- * * MODERNIZED FOR PHP 7.4+ & OJS FORK
+ * * MODERNIZED FOR PHP 7.4+ & Wizdam FORK
  * - Implemented __construct.
  * - Added strict type casting (int/float) for data security.
  */

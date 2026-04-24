@@ -68,7 +68,7 @@ class DRIVERDAO extends OAIDAO {
         // [FIXED] Manual SQL Construction because _getRecordsRecordSet was removed in Parent Refactor
         $params = $this->getOrderedRecordParams(null, $setIds, null);
         
-        // Note: 'mutex' table usage here assumes specific OJS fork implementation as per original code.
+        // Note: 'mutex' table usage here assumes specific Wizdam fork implementation as per original code.
         $sql = $this->getRecordSelectStatement() . ' FROM mutex m ' .
                $this->getRecordJoinClause(null, $setIds, null) . ' ' .
                $this->getAccessibleRecordWhereClause() . ' ' .

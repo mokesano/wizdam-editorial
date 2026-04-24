@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @defgroup rt_ojs_form
+ * @defgroup rt_wizdam_form
  */
 
 /**
@@ -13,7 +13,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class CommentForm
- * @ingroup rt_ojs_form
+ * @ingroup rt_wizdam_form
  * @see Comment, CommentDAO
  *
  * @brief Form to change metadata information for an RT comment.
@@ -21,7 +21,7 @@ declare(strict_types=1);
  * - TRUE MODULAR SECURITY: Decoupled Default Captcha, reCAPTCHA, and Turnstile
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class CommentForm extends Form {
 
@@ -82,7 +82,7 @@ class CommentForm extends Form {
         // PILAR 3: DEFAULT CAPTCHA (HANYA JIKA TURNSTILE & RECAPTCHA OFF)
         if (!$this->turnstileEnabled && !$this->reCaptchaEnabled) {
             if (Config::getVar('captcha', 'captcha') && Config::getVar('captcha', 'captcha_on_comments')) {
-                import('lib.pkp.classes.captcha.CaptchaManager');
+                import('lib.wizdam.classes.captcha.CaptchaManager');
                 $captchaManager = new CaptchaManager();
                 if ($captchaManager->isEnabled()) {
                     $this->captchaEnabled = true;
@@ -203,7 +203,7 @@ class CommentForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {
@@ -252,7 +252,7 @@ class CommentForm extends Form {
         // 3. Default Captcha
         $templateMgr->assign('captchaEnabled', $this->captchaEnabled);
         if ($this->captchaEnabled) {
-            import('lib.pkp.classes.captcha.CaptchaManager');
+            import('lib.wizdam.classes.captcha.CaptchaManager');
             $captchaManager = new CaptchaManager();
             $captcha = $captchaManager->createCaptcha();
             if ($captcha) {

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class WebFeedBlockPlugin extends BlockPlugin {
 
@@ -113,7 +113,7 @@ class WebFeedBlockPlugin extends BlockPlugin {
     /**
      * Get HTML block contents.
      * @param $templateMgr object
-     * @param $request PKPRequest|null
+     * @param $request CoreRequest|null
      * @return string
      */
     public function getContents($templateMgr, $request = null) {

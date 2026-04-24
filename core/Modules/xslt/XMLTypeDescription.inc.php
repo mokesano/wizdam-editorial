@@ -25,8 +25,8 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, No References, Visibility)
  */
 
-import('lib.pkp.classes.filter.TypeDescription');
-import('lib.pkp.classes.filter.TypeDescriptionFactory');
+import('lib.wizdam.classes.filter.TypeDescription');
+import('lib.wizdam.classes.filter.TypeDescriptionFactory');
 
 define('XML_TYPE_DESCRIPTION_VALIDATE_NONE', '*');
 define('XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA', 'schema');

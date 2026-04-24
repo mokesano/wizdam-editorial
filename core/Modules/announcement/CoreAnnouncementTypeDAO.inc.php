@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - Null Safety
  */
 
-import('lib.pkp.classes.announcement.PKPAnnouncementType');
+import('lib.wizdam.classes.announcement.PKPAnnouncementType');
 
 class CoreAnnouncementTypeDAO extends DAO {
     

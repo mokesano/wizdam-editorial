@@ -44,7 +44,7 @@ class CountryDAO extends DAO {
      */
     public function getFilename($locale = null) {
         if ($locale === null) $locale = AppLocale::getLocale();
-        return "lib/pkp/locale/$locale/countries.xml";
+        return "lib/wizdam/locale/$locale/countries.xml";
     }
 
     /**

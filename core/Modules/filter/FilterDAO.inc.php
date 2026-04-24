@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying Filter objects.
  */
 
-import('lib.pkp.classes.filter.Filter');
+import('lib.wizdam.classes.filter.Filter');
 
 class FilterDAO extends DAO {
     /** @var array names of additional settings for the currently persisted/retrieved filter */
@@ -64,7 +64,7 @@ class FilterDAO extends DAO {
         if (!is_a($filterGroup, 'FilterGroup')) return $falseVar;
 
         // Instantiate the filter.
-        // NOTE: instantiate is a global function in OJS 2.x logic, preserved here.
+        // NOTE: instantiate is a global function in Wizdam 2.x logic, preserved here.
         $filter = instantiate($filterClassName, 'PersistableFilter', null, 'execute', $filterGroup); /* @var $filter PersistableFilter */
         if (!is_object($filter)) return $falseVar;
 

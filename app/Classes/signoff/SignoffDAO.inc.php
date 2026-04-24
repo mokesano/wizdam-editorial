@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying Signoff objects.
  */
 
-import('lib.pkp.classes.signoff.PKPSignoffDAO');
+import('lib.wizdam.classes.signoff.PKPSignoffDAO');
 
 class SignoffDAO extends CoreSignoffDAO {
     

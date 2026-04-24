@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x (Removed create_function)
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 define('CITATION_FORM_FULL_TEMPLATE', 'controllers/grid/citation/form/citationForm.tpl');
 define('CITATION_FORM_COMPARISON_TEMPLATE', 'controllers/grid/citation/form/citationFormErrorsAndComparison.tpl');
@@ -204,7 +204,7 @@ class CitationForm extends Form {
         }
 
         // Extract data from citation form fields and inject it into the citation
-        import('lib.pkp.classes.metadata.MetadataDescription');
+        import('lib.wizdam.classes.metadata.MetadataDescription');
         $metadataSchemas = $citation->getSupportedMetadataSchemas();
         foreach($metadataSchemas as $metadataSchema) { /* @var $metadataSchema MetadataSchema */
             // Instantiate a meta-data description for the given schema
@@ -240,7 +240,7 @@ class CitationForm extends Form {
                             break;
 
                         case isset($allowedTypes[METADATA_PROPERTY_TYPE_DATE]):
-                            import('lib.pkp.classes.metadata.DateStringNormalizerFilter');
+                            import('lib.wizdam.classes.metadata.DateStringNormalizerFilter');
                             $dateStringFilter = new DateStringNormalizerFilter();
                             assert($dateStringFilter->supportsAsInput($fieldValue));
                             $typedFieldValues = [$dateStringFilter->execute($fieldValue)];
@@ -258,7 +258,7 @@ class CitationForm extends Form {
                             }
 
                             // Try to transform the field to a name composite.
-                            import('lib.pkp.plugins.metadata.nlm30.filter.PersonStringNlm30NameSchemaFilter');
+                            import('lib.wizdam.plugins.metadata.nlm30.filter.PersonStringNlm30NameSchemaFilter');
                             $personStringFilter = new PersonStringNlm30NameSchemaFilter($assocType, PERSON_STRING_FILTER_MULTIPLE);
                             assert($personStringFilter->supportsAsInput($fieldValue));
                             $typedFieldValues = $personStringFilter->execute($fieldValue);
@@ -362,7 +362,7 @@ class CitationForm extends Form {
             $generatedCitation = trim(str_replace(GOOGLE_SCHOLAR_TAG, '', strip_tags($generatedCitation)));
 
             // Compare the raw and the formatted citation and add the result to the template.
-            $citationDiff = PKPString::diff($this->getData('rawCitation'), $generatedCitation);
+            $citationDiff = CoreString::diff($this->getData('rawCitation'), $generatedCitation);
             $templateMgr->assign('citationDiff', $citationDiff);
             $templateMgr->assign('currentOutputFilter', $citationOutputFilter->getDisplayName());
 
@@ -456,7 +456,7 @@ class CitationForm extends Form {
                 'articleTitle' => strip_tags($assocObject->getLocalizedTitle()),
                 'rawCitation' => strip_tags($citation->getRawCitation())
             ];
-            import('lib.pkp.classes.mail.MailTemplate');
+            import('lib.wizdam.classes.mail.MailTemplate');
             $mail = new MailTemplate('CITATION_EDITOR_AUTHOR_QUERY', null, false, null, true, true);
             $mail->assignParams($emailParams);
             $templateMgr->assign('authorQuerySubject', $mail->getSubject());
@@ -548,7 +548,7 @@ class CitationForm extends Form {
                 // name arrays to strings.
                 $allowedAssocTypes = $allowedTypes[METADATA_PROPERTY_TYPE_COMPOSITE];
                 assert(in_array(ASSOC_TYPE_AUTHOR, $allowedAssocTypes) || in_array(ASSOC_TYPE_EDITOR, $allowedAssocTypes));
-                import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter');
+                import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter');
                 $personStringFilter = new Nlm30NameSchemaPersonStringFilter(PERSON_STRING_FILTER_MULTIPLE);
                 assert($personStringFilter->supportsAsInput($value));
                 $stringValue = $personStringFilter->execute($value);

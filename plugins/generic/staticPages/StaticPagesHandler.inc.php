@@ -40,7 +40,7 @@ class StaticPagesHandler extends Handler {
     /**
      * Index handler
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function index($args = array(), $request = null) {
         if (!$request) {
@@ -52,7 +52,7 @@ class StaticPagesHandler extends Handler {
     /**
      * View handler
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function view($args, $request) {
         if (count($args) > 0 ) {

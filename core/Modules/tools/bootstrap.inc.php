@@ -21,7 +21,7 @@ define('INDEX_FILE_LOCATION', dirname(__DIR__) . '/index.php');
 // [WIZDAM SAFETY] Critical CLI Component Check
 // Ensure the CLI Tool base class exists before loading.
 // Unlike web requests, CLI tools write to STDERR on failure.
-$cliToolPath = dirname(__DIR__) . '/lib/pkp/classes/cliTool/CliTool.inc.php';
+$cliToolPath = dirname(__DIR__) . '/lib/wizdam/classes/cliTool/CliTool.inc.php';
 
 if (!file_exists($cliToolPath)) {
     fwrite(STDERR, "Wizdam CLI Error: Core Tool Definitions are missing or corrupt.\nPath: $cliToolPath\n");

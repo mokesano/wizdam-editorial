@@ -136,12 +136,12 @@ class ManualPaymentPlugin extends PaymethodPlugin {
         $cleanInstructions = trim(strip_tags((string) $instructions));
         
         if (empty($cleanInstructions)) {
-             $templateMgr->assign('manualInstructions', '<div class="pkp_form_error" style="color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 15px; border-radius: 4px;"><strong>Peringatan:</strong> Instruksi pembayaran manual belum diatur. Transaksi belum bisa dilanjutkan.</div>');
+             $templateMgr->assign('manualInstructions', '<div class="wizdam_form_error" style="color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 15px; border-radius: 4px;"><strong>Peringatan:</strong> Instruksi pembayaran manual belum diatur. Transaksi belum bisa dilanjutkan.</div>');
         } else {
              $templateMgr->assign('manualInstructions', $instructions);
         }
 
-        // --- 2. [CORE OJS] DATA ITEM DASAR ---
+        // --- 2. [CORE Wizdam] DATA ITEM DASAR ---
         $templateMgr->assign('itemName', $queuedPayment->getName());
         $templateMgr->assign('itemDescription', $queuedPayment->getDescription());
         
@@ -165,7 +165,7 @@ class ManualPaymentPlugin extends PaymethodPlugin {
                 $formatter->setAttribute(\NumberFormatter::MIN_FRACTION_DIGITS, 2);
                 $formatter->setAttribute(\NumberFormatter::MAX_FRACTION_DIGITS, 2);
 
-                // Ambil nilai TOTAL AKHIR dari antrean OJS
+                // Ambil nilai TOTAL AKHIR dari antrean Wizdam
                 $finalAmount = $queuedPayment->getAmount();
 
                 // --- KOP SURAT (SITE SETTINGS) ---
@@ -340,8 +340,8 @@ class ManualPaymentPlugin extends PaymethodPlugin {
             $request->redirect(null, 'index');
         }
         
-        $ojsPaymentManager = new \OJSPaymentManager($request);
-        $queuedPayment = $ojsPaymentManager->getQueuedPayment($queuedPaymentId);
+        $wizdamPaymentManager = new \OJSPaymentManager($request);
+        $queuedPayment = $wizdamPaymentManager->getQueuedPayment($queuedPaymentId);
         
         if (!$queuedPayment) $request->redirect(null, 'index');
 

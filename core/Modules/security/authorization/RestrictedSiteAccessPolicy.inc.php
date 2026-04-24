@@ -15,13 +15,13 @@ declare(strict_types=1);
  * contains such a setting.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
 
 class RestrictedSiteAccessPolicy extends AuthorizationPolicy {
-    /** @var PKPRouter */
+    /** @var CoreRouter */
     public $_router;
 
-    /** @var PKPRequest */
+    /** @var CoreRequest */
     public $_request;
 
     /**

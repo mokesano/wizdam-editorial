@@ -24,7 +24,7 @@ declare(strict_types=1);
  * - Explicit Type Hints
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
 
 class Nlm30CitationSchemaAbntFilter extends Nlm30CitationSchemaCitationOutputFormatFilter {
     
@@ -54,7 +54,7 @@ class Nlm30CitationSchemaAbntFilter extends Nlm30CitationSchemaCitationOutputFor
      * @return string
      */
     public function getClassName(): string {
-        return 'lib.pkp.plugins.citationOutput.abnt.filter.Nlm30CitationSchemaAbntFilter';
+        return 'lib.wizdam.plugins.citationOutput.abnt.filter.Nlm30CitationSchemaAbntFilter';
     }
 
 

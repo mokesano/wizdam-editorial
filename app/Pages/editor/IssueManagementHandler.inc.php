@@ -45,7 +45,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Displays the listings of future (unpublished) issues
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function futureIssues($args, $request) {
         $this->validate(null, true);
@@ -65,7 +65,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Displays the listings of back (published) issues
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function backIssues($args, $request) {
         $this->validate();
@@ -105,7 +105,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Removes an issue
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeIssue($args, $request) {
         $issueId = (int) array_shift($args);
@@ -154,7 +154,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Displays the create issue form
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createIssue($args, $request) {
         $this->validate();
@@ -180,7 +180,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Saves the new issue form
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveIssue($args, $request) {
         $this->validate();
@@ -206,7 +206,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Displays the issue data page
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function issueData($args, $request) {
         $issueId = (int) array_shift($args);
@@ -239,7 +239,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Edit the current issue form
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editIssue($args, $request) {
         $issueId = (int) array_shift($args);
@@ -281,7 +281,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Remove cover page from issue
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeIssueCoverPage($args, $request) {
         $issueId = (int) array_shift($args);
@@ -312,7 +312,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Remove style file from issue
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeStyleFile($args, $request) {
         $issueId = (int) array_shift($args);
@@ -335,7 +335,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Displays the issue galleys page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function issueGalleys($args, $request) {
         $issueId = (int) array_shift($args);
@@ -364,7 +364,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Create a new issue galley with the uploaded file.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function uploadIssueGalley($args, $request) {
         $issueId = (int) array_shift($args);
@@ -380,7 +380,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Edit an issue galley.
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editIssueGalley($args, $request) {
         $issueId = (int) array_shift($args);
@@ -403,7 +403,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Save changes to an issue galley.
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveIssueGalley($args, $request) {
         $issueId = (int) array_shift($args);
@@ -427,7 +427,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Change the sequence order of an issue galley.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function orderIssueGalley($args, $request) {
         // [SECURITY FIX] Secure casting
@@ -451,7 +451,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Delete an issue galley.
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteIssueGalley($args, $request) {
         $issueId = (int) array_shift($args);
@@ -477,7 +477,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Preview an issue galley.
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofIssueGalley($args, $request) {
         $issueId = (int) array_shift($args);
@@ -495,7 +495,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Proof issue galley (shows frame header).
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofIssueGalleyTop($args, $request) {
         $issueId = (int) array_shift($args);
@@ -513,7 +513,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Preview an issue galley (outputs file contents) (WIZDAM PHP 8 Fix).
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofIssueGalleyFile($args, $request) {
         $issueId = (int) array_shift($args);
@@ -543,7 +543,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Download an issue file (WIZDAM FIX: Support Inline Viewing)
      * @param array $args ($issueId, $fileId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function downloadIssueFile($args, $request) {
         $issueId = (int) array_shift($args);
@@ -583,7 +583,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Display the table of contents
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function issueToc($args, $request) {
         $issueId = (int) array_shift($args);
@@ -667,7 +667,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Updates issue table of contents with selected changes and article removals.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateIssueToc($args, $request) {
         $issueId = (int) array_shift($args);
@@ -751,7 +751,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Change the sequence of an issue.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function setCurrentIssue($args, $request) {
         // [SECURITY FIX] Secure casting
@@ -773,7 +773,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Change the sequence of an issue.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveIssue($args, $request) {
         // [SECURITY FIX] Secure casting
@@ -819,7 +819,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Reset issue ordering to defaults.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function resetIssueOrder($args, $request) {
         $this->validate();
@@ -835,7 +835,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Change the sequence of a section.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveSectionToc($args, $request) {
         $issueId = (int) array_shift($args);
@@ -869,7 +869,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Reset section ordering to section defaults.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function resetSectionOrder($args, $request) {
         $issueId = (int) array_shift($args);
@@ -885,7 +885,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Change the sequence of the articles.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveArticleToc($args, $request) {
         $this->validate(null, true);
@@ -940,7 +940,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Publish issue
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function publishIssue($args, $request) {
         $issueId = (int) array_shift($args);
@@ -1050,7 +1050,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Unpublish a previously-published issue
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function unpublishIssue($args, $request) {
         $issueId = (int) array_shift($args);
@@ -1080,7 +1080,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Allows editors to write emails to users associated with the journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function notifyUsers($args, $request) {
         // [SECURITY FIX] Secure casting
@@ -1100,7 +1100,7 @@ class IssueManagementHandler extends EditorHandler {
         $user = $request->getUser();
         $templateMgr = TemplateManager::getManager();
 
-        import('lib.pkp.classes.mail.MassMail');
+        import('lib.wizdam.classes.mail.MassMail');
         $email = new MassMail('PUBLISH_NOTIFY');
 
         // [SECURITY FIX] Secure casting
@@ -1135,7 +1135,7 @@ class IssueManagementHandler extends EditorHandler {
                     $recipients = null;
             }
 
-            import('lib.pkp.classes.validation.ValidatorEmail');
+            import('lib.wizdam.classes.validation.ValidatorEmail');
             $emails = [];
             while ($recipients && !$recipients->eof()) {
                 $recipient = $recipients->next();
@@ -1229,7 +1229,7 @@ class IssueManagementHandler extends EditorHandler {
     /**
      * Validate that user is an editor in the selected journal and if the issue id is valid
      * Redirects to issue create issue page if not properly authenticated.
-     * NOTE: As of OJS 2.2, Layout Editors are allowed if specified in args.
+     * NOTE: As of Wizdam 2.2, Layout Editors are allowed if specified in args.
      * @param int|null $issueId
      * @param bool $allowLayoutEditor
      * @return bool

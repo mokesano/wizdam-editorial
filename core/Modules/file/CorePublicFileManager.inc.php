@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/file/PKPPublicFileManager.inc.php
+ * @file classes/file/CorePublicFileManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Wrapper class for uploading files to a site/journal's public directory.
  */
 
-import('lib.pkp.classes.file.FileManager');
+import('lib.wizdam.classes.file.FileManager');
 
 class CorePublicFileManager extends FileManager {
 
@@ -28,9 +28,9 @@ class CorePublicFileManager extends FileManager {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPPublicFileManager() {
+    public function CorePublicFileManager() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPPublicFileManager(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CorePublicFileManager(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }

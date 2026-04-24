@@ -19,7 +19,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class CreateReviewerForm extends Form {
     /** @var int The article this form is for */
@@ -195,7 +195,7 @@ class CreateReviewerForm extends Form {
 
         // Insert the user interests
         $interests = $this->getData('interestsKeywords') ? $this->getData('interestsKeywords') : $this->getData('interestsTextOnly');
-        import('lib.pkp.classes.user.InterestManager');
+        import('lib.wizdam.classes.user.InterestManager');
         $interestManager = new InterestManager();
         $interestManager->setInterestsForUser($user, $interests);
 

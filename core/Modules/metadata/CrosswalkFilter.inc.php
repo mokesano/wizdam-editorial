@@ -18,7 +18,7 @@ declare(strict_types=1);
  * implementations.
  */
 
-import('lib.pkp.classes.filter.Filter');
+import('lib.wizdam.classes.filter.Filter');
 
 class CrosswalkFilter extends Filter {
     

@@ -150,7 +150,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
     /**
      * Process a DOI activity request.
      * @see DOIExportPlugin::process()
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $journal Journal
      * @return void
      */
@@ -183,7 +183,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
         $this->setBreadcrumbs(array(), true);
 
         // Retrieve all published issues.
-        AppLocale::requireComponents(array(LOCALE_COMPONENT_OJS_EDITOR));
+        AppLocale::requireComponents(array(LOCALE_COMPONENT_WIZDAM_EDITOR));
         $issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
         $this->registerDaoHook('IssueDAO');
         $issueIterator = $issueDao->getPublishedIssues($journal->getId(), Handler::getRangeInfo('issues'));
@@ -275,7 +275,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
             $articleData = array_slice($articleData, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
         }
         // Instantiate article iterator.
-        import('lib.pkp.classes.core.VirtualArrayIterator');
+        import('lib.wizdam.classes.core.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($articleData, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the article template.
@@ -322,7 +322,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
      */
     public function generateExportFiles($request, $exportType, $objects, $targetPath, $journal, &$errors) {
         // Additional locale file.
-        AppLocale::requireComponents(array(LOCALE_COMPONENT_OJS_EDITOR));
+        AppLocale::requireComponents(array(LOCALE_COMPONENT_WIZDAM_EDITOR));
 
         $this->import('classes.CrossRefExportDom');
         $dom = new CrossRefExportDom($request, $this, $journal, $this->getCache());
@@ -442,7 +442,7 @@ class CrossRefExportPlugin extends DOIExportPlugin {
      */
     public function updateDepositStatus($request, $journal, $article) {
         $articleDao = DAORegistry::getDAO('ArticleDAO');  /* @var $articleDao ArticleDAO */
-        import('lib.pkp.classes.core.JSONManager');
+        import('lib.wizdam.classes.core.JSONManager');
         $jsonManager = new JSONManager();
 
         // Prepare HTTP session.

@@ -18,7 +18,7 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class SubscriptionForm extends Form {
 

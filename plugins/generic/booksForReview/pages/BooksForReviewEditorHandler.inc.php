@@ -300,7 +300,7 @@ class BooksForReviewEditorHandler extends Handler {
                 
                 // [SECURITY FIX] Validasi $returnPage untuk mencegah Open Redirect
                 $redirectParams = null;
-                // Request::isPathValid adalah helper fiktif jika tidak ada di OJS 2, tapi validasi di atas sudah cukup
+                // Request::isPathValid adalah helper fiktif jika tidak ada di Wizdam 2, tapi validasi di atas sudah cukup
                 if (!empty($returnPage)) {
                     $redirectParams = array('returnPage' => $returnPage);
                 }
@@ -480,7 +480,7 @@ class BooksForReviewEditorHandler extends Handler {
             }
 
         } else if (!empty($searchInitial)) { 
-            $searchInitial = PKPString::strtoupper($searchInitial);
+            $searchInitial = CoreString::strtoupper($searchInitial);
             $searchType = USER_FIELD_INITIAL;
             $search = $searchInitial;
         }
@@ -569,7 +569,7 @@ class BooksForReviewEditorHandler extends Handler {
         $editorId = $user->getId();
         $rangeInfo = Handler::getRangeInfo('submissions');
 
-        import('lib.pkp.classes.db.DAO');
+        import('lib.wizdam.classes.db.DAO');
         $submissions = $editorSubmissionDao->getEditorSubmissions(
             $journalId,
             0,
@@ -750,12 +750,12 @@ class BooksForReviewEditorHandler extends Handler {
 
                         $paramArray = array(
                             'authorName' => strip_tags($userName),
-                            'authorMailingAddress' => PKPString::html2text($userMailingAddress),
+                            'authorMailingAddress' => CoreString::html2text($userMailingAddress),
                             'bookForReviewTitle' => '"' . strip_tags($book->getLocalizedTitle()) . '"',
                             'bookForReviewDueDate' => date('l, F j, Y', $dueDateTimestamp),
                             'userProfileUrl' => $request->url(null, 'user', 'profile'),
                             'submissionUrl' => $request->url(null, 'author', 'submit'),
-                            'editorialContactSignature' => PKPString::html2text($book->getEditorContactSignature())
+                            'editorialContactSignature' => CoreString::html2text($book->getEditorContactSignature())
                         );
 
                         $email->addRecipient($userEmail, $userName);
@@ -836,7 +836,7 @@ class BooksForReviewEditorHandler extends Handler {
                         'authorName' => strip_tags($userFullName),
                         'bookForReviewTitle' => '"' . strip_tags($book->getLocalizedTitle()) . '"',
                         'submissionUrl' => $request->url(null, 'author', 'submit'),
-                        'editorialContactSignature' => PKPString::html2text($book->getEditorContactSignature())
+                        'editorialContactSignature' => CoreString::html2text($book->getEditorContactSignature())
                     );
 
                     $email->addRecipient($userEmail, $userFullName);
@@ -925,10 +925,10 @@ class BooksForReviewEditorHandler extends Handler {
 
                     $paramArray = array(
                         'authorName' => strip_tags($userFullName),
-                        'authorMailingAddress' => PKPString::html2text($userMailingAddress),
+                        'authorMailingAddress' => CoreString::html2text($userMailingAddress),
                         'bookForReviewTitle' => '"' . strip_tags($book->getLocalizedTitle()) . '"',
                         'submissionUrl' => $request->url(null, 'author', 'submit'),
-                        'editorialContactSignature' => PKPString::html2text($book->getEditorContactSignature())
+                        'editorialContactSignature' => CoreString::html2text($book->getEditorContactSignature())
                     );
 
                     $email->addRecipient($userEmail, $userFullName);
@@ -1013,7 +1013,7 @@ class BooksForReviewEditorHandler extends Handler {
                     $paramArray = array(
                         'authorName' => strip_tags($userFullName),
                         'bookForReviewTitle' => '"' . strip_tags($book->getLocalizedTitle()) . '"',
-                        'editorialContactSignature' => PKPString::html2text($book->getEditorContactSignature())
+                        'editorialContactSignature' => CoreString::html2text($book->getEditorContactSignature())
                     );
 
                     $email->addRecipient($userEmail, $userFullName);

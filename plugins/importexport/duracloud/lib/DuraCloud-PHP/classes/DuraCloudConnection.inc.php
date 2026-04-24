@@ -43,7 +43,7 @@ class DuraCloudConnection {
 
     /**
      * Construct a new DuraCloudConnection.
-     * @param string $baseUrl Base URL to DuraCloud, i.e. https://pkp.duracloud.org
+     * @param string $baseUrl Base URL to DuraCloud, i.e. https://wizdam.duracloud.org
      * @param string $username Username
      * @param string $password Password
      */

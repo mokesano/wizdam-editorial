@@ -31,7 +31,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     /**
      * Index handler.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -43,7 +43,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     /**
      * Display a list of announcements for the current context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function announcements($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -74,7 +74,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
 
     /**
      * Get the announcements for this request.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param mixed $rangeInfo optional
      * @return ItemIterator
      */
@@ -89,7 +89,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     /**
      * Delete an announcement.
      * @param array $args first parameter ID of the announcement to delete
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteAnnouncement($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -115,7 +115,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     /**
      * Display form to edit an announcement.
      * @param array $args first parameter is the ID of the announcement to edit
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editAnnouncement($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -159,7 +159,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     /**
      * Display form to create new announcement.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createAnnouncement($args, $request) {
         $this->editAnnouncement($args, $request);
@@ -168,7 +168,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     /**
      * Save changes to an announcement.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateAnnouncement($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -220,7 +220,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     /**
      * Display a list of announcement types for the current context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function announcementTypes($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -247,7 +247,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     /**
      * Delete an announcement type.
      * @param array $args first parameter ID of the announcement type to delete
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteAnnouncementType($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -273,7 +273,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     /**
      * Display form to edit an announcement type.
      * @param array $args first parameter ID of the announcement type to edit
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editAnnouncementType($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -315,7 +315,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     /**
      * Display form to create new announcement type.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createAnnouncementType($args, $request) {
         $this->editAnnouncementType($args, $request);
@@ -324,7 +324,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     /**
      * Save changes to an announcement type.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateAnnouncementType($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -371,7 +371,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
 
     /**
      * Set up the template with breadcrumbs etc.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $subclass
      */
     public function setupTemplate($request = null, $subclass = false) {
@@ -394,7 +394,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     //
     /**
      * Get the current context id in request.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return int|null
      */
     public function getContextId($request) {
@@ -408,7 +408,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
     //
     /**
      * Check if the announcement is valid and belongs to the current context.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int|null $announcementId
      * @return bool
      */
@@ -419,7 +419,7 @@ class CoreAnnouncementHandler extends ManagerHandler {
 
     /**
      * Get the announcement types for this request.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param mixed $rangeInfo optional
      * @return ItemIterator
      */

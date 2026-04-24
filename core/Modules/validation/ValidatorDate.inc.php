@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, Static Method Fix)
  */
 
-import('lib.pkp.classes.validation.ValidatorRegExp');
+import('lib.wizdam.classes.validation.ValidatorRegExp');
 
 define('DATE_FORMAT_ISO', 0x01);
 define('VALIDATOR_DATE_SCOPE_DAY', 1);

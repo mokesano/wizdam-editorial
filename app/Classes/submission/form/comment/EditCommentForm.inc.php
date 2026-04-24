@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class EditCommentForm extends Form {
 
@@ -312,7 +312,7 @@ class EditCommentForm extends Form {
     /**
      * Email the comment.
      * @param array $recipients array of recipients (email address => name)
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function email($recipients, $request) {
         import('classes.mail.ArticleMailTemplate');
@@ -327,7 +327,7 @@ class EditCommentForm extends Form {
             $paramArray = [
                 'name' => $name,
                 'commentName' => $this->user->getFullName(),
-                'comments' => PKPString::html2text($this->getData('comments'))
+                'comments' => CoreString::html2text($this->getData('comments'))
             ];
             $email->assignParams($paramArray);
 

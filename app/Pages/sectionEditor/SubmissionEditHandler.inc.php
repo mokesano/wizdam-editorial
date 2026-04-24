@@ -57,7 +57,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
     /**
      * View the submission page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submission($args, $request) {
         $articleId = (int) array_shift($args);
@@ -128,7 +128,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
         $paymentManager = new AppPaymentManager($request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
-            $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+            $completedPaymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
 
             if ( $paymentManager->submissionEnabled() ) {
                 $templateMgr->assign('submissionPayment', $completedPaymentDao->getSubmissionCompletedPayment ( $journal->getId(), $articleId ));
@@ -150,7 +150,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * View the submission regrets page.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function submissionRegrets($args, $request) {
         $articleId = (int) array_shift($args);
@@ -197,7 +197,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * View the submission review page.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function submissionReview($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -291,7 +291,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * View the submission editing page.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function submissionEditing($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -338,7 +338,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 
         import('classes.payment.AppPaymentManager');
         $paymentManager = new AppPaymentManager($request);
-        $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+        $completedPaymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
 
         $publicationFeeEnabled = $paymentManager->publicationEnabled();
         $templateMgr->assign('publicationFeeEnabled',  $publicationFeeEnabled);
@@ -353,7 +353,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * View submission history
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function submissionHistory($args, $request) {
         $articleId = (int) array_shift($args);
@@ -403,7 +403,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Change an article's section.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function changeSection($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -448,7 +448,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Select a reviewer.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function selectReviewer($args, $request) {
         $articleId = (int) array_shift($args);
@@ -503,7 +503,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
                 }
             
             } elseif (!empty($searchInitial)) {
-                $searchInitial = PKPString::strtoupper($searchInitial);
+                $searchInitial = CoreString::strtoupper($searchInitial);
                 $searchType = USER_FIELD_INITIAL;
                 $search = $searchInitial;
             }
@@ -547,7 +547,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Create a new user as a reviewer.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function createReviewer($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -580,7 +580,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
      * Get a suggested username, making sure it's not
      * already used by the system. (Poor-man's AJAX.)
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function suggestUsername($args, $request) {
         parent::validate();
@@ -595,7 +595,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Search for users to enroll as reviewers.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function enrollSearch($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -638,7 +638,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
             }
         
         } elseif (!empty($searchInitial)) {
-            $searchInitial = PKPString::strtoupper($searchInitial);
+            $searchInitial = CoreString::strtoupper($searchInitial);
             $searchType = USER_FIELD_INITIAL;
             $search = $searchInitial;
             $searchMatch = 'startsWith';
@@ -671,7 +671,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Enroll a reviewer.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function enroll($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -705,7 +705,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Notify an assigned reviewer.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function notifyReviewer($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -723,7 +723,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Clear an assigned review.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function clearReview($args, $request) {
         $articleId = (int) array_shift($args);
@@ -738,7 +738,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Cancel a review.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function cancelReview($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -756,7 +756,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Remind a reviewer.
 	 * @param $args aray
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function remindReviewer($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -801,7 +801,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Thank a reviewer.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function thankReviewer($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -819,7 +819,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Rate a reviewer.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function rateReviewer($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -836,7 +836,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Confirm a review for a reviewer.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function confirmReviewForReviewer($args, $request) {
         $articleId = (int) array_shift($args);
@@ -852,7 +852,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Upload a review on behalf of a reviewer.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function uploadReviewForReviewer($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -867,7 +867,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Make a reviewer file viewable to the author.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function makeReviewerFileViewable($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -886,7 +886,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Set the review due date.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function setDueDate($args, $request) {
         $articleId = (int) array_shift($args);
@@ -931,7 +931,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Enter a reviewer recommendation on behalf of a reviewer
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function enterReviewerRecommendation($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -961,7 +961,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Display a user's profile.
 	 * @param $args array first parameter is the ID or username of the user to display
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function userProfile($args, $request) {
         parent::validate();
@@ -1004,7 +1004,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * View article metadata.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function viewMetadata($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1021,7 +1021,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Save modified metadata.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function saveMetadata($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1038,7 +1038,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Remove cover page from article
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function removeArticleCoverPage($args, $request) {
         $articleId = isset($args[0]) ? (int)$args[0] : 0;
@@ -1062,7 +1062,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Preview a review form.
 	 * @param $args array ($reviewId, $reviewFormId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function previewReviewForm($args, $request) {
         parent::validate();
@@ -1091,7 +1091,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Clear a review form, i.e. remove review form assignment to the review.
 	 * @param $args array ($articleId, $reviewId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function clearReviewForm($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -1106,7 +1106,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Select a review form
 	 * @param $args array ($articleId, $reviewId, $reviewFormId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function selectReviewForm($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -1141,7 +1141,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * View review form response.
 	 * @param $args array ($articleId, $reviewId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function viewReviewFormResponse($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1158,7 +1158,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Perform a review on behalf of the reviewer.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function editorReview($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1202,7 +1202,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Select a copyeditor.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
  	 */
     public function selectCopyeditor($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1246,7 +1246,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
                     $searchMatch = 'contains'; 
                 }
             } elseif (!empty($searchInitial)) {
-                $searchInitial = PKPString::strtoupper($searchInitial);
+                $searchInitial = CoreString::strtoupper($searchInitial);
                 $searchType = USER_FIELD_INITIAL;
                 $search = $searchInitial;
                 $searchMatch = 'startsWith'; 
@@ -1285,7 +1285,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Notify a copyeditor of their assignment.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function notifyCopyeditor($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1302,7 +1302,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Initiate the copyediting process when the editor does the copyediting
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function initiateCopyedit($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1315,7 +1315,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Thank the copyeditor.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function thankCopyeditor($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1331,7 +1331,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Notify the author of their copyediting task.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function notifyAuthorCopyedit($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1347,7 +1347,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Thank the author for completing their copyediting task.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function thankAuthorCopyedit($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1363,7 +1363,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Notify the copyeditor of the final copyediting round.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function notifyFinalCopyedit($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1379,7 +1379,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Complete copyediting.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function completeCopyedit($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1391,7 +1391,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Complete the final copyedit.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function completeFinalCopyedit($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1403,7 +1403,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Thank the copyeditor for the final copyedit.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function thankFinalCopyedit($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1419,7 +1419,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Upload a review version.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function uploadReviewVersion($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1431,7 +1431,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Upload a copyedit version.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function uploadCopyeditVersion($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1444,7 +1444,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Add a supplementary file.
 	 * @param $args array ($articleId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function addSuppFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1468,7 +1468,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Edit a supplementary file.
 	 * @param $args array ($articleId, $suppFileId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function editSuppFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1499,7 +1499,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Set reviewer visibility for a supplementary file.
 	 * @param $args array ($suppFileId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function setSuppFileVisibility($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1559,7 +1559,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Delete an editor version file.
 	 * @param $args array ($articleId, $fileId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function deleteArticleFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1575,7 +1575,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Delete a supplementary file.
 	 * @param $args array ($articleId, $suppFileId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function deleteSuppFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1588,7 +1588,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Archive a submission.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function archiveSubmission($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1600,7 +1600,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Restore an archived submission to the queue.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function restoreToQueue($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1612,7 +1612,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Notify the author of an unsuitable submission.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function unsuitableSubmission($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1641,7 +1641,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
     /**
      * Set RT comments status for article.
      * @param $args array ($articleId)
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function updateCommentsStatus($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1659,7 +1659,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
     /**
      * Upload a layout file (either layout version, galley, or supp. file).
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function uploadLayoutFile($args, $request) {
         $layoutFileType = trim((string)$request->getUserVar('layoutFileType'));
@@ -1682,7 +1682,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 
 	/**
 	 * Upload the layout version of the submission file
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function _uploadLayoutVersion($request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1694,7 +1694,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Delete an article image.
 	 * @param $args array ($articleId, $fileId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function deleteArticleImage($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1749,7 +1749,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
                     $searchMatch = 'contains';
                 }
             } elseif (!empty($searchInitial)) {
-                $searchInitial = PKPString::strtoupper($searchInitial);
+                $searchInitial = CoreString::strtoupper($searchInitial);
                 $searchType = USER_FIELD_INITIAL;
                 $search = $searchInitial;
                 $searchMatch = 'startsWith'; 
@@ -1796,7 +1796,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Notify the layout editor.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function notifyLayoutEditor($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1811,7 +1811,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Thank the layout editor.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function thankLayoutEditor($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1827,7 +1827,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
     /**
      * Create a new galley with the uploaded file.
      * @param $fileName string
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function _uploadGalley($fileName = null, $request) {
         $articleId = (int) $request->getUserVar('articleId'); 
@@ -1844,7 +1844,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Edit a galley.
 	 * @param $args array ($articleId, $galleyId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function editGalley($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1922,7 +1922,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
     /**
      * Change the sequence order of a galley.
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function orderGalley($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -1937,7 +1937,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Delete a galley file.
 	 * @param $args array ($articleId, $galleyId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function deleteGalley($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1950,7 +1950,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
     /**
      * Proof / "preview" a galley.
      * @param $args array ($articleId, $galleyId)
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function proofGalley($args, $request) {
         $articleId = (int) array_shift($args);
@@ -1972,7 +1972,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
     /**
      * Proof galley (shows frame header).
      * @param $args array ($articleId, $galleyId)
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function proofGalleyTop($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2003,7 +2003,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Proof galley (outputs file contents).
 	 * @param $args array ($articleId, $galleyId)
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function proofGalleyFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2035,7 +2035,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
     /**
      * Helper to upload a new supplementary file.
      * @param $fileName string
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function _uploadSuppFile($fileName = null, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2057,7 +2057,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
     /**
      * Change the sequence order of a supplementary file.
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function orderSuppFile($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2076,7 +2076,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * View submission event log.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function submissionEventLog($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2111,7 +2111,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Clear submission event log entries.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function clearSubmissionEventLog($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2129,7 +2129,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * View submission email log.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function submissionEmailLog($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2169,7 +2169,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Clear submission email log entries.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function clearSubmissionEmailLog($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2192,7 +2192,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Create a submission note and redirect to submission notes list
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function addSubmissionNote($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2232,7 +2232,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Clear all submission notes and redirect to submission notes list
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function clearAllSubmissionNotes($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2244,7 +2244,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * View submission notes.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function submissionNotes($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2287,7 +2287,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Download a file.
 	 * @param $args array ($articleId, $fileId, [$revision])
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function downloadFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2303,7 +2303,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * View a file (inlines file).
 	 * @param $args array ($articleId, $fileId, [$revision])
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function viewFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2323,7 +2323,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
     /**
      * Select Proofreader.
      * @param $args array ($articleId, $userId)
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function selectProofreader($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2370,7 +2370,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
                 }
     
             } elseif (!empty($searchInitial)) {
-                $searchInitial = PKPString::strtoupper($searchInitial);
+                $searchInitial = CoreString::strtoupper($searchInitial);
                 $searchType = USER_FIELD_INITIAL;
                 $search = $searchInitial;
                 $searchMatch = 'startsWith'; 
@@ -2414,7 +2414,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Notify author for proofreading
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function notifyAuthorProofreader($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2432,7 +2432,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Thank author for proofreading
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function thankAuthorProofreader($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2450,7 +2450,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Editor initiates proofreading
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function editorInitiateProofreader($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2471,7 +2471,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Editor completes proofreading
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function editorCompleteProofreader($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2486,7 +2486,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Notify proofreader for proofreading
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function notifyProofreader($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2504,7 +2504,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Thank proofreader for proofreading
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function thankProofreader($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2522,7 +2522,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Editor initiates layout editor proofreading
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function editorInitiateLayoutEditor($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2546,7 +2546,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Editor completes layout editor proofreading
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function editorCompleteLayoutEditor($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2563,7 +2563,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Notify layout editor for proofreading
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function notifyLayoutEditorProofreader($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2589,7 +2589,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Thank layout editor for proofreading
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function thankLayoutEditorProofreader($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -2740,7 +2740,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Waive a submission fee.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function waiveSubmissionFee($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2770,7 +2770,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Waive the fast track fee.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function waiveFastTrackFee($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2801,7 +2801,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Waive the publication fee.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function waivePublicationFee($args, $request) {
         $articleId = (int) array_shift($args);
@@ -2838,7 +2838,7 @@ class SubmissionEditHandler extends SectionEditorHandler {
 	/**
 	 * Download a layout template.
 	 * @param $args array
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 */
     public function downloadLayoutTemplate($args, $request) {
         $articleId = (int) array_shift($args);

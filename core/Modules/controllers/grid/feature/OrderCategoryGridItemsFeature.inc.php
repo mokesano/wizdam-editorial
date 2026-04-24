@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.controllers.grid.feature.OrderItemsFeature');
+import('lib.wizdam.classes.controllers.grid.feature.OrderItemsFeature');
 
 // Constants used for defining scope of ordering
 define_exposed('ORDER_CATEGORY_GRID_CATEGORIES_ONLY', 0x01);
@@ -67,7 +67,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature {
      * @see GridFeature::getJSClass()
      */
     public function getJSClass(): string {
-        return '$.pkp.classes.features.OrderCategoryGridItemsFeature';
+        return '$.wizdam.classes.features.OrderCategoryGridItemsFeature';
     }
 
 
@@ -103,7 +103,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature {
         $request = $args['request'];
         $grid = $args['grid'];
 
-        import('lib.pkp.classes.core.JSONManager');
+        import('lib.wizdam.classes.core.JSONManager');
         $jsonManager = new JSONManager();
         $data = $jsonManager->decode($request->getUserVar('data'));
         

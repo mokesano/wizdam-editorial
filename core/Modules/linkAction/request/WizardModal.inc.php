@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.linkAction.request.AjaxModal');
+import('lib.wizdam.classes.linkAction.request.AjaxModal');
 
 class WizardModal extends AjaxModal {
     
@@ -51,7 +51,7 @@ class WizardModal extends AjaxModal {
      */
     public function getLocalizedOptions(): array {
         $options = parent::getLocalizedOptions();
-        $options['modalHandler'] = '$.pkp.controllers.modal.WizardModalHandler';
+        $options['modalHandler'] = '$.wizdam.controllers.modal.WizardModalHandler';
         return $options;
     }
 }

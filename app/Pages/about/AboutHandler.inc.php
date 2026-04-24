@@ -44,7 +44,7 @@ class AboutHandler extends Handler {
     /**
      * Display about index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -143,7 +143,7 @@ class AboutHandler extends Handler {
     /**
      * Display contact page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function contact($args = [], $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -321,7 +321,7 @@ class AboutHandler extends Handler {
             
             $site = $siteDao->getSite();
             
-            // OJS menggunakan ID 0 untuk entitas level Site (sering disebut CONTEXT_ID_NONE)
+            // Wizdam menggunakan ID 0 untuk entitas level Site (sering disebut CONTEXT_ID_NONE)
             $siteContextId = 0; 
 
             // Ambil semua pengguna yang memiliki Role "Site Administrator" (ID: 1)
@@ -478,7 +478,7 @@ class AboutHandler extends Handler {
     /**
      * Display editorialPolicies page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editorialPolicies($args, $request = null) {
         $this->addCheck(new HandlerValidatorJournal($this));
@@ -561,7 +561,7 @@ class AboutHandler extends Handler {
     /**
      * Display subscriptions page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function subscriptions($args, $request = null) {
         $this->addCheck(new HandlerValidatorJournal($this));
@@ -614,7 +614,7 @@ class AboutHandler extends Handler {
     /**
      * Display memberships page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function memberships($args, $request = null) {
         $this->addCheck(new HandlerValidatorJournal($this));
@@ -753,7 +753,7 @@ class AboutHandler extends Handler {
      * Menangkap URL lama 'aboutThisPublishingSystem' dan mengalihkannya 
      * (redirect) ke lokasi yang baru dengan 301 (Moved Permanently) untuk SEO.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function aboutThisPublishingSystem($args, $request = null) {
         $this->validate();
@@ -781,7 +781,7 @@ class AboutHandler extends Handler {
      * Display Journal Insight page.
      * HANYA UNTUK KONTEKS JURNAL.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function insights($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -806,7 +806,7 @@ class AboutHandler extends Handler {
     /**
      * Menampilkan halaman Statistik Kustom (Versi modernisasi).
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function statistics($args, $request = null) {
         $this->addCheck(new HandlerValidatorJournal($this));
@@ -830,7 +830,7 @@ class AboutHandler extends Handler {
         $templateMgr = TemplateManager::getManager($request);
 
         // 3. --- MULAI BLOK PKPWizdamStats ---
-        import('lib.pkp.classes.core.PKPWizdamStats');
+        import('lib.wizdam.classes.core.PKPWizdamStats');
         $refreshStats = $request->getUserVar('refresh_stats');
         $forceRefresh = trim((string) $refreshStats) == 'true';
 
@@ -899,7 +899,7 @@ class AboutHandler extends Handler {
      * Menampilkan halaman statis penerbit (Misi).
      * HANYA KONTEKS SITUS.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function mission($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -923,7 +923,7 @@ class AboutHandler extends Handler {
      * Menampilkan halaman statis penerbit (Sejarah).
      * HANYA KONTEKS SITUS.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function publisherHistory($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -947,7 +947,7 @@ class AboutHandler extends Handler {
      * Menampilkan halaman statis penerbit (Kepemimpinan).
      * HANYA KONTEKS SITUS.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function leaderships($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -971,7 +971,7 @@ class AboutHandler extends Handler {
      * Menampilkan halaman statis penerbit (Penghargaan).
      * HANYA KONTEKS SITUS.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function award($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -1002,7 +1002,7 @@ class AboutHandler extends Handler {
         $defaultTitle = __('about.editorialTeam');
         if (!$journal || !$user) return $defaultTitle;
         
-        // Memanggil request secara statis menyesuaikan OJS versi ini
+        // Memanggil request secara statis menyesuaikan Wizdam versi ini
         $request = Application::get()->getRequest();
         $journalId = (int) $journal->getId();
         $userId = (int) $user->getId();
@@ -1038,7 +1038,7 @@ class AboutHandler extends Handler {
     }
 
     /**
-     * [WIZDAM] Helper Mode 2: Peran standar OJS dengan Locale.
+     * [WIZDAM] Helper Mode 2: Peran standar Wizdam dengan Locale.
      * @param int $journalId
      * @param int $userId
      * @return string Judul keanggotaan berdasarkan peran atau kosong

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.linkAction.request.Modal');
+import('lib.wizdam.classes.linkAction.request.Modal');
 
 class AjaxModal extends Modal {
     /** @var string The URL to be loaded into the modal. */
@@ -66,7 +66,7 @@ class AjaxModal extends Modal {
      */
     public function getLocalizedOptions(): array {
         return array_merge(parent::getLocalizedOptions(), array(
-            'modalHandler' => '$.pkp.controllers.modal.AjaxModalHandler',
+            'modalHandler' => '$.wizdam.controllers.modal.AjaxModalHandler',
             'url' => $this->getUrl()
         ));
     }

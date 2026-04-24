@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/pkp/classes/form/validation/FormValidatorCSRF.inc.php
+ * @file lib/wizdam/classes/form/validation/FormValidatorCSRF.inc.php
  *
  * [WIZDAM EDITION]
  * @class FormValidatorCSRF
@@ -10,7 +10,7 @@ declare(strict_types=1);
  * Memanggil ValidatorCSRF dari core validation.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+import('lib.wizdam.classes.form.validation.FormValidator');
 
 class FormValidatorCSRF extends FormValidator {
 
@@ -29,7 +29,7 @@ class FormValidatorCSRF extends FormValidator {
      * @return bool
      */
     public function isValid(): bool {
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('lib.wizdam.classes.validation.ValidatorCSRF');
         
         $request = Application::get()->getRequest();
         $clientToken = $request->getUserVar('csrfToken');

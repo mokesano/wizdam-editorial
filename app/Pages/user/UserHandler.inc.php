@@ -107,11 +107,11 @@ class UserHandler extends Handler {
     /**
      * Change the locale for the current user.
      * @param array $args first parameter is the new locale
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function setLocale($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $setLocale = array_shift($args);
 
@@ -152,11 +152,11 @@ class UserHandler extends Handler {
     /**
      * Become a given role.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function become($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate(true);
 
@@ -213,7 +213,7 @@ class UserHandler extends Handler {
      */
     public function authorizationDenied($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate(true);
         $authorizationMessage = htmlentities((string) $request->getUserVar('message'));
@@ -229,7 +229,7 @@ class UserHandler extends Handler {
      * Redirects to login form if not logged in.
      * [WIZDAM] Polyfill for legacy signature mismatch ($loginCheck vs $requiredContexts)
      * @param mixed $requiredContexts (Legacy boolean loginCheck or context array)
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function validate($requiredContexts = null, $request = null) {
         // Logic to detect if $requiredContexts is actually the old boolean $loginCheck
@@ -254,12 +254,12 @@ class UserHandler extends Handler {
 
     /**
      * Setup common template variables.
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      * @param boolean $subclass set to true if caller is below this handler in the hierarchy
      */
     public function setupTemplate($request = null, $subclass = false) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         parent::setupTemplate();
         AppLocale::requireComponents(
@@ -284,10 +284,10 @@ class UserHandler extends Handler {
      */
     public function viewCaptcha($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $captchaId = (int) array_shift($args);
-        import('lib.pkp.classes.captcha.CaptchaManager');
+        import('lib.wizdam.classes.captcha.CaptchaManager');
         $captchaManager = new CaptchaManager();
         if ($captchaManager->isEnabled()) {
             $captchaDao = DAORegistry::getDAO('CaptchaDAO');

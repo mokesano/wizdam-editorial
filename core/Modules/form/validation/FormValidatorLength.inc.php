@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import ('lib.pkp.classes.form.validation.FormValidator');
+import ('lib.wizdam.classes.form.validation.FormValidator');
 
 class FormValidatorLength extends FormValidator {
 
@@ -76,7 +76,7 @@ class FormValidatorLength extends FormValidator {
                 $value = (string) $value;
             }
 
-            $length = PKPString::strlen((string)$value);
+            $length = CoreString::strlen((string)$value);
             
             switch ($this->_comparator) {
                 case '==':

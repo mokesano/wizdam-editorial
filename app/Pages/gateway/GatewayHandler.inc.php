@@ -44,7 +44,7 @@ class GatewayHandler extends Handler {
     /**
      * Index handler.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -56,7 +56,7 @@ class GatewayHandler extends Handler {
     /**
      * Handle LOCKSS requests.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function lockss($args, $request) {
         $this->validate();
@@ -159,7 +159,7 @@ class GatewayHandler extends Handler {
     /**
      * Handle requests for gateway plugins.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function plugin($args, $request) {
         $this->validate();

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
+import('lib.wizdam.classes.linkAction.request.LinkActionRequest');
 
 class NullAction extends LinkActionRequest {
 
@@ -48,7 +48,7 @@ class NullAction extends LinkActionRequest {
      * @return string the name of the JavaScript class that
      */
     public function getJSLinkActionRequest(): string {
-        return '$.pkp.classes.linkAction.NullAction';
+        return '$.wizdam.classes.linkAction.NullAction';
     }
 }
 

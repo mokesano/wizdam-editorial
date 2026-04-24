@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 import('classes.handler.Handler');
-import("lib.pkp.classes.core.VirtualArrayIterator");
+import("core.classes.core.VirtualArrayIterator");
 
 class BrowseHandler extends Handler {
 

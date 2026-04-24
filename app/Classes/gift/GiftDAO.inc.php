@@ -10,12 +10,12 @@ declare(strict_types=1);
  *
  * @class GiftDAO
  * @ingroup gift
- * @see PKPGiftDAO
+ * @see CoreGiftDAO
  *
- * @brief OJS extension of PKPGiftDAO
+ * @brief Wizdam extension of CoreGiftDAO
  */
 
-import('lib.pkp.classes.gift.PKPGiftDAO');
+import('lib.wizdam.classes.gift.CoreGiftDAO');
 import('classes.gift.Gift');
 
 define('GIFT_REDEEM_STATUS_ERROR_SUBSCRIPTION_TYPE_INVALID', 0x10);

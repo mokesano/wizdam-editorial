@@ -108,7 +108,7 @@ citation_checking_max_processes = 3
 ; Display a message on the site admin and journal manager user home pages if there is an upgrade available
 show_upgrade_warning = On
 
-; Provide a unique site ID and OAI base URL to PKP for statistics and security
+; Provide a unique site ID and OAI base URL to Wizdam for statistics and security
 ; alert purposes only.
 enable_beacon = On
 
@@ -665,15 +665,15 @@ log_web_service_info = Off
 ; to do so by someone from your network. You do not need to create an 
 ; account or login on this server. 
 ; 
-; For more information, please see https://pkp.sfu.ca/pkp-lockss/
+; For more information, please see https://wizdam.sfu.ca/wizdam-lockss/
 ; 
 ; If you do change this value, a journal manager must also reset each deposit in
 ; each journal so that the new network will receive and process the deposits. 
 ; Deposits can be reset for each journal on the PLN Plugin's status page at 
-; Journal Management > System Plugins > Generic Plugins > PKP PLN Plugin
+; Journal Management > System Plugins > Generic Plugins > Wizdam PLN Plugin
 ; 
-; pln_url = http://pkp-pln.lib.sfu.ca
-; pln_status_docs = http://pkp-pln.lib.sfu.ca/docs/status
+; pln_url = http://wizdam-pln.lib.sfu.ca
+; pln_status_docs = http://wizdam-pln.lib.sfu.ca/docs/status
 
 
 ;;;;;;;;;;;;;;;;;;;

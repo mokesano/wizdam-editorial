@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.rt.RT');
+import('lib.wizdam.classes.rt.RT');
 
 import('classes.rt.RTDAO');
 import('classes.rt.JournalRT');
@@ -54,7 +54,7 @@ class RTHandler extends ArticleHandler {
     /**
      * Display the article metadata
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function metadata($args, $request = null) {
         // [WIZDAM] Request Singleton
@@ -98,7 +98,7 @@ class RTHandler extends ArticleHandler {
     /**
      * Display an RT search context
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function context($args, $request = null) {
         // [WIZDAM] Request Singleton
@@ -198,7 +198,7 @@ class RTHandler extends ArticleHandler {
     /**
      * Display citation information
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function captureCite($args = [], $request = null): void {
         if (!$request) $request = Application::get()->getRequest();
@@ -286,7 +286,7 @@ class RTHandler extends ArticleHandler {
     /**
      * Display a printer-friendly version of the article
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function printerFriendly($args, $request = null) {
         // [WIZDAM] Request Singleton
@@ -344,7 +344,7 @@ class RTHandler extends ArticleHandler {
     /**
      * Display the "Email Colleague" form
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function emailColleague($args, $request = null) {
         // [WIZDAM] Request Singleton
@@ -405,7 +405,7 @@ class RTHandler extends ArticleHandler {
     /**
      * Display the "email author" form
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function emailAuthor($args, $request = null) {
         // [WIZDAM] Request Singleton
@@ -466,7 +466,7 @@ class RTHandler extends ArticleHandler {
     /**
      * Display a list of supplementary files
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function suppFiles($args, $request = null) {
         // [WIZDAM] Request Singleton
@@ -500,7 +500,7 @@ class RTHandler extends ArticleHandler {
     /**
      * Display the metadata of a supplementary file
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function suppFileMetadata($args, $request = null) {
         // [WIZDAM] Request Singleton
@@ -544,7 +544,7 @@ class RTHandler extends ArticleHandler {
     /**
      * Display the "finding references" search engine list
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function findingReferences($args, $request = null) {
         // [WIZDAM] Request Singleton
@@ -581,7 +581,7 @@ class RTHandler extends ArticleHandler {
      */
     public function _getParameterNames($value) {
         $matches = null;
-        PKPString::regexp_match_all('/\{\$([a-zA-Z0-9]+)\}/', $value, $matches);
+        CoreString::regexp_match_all('/\{\$([a-zA-Z0-9]+)\}/', $value, $matches);
         // Remove the entire string from the matches list
         return $matches[1];
     }

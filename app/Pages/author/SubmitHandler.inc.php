@@ -48,7 +48,7 @@ class SubmitHandler extends AuthorHandler {
      * Display journal author article submission.
      * Displays author index page if a valid step is not specified.
      * @param array $args optional, if set the first parameter is the step to display
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submit($args, $request) {
         $step = (int) array_shift($args);
@@ -78,7 +78,7 @@ class SubmitHandler extends AuthorHandler {
         $this->setupTemplate($request, true);
 
         $formClass = "AuthorSubmitStep{$step}Form";
-        import("classes.author.form.submit.$formClass");
+        import("core.Modules.author.form.submit.$formClass");
 
         $submitForm = new $formClass($article, $journal, $request);
         if ($submitForm->isLocaleResubmit()) {
@@ -92,7 +92,7 @@ class SubmitHandler extends AuthorHandler {
     /**
      * Save a submission step.
      * @param array $args first parameter is the step being saved
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSubmit($args, $request) {
         $step = (int) array_shift($args);
@@ -104,7 +104,7 @@ class SubmitHandler extends AuthorHandler {
         $article = $this->article;
 
         $formClass = "AuthorSubmitStep{$step}Form";
-        import("classes.author.form.submit.$formClass");
+        import("core.Modules.author.form.submit.$formClass");
 
         $submitForm = new $formClass($article, $journal, $request);
         $submitForm->readInputData();
@@ -235,7 +235,7 @@ class SubmitHandler extends AuthorHandler {
     /**
      * Create new supplementary file with a uploaded file.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submitUploadSuppFile($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -256,7 +256,7 @@ class SubmitHandler extends AuthorHandler {
     /**
      * Display supplementary file submission form.
      * @param array $args optional, if set the first parameter is the supplementary file to edit
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submitSuppFile($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -281,7 +281,7 @@ class SubmitHandler extends AuthorHandler {
     /**
      * Save a supplementary file.
      * @param array $args optional, if set the first parameter is the supplementary file to update
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSubmitSuppFile($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -307,7 +307,7 @@ class SubmitHandler extends AuthorHandler {
     /**
      * Delete a supplementary file.
      * @param array $args, the first parameter is the supplementary file to delete
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteSubmitSuppFile($args, $request) {
         import('classes.file.ArticleFileManager');
@@ -335,7 +335,7 @@ class SubmitHandler extends AuthorHandler {
      * Expedite a submission -- rush it through the editorial process, for
      * users who are both authors and editors.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function expediteSubmission($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -357,7 +357,7 @@ class SubmitHandler extends AuthorHandler {
      * Validation check for submission.
      * Checks that article ID is valid, if specified.
      * @param mixed $requiredContexts (Legacy)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int|null $articleId
      * @param string|null $reason (Legacy)
      * @param int|bool $step (Additional param for SubmitHandler logic)
@@ -366,12 +366,12 @@ class SubmitHandler extends AuthorHandler {
     public function validate($requiredContexts = null, $request = null, $articleId = null, $reason = null, $step = false) {
         // 1. Normalisasi Request (Wizdam Core Security)
         // Jika argumen pertama adalah Request, geser semua
-        if ($requiredContexts instanceof PKPRequest) {
+        if ($requiredContexts instanceof CoreRequest) {
             $realRequest = $requiredContexts;
             $realArticleId = (int) $request; 
             $realStep = (int) $articleId;
         } else {
-            $realRequest = ($request instanceof PKPRequest) ? $request : Application::get()->getRequest();
+            $realRequest = ($request instanceof CoreRequest) ? $request : Application::get()->getRequest();
             $realArticleId = (int) $articleId;
             $realStep = (int) $step;
         }

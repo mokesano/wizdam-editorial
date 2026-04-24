@@ -15,8 +15,8 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Static Methods, No References)
  */
 
-import ('lib.pkp.classes.xml.XMLNode');
-import ('lib.pkp.classes.xml.XMLComment');
+import ('lib.wizdam.classes.xml.XMLNode');
+import ('lib.wizdam.classes.xml.XMLComment');
 
 class XMLCustomWriter {
     

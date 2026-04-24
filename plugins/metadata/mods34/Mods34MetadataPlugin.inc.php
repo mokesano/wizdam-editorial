@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.plugins.metadata.mods34.PKPMods34MetadataPlugin');
+import('lib.wizdam.plugins.metadata.mods34.PKPMods34MetadataPlugin');
 
 class Mods34MetadataPlugin extends CoreMods34MetadataPlugin {
     

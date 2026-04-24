@@ -22,7 +22,7 @@ try {
     chdir(dirname(__FILE__)); 
 
     // 2. Load Bootstrap
-    if (!file_exists('./lib/pkp/includes/bootstrap.inc.php')) {
+    if (!file_exists('./lib/wizdam/includes/bootstrap.inc.php')) {
         throw new Exception("Bootstrap file missing.");
     }
     require './core/Includes/bootstrap.inc.php';

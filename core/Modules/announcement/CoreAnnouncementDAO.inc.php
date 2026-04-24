@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - Date Logic Safety
  */
 
-import('lib.pkp.classes.announcement.PKPAnnouncement');
+import('lib.wizdam.classes.announcement.PKPAnnouncement');
 
 class CoreAnnouncementDAO extends DAO {
     

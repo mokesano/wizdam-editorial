@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class to validate if a Journal is present
  */
 
-import('lib.pkp.classes.handler.validation.HandlerValidator');
+import('lib.wizdam.classes.handler.validation.HandlerValidator');
 
 class HandlerValidatorJournal extends HandlerValidator {
     

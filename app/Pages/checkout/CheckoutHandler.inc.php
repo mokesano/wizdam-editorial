@@ -64,7 +64,7 @@ class CheckoutHandler extends Handler {
         $this->setupTemplate($request);
         if (!$request) $request = Application::get()->getRequest();
         
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('lib.wizdam.classes.validation.ValidatorCSRF');
         // Token untuk form utama
         $submitToken = ValidatorCSRF::generateSignedToken('checkoutSubmit', []);
         // Token khusus untuk AJAX
@@ -110,7 +110,7 @@ class CheckoutHandler extends Handler {
         $optionalFees = [];
         if ($context) {
             foreach ($optionalFeeConfigs as $type => $config) {
-                // Konsep DAO OJS 2.x: nilai setting ditarik via getSetting
+                // Konsep DAO Wizdam 2.x: nilai setting ditarik via getSetting
                 $feeAmount = (float) $context->getSetting($config['setting_key']);
                 if ($feeAmount > 0) {
                     $optionalFees[$type] = [
@@ -170,7 +170,7 @@ class CheckoutHandler extends Handler {
 
         // 1. Validasi CSRF yang mewajibkan argumen
         $this->validate(null, $request);
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('lib.wizdam.classes.validation.ValidatorCSRF');
         $authToken = $request->getUserVar('checkoutAuthToken');
         if (!ValidatorCSRF::checkToken($authToken, 'checkoutAuth', [], true)) {
             $request->redirect(null, 'checkout', 'cart', [$articleId]);
@@ -277,7 +277,7 @@ class CheckoutHandler extends Handler {
         $this->setupTemplate($request);
         if (!$request) $request = Application::get()->getRequest();
         
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('lib.wizdam.classes.validation.ValidatorCSRF');
         $billingToken = ValidatorCSRF::generateSignedToken('billing', []);
 
         $queuedPaymentId = isset($args[0]) ? (int) $args[0] : 0;
@@ -347,7 +347,7 @@ class CheckoutHandler extends Handler {
         $summary = $this->checkoutService->calculateCartSummary($queuedPaymentId);
         
         // payment() — TAMBAHKAN sebelum assign
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('lib.wizdam.classes.validation.ValidatorCSRF');
         $finalizeToken = ValidatorCSRF::generateSignedToken('finalize', []);
 
         $templateMgr = TemplateManager::getManager($request);

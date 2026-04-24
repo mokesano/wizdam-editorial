@@ -16,11 +16,11 @@ declare(strict_types=1);
  */
 
 // import grid base classes
-import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.controllers.grid.citation.PKPCitationGridCellProvider');
+import('lib.wizdam.classes.controllers.grid.GridHandler');
+import('lib.wizdam.classes.controllers.grid.citation.PKPCitationGridCellProvider');
 
 // import citation grid specific classes
-import('lib.pkp.classes.controllers.grid.citation.PKPCitationGridRow');
+import('lib.wizdam.classes.controllers.grid.citation.PKPCitationGridRow');
 
 class CoreCitationGridHandler extends GridHandler {
     /** @var DataObject|null */
@@ -99,18 +99,18 @@ class CoreCitationGridHandler extends GridHandler {
 
 
     //
-    // Overridden methods from PKPHandler
+    // Overridden methods from CoreHandler
     //
     
     /**
      * Configure the grid
-     * @see PKPHandler::initialize()
+     * @see CoreHandler::initialize()
      */
     public function initialize($request, $args = null) {
         parent::initialize($request, $args);
 
         // Load submission-specific translations
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_SUBMISSION);
 
         // Basic grid configuration
         $this->setTitle('submission.citations.editor.citationlist.title');
@@ -229,7 +229,7 @@ class CoreCitationGridHandler extends GridHandler {
                 
                 foreach($exportFilterConfiguration as $selectListHeading => $outputType) {
                     // All filters that take a submission and one of the supported output types
-                    $exportFilterObjects = $filterDao->getObjectsByTypeDescription('class::lib.pkp.classes.submission.Submission', $outputType);
+                    $exportFilterObjects = $filterDao->getObjectsByTypeDescription('class::lib.wizdam.classes.submission.Submission', $outputType);
 
                     // Build the array for the template.
                     $exportFilters[$selectListHeading] = [];
@@ -324,7 +324,7 @@ class CoreCitationGridHandler extends GridHandler {
         $citation = $this->getCitationFromArgs($request, $args, true);
 
         // Form handling
-        import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
+        import('lib.wizdam.classes.controllers.grid.citation.form.CitationForm');
         $citationForm = new CitationForm($request, $citation, $this->getAssocObject());
         if ($citationForm->isLocaleResubmit()) {
             $citationForm->readInputData();
@@ -481,7 +481,7 @@ class CoreCitationGridHandler extends GridHandler {
      */
     public function sendAuthorQuery($args, $request) {
         // Instantiate the email to the author.
-        import('lib.pkp.classes.mail.Mail');
+        import('lib.wizdam.classes.mail.Mail');
         $mail = new Mail();
 
         // Recipient
@@ -503,7 +503,7 @@ class CoreCitationGridHandler extends GridHandler {
         // In principle we should use a template here but this seems exaggerated
         // for such a small message.
         $json = new JSONMessage(true,
-            '<div id="authorQueryResult"><span class="pkp_form_error">'
+            '<div id="authorQueryResult"><span class="wizdam_form_error">'
             .__('submission.citations.editor.details.sendAuthorQuerySuccess')
             .'</span></div>');
         header('Content-Type: application/json');
@@ -532,7 +532,7 @@ class CoreCitationGridHandler extends GridHandler {
         } else {
             if ($createIfMissing) {
                 // It seems that a new citation is being edited/updated
-                import('lib.pkp.classes.citation.Citation');
+                import('lib.wizdam.classes.citation.Citation');
                 $citation = new Citation();
                 $citation->setAssocType($this->getAssocType());
                 $citation->setAssocId($this->getAssocId());
@@ -555,7 +555,7 @@ class CoreCitationGridHandler extends GridHandler {
     private function _getExportFilterConfiguration(): array {
         return [
             'submission.citations.editor.export.pleaseSelectXmlFilter' => 'xml::%',
-            'submission.citations.editor.export.pleaseSelectPlaintextFilter' => 'class::lib.pkp.classes.citation.PlainTextReferencesList'
+            'submission.citations.editor.export.pleaseSelectPlaintextFilter' => 'class::lib.wizdam.classes.citation.PlainTextReferencesList'
         ];
     }
 
@@ -574,7 +574,7 @@ class CoreCitationGridHandler extends GridHandler {
         $citation = $this->getCitationFromArgs($request, $args, true);
 
         // Form initialization
-        import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
+        import('lib.wizdam.classes.controllers.grid.citation.form.CitationForm');
         $citationForm = new CitationForm($request, $citation, $this->getAssocObject());
         $citationForm->readInputData();
 
@@ -614,7 +614,7 @@ class CoreCitationGridHandler extends GridHandler {
         $filteredCitation = $citationDao->checkCitation($request, $originalCitation, $filterIds);
 
         // Crate a new form for the filtered (but yet unsaved) citation data
-        import('lib.pkp.classes.controllers.grid.citation.form.CitationForm');
+        import('lib.wizdam.classes.controllers.grid.citation.form.CitationForm');
         $citationForm = new CitationForm($request, $filteredCitation, $this->getAssocObject());
 
         // Transport filtering errors to form (if any).

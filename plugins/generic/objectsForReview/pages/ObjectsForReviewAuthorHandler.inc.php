@@ -22,7 +22,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
     /**
      * Display objects for review author listing page.
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function objectsForReview($args, $request) {
         $journal = $request->getJournal();
@@ -90,7 +90,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
     /**
      * Author requests an object for review.
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function requestObjectForReview($args, $request) {
         $journal = $request->getJournal();
@@ -142,7 +142,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
 
     /**
      * Ensure that we have a journal, plugin is enabled, and user is author.
-     * @see PKPHandler::authorize()
+     * @see CoreHandler::authorize()
      */
     public function authorize($request, $args, $roleAssignments) {
         $journal = $request->getJournal();
@@ -161,7 +161,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
 
     /**
      * Setup common template variables.
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $subclass boolean (optional) set to true if caller is below this handler in the hierarchy
      */
     public function setupTemplate($request, $subclass = false) {
@@ -216,7 +216,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
      * @param $user User
      * @param $returnUrl string
      * @param $action string
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function _displayEmailForm($email, $objectForReview, $user, $returnUrl, $action, $request) {
         // [SECURITY FIX] Amankan 'continued' sebagai flag boolean (int) trim()
@@ -231,7 +231,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
                 $paramArray = array(
                     'editorName' => strip_tags($editorFullName),
                     'objectForReviewTitle' => '"' . strip_tags($objectForReview->getTitle()) . '"',
-                    'authorContactSignature' => PKPString::html2text($user->getContactSignature())
+                    'authorContactSignature' => CoreString::html2text($user->getContactSignature())
                 );
             }
             $email->addRecipient($editorEmail, $editorFullName);
@@ -243,7 +243,7 @@ class ObjectsForReviewAuthorHandler extends Handler {
     /**
      * Create trivial notification
      * @param $notificationType int
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function _createTrivialNotification($notificationType, $request) {
         $user = $request->getUser();

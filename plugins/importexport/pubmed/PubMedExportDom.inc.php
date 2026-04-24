@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief PubMed XML export plugin DOM functions
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
 define('PUBMED_DTD_URL', 'http://www.ncbi.nlm.nih.gov:80/entrez/query/static/PubMed.dtd');
 define('PUBMED_DTD_ID', '-//NLM//DTD PubMed 2.0//EN');
@@ -119,7 +119,7 @@ class PubMedExportDom {
         }
 
         /* --- Replaces --- */
-        // this creates a blank replaces tag since OJS doesn't contain PMID metadata
+        // this creates a blank replaces tag since Wizdam doesn't contain PMID metadata
         // XMLCustomWriter::createChildWithText($doc, $root, 'Replaces', '');
 
         /* --- ArticleTitle / VernacularTitle --- */
@@ -177,7 +177,7 @@ class PubMedExportDom {
         // Pubmed will accept two types of article identifier: pii and doi
         // how this is handled is journal-specific, and will require either
         // configuration in the plugin, or an update to the core code.
-        // this is also related to DOI-handling within OJS
+        // this is also related to DOI-handling within Wizdam
         if ($article->getPubId('publisher-id')) {
             $articleIdListNode = XMLCustomWriter::createElement($doc, 'ArticleIdList');
             XMLCustomWriter::appendChild($root, $articleIdListNode);
@@ -226,7 +226,7 @@ class PubMedExportDom {
         /* --- Abstract --- */
         $abstract = $article->getAbstract($article->getLocale());
         if ($abstract) {
-            XMLCustomWriter::createChildWithText($doc, $root, 'Abstract', PKPString::html2utf(strip_tags($abstract)), false);
+            XMLCustomWriter::createChildWithText($doc, $root, 'Abstract', CoreString::html2utf(strip_tags($abstract)), false);
         }
 
         $subject = $article->getSubject($article->getLocale());
@@ -248,7 +248,7 @@ class PubMedExportDom {
     /**
      * Generate the Author node DOM for the specified author.
      * @param DOMDocument $doc
-     * @param object $author PKPAuthor
+     * @param object $author CoreAuthor
      * @param object $article Article
      * @param int $authorIndex 0-based index of current author
      * @return DOMElement
@@ -261,7 +261,7 @@ class PubMedExportDom {
         XMLCustomWriter::createChildWithText($doc, $root, 'LastName', ucfirst($author->getLastName()));
 
         if ($authorIndex == 0) {
-            // See http://pkp.sfu.ca/bugzilla/show_bug.cgi?id=7774
+            // See http://wizdam.sfu.ca/bugzilla/show_bug.cgi?id=7774
             $affiliationText = $author->getAffiliation($article->getLocale()) . '. ' . $author->getEmail();
             XMLCustomWriter::createChildWithText($doc, $root, 'Affiliation', $affiliationText, false);
         }

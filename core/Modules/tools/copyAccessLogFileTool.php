@@ -19,7 +19,7 @@ declare(strict_types=1);
 require(dirname(__DIR__) . '/tools/bootstrap.inc.php');
 
 // Bring in the file loader folder constants.
-import('lib.pkp.classes.task.FileLoader');
+import('lib.wizdam.classes.task.FileLoader');
 
 class CopyAccessLogFileTool extends CommandLineTool {
 
@@ -42,7 +42,7 @@ class CopyAccessLogFileTool extends CommandLineTool {
     public function __construct(array $argv = []) {
         parent::__construct($argv);
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_OJS_ADMIN, LOCALE_COMPONENT_PKP_ADMIN);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_ADMIN, LOCALE_COMPONENT_WIZDAM_ADMIN);
 
         if (count($this->argv) < 1 || count($this->argv) > 2)  {
             $this->usage();

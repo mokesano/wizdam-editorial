@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.log.EmailLogEntry');
+import('lib.wizdam.classes.log.EmailLogEntry');
 
 // Editor events                      0x30000000
 define('ARTICLE_EMAIL_EDITOR_NOTIFY_AUTHOR',             0x30000001);

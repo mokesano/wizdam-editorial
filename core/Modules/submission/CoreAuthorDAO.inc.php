@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/PKPAuthorDAO.inc.php
+ * @file classes/submission/CoreAuthorDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -10,12 +10,12 @@ declare(strict_types=1);
  *
  * @class CoreAuthorDAO
  * @ingroup submission
- * @see PKPAuthor
+ * @see CoreAuthor
  *
- * @brief Operations for retrieving and modifying PKPAuthor objects.
+ * @brief Operations for retrieving and modifying CoreAuthor objects.
  */
 
-import('lib.pkp.classes.submission.PKPAuthor');
+import('lib.wizdam.classes.submission.CoreAuthor');
 
 class CoreAuthorDAO extends DAO {
     
@@ -29,9 +29,9 @@ class CoreAuthorDAO extends DAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPAuthorDAO() {
+    public function CoreAuthorDAO() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPAuthorDAO(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreAuthorDAO(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }

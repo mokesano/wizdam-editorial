@@ -56,7 +56,7 @@ class CrossRefSettingsForm extends DOIExportSettingsForm {
     /**
      * Display the form.
      * @see Form::display()
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $template string
      * @return void
      */

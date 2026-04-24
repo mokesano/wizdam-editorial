@@ -156,7 +156,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      * Get management verbs.
 	 * @see ImportExportPlugin::getManagementVerbs()
      * @param $verbs array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return array
 	 */
 	public function getManagementVerbs(array $verbs = [], $request = null): array {
@@ -169,7 +169,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      * Display the plugin.
 	 * @see ImportExportPlugin::display()
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return void
 	 *
 	 * This supports the following actions:
@@ -235,7 +235,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 
 	/**
 	 * Process a DOI activity request.
-	 * @param $request PKPRequest
+	 * @param $request CoreRequest
 	 * @param $journal Journal
      * @return void
 	 */
@@ -425,7 +425,7 @@ class DOIExportPlugin extends ImportExportPlugin {
      * @param $args array
      * @param $message string
      * @param $messageParams array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return boolean True if the verb was executed.
 	 * 
 	 * NOTE: $message and $messageParams are legacy parameters, not used per protocol P5.
@@ -535,7 +535,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		$this->setBreadcrumbs(array(), true);
 
 		// Retrieve all published issues.
-		AppLocale::requireComponents(array(LOCALE_COMPONENT_OJS_EDITOR));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_WIZDAM_EDITOR));
 		$issueDao = DAORegistry::getDAO('IssueDAO'); /* @var $issueDao IssueDAO */
 		$this->registerDaoHook('IssueDAO');
 		$issueIterator = $issueDao->getPublishedIssues($journal->getId(), Handler::getRangeInfo('issues'));
@@ -570,7 +570,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 	 */
 	public function displayAllUnregisteredObjects($templateMgr, $journal) {
 		$this->setBreadcrumbs(array(), true);
-		AppLocale::requireComponents(array(LOCALE_COMPONENT_PKP_SUBMISSION));
+		AppLocale::requireComponents(array(LOCALE_COMPONENT_WIZDAM_SUBMISSION));
 
 		// Prepare and display the template.
 		$templateMgr->assign_by_ref('issues', $this->_getUnregisteredIssues($journal));
@@ -920,7 +920,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		$registeredDoi = $object->getPubId('doi');
 		assert(!empty($registeredDoi));
 		if ($this->isTestMode($request)) {
-			$registeredDoi = PKPString::regexp_replace('#^[^/]+/#', $testPrefix . '/', $registeredDoi);
+			$registeredDoi = CoreString::regexp_replace('#^[^/]+/#', $testPrefix . '/', $registeredDoi);
 		}
 		$this->saveRegisteredDoi($object, $registeredDoi);
 	}
@@ -1139,7 +1139,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		unset($articles);
 
 		// Instantiate article iterator.
-		import('lib.pkp.classes.core.VirtualArrayIterator');
+		import('lib.wizdam.classes.core.VirtualArrayIterator');
 		$iterator = new VirtualArrayIterator($articleData, $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
 		// Prepare and display the article template.
@@ -1202,7 +1202,7 @@ class DOIExportPlugin extends ImportExportPlugin {
 		unset($galleys);
 
 		// Instantiate galley iterator.
-		import('lib.pkp.classes.core.VirtualArrayIterator');
+		import('lib.wizdam.classes.core.VirtualArrayIterator');
 		$iterator = new VirtualArrayIterator($galleyData, $totalGalleys, $rangeInfo->getPage(), $rangeInfo->getCount());
 
 		// Prepare and display the galley template.

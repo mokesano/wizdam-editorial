@@ -45,7 +45,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Create version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createVersion($args, $request = null) {
         $this->validate();
@@ -72,7 +72,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Export version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function exportVersion($args, $request = null) {
         $this->validate();
@@ -100,7 +100,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Import version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function importVersion($args = [], $request = null) {
         $this->validate();
@@ -121,7 +121,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Restore versions.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function restoreVersions($args = [], $request = null) {
         $this->validate();
@@ -149,7 +149,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Versions list.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function versions($args = [], $request = null) {
         $this->validate();
@@ -173,7 +173,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Edit version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editVersion($args, $request = null) {
         $this->validate();
@@ -201,7 +201,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Delete version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteVersion($args, $request = null) {
         $this->validate();
@@ -222,7 +222,7 @@ class RTVersionHandler extends RTAdminHandler {
     /**
      * Save version.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveVersion($args, $request = null) {
         $this->validate();

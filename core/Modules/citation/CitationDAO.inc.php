@@ -23,7 +23,7 @@ declare(strict_types=1);
 define('CITATION_PARSER_FILTER_GROUP', 'plaintext=>nlm30-element-citation');
 define('CITATION_LOOKUP_FILTER_GROUP', 'nlm30-element-citation=>nlm30-element-citation');
 
-import('lib.pkp.classes.citation.Citation');
+import('lib.wizdam.classes.citation.Citation');
 
 class CitationDAO extends DAO {
     /**
@@ -115,7 +115,7 @@ class CitationDAO extends DAO {
     /**
      * Import citations from a raw citation list to the object
      * described by the given association type and id.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int $assocType
      * @param int $assocId
      * @param string $rawCitationList
@@ -129,7 +129,7 @@ class CitationDAO extends DAO {
         $this->deleteObjectsByAssocId($assocType, $assocId);
 
         // Tokenize raw citations
-        import('lib.pkp.classes.citation.CitationListTokenizerFilter');
+        import('lib.wizdam.classes.citation.CitationListTokenizerFilter');
         $citationTokenizer = new CitationListTokenizerFilter();
         $citationStrings = $citationTokenizer->execute($rawCitationList);
 
@@ -168,7 +168,7 @@ class CitationDAO extends DAO {
      * NB: checking the citation will not automatically
      * persist the changes. This has to be done by the caller.
      *
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Citation $originalCitation
      * @param array $filterIds a custom selection of filters to be applied
      * @return Citation the checked citation. If checking
@@ -202,7 +202,7 @@ class CitationDAO extends DAO {
      * database and checks it. This method is idempotent and parallelisable.
      * It uses an atomic locking strategy to avoid race conditions.
      *
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $lockId a globally unique id that identifies the calling process.
      * @return bool true if a citation was found and checked, otherwise false.
      */
@@ -578,7 +578,7 @@ class CitationDAO extends DAO {
     /**
      * Call the callback to filter the citation. If errors occur
      * they'll be added to the citation form.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Citation $citation
      * @param callable $filterCallback
      * @param int $citationStateAfterFiltering
@@ -620,7 +620,7 @@ class CitationDAO extends DAO {
             $filterGroup->setOutputType($filterGroup->getOutputType().'[]');
 
             // Instantiate the citation multiplexer filter.
-            import('lib.pkp.classes.filter.GenericMultiplexerFilter');
+            import('lib.wizdam.classes.filter.GenericMultiplexerFilter');
             $citationMultiplexer = new GenericMultiplexerFilter($filterGroup, $transformationDefinition['displayName']);
 
             // Don't fail just because one of the web services
@@ -637,7 +637,7 @@ class CitationDAO extends DAO {
             }
 
             // Instantiate the citation de-multiplexer filter.
-            import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationDemultiplexerFilter');
+            import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationDemultiplexerFilter');
             $citationDemultiplexer = new Nlm30CitationDemultiplexerFilter();
             $citationDemultiplexer->setOriginalDescription($originalDescription);
             $citationDemultiplexer->setOriginalRawCitation($citation->getRawCitation());
@@ -645,11 +645,11 @@ class CitationDAO extends DAO {
 
             // Combine multiplexer and de-multiplexer to form the
             // final citation filter network.
-            import('lib.pkp.classes.filter.GenericSequencerFilter');
+            import('lib.wizdam.classes.filter.GenericSequencerFilter');
             $citationFilterNet = new GenericSequencerFilter(
                     PersistableFilter::tempGroup(
                             $filterGroup->getInputType(),
-                            'class::lib.pkp.classes.citation.Citation'),
+                            'class::lib.wizdam.classes.citation.Citation'),
                     'Citation Filter Network');
             $citationFilterNet->addFilter($citationMultiplexer);
             $citationFilterNet->addFilter($citationDemultiplexer);

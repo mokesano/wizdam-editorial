@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & HookRegistry::dispatch
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 define('COVER_PAGE_IMAGE_NAME', 'coverPage');
 
@@ -93,20 +93,20 @@ class MetadataForm extends Form {
             // [WIZDAM] Replaced create_function with anonymous functions
             $this->addCheck(new FormValidatorArrayCustom($this, 'authors', 'required', 'author.submit.form.authorRequiredFields', 
                 function($email, $regExp) {
-                    return PKPString::regexp_match($regExp, $email);
+                    return CoreString::regexp_match($regExp, $email);
                 }, 
                 [ValidatorEmail::getRegexp()], false, ['email']
             ));
             
             $this->addCheck(new FormValidatorArrayCustom($this, 'authors', 'required', 'user.profile.form.urlInvalid', 
                 function($url, $regExp) {
-                    return empty($url) ? true : PKPString::regexp_match($regExp, $url);
+                    return empty($url) ? true : CoreString::regexp_match($regExp, $url);
                 }, 
                 [ValidatorUrl::getRegexp()], false, ['url']
             ));
 
             // Add ORCiD validation
-            import('lib.pkp.classes.validation.ValidatorORCID');
+            import('lib.wizdam.classes.validation.ValidatorORCID');
             $this->addCheck(new FormValidatorArrayCustom($this, 'authors', 'required', 'user.profile.form.orcidInvalid', 
                 function($orcid) {
                     $validator = new ValidatorORCID();
@@ -258,7 +258,7 @@ class MetadataForm extends Form {
         $roleDao = DAORegistry::getDAO('RoleDAO');
         $sectionDao = DAORegistry::getDAO('SectionDAO');
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR); // editor.cover.xxx locale keys; FIXME?
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR); // editor.cover.xxx locale keys; FIXME?
 
         $templateMgr = TemplateManager::getManager();
         $templateMgr->assign('articleId', isset($this->article) ? $this->article->getId() : null);
@@ -373,7 +373,7 @@ class MetadataForm extends Form {
 
     /**
      * Save changes to article.
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      * @return int the article ID
      */
     public function execute($request = null) {

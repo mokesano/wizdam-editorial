@@ -45,7 +45,7 @@ class SetupHandler extends ManagerHandler {
      * Display journal setup form for the selected step.
      * Displays setup index page if a valid step is not specified.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function setup($args, $request) {
         $this->validate();
@@ -59,7 +59,7 @@ class SetupHandler extends ManagerHandler {
         if ($step >= 1 && $step <= 5) {
 
             $formClass = "JournalSetupStep{$step}Form";
-            import("classes.manager.form.setup.$formClass");
+            import("core.Modules.manager.form.setup.$formClass");
 
             $setupForm = new $formClass();
             if ($setupForm->isLocaleResubmit()) {
@@ -81,7 +81,7 @@ class SetupHandler extends ManagerHandler {
     /**
      * Save changes to journal settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSetup($args, $request) {
         $this->validate();
@@ -96,7 +96,7 @@ class SetupHandler extends ManagerHandler {
             $this->setupTemplate(true);
 
             $formClass = "JournalSetupStep{$step}Form";
-            import("classes.manager.form.setup.$formClass");
+            import("core.Modules.manager.form.setup.$formClass");
 
             $setupForm = new $formClass();
             $setupForm->readInputData();
@@ -376,7 +376,7 @@ class SetupHandler extends ManagerHandler {
     /**
      * Display a "Settings Saved" message
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function setupSaved($args, $request) {
         $this->validate();
@@ -401,7 +401,7 @@ class SetupHandler extends ManagerHandler {
     /**
      * Download a layout template.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function downloadLayoutTemplate($args, $request) {
         $this->validate();
@@ -425,7 +425,7 @@ class SetupHandler extends ManagerHandler {
     /**
      * Reset the license attached to article content.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function resetPermissions($args, $request) {
         $this->validate();

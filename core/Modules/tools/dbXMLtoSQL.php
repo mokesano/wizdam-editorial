@@ -17,10 +17,10 @@ declare(strict_types=1);
 
 require(__DIR__ . '/bootstrap.inc.php');
 
-import('lib.pkp.classes.cliTool.XmlToSqlTool');
+import('lib.wizdam.classes.cliTool.XmlToSqlTool');
 
 /** Default XML file to parse if none is specified */
-define('DATABASE_XML_FILE', 'dbscripts/xml/ojs_schema.xml');
+define('DATABASE_XML_FILE', 'dbscripts/xml/wizdam_schema.xml');
 
 class dbXMLtoSQL extends XmlToSqlTool {
     /**

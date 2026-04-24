@@ -52,7 +52,7 @@ class InterestManager {
 
     /**
      * Get user reviewing interests. (Cached in memory for batch fetches.)
-     * @param $user PKPUser
+     * @param $user CoreUser
      * @return array
      */
     public function getInterestsForUser($user) {
@@ -80,7 +80,7 @@ class InterestManager {
 
     /**
      * Returns a comma separated string of a user's interests
-     * @param $user PKPUser
+     * @param $user CoreUser
      * @return string
      */
     public function getInterestsString($user) {
@@ -91,7 +91,7 @@ class InterestManager {
 
     /**
      * Set a user's interests
-     * @param $user PKPUser
+     * @param $user CoreUser
      * @param $interests mixed
      */
     public function setInterestsForUser($user, $interests) {

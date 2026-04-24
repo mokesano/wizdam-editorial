@@ -2,21 +2,21 @@
 declare(strict_types=1);
 
 /**
- * @file classes/rt/ojs/JournalRTAdmin.inc.php
+ * @file classes/rt/wizdam/JournalRTAdmin.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class JournalRTAdmin
- * @ingroup rt_ojs
+ * @ingroup rt_wizdam
  *
- * @brief OJS-specific Reading Tools administration interface.
+ * @brief Wizdam-specific Reading Tools administration interface.
  *
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.rt.RTAdmin');
+import('lib.wizdam.classes.rt.RTAdmin');
 import('classes.rt.RTDAO');
 
 define('RT_DIRECTORY', 'rt');
@@ -57,7 +57,7 @@ class JournalRTAdmin extends RTAdmin {
      * @param bool $deleteBeforeLoad
      */
     public function restoreVersions($deleteBeforeLoad = true) {
-        import('lib.pkp.classes.rt.RTXMLParser');
+        import('lib.wizdam.classes.rt.RTXMLParser');
         $parser = new RTXMLParser();
 
         if ($deleteBeforeLoad) {
@@ -87,7 +87,7 @@ class JournalRTAdmin extends RTAdmin {
      * @param string $filename
      */
     public function importVersion($filename) {
-        import('lib.pkp.classes.rt.RTXMLParser');
+        import('lib.wizdam.classes.rt.RTXMLParser');
         $parser = new RTXMLParser();
 
         $version = $parser->parse($filename);

@@ -16,9 +16,9 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionDAO');
-import('lib.pkp.classes.site.VersionCheck');
+import('lib.wizdam.classes.site.Version');
+import('lib.wizdam.classes.site.VersionDAO');
+import('lib.wizdam.classes.site.VersionCheck');
 import('pages.admin.AdminHandler');
 
 class AdminFunctionsHandler extends AdminHandler {
@@ -47,7 +47,7 @@ class AdminFunctionsHandler extends AdminHandler {
     /**
      * Show system information summary.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function systemInfo($args, $request) {
         $this->validate($request);
@@ -143,7 +143,7 @@ class AdminFunctionsHandler extends AdminHandler {
         // [SECURITY FIX] Sanitasi nama file untuk mencegah directory traversal
         $file = basename(trim((string) $request->getUserVar('file')));
         
-        import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
+        import('lib.wizdam.classes.scheduledTask.ScheduledTaskHelper');
         ScheduledTaskHelper::downloadExecutionLog($file);
     }
     
@@ -152,7 +152,7 @@ class AdminFunctionsHandler extends AdminHandler {
      */
     public function clearScheduledTaskLogFiles() {
         $this->validate();
-        import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
+        import('lib.wizdam.classes.scheduledTask.ScheduledTaskHelper');
         ScheduledTaskHelper::clearExecutionLogs();    
 
         Application::get()->getRequest()->redirect(null, 'admin');

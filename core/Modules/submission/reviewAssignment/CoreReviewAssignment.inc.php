@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/reviewAssignment/PKPReviewAssignment.inc.php
+ * @file classes/submission/reviewAssignment/CoreReviewAssignment.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @ingroup submission
  * @see ReviewAssignmentDAO
  *
- * @brief Describes review assignment properties (abstracted for PKP library).
+ * @brief Describes review assignment properties (abstracted for Wizdam library).
  */
 
 define('SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT', 1);
@@ -50,9 +50,9 @@ class CoreReviewAssignment extends DataObject {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPReviewAssignment() {
+    public function CoreReviewAssignment() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPReviewAssignment(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreReviewAssignment(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }

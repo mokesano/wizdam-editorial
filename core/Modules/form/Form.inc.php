@@ -23,32 +23,32 @@ declare(strict_types=1);
  * - HTML Entity Handling
  */
 
-import('lib.pkp.classes.form.FormError');
-import('lib.pkp.classes.form.FormBuilderVocabulary');
+import('lib.wizdam.classes.form.FormError');
+import('lib.wizdam.classes.form.FormBuilderVocabulary');
 
 // Import all form validators for convenient use in sub-classes
-import('lib.pkp.classes.form.validation.FormValidatorAlphaNum');
-import('lib.pkp.classes.form.validation.FormValidatorArray');
-import('lib.pkp.classes.form.validation.FormValidatorArrayCustom');
-import('lib.pkp.classes.form.validation.FormValidatorControlledVocab');
-import('lib.pkp.classes.form.validation.FormValidatorCustom');
-import('lib.pkp.classes.form.validation.FormValidatorCaptcha');
-import('lib.pkp.classes.form.validation.FormValidatorReCaptcha');
-import('lib.pkp.classes.form.validation.FormValidatorDate');
-import('lib.pkp.classes.form.validation.FormValidatorEmail');
-import('lib.pkp.classes.form.validation.FormValidatorInSet');
-import('lib.pkp.classes.form.validation.FormValidatorLength');
-import('lib.pkp.classes.form.validation.FormValidatorListbuilder');
-import('lib.pkp.classes.form.validation.FormValidatorLocale');
-import('lib.pkp.classes.form.validation.FormValidatorLocaleEmail');
-import('lib.pkp.classes.form.validation.FormValidatorPost');
-import('lib.pkp.classes.form.validation.FormValidatorRegExp');
-import('lib.pkp.classes.form.validation.FormValidatorUri');
-import('lib.pkp.classes.form.validation.FormValidatorUrl');
-import('lib.pkp.classes.form.validation.FormValidatorLocaleUrl');
-import('lib.pkp.classes.form.validation.FormValidatorISSN');
-import('lib.pkp.classes.form.validation.FormValidatorORCID');
-import('lib.pkp.classes.form.validation.FormValidatorCSRF');
+import('lib.wizdam.classes.form.validation.FormValidatorAlphaNum');
+import('lib.wizdam.classes.form.validation.FormValidatorArray');
+import('lib.wizdam.classes.form.validation.FormValidatorArrayCustom');
+import('lib.wizdam.classes.form.validation.FormValidatorControlledVocab');
+import('lib.wizdam.classes.form.validation.FormValidatorCustom');
+import('lib.wizdam.classes.form.validation.FormValidatorCaptcha');
+import('lib.wizdam.classes.form.validation.FormValidatorReCaptcha');
+import('lib.wizdam.classes.form.validation.FormValidatorDate');
+import('lib.wizdam.classes.form.validation.FormValidatorEmail');
+import('lib.wizdam.classes.form.validation.FormValidatorInSet');
+import('lib.wizdam.classes.form.validation.FormValidatorLength');
+import('lib.wizdam.classes.form.validation.FormValidatorListbuilder');
+import('lib.wizdam.classes.form.validation.FormValidatorLocale');
+import('lib.wizdam.classes.form.validation.FormValidatorLocaleEmail');
+import('lib.wizdam.classes.form.validation.FormValidatorPost');
+import('lib.wizdam.classes.form.validation.FormValidatorRegExp');
+import('lib.wizdam.classes.form.validation.FormValidatorUri');
+import('lib.wizdam.classes.form.validation.FormValidatorUrl');
+import('lib.wizdam.classes.form.validation.FormValidatorLocaleUrl');
+import('lib.wizdam.classes.form.validation.FormValidatorISSN');
+import('lib.wizdam.classes.form.validation.FormValidatorORCID');
+import('lib.wizdam.classes.form.validation.FormValidatorCSRF');
 
 class Form {
 
@@ -156,7 +156,7 @@ class Form {
     //
     /**
      * Display the form.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {
@@ -165,7 +165,7 @@ class Form {
 
     /**
      * Returns a string of the rendered form
-     * @param PKPRequest $request (No & needed)
+     * @param CoreRequest $request (No & needed)
      * @param string|null $template
      * @param boolean $display
      * @return string the rendered form
@@ -279,7 +279,7 @@ class Form {
         }
 
         if (!defined('SESSION_DISABLE_INIT')) {
-            $application = PKPApplication::getApplication();
+            $application = CoreApplication::getApplication();
             $request = $application->getRequest();
             $user = $request->getUser();
 

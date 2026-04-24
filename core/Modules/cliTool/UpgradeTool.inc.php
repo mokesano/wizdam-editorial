@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @class upgradeTool
  * @ingroup tools
  *
- * @brief CLI tool for upgrading OJS.
+ * @brief CLI tool for upgrading Wizdam.
  * [WIZDAM EDITION] Modernized CLI Upgrade Tool.
  */
 
@@ -19,8 +19,8 @@ declare(strict_types=1);
 define('RUNNING_UPGRADE', 1);
 
 import('classes.install.Upgrade');
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionCheck');
+import('lib.wizdam.classes.site.Version');
+import('lib.wizdam.classes.site.VersionCheck');
 
 class UpgradeTool extends CommandLineTool {
 

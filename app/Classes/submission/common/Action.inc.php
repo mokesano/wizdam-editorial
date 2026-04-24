@@ -42,7 +42,7 @@ define('SUBMISSION_FIELD_DATE_COPYEDIT_COMPLETE', 5);
 define('SUBMISSION_FIELD_DATE_LAYOUT_COMPLETE', 6);
 define('SUBMISSION_FIELD_DATE_PROOFREADING_COMPLETE', 7);
 
-import('lib.pkp.classes.submission.common.PKPAction');
+import('lib.wizdam.classes.submission.common.CoreAction');
 
 class Action extends CoreAction {
     
@@ -93,11 +93,11 @@ class Action extends CoreAction {
     /**
      * Save metadata.
      * @param object $article Article
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function saveMetadata($article, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $router = $request->getRouter();
 
         if (!HookRegistry::dispatch('Action::saveMetadata', [&$article])) {
@@ -290,7 +290,7 @@ class Action extends CoreAction {
      * @param object $article Article
      * @param object $comment ArticleComment
      * @param boolean $emailComment
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function saveComment($article, $comment, $emailComment, $request) {
         if (!HookRegistry::dispatch('Action::saveComment', [&$article, &$comment, &$emailComment])) {

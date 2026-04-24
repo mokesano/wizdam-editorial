@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 import('classes.plugins.AuthPlugin');
-import('lib.pkp.classes.security.AuthSourceDAO');
+import('lib.wizdam.classes.security.AuthSourceDAO');
 import('pages.admin.AdminHandler');
 
 class AuthSourcesHandler extends AdminHandler {
@@ -46,7 +46,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Display a list of authentication sources.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function auth($args, $request = null) {
         $this->validate();
@@ -76,7 +76,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Update the default authentication source.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateAuthSources($args, $request = null) {
         $this->validate();
@@ -93,7 +93,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Create an authentication source.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createAuthSource($args, $request = null) {
         $this->validate();
@@ -118,7 +118,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Display form to edit an authentication source.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editAuthSource($args, $request = null) {
         $this->validate();
@@ -137,7 +137,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Update an authentication source.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateAuthSource($args, $request = null) {
         $this->validate();
@@ -155,7 +155,7 @@ class AuthSourcesHandler extends AdminHandler {
     /**
      * Delete an authentication source.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteAuthSource($args, $request = null) {
         $this->validate();

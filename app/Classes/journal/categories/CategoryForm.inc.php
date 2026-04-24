@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Form for site admins to create/edit categories.
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class CategoryForm extends Form {
     /** @var Category object the category being edited */

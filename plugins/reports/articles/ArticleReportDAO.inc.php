@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 import('classes.submission.common.Action');
-import('lib.pkp.classes.db.DBRowIterator');
+import('lib.wizdam.classes.db.DBRowIterator');
 
 class ArticleReportDAO extends DAO {
     

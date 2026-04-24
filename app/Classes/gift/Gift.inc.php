@@ -12,10 +12,10 @@ declare(strict_types=1);
  * @ingroup gift
  * @see GiftDAO
  *
- * @brief Class for an OJS Gift.
+ * @brief Class for an Wizdam Gift.
  */
 
-import('lib.pkp.classes.gift.PKPGift');
+import('lib.wizdam.classes.gift.CoreGift');
 
 define('GIFT_TYPE_SUBSCRIPTION', 0x01);
 

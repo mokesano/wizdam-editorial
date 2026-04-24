@@ -61,11 +61,11 @@ class SectionEditorHandler extends Handler {
     /**
      * Display section editor index page.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         $this->setupTemplate();
@@ -263,11 +263,11 @@ class SectionEditorHandler extends Handler {
     /**
      * Display submission management instructions.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function instructions($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->setupTemplate();
         import('classes.submission.proofreader.ProofreaderAction');
@@ -285,7 +285,7 @@ class SectionEditorHandler extends Handler {
      * the article, or is a managing editor.
      * Redirects to sectionEditor index page if validation fails.
      * [WIZDAM] Signature Polyfill: 
-     * Original OJS 2.x Signature: validate($articleId, $access)
+     * Original Wizdam 2.x Signature: validate($articleId, $access)
      * Parent Signature: validate($requiredContexts, $request)
      * We support both via type checking.
      * @param mixed $requiredContexts (Could be articleId (int) or contexts)
@@ -306,7 +306,7 @@ class SectionEditorHandler extends Handler {
             $realRequest = Application::get()->getRequest(); // Get singleton for parent
         } else {
             // Standard call validate($requiredContexts, $request)
-            $realRequest = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+            $realRequest = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         }
 
         parent::validate($requiredContexts, $realRequest);

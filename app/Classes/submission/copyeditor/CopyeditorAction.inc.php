@@ -50,12 +50,12 @@ class CopyeditorAction extends Action {
      * Copyeditor completes initial copyedit.
      * @param object $copyeditorSubmission
      * @param boolean $send
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @return boolean
      */
     public static function completeCopyedit($copyeditorSubmission, $send, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         
         $copyeditorSubmissionDao = DAORegistry::getDAO('CopyeditorSubmissionDAO');
         $signoffDao = DAORegistry::getDAO('SignoffDAO');
@@ -121,12 +121,12 @@ class CopyeditorAction extends Action {
      * Copyeditor completes final copyedit.
      * @param object $copyeditorSubmission
      * @param boolean $send
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @return boolean
      */
     public static function completeFinalCopyedit($copyeditorSubmission, $send, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $copyeditorSubmissionDao = DAORegistry::getDAO('CopyeditorSubmissionDAO');
         $signoffDao = DAORegistry::getDAO('SignoffDAO');
@@ -207,11 +207,11 @@ class CopyeditorAction extends Action {
     /**
      * Set that the copyedit is underway.
      * @param object $copyeditorSubmission
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function copyeditUnderway($copyeditorSubmission, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [WIZDAM] HookRegistry::dispatch. $copyeditorSubmission passed by reference in array for hook modification.
         if (!HookRegistry::dispatch('CopyeditorAction::copyeditUnderway', [&$copyeditorSubmission])) {
@@ -246,11 +246,11 @@ class CopyeditorAction extends Action {
      * Upload the copyedited version of an article.
      * @param object $copyeditorSubmission
      * @param string $copyeditStage
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function uploadCopyeditVersion($copyeditorSubmission, $copyeditStage, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         import('classes.file.ArticleFileManager');
         $articleFileDao = DAORegistry::getDAO('ArticleFileDAO');
@@ -320,11 +320,11 @@ class CopyeditorAction extends Action {
      * Post layout comment.
      * @param object $article
      * @param boolean $emailComment
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function postLayoutComment($article, $emailComment, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [WIZDAM] HookRegistry::dispatch
         if (!HookRegistry::dispatch('CopyeditorAction::postLayoutComment', [&$article, &$emailComment])) {
@@ -378,11 +378,11 @@ class CopyeditorAction extends Action {
      * Post copyedit comment.
      * @param object $article
      * @param boolean $emailComment
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function postCopyeditComment($article, $emailComment, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [WIZDAM] HookRegistry::dispatch
         if (!HookRegistry::dispatch('CopyeditorAction::postCopyeditComment', [&$article, &$emailComment])) {

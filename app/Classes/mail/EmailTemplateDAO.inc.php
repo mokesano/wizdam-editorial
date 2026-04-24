@@ -17,8 +17,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Signature Polyfill
  */
 
-import('lib.pkp.classes.mail.PKPEmailTemplateDAO');
-import('lib.pkp.classes.mail.EmailTemplate');
+import('lib.wizdam.classes.mail.CoreEmailTemplateDAO');
+import('lib.wizdam.classes.mail.EmailTemplate');
 
 class EmailTemplateDAO extends CoreEmailTemplateDAO {
     
@@ -162,7 +162,7 @@ class EmailTemplateDAO extends CoreEmailTemplateDAO {
      * @return bool
      */
     public function customTemplateExistsByKey($emailKey, $assocType, $assocId) {
-        // Force ASSOC_TYPE_JOURNAL to maintain OJS 2.x behavior within newer PKP lib
+        // Force ASSOC_TYPE_JOURNAL to maintain Wizdam 2.x behavior within newer Wizdam lib
         return parent::customTemplateExistsByKey($emailKey, ASSOC_TYPE_JOURNAL, (int) $assocId);
     }
 }

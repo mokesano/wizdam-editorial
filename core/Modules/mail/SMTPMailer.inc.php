@@ -16,7 +16,7 @@ declare(strict_types=1);
  * TODO: TLS support
  */
 
-import('lib.pkp.classes.mail.Mail');
+import('lib.wizdam.classes.mail.Mail');
 
 class SMTPMailer {
 
@@ -179,7 +179,7 @@ class SMTPMailer {
     public function connect() {
         $this->socket = fsockopen($this->server, (int) $this->port, $errno, $errstr, 30);
         if (!$this->socket) {
-            error_log('OJS SMTPMailer: fsockopen error ' . $errno . ': '. $errstr);
+            error_log('Wizdam SMTPMailer: fsockopen error ' . $errno . ': '. $errstr);
             return false;
         }
         return true;
@@ -197,7 +197,7 @@ class SMTPMailer {
         fclose($this->socket);
 
         if (!empty($error)) {
-            error_log('OJS SMTPMailer: ' . $error);
+            error_log('Wizdam SMTPMailer: ' . $error);
             return false;
         }
         return true;

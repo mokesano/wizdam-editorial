@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class providing captcha services.
  */
 
-import('lib.pkp.classes.file.FileManager');
+import('lib.wizdam.classes.file.FileManager');
 
 class CaptchaManager {
     
@@ -93,7 +93,7 @@ class CaptchaManager {
         $width = $this->getWidth();
         $height = $this->getHeight();
         $value = $captcha->getValue();
-        $length = PKPString::strlen($value);
+        $length = CoreString::strlen($value);
 
         $image = imagecreatetruecolor($width, $height);
         
@@ -121,7 +121,7 @@ class CaptchaManager {
                 rand(40, 60),            // Y position (int)
                 $fg,                     // Colour
                 $fontLocation,           // Font
-                PKPString::substr($value, $i, 1) // Text
+                CoreString::substr($value, $i, 1) // Text
             );
         }
 

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/notification/PKPNotification.inc.php
+ * @file classes/notification/CoreNotification.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class for Notification.
  */
 
-import('lib.pkp.classes.notification.NotificationDAO');
+import('lib.wizdam.classes.notification.NotificationDAO');
 
 define('UNSUBSCRIBED_USER_NOTIFICATION',            0);
 
@@ -52,9 +52,9 @@ class CoreNotification extends DataObject {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPNotification() {
+    public function CoreNotification() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPNotification(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreNotification(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }

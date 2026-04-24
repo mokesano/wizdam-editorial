@@ -52,7 +52,7 @@ class CommentHandler extends Handler {
     /**
      * View a comment
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function view($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -102,7 +102,7 @@ class CommentHandler extends Handler {
     /**
      * Add a comment
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function add($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -171,7 +171,7 @@ class CommentHandler extends Handler {
     /**
      * Delete the specified comment and all its children.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function delete($args, $request) {
         $articleId = isset($args[0]) ? (int) $args[0] : 0;
@@ -198,7 +198,7 @@ class CommentHandler extends Handler {
 
     /**
      * Validation
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int $articleId
      * @return bool
      */
@@ -247,7 +247,7 @@ class CommentHandler extends Handler {
 
     /**
      * Set up the comment template.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Article $article
      * @param int $galleyId
      * @param Comment|null $comment
@@ -267,7 +267,7 @@ class CommentHandler extends Handler {
                 $request->url(null, 'article', 'view', [
                     $article->getBestArticleId($request->getJournal()), $galleyId
                 ]),
-                PKPString::stripUnsafeHtml($article->getLocalizedTitle()),
+                CoreString::stripUnsafeHtml($article->getLocalizedTitle()),
                 true
             ]
         ];

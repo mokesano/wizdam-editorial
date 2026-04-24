@@ -19,7 +19,7 @@ declare(strict_types=1);
  * them into a single "best" citation.
  */
 
-import('lib.pkp.classes.filter.Filter');
+import('lib.wizdam.classes.filter.Filter');
 
 class Nlm30CitationDemultiplexerFilter extends Filter {
     /**
@@ -41,8 +41,8 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
         $this->setDisplayName('Join several NLM Citation descriptions into a single citation'); // Only for internal debugging.
 
         parent::__construct(
-            'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)[]',
-            'class::lib.pkp.classes.citation.Citation'
+            'metadata::lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)[]',
+            'class::lib.wizdam.classes.citation.Citation'
         );
     }
 
@@ -178,7 +178,7 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
         $generatedCitation = trim(str_replace(GOOGLE_SCHOLAR_TAG, '', strip_tags($generatedCitation)));
 
         // Compare the original to the generated citation.
-        $citationDiff = PKPString::diff($originalCitation, $generatedCitation);
+        $citationDiff = CoreString::diff($originalCitation, $generatedCitation);
 
         // Calculate similarity as the number of deleted characters in relation to the
         // number of characters in the original citation. This intentionally excludes
@@ -187,10 +187,10 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
         foreach($citationDiff as $diffPart) {
             // Identify deletions.
             if (key($diffPart) == -1) {
-                $deletedCharacters += PKPString::strlen(current($diffPart));
+                $deletedCharacters += CoreString::strlen(current($diffPart));
             }
         }
-        $originalCharacters = PKPString::strlen($originalCitation);
+        $originalCharacters = CoreString::strlen($originalCitation);
         $partOfCommonCharacters = ($originalCharacters - $deletedCharacters) / $originalCharacters;
 
         $filterConfidenceScore = (int) round(min($partOfCommonCharacters * 100, 100));
@@ -219,7 +219,7 @@ class Nlm30CitationDemultiplexerFilter extends Filter {
         assert($scoreThreshold >= 0 && $scoreThreshold <= 100);
 
         // Create the target citation description.
-        $targetDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
+        $targetDescription = new MetadataDescription('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
 
         // Step 1: List all values and max scores that have been identified for a given element
         //         but only include values from results above a given scoring threshold

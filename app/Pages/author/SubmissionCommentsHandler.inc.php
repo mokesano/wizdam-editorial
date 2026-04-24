@@ -46,7 +46,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
     /**
      * View editor decision comments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewEditorDecisionComments($args, $request) {
         $articleId = (int) array_shift($args);
@@ -58,7 +58,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
     /**
      * View copyedit comments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewCopyeditComments($args, $request) {
         $articleId = (int) array_shift($args);
@@ -70,7 +70,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
     /**
      * Post copyedit comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function postCopyeditComment($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -88,7 +88,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
     /**
      * View proofread comments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewProofreadComments($args, $request) {
         $articleId = (int) array_shift($args);
@@ -100,7 +100,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
     /**
      * Post proofread comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function postProofreadComment($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -118,7 +118,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
     /**
      * View layout comments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewLayoutComments($args, $request) {
         $articleId = (int) array_shift($args);
@@ -130,7 +130,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
     /**
      * Post layout comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function postLayoutComment($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -148,7 +148,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
     /**
      * Email an editor decision comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function emailEditorDecisionComment($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -162,7 +162,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
     /**
      * Edit comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editComment($args, $request) {
         $articleId = (int) array_shift($args);
@@ -181,7 +181,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
     /**
      * Save comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveComment($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -220,7 +220,7 @@ class SubmissionCommentsHandler extends AuthorHandler {
     /**
      * Delete comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteComment($args, $request) {
         $articleId = (int) array_shift($args);

@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Counter report plugin
  */
 
-define('OJS_METRIC_TYPE_LEGACY_COUNTER', 'ojs::legacyCounterPlugin');
+define('APP_METRIC_TYPE_LEGACY_COUNTER', 'wizdam::legacyCounterPlugin');
 define('COUNTER_CLASS_SUFFIX', '.inc.php');
 
 import('classes.plugins.ReportPlugin');
@@ -97,7 +97,7 @@ class CounterReportPlugin extends ReportPlugin {
         // Assuming it's available or defined in imported files.
         // If it's a constant from CounterReport, it might need CounterReport::PREFIX, 
         // but sticking to legacy usage patterns for global constants if they exist.
-        // Based on typical OJS counter plugin, this constant is usually 'CounterReport'.
+        // Based on typical Wizdam counter plugin, this constant is usually 'CounterReport'.
         $prefix = $this->getReportPath() . DIRECTORY_SEPARATOR . COUNTER_CLASS_PREFIX;
         $suffix = COUNTER_CLASS_SUFFIX;
         foreach (glob($prefix.'*'.$suffix) as $file) {
@@ -262,10 +262,10 @@ class CounterReportPlugin extends ReportPlugin {
      */
     private function _getYears($useLegacyStats = false) {
         if ($useLegacyStats) {
-            $metricType = OJS_METRIC_TYPE_LEGACY_COUNTER;
+            $metricType = APP_METRIC_TYPE_LEGACY_COUNTER;
             $filter = [];
         } else {
-            $metricType = OJS_METRIC_TYPE_COUNTER;
+            $metricType = APP_METRIC_TYPE_COUNTER;
             $filter = [STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_GALLEY];
         }
         $metricsDao = DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */

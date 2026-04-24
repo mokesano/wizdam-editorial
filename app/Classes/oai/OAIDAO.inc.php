@@ -2,19 +2,19 @@
 declare(strict_types=1);
 
 /**
- * @file classes/oai/ojs/OAIDAO.inc.php
+ * @file classes/oai/wizdam/OAIDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * OAI DAO untuk OJS. Mengimplementasikan logika spesifik jurnal
- * di atas PKPOAIDAO yang bersifat generik.
+ * OAI DAO untuk Wizdam. Mengimplementasikan logika spesifik jurnal
+ * di atas CoreOAIDAO yang bersifat generik.
  *
  * [WIZDAM EDITION] REFACTOR: PHP 8.1+ Compatibility, HookRegistry::dispatch
  */
 
-import('lib.pkp.classes.oai.PKPOAIDAO');
+import('lib.wizdam.classes.oai.CoreOAIDAO');
 import('classes.issue.Issue');
 
 class OAIDAO extends CoreOAIDAO {
@@ -75,7 +75,7 @@ class OAIDAO extends CoreOAIDAO {
     /**
      * Return the *nix timestamp of the earliest published submission.
      *
-     * Catatan: fungsi ini override perilaku PKPOAIDAO karena struktur OJS
+     * Catatan: fungsi ini override perilaku CoreOAIDAO karena struktur Wizdam
      * menggunakan join tabel artikel/issue.
      *
      * @param string|array|null $selectStatement Jika array, berarti argumen pertama
@@ -198,7 +198,7 @@ class OAIDAO extends CoreOAIDAO {
     //
 
     /**
-     * Set metadata OAI spesifik untuk OJS pada objek OAIRecord atau OAIIdentifier.
+     * Set metadata OAI spesifik untuk Wizdam pada objek OAIRecord atau OAIIdentifier.
      *
      * @param OAIRecord|OAIIdentifier $record
      * @param array $row Record dari database

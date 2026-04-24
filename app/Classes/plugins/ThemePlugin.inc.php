@@ -70,7 +70,7 @@ class ThemePlugin extends Plugin {
 
     /**
      * Activate the theme.
-     * @param PKPTemplateManager $templateMgr
+     * @param CoreTemplateManager $templateMgr
      */
     public function activate($templateMgr) {
         // Subclasses may override this function.

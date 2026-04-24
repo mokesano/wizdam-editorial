@@ -56,7 +56,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Displays the editor role selection page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -154,7 +154,7 @@ class EditorHandler extends SectionEditorHandler {
                     $submissionsArray = array_reverse($submissionsArray);
                 }
                 // Convert submission array back to an ItemIterator class
-                import('lib.pkp.classes.core.ArrayItemIterator');
+                import('lib.wizdam.classes.core.ArrayItemIterator');
                 $submissions = ArrayItemIterator::fromRangeInfo($submissionsArray, $rangeInfo);
             } else {
                 $rawSubmissions = $editorSubmissionDao->_getUnfilteredEditorSubmissions(
@@ -210,7 +210,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Display editor submission queue pages.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submissions($args, $request) {
         $this->validate();
@@ -420,7 +420,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Set the canEdit / canReview flags for this submission's edit assignments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function setEditorFlags($args, $request) {
         $this->validate();
@@ -454,7 +454,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Delete the specified edit assignment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteEditAssignment($args, $request) {
         $this->validate();
@@ -481,7 +481,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Assigns the selected editor to the submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function assignEditor($args, $request) {
         $this->validate();
@@ -534,7 +534,7 @@ class EditorHandler extends SectionEditorHandler {
                 }
 
             } elseif (!empty($searchInitial)) {
-                $searchInitial = PKPString::strtoupper($searchInitial);
+                $searchInitial = CoreString::strtoupper($searchInitial);
                 $searchType = USER_FIELD_INITIAL;
                 $search = $searchInitial;
             }
@@ -590,7 +590,7 @@ class EditorHandler extends SectionEditorHandler {
     /**
      * Delete a submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteSubmission($args, $request) {
         $articleId = (int) array_shift($args);

@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - Null Safety
  */
 
-import('lib.pkp.classes.signoff.Signoff');
+import('lib.wizdam.classes.signoff.Signoff');
 
 class CoreSignoffDAO extends DAO {
     

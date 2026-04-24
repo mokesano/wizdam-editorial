@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized Syntax Only (Safe Mode)
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class NotificationBlockPlugin extends BlockPlugin {
     
@@ -78,7 +78,7 @@ class NotificationBlockPlugin extends BlockPlugin {
     /**
      * Get the contents for this block.
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {

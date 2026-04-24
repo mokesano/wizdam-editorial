@@ -15,10 +15,10 @@ declare(strict_types=1);
  * users with no roles, we don't deny access when no user roles are found.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
 
 class UserRolesRequiredPolicy extends AuthorizationPolicy {
-    /** @var PKPRequest */
+    /** @var CoreRequest */
     public $_request;
 
     /**
@@ -63,7 +63,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy {
 
         // Prepare an array with the context ids of the request.
         // Removed & reference
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         $contextDepth = $application->getContextDepth();
         $router = $request->getRouter();
         $roleContext = array();

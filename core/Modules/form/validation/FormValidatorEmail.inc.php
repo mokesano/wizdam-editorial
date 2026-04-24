@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.validation.FormValidatorRegExp');
-import('lib.pkp.classes.validation.ValidatorEmail');
+import('lib.wizdam.classes.form.validation.FormValidatorRegExp');
+import('lib.wizdam.classes.validation.ValidatorEmail');
 
 class FormValidatorEmail extends FormValidator {
     

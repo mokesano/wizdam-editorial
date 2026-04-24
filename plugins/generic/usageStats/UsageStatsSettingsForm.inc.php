@@ -15,7 +15,7 @@ declare(strict_types=1);
  * MODERNIZED FOR PHP 7.4+ (Fork Version)
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class UsageStatsSettingsForm extends Form {
 
@@ -70,7 +70,7 @@ class UsageStatsSettingsForm extends Form {
     /**
      * Display the form.
      * @see Form::fetch()
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $template string
      * @return string
      */
@@ -122,7 +122,7 @@ class UsageStatsSettingsForm extends Form {
     function getOptionalColumnsList() {
         $plugin = $this->plugin;
         $reportPlugin = $plugin->getReportPlugin();
-        $optionalColumns = $reportPlugin->getOptionalColumns(OJS_METRIC_TYPE_COUNTER);
+        $optionalColumns = $reportPlugin->getOptionalColumns(APP_METRIC_TYPE_COUNTER);
         $columnsList = array();
         foreach ($optionalColumns as $column) {
             $columnsList[$column] = StatisticsHelper::getColumnNames($column);

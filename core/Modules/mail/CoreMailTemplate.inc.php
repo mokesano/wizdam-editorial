@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/mail/PKPMailTemplate.inc.php
+ * @file classes/mail/CoreMailTemplate.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.mail.Mail');
+import('lib.wizdam.classes.mail.Mail');
 
 define('MAIL_ERROR_INVALID_EMAIL', 0x000001);
 
@@ -84,7 +84,7 @@ class CoreMailTemplate extends Mail {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPMailTemplate() {
+    public function CoreMailTemplate() {
         trigger_error(
             "Class '" . get_class($this) . "' uses deprecated constructor parent::PublishedArticle(). Please refactor to parent::__construct().", 
             E_USER_DEPRECATED
@@ -160,10 +160,10 @@ class CoreMailTemplate extends Mail {
         foreach ($newAddresses as $newAddress) {
             $regs = [];
             // Match the form "My Name <my_email@my.domain.com>"
-            if (PKPString::regexp_match_get('/^([^<>' . "\n" . ']*[^<> ' . "\n" . '])[ ]*<(?P<email>' . PCRE_EMAIL_ADDRESS . ')>$/i', $newAddress, $regs)) {
+            if (CoreString::regexp_match_get('/^([^<>' . "\n" . ']*[^<> ' . "\n" . '])[ ]*<(?P<email>' . PCRE_EMAIL_ADDRESS . ')>$/i', $newAddress, $regs)) {
                 $currentList[] = ['name' => $regs[1], 'email' => $regs['email']];
 
-            } elseif (PKPString::regexp_match_get('/^<?(?P<email>' . PCRE_EMAIL_ADDRESS . ')>?$/i', $newAddress, $regs)) {
+            } elseif (CoreString::regexp_match_get('/^<?(?P<email>' . PCRE_EMAIL_ADDRESS . ')>?$/i', $newAddress, $regs)) {
                 $currentList[] = ['name' => '', 'email' => $regs['email']];
 
             } elseif ($newAddress != '') {
@@ -182,7 +182,7 @@ class CoreMailTemplate extends Mail {
      * @return void
      */
     public function displayEditForm($formActionUrl, $hiddenFormParams = null, $alternateTemplate = null, $additionalParameters = []) {
-        import('lib.pkp.classes.form.Form');
+        import('lib.wizdam.classes.form.Form');
         $form = new Form($alternateTemplate != null ? $alternateTemplate : 'email/email.tpl');
         
         // [WIZDAM] Request Singleton

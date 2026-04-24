@@ -16,7 +16,7 @@ declare(strict_types=1);
  * description object for direct metadata description persistence.
  */
 
-import('lib.pkp.classes.metadata.MetadataDataObjectAdapter');
+import('lib.wizdam.classes.metadata.MetadataDataObjectAdapter');
 
 class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
     
@@ -53,7 +53,7 @@ class MetadataDescriptionDummyAdapter extends MetadataDataObjectAdapter {
      * @see PersistableFilter::getClassName()
      */
     public function getClassName() {
-        return 'lib.pkp.classes.metadata.MetadataDescriptionDummyAdapter';
+        return 'lib.wizdam.classes.metadata.MetadataDescriptionDummyAdapter';
     }
 
 

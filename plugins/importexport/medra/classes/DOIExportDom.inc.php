@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Onix for DOI (O4DOI) XML export format implementation.
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
 define('DOI_EXPORT_FILETYPE_PDF', 'PDF');
 define('DOI_EXPORT_FILETYPE_HTML', 'HTML');
@@ -243,7 +243,7 @@ class DOIExportDom {
      */
     protected function createElementWithText(string $name, string $value, array $attributes = []) {
         $element = XMLCustomWriter::createElement($this->getDoc(), $name);
-        $elementContent = XMLCustomWriter::createTextNode($this->getDoc(), PKPString::html2text($value));
+        $elementContent = XMLCustomWriter::createTextNode($this->getDoc(), CoreString::html2text($value));
         XMLCustomWriter::appendChild($element, $elementContent);
         foreach($attributes as $attributeName => $attributeValue) {
             XMLCustomWriter::setAttribute($element, $attributeName, $attributeValue);
@@ -252,10 +252,10 @@ class DOIExportDom {
     }
 
     /**
-     * Retrieve all the OJS publication objects containing the
+     * Retrieve all the Wizdam publication objects containing the
      * data required to generate the given O4DOI schema.
      * @param Issue|PublishedArticle|ArticleGalley $object The object to export.
-     * @return array An array with the required OJS objects.
+     * @return array An array with the required Wizdam objects.
      */
     protected function retrievePublicationObjects($object): array {
         // Initialize local variables.
@@ -375,7 +375,7 @@ class DOIExportDom {
      * Identify the locale precedence for this export.
      * @param PublishedArticle $article
      * @param ArticleGalley $galley
-     * @return array A list of valid PKP locales in descending
+     * @return array A list of valid Wizdam locales in descending
      * order of priority.
      */
     protected function getObjectLocalePrecedence($article, $galley): array {
@@ -416,9 +416,9 @@ class DOIExportDom {
     }
 
     /**
-     * Try to translate an ISO language code to an OJS locale.
+     * Try to translate an ISO language code to an Wizdam locale.
      * @param string $language 2- or 3-letter ISO language code
-     * @return string|null An OJS locale or null if no matching
+     * @return string|null An Wizdam locale or null if no matching
      * locale could be found.
      */
     protected function translateLanguageToLocale(string $language): ?string {
@@ -501,7 +501,7 @@ class DOIExportDom {
      * Generate a proprietary ID for the given objects.
      *
      * The idea is to produce an idea that is globally unique within
-     * an OJS installation so that we can uniquely identify the exported
+     * an Wizdam installation so that we can uniquely identify the exported
      * object just by knowing the proprietary ID.
      *
      * We're using the internal ID rather than the "best ID" as the

@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief CrossRef citation database connector plug-in.
  */
 
-import('lib.pkp.plugins.citationLookup.crossref.PKPCrossrefCitationLookupPlugin');
+import('lib.wizdam.plugins.citationLookup.crossref.PKPCrossrefCitationLookupPlugin');
 
 class CrossrefCitationLookupPlugin extends CoreCrossrefCitationLookupPlugin {
     

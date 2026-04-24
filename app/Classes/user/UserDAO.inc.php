@@ -10,14 +10,14 @@ declare(strict_types=1);
  *
  * @class UserDAO
  * @ingroup user
- * @see PKPUserDAO
+ * @see CoreUserDAO
  *
  * @brief Basic class describing users existing in the system.
  * [WIZDAM EDITION] PHP 7.4+ Compatible
  */
 
 import('classes.user.User');
-import('lib.pkp.classes.user.PKPUserDAO');
+import('lib.wizdam.classes.user.CoreUserDAO');
 
 class UserDAO extends CoreUserDAO {
     
@@ -272,7 +272,7 @@ class UserDAO extends CoreUserDAO {
             $data['userId'] = $userId;
     
             // [WIZDAM REFACTOR] Satu getById() menggantikan semua query terpisah.
-            // User object membawa semua data — field baru di PKPUser otomatis
+            // User object membawa semua data — field baru di CoreUser otomatis
             // tersedia tanpa perlu mengubah method ini di masa depan.
             $data['user'] = $this->getById((int) $userId);
     

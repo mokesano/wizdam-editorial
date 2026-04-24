@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/help/PKPHelp.inc.php
+ * @file classes/help/CoreHelp.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -25,13 +25,13 @@ class CoreHelp {
 
     /**
      * Get an instance of the Help object.
-     * @return PKPHelp
+     * @return CoreHelp
      */
     public static function getHelp() { // Menjadikan static, menghapus reference (&)
         $instance = Registry::get('help');
         if ($instance == null) {
             unset($instance);
-            $application = PKPApplication::getApplication();
+            $application = CoreApplication::getApplication();
             $instance = $application->instantiateHelp();
             Registry::set('help', $instance);
         }
@@ -48,9 +48,9 @@ class CoreHelp {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPHelp() {
+    public function CoreHelp() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPHelp(). Please refactor to use parent::__construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreHelp(). Please refactor to use parent::__construct().",
             E_USER_DEPRECATED
         );
         self::__construct();
@@ -114,7 +114,7 @@ class CoreHelp {
      * @return FileCache
      */
     protected function _getTocCache() {
-        $cache = Registry::get('pkpHelpTocCache', true, null);
+        $cache = Registry::get('wizdamHelpTocCache', true, null);
 
         if ($cache === null) {
             $cacheManager = CacheManager::getManager();
@@ -122,7 +122,7 @@ class CoreHelp {
                 'help', 'toc',
                 array($this, '_tocCacheMiss')
             );
-            Registry::set('pkpHelpTocCache', $cache);
+            Registry::set('wizdamHelpTocCache', $cache);
 
             // Check to see if the cache info is outdated.
             $cacheTime = $cache->getCacheTime();
@@ -143,7 +143,7 @@ class CoreHelp {
     public function _mappingCacheMiss($cache, $id) {
         // Keep a secondary cache of the mappings so that a few
         // cache misses won't destroy the server
-        $mappings = Registry::get('pkpHelpMappings', true, null);
+        $mappings = Registry::get('wizdamHelpMappings', true, null);
 
         $result = null;
         // KOREKSI DITERAPKAN DI SINI: call diubah menjadi dispatch
@@ -152,7 +152,7 @@ class CoreHelp {
         if ($mappings === null) {
             $mappings = $this->loadHelpMappings();
             $cache->setEntireCache($mappings);
-            Registry::set('pkpHelpMappings', $mappings);
+            Registry::set('wizdamHelpMappings', $mappings);
         }
         return isset($mappings[$id])?$mappings[$id]:null;
     }
@@ -166,7 +166,7 @@ class CoreHelp {
     public function _tocCacheMiss($cache, $id) {
         // Keep a secondary cache of the TOC so that a few
         // cache misses won't destroy the server
-        $toc = Registry::get('pkpHelpTocData', true, null);
+        $toc = Registry::get('wizdamHelpTocData', true, null);
         if ($toc === null) {
             $topicId = 'index/topic/000000';
             $help = $this->getHelp();
@@ -174,7 +174,7 @@ class CoreHelp {
             $toc = $help->buildToc($helpToc);
 
             $cache->setEntireCache($toc);
-            Registry::set('pkpHelpTocData', $toc);
+            Registry::set('wizdamHelpTocData', $toc);
         }
         return null;
     }
@@ -310,7 +310,7 @@ class CoreHelp {
     }
 
     /**
-     * Placeholder method; to be implemented by subclass (e.g. OJS/OMP/PKPApplication::instantiateHelp() must call this).
+     * Placeholder method; to be implemented by subclass (e.g. Wizdam/OMP/CoreApplication::instantiateHelp() must call this).
      * @return array
      */
     public function loadHelpMappings() {

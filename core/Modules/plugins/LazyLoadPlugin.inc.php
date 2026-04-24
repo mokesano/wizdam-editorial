@@ -13,7 +13,7 @@ declare(strict_types=1);
  *
  * @brief Abstract class for plugins that optionally
  * support lazy load.
- * * MODERNIZED FOR PHP 7.4+ (OJS FORK)
+ * * MODERNIZED FOR PHP 7.4+ (Wizdam FORK)
  * - Constructor updated to __construct
  * - Parent constructor call updated
  */
@@ -72,7 +72,7 @@ class LazyLoadPlugin extends Plugin {
     public function getEnabled($request = null): bool {
         // [WIZDAM FIX] CLI/Acron Guard (PHP 7.4 - 8.4+ Safe)
         // Cegah fatal error: Jika Aplikasi belum diinisialisasi (null) saat tugas latar belakang, tidak mungkin ada konteks. Kembalikan false secara aman tanpa mengakses PKPPlugin.
-        if (!PKPApplication::getApplication()) {
+        if (!CoreApplication::getApplication()) {
             return false;
         }
         

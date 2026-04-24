@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+import('lib.wizdam.classes.form.validation.FormValidator');
 
 class FormValidatorInSet extends FormValidator {
 
@@ -57,7 +57,7 @@ class FormValidatorInSet extends FormValidator {
      * @return boolean
      */
     public function isValid() {
-        import('lib.pkp.classes.validation.ValidatorInSet');
+        import('lib.wizdam.classes.validation.ValidatorInSet');
         $validator = new ValidatorInSet($this->_acceptedValues);
         return $this->isEmptyAndOptional() || $validator->isValid($this->getFieldValue());
     }

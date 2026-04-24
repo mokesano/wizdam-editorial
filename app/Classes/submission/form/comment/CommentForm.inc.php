@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class CommentForm extends Form {
 
@@ -47,7 +47,7 @@ class CommentForm extends Form {
      * @param int|null $assocId
      */
     public function __construct($article, $commentType, $roleId, $assocId = null) {
-        AppLocale::requireComponents([LOCALE_COMPONENT_OJS_EDITOR]); // editor.article.commentsRequired
+        AppLocale::requireComponents([LOCALE_COMPONENT_WIZDAM_EDITOR]); // editor.article.commentsRequired
 
         if ($commentType == COMMENT_TYPE_PEER_REVIEW) {
             parent::__construct('submission/comment/peerReviewComment.tpl');
@@ -154,7 +154,7 @@ class CommentForm extends Form {
     /**
      * Email the comment.
      * @param array $recipients array of recipients (email address => name)
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function email($recipients, $request) {
         $article = $this->article;
@@ -174,7 +174,7 @@ class CommentForm extends Form {
             $paramArray = [
                 'name' => $name,
                 'commentName' => $this->user->getFullName(),
-                'comments' => PKPString::html2text($commentText)
+                'comments' => CoreString::html2text($commentText)
             ];
 
             $email->sendWithParams($paramArray, $request);

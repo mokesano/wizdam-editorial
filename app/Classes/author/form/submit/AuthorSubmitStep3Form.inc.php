@@ -23,7 +23,7 @@ class AuthorSubmitStep3Form extends AuthorSubmitForm {
      * Constructor.
      * @param Article $article
      * @param Journal $journal
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function __construct($article, $journal, $request) {
         parent::__construct($article, 3, $journal, $request);
@@ -40,7 +40,7 @@ class AuthorSubmitStep3Form extends AuthorSubmitForm {
         // [WIZDAM] Replaced create_function with Closure for Email Validation
         $this->addCheck(new FormValidatorArrayCustom(
             $this, 'authors', 'required', 'author.submit.form.authorRequiredFields',
-            function($email, $regExp) { return PKPString::regexp_match($regExp, $email); },
+            function($email, $regExp) { return CoreString::regexp_match($regExp, $email); },
             [ValidatorEmail::getRegexp()],
             false,
             ['email']
@@ -50,14 +50,14 @@ class AuthorSubmitStep3Form extends AuthorSubmitForm {
         // [WIZDAM] Replaced create_function with Closure
         $this->addCheck(new FormValidatorArrayCustom(
             $this, 'authors', 'required', 'user.profile.form.urlInvalid',
-            function($url, $regExp) { return empty($url) ? true : PKPString::regexp_match($regExp, $url); },
+            function($url, $regExp) { return empty($url) ? true : CoreString::regexp_match($regExp, $url); },
             [ValidatorUrl::getRegexp()],
             false,
             ['url']
         ));
 
         // Add ORCiD validation
-        import('lib.pkp.classes.validation.ValidatorORCID');
+        import('lib.wizdam.classes.validation.ValidatorORCID');
         // [WIZDAM] Replaced create_function with Closure
         $this->addCheck(new FormValidatorArrayCustom(
             $this, 'authors', 'required', 'user.profile.form.orcidInvalid',
@@ -207,7 +207,7 @@ class AuthorSubmitStep3Form extends AuthorSubmitForm {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {

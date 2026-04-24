@@ -79,8 +79,8 @@ class CoreOAIMetadataFormat_DC extends OAIMetadataFormat {
         // Translate the property name to XML syntax.
         $openingElement = str_replace(['[@', ']'], [' ', ''], $propertyName);
         
-        // [WIZDAM] Native regex replace is preferred, but sticking to PKPString if strict UTF8 handling is needed
-        $closingElement = PKPString::regexp_replace('/\[@.*/', '', $propertyName);
+        // [WIZDAM] Native regex replace is preferred, but sticking to CoreString if strict UTF8 handling is needed
+        $closingElement = CoreString::regexp_replace('/\[@.*/', '', $propertyName);
 
         // Create the actual XML entry.
         $response = '';

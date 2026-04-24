@@ -15,10 +15,10 @@ declare(strict_types=1);
  */
 
 import('classes.plugins.ImportExportPlugin');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
-define('PID_DTD_URL', 'http://pkp.sfu.ca/ojs/dtds/2.3/pubIds.dtd');
-define('PID_DTD_ID', '-//PKP//OJS PubIds XML//EN');
+define('PID_DTD_URL', 'http://wizdam.sfu.ca/wizdam/dtds/2.3/pubIds.dtd');
+define('PID_DTD_ID', '-//Wizdam//Wizdam PubIds XML//EN');
 
 class PubIdImportExportPlugin extends ImportExportPlugin {
 
@@ -130,7 +130,7 @@ class PubIdImportExportPlugin extends ImportExportPlugin {
             case 'selectIssue':
                 // Display a list of issues for export
                 $this->setBreadcrumbs([], true);
-                AppLocale::requireComponents([LOCALE_COMPONENT_OJS_EDITOR]);
+                AppLocale::requireComponents([LOCALE_COMPONENT_WIZDAM_EDITOR]);
                 $issues = $issueDao->getIssues($journal->getId(), Handler::getRangeInfo('issues'));
                 $templateMgr->assign('issues', $issues);
                 $templateMgr->display($this->getTemplatePath() . 'selectIssue.tpl');

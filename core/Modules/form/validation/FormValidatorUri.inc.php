@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.form.validation.FormValidator');
+import('lib.wizdam.classes.form.validation.FormValidator');
 
 class FormValidatorUri extends FormValidator {
     
@@ -30,7 +30,7 @@ class FormValidatorUri extends FormValidator {
      * @param array|null $allowedSchemes the allowed URI schemes
      */
     public function __construct($form, $field, $type, $message, ?array $allowedSchemes = null) {
-        import('lib.pkp.classes.validation.ValidatorUri');
+        import('lib.wizdam.classes.validation.ValidatorUri');
         $validator = new ValidatorUri($allowedSchemes);
         parent::__construct($form, $field, $type, $message, $validator);
     }

@@ -371,10 +371,10 @@ class BookForReview extends DataObject {
      */
     public function getLocalizedDescriptionShort() {
         $end ='';
-        if (PKPString::strlen($this->getLocalizedData('description'))) {
+        if (CoreString::strlen($this->getLocalizedData('description'))) {
             $end = ' ...';
         }
-        return PKPString::substr($this->getLocalizedData('description'), 0, 250) . $end;
+        return CoreString::substr($this->getLocalizedData('description'), 0, 250) . $end;
     }
 
     /**

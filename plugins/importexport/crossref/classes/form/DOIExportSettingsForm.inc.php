@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class DOIExportSettingsForm extends Form {
 

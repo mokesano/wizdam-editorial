@@ -17,8 +17,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.citation.TemplateBasedReferencesListFilter');
-import('lib.pkp.classes.citation.PlainTextReferencesList');
+import('lib.wizdam.classes.citation.TemplateBasedReferencesListFilter');
+import('lib.wizdam.classes.citation.PlainTextReferencesList');
 
 class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
     
@@ -28,7 +28,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
      */
     public function __construct($filterGroup) {
         // Add the persistable filter settings.
-        import('lib.pkp.classes.filter.SetFilterSetting');
+        import('lib.wizdam.classes.filter.SetFilterSetting');
         $this->addSetting(new SetFilterSetting('ordering', null, null,
                 [REFERENCES_LIST_ORDERING_ALPHABETICAL, REFERENCES_LIST_ORDERING_NUMERICAL]));
 
@@ -58,7 +58,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
      */
     public function getCitationOutputFilterTypeDescriptions() {
         return [
-                'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
+                'metadata::lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema(CITATION)',
                 'primitive::string'
         ];
     }
@@ -71,7 +71,7 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
      * @return string
      */
     public function getClassName() {
-        return 'lib.pkp.classes.citation.PlainTextReferencesListFilter';
+        return 'lib.wizdam.classes.citation.PlainTextReferencesListFilter';
     }
 
     //
@@ -94,9 +94,9 @@ class PlainTextReferencesListFilter extends TemplateBasedReferencesListFilter {
     //
     /**
      * @see TemplateBasedFilter::addTemplateVars()
-     * @param PKPTemplateManager $templateMgr
+     * @param CoreTemplateManager $templateMgr
      * @param Submission $submission
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $locale
      */
     public function addTemplateVars($templateMgr, $submission, $request, $locale) {

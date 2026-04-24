@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 import ('classes.journal.Journal');
-import('lib.pkp.classes.metadata.MetadataTypeDescription');
+import('lib.wizdam.classes.metadata.MetadataTypeDescription');
 
 define('JOURNAL_FIELD_TITLE', 1);
 define('JOURNAL_FIELD_SEQUENCE', 2);

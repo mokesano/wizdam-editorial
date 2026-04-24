@@ -50,11 +50,11 @@ class ProofreaderHandler extends Handler {
     /**
      * Display proofreader index page.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate($request);
         $this->setupTemplate();
@@ -175,10 +175,10 @@ class ProofreaderHandler extends Handler {
     /**
      * Display submission management instructions.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function instructions($args, $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $this->setupTemplate();
         if (!isset($args[0]) || !ProofreaderAction::instructions($args[0], ['proof'])) {
             $request->redirect(null, $request->getRequestedPage());
@@ -222,7 +222,7 @@ class ProofreaderHandler extends Handler {
 
         // --- Sekarang kita bisa memvalidasi dengan aman ---
 
-        // Panggil validasi 'Kakek' (PKPHandler) terlebih dahulu
+        // Panggil validasi 'Kakek' (CoreHandler) terlebih dahulu
         // Ini akan menangani validasi jurnal dasar
         parent::validate($realRequest);
 

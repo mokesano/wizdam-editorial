@@ -15,7 +15,7 @@ declare(strict_types=1);
  * MODERNIZED FOR PHP 7.4+ & SCHOLARWIZDAM FORK
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class XMLGalleyPlugin extends GenericPlugin {
     
@@ -236,7 +236,7 @@ class XMLGalleyPlugin extends GenericPlugin {
      * Display verbs for the management interface.
      * @see Plugin::getManagementVerbs()
      * @param $verbs array Existing management verbs
-     * @param $request PKPRequest|null
+     * @param $request CoreRequest|null
      * @return array Modified management verbs
      */
     public function getManagementVerbs(array $verbs = [], $request = null): array {
@@ -296,7 +296,7 @@ class XMLGalleyPlugin extends GenericPlugin {
                 }
 
             case 'settings':
-                AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON,  LOCALE_COMPONENT_PKP_MANAGER);
+                AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON,  LOCALE_COMPONENT_WIZDAM_MANAGER);
                 // if we are updating XSLT settings or switching XSL sheets
                 if (Request::getUserVar('save')) {
                     $form->readInputData();

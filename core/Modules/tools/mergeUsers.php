@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @class mergeUsers
  * @ingroup tools
  *
- * @brief CLI tool for merging two OJS 2 user accounts.
+ * @brief CLI tool for merging two Wizdam 2 user accounts.
  * [WIZDAM EDITION] Modernized CLI User Merge Tool.
  */
 

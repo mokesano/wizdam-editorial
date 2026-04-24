@@ -18,15 +18,15 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
 
 class CopyeditorSubmissionAssignmentPolicy extends AuthorizationPolicy {
-    /** @var PKPRequest */
+    /** @var CoreRequest */
     public $_request;
 
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function __construct($request) {
         parent::__construct('user.authorization.copyeditorAssignmentMissing');
@@ -54,7 +54,7 @@ class CopyeditorSubmissionAssignmentPolicy extends AuthorizationPolicy {
         // Get the user
         $user = $this->_request->getUser();
         // [MODERNISASI] is_a -> instanceof
-        if (!($user instanceof PKPUser)) return AUTHORIZATION_DENY;
+        if (!($user instanceof CoreUser)) return AUTHORIZATION_DENY;
 
         // Get the copyeditor submission
         $copyeditorSubmission = $this->getAuthorizedContextObject(ASSOC_TYPE_ARTICLE);

@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Form for editing individual custom block content.
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class CustomBlockEditForm extends Form {
 

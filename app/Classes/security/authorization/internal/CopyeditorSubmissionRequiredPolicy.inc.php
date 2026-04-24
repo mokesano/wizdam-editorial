@@ -16,13 +16,13 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
+import('lib.wizdam.classes.security.authorization.DataObjectRequiredPolicy');
 
 class CopyeditorSubmissionRequiredPolicy extends DataObjectRequiredPolicy {
     
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function __construct($request, $args, $submissionParameterName = 'articleId') {
         parent::__construct($request, $args, $submissionParameterName, 'user.authorization.invalidCopyditorSubmission');
@@ -56,7 +56,7 @@ class CopyeditorSubmissionRequiredPolicy extends DataObjectRequiredPolicy {
         // Get the user
         $user = $request->getUser();
         // [MODERNISASI] is_a -> instanceof
-        if (!($user instanceof PKPUser)) return AUTHORIZATION_DENY;
+        if (!($user instanceof CoreUser)) return AUTHORIZATION_DENY;
 
         // Validate the article id.
         $copyeditorSubmissionDao = DAORegistry::getDAO('CopyeditorSubmissionDAO');

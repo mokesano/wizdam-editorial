@@ -15,7 +15,7 @@ declare(strict_types=1);
  * MODERNIZED FOR PHP 8.x+
  */
 
-import('lib.pkp.classes.plugins.PKPPlugin');
+import('lib.wizdam.classes.plugins.PKPPlugin');
 
 class Plugin extends CorePlugin {
     

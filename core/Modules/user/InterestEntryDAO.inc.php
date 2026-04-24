@@ -15,8 +15,8 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying a user's review interests.
  */
 
-import('lib.pkp.classes.user.InterestEntry');
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO');
+import('lib.wizdam.classes.user.InterestEntry');
+import('lib.wizdam.classes.controlledVocab.ControlledVocabEntryDAO');
 
 class InterestEntryDAO extends ControlledVocabEntryDAO {
     

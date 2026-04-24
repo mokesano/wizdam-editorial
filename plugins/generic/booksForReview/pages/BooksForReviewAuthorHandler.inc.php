@@ -146,7 +146,7 @@ class BooksForReviewAuthorHandler extends Handler {
                         $paramArray = array(
                             'editorName' => strip_tags($editorFullName),
                             'bookForReviewTitle' => '"' . strip_tags($book->getLocalizedTitle()) . '"',
-                            'authorContactSignature' => PKPString::html2text($user->getContactSignature())
+                            'authorContactSignature' => CoreString::html2text($user->getContactSignature())
                         );
 
                         $email->addRecipient($editorEmail, $editorFullName);

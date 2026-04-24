@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief PubMed citation database connector plug-in.
  */
 
-import('lib.pkp.plugins.citationLookup.pubmed.PKPPubmedCitationLookupPlugin');
+import('lib.wizdam.plugins.citationLookup.pubmed.PKPPubmedCitationLookupPlugin');
 
 class PubmedCitationLookupPlugin extends CorePubmedCitationLookupPlugin {
     

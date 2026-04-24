@@ -72,7 +72,7 @@ class OpenAIREDAO extends OAIDAO {
         $params = $this->getOrderedRecordParams(null, $setIds, null);
 
         // 2. Build SQL manually (Replaces the old _getRecordsRecordSet)
-        // We use the helper methods available in the modernized PKPOAIDAO
+        // We use the helper methods available in the modernized CoreOAIDAO
         $sql = $this->getRecordSelectStatement() . ' FROM mutex m ' .
                $this->getRecordJoinClause(null, $setIds, null) . ' ' .
                $this->getAccessibleRecordWhereClause() . ' ' .
@@ -83,7 +83,7 @@ class OpenAIREDAO extends OAIDAO {
 
         // 4. Handle Pagination & Filtering
         // Note: We calculate total based on DB rows before filtering, 
-        // matching original OJS behavior (though arguably imprecise)
+        // matching original Wizdam behavior (though arguably imprecise)
         $total = $result->RecordCount();
 
         $result->Move($offset);

@@ -16,8 +16,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.validation.FormValidatorLocale');
-import('lib.pkp.classes.validation.ValidatorEmail');
+import('lib.wizdam.classes.form.validation.FormValidatorLocale');
+import('lib.wizdam.classes.validation.ValidatorEmail');
 
 class FormValidatorLocaleEmail extends FormValidatorLocale {
     

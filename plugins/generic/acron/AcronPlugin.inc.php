@@ -15,8 +15,8 @@ declare(strict_types=1);
  * REFACTORED: Wizdam Edition (Throttling + Strict Standards)
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
-import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
+import('lib.wizdam.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.scheduledTask.ScheduledTaskHelper');
 
 class AcronPlugin extends GenericPlugin {
 
@@ -516,7 +516,7 @@ class AcronPlugin extends GenericPlugin {
             return false;
         }
 
-        // Rekonstruksi XMLNode (Legacy OJS requirement untuk checkFrequency)
+        // Rekonstruksi XMLNode (Legacy Wizdam requirement untuk checkFrequency)
         $frequencyNode = new XMLNode();
         $frequencyNode->setAttribute($key, current($task['frequency']));
         

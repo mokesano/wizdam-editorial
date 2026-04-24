@@ -28,7 +28,7 @@ class ProofreaderAction extends Action {
      * Select a proofreader for submission
      * @param int $userId
      * @param object $article Article
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function selectProofreader($userId, $article, $request) {
         $signoffDao = DAORegistry::getDAO('SignoffDAO');
@@ -56,7 +56,7 @@ class ProofreaderAction extends Action {
      * Proofread Emails
      * @param int $articleId
      * @param string $mailType defined string - type of proofread mail being sent
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @param string $actionPath - form action
      * @return boolean true iff ready for a redirect
      */
@@ -451,7 +451,7 @@ class ProofreaderAction extends Action {
      * Post proofread comment.
      * @param object $article
      * @param boolean $emailComment
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function postProofreadComment($article, $emailComment, $request) {
         // [WIZDAM] HookRegistry::dispatch
@@ -506,7 +506,7 @@ class ProofreaderAction extends Action {
      * Post layout comment.
      * @param object $article
      * @param boolean $emailComment
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function postLayoutComment($article, $emailComment, $request) {
         // [WIZDAM] HookRegistry::dispatch

@@ -11,14 +11,14 @@ declare(strict_types=1);
  * @class installTool
  * @ingroup tools
  *
- * @brief CLI tool for installing a PKP app.
+ * @brief CLI tool for installing a Wizdam app.
  * [WIZDAM EDITION] Modernized CLI Installer.
  */
 
 import('classes.install.Install');
 import('classes.install.form.InstallForm');
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionCheck');
+import('lib.wizdam.classes.site.Version');
+import('lib.wizdam.classes.site.VersionCheck');
 
 class InstallTool extends CommandLineTool {
 

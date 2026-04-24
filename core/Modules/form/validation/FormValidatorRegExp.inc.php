@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+import('lib.wizdam.classes.form.validation.FormValidator');
 
 class FormValidatorRegExp extends FormValidator {
     
@@ -28,7 +28,7 @@ class FormValidatorRegExp extends FormValidator {
      * @param string $regExp the regular expression (PCRE form)
      */
     public function __construct($form, $field, $type, $message, $regExp) {
-        import('lib.pkp.classes.validation.ValidatorRegExp');
+        import('lib.wizdam.classes.validation.ValidatorRegExp');
         $validator = new ValidatorRegExp($regExp);
         parent::__construct($form, $field, $type, $message, $validator);
     }

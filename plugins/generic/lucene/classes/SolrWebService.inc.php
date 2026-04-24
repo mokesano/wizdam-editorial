@@ -39,9 +39,9 @@ define('SOLR_AUTOSUGGEST_FACETING', 0x02);
 define('SOLR_INDEXING_MAX_BATCHSIZE', 200);
 
 
-import('lib.pkp.classes.webservice.WebServiceRequest');
-import('lib.pkp.classes.webservice.XmlWebService');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.webservice.WebServiceRequest');
+import('lib.wizdam.classes.webservice.XmlWebService');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 import('plugins.generic.lucene.classes.SolrSearchRequest');
 import('classes.search.ArticleSearch');
 
@@ -56,7 +56,7 @@ class SolrWebService extends XmlWebService {
 	/** @var string The base URL of the solr server without core and search handler. */
 	private $_solrServer;
 
-	/** @var string The unique ID identifying this OJS installation to the solr server. */
+	/** @var string The unique ID identifying this Wizdam installation to the solr server. */
 	private $_instId;
 
 	/** @var string A description of the last error or message that occured when calling the service. */
@@ -82,7 +82,7 @@ class SolrWebService extends XmlWebService {
 	 *  as a default.
 	 * @param $username string The HTTP BASIC authentication username.
 	 * @param $password string The corresponding password.
-	 * @param $instId string The unique ID of this OJS installation to partition
+	 * @param $instId string The unique ID of this Wizdam installation to partition
 	 *  a shared index.
 	 * @param $useProxy boolean Whether the proxy settings from config.inc.php should be considered.
 	 */
@@ -710,7 +710,7 @@ class SolrWebService extends XmlWebService {
 
 		// Is the core online?
 		assert($response instanceof DOMXPath);
-		$nodeList = $response->query('/response/lst[@name="status"]/lst[@name="ojs"]/lst[@name="index"]/int[@name="numDocs"]');
+		$nodeList = $response->query('/response/lst[@name="status"]/lst[@name="wizdam"]/lst[@name="index"]/int[@name="numDocs"]');
 
 		// Check whether the core is active.
 		if ($nodeList->length != 1) {
@@ -964,7 +964,7 @@ class SolrWebService extends XmlWebService {
 		if ($status !== WEBSERVICE_RESPONSE_OK) {
 			// We show a generic error message to the end user
 			// to avoid information leakage and log the exact error.
-			$application = PKPApplication::getApplication();
+			$application = CoreApplication::getApplication();
 			error_log($application->getName() . ' - Lucene plugin:' . "\nThe Lucene web service returned a status code $status and the message\n" . $response->saveXML());
 			$this->_serviceMessage = __('plugins.generic.lucene.message.webServiceError');
 			return $nullValue;
@@ -1134,7 +1134,7 @@ class SolrWebService extends XmlWebService {
 	 */
 	private function _indexingTransaction($sendXmlCallback, $batchSize = SOLR_INDEXING_MAX_BATCHSIZE, $journalId = null) {
 		// Retrieve a batch of "changed" articles.
-		import('lib.pkp.classes.db.DBResultRange');
+		import('lib.wizdam.classes.db.DBResultRange');
 		$range = new DBResultRange($batchSize);
 		$articleDao = DAORegistry::getDAO('ArticleDAO'); /* @var $articleDao ArticleDAO */
 		$changedArticlesIterator = $articleDao->getBySetting(
@@ -1320,7 +1320,7 @@ class SolrWebService extends XmlWebService {
 		}
 
 		// We need the request to retrieve locales and build URLs.
-		$request = PKPApplication::getRequest();
+		$request = CoreApplication::getRequest();
 
 		// Get all supported locales.
 		$site = $request->getSite();
@@ -1515,7 +1515,7 @@ class SolrWebService extends XmlWebService {
 		$suppFiles = $fileDao->getSuppFilesByArticle($article->getId());
 		$suppFileList = null;
 		foreach ($suppFiles as $suppFile) { /* @var $suppFile SuppFile */
-			// Try to map the supp-file language to a PKP locale.
+			// Try to map the supp-file language to a Wizdam locale.
 			$locale = null;
 			$language = $suppFile->getLanguage();
 			if (strlen($language) == 2) {
@@ -1595,7 +1595,7 @@ class SolrWebService extends XmlWebService {
 	 * problem in practice, except for electronic
 	 * publications that go back until earlier than 1901.
 	 * It does not seem probable that such a situation
-	 * could realistically arise with OJS.
+	 * could realistically arise with Wizdam.
 	 *
 	 * @param $timestamp int|string Unix timestamp or local ISO time.
 	 * @return string ISO UTC timestamp
@@ -1666,8 +1666,8 @@ class SolrWebService extends XmlWebService {
 			'defType' => 'edismax',
 			'qf' => $fieldList,
 			// NB: mm=1 is equivalent to implicit OR
-			// This deviates from previous OJS practice, please see
-			// http://pkp.sfu.ca/wiki/index.php/OJSdeSearchConcept#Query_Parser
+			// This deviates from previous Wizdam practice, please see
+			// http://wizdam.sfu.ca/wiki/index.php/OJSdeSearchConcept#Query_Parser
 			// for the rationale of this change.
 			'mm' => '1'
 		);
@@ -1723,8 +1723,8 @@ class SolrWebService extends XmlWebService {
 
 		// Construct a subquery.
 		// NB: mm=1 is equivalent to implicit OR
-		// This deviates from previous OJS practice, please see
-		// http://pkp.sfu.ca/wiki/index.php/OJSdeSearchConcept#Query_Parser
+		// This deviates from previous Wizdam practice, please see
+		// http://wizdam.sfu.ca/wiki/index.php/OJSdeSearchConcept#Query_Parser
 		// for the rationale of this change.
 		$subQuery = "+_query_:\"{!edismax mm=1 qf='$fieldList' v=\$fieldAlias}\"";
 
@@ -1750,9 +1750,9 @@ class SolrWebService extends XmlWebService {
 		if (is_null($queryKeywords)) {
 			// Query keywords.
 			$queryKeywords = array(
-				PKPString::strtoupper(__('search.operator.not')) => 'NOT',
-				PKPString::strtoupper(__('search.operator.and')) => 'AND',
-				PKPString::strtoupper(__('search.operator.or')) => 'OR'
+				CoreString::strtoupper(__('search.operator.not')) => 'NOT',
+				CoreString::strtoupper(__('search.operator.and')) => 'AND',
+				CoreString::strtoupper(__('search.operator.or')) => 'OR'
 			);
 		}
 
@@ -1764,7 +1764,7 @@ class SolrWebService extends XmlWebService {
 
 		// Translate the search phrase.
 		foreach($translationTable as $translateFrom => $translateTo) {
-			$searchPhrase = PKPString::regexp_replace("/(^|\s)$translateFrom(\s|$)/i", "\\1$translateTo\\2", $searchPhrase);
+			$searchPhrase = CoreString::regexp_replace("/(^|\s)$translateFrom(\s|$)/i", "\\1$translateTo\\2", $searchPhrase);
 		}
 
 		return $searchPhrase;
@@ -1884,12 +1884,12 @@ class SolrWebService extends XmlWebService {
 		// Check whether the suggestion really concerns the
 		// last word of the user input.
 		if (!(isset($startOffset) && isset($endOffset)
-			&& PKPString::strlen($userInput) == $endOffset)) return array();
+			&& CoreString::strlen($userInput) == $endOffset)) return array();
 
 		// Replace the last word in the user input
 		// with the suggestions maintaining case.
 		foreach($suggestions as &$suggestion) {
-			$suggestion = $userInput . PKPString::substr($suggestion, $endOffset - $startOffset);
+			$suggestion = $userInput . CoreString::substr($suggestion, $endOffset - $startOffset);
 		}
 		return $suggestions;
 	}
@@ -1915,7 +1915,7 @@ class SolrWebService extends XmlWebService {
 		// facet results. This may be an invalid query
 		// but edismax will deal gracefully with syntax
 		// errors.
-		$userInput = PKPString::substr($userInput, 0, -PKPString::strlen($facetPrefix));
+		$userInput = CoreString::substr($userInput, 0, -CoreString::strlen($facetPrefix));
 		switch ($fieldName) {
 			case 'query':
 				// The 'query' filter goes agains all fields.
@@ -1946,7 +1946,7 @@ class SolrWebService extends XmlWebService {
 		} else {
 			$params['facet.field'] = $fieldName . '_spell';
 		}
-		$facetPrefixLc = PKPString::strtolower($facetPrefix);
+		$facetPrefixLc = CoreString::strtolower($facetPrefix);
 		$params['facet.prefix'] = $facetPrefixLc;
 
 		// Make the request.
@@ -1966,7 +1966,7 @@ class SolrWebService extends XmlWebService {
 		foreach($termSuggestions as $termSuggestion) {
 			// Restore case if possible.
 			if (strpos($termSuggestion, $facetPrefixLc) === 0) {
-				$termSuggestion = $facetPrefix . PKPString::substr($termSuggestion, PKPString::strlen($facetPrefix));
+				$termSuggestion = $facetPrefix . CoreString::substr($termSuggestion, CoreString::strlen($facetPrefix));
 			}
 			$suggestions[] = $userInput . $termSuggestion;
 		}

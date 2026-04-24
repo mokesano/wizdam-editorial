@@ -42,7 +42,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.metadata.MetadataSchema');
+import('lib.wizdam.classes.metadata.MetadataSchema');
 
 class CoreMods34Schema extends MetadataSchema {
     
@@ -395,7 +395,7 @@ class CoreMods34Schema extends MetadataSchema {
         // are likely to rely on the identifier in the OAI header, rather than the recordIdentifier.
         // If recordIdentifier is used, the guidelines recommend the use of the source attribute
         // if possible.
-        $this->addProperty('recordInfo/recordIdentifier[@source="pkp"]');
+        $this->addProperty('recordInfo/recordIdentifier[@source="wizdam"]');
 
         // Use languageOfCataloging to record the language of the text of the cataloging in the
         // MODS record. If additional language(s) are used this will be indicated with the $locale

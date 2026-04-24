@@ -124,7 +124,7 @@ class StaticPage extends DataObject {
 
     /**
      * Get ID of page.
-     * @deprecated since OJS 2.x. Please use getId() instead.
+     * @deprecated since Wizdam 2.x. Please use getId() instead.
      * @return int
      */
     public function getStaticPageId() {
@@ -136,7 +136,7 @@ class StaticPage extends DataObject {
 
     /**
      * Set ID of page.
-     * @deprecated since OJS 2.x. Please use setId() instead.
+     * @deprecated since Wizdam 2.x. Please use setId() instead.
      * @param $staticPageId int
      */
     public function setStaticPageId($staticPageId) {

@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 import('classes.plugins.ImportExportPlugin');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
 class METSExportPlugin extends ImportExportPlugin {
 
@@ -113,7 +113,7 @@ class METSExportPlugin extends ImportExportPlugin {
             case 'issues':
                 // Display a list of issues for export
                 $this->setBreadcrumbs([], true);
-                AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR);
                 $issues = $issueDao->getIssues($journal->getId(), Handler::getRangeInfo('issues'));
 
                 $siteDao = DAORegistry::getDAO('SiteDAO');

@@ -63,7 +63,7 @@ class DataciteSettingsForm extends DOIExportSettingsForm {
     /**
      * Display the form.
      * @see Form::display()
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $template
      * @return void
      */

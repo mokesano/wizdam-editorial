@@ -125,7 +125,7 @@ class PublishedArticle extends Article {
      * @return int
      */
     public function getViews() {
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         // Casting (int) added here to fix the Fatal Error
         return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_ARTICLE, (int) $this->getId());
     }
@@ -163,7 +163,7 @@ class PublishedArticle extends Article {
             // Struktur baja: jamin kunci 'uploadName' selalu ada meski nilainya null
             $images[$authorId] = ['uploadName' => null]; 
             
-            // PERBAIKAN: Gunakan fungsi bawaan OJS yang benar -> getUserByEmail
+            // PERBAIKAN: Gunakan fungsi bawaan Wizdam yang benar -> getUserByEmail
             $user = $userDao->getUserByEmail($author->getEmail());
             if ($user) {
                 $profileImage = $user->getData('profileImage');
@@ -189,7 +189,7 @@ class PublishedArticle extends Article {
             // Struktur baja: jamin kunci 'gender' selalu ada
             $map[$authorId] = ['gender' => null]; 
             
-            // PERBAIKAN: Gunakan fungsi bawaan OJS yang benar -> getUserByEmail
+            // PERBAIKAN: Gunakan fungsi bawaan Wizdam yang benar -> getUserByEmail
             $user = $userDao->getUserByEmail($author->getEmail());
             if ($user) {
                 $map[$authorId]['gender'] = $user->getData('gender');

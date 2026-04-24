@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 import('classes.install.Upgrade');
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class UpgradeForm extends Form {
 
@@ -43,7 +43,7 @@ class UpgradeForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {

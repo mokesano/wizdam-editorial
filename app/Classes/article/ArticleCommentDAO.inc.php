@@ -196,7 +196,7 @@ class ArticleCommentDAO extends DAO {
                 (int) $articleComment->getArticleId(),
                 (int) $articleComment->getAssocId(),
                 (int) $articleComment->getAuthorId(),
-                PKPString::substr($articleComment->getCommentTitle(), 0, 255),
+                CoreString::substr($articleComment->getCommentTitle(), 0, 255),
                 $articleComment->getComments(),
                 $articleComment->getViewable() === null ? 0 : (int) $articleComment->getViewable()
             )
@@ -272,7 +272,7 @@ class ArticleCommentDAO extends DAO {
                 (int) $articleComment->getArticleId(),
                 (int) $articleComment->getAssocId(),
                 (int) $articleComment->getAuthorId(),
-                PKPString::substr($articleComment->getCommentTitle(), 0, 255),
+                CoreString::substr($articleComment->getCommentTitle(), 0, 255),
                 $articleComment->getComments(),
                 $articleComment->getViewable() === null ? 1 : (int) $articleComment->getViewable(),
                 (int) $articleComment->getId()

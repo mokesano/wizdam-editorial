@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 // Import base class.
-import('lib.pkp.classes.controllers.grid.GridDataProvider');
+import('lib.wizdam.classes.controllers.grid.GridDataProvider');
 
 class CategoryGridDataProvider extends GridDataProvider {
 

@@ -21,7 +21,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30Openurl10CrosswalkFilter');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30Openurl10CrosswalkFilter');
 
 class Nlm30CitationSchemaOpenurl10CrosswalkFilter extends Nlm30Openurl10CrosswalkFilter {
     
@@ -31,8 +31,8 @@ class Nlm30CitationSchemaOpenurl10CrosswalkFilter extends Nlm30Openurl10Crosswal
     public function __construct() {
         $this->setDisplayName('Crosswalk from NLM Citation to Open URL');
         parent::__construct(
-            'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
-            'lib.pkp.plugins.metadata.openurl10.schema.Openurl10BaseSchema'
+            'lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
+            'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10BaseSchema'
         );
     }
 
@@ -70,15 +70,15 @@ class Nlm30CitationSchemaOpenurl10CrosswalkFilter extends Nlm30Openurl10Crosswal
         switch($publicationType) {
             case NLM30_PUBLICATION_TYPE_JOURNAL:
             case NLM30_PUBLICATION_TYPE_CONFPROC:
-                $outputSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.Openurl10JournalSchema';
+                $outputSchemaName = 'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10JournalSchema';
                 break;
 
             case NLM30_PUBLICATION_TYPE_BOOK:
-                $outputSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.Openurl10BookSchema';
+                $outputSchemaName = 'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10BookSchema';
                 break;
 
             case NLM30_PUBLICATION_TYPE_THESIS:
-                $outputSchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.Openurl10DissertationSchema';
+                $outputSchemaName = 'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10DissertationSchema';
                 break;
 
             default:
@@ -90,7 +90,7 @@ class Nlm30CitationSchemaOpenurl10CrosswalkFilter extends Nlm30Openurl10Crosswal
         $output = new MetadataDescription($outputSchemaName, $input->getAssocType());
 
         // Transform authors
-        import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter');
+        import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter');
         $personStringFilter = new Nlm30NameSchemaPersonStringFilter();
         $authors = $input->getStatement('person-group[@person-group-type="author"]');
         if (is_array($authors) && count($authors)) {

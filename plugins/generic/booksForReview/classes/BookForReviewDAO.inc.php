@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe. No References.
  */
 
-import('lib.pkp.classes.db.DAO');
+import('lib.wizdam.classes.db.DAO');
 
 /* These constants are used for user-selectable search fields. */
 define('BFR_FIELD_PUBLISHER',    'publisher');
@@ -334,7 +334,7 @@ class BookForReviewDAO extends DAO {
             $locales = AppLocale::getSupportedLocales();
             
             // [MODERNISASI] Gunakan array_keys jika getSupportedLocales mengembalikan assoc array
-            // Tapi di OJS 2 biasanya array('en_US', 'id_ID')
+            // Tapi di Wizdam 2 biasanya array('en_US', 'id_ID')
             foreach ($locales as $locale) {     
                 $fileName = $book->getFileName($locale);
                 if ($fileName) {

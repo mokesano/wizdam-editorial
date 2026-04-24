@@ -20,7 +20,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Compatibility, Visibility, Annotations)
  */
 
-import('lib.pkp.classes.rt.RTStruct');
+import('lib.wizdam.classes.rt.RTStruct');
 
 class RT {
 

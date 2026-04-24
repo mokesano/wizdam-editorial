@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class for inserting/accessing event log entries.
  */
 
-import ('lib.pkp.classes.log.EventLogEntry');
+import ('lib.wizdam.classes.log.EventLogEntry');
 
 class EventLogDAO extends DAO {
     

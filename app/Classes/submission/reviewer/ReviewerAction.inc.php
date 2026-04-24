@@ -50,11 +50,11 @@ class ReviewerAction extends Action {
      * @param object $reviewerSubmission ReviewerSubmission
      * @param boolean $decline
      * @param boolean $send
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function confirmReview($reviewerSubmission, $decline, $send, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
         $userDao = DAORegistry::getDAO('UserDAO');
@@ -152,11 +152,11 @@ class ReviewerAction extends Action {
      * @param object $reviewerSubmission ReviewerSubmission
      * @param int $recommendation
      * @param boolean $send
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function recordRecommendation($reviewerSubmission, $recommendation, $send, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
         $userDao = DAORegistry::getDAO('UserDAO');
@@ -246,11 +246,11 @@ class ReviewerAction extends Action {
      * Upload the annotated version of an article.
      * @param int $reviewId
      * @param object $reviewerSubmission ReviewerSubmission
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function uploadReviewerVersion($reviewId, $reviewerSubmission, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         import('classes.file.ArticleFileManager');
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
@@ -344,7 +344,7 @@ class ReviewerAction extends Action {
      */
     public function postPeerReviewComment($user, $article, $reviewId, $emailComment, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('ReviewerAction::postPeerReviewComment', [&$user, &$article, &$reviewId, &$emailComment])) {
             import('classes.submission.form.comment.PeerReviewCommentForm');
@@ -406,7 +406,7 @@ class ReviewerAction extends Action {
      */
     public function saveReviewFormResponse($reviewId, $reviewFormId, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('ReviewerAction::saveReviewFormResponse', [$reviewId, $reviewFormId])) {
             import('classes.submission.form.ReviewFormResponseForm');

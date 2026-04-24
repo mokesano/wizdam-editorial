@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.controllers.grid.GridRow');
+import('lib.wizdam.classes.controllers.grid.GridRow');
 
 class ListbuilderGridRow extends GridRow {
 
@@ -60,7 +60,7 @@ class ListbuilderGridRow extends GridRow {
     
     /**
      * @see GridRow::initialize()
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string|null $template
      */
     public function initialize($request, $template = 'controllers/listbuilder/listbuilderGridRow.tpl') {
@@ -74,7 +74,7 @@ class ListbuilderGridRow extends GridRow {
 
         if ($this->_hasDeleteItemLink) {
             // Add deletion action (handled in JS-land)
-            import('lib.pkp.classes.linkAction.request.NullAction');
+            import('lib.wizdam.classes.linkAction.request.NullAction');
             $this->addAction(
                 new LinkAction(
                     'delete',

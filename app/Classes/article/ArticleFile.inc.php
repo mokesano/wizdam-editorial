@@ -19,7 +19,7 @@ declare(strict_types=1);
  * - Null Safety on File Paths
  */
 
-import('lib.pkp.classes.submission.SubmissionFile');
+import('lib.wizdam.classes.submission.SubmissionFile');
 
 /* File type IDs */
 define('ARTICLE_FILE_SUBMISSION', 0x000001);

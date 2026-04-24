@@ -73,10 +73,10 @@ class VolumesHandler extends Handler {
      * URL: /{journal}/volumes/
      *
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function displayArchive($args, $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->setupTemplate($request);
         $journal = $request->getJournal();
@@ -107,10 +107,10 @@ class VolumesHandler extends Handler {
      * URL: /{journal}/volumes/{volumeId}
      *
      * @param array $args  [0] = volumeId
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function view($args, $request = null) {
-        $request  = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request  = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $volumeId = isset($args[0]) ? (int) $args[0] : 0;
         $journal  = $request->getJournal();
 
@@ -220,7 +220,7 @@ class VolumesHandler extends Handler {
         // =================================================================
         $firstIssue = $issuesArray[0];
 
-        import('lib.pkp.classes.core.ArrayItemIterator');
+        import('lib.wizdam.classes.core.ArrayItemIterator');
         $issuesTemplateIterator = new ArrayItemIterator($issuesArray);
 
         $templateMgr->assign('issue',  $firstIssue);
@@ -236,10 +236,10 @@ class VolumesHandler extends Handler {
      * URL: /{journal}/year/{year}
      *
      * @param array $args  [0] = tahun (4 digit, contoh: 2023)
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function year($args, $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $year    = isset($args[0]) ? (int) $args[0] : 0;
         $journal = $request->getJournal();
 
@@ -280,7 +280,7 @@ class VolumesHandler extends Handler {
             return;
         }
 
-        import('lib.pkp.classes.core.ArrayItemIterator');
+        import('lib.wizdam.classes.core.ArrayItemIterator');
         $issuesTemplateIterator = new ArrayItemIterator($issuesArray);
 
         import('classes.file.PublicFileManager');
@@ -327,7 +327,7 @@ class VolumesHandler extends Handler {
      * TIDAK meng-override variabel breadcrumb/pageTitle yang sudah di-set
      * oleh view() dengan konteks volume.
      *
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Issue      $issue    Issue representatif (pertama dalam volume)
      * @param Journal    $journal
      */
@@ -356,7 +356,7 @@ class VolumesHandler extends Handler {
         // Tentukan tampilan cover vs TOC
         // $showToc disimpan di variabel lokal PHP agar tersedia untuk logika
         // subscription di bawah tanpa round-trip ke template engine.
-        // Setelah PKPTemplateManager di-patch, nilai ini juga bisa dibaca via
+        // Setelah CoreTemplateManager di-patch, nilai ini juga bisa dibaca via
         // $templateMgr->getTemplateVars('showToc') dari kode eksternal.
         if ($issue->getFileName($coverLocale)
             && $issue->getShowCoverPage($coverLocale)

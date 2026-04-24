@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized & Safe Parent Bypass
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class AnnouncementFeedBlockPlugin extends BlockPlugin {
     
@@ -105,7 +105,7 @@ class AnnouncementFeedBlockPlugin extends BlockPlugin {
     /**
      * Get the HTML contents for this block.
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {

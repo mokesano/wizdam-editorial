@@ -44,7 +44,7 @@ class UsageStatsHandler extends Handler {
      * opt-out option.
      *
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function privacyInformation($args, $request) {
         $this->validate(null, $request);

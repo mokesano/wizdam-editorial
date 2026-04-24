@@ -47,11 +47,11 @@ class SubmissionCommentsHandler extends ReviewerHandler {
     /**
      * View peer review comments.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function viewPeerReviewComments($args, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $reviewId = (int) array_shift($args);
@@ -64,11 +64,11 @@ class SubmissionCommentsHandler extends ReviewerHandler {
     /**
      * Post peer review comments.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function postPeerReviewComment($args, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' dengan trim() dan (int)
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -90,11 +90,11 @@ class SubmissionCommentsHandler extends ReviewerHandler {
     /**
      * Edit comment.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function editComment($args, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $commentId = isset($args[0]) ? (int) array_shift($args) : null;
@@ -115,11 +115,11 @@ class SubmissionCommentsHandler extends ReviewerHandler {
     /**
      * Save comment.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function saveComment($args, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'articleId' dengan trim() dan (int)
         $articleId = (int) trim((string) $request->getUserVar('articleId'));
@@ -160,11 +160,11 @@ class SubmissionCommentsHandler extends ReviewerHandler {
     /**
      * Delete comment.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function deleteComment($args, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleId = (int) array_shift($args);
         $commentId = (int) array_shift($args);
@@ -188,7 +188,7 @@ class SubmissionCommentsHandler extends ReviewerHandler {
      * [WIZDAM] Inheritance Strategy:
      * Parent (ReviewerHandler) uses validate($requiredContexts, $request).
      * We extend signature with optional $commentId to allow stricter logic while keeping compatibility.
-     * @param object|mixed $request PKPRequest or context
+     * @param object|mixed $request CoreRequest or context
      * @param int|mixed $reviewId
      * @param int|null $commentId optional
      */
@@ -197,7 +197,7 @@ class SubmissionCommentsHandler extends ReviewerHandler {
         // Ensure $request is populated before passing to parent.
         // This guarantees that ReviewerHandler's "Case A" logic (is_object + is_numeric)
         // is triggered correctly, ensuring Access Key validation runs.
-        if (!($request instanceof PKPRequest)) {
+        if (!($request instanceof CoreRequest)) {
             $request = Application::get()->getRequest();
         }
 

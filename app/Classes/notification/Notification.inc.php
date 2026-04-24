@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @class AppNotification
  * @ingroup notification
  * @see NotificationDAO
- * @brief OJS subclass for Notifications (defines OJS-specific types).
+ * @brief Wizdam subclass for Notifications (defines Wizdam-specific types).
  */
 
 /** Notification associative types. */
@@ -29,7 +29,7 @@ define('NOTIFICATION_TYPE_EDITOR_DECISION_COMMENT', 0x1000013);
 define('NOTIFICATION_TYPE_USER_COMMENT',            0x10000014);
 define('NOTIFICATION_TYPE_PUBLISHED_ISSUE',         0x10000015);
 
-// OJS-specific trivial notifications
+// Wizdam-specific trivial notifications
 define('NOTIFICATION_TYPE_GIFT_REDEEM_STATUS_SUCCESS',                        0x2000001);
 define('NOTIFICATION_TYPE_GIFT_REDEEM_STATUS_ERROR_NO_GIFT_TO_REDEEM',        0x2000002);
 define('NOTIFICATION_TYPE_GIFT_REDEEM_STATUS_ERROR_GIFT_ALREADY_REDEEMED',    0x2000003);
@@ -48,8 +48,8 @@ define('NOTIFICATION_TYPE_BOOK_AUTHOR_ASSIGNED',    0x3000008);
 define('NOTIFICATION_TYPE_BOOK_AUTHOR_DENIED',      0x3000009);
 define('NOTIFICATION_TYPE_BOOK_AUTHOR_REMOVED',     0x300000A);
 
-import('lib.pkp.classes.notification.PKPNotification');
-import('lib.pkp.classes.notification.NotificationDAO');
+import('lib.wizdam.classes.notification.CoreNotification');
+import('lib.wizdam.classes.notification.NotificationDAO');
 
 class Notification extends CoreNotification {
 

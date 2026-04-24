@@ -15,7 +15,7 @@ declare(strict_types=1);
  * that authorizes a process to execute.
  */
 
-import('lib.pkp.classes.security.authorization.PKPPublicAccessPolicy');
+import('lib.wizdam.classes.security.authorization.PKPPublicAccessPolicy');
 
 class CoreProcessAccessPolicy extends CorePublicAccessPolicy {
     /** @var string the process authorization token */
@@ -23,7 +23,7 @@ class CoreProcessAccessPolicy extends CorePublicAccessPolicy {
 
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $args array request arguments (containing authToken)
      * @param $operations array|string either a single operation or a list of operations that
      * this policy is targeting.
@@ -39,7 +39,7 @@ class CoreProcessAccessPolicy extends CorePublicAccessPolicy {
 
     /**
      * [SHIM] Backward Compatibility
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $args array
      * @param $operations array|string
      * @param $message string

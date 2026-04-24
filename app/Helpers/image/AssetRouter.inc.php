@@ -103,7 +103,7 @@ class AssetRouter {
             $this->outputFile($targetPath);
         } elseif (file_exists($sourcePath)) {
             if (!file_exists($targetDir)) @mkdir($targetDir, 0777, true);
-            import('lib.pkp.classes.file.FileManager');
+            import('lib.wizdam.classes.file.FileManager');
             $fm = new FileManager();
             
             // Jika width 0 (original), lakukan copy saja

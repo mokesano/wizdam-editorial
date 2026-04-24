@@ -16,8 +16,8 @@ declare(strict_types=1);
  *
  */
 
-import('lib.pkp.classes.codelist.Qualifier');
-import('lib.pkp.classes.codelist.CodelistItemDAO');
+import('lib.wizdam.classes.codelist.Qualifier');
+import('lib.wizdam.classes.codelist.CodelistItemDAO');
 
 class QualifierDAO extends CodelistItemDAO {
 
@@ -50,7 +50,7 @@ class QualifierDAO extends CodelistItemDAO {
         if (!AppLocale::isLocaleValid($locale)) {
             $locale = AppLocale::MASTER_LOCALE;
         }
-        return "lib/pkp/locale/$locale/bic21qualifiers.xml";
+        return "lib/wizdam/locale/$locale/bic21qualifiers.xml";
     }
 
     /**

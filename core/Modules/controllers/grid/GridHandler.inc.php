@@ -16,18 +16,18 @@ declare(strict_types=1);
  */
 
 // Import the base Handler.
-import('lib.pkp.classes.handler.PKPHandler');
+import('lib.wizdam.classes.handler.CoreHandler');
 
 // Import action class.
-import('lib.pkp.classes.linkAction.LinkAction');
-import('lib.pkp.classes.linkAction.LegacyLinkAction');
+import('lib.wizdam.classes.linkAction.LinkAction');
+import('lib.wizdam.classes.linkAction.LegacyLinkAction');
 
 // Import grid classes.
-import('lib.pkp.classes.controllers.grid.GridColumn');
-import('lib.pkp.classes.controllers.grid.GridRow');
+import('lib.wizdam.classes.controllers.grid.GridColumn');
+import('lib.wizdam.classes.controllers.grid.GridRow');
 
 // Import JSON class for use with all AJAX requests.
-import('lib.pkp.classes.core.JSONMessage');
+import('lib.wizdam.classes.core.JSONMessage');
 
 // Grid specific action positions.
 define('GRID_ACTION_POSITION_DEFAULT', 'default');
@@ -314,7 +314,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Get the grid data.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return array
      */
     public function getGridDataElements($request) {
@@ -336,7 +336,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Check whether the grid has rows.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool
      */
     public function hasGridDataElements($request): bool {
@@ -392,7 +392,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Define the urls that will be used in JS handler.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param array $extraUrls
      */
     public function setUrls($request, $extraUrls = []) {
@@ -430,12 +430,12 @@ class GridHandler extends CoreHandler {
     }
 
     //
-    // Overridden methods from PKPHandler
+    // Overridden methods from CoreHandler
     //
     
     /**
      * [WIZDAM] Removed reference (&) from parameters to comply with protocol.
-     * @see PKPHandler::authorize()
+     * @see CoreHandler::authorize()
      */
     public function authorize($request, $args, $roleAssignments) {
         $dataProvider = $this->getDataProvider();
@@ -455,13 +455,13 @@ class GridHandler extends CoreHandler {
 
     /**
      * [WIZDAM] Removed reference (&) from parameters.
-     * @see PKPHandler::initialize()
+     * @see CoreHandler::initialize()
      */
     public function initialize($request, $args = null) {
         parent::initialize($request, $args);
 
         // Load grid-specific translations
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_GRID, LOCALE_COMPONENT_APPLICATION_COMMON);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_GRID, LOCALE_COMPONENT_APPLICATION_COMMON);
 
         $this->_addFeatures($this->initFeatures($request, $args));
         // Note: passing $this by reference to hooks is deprecated in strict PHP 8,
@@ -478,7 +478,7 @@ class GridHandler extends CoreHandler {
     /**
      * Render the entire grid controller.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string the serialized grid JSON message
      */
     public function fetchGrid($args, $request) {
@@ -512,7 +512,7 @@ class GridHandler extends CoreHandler {
     /**
      * Render a row.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string
      */
     public function fetchRow($args, $request) {
@@ -566,12 +566,12 @@ class GridHandler extends CoreHandler {
      * @return string
      */
     public function getJSHandler() {
-        return '$.pkp.controllers.grid.GridHandler';
+        return '$.wizdam.controllers.grid.GridHandler';
     }
 
     /**
      * Create a data element from a request.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int|null $elementId
      * @return object
      */
@@ -580,16 +580,16 @@ class GridHandler extends CoreHandler {
     }
 
     /**
-     * @see PKPHandler::getRangeInfo()
+     * @see CoreHandler::getRangeInfo()
      */
     public function getRangeInfo($rangeName, $contextData = null) {
-        import('lib.pkp.classes.db.DBResultRange');
+        import('lib.wizdam.classes.db.DBResultRange');
         return new DBResultRange(-1, -1);
     }
 
     /**
      * Tries to identify the data element.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param array $args
      * @return GridRow|null
      */
@@ -617,7 +617,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Retrieve a single data element.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param mixed $rowId
      * @return mixed
      */
@@ -633,7 +633,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Implement this method to load data into the grid.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param array $filter
      * @return mixed
      */
@@ -656,7 +656,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Extract the user's filter selection.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return array|null
      */
     public function getFilterSelectionData($request) {
@@ -665,7 +665,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Render the filter.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param array $filterData
      * @return string
      */
@@ -708,7 +708,7 @@ class GridHandler extends CoreHandler {
     /**
      * Save all data elements new sequence.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSequence($args, $request) {
         $this->callFeaturesHook('saveSequence', ['request' => $request, 'grid' => $this]);
@@ -732,7 +732,7 @@ class GridHandler extends CoreHandler {
     /**
      * Override this method if your subclass needs to perform different actions.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param TemplateManager $templateMgr
      */
     public function doSpecificFetchGridActions($args, $request, $templateMgr) {
@@ -756,7 +756,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Override to init grid features.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param array $args
      * @return array
      */
@@ -784,7 +784,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Method that renders a single row.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param GridRow $row
      * @return string the row HTML
      */
@@ -811,7 +811,7 @@ class GridHandler extends CoreHandler {
     
     /**
      * Instantiate a new row.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param mixed $elementId
      * @param mixed $element
      * @param bool $isModified
@@ -832,7 +832,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Method that renders tbodys.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return array
      */
     public function _renderGridBodyPartsInternally($request) {
@@ -851,7 +851,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Cycle through the data and get generate the row HTML.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param array $elements
      * @return array
      */
@@ -866,7 +866,7 @@ class GridHandler extends CoreHandler {
 
     /**
      * Method that renders a cell.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param GridRow $row
      * @param GridColumn $column
      * @return string
@@ -874,7 +874,7 @@ class GridHandler extends CoreHandler {
     public function _renderCellInternally($request, $row, $column) {
         $element = $row->getData();
         if ($element === null && $row->getIsModified()) {
-            import('lib.pkp.classes.controllers.grid.GridCellProvider');
+            import('lib.wizdam.classes.controllers.grid.GridCellProvider');
             $cellProvider = new GridCellProvider();
             return $cellProvider->render($request, $row, $column);
         }

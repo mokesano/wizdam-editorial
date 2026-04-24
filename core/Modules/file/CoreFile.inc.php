@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/file/PKPFile.inc.php
+ * @file classes/file/CoreFile.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @class CoreFile
  * @ingroup file
  *
- * @brief Base PKP file class.
+ * @brief Base Wizdam file class.
  */
 
 class CoreFile extends DataObject {
@@ -26,9 +26,9 @@ class CoreFile extends DataObject {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPFile() {
+    public function CoreFile() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPFile(). Please refactor to use parent::__construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreFile(). Please refactor to use parent::__construct().",
             E_USER_DEPRECATED
         );
         self::__construct();

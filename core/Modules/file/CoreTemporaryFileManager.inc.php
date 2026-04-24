@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/file/PKPTemporaryFileManager.inc.php
+ * @file classes/file/CoreTemporaryFileManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class defining operations for temporary file management.
  */
 
-import('lib.pkp.classes.file.PrivateFileManager');
+import('lib.wizdam.classes.file.PrivateFileManager');
 
 class CoreTemporaryFileManager extends PrivateFileManager {
     
@@ -31,9 +31,9 @@ class CoreTemporaryFileManager extends PrivateFileManager {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPTemporaryFileManager() {
+    public function CoreTemporaryFileManager() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPTemporaryFileManager(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreTemporaryFileManager(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }
@@ -96,7 +96,7 @@ class CoreTemporaryFileManager extends PrivateFileManager {
      * Download a file.
      * Overrides parent::downloadFile but accepts different parameters logic internally.
      * NOTE: Signature mismatch fixed to support both usage patterns or corrected based on intent.
-     * In OJS 2.x logic, usually downloadFile($fileId, $userId).
+     * In Wizdam 2.x logic, usually downloadFile($fileId, $userId).
      * However, parent expects ($filePath, $mediaType...).
      * * @param $fileId int the file id of the file to download
      * @param $userId int|null

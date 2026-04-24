@@ -12,13 +12,13 @@ declare(strict_types=1);
  * @ingroup site
  * @see Version
  *
- * @brief Provides methods to check for the latest version of OJS.
+ * @brief Provides methods to check for the latest version of Wizdam.
  */
 
 define('VERSION_CODE_PATH', 'dbscripts/xml/version.xml');
 
-import('lib.pkp.classes.db.XMLDAO');
-import('lib.pkp.classes.site.Version');
+import('lib.wizdam.classes.db.XMLDAO');
+import('lib.wizdam.classes.site.Version');
 
 class VersionCheck {
 
@@ -177,7 +177,7 @@ class VersionCheck {
             $pluginVersion = $versionInfo['version'];
             $namesToValidate = array($pluginVersion->getProduct(), $productType[1]);
             foreach($namesToValidate as $nameToValidate) {
-                if (!PKPString::regexp_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
+                if (!CoreString::regexp_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
                     $errorMsg = 'manager.plugins.versionFileInvalid';
                     break;
                 }
@@ -199,7 +199,7 @@ class VersionCheck {
 
     /**
      * Checks the application's version against the latest version 
-     * on the PKP servers.
+     * on the Wizdam servers.
      * @return string or false if no newer version
      */
     public static function checkIfNewVersionExists() {

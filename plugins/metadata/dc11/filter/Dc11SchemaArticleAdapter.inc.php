@@ -18,7 +18,7 @@ declare(strict_types=1);
  * an PublishedArticle object.
  */
 
-import('lib.pkp.classes.metadata.MetadataDataObjectAdapter');
+import('lib.wizdam.classes.metadata.MetadataDataObjectAdapter');
 
 class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
     
@@ -175,7 +175,7 @@ class Dc11SchemaArticleAdapter extends MetadataDataObjectAdapter {
         $dc11Description->addStatement('dc:type', $driverType, METADATA_DESCRIPTION_UNKNOWN_LOCALE);
         $types = $section->getIdentifyType(null);
         $types = array_merge_recursive(
-            empty($types) ? [AppLocale::getLocale() => __('rt.metadata.pkp.peerReviewed')] : $types,
+            empty($types) ? [AppLocale::getLocale() => __('rt.metadata.wizdam.peerReviewed')] : $types,
             (array) $article->getType(null)
         );
         $this->_addLocalizedElements($dc11Description, 'dc:type', $types);

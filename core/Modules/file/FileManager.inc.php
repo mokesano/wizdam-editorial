@@ -366,7 +366,7 @@ class FileManager {
         $postDownloadHookList = array('FileManager::downloadFileFinished', 'UsageEventPlugin::getUsageEvent');
         if (is_readable($filePath)) {
             if ($mediaType === null) {
-                $mediaType = PKPString::mime_content_type($filePath);
+                $mediaType = CoreString::mime_content_type($filePath);
                 if (empty($mediaType)) $mediaType = 'application/octet-stream';
             }
             if ($fileName === null) {
@@ -621,11 +621,11 @@ class FileManager {
      * @return string
      */
     public function truncateFileName($fileName, $length = 127) {
-        if (PKPString::strlen($fileName) <= $length) return $fileName;
+        if (CoreString::strlen($fileName) <= $length) return $fileName;
         $ext = $this->getExtension($fileName);
         
-        $truncated = PKPString::substr($fileName, 0, $length - 1 - PKPString::strlen($ext)) . '.' . $ext;
-        return PKPString::substr($truncated, 0, $length);
+        $truncated = CoreString::substr($fileName, 0, $length - 1 - CoreString::strlen($ext)) . '.' . $ext;
+        return CoreString::substr($truncated, 0, $length);
     }
 
     /**
@@ -726,7 +726,7 @@ class FileManager {
      * @return false|string The file path that was created with the operation or false in case of fail.
      */
     public function _executeGzip($filePath, $decompress = false, &$errorMsg = null) {
-        PKPLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN);
+        CoreLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_ADMIN);
         $gzipPath = Config::getVar('cli', 'gzip');
         
         if (empty($gzipPath) || !is_string($gzipPath) || !is_executable($gzipPath)) {

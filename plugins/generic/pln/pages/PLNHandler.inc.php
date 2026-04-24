@@ -41,7 +41,7 @@ class PLNHandler extends Handler {
     /**
      * Index handler: redirect to journal page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args, $request) {
         $request->redirect(null, 'index');
@@ -50,7 +50,7 @@ class PLNHandler extends Handler {
     /**
      * Provide an endpoint for the PLN staging server to retrieve a deposit
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deposits($args, $request) {
         $journal = $request->getJournal();
@@ -90,7 +90,7 @@ class PLNHandler extends Handler {
     /**
      * Display status of deposit(s)
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function status($args, $request) {
         // Fix: args parameter default value array() -> []

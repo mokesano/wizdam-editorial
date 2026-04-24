@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Form for journal managers to modify custom theme plugin settings
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 import('classes.file.PublicFileManager');
 
 class CustomThemeSettingsForm extends Form

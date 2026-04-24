@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.0+ (Static Methods, Strict Types, Reference Cleanup)
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
 class NativeImportDom {
     
@@ -781,7 +781,7 @@ class NativeImportDom {
                         return false;
                     }
                     $setter = 'set' . str_replace('_', '', $field);
-                    if (method_exists($article, $setter)) $article->$setter($node->getValue(), $locale); // Loose call but standard in OJS
+                    if (method_exists($article, $setter)) $article->$setter($node->getValue(), $locale); // Loose call but standard in Wizdam
                     elseif ($field == 'subject_class') $article->setSubjectClass($node->getValue(), $locale);
                 }
             }

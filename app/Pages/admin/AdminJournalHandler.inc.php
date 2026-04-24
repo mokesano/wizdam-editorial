@@ -90,7 +90,7 @@ class AdminJournalHandler extends AdminHandler {
     /**
      * Save changes to a journal's settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateJournal($args, $request) {
         $this->validate();
@@ -125,7 +125,7 @@ class AdminJournalHandler extends AdminHandler {
     /**
      * Delete a journal.
      * @param array $args first parameter is the ID of the journal to delete
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteJournal($args, $request) {
         $this->validate();
@@ -140,7 +140,7 @@ class AdminJournalHandler extends AdminHandler {
             if ($journalDao->deleteJournalById($journalId)) {
                 // Delete journal file tree
                 // FIXME move this somewhere better.
-                import('lib.pkp.classes.file.FileManager');
+                import('lib.wizdam.classes.file.FileManager');
                 $fileManager = new FileManager();
 
                 $journalPath = Config::getVar('files', 'files_dir') . '/journals/' . $journalId;
@@ -158,7 +158,7 @@ class AdminJournalHandler extends AdminHandler {
     /**
      * Change the sequence of a journal on the site index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveJournal($args, $request) {
         $this->validate();

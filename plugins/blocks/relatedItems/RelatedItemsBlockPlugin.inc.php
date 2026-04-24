@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized & Cleaned Up Dead Code
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class RelatedItemsBlockPlugin extends BlockPlugin {
     
@@ -66,7 +66,7 @@ class RelatedItemsBlockPlugin extends BlockPlugin {
     /**
      * Get the HTML contents for this block.
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {

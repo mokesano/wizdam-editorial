@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/PKPRouter.inc.php
+ * @file classes/core/CoreRouter.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -23,7 +23,7 @@ class CoreRouter {
     // NB: Please do not access directly but
     // only via their respective getters/setters
     //
-    /** @var PKPApplication */
+    /** @var CoreApplication */
     protected $_application;
     
     /** @var Dispatcher */
@@ -54,17 +54,17 @@ class CoreRouter {
 
     /**
      * get the application
-     * @return PKPApplication
+     * @return CoreApplication
      */
     public function getApplication() {
         // [MODERNISASI] Gunakan instanceof daripada is_a
-        assert($this->_application instanceof PKPApplication);
+        assert($this->_application instanceof CoreApplication);
         return $this->_application;
     }
 
     /**
      * set the application
-     * @param $application PKPApplication
+     * @param $application CoreApplication
      */
     public function setApplication($application) {
         $this->_application = $application;
@@ -94,7 +94,7 @@ class CoreRouter {
 
     /**
      * Determines whether this router can route the given request.
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return boolean true, if the router supports this request, otherwise false
      */
     public function supports($request) {
@@ -104,7 +104,7 @@ class CoreRouter {
 
     /**
      * Determine whether or not this request is cacheable
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return boolean
      */
     public function isCacheable($request) {
@@ -114,7 +114,7 @@ class CoreRouter {
 
     /**
      * A generic method to return an array of context paths (e.g. a Press or a Conference/SchedConf paths)
-     * @param $request PKPRequest the request to be routed
+     * @param $request CoreRequest the request to be routed
      * @param $requestedContextLevel int (optional) the context level to return in the path
      * @return array of string (each element the path to one context element)
      */
@@ -153,7 +153,7 @@ class CoreRouter {
 
     /**
      * A generic method to return a single context path (e.g. a Press or a SchedConf path)
-     * @param $request PKPRequest the request to be routed
+     * @param $request CoreRequest the request to be routed
      * @param $requestedContextLevel int (optional) the context level to return
      * @return string
      */
@@ -173,7 +173,7 @@ class CoreRouter {
 
     /**
      * A Generic call to a context defining object (e.g. a Press, a Conference, or a SchedConf)
-     * @param $request PKPRequest the request to be routed
+     * @param $request CoreRequest the request to be routed
      * @param $requestedContextLevel int (optional) the desired context level
      * @return object
      */
@@ -219,7 +219,7 @@ class CoreRouter {
 
     /**
      * Get the object that represents the desired context (e.g. Conference or Press)
-     * @param $request PKPRequest the request to be routed
+     * @param $request CoreRequest the request to be routed
      * @param $requestedContextName string page context
      * @return object
      */
@@ -240,7 +240,7 @@ class CoreRouter {
 
     /**
      * Get the URL to the index script.
-     * @param $request PKPRequest the request to be routed
+     * @param $request CoreRequest the request to be routed
      * @return string
      */
     public function getIndexUrl($request) {
@@ -262,7 +262,7 @@ class CoreRouter {
     //
     /**
      * Determine the filename to use for a local cache file.
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getCacheFilename($request) {
@@ -272,7 +272,7 @@ class CoreRouter {
 
     /**
      * Routes a given request to a handler operation
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function route($request) {
         // Must be implemented by sub-classes.
@@ -280,8 +280,8 @@ class CoreRouter {
     }
 
     /**
-     * Build a handler request URL into PKPApplication.
-     * @param $request PKPRequest the request to be routed
+     * Build a handler request URL into CoreApplication.
+     * @param $request CoreRequest the request to be routed
      * @param $newContext mixed Optional contextual paths
      * @param $handler string Optional name of the handler to invoke
      * @param $op string Optional name of operation to invoke
@@ -322,7 +322,7 @@ class CoreRouter {
      * 5) client response
      *
      * @param $serviceEndpoint callable the handler operation
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $args array
      * @param $validate boolean whether or not to execute the
      * validation step.

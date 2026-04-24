@@ -15,8 +15,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x Strict Standards.
  */
 
-import('lib.pkp.classes.controllers.grid.feature.GridFeature');
-import('lib.pkp.classes.linkAction.request.NullAction');
+import('lib.wizdam.classes.controllers.grid.feature.GridFeature');
+import('lib.wizdam.classes.linkAction.request.NullAction');
 
 class GridCategoryAccordionFeature extends GridFeature {
 
@@ -45,7 +45,7 @@ class GridCategoryAccordionFeature extends GridFeature {
      * @return string
      */
     public function getJSClass(): string {
-        return '$.pkp.classes.features.GridCategoryAccordionFeature';
+        return '$.wizdam.classes.features.GridCategoryAccordionFeature';
     }
 
 

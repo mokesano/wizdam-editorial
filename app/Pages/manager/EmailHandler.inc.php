@@ -44,7 +44,7 @@ class EmailHandler extends ManagerHandler {
     /**
      * Display a list of the emails within the current journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function emails($args = [], $request = null) {
         $this->validate();
@@ -59,7 +59,7 @@ class EmailHandler extends ManagerHandler {
         $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
         $emailTemplates = $emailTemplateDao->getEmailTemplates(AppLocale::getLocale(), $journal->getId());
 
-        import('lib.pkp.classes.core.ArrayItemIterator');
+        import('lib.wizdam.classes.core.ArrayItemIterator');
         $emailTemplates = ArrayItemIterator::fromRangeInfo($emailTemplates, $rangeInfo);
 
         $templateMgr = TemplateManager::getManager();
@@ -73,7 +73,7 @@ class EmailHandler extends ManagerHandler {
     /**
      * Create an empty email template.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createEmail($args, $request) {
         $this->editEmail($args, $request);
@@ -82,7 +82,7 @@ class EmailHandler extends ManagerHandler {
     /**
      * Display form to create/edit an email.
      * @param array $args if set the first parameter is the key of the email template to edit
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editEmail($args, $request) {
         $this->validate();
@@ -104,7 +104,7 @@ class EmailHandler extends ManagerHandler {
     /**
      * Save changes to an email.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateEmail($args = [], $request = null) {
         $this->validate();
@@ -134,7 +134,7 @@ class EmailHandler extends ManagerHandler {
     /**
      * Delete a custom email.
      * @param array $args first parameter is the key of the email to delete
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteCustomEmail($args, $request = null) {
         $this->validate();
@@ -156,7 +156,7 @@ class EmailHandler extends ManagerHandler {
     /**
      * Reset an email to default.
      * @param array $args first parameter is the key of the email to reset
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function resetEmail($args, $request = null) {
         $this->validate();
@@ -177,7 +177,7 @@ class EmailHandler extends ManagerHandler {
     /**
      * resets all email templates associated with the journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function resetAllEmails($args = [], $request = null) {
         $this->validate();
@@ -195,7 +195,7 @@ class EmailHandler extends ManagerHandler {
     /**
      * disables an email template.
      * @param array $args first parameter is the key of the email to disable
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function disableEmail($args, $request = null) {
         $this->validate();
@@ -233,7 +233,7 @@ class EmailHandler extends ManagerHandler {
     /**
      * enables an email template.
      * @param array $args first parameter is the key of the email to enable
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function enableEmail($args, $request = null) {
         $this->validate();
@@ -266,11 +266,11 @@ class EmailHandler extends ManagerHandler {
     /**
      * Export the selected email templates as XML
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function exportEmails($args, $request) {
         $this->validate();
-        import('lib.pkp.classes.xml.XMLCustomWriter');
+        import('lib.wizdam.classes.xml.XMLCustomWriter');
         
         // [SECURITY FIX] Gunakan array_map untuk memaksa semua elemen menjadi integer
         $selectedEmailKeys = (array) $request->getUserVar('tplId');
@@ -325,11 +325,11 @@ class EmailHandler extends ManagerHandler {
     /**
      * Upload a custom email template file
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function uploadEmails($args, $request) {
         $this->validate();
-        import('lib.pkp.classes.file.FileManager');
+        import('lib.wizdam.classes.file.FileManager');
         $fileManager = new FileManager();
 
         $journal = $request->getJournal();
@@ -368,7 +368,7 @@ class EmailHandler extends ManagerHandler {
      */
     protected function _saveEmailTemplates($filePath, $journal) {
         $this->validate();
-        import('lib.pkp.classes.xml.XMLParser');
+        import('lib.wizdam.classes.xml.XMLParser');
         $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
         
         $xmlParser = new XMLParser();
@@ -438,7 +438,7 @@ class EmailHandler extends ManagerHandler {
     
     /**
      * Show success or error message
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $success
      */
     protected function _showMessage($request, $success = true) {

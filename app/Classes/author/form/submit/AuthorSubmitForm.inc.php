@@ -19,10 +19,10 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class AuthorSubmitForm extends Form {
-    /** @var PKPRequest|null */
+    /** @var CoreRequest|null */
     protected $request = null;
 
     /** @var int|null the ID of the article */
@@ -39,7 +39,7 @@ class AuthorSubmitForm extends Form {
      * @param Article|null $article
      * @param int $step
      * @param Journal $journal
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function __construct($article, $step, $journal, $request) {
         // Provide available submission languages. (Convert the array
@@ -79,7 +79,7 @@ class AuthorSubmitForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {

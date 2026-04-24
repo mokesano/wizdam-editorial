@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief DOAJ import/export plugin DOM functions for export
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
 class DOAJExportDom {
 
@@ -172,7 +172,7 @@ class DOAJExportDom {
             if (empty($title)) continue;
 
             $titleNode = XMLCustomWriter::createChildWithText($doc, $root, 'title', $title);
-            if (strlen($locale) == 5) XMLCustomWriter::setAttribute($titleNode, 'language', self::mapLang(PKPString::substr($locale, 0, 2)));
+            if (strlen($locale) == 5) XMLCustomWriter::setAttribute($titleNode, 'language', self::mapLang(CoreString::substr($locale, 0, 2)));
         }
 
         /* --- Authors and affiliations --- */
@@ -202,8 +202,8 @@ class DOAJExportDom {
         foreach ((array) $article->getAbstract(null) as $locale => $abstract) {
             if (empty($abstract)) continue;
 
-            $abstractNode = XMLCustomWriter::createChildWithText($doc, $root, 'abstract', PKPString::html2text($abstract));
-            if (strlen($locale) == 5) XMLCustomWriter::setAttribute($abstractNode, 'language', self::mapLang(PKPString::substr($locale, 0, 2)));
+            $abstractNode = XMLCustomWriter::createChildWithText($doc, $root, 'abstract', CoreString::html2text($abstract));
+            if (strlen($locale) == 5) XMLCustomWriter::setAttribute($abstractNode, 'language', self::mapLang(CoreString::substr($locale, 0, 2)));
         }
 
         /* --- FullText URL --- */

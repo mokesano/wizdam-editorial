@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, Visibility, Explicit Static)
  */
 
-import('lib.pkp.classes.validation.ValidatorRegExp');
+import('lib.wizdam.classes.validation.ValidatorRegExp');
 
 class ValidatorORCID extends ValidatorRegExp {
     
@@ -57,7 +57,7 @@ class ValidatorORCID extends ValidatorRegExp {
         // Combine parts to form the 16-character string for checksum validation
         $orcid = $matches[1] . $matches[2] . $matches[3] . $matches[4];
 
-        import('lib.pkp.classes.validation.ValidatorISNI');
+        import('lib.wizdam.classes.validation.ValidatorISNI');
         $validator = new ValidatorISNI();
         return $validator->isValid($orcid);
     }

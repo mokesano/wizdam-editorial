@@ -15,7 +15,7 @@ declare(strict_types=1);
  * for generating objects from DAOs.
  */
 
-import('lib.pkp.classes.core.ItemIterator');
+import('lib.wizdam.classes.core.ItemIterator');
 
 class DBRowIterator extends ItemIterator {
     

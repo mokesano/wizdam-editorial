@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/user/PKPUserDAO.inc.php
+ * @file classes/user/CoreUserDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -40,9 +40,9 @@ class CoreUserDAO extends DAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPUserDAO() {
+    public function CoreUserDAO() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPUserDAO(). Please refactor to parent::__construct().", 
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreUserDAO(). Please refactor to parent::__construct().", 
             E_USER_DEPRECATED
         );
         self::__construct();

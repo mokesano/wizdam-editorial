@@ -237,7 +237,7 @@ class SubscriptionHandler extends ManagerHandler {
     /**
      * Reset a subscription reminder date.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function resetDateReminded($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -360,7 +360,7 @@ class SubscriptionHandler extends ManagerHandler {
     /**
      * Display subscription policies for the current journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function subscriptionPolicies($args, $request) {
         $this->validate();
@@ -373,7 +373,7 @@ class SubscriptionHandler extends ManagerHandler {
     /**
      * Save subscription policies for the current journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSubscriptionPolicies($args, $request) {
         $this->validate();

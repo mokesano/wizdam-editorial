@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 7.4 - 8.x Modernization)
  */
 
-import('lib.pkp.classes.plugins.OAIMetadataFormatPlugin');
+import('lib.wizdam.classes.plugins.OAIMetadataFormatPlugin');
 
 class CoreOAIMetadataFormatPlugin_DC extends OAIMetadataFormatPlugin {
     

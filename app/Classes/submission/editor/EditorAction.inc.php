@@ -29,12 +29,12 @@ class EditorAction extends SectionEditorAction {
      * @param int $sectionEditorId
      * @param boolean $isEditor
      * @param boolean|array $send
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @return boolean true iff ready for redirect
      */
     public static function assignEditor($articleId, $sectionEditorId, $isEditor, $send, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         
         $editorSubmissionDao = DAORegistry::getDAO('EditorSubmissionDAO');
         $editAssignmentDao = DAORegistry::getDAO('EditAssignmentDAO');
@@ -106,11 +106,11 @@ class EditorAction extends SectionEditorAction {
     /**
      * Rush a new submission into the end of the editing queue.
      * @param object $article Article
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function expediteSubmission($article, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $user = $request->getUser();
 
         import('classes.submission.editor.EditorAction');

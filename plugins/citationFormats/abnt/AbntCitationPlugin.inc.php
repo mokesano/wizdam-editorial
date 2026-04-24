@@ -93,7 +93,7 @@ class AbntCitationPlugin extends CitationPlugin {
     }
 
     /**
-     * Display an HTML-formatted citation. We register PKPString::strtoupper modifier
+     * Display an HTML-formatted citation. We register CoreString::strtoupper modifier
      * in order to convert author names to uppercase.
      * @param Article $article
      * @param Issue $issue
@@ -101,7 +101,7 @@ class AbntCitationPlugin extends CitationPlugin {
      */
     public function displayCitation($article, $issue, $journal) {
         $templateMgr = TemplateManager::getManager();
-        $templateMgr->register_modifier('mb_upper', ['PKPString', 'strtoupper']);
+        $templateMgr->register_modifier('mb_upper', ['CoreString', 'strtoupper']);
         $templateMgr->register_modifier('abnt_date_format', [$this, 'abntDateFormat']);
         $templateMgr->register_modifier('abnt_date_format_with_day', [$this, 'abntDateFormatWithDay']);
         return parent::displayCitation($article, $issue, $journal);
@@ -115,7 +115,7 @@ class AbntCitationPlugin extends CitationPlugin {
      * argument then it will be displayed as a notification if (and only
      * if) the method returns false.
      * @param array|null $messageParams
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return bool will redirect to the plugin category page if false,
      * otherwise will remain on the same page
      */
@@ -209,13 +209,13 @@ class AbntCitationPlugin extends CitationPlugin {
         
         // Modern replacement for strftime
         // Check length of full month name
-        if (PKPString::strlen(date("F", $timestamp)) > 4) {
+        if (CoreString::strlen(date("F", $timestamp)) > 4) {
             $format = "M. Y"; // Short month with dot
         } else {
             $format = "F Y"; // Full month
         }
 
-        return PKPString::strtolower(date($format, $timestamp));
+        return CoreString::strtolower(date($format, $timestamp));
     }
 
     /**
@@ -232,13 +232,13 @@ class AbntCitationPlugin extends CitationPlugin {
         }
         
         // Modern replacement for strftime
-        if (PKPString::strlen(date("F", $timestamp)) > 4) {
+        if (CoreString::strlen(date("F", $timestamp)) > 4) {
             $format = "d M. Y";
         } else {
             $format = "d F Y";
         }
 
-        return PKPString::strtolower(date($format, $timestamp));
+        return CoreString::strtolower(date($format, $timestamp));
     }
 }
 ?>

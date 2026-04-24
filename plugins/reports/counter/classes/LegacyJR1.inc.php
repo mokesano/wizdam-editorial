@@ -44,7 +44,7 @@ class LegacyJR1 {
 
     /**
      * Display the JR1 (R3) report
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function display($request) {
         $oldStats = (bool) $request->getUserVar('useOldCounterStats');
@@ -62,7 +62,7 @@ class LegacyJR1 {
 
     /**
      * Generate a report file.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $year
      * @param bool $useLegacyStats
      */
@@ -74,12 +74,12 @@ class LegacyJR1 {
         header('content-disposition: attachment; filename=counter-' . date('Ymd') . '.csv');
 
         $fp = fopen('php://output', 'wt');
-        PKPString::fputcsv($fp, [__('plugins.reports.counter.1a.title1')]);
-        PKPString::fputcsv($fp, [__('plugins.reports.counter.1a.title2', ['year' => $year])]);
-        PKPString::fputcsv($fp, []); // FIXME: Criteria should be here?
-        PKPString::fputcsv($fp, [__('plugins.reports.counter.1a.dateRun')]);
+        CoreString::fputcsv($fp, [__('plugins.reports.counter.1a.title1')]);
+        CoreString::fputcsv($fp, [__('plugins.reports.counter.1a.title2', ['year' => $year])]);
+        CoreString::fputcsv($fp, []); // FIXME: Criteria should be here?
+        CoreString::fputcsv($fp, [__('plugins.reports.counter.1a.dateRun')]);
         // strftime is deprecated in PHP 8.1, replaced with date()
-        PKPString::fputcsv($fp, [date("Y-m-d")]);
+        CoreString::fputcsv($fp, [date("Y-m-d")]);
 
         $cols = [
             '',
@@ -171,7 +171,7 @@ class LegacyJR1 {
 
     /**
      * Internal function to assign information for the Counter part of a report
-     * @param PKPTemplateManager $templateManager
+     * @param CoreTemplateManager $templateManager
      * @param string $begin
      * @param string $end
      * @param bool $useLegacyStats
@@ -295,11 +295,11 @@ class LegacyJR1 {
     private function _getJournalIds(bool $useLegacyStats = false): array {
         $metricsDao = DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */
         if ($useLegacyStats) {
-            $results = $metricsDao->getMetrics(OJS_METRIC_TYPE_LEGACY_COUNTER, [STATISTICS_DIMENSION_ASSOC_ID]);
+            $results = $metricsDao->getMetrics(APP_METRIC_TYPE_LEGACY_COUNTER, [STATISTICS_DIMENSION_ASSOC_ID]);
             $fieldId = STATISTICS_DIMENSION_ASSOC_ID;
         } else {
             $filter = [STATISTICS_DIMENSION_ASSOC_TYPE => ASSOC_TYPE_GALLEY];
-            $results = $metricsDao->getMetrics(OJS_METRIC_TYPE_COUNTER, [STATISTICS_DIMENSION_CONTEXT_ID], $filter);
+            $results = $metricsDao->getMetrics(APP_METRIC_TYPE_COUNTER, [STATISTICS_DIMENSION_CONTEXT_ID], $filter);
             $fieldId = STATISTICS_DIMENSION_CONTEXT_ID;
         }
         $journalIds = [];
@@ -329,10 +329,10 @@ class LegacyJR1 {
 
         if ($useLegacyStats) {
             $dimension = STATISTICS_DIMENSION_ASSOC_ID;
-            $metricType = OJS_METRIC_TYPE_LEGACY_COUNTER;
+            $metricType = APP_METRIC_TYPE_LEGACY_COUNTER;
         } else {
             $dimension = STATISTICS_DIMENSION_CONTEXT_ID;
-            $metricType = OJS_METRIC_TYPE_COUNTER;
+            $metricType = APP_METRIC_TYPE_COUNTER;
             $filter[STATISTICS_DIMENSION_ASSOC_TYPE] = ASSOC_TYPE_GALLEY;
         }
 
@@ -358,7 +358,7 @@ class LegacyJR1 {
 
     /**
      * Counter report in XML
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $year
      * @param bool $useLegacyStats
      */

@@ -123,7 +123,7 @@ class QueuedPaymentDAO extends DAO {
      * Delete expired queued payments.
      */
     public function deleteExpiredQueuedPayments() {
-        // Modernized: Use OJS DB abstraction instead of raw 'now()' for better compatibility
+        // Modernized: Use Wizdam DB abstraction instead of raw 'now()' for better compatibility
         return $this->update(
             sprintf('DELETE FROM queued_payments WHERE expiry_date < %s',
             $this->datetimeToDB(Core::getCurrentDate()))

@@ -46,7 +46,7 @@ class ImportExportHandler extends ManagerHandler {
     /**
      * Import or export data.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function importexport($args = [], $request = null) {
         $this->validate();

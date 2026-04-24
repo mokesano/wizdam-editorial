@@ -20,7 +20,7 @@ declare(strict_types=1);
  */
 
 // import the base Handler
-import('lib.pkp.classes.handler.PKPHandler');
+import('lib.wizdam.classes.handler.CoreHandler');
 
 class CitationApiHandler extends CoreHandler {
     
@@ -47,18 +47,18 @@ class CitationApiHandler extends CoreHandler {
 
 
     //
-    // Implement template methods from PKPHandler
+    // Implement template methods from CoreHandler
     //
     /**
-     * @see PKPHandler::authorize()
+     * @see CoreHandler::authorize()
      * [WIZDAM TRANSITION]: Signature kept loose for parent compatibility.
      */
     public function authorize($request, $args, $roleAssignments) {
-        import('lib.pkp.classes.security.authorization.PKPProcessAccessPolicy');
+        import('lib.wizdam.classes.security.authorization.PKPProcessAccessPolicy');
         
         // Ensure $request is the correct type before use, although PKPProcessAccessPolicy expects it.
-        if (!($request instanceof PKPRequest)) {
-            // Log an error or return authorization failure if not a PKPRequest
+        if (!($request instanceof CoreRequest)) {
+            // Log an error or return authorization failure if not a CoreRequest
             // For now, we trust the caller passes a compatible object as per design.
         }
 
@@ -78,7 +78,7 @@ class CitationApiHandler extends CoreHandler {
      * NB: This handler method is meant to be called by the parallel
      * processing framework (see ProcessDAO::spawnProcesses()).
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string
      * [WIZDAM TRANSITION]: Signature kept loose for parent compatibility.
      */
@@ -107,7 +107,7 @@ class CitationApiHandler extends CoreHandler {
 
             if ($continue) {
                 // Check the next citation.
-                // $citationDao->checkNextRawCitation expects PKPRequest
+                // $citationDao->checkNextRawCitation expects CoreRequest
                 $continue = $citationDao->checkNextRawCitation($request, $processId);
             }
         } while ($continue);

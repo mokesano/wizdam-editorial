@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class ReferralPlugin extends GenericPlugin {
     
@@ -188,7 +188,7 @@ class ReferralPlugin extends GenericPlugin {
                     $referralsArray[] = $referral;
                 }
                 // Turn the array back into an interator for display
-                import('lib.pkp.classes.core.VirtualArrayIterator');
+                import('lib.wizdam.classes.core.VirtualArrayIterator');
                 $referrals = new VirtualArrayIterator($referralsArray, $referrals->getCount(), $referrals->getPage(), $rangeInfo->getCount());
 
                 $templateMgr->assign('articleTitles', $articleTitles);

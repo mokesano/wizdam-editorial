@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.linkAction.request.RedirectAction');
+import('lib.wizdam.classes.linkAction.request.RedirectAction');
 
 class PostAndRedirectAction extends RedirectAction {
 
@@ -66,7 +66,7 @@ class PostAndRedirectAction extends RedirectAction {
      * @return string
      */
     public function getJSLinkActionRequest(): string {
-        return '$.pkp.classes.linkAction.PostAndRedirectRequest';
+        return '$.wizdam.classes.linkAction.PostAndRedirectRequest';
     }
 
     /**

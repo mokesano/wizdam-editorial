@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class FilterForm extends Form {
     /** @var Filter|null the filter being edited */
@@ -220,7 +220,7 @@ class FilterForm extends Form {
                 // is probably easiest for translators to understand.
                 // This also has the advantage that we can explain
                 // composite filters individually.
-                $filterKey = PKPString::regexp_replace('/[^a-zA-Z0-9]/', '', $displayName);
+                $filterKey = CoreString::regexp_replace('/[^a-zA-Z0-9]/', '', $displayName);
                 $filterKey = strtolower(substr($filterKey, 0, 1)).substr($filterKey, 1);
                 $formDescriptionKey = $this->getDescription().'.'.$filterKey;
             } else {
@@ -239,7 +239,7 @@ class FilterForm extends Form {
 
     /**
      * Save filter
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function execute($request) {
         $filter = $this->getFilter();

@@ -46,7 +46,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * View layout comments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewLayoutComments($args, $request) {
         $articleId = (int) array_shift($args);
@@ -58,7 +58,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * Post layout comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function postLayoutComment($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -76,7 +76,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * View copyedit comments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewCopyeditComments($args, $request) {
         $articleId = (int) array_shift($args);
@@ -88,7 +88,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * Post copyedit comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function postCopyeditComment($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -105,7 +105,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * Edit comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editComment($args, $request) {
         $articleId = (int) array_shift($args);
@@ -120,7 +120,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * Save comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveComment($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -154,7 +154,7 @@ class SubmissionCommentsHandler extends CopyeditorHandler {
     /**
      * Delete comment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteComment($args, $request) {
         $articleId = (int) array_shift($args);

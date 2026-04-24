@@ -17,8 +17,8 @@ declare(strict_types=1);
 
 class Dispatcher {
     
-    /** @var PKPApplication */
-    protected PKPApplication $_application;
+    /** @var CoreApplication */
+    protected CoreApplication $_application;
 
     /** @var array an array of Router implementation class names */
     protected array $_routerNames = [];
@@ -26,28 +26,28 @@ class Dispatcher {
     /** @var array an array of Router instances */
     protected array $_routerInstances = [];
 
-    /** @var PKPRouter|null */
-    protected ?PKPRouter $_router = null;
+    /** @var CoreRouter|null */
+    protected ?CoreRouter $_router = null;
 
-    /** @var PKPRequest|null Used for a callback hack */
-    protected ?PKPRequest $_requestCallbackHack = null;
+    /** @var CoreRequest|null Used for a callback hack */
+    protected ?CoreRequest $_requestCallbackHack = null;
 
     // [WIZDAM CONSTANT] - Default cache TTL fallback
     const WIZDAM_CACHE_TTL_DEFAULT = 3600;
 
     /**
      * Get the application
-     * @return PKPApplication
+     * @return CoreApplication
      */
-    public function getApplication(): PKPApplication {
+    public function getApplication(): CoreApplication {
         return $this->_application;
     }
 
     /**
      * Set the application
-     * @param PKPApplication $application
+     * @param CoreApplication $application
      */
-    public function setApplication(PKPApplication $application): void {
+    public function setApplication(CoreApplication $application): void {
         $this->_application = $application;
     }
 
@@ -70,9 +70,9 @@ class Dispatcher {
 
     /**
      * Determine the correct router for this request.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
-    public function dispatch(PKPRequest $request): void {
+    public function dispatch(CoreRequest $request): void {
         
         // [WIZDAM] NEW Routing url tanpa /index/ di level root/publisher
         if ($request->isPathInfoEnabled()) {
@@ -174,10 +174,10 @@ class Dispatcher {
     }
 
     /**
-     * Build a handler request URL into PKPApplication.
+     * Build a handler request URL into CoreApplication.
      * @return string the URL
      */
-    public function url(PKPRequest $request, string $shortcut, $newContext = null, $handler = null, $op = null, $path = null,
+    public function url(CoreRequest $request, string $shortcut, $newContext = null, $handler = null, $op = null, $path = null,
             $params = null, $anchor = null, $escape = false): string {
         
         if (!isset($this->_routerNames[$shortcut])) {
@@ -196,15 +196,15 @@ class Dispatcher {
 
     /**
      * Instantiate a router
-     * @return PKPRouter
+     * @return CoreRouter
      */
-    protected function _instantiateRouter(string $routerName, string $shortcut): PKPRouter {
+    protected function _instantiateRouter(string $routerName, string $shortcut): CoreRouter {
         if (!isset($this->_routerInstances[$shortcut])) {
-            $allowedRouterPackages = ['classes.core', 'lib.pkp.classes.core'];
+            $allowedRouterPackages = ['classes.core', 'lib.wizdam.classes.core'];
 
-            $router = instantiate($routerName, 'PKPRouter', $allowedRouterPackages);
-            if (!($router instanceof PKPRouter)) {
-                fatalError('Cannot instantiate requested router. Routers must belong to the core package and be of type "PKPRouter".');
+            $router = instantiate($routerName, 'CoreRouter', $allowedRouterPackages);
+            if (!($router instanceof CoreRouter)) {
+                fatalError('Cannot instantiate requested router. Routers must belong to the core package and be of type "CoreRouter".');
             }
             $router->setApplication($this->_application);
             $router->setDispatcher($this);
@@ -218,10 +218,10 @@ class Dispatcher {
     /**
      * [WIZDAM INTELLIGENT CACHE]
      * Menggunakan ETag (Hash) dan Cache-Control: must-revalidate.
-     * @param PKPRouter $router
-     * @param PKPRequest $request
+     * @param CoreRouter $router
+     * @param CoreRequest $request
      */
-    protected function _displayCached(PKPRouter $router, PKPRequest $request): bool {
+    protected function _displayCached(CoreRouter $router, CoreRequest $request): bool {
         $filename = $router->getCacheFilename($request);
         if (!file_exists($filename)) return false;
 
@@ -292,9 +292,9 @@ class Dispatcher {
      * Handle a 404 error (page not found).
      * WIZDAM EDITION: Custom Error Handling
      * [HIGHER STANDARD] Explicit Method Injection. No Service Locator used.
-     * @param PKPRequest $request The request object must be passed explicitly.
+     * @param CoreRequest $request The request object must be passed explicitly.
      */
-    public function handle404(PKPRequest $request): void {
+    public function handle404(CoreRequest $request): void {
         // 1. Mengumpulkan informasi URL
         $path = $request->getRequestPath();
         $queryString = $request->getQueryString();

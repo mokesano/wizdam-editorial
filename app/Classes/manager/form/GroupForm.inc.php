@@ -17,8 +17,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.form.Form');
-import('lib.pkp.classes.group.Group');
+import('lib.wizdam.classes.form.Form');
+import('lib.wizdam.classes.group.Group');
 
 class GroupForm extends Form {
     /** @var Group|null the group being edited */

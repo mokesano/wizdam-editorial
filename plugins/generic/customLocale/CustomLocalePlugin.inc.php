@@ -11,11 +11,11 @@ declare(strict_types=1);
  * @class CustomLocalePlugin
  *
  * @brief This plugin enables customization of locale strings.
- * * MODERNIZED FOR PHP 7.4+ & OJS FORK
+ * * MODERNIZED FOR PHP 7.4+ & Wizdam FORK
  */
 
 define('CUSTOM_LOCALE_DIR', 'customLocale');
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class CustomLocalePlugin extends GenericPlugin {
     
@@ -62,7 +62,7 @@ class CustomLocalePlugin extends GenericPlugin {
                 $publicFilesDir = Config::getVar('files', 'public_files_dir');
                 $customLocalePathBase = $publicFilesDir . DIRECTORY_SEPARATOR . 'journals' . DIRECTORY_SEPARATOR . $journalId . DIRECTORY_SEPARATOR . CUSTOM_LOCALE_DIR . DIRECTORY_SEPARATOR . $locale . DIRECTORY_SEPARATOR;
 
-                import('lib.pkp.classes.file.FileManager');
+                import('lib.wizdam.classes.file.FileManager');
                 $fileManager = new FileManager();
                 foreach ($localeFiles as $localeFile) {
                     $customLocalePath = $customLocalePathBase . $localeFile->getFilename();
@@ -72,7 +72,7 @@ class CustomLocalePlugin extends GenericPlugin {
                 }
 
                 // Add custom locale data for all locale files registered after this plugin
-                HookRegistry::register('PKPLocale::registerLocaleFile', array($this, 'addCustomLocale'));
+                HookRegistry::register('CoreLocale::registerLocaleFile', array($this, 'addCustomLocale'));
             }
 
             return true;
@@ -103,7 +103,7 @@ class CustomLocalePlugin extends GenericPlugin {
         $publicFilesDir = Config::getVar('files', 'public_files_dir');
         $customLocalePath = $publicFilesDir . DIRECTORY_SEPARATOR . 'journals' . DIRECTORY_SEPARATOR . $journalId . DIRECTORY_SEPARATOR . CUSTOM_LOCALE_DIR . DIRECTORY_SEPARATOR . $locale . DIRECTORY_SEPARATOR . $localeFilename;
 
-        import('lib.pkp.classes.file.FileManager');
+        import('lib.wizdam.classes.file.FileManager');
         $fileManager = new FileManager();
         if ($fileManager->fileExists($customLocalePath)) {
             AppLocale::registerLocaleFile($locale, $customLocalePath, false);
@@ -160,7 +160,7 @@ class CustomLocalePlugin extends GenericPlugin {
     /**
      * Display verbs for the management interface.
      * @param $verbs array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return array
      */
     public function getManagementVerbs(array $verbs = [], $request = null): array {

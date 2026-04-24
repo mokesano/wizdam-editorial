@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
+import('lib.wizdam.classes.controllers.grid.GridCellProvider');
 
 class FilterGridCellProvider extends GridCellProvider {
     

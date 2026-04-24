@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized for PHP 7.4/8.x
  */
 
-import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
+import('lib.wizdam.classes.scheduledTask.ScheduledTaskHelper');
 
 class ScheduledTask {
 
@@ -47,7 +47,7 @@ class ScheduledTask {
         AppLocale::requireComponents(LOCALE_COMPONENT_CORE_ADMIN, LOCALE_COMPONENT_CORE_COMMON);
         
         // Check the scheduled task execution log folder.
-        import('lib.pkp.classes.file.PrivateFileManager');
+        import('lib.wizdam.classes.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR;

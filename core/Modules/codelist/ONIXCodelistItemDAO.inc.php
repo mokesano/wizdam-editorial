@@ -16,7 +16,7 @@ declare(strict_types=1);
  *
  */
 
-import('lib.pkp.classes.codelist.ONIXCodelistItem');
+import('lib.wizdam.classes.codelist.ONIXCodelistItem');
 
 class ONIXCodelistItemDAO extends DAO {
 
@@ -97,11 +97,11 @@ class ONIXCodelistItemDAO extends DAO {
             $xmlDao = new XMLDAO();
             $listName = $this->getListName(); // i.e., 'List30'
             
-            import('lib.pkp.classes.codelist.ONIXParserDOMHandler');
+            import('lib.wizdam.classes.codelist.ONIXParserDOMHandler');
             $handler = new ONIXParserDOMHandler($listName);
 
-            import('lib.pkp.classes.xslt.XSLTransformer');
-            import('lib.pkp.classes.file.FileManager');
+            import('lib.wizdam.classes.xslt.XSLTransformer');
+            import('lib.wizdam.classes.file.FileManager');
             import('classes.file.TemporaryFileManager');
 
             $temporaryFileManager = new TemporaryFileManager();
@@ -116,7 +116,7 @@ class ONIXCodelistItemDAO extends DAO {
             $xslTransformer->setParameters(['listName' => $listName]);
             $xslTransformer->setRegisterPHPFunctions(true);
 
-            $xslFile = 'lib/pkp/xml/onixFilter.xsl';
+            $xslFile = 'lib/wizdam/xml/onixFilter.xsl';
             $filteredXml = $xslTransformer->transform(
                 $filename, 
                 XSL_TRANSFORMER_DOCTYPE_FILE, 
@@ -168,7 +168,7 @@ class ONIXCodelistItemDAO extends DAO {
         if (!AppLocale::isLocaleValid($locale)) {
             $locale = AppLocale::MASTER_LOCALE;
         }
-        return "lib/pkp/locale/$locale/ONIX_BookProduct_CodeLists.xsd";
+        return "lib/wizdam/locale/$locale/ONIX_BookProduct_CodeLists.xsd";
     }
 
     /**

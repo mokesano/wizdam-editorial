@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/payment/ojs/OJSPaymentManager.inc.php
+ * @file classes/payment/wizdam/OJSPaymentManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 import('classes.payment.AppQueuedPayment');
-import('lib.pkp.classes.payment.PaymentManager');
+import('lib.wizdam.classes.payment.PaymentManager');
 
 define('PAYMENT_TYPE_MEMBERSHIP',         0x000000001);
 define('PAYMENT_TYPE_RENEW_SUBSCRIPTION', 0x000000002);
@@ -34,7 +34,7 @@ class AppPaymentManager extends PaymentManager {
     
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function __construct($request) {
         parent::__construct($request);
@@ -108,7 +108,7 @@ class AppPaymentManager extends PaymentManager {
                     $finalAmount = $taxableAmount + $taxAmount;
                 }
 
-                // Timpa variabel $amount bawaan OJS
+                // Timpa variabel $amount bawaan Wizdam
                 $amount = $finalAmount;
 
                 // Poin 1: Generate Nomor Faktur (4 Digit Awal ISSN - ID Naskah - 4 Digit Akhir ISSN)
@@ -600,7 +600,7 @@ class AppPaymentManager extends PaymentManager {
                 // Invalid payment type
                 assert(false);
         }
-        $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+        $completedPaymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
         $completedPayment = $this->createCompletedPayment($queuedPayment, $payMethodPluginName);
         $completedPaymentDao->insertCompletedPayment($completedPayment);
 

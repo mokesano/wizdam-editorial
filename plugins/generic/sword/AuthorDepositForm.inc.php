@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class AuthorDepositForm extends Form {
     
@@ -51,7 +51,7 @@ class AuthorDepositForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $template
      */
     public function display($request = null, $template = null) {
@@ -98,7 +98,7 @@ class AuthorDepositForm extends Form {
 
     /**
      * Perform SWORD deposit
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @see Form::execute()
      */
     public function execute($object = null) {

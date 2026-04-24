@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 import('classes.article.Author');
 import('classes.article.Article');
-import('lib.pkp.classes.submission.PKPAuthorDAO');
+import('lib.wizdam.classes.submission.CoreAuthorDAO');
 
 class AuthorDAO extends CoreAuthorDAO {
     
@@ -121,7 +121,7 @@ class AuthorDAO extends CoreAuthorDAO {
         
         $initialSql = '';
         if (isset($initial)) {
-            $params[] = PKPString::strtolower($initial) . '%';
+            $params[] = CoreString::strtolower($initial) . '%';
             $initialSql = ' AND LOWER(aa.last_name) LIKE LOWER(?)';
         }
 
@@ -256,7 +256,7 @@ class AuthorDAO extends CoreAuthorDAO {
     }
     
     /**
-     * [MOD FORK v7.4] Mengambil data profil gabungan (User, OJS, Gravatar)
+     * [MOD FORK v7.4] Mengambil data profil gabungan (User, Wizdam, Gravatar)
      * untuk array objek Penulis (Author) yang diberikan.
      * @param array $authors (Array dari objek Author)
      * @return array (Berisi 3 peta: profileImages, gravatars, userData)
@@ -319,7 +319,7 @@ class AuthorDAO extends CoreAuthorDAO {
             if ($matchingUserId) {
                 $user = $userDao->getById($matchingUserId);
                 if ($user) {
-                    // PETA 1: Simpan data gambar profil OJS
+                    // PETA 1: Simpan data gambar profil Wizdam
                     $profileImage = $user->getData('profileImage');
                     if ($profileImage && !empty($profileImage['uploadName'])) {
                         $authorProfileImageMap[$authorId] = $profileImage;

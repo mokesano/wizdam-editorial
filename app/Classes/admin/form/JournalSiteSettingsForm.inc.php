@@ -15,8 +15,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x (Removed create_function)
  */
 
-import('lib.pkp.classes.db.DBDataXMLParser');
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.db.DBDataXMLParser');
+import('lib.wizdam.classes.form.Form');
 
 class JournalSiteSettingsForm extends Form {
 
@@ -69,7 +69,7 @@ class JournalSiteSettingsForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {
@@ -183,7 +183,7 @@ class JournalSiteSettingsForm extends Form {
             }
 
             // Make the file directories for the journal
-            import('lib.pkp.classes.file.FileManager');
+            import('lib.wizdam.classes.file.FileManager');
             $fileManager = new FileManager();
             $filesDir = Config::getVar('files', 'files_dir');
             $publicFilesDir = Config::getVar('files', 'public_files_dir');
@@ -196,7 +196,7 @@ class JournalSiteSettingsForm extends Form {
             // Install default journal settings
             $journalSettingsDao = DAORegistry::getDAO('JournalSettingsDAO');
             $titles = $this->getData('title');
-            AppLocale::requireComponents(LOCALE_COMPONENT_OJS_DEFAULT, LOCALE_COMPONENT_APPLICATION_COMMON);
+            AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_DEFAULT, LOCALE_COMPONENT_APPLICATION_COMMON);
             
             $journalSettingsDao->installSettings($journalId, 'registry/journalSettings.xml', [
                 'indexUrl' => Request::getIndexUrl(),

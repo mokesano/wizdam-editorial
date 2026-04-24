@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Null Safety
  */
 
-import('lib.pkp.pages.announcement.PKPAnnouncementHandler');
+import('lib.wizdam.pages.announcement.PKPAnnouncementHandler');
 
 class AnnouncementHandler extends CoreAnnouncementHandler {
     
@@ -46,7 +46,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     /**
      * OVERRIDE: Tambahan logika Redirect jika Announcement kosong
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -74,7 +74,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
 
     /**
      * @see PKPAnnouncementHandler::_getAnnouncementsEnabled()
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool
      */
     public function _getAnnouncementsEnabled($request) {
@@ -86,7 +86,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
     /**
      * @see PKPAnnouncementHandler::_getAnnouncements()
      * [MODERNISASI] Menghapus tanda & reference return
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param object|null $rangeInfo
      * @return DAOResultFactory
      */
@@ -109,7 +109,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
 
     /**
      * @see PKPAnnouncementHandler::_getAnnouncementsIntroduction()
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string
      */
     public function _getAnnouncementsIntroduction($request) {
@@ -120,7 +120,7 @@ class AnnouncementHandler extends CoreAnnouncementHandler {
 
     /**
      * @see PKPAnnouncementHandler::_announcementIsValid()
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int $announcementId
      * @return bool
      */

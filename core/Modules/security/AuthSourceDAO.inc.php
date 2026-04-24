@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying AuthSource objects.
  */
 
-import('lib.pkp.classes.security.AuthSource');
+import('lib.wizdam.classes.security.AuthSource');
 
 class AuthSourceDAO extends DAO {
     /** @var array List of loaded authentication plugins */

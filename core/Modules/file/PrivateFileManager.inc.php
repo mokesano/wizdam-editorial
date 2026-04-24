@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class defining operations for private file management.
  */
 
-import('lib.pkp.classes.file.FileManager');
+import('lib.wizdam.classes.file.FileManager');
 
 class PrivateFileManager extends FileManager {
     

@@ -24,7 +24,7 @@ declare(strict_types=1);
  * - Explicit Type Hints
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 
 if (!defined('PARSCIT_WEBSERVICE')) {
     define('PARSCIT_WEBSERVICE', 'http://aye.comp.nus.edu.sg/parsCit/parsCit.cgi');
@@ -51,7 +51,7 @@ class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFil
      * @return string
      */
     public function getClassName(): string {
-        return 'lib.pkp.plugins.citationParser.parscit.filter.ParscitRawCitationNlm30CitationSchemaFilter';
+        return 'lib.wizdam.plugins.citationParser.parscit.filter.ParscitRawCitationNlm30CitationSchemaFilter';
     }
 
     //
@@ -80,15 +80,15 @@ class ParscitRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFil
         $result = html_entity_decode($result);
 
         // Detect errors.
-        if (!PKPString::regexp_match('/.*<algorithm[^>]+>.*<\/algorithm>.*/s', $result)) {
+        if (!CoreString::regexp_match('/.*<algorithm[^>]+>.*<\/algorithm>.*/s', $result)) {
             $translationParams = ['filterName' => $this->getDisplayName()];
             $this->addError(__('submission.citations.filter.webserviceResultTransformationError', $translationParams));
             return null;
         }
 
         // Screen-scrape the tagged portion and turn it into XML.
-        $xmlResult = PKPString::regexp_replace('/.*<algorithm[^>]+>(.*)<\/algorithm>.*/s', '\1', $result);
-        $xmlResult = PKPString::regexp_replace('/&/', '&amp;', $xmlResult);
+        $xmlResult = CoreString::regexp_replace('/.*<algorithm[^>]+>(.*)<\/algorithm>.*/s', '\1', $result);
+        $xmlResult = CoreString::regexp_replace('/&/', '&amp;', $xmlResult);
 
         // Transform the result into an array of meta-data.
         $metadata = $this->transformWebServiceResults($xmlResult, dirname(__FILE__) . DIRECTORY_SEPARATOR . 'parscit.xsl');

@@ -166,8 +166,8 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
             }
         }
 
-        // Perform replacement for ojs://... URLs
-        $contents = PKPString::regexp_replace_callback(
+        // Perform replacement for wizdam://... URLs
+        $contents = CoreString::regexp_replace_callback(
             '/(<[^<>]*")[Oo][Jj][Ss]:\/\/([^"]+)("[^<>]*>)/',
             array($this, '_handleOjsUrl'),
             $contents
@@ -190,7 +190,7 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
             }
         }
 
-        if (LOCALE_ENCODING == "iso-8859-1") $contents = PKPString::utf2html($contents);
+        if (LOCALE_ENCODING == "iso-8859-1") $contents = CoreString::utf2html($contents);
 
         return $contents;
     }
@@ -201,7 +201,7 @@ class ArticleXMLGalley extends ArticleHTMLGalley {
      * @return boolean
      */
     public function viewFileContents() {
-        import('lib.pkp.classes.file.FileManager');
+        import('lib.wizdam.classes.file.FileManager');
         $fileManager = new FileManager();
         $pdfFileName = CacheManager::getFileCachePath() . DIRECTORY_SEPARATOR . 'fc-xsltGalley-' . str_replace($fileManager->parseFileExtension($this->getFileName()), 'pdf', $this->getFileName());
 

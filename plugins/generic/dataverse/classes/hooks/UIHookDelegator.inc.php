@@ -109,12 +109,12 @@ class UIHookDelegator {
             : $article->getLocalizedData('externalDataCitation');
         
         if ($dataCitation) {
-            $suppFileLabel = '<td>'. __('rt.metadata.pkp.suppFiles') .'</td>';
+            $suppFileLabel = '<td>'. __('rt.metadata.wizdam.suppFiles') .'</td>';
             $suppFileLabelIndex = strpos($output, $suppFileLabel);
             if ($suppFileLabelIndex !== false) {
                 $newOutput = substr($output, 0, $suppFileLabelIndex);
                 $newOutput .= '<td>'. __('plugins.generic.dataverse.dataCitation') .'</td>';
-                $newOutput .= '<td>'. PKPString::stripUnsafeHtml($dataCitation) .'</td>';
+                $newOutput .= '<td>'. CoreString::stripUnsafeHtml($dataCitation) .'</td>';
                 $newOutput .= '</tr><tr valign="top"><td>13.</td><td>'. __('rt.metadata.dublinCore.relation') .'</td>';
                 $newOutput .= substr($output, $suppFileLabelIndex);
                 $output = $newOutput;
@@ -141,7 +141,7 @@ class UIHookDelegator {
                 }
             } 
 
-            $preMatch = '<tr valign="top">\s*<td>13.<\/td>\s*<td>'. preg_quote(__('rt.metadata.dublinCore.relation'), '/') .'<\/td>\s*<td>'. preg_quote(__('rt.metadata.pkp.suppFiles'), '/') .'<\/td>\s*<td>';
+            $preMatch = '<tr valign="top">\s*<td>13.<\/td>\s*<td>'. preg_quote(__('rt.metadata.dublinCore.relation'), '/') .'<\/td>\s*<td>'. preg_quote(__('rt.metadata.wizdam.suppFiles'), '/') .'<\/td>\s*<td>';
             $postMatch = '<\/td>\s*<\/tr>';
 
             if ($suppFileOutput) {
@@ -225,7 +225,7 @@ class UIHookDelegator {
         if ($index !== false) {
             $newOutput = substr($output,0,$index);
             $newOutput .= '<td class="label">'.  __('plugins.generic.dataverse.dataCitation') .'</td>';
-            $newOutput .= '<td class="value" colspan="2">'. PKPString::stripUnsafeHtml($dataCitation) .'</td></tr><tr>';
+            $newOutput .= '<td class="value" colspan="2">'. CoreString::stripUnsafeHtml($dataCitation) .'</td></tr><tr>';
             $newOutput .= substr($output, $index);
             $output = $newOutput;
         }

@@ -93,7 +93,7 @@ class Transcoder {
         } elseif ($this->translit && $this->fromEncoding === "UTF-8" && $this->toEncoding === "ASCII") {
             // Use the utf2ascii library
             // [WIZDAM] Path check for safety
-            $libPath = './lib/pkp/lib/phputf8/utf8_to_ascii.php';
+            $libPath = './lib/wizdam/lib/phputf8/utf8_to_ascii.php';
             if (file_exists($libPath)) {
                 require_once $libPath;
                 if (function_exists('utf8_to_ascii')) {

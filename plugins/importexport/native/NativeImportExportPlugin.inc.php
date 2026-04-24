@@ -15,9 +15,9 @@ declare(strict_types=1);
  */
 
 import('classes.plugins.ImportExportPlugin');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
-define('NATIVE_DTD_ID', '-//PKP//OJS Articles and Issues XML//EN');
+define('NATIVE_DTD_ID', '-//Wizdam//Wizdam Articles and Issues XML//EN');
 
 class NativeImportExportPlugin extends ImportExportPlugin {
 
@@ -49,7 +49,7 @@ class NativeImportExportPlugin extends ImportExportPlugin {
     public function getDTDUrl(): string {
         $versionDao = DAORegistry::getDAO('VersionDAO');
         $currentVersion = $versionDao->getCurrentVersion();
-        return 'http://pkp.sfu.ca/ojs/dtds/' . urlencode($currentVersion->getMajor() . '.' . $currentVersion->getMinor() . '.' . $currentVersion->getRevision()) . '/native.dtd';
+        return 'http://wizdam.sfu.ca/wizdam/dtds/' . urlencode($currentVersion->getMajor() . '.' . $currentVersion->getMinor() . '.' . $currentVersion->getRevision()) . '/native.dtd';
     }
 
     /**
@@ -140,7 +140,7 @@ class NativeImportExportPlugin extends ImportExportPlugin {
             case 'issues':
                 // Display a list of issues for export
                 $this->setBreadcrumbs([], true);
-                AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR);
                 $issues = $issueDao->getIssues($journal->getId(), Handler::getRangeInfo('issues'));
 
                 $templateMgr->assign('issues', $issues);
@@ -157,14 +157,14 @@ class NativeImportExportPlugin extends ImportExportPlugin {
                 if ($rangeInfo->isValid()) {
                     $articleIds = array_slice($articleIds, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
                 }
-                import('lib.pkp.classes.core.VirtualArrayIterator');
+                import('lib.wizdam.classes.core.VirtualArrayIterator');
                 $iterator = new VirtualArrayIterator(ArticleSearch::formatResults($articleIds), $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
                 $templateMgr->assign('articles', $iterator);
                 $templateMgr->display($this->getTemplatePath() . 'articles.tpl');
                 break;
 
             case 'import':
-                AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR, LOCALE_COMPONENT_OJS_AUTHOR);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR, LOCALE_COMPONENT_WIZDAM_AUTHOR);
                 import('classes.file.TemporaryFileManager');
                 $issueDao = DAORegistry::getDAO('IssueDAO');
                 $sectionDao = DAORegistry::getDAO('SectionDAO');

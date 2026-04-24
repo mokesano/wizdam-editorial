@@ -14,7 +14,7 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class SubscriptionTypeForm extends Form {
     /** @var typeId int the ID of the subscription type being edited */

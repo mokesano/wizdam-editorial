@@ -104,7 +104,7 @@ class ArticleGalley extends ArticleFile {
      * @return int
      */
     public function getViews() {
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         
         // [WIZDAM FIX] Casting ID ke Integer agar sesuai Strict Typing
         return $application->getPrimaryMetricByAssoc(

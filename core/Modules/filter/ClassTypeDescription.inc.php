@@ -13,11 +13,11 @@ declare(strict_types=1);
  *
  * @brief A type description that validates objects by class type.
  *
- * Example type identifier: 'class::lib.pkp.classes.submission.Submission'
+ * Example type identifier: 'class::lib.wizdam.classes.submission.Submission'
  */
 
-import('lib.pkp.classes.filter.TypeDescription');
-import('lib.pkp.classes.filter.TypeDescriptionFactory');
+import('lib.wizdam.classes.filter.TypeDescription');
+import('lib.wizdam.classes.filter.TypeDescriptionFactory');
 
 class ClassTypeDescription extends TypeDescription {
     /** @var string a valid class name */

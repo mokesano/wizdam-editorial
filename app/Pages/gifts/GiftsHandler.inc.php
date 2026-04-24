@@ -48,7 +48,7 @@ class GiftsHandler extends Handler {
     /**
      * Display payment form for buying a gift subscription
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function purchaseGiftSubscription($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -73,7 +73,7 @@ class GiftsHandler extends Handler {
     /**
      * Process payment form for buying a gift subscription
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function payPurchaseGiftSubscription($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -107,7 +107,7 @@ class GiftsHandler extends Handler {
     /**
      * Display generic thank you message following payment
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function thankYou($args, $request) {
         // [WIZDAM] Singleton Fallback

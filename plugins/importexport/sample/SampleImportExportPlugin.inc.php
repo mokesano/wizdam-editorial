@@ -89,7 +89,7 @@ class SampleImportExportPlugin extends ImportExportPlugin {
     /**
      * Display the plugin.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function display($args, $request): void {
         parent::display($args, $request);

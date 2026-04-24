@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/i18n/PKPLocale.inc.php
+ * @file classes/i18n/CoreLocale.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  * WIZDAM EDITION: PHP 8 Compatibility, Registry State Fixes
  */
 
-import('lib.pkp.classes.i18n.LocaleFile');
+import('lib.wizdam.classes.i18n.LocaleFile');
 
 if (!defined('LOCALE_REGISTRY_FILE')) {
     define('LOCALE_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . DIRECTORY_SEPARATOR . 'locales.xml');
@@ -65,9 +65,9 @@ class CoreLocale {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPLocale() {
+    public function CoreLocale() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPLocale(). Please refactor to parent::__construct().", 
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreLocale(). Please refactor to parent::__construct().", 
             E_USER_DEPRECATED
         );
         self::__construct();
@@ -132,7 +132,7 @@ class CoreLocale {
         // HookRegistry::dispatch
         // Keep & for primitives ($key, $params, $locale, $value) so plugins can modify translation
         // $localeFiles is array of objects, passed by reference in array to be safe with legacy plugins
-        if (!HookRegistry::dispatch('PKPLocale::translate', array(&$key, &$params, &$locale, &$localeFiles, &$value))) {
+        if (!HookRegistry::dispatch('CoreLocale::translate', array(&$key, &$params, &$locale, &$localeFiles, &$value))) {
             if ($value === '') {
                  // Add some octothorpes to missing keys to make them more obvious
                  return '##' . htmlentities($key) . '##';
@@ -158,7 +158,7 @@ class CoreLocale {
             }
         }
 
-        AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.xml");
+        AppLocale::registerLocaleFile($locale, "lib/wizdam/locale/$locale/common.xml");
     }
 
     /**
@@ -168,7 +168,7 @@ class CoreLocale {
      * @return array
      */
     public static function makeComponentMap($locale) {
-        $baseDir = "lib/pkp/locale/$locale/";
+        $baseDir = "lib/wizdam/locale/$locale/";
 
         return array(
             LOCALE_COMPONENT_CORE_COMMON => $baseDir . 'common.xml',
@@ -272,9 +272,9 @@ class CoreLocale {
 
         $localeFile = new LocaleFile($locale, $filename);
         
-        // HOOK: PKPLocale::registerLocaleFile::isValidLocaleFile
+        // HOOK: CoreLocale::registerLocaleFile::isValidLocaleFile
         // $localeFile is Object, passed by handle (no & needed)
-        if (!HookRegistry::dispatch('PKPLocale::registerLocaleFile::isValidLocaleFile', array($localeFile))) {
+        if (!HookRegistry::dispatch('CoreLocale::registerLocaleFile::isValidLocaleFile', array($localeFile))) {
             if (!$localeFile->isValid()) {
                 return null;
             }
@@ -289,9 +289,9 @@ class CoreLocale {
         // [Wizdam] 2. Save modified array back to Registry
         Registry::set('localeFiles', $allLocaleFiles);
 
-        // HOOK: PKPLocale::registerLocaleFile
+        // HOOK: CoreLocale::registerLocaleFile
         // Primitives need &
-        HookRegistry::dispatch('PKPLocale::registerLocaleFile', array(&$locale, &$filename, &$addToTop));
+        HookRegistry::dispatch('CoreLocale::registerLocaleFile', array(&$locale, &$filename, &$addToTop));
         
         return $localeFile;
     }
@@ -393,7 +393,7 @@ class CoreLocale {
      */
     public static function installLocale($locale) {
         // Install default locale-specific data
-        import('lib.pkp.classes.db.DBDataXMLParser');
+        import('lib.wizdam.classes.db.DBDataXMLParser');
 
         $emailTemplateDao = DAORegistry::getDAO('EmailTemplateDAO');
         $emailTemplateDao->installEmailTemplateData($emailTemplateDao->getMainEmailTemplateDataFilename($locale));
@@ -403,8 +403,8 @@ class CoreLocale {
         foreach ($categories as $category) {
             PluginRegistry::loadCategory($category);
         }
-        // HOOK: PKPLocale::installLocale
-        HookRegistry::dispatch('PKPLocale::installLocale', array(&$locale));
+        // HOOK: CoreLocale::installLocale
+        HookRegistry::dispatch('CoreLocale::installLocale', array(&$locale));
     }
 
     /**
@@ -435,7 +435,7 @@ class CoreLocale {
      */
     public static function getParameterNames($source) {
         $matches = null;
-        PKPString::regexp_match_all('/({\$[^}]+})/' /* '/{\$[^}]+})/' */, $source, $matches);
+        CoreString::regexp_match_all('/({\$[^}]+})/' /* '/{\$[^}]+})/' */, $source, $matches);
         array_shift($matches); // Knock the top element off the array
         if (isset($matches[0])) return $matches[0];
         return array();
@@ -483,7 +483,7 @@ class CoreLocale {
     }
 
     /**
-     * Translate the PKP locale identifier into an
+     * Translate the Wizdam locale identifier into an
      * ISO639-2b compatible 3-letter string.
      * @param $locale string
      * @return string
@@ -496,7 +496,7 @@ class CoreLocale {
 
     /**
      * Translate an ISO639-2b compatible 3-letter string
-     * into the PKP locale identifier.
+     * into the Wizdam locale identifier.
      * @param $iso3letter string
      * @return string
      */
@@ -565,7 +565,7 @@ class CoreLocale {
     }
 
     /**
-     * Translate the PKP locale identifier into an
+     * Translate the Wizdam locale identifier into an
      * ISO639-3 compatible 3-letter string.
      * @param $locale string
      * @return string
@@ -577,7 +577,7 @@ class CoreLocale {
     }
 
     /**
-    * Translate the PKP locale identifier into an
+    * Translate the Wizdam locale identifier into an
     * ISO639-1 compatible 2-letter string.
     * @param $locale string
     * @return string
@@ -589,7 +589,7 @@ class CoreLocale {
 
     /**
      * Translate an ISO639-3 compatible 3-letter string
-     * into the PKP locale identifier.
+     * into the Wizdam locale identifier.
      * @param $iso3 string
      * @return string
      */
@@ -815,7 +815,7 @@ class CoreLocale {
 }
 
 /**
- * Wrapper around PKPLocale::translate().
+ * Wrapper around CoreLocale::translate().
  * @param $key string
  * @param $params array named substitution parameters
  * @param $locale string the locale to use

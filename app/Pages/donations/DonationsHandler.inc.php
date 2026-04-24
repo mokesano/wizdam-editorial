@@ -48,7 +48,7 @@ class DonationsHandler extends Handler {
     /**
      * Display the donations page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Singleton Fallback 
@@ -87,7 +87,7 @@ class DonationsHandler extends Handler {
     /**
      * Display a "thank you" page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function thankYou($args, $request = null) {
         // [WIZDAM] Singleton Fallback

@@ -17,8 +17,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.form.Form');
-import('lib.pkp.classes.reviewForm.ReviewFormElement');
+import('lib.wizdam.classes.form.Form');
+import('lib.wizdam.classes.reviewForm.ReviewFormElement');
 
 class ReviewFormElementForm extends Form {
 

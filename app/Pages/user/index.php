@@ -89,8 +89,8 @@ switch ($op) {
 	// Interest
 	//
 	case 'getInterests':
-		define('HANDLER_CLASS', 'PKPUserHandler');
-		import('lib.pkp.pages.user.PKPUserHandler');
+		define('HANDLER_CLASS', 'CoreUserHandler');
+		import('lib.wizdam.pages.user.CoreUserHandler');
 		break;
 }
 

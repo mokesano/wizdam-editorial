@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Object for review plugin class
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 define('OFR_MODE_FULL',         0x01);
 define('OFR_MODE_METADATA',     0x02);
@@ -236,13 +236,13 @@ class ObjectsForReviewPlugin extends GenericPlugin {
                 if (in_array($op, $reviewObjectTypesEditorPages)) {
                     define('HANDLER_CLASS', 'ReviewObjectTypesEditorHandler');
                     define('OBJECTS_FOR_REVIEW_PLUGIN_NAME', $this->getName());
-                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_OJS_EDITOR);
+                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_WIZDAM_USER, LOCALE_COMPONENT_WIZDAM_EDITOR);
                     $handlerFile = $params[2];
                     $handlerFile = $this->getHandlerPath() . 'ReviewObjectTypesEditorHandler.inc.php';
                 } elseif (in_array($op, $objectsForReviewEditorPages)) {
                     define('HANDLER_CLASS', 'ObjectsForReviewEditorHandler');
                     define('OBJECTS_FOR_REVIEW_PLUGIN_NAME', $this->getName());
-                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_OJS_EDITOR);
+                    AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_WIZDAM_USER, LOCALE_COMPONENT_WIZDAM_EDITOR);
                     $handlerFile = $params[2];
                     $handlerFile = $this->getHandlerPath() . 'ObjectsForReviewEditorHandler.inc.php';
                 }
@@ -271,7 +271,7 @@ class ObjectsForReviewPlugin extends GenericPlugin {
                         if (in_array($op, $objectsForReviewAuthorPages)) {
                             define('HANDLER_CLASS', 'ObjectsForReviewAuthorHandler');
                             define('OBJECTS_FOR_REVIEW_PLUGIN_NAME', $this->getName());
-                            AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_OJS_AUTHOR);
+                            AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_WIZDAM_USER, LOCALE_COMPONENT_WIZDAM_AUTHOR);
                             $handlerFile = $params[2];
                             $handlerFile = $this->getHandlerPath() . 'ObjectsForReviewAuthorHandler.inc.php';
                         }

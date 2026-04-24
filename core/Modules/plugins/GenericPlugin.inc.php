@@ -12,13 +12,13 @@ declare(strict_types=1);
  * @ingroup plugins
  *
  * @brief Abstract class for generic plugins
- * * MODERNIZED FOR PHP 7.4+ (OJS FORK)
+ * * MODERNIZED FOR PHP 7.4+ (Wizdam FORK)
  * - Constructor updated to __construct
  * - Parent constructor call updated to parent::__construct
  * - Removed reference operators (&)
  */
 
-import('lib.pkp.classes.plugins.LazyLoadPlugin');
+import('lib.wizdam.classes.plugins.LazyLoadPlugin');
 
 class GenericPlugin extends LazyLoadPlugin {
     

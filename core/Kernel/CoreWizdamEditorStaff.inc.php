@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/pkp/classes/core/PKPWizdamEditorStaff.inc.php
+ * @file lib/wizdam/classes/core/PKPWizdamEditorStaff.inc.php
  *
  * @brief Sistem cache data staff jurnal (Manager dan Editor) untuk homepage.
  * Versi core dari skrip tema kustom.
@@ -21,7 +21,7 @@ declare(strict_types=1);
 
 class CoreWizdamEditorStaff {
 
-    // Role ID - konstanta OJS
+    // Role ID - konstanta Wizdam
     const ROLE_JOURNAL_MANAGER = 16;
     const ROLE_EDITOR = 256;
 
@@ -183,11 +183,11 @@ class CoreWizdamEditorStaff {
     }
 
     /**
-     * @brief Mendapatkan direktori cache yang standar OJS.
+     * @brief Mendapatkan direktori cache yang standar Wizdam.
      * @return string Path ke direktori cache
      */
     private static function getCacheDir() {
-        // Menggunakan direktori cache standar OJS
+        // Menggunakan direktori cache standar Wizdam
         return 'cache/t_wizdam/staff/';
     }
 

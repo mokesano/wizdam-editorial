@@ -42,7 +42,7 @@ class ReportPlugin extends Plugin {
     /**
      * Retrieve a range of aggregate, filtered, ordered metric values, i.e.
      * a statistics report.
-     * @see <http://pkp.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
+     * @see <http://wizdam.sfu.ca/wiki/index.php/OJSdeStatisticsConcept#Input_and_Output_Formats_.28Aggregation.2C_Filters.2C_Metrics_Data.29>
      * for a full specification of the input and output format of this method.
      * @param null|string|array $metricType metrics selection
      * @param string|array $columns column (aggregation level) selection
@@ -239,7 +239,7 @@ class ReportPlugin extends Plugin {
      * Base method to display the report plugin UI.
      * @see ReportPlugin::display() for the supported verbs.
      * @param array $args The array of arguments the user supplied.
-     * @param PKPRequest $request The PKP Request object initiating the call.
+     * @param CoreRequest $request The Wizdam Request object initiating the call.
      */
     public function display($args, $request) {
         $templateManager = TemplateManager::getManager();
@@ -250,7 +250,7 @@ class ReportPlugin extends Plugin {
      * Display verbs for the management interface.
      * @see ReportPlugin::getManagementVerbs() for the supported verbs.
      * @param array $verbs The array of verbs the user supplied.
-     * @param PKPRequest $request The PKP Request object initiating the call.
+     * @param CoreRequest $request The Wizdam Request object initiating the call.
      * @return array 
      */
     public function getManagementVerbs(array $verbs = [], $request = null): array {
@@ -269,7 +269,7 @@ class ReportPlugin extends Plugin {
      * @param array $args The array of arguments the user supplied.
      * @param string $message
      * @param array $messageParams Parameters to pass with the message.
-     * @param PKPRequest|null $request The PKP Request object initiating the call.
+     * @param CoreRequest|null $request The Wizdam Request object initiating the call.
      * @return bool True if the management function was performed, false if not.
      */
     public function manage(string $verb, array $args, string $message, array $messageParams, $request = NULL): bool {

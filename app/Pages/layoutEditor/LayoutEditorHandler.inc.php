@@ -52,7 +52,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Display layout editor index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args, $request) {
         $this->validate($request);
@@ -66,7 +66,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Display layout editor submissions page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submissions($args, $request) {
         $this->validate($request);
@@ -209,7 +209,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Display Future Isshes page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function futureIssues($args, $request) {
         $this->validate($request);
@@ -228,7 +228,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Displays the listings of back (published) issues
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function backIssues($args, $request) {
         $this->validate($request);
@@ -287,7 +287,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Sets proofreader completion date
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function completeProofreader($args, $request) {
         // [SECURITY FIX] Amankan 'articleId' dengan trim() dan (int)
@@ -340,7 +340,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Display submission management instructions.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function instructions($args, $request) {
         $this->setupTemplate();
@@ -359,7 +359,7 @@ class LayoutEditorHandler extends Handler {
     /**
      * Validate that the user is the assigned layout editor for the submission.
      * Redirects to layoutEditor index page if validation fails.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int|null $articleId optional the submission being edited
      * @param bool $checkEdit check if editor has editing permissions
      * @return bool|void

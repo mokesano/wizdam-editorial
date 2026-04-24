@@ -16,8 +16,8 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Compatibility, Visibility, No References)
  */
 
-import('lib.pkp.classes.xml.XMLParser');
-import('lib.pkp.classes.rt.RTStruct');
+import('lib.wizdam.classes.xml.XMLParser');
+import('lib.wizdam.classes.rt.RTStruct');
 
 class RTXMLParser {
 

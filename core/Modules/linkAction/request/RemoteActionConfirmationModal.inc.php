@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.linkAction.request.ConfirmationModal');
+import('lib.wizdam.classes.linkAction.request.ConfirmationModal');
 
 class RemoteActionConfirmationModal extends ConfirmationModal {
     /** @var string|null A URL to be called when the confirmation button is clicked. */
@@ -81,7 +81,7 @@ class RemoteActionConfirmationModal extends ConfirmationModal {
         $parentLocalizedOptions = parent::getLocalizedOptions();
         
         // override the modalHandler option.
-        $parentLocalizedOptions['modalHandler'] = '$.pkp.controllers.modal.RemoteActionConfirmationModalHandler';
+        $parentLocalizedOptions['modalHandler'] = '$.wizdam.controllers.modal.RemoteActionConfirmationModalHandler';
         $parentLocalizedOptions['remoteAction'] = $this->getRemoteAction();
         
         return $parentLocalizedOptions;

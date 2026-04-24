@@ -62,7 +62,7 @@ define('PROCESS_MAX_PARALLELISM', 20);
 // to problems when networks are slow.
 define('PROCESS_MAX_KEY_VALID', 10);
 
-import('lib.pkp.classes.process.Process');
+import('lib.wizdam.classes.process.Process');
 
 class ProcessDAO extends DAO {
     
@@ -377,7 +377,7 @@ class ProcessDAO extends DAO {
         $query = isset($urlParts['query']) ? $urlParts['query'] : '';
         $encodedKey = urlencode($oneTimeKey);
 
-        // [WIZDAM FIX] Pertahankan URL bawaan OJS Router. Gabungkan authToken dengan aman.
+        // [WIZDAM FIX] Pertahankan URL bawaan Wizdam Router. Gabungkan authToken dengan aman.
         $separator = empty($query) ? '?' : '&';
         $fullPath = $path . (!empty($query) ? '?' . $query : '') . $separator . 'authToken=' . $encodedKey;
 

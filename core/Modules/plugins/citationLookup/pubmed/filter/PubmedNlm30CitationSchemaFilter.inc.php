@@ -20,11 +20,11 @@ declare(strict_types=1);
  * - Enhanced DOM safety checks
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
-import('lib.pkp.classes.filter.EmailFilterSetting');
-import('lib.pkp.classes.metadata.MetadataDescription');
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter'); // Dynamic import moved up
-import('lib.pkp.classes.metadata.DateStringNormalizerFilter');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('lib.wizdam.classes.filter.EmailFilterSetting');
+import('lib.wizdam.classes.metadata.MetadataDescription');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter'); // Dynamic import moved up
+import('lib.wizdam.classes.metadata.DateStringNormalizerFilter');
 
 // Define constants safely
 if (!defined('PUBMED_WEBSERVICE_ESEARCH')) {
@@ -84,7 +84,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
      * @return string
      */
     public function getClassName(): string {
-        return 'lib.pkp.plugins.citationLookup.pubmed.filter.PubmedNlm30CitationSchemaFilter';
+        return 'lib.wizdam.plugins.citationLookup.pubmed.filter.PubmedNlm30CitationSchemaFilter';
     }
 
     //
@@ -230,7 +230,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
                     $searchTerms .= (string) $firstAuthor->getStatement('surname');
                     $givenNames = $firstAuthor->getStatement('given-names');
                     if (is_array($givenNames) && isset($givenNames[0])) {
-                        $searchTerms .= ' ' . PKPString::substr($givenNames[0], 0, 1);
+                        $searchTerms .= ' ' . CoreString::substr($givenNames[0], 0, 1);
                     }
                 }
             } else {
@@ -255,7 +255,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
     private function _search(string $searchTerms): array {
         $searchParams = [
             'db' => 'pubmed',
-            'tool' => 'pkp-wal',
+            'tool' => 'wizdam-wal',
             'term' => $searchTerms
         ];
 
@@ -293,7 +293,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
         $lookupParams = [
             'db' => 'pubmed',
             'mode' => 'xml',
-            'tool' => 'pkp-wal',
+            'tool' => 'wizdam-wal',
             'id' => $pmid
         ];
 
@@ -343,7 +343,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
                 $metadata['person-group[@person-group-type="author"]'] = [];
             }
 
-            $authorDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', ASSOC_TYPE_AUTHOR);
+            $authorDescription = new MetadataDescription('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema', ASSOC_TYPE_AUTHOR);
 
             // Surname
             $lastNameNodes = $authorNode->getElementsByTagName("LastName");
@@ -365,7 +365,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
             
             if (!empty($givenNamesString)) {
                 foreach (explode(' ', $givenNamesString) as $givenName) {
-                    $authorDescription->addStatement('given-names', PKPString::trimPunctuation($givenName));
+                    $authorDescription->addStatement('given-names', CoreString::trimPunctuation($givenName));
                 }
             }
 
@@ -383,7 +383,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
         if ($medlinePgnNodes->length > 0) {
             $medlinePgnFirstNode = $medlinePgnNodes->item(0);
             $pages = [];
-            if (PKPString::regexp_match_get("/^[:p\.\s]*(?P<fpage>[Ee]?\d+)(-(?P<lpage>\d+))?/", $medlinePgnFirstNode->textContent, $pages)) {
+            if (CoreString::regexp_match_get("/^[:p\.\s]*(?P<fpage>[Ee]?\d+)(-(?P<lpage>\d+))?/", $medlinePgnFirstNode->textContent, $pages)) {
                 $fPage = (int) $pages['fpage'];
                 $metadata['fpage'] = $fPage;
                 
@@ -393,7 +393,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
                     if ($lPage < $fPage) {
                         $fPageStr = (string)$pages['fpage'];
                         $lPageStr = (string)$pages['lpage'];
-                        $lPage = (int) (PKPString::substr($fPageStr, 0, -PKPString::strlen($lPageStr)) . $lPageStr);
+                        $lPage = (int) (CoreString::substr($fPageStr, 0, -CoreString::strlen($lPageStr)) . $lPageStr);
                     }
                     $metadata['lpage'] = $lPage;
                 }
@@ -444,7 +444,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
         // Get publication type
         $publicationTypeNodes = $resultDOM->getElementsByTagName("PublicationType");
         foreach ($publicationTypeNodes as $publicationType) {
-            if (PKPString::strpos(PKPString::strtolower($publicationType->textContent), 'article') !== false) {
+            if (CoreString::strpos(CoreString::strtolower($publicationType->textContent), 'article') !== false) {
                 $metadata['[@publication-type]'] = NLM30_PUBLICATION_TYPE_JOURNAL;
                 break;
             }
@@ -473,7 +473,7 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
         $lookupParams = [
             'dbfrom' => 'pubmed',
             'cmd' => 'llinks',
-            'tool' => 'pkp-wal',
+            'tool' => 'wizdam-wal',
             'id' => $pmid
         ];
 
@@ -488,13 +488,13 @@ class PubmedNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
         foreach ($objUrls as $linkOut) {
             $attributes = '';
             foreach ($linkOut->getElementsByTagName("Attribute") as $attribute) {
-                $attributes .= PKPString::strtolower($attribute->textContent) . ' / ';
+                $attributes .= CoreString::strtolower($attribute->textContent) . ' / ';
             }
 
             // Only add links to open access resources
-            if (PKPString::strpos($attributes, "subscription") === false && 
-                PKPString::strpos($attributes, "membership") === false &&
-                PKPString::strpos($attributes, "fee") === false && 
+            if (CoreString::strpos($attributes, "subscription") === false && 
+                CoreString::strpos($attributes, "membership") === false &&
+                CoreString::strpos($attributes, "fee") === false && 
                 $attributes !== "") {
                 
                 $urlNodes = $linkOut->getElementsByTagName("Url");

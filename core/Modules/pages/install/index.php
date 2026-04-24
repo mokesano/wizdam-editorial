@@ -22,8 +22,8 @@ switch ($op) {
 	case 'install':
 	case 'upgrade':
 	case 'installUpgrade':
-		define('HANDLER_CLASS', 'PKPInstallHandler');
-		import('lib.pkp.pages.install.PKPInstallHandler');
+		define('HANDLER_CLASS', 'CoreInstallHandler');
+		import('lib.wizdam.pages.install.CoreInstallHandler');
 		break;
 }
 

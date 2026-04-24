@@ -79,7 +79,7 @@ class Version extends DataObject {
         $versionArray = explode('.', $versionString);
 
         if(!$product && !$productType) {
-            $application = PKPApplication::getApplication();
+            $application = CoreApplication::getApplication();
             $product = $application->getName();
             $productType = 'core';
         }

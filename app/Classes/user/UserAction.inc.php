@@ -166,7 +166,7 @@ class UserAction {
         }
 
         // Transfer completed payments.
-        $paymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+        $paymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
         $paymentFactory = $paymentDao->getByUserId($oldUserId);
         while ($payment = $paymentFactory->next()) {
             $payment->setUserId($newUserId);

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * MODERNIZED FOR SCHOLARWIZDAM FORK
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class XMLGalleySettingsForm extends Form {
     

@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/submission/common/PKPAction.inc.php
+ * @file classes/submission/common/CoreAction.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -30,9 +30,9 @@ class CoreAction {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPAction() {
+    public function CoreAction() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPAction(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreAction(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }
@@ -52,11 +52,11 @@ class CoreAction {
         $templateMgr = TemplateManager::getManager();
 
         // Add extra style sheets required for ajax components
-        // FIXME: Must be removed after OMP->OJS backporting
-        $templateMgr->addStyleSheet($request->getBaseUrl().'/styles/ojs.css');
+        // FIXME: Must be removed after OMP->Wizdam backporting
+        $templateMgr->addStyleSheet($request->getBaseUrl().'/styles/wizdam.css');
 
         // Add extra java script required for ajax components
-        // FIXME: Must be removed after OMP->OJS backporting
+        // FIXME: Must be removed after OMP->Wizdam backporting
         $templateMgr->addJavaScript('public/js/core-library/functions/modal.js');
         $templateMgr->addJavaScript('public/js/core-library/lib/jquery/plugins/validate/jquery.validate.min.js');
         $templateMgr->addJavaScript('public/js/core-library/functions/jqueryValidatorI18n.js');

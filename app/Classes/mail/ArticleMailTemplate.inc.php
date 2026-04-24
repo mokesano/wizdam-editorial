@@ -77,7 +77,7 @@ class ArticleMailTemplate extends MailTemplate {
         $paramArray['articleId'] = $article->getId();
         $paramArray['journalName'] = strip_tags($journal->getLocalizedTitle());
         $paramArray['sectionName'] = strip_tags($article->getSectionTitle());
-        $paramArray['articleAbstract'] = PKPString::html2text($article->getLocalizedAbstract());
+        $paramArray['articleAbstract'] = CoreString::html2text($article->getLocalizedAbstract());
         $paramArray['authorString'] = strip_tags($article->getAuthorString());
 
         return parent::assignParams($paramArray);
@@ -90,7 +90,7 @@ class ArticleMailTemplate extends MailTemplate {
      */
     public function send($request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // PERBAIKAN: Ganti 'false' menjadi '$request'
         // Jika parent::send menerima false, dia akan crash saat mencoba akses user/context.
@@ -156,7 +156,7 @@ class ArticleMailTemplate extends MailTemplate {
      */
     public function log($request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $articleEmailLogDao = DAORegistry::getDAO('ArticleEmailLogDAO');
         $entry = $articleEmailLogDao->newDataObject();

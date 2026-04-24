@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, Type Hinting, Visibility)
  */
 
-import('lib.pkp.classes.validation.Validator');
+import('lib.wizdam.classes.validation.Validator');
 
 class ValidatorInSet extends Validator {
 

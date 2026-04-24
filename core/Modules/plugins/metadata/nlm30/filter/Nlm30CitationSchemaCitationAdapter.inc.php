@@ -19,8 +19,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Reference Compatibility
  */
 
-import('lib.pkp.classes.metadata.MetadataDataObjectAdapter');
-import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
+import('lib.wizdam.classes.metadata.MetadataDataObjectAdapter');
+import('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema');
 
 class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
 
@@ -54,7 +54,7 @@ class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
      * @return string
      */
     public function getClassName() {
-        return 'lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter';
+        return 'lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter';
     }
 
     //
@@ -155,14 +155,14 @@ class Nlm30CitationSchemaCitationAdapter extends MetadataDataObjectAdapter {
                                     $assocType = ASSOC_TYPE_EDITOR;
                                     break;
                             }
-                            $nameDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', $assocType);
+                            $nameDescription = new MetadataDescription('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema', $assocType);
                             $nameDescription->setStatements($name);
                             $names[$key] = $nameDescription;
                             unset($nameDescription);
                         } else {
                             // The only non-structured data allowed here
                             // is the et-al string.
-                            import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
+                            import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
                             assert($name == PERSON_STRING_FILTER_ETAL);
                         }
                     }

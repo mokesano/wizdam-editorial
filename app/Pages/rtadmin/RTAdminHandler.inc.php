@@ -49,7 +49,7 @@ class RTAdminHandler extends Handler {
     /**
      * Index page
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();

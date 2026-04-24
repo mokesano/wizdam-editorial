@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized for PHP 8.4 with Dependency Injection.
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 import('plugins.generic.tinymce.TinyMCEPlugin');
 
 class SettingsForm extends Form {

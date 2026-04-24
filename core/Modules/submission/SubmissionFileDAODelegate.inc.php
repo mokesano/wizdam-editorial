@@ -16,7 +16,7 @@ declare(strict_types=1);
  * to retrieve and modify SubmissionFile objects.
  */
 
-import('lib.pkp.classes.db.DAO');
+import('lib.wizdam.classes.db.DAO');
 
 class SubmissionFileDAODelegate extends DAO {
     

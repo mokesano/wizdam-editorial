@@ -6,13 +6,12 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/xml/PKPXMLParser.inc.php
+ * @file core/Modules/xml/XMLParser.inc.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2000-2019 John Willinsky
+ * Copyright (c) 2013-2025 Wizdam Framework Contributors
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class XMLParser
+ * @class CoreXMLParser
  * @ingroup xml
  *
  * @brief Generic class for parsing an XML document into a data structure.
@@ -23,9 +22,9 @@ declare(strict_types=1);
 define('XML_PARSER_SOURCE_ENCODING', Config::getVar('i18n', 'client_charset'));
 define('XML_PARSER_TARGET_ENCODING', Config::getVar('i18n', 'client_charset'));
 
-import('lib.pkp.classes.xml.XMLParserDOMHandler');
+import('core.Modules.xml.XMLParserDOMHandler');
 
-class PKPXMLParser {
+class CoreXMLParser {
 
     /** @var int original magic_quotes_runtime setting (Deprecated/Removed in PHP 8) */
     public $magicQuotes;
@@ -70,19 +69,19 @@ class PKPXMLParser {
         xml_set_character_data_handler($parser, [$this->handler, "characterData"]);
 
         // if the string contains non-UTF8 characters, convert it to UTF-8 for parsing
-        if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !PKPString::utf8_compliant($text) ) {
+        if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !CoreString::utf8_compliant($text) ) {
 
-            $text = PKPString::utf8_normalize($text);
+            $text = CoreString::utf8_normalize($text);
 
             // strip any invalid UTF-8 sequences
-            $text = PKPString::utf8_bad_strip($text);
+            $text = CoreString::utf8_bad_strip($text);
 
             // convert named entities to numeric entities
-            $text = strtr($text, PKPString::getHTMLEntities());
+            $text = strtr($text, CoreString::getHTMLEntities());
         }
 
         // strip any invalid ASCII control characters
-        $text = PKPString::utf8_strip_ascii_ctrl($text);
+        $text = CoreString::utf8_strip_ascii_ctrl($text);
 
         if (!xml_parse($parser, $text, true)) {
             $this->addError(xml_error_string(xml_get_error_code($parser)));
@@ -120,7 +119,7 @@ class PKPXMLParser {
         xml_set_element_handler($parser, [$this->handler, "startElement"], [$this->handler, "endElement"]);
         xml_set_character_data_handler($parser, [$this->handler, "characterData"]);
 
-        import('lib.pkp.classes.file.FileWrapper');
+        import('lib.wizdam.classes.file.FileWrapper');
         $wrapper = FileWrapper::wrapper($file);
 
         // Handle responses of various types
@@ -149,28 +148,28 @@ class PKPXMLParser {
         while (!$wrapper->eof() && ($data = $wrapper->read()) !== false) {
 
             // if the string contains non-UTF8 characters, convert it to UTF-8 for parsing
-            if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !PKPString::utf8_compliant($data) ) {
+            if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !CoreString::utf8_compliant($data) ) {
 
-                $utf8_last = PKPString::substr($data, PKPString::strlen($data) - 1);
+                $utf8_last = CoreString::substr($data, CoreString::strlen($data) - 1);
 
                 // if the string ends in a "bad" UTF-8 character, maybe it's truncated
-                while (!$wrapper->eof() && PKPString::utf8_bad_find($utf8_last) === 0) {
+                while (!$wrapper->eof() && CoreString::utf8_bad_find($utf8_last) === 0) {
                     // read another chunk of data
                     $data .= $wrapper->read();
-                    $utf8_last = PKPString::substr($data, PKPString::strlen($data) - 1);
+                    $utf8_last = CoreString::substr($data, CoreString::strlen($data) - 1);
                 }
 
-                $data = PKPString::utf8_normalize($data);
+                $data = CoreString::utf8_normalize($data);
 
                 // strip any invalid UTF-8 sequences
-                $data = PKPString::utf8_bad_strip($data);
+                $data = CoreString::utf8_bad_strip($data);
 
                 // convert named entities to numeric entities
-                $data = strtr($data, PKPString::getHTMLEntities());
+                $data = strtr($data, CoreString::getHTMLEntities());
             }
 
             // strip any invalid ASCII control characters
-            $data = PKPString::utf8_strip_ascii_ctrl($data);
+            $data = CoreString::utf8_strip_ascii_ctrl($data);
 
             if ($dataCallback) call_user_func($dataCallback, 'parse', $wrapper, $data);
             if (!xml_parse($parser, $data, $wrapper->eof())) {
@@ -268,7 +267,7 @@ class PKPXMLParser {
      * @return array a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
      */
     public function parseStruct($file, $tagsToMatch = array()) {
-        import('lib.pkp.classes.file.FileWrapper');
+        import('lib.wizdam.classes.file.FileWrapper');
         $wrapper = FileWrapper::wrapper($file);
         $fileContents = $wrapper->contents();
         if (!$fileContents) {
@@ -311,7 +310,7 @@ class PKPXMLParser {
  * Interface for handler class used by XMLParser.
  * All XML parser handler classes must implement these methods.
  */
-class PKPXMLParserHandler {
+class CoreXMLParserHandler {
 
     /**
      * Callback function to act as the start element handler.

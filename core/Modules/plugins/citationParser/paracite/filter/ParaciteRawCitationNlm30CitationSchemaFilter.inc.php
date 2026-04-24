@@ -37,9 +37,9 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
-import('lib.pkp.plugins.metadata.nlm30.filter.Openurl10Nlm30CitationSchemaCrosswalkFilter');
-import('lib.pkp.classes.filter.SetFilterSetting');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Openurl10Nlm30CitationSchemaCrosswalkFilter');
+import('lib.wizdam.classes.filter.SetFilterSetting');
 
 define('CITATION_PARSER_PARACITE_STANDARD', 'Standard');
 define('CITATION_PARSER_PARACITE_CITEBASE', 'Citebase');
@@ -86,7 +86,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
      * @return string
      */
     public function getClassName(): string {
-        return 'lib.pkp.plugins.citationParser.paracite.filter.ParaciteRawCitationNlm30CitationSchemaFilter';
+        return 'lib.wizdam.plugins.citationParser.paracite.filter.ParaciteRawCitationNlm30CitationSchemaFilter';
     }
 
 
@@ -109,7 +109,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
         }
 
         // Convert to ASCII - Paracite doesn't handle UTF-8 well
-        $citationString = PKPString::utf8_to_ascii($citationString);
+        $citationString = CoreString::utf8_to_ascii($citationString);
 
         // Call the paracite parser
         $wrapperScript = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'paracite.pl';
@@ -121,8 +121,8 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
             return null;
         }
 
-        if (Config::getVar('i18n', 'charset_normalization') == 'On' && !PKPString::utf8_compliant($xmlResult)) {
-            $xmlResult = PKPString::utf8_normalize($xmlResult);
+        if (Config::getVar('i18n', 'charset_normalization') == 'On' && !CoreString::utf8_compliant($xmlResult)) {
+            $xmlResult = CoreString::utf8_normalize($xmlResult);
         }
 
         // Create a temporary DOM document
@@ -143,8 +143,8 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 
         // Break up the authors field
         if (isset($metadata['authors'])) {
-            $metadata['authors'] = PKPString::trimPunctuation($metadata['authors']);
-            $metadata['authors'] = PKPString::iterativeExplode([':', ';'], $metadata['authors']);
+            $metadata['authors'] = CoreString::trimPunctuation($metadata['authors']);
+            $metadata['authors'] = CoreString::iterativeExplode([':', ';'], $metadata['authors']);
         }
 
         // Convert pages to integers
@@ -157,7 +157,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
         // Convert titles to title case
         foreach(['title', 'chapter', 'publication'] as $titleProperty) {
             if (isset($metadata[$titleProperty])) {
-                $metadata[$titleProperty] = PKPString::titleCase($metadata[$titleProperty]);
+                $metadata[$titleProperty] = CoreString::titleCase($metadata[$titleProperty]);
             }
         }
 
@@ -228,7 +228,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
                     }
                     unset($metadata['title']);
                 }
-                $openurl10SchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.Openurl10BookSchema';
+                $openurl10SchemaName = 'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10BookSchema';
                 $openurl10SchemaClass = 'Openurl10BookSchema';
                 break;
 
@@ -248,7 +248,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
                     }
                     unset($metadata['title']);
                 }
-                $openurl10SchemaName = 'lib.pkp.plugins.metadata.openurl10.schema.Openurl10JournalSchema';
+                $openurl10SchemaName = 'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10JournalSchema';
                 $openurl10SchemaClass = 'Openurl10JournalSchema';
                 break;
         }
@@ -262,7 +262,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
             if (!empty($paraciteValue)) {
                 // Trim punctuation
                 if (is_string($paraciteValue)) {
-                    $paraciteValue = PKPString::trimPunctuation($paraciteValue);
+                    $paraciteValue = CoreString::trimPunctuation($paraciteValue);
                 }
 
                 // Transfer the value to the OpenURL result array
@@ -290,7 +290,7 @@ class ParaciteRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFi
 
         // Add 'rest_text' as NLM comment (if given)
         if (isset($metadata['rest_text'])) {
-            $nlm30Description->addStatement('comment', PKPString::trimPunctuation($metadata['rest_text']));
+            $nlm30Description->addStatement('comment', CoreString::trimPunctuation($metadata['rest_text']));
         }
 
         // Set display name and sequence id in the meta-data description

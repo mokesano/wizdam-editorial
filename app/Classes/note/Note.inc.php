@@ -12,13 +12,13 @@ declare(strict_types=1);
  * @ingroup note
  * @see NoteDAO
  *
- * @brief Class for OJS Note.
+ * @brief Class for Wizdam Note.
  *
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
 import('classes.article.ArticleFile');
-import('lib.pkp.classes.note.PKPNote');
+import('lib.wizdam.classes.note.PKPNote');
 
 class Note extends CoreNote {
     

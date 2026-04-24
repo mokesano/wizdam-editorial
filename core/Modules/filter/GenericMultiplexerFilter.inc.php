@@ -19,7 +19,7 @@ declare(strict_types=1);
  * to a de-multiplexer filter.
  */
 
-import('lib.pkp.classes.filter.CompositeFilter');
+import('lib.wizdam.classes.filter.CompositeFilter');
 
 class GenericMultiplexerFilter extends CompositeFilter {
     /**
@@ -81,7 +81,7 @@ class GenericMultiplexerFilter extends CompositeFilter {
      * @see PersistentFilter::getClassName()
      */
     public function getClassName() {
-        return 'lib.pkp.classes.filter.GenericMultiplexerFilter';
+        return 'lib.wizdam.classes.filter.GenericMultiplexerFilter';
     }
 
 

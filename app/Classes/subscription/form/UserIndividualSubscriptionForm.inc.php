@@ -18,10 +18,10 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class UserIndividualSubscriptionForm extends Form {
-    /** @var $request PKPRequest */
+    /** @var $request CoreRequest */
     public $request;
 
     /** @var userId int the user associated with the subscription */
@@ -35,7 +35,7 @@ class UserIndividualSubscriptionForm extends Form {
 
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $userId int
      * @param $subscriptionId int
      */

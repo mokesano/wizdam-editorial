@@ -15,10 +15,10 @@ declare(strict_types=1);
  * to control access to handler operations.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
 
 class HandlerOperationPolicy extends AuthorizationPolicy {
-    /** @var PKPRequest */
+    /** @var CoreRequest */
     public $_request;
 
     /** @var array the target operations */
@@ -26,7 +26,7 @@ class HandlerOperationPolicy extends AuthorizationPolicy {
 
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $operations array|string either a single operation or a list of operations that
      * this policy is targeting.
      * @param $message string a message to be displayed if the authorization fails
@@ -47,7 +47,7 @@ class HandlerOperationPolicy extends AuthorizationPolicy {
 
     /**
      * [SHIM] Backward Compatibility
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $operations array|string
      * @param $message string
      */
@@ -64,7 +64,7 @@ class HandlerOperationPolicy extends AuthorizationPolicy {
     //
     /**
      * Return the request.
-     * @return PKPRequest
+     * @return CoreRequest
      */
     public function getRequest() {
         return $this->_request;

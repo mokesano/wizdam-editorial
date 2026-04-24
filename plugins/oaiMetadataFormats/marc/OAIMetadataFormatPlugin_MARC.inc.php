@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (Fixed getEnabled fatal error)
  */
 
-import('lib.pkp.classes.plugins.OAIMetadataFormatPlugin');
+import('lib.wizdam.classes.plugins.OAIMetadataFormatPlugin');
 
 class OAIMetadataFormatPlugin_MARC extends OAIMetadataFormatPlugin {
     

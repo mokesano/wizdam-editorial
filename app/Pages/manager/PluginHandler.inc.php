@@ -44,7 +44,7 @@ class PluginHandler extends ManagerHandler {
     /**
      * Display a list of plugins along with management options.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function plugins($args, $request) {
         $category = isset($args[0]) ? $args[0] : null;
@@ -94,7 +94,7 @@ class PluginHandler extends ManagerHandler {
     /**
      * Perform plugin-specific management functions.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function plugin($args, $request) {
         $category = array_shift($args);
@@ -137,7 +137,7 @@ class PluginHandler extends ManagerHandler {
 
     /**
      * Set the page's breadcrumbs
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $subclass
      * @return array
      */

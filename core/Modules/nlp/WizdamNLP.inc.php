@@ -13,9 +13,9 @@ declare(strict_types=1);
  * @brief Provides lightweight NLP capabilities for Wizdam Chatbot.
  */
 
-// Imports PKP untuk string utility
-if (!class_exists('PKPString')) {
-    import('lib.pkp.classes.core.PKPString'); 
+// Imports Wizdam untuk string utility
+if (!class_exists('CoreString')) {
+    import('lib.wizdam.classes.core.CoreString'); 
 }
 
 class WizdamNLP {
@@ -34,7 +34,7 @@ class WizdamNLP {
 
     private static function _tokenize(string $text): array {
         $text = function_exists('mb_strtolower') ? mb_strtolower($text) : strtolower($text);
-        $text = PKPString::regexp_replace('/[^a-z0-9\s]/u', ' ', $text);
+        $text = CoreString::regexp_replace('/[^a-z0-9\s]/u', ' ', $text);
         return array_filter(explode(' ', $text));
     }
     

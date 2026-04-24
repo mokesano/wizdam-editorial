@@ -134,7 +134,7 @@ class InstitutionalSubscriptionForm extends SubscriptionForm {
         if ($ipRangeProvided) {    
             // [WIZDAM FIX] Replaced create_function with Closure
             $this->addCheck(new FormValidatorArrayCustom($this, 'ipRanges', 'required', 'manager.subscriptions.form.ipRangeValid', function($ipRange, $regExp) {
-                return PKPString::regexp_match($regExp, $ipRange);
+                return CoreString::regexp_match($regExp, $ipRange);
             },
                 array(
                     '/^' .

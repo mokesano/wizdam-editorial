@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+import('lib.wizdam.classes.form.validation.FormValidator');
 
 class FormValidatorReCaptcha extends FormValidator {
     /** @var string reCaptcha challenge form field name */
@@ -69,7 +69,7 @@ class FormValidatorReCaptcha extends FormValidator {
      * @return boolean
      */
     public function isValid() {
-        import('lib.pkp.lib.recaptcha.recaptchalib');
+        import('lib.wizdam.lib.recaptcha.recaptchalib');
         $privateKey = Config::getVar('captcha', 'recaptcha_private_key');
         $reCaptchaVersion = (int) Config::getVar('captcha', 'recaptcha_version', RECAPTCHA_VERSION_LEGACY);
         

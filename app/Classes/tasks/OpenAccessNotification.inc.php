@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief Class to perform automated email notifications when an issue becomes open access.
  */
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
+import('lib.wizdam.classes.scheduledTask.ScheduledTask');
 
 class OpenAccessNotification extends ScheduledTask {
 

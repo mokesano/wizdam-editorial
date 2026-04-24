@@ -161,7 +161,7 @@ class O4DOIExportDom extends DOIExportDom {
     }
 
     /**
-     * The OJS object type represented by this DOM
+     * The Wizdam object type represented by this DOM
      * @return string
      */
     public function _getObjectType(): string {
@@ -231,7 +231,7 @@ class O4DOIExportDom extends DOIExportDom {
     /**
      * Generate the O4DOI XML document.
      * @see DOIExportDom::generate()
-     * @param array $objects An array of OJS objects to export.
+     * @param array $objects An array of Wizdam objects to export.
      * @return DOMDocument|bool
      */
     public function generate($objects) {
@@ -292,16 +292,16 @@ class O4DOIExportDom extends DOIExportDom {
     }
 
     /**
-     * Retrieve all the OJS publication objects containing the
+     * Retrieve all the Wizdam publication objects containing the
      * data required to generate the given O4DOI schema.
      * @param Issue|PublishedArticle|ArticleGalley $object The object to export.
-     * @return array An array with the required OJS objects.
+     * @return array An array with the required Wizdam objects.
      */
     public function retrievePublicationObjects($object): array {
         // Initialize local variables.
         $cache = $this->getCache();
 
-        // Retrieve basic OJS objects.
+        // Retrieve basic Wizdam objects.
         $publicationObjects = parent::retrievePublicationObjects($object);
 
         // Retrieve additional related objects.
@@ -477,7 +477,7 @@ class O4DOIExportDom extends DOIExportDom {
         assert(!empty($url));
         if ($this->getTestMode()) {
             // Change server domain for testing.
-            $url = PKPString::regexp_replace('#://[^\s]+/index.php#', '://example.com/index.php', $url);
+            $url = CoreString::regexp_replace('#://[^\s]+/index.php#', '://example.com/index.php', $url);
         }
         XMLCustomWriter::createChildWithText($this->getDoc(), $objectElement, 'DOIWebsiteLink', $url);
 
@@ -747,7 +747,7 @@ class O4DOIExportDom extends DOIExportDom {
         XMLCustomWriter::createChildWithText($this->getDoc(), $titleElement, 'TitleType', $titleType);
 
         // Title text (mandatory)
-        XMLCustomWriter::createChildWithText($this->getDoc(), $titleElement, 'TitleText', PKPString::html2text($localizedTitle));
+        XMLCustomWriter::createChildWithText($this->getDoc(), $titleElement, 'TitleText', CoreString::html2text($localizedTitle));
 
         return $titleElement;
     }
@@ -786,7 +786,7 @@ class O4DOIExportDom extends DOIExportDom {
 
         // ISSN
         if (!empty($issn)) {
-            $issn = PKPString::regexp_replace('/[^0-9xX]/', '', $issn);
+            $issn = CoreString::regexp_replace('/[^0-9xX]/', '', $issn);
             XMLCustomWriter::appendChild($serialVersionElement, $this->_idElement('Product', O4DOI_ID_TYPE_ISSN, $issn));
         }
 
@@ -798,7 +798,7 @@ class O4DOIExportDom extends DOIExportDom {
             XMLCustomWriter::createChildWithText($this->getDoc(), $serialVersionElement, 'EpubFormat', O4DOI_EPUB_FORMAT_HTML);
 
             // ePublication Format Description
-            XMLCustomWriter::createChildWithText($this->getDoc(), $serialVersionElement, 'EpubFormatDescription', 'Open Journal Systems (OJS)');
+            XMLCustomWriter::createChildWithText($this->getDoc(), $serialVersionElement, 'EpubFormatDescription', 'Open Journal Systems (Wizdam)');
         }
 
         return $serialVersionElement;
@@ -897,7 +897,7 @@ class O4DOIExportDom extends DOIExportDom {
 
     /**
      * Create an extent element.
-     * @param PKPFile $file
+     * @param CoreFile $file
      * @return DOMElement
      */
     public function _extentElement($file) {
@@ -1039,7 +1039,7 @@ class O4DOIExportDom extends DOIExportDom {
         // Biographical note
         $bioNote = $this->getPrimaryTranslation($author->getBiography(null), $objectLocalePrecedence);
         if (!empty($bioNote)) {
-            XMLCustomWriter::createChildWithText($this->getDoc(), $contributorElement, 'BiographicalNote', PKPString::html2text($bioNote));
+            XMLCustomWriter::createChildWithText($this->getDoc(), $contributorElement, 'BiographicalNote', CoreString::html2text($bioNote));
         }
 
         return $contributorElement;
@@ -1129,7 +1129,7 @@ class O4DOIExportDom extends DOIExportDom {
     public function _getDoi($object) {
         $doi = $object->getPubId('doi');
         if (!empty($doi) && $this->getTestMode()) {
-            $doi = PKPString::regexp_replace('#^[^/]+/#', MEDRA_WS_TESTPREFIX . '/', $doi);
+            $doi = CoreString::regexp_replace('#^[^/]+/#', MEDRA_WS_TESTPREFIX . '/', $doi);
         }
         return $doi;
     }

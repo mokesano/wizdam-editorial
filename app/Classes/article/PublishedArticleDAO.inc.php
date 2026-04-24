@@ -534,7 +534,7 @@ class PublishedArticleDAO extends DAO {
      * Fungsi ini ada HANYA untuk Backward Compatibility (Kompatibilitas Mundur).
      * * Kapan ini dipanggil?
      * Jika ada Plugin tua atau kode lama yang mencoba memanggil 'getPublishedArticleByBestArticleId_OLD'
-     * secara langsung. Di OJS versi lama, kadang nama fungsi berubah-ubah.
+     * secara langsung. Di Wizdam versi lama, kadang nama fungsi berubah-ubah.
      * * Apa yang dilakukannya?
      * Ia tidak memproses data sendiri. Ia langsung "melempar" tugasnya ke fungsi
      * utama yang baru dan modern: 'getPublishedArticleByBestArticleId'.

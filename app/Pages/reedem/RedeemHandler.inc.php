@@ -81,7 +81,7 @@ class RedeemHandler extends Handler {
             $this->_redirectWithError($request, 'redeem.error.invalidMethod');
         }
 
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('lib.wizdam.classes.validation.ValidatorCSRF');
         if (!ValidatorCSRF::checkToken($request->getUserVar('csrfToken'))) {
             $this->_redirectWithError($request, 'redeem.error.csrfInvalid');
         }

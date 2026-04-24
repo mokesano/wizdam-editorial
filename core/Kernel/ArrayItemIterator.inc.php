@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.core.ItemIterator');
+import('lib.wizdam.classes.core.ItemIterator');
 
 class ArrayItemIterator extends ItemIterator {
     /** @var array The array of contents of this iterator. */
@@ -188,7 +188,7 @@ class ArrayItemIterator extends ItemIterator {
      * @return object DBResultRange
      */
     public function getLastPageRangeInfo() {
-        import('lib.pkp.classes.db.DBResultRange');
+        import('lib.wizdam.classes.db.DBResultRange');
         $returner = new DBResultRange(
             $this->itemsPerPage,
             $this->getPageCount()

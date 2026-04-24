@@ -14,10 +14,10 @@ declare(strict_types=1);
  * @brief Abstract base class for policies that check for a data object from a parameter.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
 
 class DataObjectRequiredPolicy extends AuthorizationPolicy {
-    /** @var PKPRequest */
+    /** @var CoreRequest */
     public $_request;
 
     /** @var array */
@@ -34,7 +34,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
     //
     /**
      * Return the request.
-     * @return PKPRequest
+     * @return CoreRequest
      */
     public function getRequest() {
         return $this->_request;
@@ -50,7 +50,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $args array request parameters
      * @param $parameterName string the request parameter we expect
      * @param $message string
@@ -69,7 +69,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy {
 
     /**
      * [SHIM] Backward Compatibility
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $args array
      * @param $parameterName string
      * @param $message string

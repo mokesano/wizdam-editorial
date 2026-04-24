@@ -86,7 +86,7 @@ class ArticleReportPlugin extends ReportPlugin {
             }
         }
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_OJS_EDITOR, LOCALE_COMPONENT_PKP_SUBMISSION);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_EDITOR, LOCALE_COMPONENT_WIZDAM_SUBMISSION);
 
         import('classes.article.Article');
         $decisionMessages = [
@@ -124,7 +124,7 @@ class ArticleReportPlugin extends ReportPlugin {
         ]);
 
         $fp = fopen('php://output', 'wt');
-        PKPString::fputcsv($fp, array_values($columns));
+        CoreString::fputcsv($fp, array_values($columns));
 
         import('classes.article.Article'); // Bring in getStatusMap function
         $statusMap = Article::getStatusMap();
@@ -162,7 +162,7 @@ class ArticleReportPlugin extends ReportPlugin {
                     }
                 }
             }
-            PKPString::fputcsv($fp, $columns);
+            CoreString::fputcsv($fp, $columns);
             unset($row);
             $authorIndex++;
         }

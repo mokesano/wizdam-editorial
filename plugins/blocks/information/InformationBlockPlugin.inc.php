@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Repurposed: Author/Reviewer/Editor Information Center
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class InformationBlockPlugin extends BlockPlugin {
     
@@ -66,7 +66,7 @@ class InformationBlockPlugin extends BlockPlugin {
     /**
      * Get the HTML contents for this block.
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {

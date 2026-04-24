@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, Visibility, No Ref Params)
  */
 
-import('lib.pkp.classes.filter.PrimitiveTypeDescription');
+import('lib.wizdam.classes.filter.PrimitiveTypeDescription');
 
 class ValidatorTypeDescription extends PrimitiveTypeDescription {
     /** @var string the validator class name */
@@ -82,10 +82,10 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription {
 
         // Validator name must start with a lower case letter
         // and may contain only alphanumeric letters.
-        if (!PKPString::regexp_match('/^[a-z][a-zA-Z0-9]+$/', $typeNameParts[0])) return false;
+        if (!CoreString::regexp_match('/^[a-z][a-zA-Z0-9]+$/', $typeNameParts[0])) return false;
 
         // Translate the validator name into a validator class name.
-        $this->_validatorClassName = 'Validator'.PKPString::ucfirst($typeNameParts[0]);
+        $this->_validatorClassName = 'Validator'.CoreString::ucfirst($typeNameParts[0]);
 
         return true;
     }
@@ -98,7 +98,7 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription {
         if (!parent::checkType($object)) return false;
 
         // Instantiate and call validator
-        import('lib.pkp.classes.validation.'.$this->_validatorClassName);
+        import('lib.wizdam.classes.validation.'.$this->_validatorClassName);
         assert(class_exists($this->_validatorClassName));
         
         // Note: eval() is maintained here as it parses the dynamic arguments string defined in XML/String descriptors.

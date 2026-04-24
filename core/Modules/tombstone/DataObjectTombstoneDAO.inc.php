@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, No References, Critical Variable Fix)
  */
 
-import('lib.pkp.classes.tombstone.DataObjectTombstone');
+import('lib.wizdam.classes.tombstone.DataObjectTombstone');
 
 class DataObjectTombstoneDAO extends DAO {
     

@@ -22,7 +22,7 @@ declare(strict_types=1);
  * - TRUE MODULAR SECURITY: Decoupled Default Captcha, reCAPTCHA, and Turnstile
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 import('classes.notification.Notification');
 
 class NotificationMailingListForm extends Form {
@@ -53,7 +53,7 @@ class NotificationMailingListForm extends Form {
         // PILAR 3: DEFAULT CAPTCHA (HANYA JIKA TURNSTILE & RECAPTCHA OFF)
         if (!$this->turnstileEnabled && !$this->reCaptchaEnabled) {
             if (Config::getVar('captcha', 'captcha') && Config::getVar('captcha', 'captcha_on_mailinglist')) {
-                import('lib.pkp.classes.captcha.CaptchaManager');
+                import('lib.wizdam.classes.captcha.CaptchaManager');
                 $captchaManager = new CaptchaManager();
                 if ($captchaManager->isEnabled()) {
                     $this->captchaEnabled = true;
@@ -208,7 +208,7 @@ class NotificationMailingListForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {
@@ -240,10 +240,10 @@ class NotificationMailingListForm extends Form {
             }
         }
 
-        // 3. Default Captcha OJS
+        // 3. Default Captcha Wizdam
         $templateMgr->assign('captchaEnabled', $this->captchaEnabled);
         if ($this->captchaEnabled) {
-            import('lib.pkp.classes.captcha.CaptchaManager');
+            import('lib.wizdam.classes.captcha.CaptchaManager');
             $captchaManager = new CaptchaManager();
             $captcha = $captchaManager->createCaptcha();
             if ($captcha) {
@@ -253,8 +253,8 @@ class NotificationMailingListForm extends Form {
             }
         }
 
-        // Context check untuk OJS legacy settings
-        $context = $request ? $request->getContext() : PKPApplication::getRequest()->getContext();
+        // Context check untuk Wizdam legacy settings
+        $context = $request ? $request->getContext() : CoreApplication::getRequest()->getContext();
         
         // [WIZDAM ARCHITECTURE FIX]
         // Penuhi kontrak data Smarty yang mengharapkan array $settings
@@ -288,7 +288,7 @@ class NotificationMailingListForm extends Form {
     public function execute($object = null) {
         $userEmail = $this->getData('email');
         
-        $request = PKPApplication::getRequest();
+        $request = CoreApplication::getRequest();
         $context = $request->getContext();
 
         $notificationMailListDao = DAORegistry::getDAO('NotificationMailListDAO');

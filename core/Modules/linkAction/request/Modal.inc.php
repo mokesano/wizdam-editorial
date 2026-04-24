@@ -18,7 +18,7 @@ declare(strict_types=1);
 define('MODAL_WIDTH_DEFAULT', '710');
 define('MODAL_WIDTH_AUTO', 'auto');
 
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
+import('lib.wizdam.classes.linkAction.request.LinkActionRequest');
 
 class Modal extends LinkActionRequest {
     /** @var string|null The localized title of the modal. */
@@ -105,7 +105,7 @@ class Modal extends LinkActionRequest {
      * @return string
      */
     public function getJSLinkActionRequest(): string {
-        return '$.pkp.classes.linkAction.ModalRequest';
+        return '$.wizdam.classes.linkAction.ModalRequest';
     }
 
     /**

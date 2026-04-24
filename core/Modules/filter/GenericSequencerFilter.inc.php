@@ -17,7 +17,7 @@ declare(strict_types=1);
  * the result of the last filter in the chain to the caller.
  */
 
-import('lib.pkp.classes.filter.CompositeFilter');
+import('lib.wizdam.classes.filter.CompositeFilter');
 
 class GenericSequencerFilter extends CompositeFilter {
     
@@ -52,7 +52,7 @@ class GenericSequencerFilter extends CompositeFilter {
      * @see PersistableFilter::getClassName()
      */
     public function getClassName() {
-        return 'lib.pkp.classes.filter.GenericSequencerFilter';
+        return 'lib.wizdam.classes.filter.GenericSequencerFilter';
     }
 
 

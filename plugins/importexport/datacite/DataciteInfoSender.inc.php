@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
+import('lib.wizdam.classes.scheduledTask.ScheduledTask');
 
 
 class DataciteInfoSender extends ScheduledTask {

@@ -61,7 +61,7 @@ class SubscriptionAction {
      */
     public function subscriptions($institutional = false) {
         $journal = Request::getJournal();
-        $rangeInfo = PKPHandler::getRangeInfo('subscriptions');
+        $rangeInfo = CoreHandler::getRangeInfo('subscriptions');
 
         if ($institutional) {
             $subscriptionDao = DAORegistry::getDAO('InstitutionalSubscriptionDAO');
@@ -282,7 +282,7 @@ class SubscriptionAction {
             $searchMatch = Request::getUserVar('searchMatch');
 
         } else if (isset($searchInitial)) {
-            $searchInitial = PKPString::strtoupper($searchInitial);
+            $searchInitial = CoreString::strtoupper($searchInitial);
             $searchType = USER_FIELD_INITIAL;
             $search = $searchInitial;
         }
@@ -559,7 +559,7 @@ class SubscriptionAction {
     /**
      * Display subscription policies for the current journal.
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function subscriptionPolicies($args, $request) {
         import('classes.subscription.form.SubscriptionPolicyForm');
@@ -587,7 +587,7 @@ class SubscriptionAction {
     /**
      * Save subscription policies for the current journal.
      * @param $args array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function saveSubscriptionPolicies($args, $request) {
         import('classes.subscription.form.SubscriptionPolicyForm');

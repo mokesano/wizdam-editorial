@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * Optimized for Connection Pooling & Memory Management
  */
 
-import('lib.pkp.classes.task.FileLoader');
+import('lib.wizdam.classes.task.FileLoader');
 
 /** 
  * These are rules defined by the COUNTER project.
@@ -678,7 +678,7 @@ class UsageStatsLoader extends FileLoader {
         $metricsDao->purgeLoadBatch($loadId);
 
         while ($record = $statsDao->getNextByLoadId($loadId)) {
-            $record['metric_type'] = OJS_METRIC_TYPE_COUNTER;
+            $record['metric_type'] = APP_METRIC_TYPE_COUNTER;
             $errorMsg = null;
             if (!$metricsDao->insertRecord($record, $errorMsg)) {
                 return false;

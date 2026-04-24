@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM] Cache mechanism updated to use .wiz extension
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
+import('lib.wizdam.classes.controlledVocab.ControlledVocabDAO');
 
 define('CATEGORY_SYMBOLIC', 'category');
 

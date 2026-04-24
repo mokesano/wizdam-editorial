@@ -25,7 +25,7 @@ declare(strict_types=1);
  * applicable).
  */
 
-import('lib.pkp.classes.security.authorization.PolicySet');
+import('lib.wizdam.classes.security.authorization.PolicySet');
 
 define('AUTHORIZATION_NOT_APPLICABLE', 0x03);
 

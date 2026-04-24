@@ -53,7 +53,7 @@ define ('ARTICLE_ACCESS_ISSUE_DEFAULT', 0);
 define ('ARTICLE_ACCESS_OPEN', 1);
 define ('ARTICLE_ACCESS_SUBSCRIPTION', 2);
 
-import('lib.pkp.classes.submission.Submission');
+import('lib.wizdam.classes.submission.Submission');
 
 class Article extends Submission {
     

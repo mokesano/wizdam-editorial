@@ -21,7 +21,7 @@ define('WEBSERVICE_MICROSECONDS_BEFORE_RETRY', 100000);
 define('WEBSERVICE_RESPONSE_OK', 200);
 define('WEBSERVICE_RESPONSE_CREATED', 201);
 
-import('lib.pkp.classes.webservice.WebServiceRequest');
+import('lib.wizdam.classes.webservice.WebServiceRequest');
 
 class WebService {
     /** @var string */
@@ -101,8 +101,8 @@ class WebService {
         // Clean the result
         if ($webServiceRequest->getCleanResult()) {
             $result = stripslashes($result);
-            if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !PKPString::utf8_compliant($result) ) {
-                $result = PKPString::utf8_normalize($result);
+            if ( Config::getVar('i18n', 'charset_normalization') == 'On' && !CoreString::utf8_compliant($result) ) {
+                $result = CoreString::utf8_normalize($result);
             }
         }
 

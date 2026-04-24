@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
+import('lib.wizdam.classes.scheduledTask.ScheduledTask');
 
 define('FILE_LOADER_RETURN_TO_STAGING', 0x01);
 
@@ -240,7 +240,7 @@ class FileLoader extends ScheduledTask {
                 if ($install) {
                     // Try installing the folder if it is missing.
                     if ($fileManager === null) {
-                        import('lib.pkp.classes.file.FileManager');
+                        import('lib.wizdam.classes.file.FileManager');
                         $fileManager = new FileManager();
                     }
                     $fileManager->mkdirtree($path);

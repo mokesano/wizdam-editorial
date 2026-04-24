@@ -17,11 +17,11 @@ declare(strict_types=1);
  * @brief Class modeling a description (DCMI abstract model) or subject-
  * predicate-object graph (RDF). This class and its children provide
  * meta-data (DCMI abstract model: statements of property-value pairs,
- * RDF: assertions of predicate-object pairs) about a given PKP application
+ * RDF: assertions of predicate-object pairs) about a given Wizdam application
  * entity instance (DCMI abstract model: described resource, RDF: subject).
  */
 
-import('lib.pkp.classes.core.DataObject');
+import('lib.wizdam.classes.core.DataObject');
 
 define('METADATA_DESCRIPTION_REPLACE_ALL', 0x01);
 define('METADATA_DESCRIPTION_REPLACE_PROPERTIES', 0x02);

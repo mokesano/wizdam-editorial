@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/template/PKPTemplateManager.inc.php
+ * @file classes/template/CoreTemplateManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -22,7 +22,7 @@ declare(strict_types=1);
  */
 
 /* This definition is required by Smarty */
-define('SMARTY_DIR', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'smarty' . DIRECTORY_SEPARATOR);
+define('SMARTY_DIR', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'wizdam' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'smarty' . DIRECTORY_SEPARATOR);
 
 require_once('./core/Library/smarty/Smarty.class.php');
 require_once('./core/Library/smarty/plugins/modifier.escape.php');
@@ -53,8 +53,8 @@ class CoreTemplateManager extends Smarty {
     /** @var mixed The form builder vocabulary class. */
     public $fbv;
 
-    /** @var PKPRequest|null */
-    public ?PKPRequest $request;
+    /** @var CoreRequest|null */
+    public ?CoreRequest $request;
 
     // Smarty specific path properties
     public string $app_template_dir;
@@ -63,9 +63,9 @@ class CoreTemplateManager extends Smarty {
     /**
      * Constructor.
      * Initialize template engine and assign basic template variables.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
-    public function __construct(?PKPRequest $request = null) {
+    public function __construct(?CoreRequest $request = null) {
         // [Wizdam] Fetch Singleton Request (Pass by Value)
         if (!isset($request)) {
             $this->request = Registry::get('request');
@@ -74,7 +74,7 @@ class CoreTemplateManager extends Smarty {
         }
         
         // [Modern PHP] assert expects a boolean or assertion string
-        assert($this->request instanceof PKPRequest);
+        assert($this->request instanceof CoreRequest);
 
         // [Wizdam] Fetch Router
         $router = $this->request->getRouter();
@@ -88,7 +88,7 @@ class CoreTemplateManager extends Smarty {
         // Set the default template dir (app's template dir)
         $this->app_template_dir = $baseDir . DIRECTORY_SEPARATOR . 'templates';
         // Set fallback template dir (core's template dir)
-        $this->core_template_dir = $baseDir . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'templates';
+        $this->core_template_dir = $baseDir . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'wizdam' . DIRECTORY_SEPARATOR . 'templates';
 
         $this->template_dir = [$this->app_template_dir, $this->core_template_dir];
         $this->compile_dir = $cachePath . DIRECTORY_SEPARATOR . 't_compile';
@@ -145,7 +145,7 @@ class CoreTemplateManager extends Smarty {
         }
 
         // [Wizdam Fix] Fetch Application by Value (No &)
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         
         // [Wizdam Fix] Page Title Logic
         $siteTitle = $application->getNameKey();
@@ -160,8 +160,8 @@ class CoreTemplateManager extends Smarty {
 
         $this->register_modifier('translate', ['AppLocale', 'translate']);
         $this->register_modifier('get_value', [$this, 'smartyGetValue']);
-        $this->register_modifier('strip_unsafe_html', ['PKPString', 'stripUnsafeHtml']);
-        $this->register_modifier('String_substr', ['PKPString', 'substr']);
+        $this->register_modifier('strip_unsafe_html', ['CoreString', 'stripUnsafeHtml']);
+        $this->register_modifier('String_substr', ['CoreString', 'substr']);
         $this->register_modifier('to_array', [$this, 'smartyToArray']);
         $this->register_modifier('concat', [$this, 'smartyConcat']);
         $this->register_modifier('escape', [$this, 'smartyEscape']);
@@ -169,7 +169,7 @@ class CoreTemplateManager extends Smarty {
         $this->register_modifier('explode', [$this, 'smartyExplode']);
         $this->register_modifier('assign', [$this, 'smartyAssign']);
         
-        $this->register_modifier('slugify', ['PKPString', 'slugify']);
+        $this->register_modifier('slugify', ['CoreString', 'slugify']);
         $this->register_function('native_url', [$this, 'smartyNativeUrl']);
         
         // Daftarkan fungsi agar Smarty mengenali tag {form_language_chooser}
@@ -221,7 +221,7 @@ class CoreTemplateManager extends Smarty {
         if (!defined('SESSION_DISABLE_INIT')) {
             $this->assign('isUserLoggedIn', Validation::isLoggedIn());
 
-            $application = PKPApplication::getApplication();
+            $application = CoreApplication::getApplication();
             $currentVersion = $application->getCurrentVersion();
             $this->assign('currentVersionString', $currentVersion->getVersionString());
 
@@ -237,11 +237,11 @@ class CoreTemplateManager extends Smarty {
     /**
      * [SHIM] Backward Compatibility
      * Jembatan Emas untuk plugin lama yang memanggil new CoreTemplateManager()
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
-    public function PKPTemplateManager($request = null) {
+    public function CoreTemplateManager($request = null) {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error("Deprecated constructor called: PKPTemplateManager(). Please use new CoreTemplateManager().", E_USER_DEPRECATED);
+            trigger_error("Deprecated constructor called: CoreTemplateManager(). Please use new CoreTemplateManager().", E_USER_DEPRECATED);
         }
         self::__construct($request);
     }
@@ -330,7 +330,7 @@ class CoreTemplateManager extends Smarty {
                 $userSettingsDao = DAORegistry::getDAO('UserSettingsDAO');
                 $dateLastLogin = $userSettingsDao->getSetting($user->getId(), 'previous_login');
                 
-                // Waktu login saat ini murni dari core OJS
+                // Waktu login saat ini murni dari core Wizdam
                 $dateCurrentLogin = $user->getDateLastLogin();
                                 
                 // Siapkan status verifikasi
@@ -391,11 +391,11 @@ class CoreTemplateManager extends Smarty {
         
         // [WIZDAM CSRF] - AUTOMATIC ACTION-BASED TOKEN INJECTION
         // 1. Import library yang dibutuhkan
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('lib.wizdam.classes.validation.ValidatorCSRF');
         $request = Application::get()->getRequest();
         $router = $request->getRouter();
         
-        // 2. Ambil nama operasi (op) dari Router sesuai PKPHandler::validate()
+        // 2. Ambil nama operasi (op) dari Router sesuai CoreHandler::validate()
         $op = ($router && $router->getRequestedOp($request)) ? $router->getRequestedOp($request) : 'index';
         
         // 3. Injeksi token ke dalam Smarty/TPL
@@ -475,7 +475,7 @@ class CoreTemplateManager extends Smarty {
      * @return string JSON message with the template rendered
      */
     public function fetchJson($template, $status = true) {
-        import('lib.pkp.classes.core.JSONMessage');
+        import('lib.wizdam.classes.core.JSONMessage');
 
         $json = new JSONMessage($status, $this->fetch($template));
         header('Content-Type: application/json');
@@ -584,7 +584,7 @@ class CoreTemplateManager extends Smarty {
      */
     public function &getFBV() {
         if(!$this->fbv) {
-            import('lib.pkp.classes.form.FormBuilderVocabulary');
+            import('lib.wizdam.classes.form.FormBuilderVocabulary');
             $this->fbv = new FormBuilderVocabulary();
         }
         return $this->fbv;
@@ -595,7 +595,7 @@ class CoreTemplateManager extends Smarty {
     //
 
 	/**
-	 * Resource function to get a "core" (pkp-lib) template.
+	 * Resource function to get a "core" (wizdam-lib) template.
 	 * @param $template string
 	 * @param $templateSource string reference
 	 * @param $smarty Smarty
@@ -607,7 +607,7 @@ class CoreTemplateManager extends Smarty {
     }
 
 	/**
-	 * Resource function to get the timestamp of a "core" (pkp-lib)
+	 * Resource function to get the timestamp of a "core" (wizdam-lib)
 	 * template.
 	 * @param $template string
 	 * @param $templateTimestamp int reference
@@ -621,7 +621,7 @@ class CoreTemplateManager extends Smarty {
     }
 
 	/**
-	 * Resource function to determine whether a "core" (pkp-lib) template
+	 * Resource function to determine whether a "core" (wizdam-lib) template
 	 * is secure.
      * @param $template string
      * @param $smarty Smarty
@@ -632,7 +632,7 @@ class CoreTemplateManager extends Smarty {
     }
 
 	/**
-	 * Resource function to determine whether a "core" (pkp-lib) template
+	 * Resource function to determine whether a "core" (wizdam-lib) template
 	 * is trusted.
      * @param $template string
      * @param $smarty Smarty
@@ -640,7 +640,7 @@ class CoreTemplateManager extends Smarty {
 	 */
     public function smartyResourceCoreGetTrusted($template, &$smarty) {
         $trustedDirs = [
-            realpath($this->core_template_dir), // lib/pkp/templates
+            realpath($this->core_template_dir), // lib/wizdam/templates
             realpath($this->app_template_dir),  // root/templates
         ];
     
@@ -721,7 +721,7 @@ class CoreTemplateManager extends Smarty {
         $image = isset($params['image'])?$params['image']:null;
         $translate = isset($params['translate'])?false:true;
 
-        import('lib.pkp.classes.linkAction.request.NullAction');
+        import('lib.wizdam.classes.linkAction.request.NullAction');
         $key = $translate ? __($key) : $key;
         
         // Smarty assignment
@@ -844,7 +844,7 @@ class CoreTemplateManager extends Smarty {
             $iconHtml = '';
             if (isset($params['name'])) {
                 $disabled = (isset($params['disabled']) && !empty($params['disabled']));
-                if (!isset($params['path'])) $params['path'] = 'lib/pkp/templates/images/icons/';
+                if (!isset($params['path'])) $params['path'] = 'lib/wizdam/templates/images/icons/';
                 $iconHtml = '<img src="' . $smarty->get_template_vars('baseUrl') . '/' . $params['path'];
                 $iconHtml .= $params['name'] . ($disabled ? '_disabled' : '') . '.gif" width="16" height="14" alt="';
 
@@ -959,12 +959,12 @@ class CoreTemplateManager extends Smarty {
         if (Config::getVar('debug', 'show_stats')) {
             $smarty->assign('enableDebugStats', true);
 
-            $pkpProfiler = Registry::get('system.debug.profiler');
-            foreach ($pkpProfiler->getData() as $output => $value) {
+            $wizdamProfiler = Registry::get('system.debug.profiler');
+            foreach ($wizdamProfiler->getData() as $output => $value) {
                 $smarty->assign($output, $value);
             }
-            $smarty->assign('pqpCss', $this->request->getBaseUrl() . '/lib/pkp/lib/pqp/css/pQp.css');
-            $smarty->assign('pqpTemplate', BASE_SYS_DIR . '/lib/pkp/lib/pqp/pqp.tpl');
+            $smarty->assign('pqpCss', $this->request->getBaseUrl() . '/lib/wizdam/lib/pqp/css/pQp.css');
+            $smarty->assign('pqpTemplate', BASE_SYS_DIR . '/lib/wizdam/lib/pqp/pqp.tpl');
         }
     }
 
@@ -1009,7 +1009,7 @@ class CoreTemplateManager extends Smarty {
 
         $router = $router ?? (($this->request->getRouter() instanceof PKPComponentRouter) ? ROUTE_COMPONENT : ROUTE_PAGE);
 
-        $dispatcher = PKPApplication::getDispatcher();
+        $dispatcher = CoreApplication::getDispatcher();
         
         switch($router) {
             case ROUTE_PAGE:
@@ -1241,7 +1241,7 @@ class CoreTemplateManager extends Smarty {
     public function smartyTruncate($string, $length = 80, $etc = '...', $break_words = false, $middle = false, $skip_tags = true) {
         if ($length == 0) return '';
 
-        if (PKPString::strlen($string) > $length) {
+        if (CoreString::strlen($string) > $length) {
             if ($skip_tags) {
                 if ($middle) {
                     $tagsReverse = [];
@@ -1250,16 +1250,16 @@ class CoreTemplateManager extends Smarty {
                 $tags = [];
                 $string = $this->_removeTags($string, $tags, false, $length);
             }
-            $length -= min($length, PKPString::strlen($etc));
+            $length -= min($length, CoreString::strlen($etc));
             if (!$middle) {
                 if(!$break_words) {
-                    $string = PKPString::regexp_replace('/\s+?(\S+)?$/', '', PKPString::substr($string, 0, $length+1));
-                } else $string = PKPString::substr($string, 0, $length+1);
+                    $string = CoreString::regexp_replace('/\s+?(\S+)?$/', '', CoreString::substr($string, 0, $length+1));
+                } else $string = CoreString::substr($string, 0, $length+1);
                 if ($skip_tags) $string = $this->_reinsertTags($string, $tags);
                 return $this->_closeTags($string) . $etc;
             } else {
-                $firstHalf = PKPString::substr($string, 0, (int)($length/2));
-                $secondHalf = PKPString::substr($string, -(int)($length/2));
+                $firstHalf = CoreString::substr($string, 0, (int)($length/2));
+                $secondHalf = CoreString::substr($string, -(int)($length/2));
 
                 if($break_words) {
                     if($skip_tags) {
@@ -1271,10 +1271,10 @@ class CoreTemplateManager extends Smarty {
                     }
                 } else {
                     for($i=(int)($length/2); $string[$i] != ' '; $i++) {
-                        $firstHalf = PKPString::substr($string, 0, $i+1);
+                        $firstHalf = CoreString::substr($string, 0, $i+1);
                     }
-                    for($i=(int)($length/2); PKPString::substr($string, -$i, 1) != ' '; $i++) {
-                        $secondHalf = PKPString::substr($string, -$i-1);
+                    for($i=(int)($length/2); CoreString::substr($string, -$i, 1) != ' '; $i++) {
+                        $secondHalf = CoreString::substr($string, -$i-1);
                     }
 
                     if ($skip_tags) {
@@ -1322,14 +1322,14 @@ class CoreTemplateManager extends Smarty {
     public function _removeTagsAux($string, $loc, &$tags, $length) {
         if(strlen($string) > 0 && $length > 0) {
             $length--;
-            if(PKPString::substr($string, 0, 1) == '<') {
-                $closeBrack = PKPString::strpos($string, '>')+1;
+            if(CoreString::substr($string, 0, 1) == '<') {
+                $closeBrack = CoreString::strpos($string, '>')+1;
                 if($closeBrack) {
-                    $tags[] = [PKPString::substr($string, 0, $closeBrack), $loc];
-                    return $this->_removeTagsAux(PKPString::substr($string, $closeBrack), $loc+$closeBrack, $tags, $length);
+                    $tags[] = [CoreString::substr($string, 0, $closeBrack), $loc];
+                    return $this->_removeTagsAux(CoreString::substr($string, $closeBrack), $loc+$closeBrack, $tags, $length);
                 }
             }
-            return PKPString::substr($string, 0, 1) . $this->_removeTagsAux(PKPString::substr($string, 1), $loc+1, $tags, $length);
+            return CoreString::substr($string, 0, 1) . $this->_removeTagsAux(CoreString::substr($string, 1), $loc+1, $tags, $length);
         }
         return '';
     }
@@ -1343,23 +1343,23 @@ class CoreTemplateManager extends Smarty {
      * @return string the string without HTML tags
      */
     public function _removeTagsAuxReverse($string, $loc, &$tags, $length) {
-        $backLoc = PKPString::strlen($string)-1;
+        $backLoc = CoreString::strlen($string)-1;
         if($backLoc >= 0 && $length > 0) {
             $length--;
-            if(PKPString::substr($string, $backLoc, 1) == '>') {
+            if(CoreString::substr($string, $backLoc, 1) == '>') {
                 $tag = '>';
                 $openBrack = 1;
-                while (PKPString::substr($string, $backLoc-$openBrack, 1) != '<') {
-                    $tag = PKPString::substr($string, $backLoc-$openBrack, 1) . $tag;
+                while (CoreString::substr($string, $backLoc-$openBrack, 1) != '<') {
+                    $tag = CoreString::substr($string, $backLoc-$openBrack, 1) . $tag;
                     $openBrack++;
                 }
                 $tag = '<' . $tag;
                 $openBrack++;
 
                 $tags[] = [$tag, $loc];
-                return $this->_removeTagsAuxReverse(PKPString::substr($string, 0, -$openBrack), $loc+$openBrack, $tags, $length);
+                return $this->_removeTagsAuxReverse(CoreString::substr($string, 0, -$openBrack), $loc+$openBrack, $tags, $length);
             }
-            return $this->_removeTagsAuxReverse(PKPString::substr($string, 0, -1), $loc+1, $tags, $length) . PKPString::substr($string, $backLoc, 1);
+            return $this->_removeTagsAuxReverse(CoreString::substr($string, 0, -1), $loc+1, $tags, $length) . CoreString::substr($string, $backLoc, 1);
         }
         return '';
     }
@@ -1375,16 +1375,16 @@ class CoreTemplateManager extends Smarty {
         if(empty($tags)) return $string;
 
         for($i = 0; $i < count($tags); $i++) {
-            $length = PKPString::strlen($string);
-            if ($tags[$i][1] < PKPString::strlen($string)) {
+            $length = CoreString::strlen($string);
+            if ($tags[$i][1] < CoreString::strlen($string)) {
                 if ($reverse) {
                     if ($tags[$i][1] == 0) {
-                        $string = PKPString::substr_replace($string, $tags[$i][0], $length, 0);
+                        $string = CoreString::substr_replace($string, $tags[$i][0], $length, 0);
                     } else {
-                        $string = PKPString::substr_replace($string, $tags[$i][0], -$tags[$i][1], 0);
+                        $string = CoreString::substr_replace($string, $tags[$i][0], -$tags[$i][1], 0);
                     }
                 } else {
-                    $string = PKPString::substr_replace($string, $tags[$i][0], $tags[$i][1], 0);
+                    $string = CoreString::substr_replace($string, $tags[$i][0], $tags[$i][1], 0);
                 }
             }
         }
@@ -1399,10 +1399,10 @@ class CoreTemplateManager extends Smarty {
      * @return string the string with HTML tags closed
      */
     public function _closeTags($string, $open = false){
-        PKPString::regexp_match_all("#<([a-z]+)( .*)?(?!/)>#iU", $string, $result);
+        CoreString::regexp_match_all("#<([a-z]+)( .*)?(?!/)>#iU", $string, $result);
         $openedtags = $result[1];
 
-        PKPString::regexp_match_all("#</([a-z]+)>#iU", $string, $result);
+        CoreString::regexp_match_all("#</([a-z]+)>#iU", $string, $result);
         $closedtags = $result[1];
         $len_opened = count($openedtags);
         $len_closed = count($closedtags);
@@ -1697,7 +1697,7 @@ class CoreTemplateManager extends Smarty {
 			});
 			// -->
             </script>
-            <div class='pkp_controllers_modal_titleBar'>" .
+            <div class='wizdam_controllers_modal_titleBar'>" .
                 $iconHtml .
                 $keyHtml .
                 $canCloseHtml .
@@ -1839,28 +1839,28 @@ class CoreTemplateManager extends Smarty {
         $time = time() - strtotime($datetime);
                 
         if ($time < 60) {
-            return PKPLocale::translate('common.timeAgo.now');
+            return CoreLocale::translate('common.timeAgo.now');
         } elseif ($time < 3600) {
             $minutes = round($time / 60);
-            return PKPLocale::translate('common.timeAgo.minutesAgo', ['count' => $minutes]);
+            return CoreLocale::translate('common.timeAgo.minutesAgo', ['count' => $minutes]);
         } elseif ($time < 86400) {
             $hours = round($time / 3600);
-            return PKPLocale::translate('common.timeAgo.hoursAgo', ['count' => $hours]);
+            return CoreLocale::translate('common.timeAgo.hoursAgo', ['count' => $hours]);
         } elseif ($time < 604800) { 
             // Kurang dari 7 hari (1 minggu = 604.800 detik)
             $days = round($time / 86400);
-            return PKPLocale::translate('common.timeAgo.daysAgo', ['count' => $days]);
+            return CoreLocale::translate('common.timeAgo.daysAgo', ['count' => $days]);
         } elseif ($time < 2592000) { 
             // Kurang dari 30 hari (1 bulan = 2.592.000 detik)
             $weeks = round($time / 604800);
-            return PKPLocale::translate('common.timeAgo.weeksAgo', ['count' => $weeks]);
+            return CoreLocale::translate('common.timeAgo.weeksAgo', ['count' => $weeks]);
         } elseif ($time < 31536000) { 
             // Kurang dari 365 hari (1 tahun = 31.536.000 detik)
             $months = round($time / 2592000);
-            return PKPLocale::translate('common.timeAgo.monthsAgo', ['count' => $months]);
+            return CoreLocale::translate('common.timeAgo.monthsAgo', ['count' => $months]);
         } else {
             $years = round($time / 31536000);
-            return PKPLocale::translate('common.timeAgo.yearsAgo', ['count' => $years]);
+            return CoreLocale::translate('common.timeAgo.yearsAgo', ['count' => $years]);
         }
     }
     
@@ -1882,13 +1882,13 @@ class CoreTemplateManager extends Smarty {
 
         if ($number >= 1000000000) {
             $val = round($number / 1000000000, $precision);
-            $suffix = PKPLocale::translate('common.numeric.billionWord');
+            $suffix = CoreLocale::translate('common.numeric.billionWord');
         } elseif ($number >= 1000000) {
             $val = round($number / 1000000, $precision);
-            $suffix = PKPLocale::translate('common.numeric.millionWord');
+            $suffix = CoreLocale::translate('common.numeric.millionWord');
         } elseif ($number >= 1000) {
             $val = round($number / 1000, $precision);
-            $suffix = PKPLocale::translate('common.numeric.thousandWord');
+            $suffix = CoreLocale::translate('common.numeric.thousandWord');
         }
         
         if ($val != $number) {

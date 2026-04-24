@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - Modernized directory handling (__DIR__)
  */
 
-import('lib.pkp.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaFilter');
+import('lib.wizdam.plugins.citationLookup.isbndb.filter.IsbndbNlm30CitationSchemaFilter');
 
 class IsbndbIsbnNlm30CitationSchemaFilter extends IsbndbNlm30CitationSchemaFilter {
     
@@ -40,7 +40,7 @@ class IsbndbIsbnNlm30CitationSchemaFilter extends IsbndbNlm30CitationSchemaFilte
      * @see PersistableFilter::getClassName()
      */
     public function getClassName(): string {
-        return 'lib.pkp.plugins.citationLookup.isbndb.filter.IsbndbIsbnNlm30CitationSchemaFilter';
+        return 'lib.wizdam.plugins.citationLookup.isbndb.filter.IsbndbIsbnNlm30CitationSchemaFilter';
     }
 
     //
@@ -103,22 +103,22 @@ class IsbndbIsbnNlm30CitationSchemaFilter extends IsbndbNlm30CitationSchemaFilte
 
         // Extract place and publisher from the combined entry.
         if (isset($metadata['place-publisher'])) {
-            $metadata['publisher-loc'] = PKPString::trimPunctuation(
-                PKPString::regexp_replace('/^(.+):.*/', '\1', $metadata['place-publisher'])
+            $metadata['publisher-loc'] = CoreString::trimPunctuation(
+                CoreString::regexp_replace('/^(.+):.*/', '\1', $metadata['place-publisher'])
             );
-            $metadata['publisher-name'] = PKPString::trimPunctuation(
-                PKPString::regexp_replace('/.*:([^,]+),?.*/', '\1', $metadata['place-publisher'])
+            $metadata['publisher-name'] = CoreString::trimPunctuation(
+                CoreString::regexp_replace('/.*:([^,]+),?.*/', '\1', $metadata['place-publisher'])
             );
             unset($metadata['place-publisher']);
         }
 
         // Reformat the publication date
         if (isset($metadata['date'])) {
-            $metadata['date'] = PKPString::regexp_replace('/^[^\d{4}]+(\d{4}).*/', '\1', $metadata['date']);
+            $metadata['date'] = CoreString::regexp_replace('/^[^\d{4}]+(\d{4}).*/', '\1', $metadata['date']);
         }
 
         // Clean non-numerics from ISBN
-        $metadata['isbn'] = PKPString::regexp_replace('/[^\dX]*/', '', $isbn);
+        $metadata['isbn'] = CoreString::regexp_replace('/[^\dX]*/', '', $isbn);
 
         // Set the publicationType
         $metadata['[@publication-type]'] = NLM30_PUBLICATION_TYPE_BOOK;

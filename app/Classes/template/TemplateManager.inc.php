@@ -18,21 +18,21 @@ declare(strict_types=1);
 
 import('classes.search.ArticleSearch');
 import('classes.file.PublicFileManager');
-import('lib.pkp.classes.template.PKPTemplateManager');
+import('lib.wizdam.classes.template.CoreTemplateManager');
 
 class TemplateManager extends CoreTemplateManager {
     
     /**
      * Constructor.
      * Initialize template engine and assign basic template variables.
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function __construct($request = null) {
         parent::__construct($request);
 
         // Retrieve the router
         $router = $this->request->getRouter();
-        assert(is_a($router, 'PKPRouter'));
+        assert(is_a($router, 'CoreRouter'));
 
         // Are we using implicit authentication?
         $this->assign('implicitAuth', strtolower((string) Config::getVar('security', 'implicit_auth')));
@@ -153,7 +153,7 @@ class TemplateManager extends CoreTemplateManager {
 
     /**
      * Return an instance of the TemplateManager.
-     * @param $request PKPRequest optional
+     * @param $request CoreRequest optional
      * @return TemplateManager
      */
     public static function getManager($request = null) {

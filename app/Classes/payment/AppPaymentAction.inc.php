@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/payment/ojs/OJSPaymentAction.inc.php
+ * @file classes/payment/wizdam/OJSPaymentAction.inc.php
  *
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady
@@ -69,7 +69,7 @@ class AppPaymentAction {
         $journal = Application::get()->getRequest()->getJournal();
         $rangeInfo = self::getPaginationRange('payments');
         
-        $paymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+        $paymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
         $payments = $paymentDao->getPaymentsByJournalId($journal->getId(), $rangeInfo);
         
         $templateMgr = TemplateManager::getManager();
@@ -87,7 +87,7 @@ class AppPaymentAction {
         $journal = Application::get()->getRequest()->getJournal();
         $completedPaymentId = isset($args[0]) ? (int) $args[0] : 0;
         
-        $paymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+        $paymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
         $payment = $paymentDao->getCompletedPayment($completedPaymentId);
 
         $templateMgr = TemplateManager::getManager();

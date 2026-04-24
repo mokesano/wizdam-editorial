@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying the Site object.
  */
 
-import('lib.pkp.classes.site.Site');
+import('lib.wizdam.classes.site.Site');
 
 class SiteDAO extends DAO {
     

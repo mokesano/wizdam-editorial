@@ -20,10 +20,10 @@ declare(strict_types=1);
  */
 
 // import the base Handler
-import('lib.pkp.classes.handler.PKPHandler');
+import('lib.wizdam.classes.handler.CoreHandler');
 
 // import JSON class for API responses
-import('lib.pkp.classes.core.JSONMessage');
+import('lib.wizdam.classes.core.JSONMessage');
 
 class UserApiHandler extends CoreHandler {
     
@@ -49,16 +49,16 @@ class UserApiHandler extends CoreHandler {
 
 
     //
-    // Implement template methods from PKPHandler
+    // Implement template methods from CoreHandler
     //
     /**
-     * @see PKPHandler::authorize()
+     * @see CoreHandler::authorize()
      */
     public function authorize($request, &$args, $roleAssignments) {
         // [WIZDAM] Singleton Fallback
         if (!$request) $request = Application::get()->getRequest();
 
-        import('lib.pkp.classes.security.authorization.PKPSiteAccessPolicy');
+        import('lib.wizdam.classes.security.authorization.PKPSiteAccessPolicy');
         $this->addPolicy(new CoreSiteAccessPolicy(
             $request,
             ['updateUserMessageState'],
@@ -75,7 +75,7 @@ class UserApiHandler extends CoreHandler {
      * Update the information whether user messages should be
      * displayed or not.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string a JSON message
      */
     public function updateUserMessageState($args, $request) {

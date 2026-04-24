@@ -17,7 +17,7 @@ declare(strict_types=1);
  * only for safety/fallback purposes to prevent PHP 8 Fatal Errors.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class AuthorBiosBlockPlugin extends BlockPlugin {
     
@@ -68,12 +68,12 @@ class AuthorBiosBlockPlugin extends BlockPlugin {
     /**
      * Get the HTML contents for this block.
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return $string
      */
     public function getContents($templateMgr, $request = null) {
         // [WIZDAM] LOGIKA KUNO (Request::) KITA PERTAHANKAN
-        // Menggabungkan Page dan Op untuk pengecekan switch agar kompatibel dengan OJS 2 logic
+        // Menggabungkan Page dan Op untuk pengecekan switch agar kompatibel dengan Wizdam 2 logic
         $currentPage = Request::getRequestedPage();
         $currentOp = Request::getRequestedOp();
 
@@ -82,7 +82,7 @@ class AuthorBiosBlockPlugin extends BlockPlugin {
                 // Cek apakah variabel 'article' ada di template (mencegah error on null)
                 if (!$templateMgr->get_template_vars('article')) return '';
                 
-                // [WIZDAM] SOLUSI BYPASS PARENT (WAJIB UNTUK OJS 2 BLOCK PLUGIN)
+                // [WIZDAM] SOLUSI BYPASS PARENT (WAJIB UNTUK Wizdam 2 BLOCK PLUGIN)
                 // Mengambil filename template secara manual
                 $templateFilename = $this->getBlockTemplateFilename($request);
                 if ($templateFilename === null) return '';

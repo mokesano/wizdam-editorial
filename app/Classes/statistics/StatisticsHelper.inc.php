@@ -267,7 +267,7 @@ class StatisticsHelper {
 
     /**
      * Get an url that requests a statiscs report.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $metricType Report metric type.
      * @param array $columns Report columns
      * @param array $filter Report filters.

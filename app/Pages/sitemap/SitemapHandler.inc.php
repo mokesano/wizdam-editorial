@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Fix Method Signature
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 import('classes.handler.Handler');
 
 define('SITEMAP_XSD_URL', 'http://www.sitemaps.org/schemas/sitemap/0.9');
@@ -47,9 +47,9 @@ class SitemapHandler extends Handler {
     /**
      * Generate an XML sitemap for webcrawlers
      * Creates a sitemap index if in site context, else creates a sitemap
-     * * [WIZDAM FIX] Updated signature to match PKPHandler::index($args, $request)
+     * * [WIZDAM FIX] Updated signature to match CoreHandler::index($args, $request)
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Singleton Fallback if request is not passed
@@ -112,7 +112,7 @@ class SitemapHandler extends Handler {
         
         // [FIX 1] Fatal Error Handler
         // Jika tidak ada jurnal, kembalikan ke sitemap index (site-wide)
-        // Jangan panggil parent::_createSiteSitemap karena method itu tidak ada di OJS 2 Handler
+        // Jangan panggil parent::_createSiteSitemap karena method itu tidak ada di Wizdam 2 Handler
         if (!$journal) {
             return $this->_createSitemapIndex();
         }
@@ -150,7 +150,7 @@ class SitemapHandler extends Handler {
         $publishedIssues = $issueDao->getPublishedIssues($journalId);
         while ($issue = $publishedIssues->next()) {
             $volumeId = $issue->getVolume();
-            $slug = PKPString::slugify($issue->getNumber());
+            $slug = CoreString::slugify($issue->getNumber());
             $loc = $baseUrl . '/' . $journalPath . '/volumes/' . $volumeId . '/issue/' . $slug;
             
             // [FIX 2] Date Formatting for GSC

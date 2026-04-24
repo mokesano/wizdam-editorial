@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.plugins.metadata.nlm30.PKPNlm30MetadataPlugin');
+import('lib.wizdam.plugins.metadata.nlm30.PKPNlm30MetadataPlugin');
 
 class Nlm30MetadataPlugin extends CoreNlm30MetadataPlugin {
     

@@ -2,14 +2,14 @@
 declare(strict_types=1);
 
 /**
- * @file classes/rt/ojs/form/VersionForm.inc.php
+ * @file classes/rt/wizdam/form/VersionForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class VersionForm
- * @ingroup rt_ojs_form
+ * @ingroup rt_wizdam_form
  * @see Version
  *
  * @brief Form to change metadata information for an RT version.
@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class VersionForm extends Form {
 
@@ -81,7 +81,7 @@ class VersionForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {

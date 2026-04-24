@@ -18,7 +18,7 @@ declare(strict_types=1);
 define('AJAX_REQUEST_TYPE_GET', 'get');
 define('AJAX_REQUEST_TYPE_POST', 'post');
 
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
+import('lib.wizdam.classes.linkAction.request.LinkActionRequest');
 
 class AjaxAction extends LinkActionRequest {
 
@@ -79,7 +79,7 @@ class AjaxAction extends LinkActionRequest {
      * @see LinkActionRequest::getJSLinkActionRequest()
      */
     public function getJSLinkActionRequest(): string {
-        return '$.pkp.classes.linkAction.AjaxRequest';
+        return '$.wizdam.classes.linkAction.AjaxRequest';
     }
 
     /**

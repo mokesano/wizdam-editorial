@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Native import/export plugin DOM functions for export
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 import('classes.file.PublicFileManager');
 import('classes.file.ArticleFileManager');
 
@@ -118,7 +118,7 @@ class NativeExportDom {
                         $embedNode = XMLCustomWriter::createChildWithText($doc, $imageNode, 'embed', $encodedContent);
                         XMLCustomWriter::setAttribute($embedNode, 'filename', $issue->getOriginalFileName($locale));
                         XMLCustomWriter::setAttribute($embedNode, 'encoding', 'base64');
-                        XMLCustomWriter::setAttribute($embedNode, 'mime_type', PKPString::mime_content_type($coverPagePath));
+                        XMLCustomWriter::setAttribute($embedNode, 'mime_type', CoreString::mime_content_type($coverPagePath));
                     }
                 }
             }
@@ -338,7 +338,7 @@ class NativeExportDom {
                         $embedNode = XMLCustomWriter::createChildWithText($doc, $imageNode, 'embed', $encodedContent);
                         XMLCustomWriter::setAttribute($embedNode, 'filename', $article->getOriginalFileName($locale));
                         XMLCustomWriter::setAttribute($embedNode, 'encoding', 'base64');
-                        XMLCustomWriter::setAttribute($embedNode, 'mime_type', PKPString::mime_content_type($coverPagePath));
+                        XMLCustomWriter::setAttribute($embedNode, 'mime_type', CoreString::mime_content_type($coverPagePath));
                     }
                 }
             }

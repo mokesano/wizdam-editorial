@@ -11,7 +11,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+import('lib.wizdam.classes.form.validation.FormValidator');
 
 class FormValidatorName extends FormValidator {
     
@@ -23,7 +23,7 @@ class FormValidatorName extends FormValidator {
      * @param string $message the error message for validation failures
      */
     public function __construct($form, $field, $type, $message) {
-        import('lib.pkp.classes.validation.ValidatorName');
+        import('lib.wizdam.classes.validation.ValidatorName');
         $validator = new ValidatorName();
         
         // Meneruskan parameter secara utuh ke parent, termasuk $type!

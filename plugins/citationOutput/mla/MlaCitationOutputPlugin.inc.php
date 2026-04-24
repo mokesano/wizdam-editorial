@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief MLA citation style plug-in.
  */
 
-import('lib.pkp.plugins.citationOutput.mla.PKPMlaCitationOutputPlugin');
+import('lib.wizdam.plugins.citationOutput.mla.PKPMlaCitationOutputPlugin');
 
 class MlaCitationOutputPlugin extends CoreMlaCitationOutputPlugin {
     

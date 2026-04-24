@@ -15,7 +15,7 @@ declare(strict_types=1);
  * See dbscripts/xml/dtd/users.dtd for the XML schema used.
  */
 
-import('lib.pkp.classes.xml.XMLParser');
+import('lib.wizdam.classes.xml.XMLParser');
 
 class UserXMLParser {
 
@@ -91,9 +91,9 @@ class UserXMLParser {
                                 $newUser->setMustChangePassword($attrib->getAttribute('change') == 'true' ? 1 : 0);
                                 $encrypted = $attrib->getAttribute('encrypted');
                                 if (isset($encrypted) && $encrypted !== 'plaintext') {
-                                    $ojsEncryptionScheme = Config::getVar('security', 'encryption');
-                                    if ($encrypted != $ojsEncryptionScheme) {
-                                        $this->errors[] = __('plugins.importexport.users.import.encryptionMismatch', ['importHash' => $encrypted, 'ojsHash' => $ojsEncryptionScheme]);
+                                    $wizdamEncryptionScheme = Config::getVar('security', 'encryption');
+                                    if ($encrypted != $wizdamEncryptionScheme) {
+                                        $this->errors[] = __('plugins.importexport.users.import.encryptionMismatch', ['importHash' => $encrypted, 'wizdamHash' => $wizdamEncryptionScheme]);
                                     }
                                     $newUser->setPassword($attrib->getValue());
                                 } else {
@@ -373,9 +373,9 @@ class UserXMLParser {
      */
     public function generateUsername(ImportedUser $user): void {
         $userDao = DAORegistry::getDAO('UserDAO');
-        $baseUsername = PKPString::regexp_replace('/[^A-Z0-9]/i', '', $user->getLastName());
+        $baseUsername = CoreString::regexp_replace('/[^A-Z0-9]/i', '', $user->getLastName());
         if (empty($baseUsername)) {
-            $baseUsername = PKPString::regexp_replace('/[^A-Z0-9]/i', '', $user->getFirstName());
+            $baseUsername = CoreString::regexp_replace('/[^A-Z0-9]/i', '', $user->getFirstName());
         }
         if (empty($baseUsername)) {
             // Default username if we can't use the user's last or first name

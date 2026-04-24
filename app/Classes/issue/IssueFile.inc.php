@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Issue file class.
  */
 
-import('lib.pkp.classes.file.PKPFile');
+import('lib.wizdam.classes.file.CoreFile');
 
 /* File content type IDs */
 define('ISSUE_FILE_PUBLIC', 0x000001);

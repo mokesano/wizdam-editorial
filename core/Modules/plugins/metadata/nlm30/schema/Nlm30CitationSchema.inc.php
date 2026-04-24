@@ -23,7 +23,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.metadata.MetadataSchema');
+import('lib.wizdam.classes.metadata.MetadataSchema');
 
 // Define the well-known elements of the NLM publication type vocabulary.
 define('NLM30_PUBLICATION_TYPE_JOURNAL', 'journal');
@@ -41,7 +41,7 @@ class Nlm30CitationSchema extends MetadataSchema {
         parent::__construct(
             'nlm-3.0-element-citation',
             'nlm30',
-            'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
+            'lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema',
             ASSOC_TYPE_CITATION
         );
 

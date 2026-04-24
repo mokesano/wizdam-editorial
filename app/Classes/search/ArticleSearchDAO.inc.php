@@ -113,7 +113,7 @@ class ArticleSearchDAO extends DAO {
      * @return DBRowIterator
      */
     public function getPhraseResults($journal, array $phrase, ?string $publishedFrom = null, ?string $publishedTo = null, $type = null, int $limit = 500, int $cacheHours = 24) {
-        import('lib.pkp.classes.db.DBRowIterator');
+        import('lib.wizdam.classes.db.DBRowIterator');
         
         if (empty($phrase)) {
             return new DBRowIterator(false);
@@ -328,7 +328,7 @@ class ArticleSearchDAO extends DAO {
     /**
      * Clear the search index.
      * @return void
-     * @deprecated in OJS 3.4.0. Use ArticleSearchIndexManager instead.
+     * @deprecated in Wizdam 3.4.0. Use ArticleSearchIndexManager instead.
      */
     public function clearIndex(): void {
         $this->update('DELETE FROM article_search_object_keywords');

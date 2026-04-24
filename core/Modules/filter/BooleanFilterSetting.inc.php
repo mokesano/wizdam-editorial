@@ -15,8 +15,8 @@ declare(strict_types=1);
  * be either true or false.
  */
 
-import('lib.pkp.classes.filter.FilterSetting');
-import('lib.pkp.classes.form.validation.FormValidatorBoolean');
+import('lib.wizdam.classes.filter.FilterSetting');
+import('lib.wizdam.classes.form.validation.FormValidatorBoolean');
 
 class BooleanFilterSetting extends FilterSetting {
     

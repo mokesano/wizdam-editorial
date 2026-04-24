@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-import('lib.pkp.classes.file.EditableFile');
+import('lib.wizdam.classes.file.EditableFile');
 
 class EditableEmailFile {
     /** @var string Locale code */
@@ -85,7 +85,7 @@ class EditableEmailFile {
      */
     public function update($key, $subject, $body, $description) {
         $matches = null;
-        $quotedKey = PKPString::regexp_quote($key);
+        $quotedKey = CoreString::regexp_quote($key);
         preg_match(
             "/<email_text[\W]+key=\"$quotedKey\">/",
             $this->getContents(),
@@ -116,7 +116,7 @@ class EditableEmailFile {
      */
     public function delete($key) {
         $matches = null;
-        $quotedKey = PKPString::regexp_quote($key);
+        $quotedKey = CoreString::regexp_quote($key);
         preg_match(
             "/<email_text[\W]+key=\"$quotedKey\">/",
             $this->getContents(),

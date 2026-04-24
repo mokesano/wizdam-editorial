@@ -147,7 +147,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
         $publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
 
         if ($displayItems == 'recent' && $recentItems > 0) {
-            import('lib.pkp.classes.db.DBResultRange');
+            import('lib.wizdam.classes.db.DBResultRange');
             $rangeInfo = new DBResultRange($recentItems, 1);
             $publishedArticleObjects = $publishedArticleDao->getPublishedArticlesByJournalId(
                 $journal->getId(), $rangeInfo, true
@@ -166,7 +166,7 @@ class WebFeedGatewayPlugin extends GatewayPlugin {
         $version = $versionDao->getCurrentVersion();
 
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('ojsVersion', $version->getVersionString());
+        $templateMgr->assign('wizdamVersion', $version->getVersionString());
         $templateMgr->assign('publishedArticles', $publishedArticles);
         $templateMgr->assign('journal', $journal);
         $templateMgr->assign('issue', $issue);

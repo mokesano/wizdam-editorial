@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class for inserting/accessing email log entries.
  */
 
-import ('lib.pkp.classes.log.EmailLogEntry');
+import ('lib.wizdam.classes.log.EmailLogEntry');
 
 class EmailLogDAO extends DAO {
     

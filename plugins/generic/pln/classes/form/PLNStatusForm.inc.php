@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class PLNStatusForm extends Form {
 
@@ -55,7 +55,7 @@ class PLNStatusForm extends Form {
     /**
      * Display the form.
      * @see Form::display()
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $template
      */
     public function display($request = null, $template = null) {

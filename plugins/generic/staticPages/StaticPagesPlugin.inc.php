@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class StaticPagesPlugin extends GenericPlugin {
 
@@ -42,12 +42,12 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Check if the TinyMCE plugin is installed and enabled.
-     * @see PKPApplication::getEnabledProducts()
+     * @see CoreApplication::getEnabledProducts()
      * @return boolean
      */
     public function isTinyMCEInstalled() {
         // If the thesis plugin isn't enabled, don't do anything.
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         $products = $application->getEnabledProducts('plugins.generic');
         return (isset($products['tinymce']));
     }
@@ -75,7 +75,7 @@ class StaticPagesPlugin extends GenericPlugin {
 
     /**
      * Declare the handler function to process the actual page PATH
-     * @see PKPApplication::getRequest()
+     * @see CoreApplication::getRequest()
      * @param $hookName string
      * @param $args array
      * @return boolean
@@ -99,7 +99,7 @@ class StaticPagesPlugin extends GenericPlugin {
      * Display verbs for the management interface.
      * @see PKPPlugin::getManagementVerbs()
      * @param $verbs array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return array
      */
     public function getManagementVerbs(array $verbs = [], $request = null): array {
@@ -119,7 +119,7 @@ class StaticPagesPlugin extends GenericPlugin {
      * @param $args array
      * @param $message string
      * @param $messageParams array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return boolean
      */
     public function manage(string $verb, array $args, string $message, array $messageParams, $request = NULL): bool {

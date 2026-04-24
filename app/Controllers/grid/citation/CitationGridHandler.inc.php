@@ -11,15 +11,15 @@ declare(strict_types=1);
  * @class CitationGridHandler
  * @ingroup controllers_grid_citation
  *
- * @brief Handle OJS specific parts of citation grid requests.
+ * @brief Handle Wizdam specific parts of citation grid requests.
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.controllers.grid.citation.PKPCitationGridHandler');
+import('lib.wizdam.classes.controllers.grid.citation.PKPCitationGridHandler');
 
 // import validation classes
 import('classes.handler.validation.HandlerValidatorJournal');
-import('lib.pkp.classes.handler.validation.HandlerValidatorRoles');
+import('lib.wizdam.classes.handler.validation.HandlerValidatorRoles');
 
 class CitationGridHandler extends CoreCitationGridHandler {
     
@@ -52,12 +52,12 @@ class CitationGridHandler extends CoreCitationGridHandler {
     }
 
     //
-    // Implement template methods from PKPHandler
+    // Implement template methods from CoreHandler
     //
 
     /**
-     * @see PKPHandler::authorize()
-     * @param PKPRequest $request
+     * @see CoreHandler::authorize()
+     * @param CoreRequest $request
      * @param array $args
      * @param array $roleAssignments
      */
@@ -69,8 +69,8 @@ class CitationGridHandler extends CoreCitationGridHandler {
     }
 
     /**
-     * @see PKPHandler::initialize()
-     * @param PKPRequest $request
+     * @see CoreHandler::initialize()
+     * @param CoreRequest $request
      * @param array|null $args
      */
     public function initialize($request, $args = null) {
@@ -95,7 +95,7 @@ class CitationGridHandler extends CoreCitationGridHandler {
     /**
      * @see PKPCitationGridHandler::exportCitations()
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function exportCitations($args, $request) {
         $dispatcher = $this->getDispatcher();

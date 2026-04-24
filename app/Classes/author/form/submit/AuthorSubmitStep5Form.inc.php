@@ -23,7 +23,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
      * Constructor.
      * @param Article $article
      * @param Journal $journal
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function __construct($article, $journal, $request) {
         parent::__construct($article, 5, $journal, $request);
@@ -56,7 +56,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {
@@ -81,7 +81,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
         $paymentManager = new AppPaymentManager($this->request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
-            $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+            $completedPaymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
             $articleId = $this->articleId;
 
             if ($paymentManager->submissionEnabled()) {
@@ -133,7 +133,7 @@ class AuthorSubmitStep5Form extends AuthorSubmitForm {
             $articleId = $this->articleId;
             $user = $this->request->getUser();
 
-            $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+            $completedPaymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
             if ($completedPaymentDao->hasPaidSubmission($journalId, $articleId)) {
                 return parent::validate();
             } elseif ($this->request->getUserVar('qualifyForWaiver') && $this->request->getUserVar('commentsToEditor') != '') {

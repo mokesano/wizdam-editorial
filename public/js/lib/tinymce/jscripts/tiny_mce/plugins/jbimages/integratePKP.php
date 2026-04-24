@@ -2,7 +2,7 @@
 /**
  * @class IntegratePKP
  *
- * Integrates PKP applications with the jbimages image upload utility for TinyMCE
+ * Integrates Wizdam applications with the jbimages image upload utility for TinyMCE
  */
 
 
@@ -68,7 +68,7 @@ class IntegratePKP {
 		$locale = LOCALE_DEFAULT;
 		$localeFile = new LocaleFile(
 			$locale,
-			$this->baseDir . "/lib/pkp/locale/$locale/installer.xml"
+			$this->baseDir . "/lib/wizdam/locale/$locale/installer.xml"
 		);
 		Registry::get('localeFiles', true, array($locale => array($localeFile)));
 
@@ -81,7 +81,7 @@ class IntegratePKP {
 			// User is logged in
 			$siteDir = $this->baseDir . '/' . $publicDir . '/site/';
 			if (!file_exists($siteDir . '/images/')) {
-				import('lib.pkp.classes.file.FileManager');
+				import('lib.wizdam.classes.file.FileManager');
 				$fileManager = new FileManager();
 
 				// Check that the public/site/ directory exists and is writeable
@@ -95,7 +95,7 @@ class IntegratePKP {
 			}
 			//Check if user's image directory exists, else create it
 			if (Validation::isLoggedIn() && !file_exists($siteDir . '/images/' . $user->getUsername())) {
-				import('lib.pkp.classes.file.FileManager');
+				import('lib.wizdam.classes.file.FileManager');
 				$fileManager = new FileManager();
 
 				// Check that the public/site/images/ directory exists and is writeable

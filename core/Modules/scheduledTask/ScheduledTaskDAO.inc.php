@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Database-backed Task Registry (PHP 7.4/8.x Compatible)
  */
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
+import('lib.wizdam.classes.scheduledTask.ScheduledTask');
 
 class ScheduledTaskDAO extends DAO {
     

@@ -41,7 +41,7 @@ class ObjectsForReviewHandler extends Handler {
     /**
      * Display objects for review public index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args, $request) {
         $journal = $request->getJournal();
@@ -168,7 +168,7 @@ class ObjectsForReviewHandler extends Handler {
     /**
      * Public view object for review details.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewObjectForReview($args, $request) {
         // Ensure the args (object ID) exists
@@ -244,7 +244,7 @@ class ObjectsForReviewHandler extends Handler {
     /**
      * Ensure that we have a selected journal, the plugin is enabled,
      * in full mode and the option 'displayListing' is selected
-     * @see PKPHandler::authorize()
+     * @see CoreHandler::authorize()
      */
     public function authorize($request, $args, $roleAssignments) {
         $journal = $request->getJournal();
@@ -266,7 +266,7 @@ class ObjectsForReviewHandler extends Handler {
 
     /**
      * Setup common template variables.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param boolean $subclass set to true if caller is below this handler in the hierarchy
      */
     public function setupTemplate($request, $subclass = false) {

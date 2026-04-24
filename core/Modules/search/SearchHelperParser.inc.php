@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class to extract text from a file using an external helper program.
  */
 
-import('lib.pkp.classes.search.SearchFileParser');
+import('lib.wizdam.classes.search.SearchFileParser');
 
 class SearchHelperParser extends SearchFileParser {
 

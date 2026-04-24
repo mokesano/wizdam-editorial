@@ -18,7 +18,7 @@ declare(strict_types=1);
 define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
 
-import('lib.pkp.classes.core.PKPRouter');
+import('lib.wizdam.classes.core.CoreRouter');
 
 class CorePageRouter extends CoreRouter {
     
@@ -75,7 +75,7 @@ class CorePageRouter extends CoreRouter {
 
     /**
      * Determine whether or not the request is cacheable.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $testOnly required for unit test
      * @return bool
      */
@@ -104,7 +104,7 @@ class CorePageRouter extends CoreRouter {
 
     /**
      * Get the page requested in the URL.
-     * @param PKPRequest $request the request to be routed
+     * @param CoreRequest $request the request to be routed
      * @return string the page path
      */
     public function getRequestedPage($request) {
@@ -116,7 +116,7 @@ class CorePageRouter extends CoreRouter {
 
     /**
      * Get the operation requested in the URL.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string
      */
     public function getRequestedOp($request) {
@@ -128,7 +128,7 @@ class CorePageRouter extends CoreRouter {
 
     /**
      * Get the arguments requested in the URL.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return array
      */
     public function getRequestedArgs($request) {
@@ -136,16 +136,16 @@ class CorePageRouter extends CoreRouter {
     }
 
     //
-    // Implement template methods from PKPRouter
+    // Implement template methods from CoreRouter
     //
     
     /**
      * Get the filename to use for caching the current request.
-     * @see PKPRouter::getCacheFilename()
+     * @see CoreRouter::getCacheFilename()
      * [WIZDAM NOTE] Ini adalah "Jembatan" antara Router dan Dispatcher.
      * Dispatcher menggunakan nama file yang dihasilkan di sini untuk menyimpan/membaca cache.
      * Kita tetap menggunakan .html agar readfile() bisa langsung menyajikannya ke browser.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string the cache filename
      */
     public function getCacheFilename($request) {
@@ -178,8 +178,8 @@ class CorePageRouter extends CoreRouter {
 
     /**
      * Route the request to the appropriate handler.
-     * @see PKPRouter::route()
-     * @param PKPRequest $request the request to be routed
+     * @see CoreRouter::route()
+     * @param CoreRequest $request the request to be routed
      */
     public function route($request) {
         // Determine the requested page and operation
@@ -272,8 +272,8 @@ class CorePageRouter extends CoreRouter {
 
     /**
      * Generate a URL.
-     * @see PKPRouter::url()
-     * @param PKPRequest $request
+     * @see CoreRouter::url()
+     * @param CoreRequest $request
      * @param string|null $newContext optional new context to use in the URL
      * @param string|null $page optional page to use in the URL
      * @param string|null $op optional operation to use in the URL
@@ -388,8 +388,8 @@ class CorePageRouter extends CoreRouter {
 
     /**
      * Handle an authorization failure.
-     * @see PKPRouter::handleAuthorizationFailure()
-     * @param PKPRequest $request
+     * @see CoreRouter::handleAuthorizationFailure()
+     * @param CoreRequest $request
      * @param string $authorizationMessage
      * @return string the response to be sent to the client
      */
@@ -405,7 +405,7 @@ class CorePageRouter extends CoreRouter {
     /**
      * Retrieve part of the current requested url
      * @param callable $callback the callback to retrieve the url part
-     * @param PKPRequest $request the request to be routed
+     * @param CoreRequest $request the request to be routed
      * @return mixed the result of the callback
      */
     public function _getRequestedUrlParts($callback, $request) {
@@ -431,7 +431,7 @@ class CorePageRouter extends CoreRouter {
      * Fungsi ini telah dibersihkan dari logika Caching.
      * Caching sekarang ditangani oleh Dispatcher.inc.php menggunakan metode Smart ETag.
      * @param callable $serviceEndpoint the handler and operation to call
-     * @param PKPRequest $request the request to be routed
+     * @param CoreRequest $request the request to be routed
      * @param array $args the arguments to pass to the handler
      * @param bool $validate whether to call the handler's validate() method before execution
      */

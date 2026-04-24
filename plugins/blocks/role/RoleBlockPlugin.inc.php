@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class RoleBlockPlugin extends BlockPlugin {
     
@@ -62,7 +62,7 @@ class RoleBlockPlugin extends BlockPlugin {
 
     /**
      * Override the block contents based on the current role being browsed.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string|null
      */
     public function getBlockTemplateFilename($request = null) {

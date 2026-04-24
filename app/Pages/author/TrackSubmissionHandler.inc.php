@@ -46,7 +46,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Delete a submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteSubmission($args, $request) {
         $articleId = (int) array_shift($args);
@@ -75,7 +75,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Delete an author version file.
      * @param array $args ($articleId, $fileId, $revisionId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteArticleFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -95,7 +95,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Display a summary of the status of an author's submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submission($args, $request) {
         $journal = $request->getJournal();
@@ -159,7 +159,7 @@ class TrackSubmissionHandler extends AuthorHandler {
         $paymentManager = new AppPaymentManager($request);
         if ( $paymentManager->submissionEnabled() || $paymentManager->fastTrackEnabled() || $paymentManager->publicationEnabled()) {
             $templateMgr->assign('authorFees', true);
-            $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+            $completedPaymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
 
             if ($paymentManager->submissionEnabled()) {
                 $templateMgr->assign('submissionPayment', $completedPaymentDao->getSubmissionCompletedPayment ($journal->getId(), $articleId));
@@ -185,7 +185,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Display specific details of an author's submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submissionReview($args, $request) {
         $user = $request->getUser();
@@ -236,7 +236,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Add a supplementary file.
      * @param array $args ($articleId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function addSuppFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -266,7 +266,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Edit a supplementary file.
      * @param array $args ($articleId, $suppFileId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editSuppFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -296,7 +296,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Set reviewer visibility for a supplementary file.
      * @param array $args ($suppFileId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function setSuppFileVisibility($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -319,7 +319,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Save a supplementary file.
      * @param array $args ($suppFileId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSuppFile($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -350,7 +350,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Display the status and other details of an author's submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function submissionEditing($args, $request) {
         $journal = $request->getJournal();
@@ -384,7 +384,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Upload the author's revised version of an article.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function uploadRevisedVersion($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -400,7 +400,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * View the submission metadata.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewMetadata($args, $request) {
         $articleId = (int) array_shift($args);
@@ -415,7 +415,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Save the modified metadata.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveMetadata($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -435,7 +435,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Remove cover page from article
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeArticleCoverPage($args, $request) {
         $articleId = (int) array_shift($args);
@@ -466,7 +466,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Uploaded a copyedited version of the submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function uploadCopyeditVersion($args, $request) {
         $copyeditStage = (int) $request->getUserVar('copyeditStage');
@@ -484,7 +484,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Flag the author copyediting process as complete.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function completeAuthorCopyedit($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -504,7 +504,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Download a file.
      * @param array $args ($articleId, $fileId, [$revision])
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function downloadFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -522,7 +522,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Download a file.
      * @param array $args ($articleId, $fileId, [$revision])
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function download($args, $request) {
         $articleId = (int) array_shift($args);
@@ -541,7 +541,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Set the author proofreading date completion
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function authorProofreadingComplete($args, $request) {
         $articleId = (int) $request->getUserVar('articleId');
@@ -560,7 +560,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Proof / "preview" a galley.
      * @param array $args ($articleId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofGalley($args, $request) {
         $articleId = (int) array_shift($args);
@@ -577,7 +577,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Proof galley (shows frame header).
      * @param array $args ($articleId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofGalleyTop($args, $request) {
         $articleId = (int) array_shift($args);
@@ -595,7 +595,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Proof galley (outputs file contents).
      * @param array $args ($articleId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function proofGalleyFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -629,7 +629,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * View a file (inlines file).
      * @param array $args ($articleId, $fileId, [$revision])
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewFile($args, $request) {
         $articleId = (int) array_shift($args);
@@ -650,7 +650,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Display a form to pay for the submission an article
      * @param array $args ($articleId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function paySubmissionFee($args, $request) {
         $articleId = (int) array_shift($args);
@@ -673,7 +673,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Display a form to pay for Fast Tracking an article
      * @param array $args ($articleId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function payFastTrackFee($args, $request) {
         $articleId = (int) array_shift($args);
@@ -696,7 +696,7 @@ class TrackSubmissionHandler extends AuthorHandler {
     /**
      * Display a form to pay for Publishing an article
      * @param array $args ($articleId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function payPublicationFee($args, $request) {
         $articleId = (int) array_shift($args);

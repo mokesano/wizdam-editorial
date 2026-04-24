@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @class PageRouter
  * @ingroup core
  *
- * @brief Class providing OJS-specific page routing.
+ * @brief Class providing Wizdam-specific page routing.
  *
  * WIZDAM MODERNIZATION:
  * - PHP 8.x Compatibility (Ref removal, Visibility)
@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - [v2] Degradasi Routing Bertingkat: Issue → Volume → Year → Archive
  */
 
-import('lib.pkp.classes.core.PKPPageRouter');
+import('lib.wizdam.classes.core.PKPPageRouter');
 
 class PageRouter extends CorePageRouter {
 
@@ -47,7 +47,7 @@ class PageRouter extends CorePageRouter {
      *            (Untuk Level 3 degradasi: volume null)
      *
      * @param array $callback
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return mixed
      */
     public function _getRequestedUrlParts($callback, $request) {
@@ -95,7 +95,7 @@ class PageRouter extends CorePageRouter {
                             // (URL issue bernilai null seharusnya sudah didegradasi ke volume)
                             $expectedSlug = (string) $issue->getId();
                         } else {
-                            $dbSlug = PKPString::slugify($issueNumberStr);
+                            $dbSlug = CoreString::slugify($issueNumberStr);
                             $expectedSlug = ($dbSlug !== '') ? $dbSlug : (string) $issue->getId();
                         }
 
@@ -206,8 +206,8 @@ class PageRouter extends CorePageRouter {
      * Degradasi otomatis terjadi di sisi template/handler yang memanggil url():
      * Jika slug kosong, jangan gunakan format array — cukup kirim $path = $volumeId.
      *
-     * @see PKPRouter::url()
-     * @param PKPRequest $request
+     * @see CoreRouter::url()
+     * @param CoreRequest $request
      * @param string|null $newContext
      * @param string|null $page
      * @param string|null $op
@@ -282,7 +282,7 @@ class PageRouter extends CorePageRouter {
 
     /**
      * Redirect to user home page.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function redirectHome($request) {
         $user = $request->getUser();

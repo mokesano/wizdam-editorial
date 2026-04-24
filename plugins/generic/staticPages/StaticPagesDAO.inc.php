@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
  
  
-import('lib.pkp.classes.db.DAO');
+import('lib.wizdam.classes.db.DAO');
 
 class StaticPagesDAO extends DAO {
     

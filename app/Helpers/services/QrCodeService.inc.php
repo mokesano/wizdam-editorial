@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @brief Wrapper independen untuk library chillerlan/php-qrcode (v5.0.5)
  */
 
-// Panggil library murni tanpa merusak autoloader OJS
+// Panggil library murni tanpa merusak autoloader Wizdam
 require_once(Core::getBaseDir() . '/lib/wizdam/library/autoload.php');
 
 use chillerlan\QRCode\QRCode;

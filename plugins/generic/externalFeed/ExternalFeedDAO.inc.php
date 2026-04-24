@@ -12,14 +12,14 @@ declare(strict_types=1);
  * @ingroup plugins_generic_externalFeed
  *
  * @brief Operations for retrieving and modifying ExternalFeed objects.
- * * MODERNIZED FOR PHP 8.x & OJS FORK (Wizdam Edition)
+ * * MODERNIZED FOR PHP 8.x & Wizdam FORK (Wizdam Edition)
  * - Removed obsolete reference operators (&).
  * - Implemented strict Prepared Statements for SQLi protection.
  * - Added automatic cache flushing.
  * - Strict Constructor & Visibility.
  */
 
-import('lib.pkp.classes.db.DAO');
+import('lib.wizdam.classes.db.DAO');
 
 class ExternalFeedDAO extends DAO {
 

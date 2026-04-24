@@ -7,11 +7,11 @@ declare(strict_types=1);
  * @class WebFeedPlugin
  * @ingroup plugins_block_webFeed
  *
- * @brief Web Feeds plugin class — MODERNIZED FOR PHP 7.4+ & OJS FORK
+ * @brief Web Feeds plugin class — MODERNIZED FOR PHP 7.4+ & Wizdam FORK
  */
 
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class WebFeedPlugin extends GenericPlugin {
 
@@ -218,7 +218,7 @@ class WebFeedPlugin extends GenericPlugin {
 
                 AppLocale::requireComponents(
                     LOCALE_COMPONENT_APPLICATION_COMMON,
-                    LOCALE_COMPONENT_PKP_MANAGER
+                    LOCALE_COMPONENT_WIZDAM_MANAGER
                 );
 
                 $templateMgr = TemplateManager::getManager();

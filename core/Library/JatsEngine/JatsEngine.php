@@ -25,7 +25,7 @@ class JatsEngine {
         $this->metadataBuilder = new MetadataBuilder($articleId);
         $this->bodyBuilder = new BodyBuilder($articleId);
         
-        // Deteksi Base Directory (Support OJS 2.x struktur folder)
+        // Deteksi Base Directory (Support Wizdam 2.x struktur folder)
         // Mundur 4 level dari lokasi file ini: lib/wizdam/JatsEngine/
         $this->baseDir = dirname(dirname(dirname(dirname(__FILE__))));
     }
@@ -67,7 +67,7 @@ class JatsEngine {
         $this->metadataBuilder->buildFront($dom);
 
         // --- 4. PERSIAPAN BODY (Smart Linking) ---
-        // Kita ambil data Referensi dari DB OJS *SEKARANG*.
+        // Kita ambil data Referensi dari DB Wizdam *SEKARANG*.
         // Tujuannya: Agar BodyBuilder bisa "belajar" daftar pustakanya
         // dan membuat link otomatis saat menemukan teks "(Smith, 2020)".
         $citations = $this->getCitationsFromDB();
@@ -95,7 +95,7 @@ class JatsEngine {
     }
 
     /**
-     * Helper: Ambil Referensi Mentah dari Database OJS
+     * Helper: Ambil Referensi Mentah dari Database Wizdam
      */
     private function getCitationsFromDB(): ?string {
         $publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');

@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Form base class for journal managers to setup DOI export plug-ins.
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class DOIExportSettingsForm extends Form {
 

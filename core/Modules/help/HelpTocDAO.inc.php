@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving HelpToc objects.
  */
 
-import('lib.pkp.classes.help.HelpToc');
+import('lib.wizdam.classes.help.HelpToc');
 
 class HelpTocDAO extends XMLDAO {
     
@@ -146,7 +146,7 @@ class HelpTocDAO extends XMLDAO {
         // Add Topics
         if (isset($data['topic'])) {
             foreach ($data['topic'] as $topicData) {
-                import('lib.pkp.classes.help.HelpTopic'); // Pastikan HelpTopic di-import
+                import('lib.wizdam.classes.help.HelpTopic'); // Pastikan HelpTopic di-import
                 $topic = new HelpTopic();
                 $topic->setId($topicData['attributes']['id']);
                 $topic->setTitle($topicData['attributes']['title']);

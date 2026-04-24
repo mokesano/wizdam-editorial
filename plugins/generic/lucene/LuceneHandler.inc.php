@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 import('classes.handler.Handler');
 import('plugins.generic.lucene.classes.SolrWebService');
-import('lib.pkp.classes.core.JSONMessage');
+import('lib.wizdam.classes.core.JSONMessage');
 import('classes.search.ArticleSearch');
 
 class LuceneHandler extends Handler {
@@ -62,7 +62,7 @@ class LuceneHandler extends Handler {
     /**
      * AJAX request for search query auto-completion.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string JSON
      */
     public function queryAutocomplete($args, $request) {
@@ -128,7 +128,7 @@ class LuceneHandler extends Handler {
      * article metadata in a formate that can be consumed by
      * the Solr data import handler.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string JSON
      */
     public function pullChangedArticles($args, $request) {
@@ -159,7 +159,7 @@ class LuceneHandler extends Handler {
      * similar to the one identified by an article id in the
      * request.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function similarDocuments($args, $request) {
         $this->validate(null, $request);

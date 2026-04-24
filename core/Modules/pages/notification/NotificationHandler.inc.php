@@ -24,7 +24,7 @@ class NotificationHandler extends Handler {
     /**
      * Display notification index page.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function index($args = [], $request = null) {
         // [Wizdam] Singleton Fallback
@@ -74,7 +74,7 @@ class NotificationHandler extends Handler {
     /**
      * Delete a notification
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function delete($args, $request) {
         $this->validate();
@@ -98,7 +98,7 @@ class NotificationHandler extends Handler {
     /**
      * View and modify notification settings
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function settings($args, $request) {
         $this->validate();
@@ -118,7 +118,7 @@ class NotificationHandler extends Handler {
     /**
      * Save user notification settings
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSettings($args, $request) {
         $this->validate();
@@ -141,7 +141,7 @@ class NotificationHandler extends Handler {
     /**
      * Fetch the existing or create a new URL for the user's RSS feed
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function getNotificationFeedUrl($args, $request) {
         $user = $request->getUser();
@@ -172,7 +172,7 @@ class NotificationHandler extends Handler {
     /**
      * Fetch the actual RSS feed
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool
      */
     public function notificationFeed($args, $request) {
@@ -185,7 +185,7 @@ class NotificationHandler extends Handler {
 
         $this->setupTemplate(true);
 
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         $appName = $application->getNameKey();
 
         $site = $request->getSite();
@@ -240,7 +240,7 @@ class NotificationHandler extends Handler {
     /**
      * Display the public notification email subscription form
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function subscribeMailList($args, $request) {
         $this->setupTemplate();
@@ -252,7 +252,7 @@ class NotificationHandler extends Handler {
             $templateMgr = TemplateManager::getManager();
             $this->_assignSecurityVariables($templateMgr);
 
-            import('lib.pkp.classes.notification.form.NotificationMailingListForm');
+            import('lib.wizdam.classes.notification.form.NotificationMailingListForm');
             $notificationMailingListForm = new NotificationMailingListForm();
             $notificationMailingListForm->display($request);
         } else {
@@ -264,7 +264,7 @@ class NotificationHandler extends Handler {
     /**
      * Save the public notification email subscription form
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSubscribeMailList($args, $request) {
         $this->validate();
@@ -276,14 +276,14 @@ class NotificationHandler extends Handler {
             $this->_assignSecurityVariables($templateMgr);
             $templateMgr->assign('error', 'common.captchaField.badCaptcha');
             
-            import('lib.pkp.classes.notification.form.NotificationMailingListForm');
+            import('lib.wizdam.classes.notification.form.NotificationMailingListForm');
             $notificationMailingListForm = new NotificationMailingListForm();
             $notificationMailingListForm->readInputData();
             $notificationMailingListForm->display($request);
             return; // Hentikan eksekusi di sini
         }
 
-        import('lib.pkp.classes.notification.form.NotificationMailingListForm');
+        import('lib.wizdam.classes.notification.form.NotificationMailingListForm');
 
         $notificationMailingListForm = new NotificationMailingListForm();
         $notificationMailingListForm->readInputData();
@@ -300,7 +300,7 @@ class NotificationHandler extends Handler {
     /**
      * Display a success or error message if the user was subscribed
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function mailListSubscribed($args, $request) {
         $this->setupTemplate();
@@ -320,7 +320,7 @@ class NotificationHandler extends Handler {
     /**
      * Confirm the subscription (accessed via emailed link)
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function confirmMailListSubscription($args, $request) {
         $this->setupTemplate();
@@ -351,7 +351,7 @@ class NotificationHandler extends Handler {
     /**
      * Save the maillist unsubscribe form
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function unsubscribeMailList($args, $request) {
         $context = $request->getContext();
@@ -378,7 +378,7 @@ class NotificationHandler extends Handler {
     /**
      * Return formatted notification data using Json.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string JSON
      */
     public function fetchNotification($args, $request) {
@@ -406,7 +406,7 @@ class NotificationHandler extends Handler {
             }
         }
 
-        import('lib.pkp.classes.core.JSONMessage');
+        import('lib.wizdam.classes.core.JSONMessage');
         $json = new JSONMessage();
 
         if (is_array($notifications) && !empty($notifications)) {

@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief COinS plugin class
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class CoinsPlugin extends GenericPlugin {
     
@@ -59,7 +59,7 @@ class CoinsPlugin extends GenericPlugin {
 
     /**
      * Get the name of the settings file to be installed site-wide when
-     * OJS is installed.
+     * Wizdam is installed.
      * @return string
      */
     public function getInstallSitePluginSettingsFile(): ?string {

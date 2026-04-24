@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized PHP 8
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class DonationBlockPlugin extends BlockPlugin {
     
@@ -86,7 +86,7 @@ class DonationBlockPlugin extends BlockPlugin {
      * Get a description of the plugin.
      */
     public function getDescription(): string {
-        // [FIX] Sebelumnya mengarah ke 'user.description' (Typo bawaan OJS)
+        // [FIX] Sebelumnya mengarah ke 'user.description' (Typo bawaan Wizdam)
         return __('plugins.block.donation.description');
     }
 

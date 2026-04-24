@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 // Define TinyMCE paths with unix-style separators for inclusion in browser.
 define('TINYMCE_INSTALL_PATH', 'public/js/lib/tinymce');
@@ -71,7 +71,7 @@ class TinyMCEPlugin extends GenericPlugin {
 
     /**
      * Get the name of the settings file to be installed site-wide when
-     * OJS is installed.
+     * Wizdam is installed.
      * @return string
      */
     public function getInstallSitePluginSettingsFile(): ?string {
@@ -392,7 +392,7 @@ class TinyMCEPlugin extends GenericPlugin {
             $allLocales = AppLocale::getAllLocales();
             $localeList = [];
             foreach ($allLocales as $key => $locale) {
-                $localeList[] = PKPString::substr($key, 0, 2);
+                $localeList[] = CoreString::substr($key, 0, 2);
             }
 
             $tinymceScript = '
@@ -411,7 +411,7 @@ class TinyMCEPlugin extends GenericPlugin {
                     entity_encoding : "raw",
                     plugins : "paste,'.(Validation::isLoggedIn() ? 'jbimages,' : '').'fullscreen",
                     mode : "exact",
-                    language : "' . PKPString::substr(AppLocale::getLocale(), 0, 2) . '",
+                    language : "' . CoreString::substr(AppLocale::getLocale(), 0, 2) . '",
                     elements : "' . $enableFields . '",
                     relative_urls : false,
                     forced_root_block : false,

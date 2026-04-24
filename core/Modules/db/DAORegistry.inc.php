@@ -16,7 +16,7 @@ declare(strict_types=1);
  * MODERNIZED FOR PHP 7.4+
  */
 
-import('lib.pkp.classes.db.DAO');
+import('lib.wizdam.classes.db.DAO');
 
 class DAORegistry {
 
@@ -61,12 +61,12 @@ class DAORegistry {
         }
 
         // 2. Jika Class belum didefinisikan, coba import
-        // OJS 2 biasanya mewajibkan import() sebelum getDAO, tapi kita beri safety net.
+        // Wizdam 2 biasanya mewajibkan import() sebelum getDAO, tapi kita beri safety net.
         if (!class_exists($name)) {
-            // Coba cari path dari PKPApplication jika tersedia (Backward Compatibility)
+            // Coba cari path dari CoreApplication jika tersedia (Backward Compatibility)
             // Namun jika Anda memodernisasi full, lebih baik explicit import di file pemanggil.
             // Blok ini mencoba meniru logika lama tanpa terlalu bergantung pada global functions.
-            $application = PKPApplication::getApplication();
+            $application = CoreApplication::getApplication();
             $className = $application->getQualifiedDAOName($name);
             
             if ($className) {

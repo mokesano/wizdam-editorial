@@ -24,10 +24,10 @@ define('INSTALLER_ERROR_DB', 2);
 // Default data
 define('INSTALLER_DEFAULT_LOCALE', 'en_US');
 
-import('lib.pkp.classes.db.DBDataXMLParser');
-import('lib.pkp.classes.site.Version');
-import('lib.pkp.classes.site.VersionDAO');
-import('lib.pkp.classes.config.ConfigParser');
+import('lib.wizdam.classes.db.DBDataXMLParser');
+import('lib.wizdam.classes.site.Version');
+import('lib.wizdam.classes.site.VersionDAO');
+import('lib.wizdam.classes.config.ConfigParser');
 
 require_once './core/Library/adodb/adodb-xmlschema.inc.php';
 
@@ -671,7 +671,7 @@ class Installer {
 
         // Get the filter helper.
         if ($filterHelper === false) {
-            import('lib.pkp.classes.filter.FilterHelper');
+            import('lib.wizdam.classes.filter.FilterHelper');
             $filterHelper = new FilterHelper();
         }
 
@@ -741,7 +741,7 @@ class Installer {
      * @return bool
      */
     public function fileExists($filePath) {
-        import('lib.pkp.classes.file.FileManager');
+        import('lib.wizdam.classes.file.FileManager');
         $fileMgr = new FileManager();
 
         return $fileMgr->fileExists(realpath($filePath));
@@ -754,7 +754,7 @@ class Installer {
      */
     public function addPluginVersions() {
         $versionDao = DAORegistry::getDAO('VersionDAO'); /* @var $versionDao VersionDAO */
-        import('lib.pkp.classes.site.VersionCheck');
+        import('lib.wizdam.classes.site.VersionCheck');
         $fileManager = new FileManager();
         $categories = PluginRegistry::getCategories();
         foreach ($categories as $category) {

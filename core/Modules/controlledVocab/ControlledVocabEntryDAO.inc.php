@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying ControlledVocabEntry objects
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
+import('lib.wizdam.classes.controlledVocab.ControlledVocabEntry');
 
 class ControlledVocabEntryDAO extends DAO {
     

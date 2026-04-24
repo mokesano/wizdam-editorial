@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/payment/ojs/OJSQueuedPayment.inc.php
+ * @file classes/payment/wizdam/OJSQueuedPayment.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -11,11 +11,11 @@ declare(strict_types=1);
  * @class AppQueuedPayment
  * @ingroup payment
  *
- * @brief Queued payment data structure for OJS
+ * @brief Queued payment data structure for Wizdam
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.payment.QueuedPayment');
+import('lib.wizdam.classes.payment.QueuedPayment');
 
 class AppQueuedPayment extends QueuedPayment {
     

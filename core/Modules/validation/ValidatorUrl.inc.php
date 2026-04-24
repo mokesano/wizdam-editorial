@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, Explicit Static Methods)
  */
 
-import('lib.pkp.classes.validation.ValidatorUri');
+import('lib.wizdam.classes.validation.ValidatorUri');
 
 class ValidatorUrl extends ValidatorUri {
     

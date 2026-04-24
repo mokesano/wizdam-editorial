@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.controllers.grid.feature.OrderItemsFeature');
+import('lib.wizdam.classes.controllers.grid.feature.OrderItemsFeature');
 
 class OrderListbuilderItemsFeature extends OrderItemsFeature {
 
@@ -48,7 +48,7 @@ class OrderListbuilderItemsFeature extends OrderItemsFeature {
      * @return string
      */
     public function getJSClass(): string {
-        return '$.pkp.classes.features.OrderListbuilderItemsFeature';
+        return '$.wizdam.classes.features.OrderListbuilderItemsFeature';
     }
 }
 

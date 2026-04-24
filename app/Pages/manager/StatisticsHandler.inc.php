@@ -46,7 +46,7 @@ class StatisticsHandler extends ManagerHandler {
      * WARNING: This implementation should be kept roughly synchronized
      * with the reader's statistics view in the About pages.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function statistics($args, $request) {
         $this->validate();
@@ -192,7 +192,7 @@ class StatisticsHandler extends ManagerHandler {
     /**
      * Delegates to plugins operations related to report generation.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function report($args, $request) {
         $this->validate();
@@ -217,7 +217,7 @@ class StatisticsHandler extends ManagerHandler {
     /**
      * Display page to generate custom reports.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function reportGenerator($args, $request) {
         $this->validate();
@@ -235,7 +235,7 @@ class StatisticsHandler extends ManagerHandler {
     /**
      * Generate statistics reports from passed request arguments.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function generateReport($args, $request) {
         $this->validate();

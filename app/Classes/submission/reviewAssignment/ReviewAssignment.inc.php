@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.submission.reviewAssignment.PKPReviewAssignment');
+import('lib.wizdam.classes.submission.reviewAssignment.CoreReviewAssignment');
 
 class ReviewAssignment extends CoreReviewAssignment {
     

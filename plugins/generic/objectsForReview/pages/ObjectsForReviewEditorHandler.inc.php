@@ -41,7 +41,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Display objects for review listing pages.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function objectsForReview($args, $request) {
         $journal = $request->getJournal();
@@ -233,7 +233,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Edit and update object for review (plug-in) settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function objectsForReviewSettings($args, $request) {
         $journal = $request->getJournal();
@@ -270,7 +270,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Create/edit object for review.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createObjectForReview($args, $request) {
         $this->editObjectForReview($args, $request);
@@ -279,7 +279,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Create/edit object for review.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editObjectForReview($args, $request) {
         $objectId = array_shift($args);
@@ -314,7 +314,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Update object for review.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateObjectForReview($args, $request) {
         // [SECURITY FIX] Amankan 'objectId'
@@ -418,7 +418,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Remove object for review cover page image.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeObjectForReviewCoverPage($args, $request) {
         $objectId = array_shift($args);
@@ -451,7 +451,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Delete object for review.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteObjectForReview($args, $request) {
         $objectId = array_shift($args);
@@ -471,7 +471,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Display a list of authors from which to choose an object reviewer.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function selectObjectForReviewAuthor($args, $request) {
         $objectId = array_shift($args);
@@ -519,7 +519,7 @@ class ObjectsForReviewEditorHandler extends Handler {
             }
 
         } else if (!empty($searchInitial)) {
-            $searchInitial = PKPString::strtoupper($searchInitial);
+            $searchInitial = CoreString::strtoupper($searchInitial);
             $searchField = USER_FIELD_INITIAL; // Konstanta ini aman
             $search = $searchInitial;
         }
@@ -561,7 +561,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Assign an object for review author.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function assignObjectForReviewAuthor($args, $request) {
         $objectId = array_shift($args);
@@ -601,7 +601,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Accept an object for review author.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function acceptObjectForReviewAuthor($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -636,7 +636,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Deny an object for review request.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function denyObjectForReviewAuthor($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -679,7 +679,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Mark an object for review assignment as mailed.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function notifyObjectForReviewMailed($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -731,7 +731,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Remove object reviewer assignment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function removeObjectForReviewAssignment($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -776,7 +776,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Display a list of submissions from which to choose an object review submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function selectObjectForReviewSubmission($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -874,7 +874,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Assign an object for review submission.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function assignObjectForReviewSubmission($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -929,7 +929,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Edit object for review assignment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editObjectForReviewAssignment($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -967,7 +967,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Update object for review assignment.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateObjectForReviewAssignment($args, $request) {
         $returnPage = $this->_getReturnpage($request);
@@ -1025,7 +1025,7 @@ class ObjectsForReviewEditorHandler extends Handler {
 
     /**
      * Ensure that we have a journal, plugin is enabled, and user is editor.
-     * @see PKPHandler::authorize()
+     * @see CoreHandler::authorize()
      */
     public function authorize($request, $args, $roleAssignments) {
         $journal = $request->getJournal();
@@ -1044,7 +1044,7 @@ class ObjectsForReviewEditorHandler extends Handler {
 
     /**
      * Setup common template variables.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param boolean $subclass set to true if caller is below this handler in the hierarchy
      * @param int $objectId
      */
@@ -1107,7 +1107,7 @@ class ObjectsForReviewEditorHandler extends Handler {
 
     /**
      * Get return page
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string
      */
     protected function _getReturnpage($request) {
@@ -1176,7 +1176,7 @@ class ObjectsForReviewEditorHandler extends Handler {
      * @param ObjectForReview $objectForReview
      * @param User $author
      * @param string $returnUrl
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     protected function _assign($ofrAssignment, $objectForReview, $author, $returnUrl, $request) {
         import('classes.mail.MailTemplate');
@@ -1232,7 +1232,7 @@ class ObjectsForReviewEditorHandler extends Handler {
      * @param User $user
      * @param string $returnUrl
      * @param string $action
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     protected function _displayEmailForm($email, $objectForReview, $user, $returnUrl, $action, $request) {
         // [SECURITY FIX] Amankan flag boolean 'continued'
@@ -1264,33 +1264,33 @@ class ObjectsForReviewEditorHandler extends Handler {
                 $dueDateTimestamp = time() + ($dueWeeks * 7 * 24 * 60 * 60);
                 $paramArray = [
                     'authorName' => strip_tags($userFullName),
-                    'authorMailingAddress' => PKPString::html2text($userMailingAddress),
+                    'authorMailingAddress' => CoreString::html2text($userMailingAddress),
                     'objectForReviewTitle' => '"' . strip_tags($objectForReview->getTitle()) . '"',
                     'objectForReviewDueDate' => date('l, F j, Y', $dueDateTimestamp),
                     'userProfileUrl' => $request->url(null, 'user', 'profile'),
                     'submissionUrl' => $request->url(null, 'author', 'submit'),
-                    'editorialContactSignature' => PKPString::html2text($editorContactSignature)
+                    'editorialContactSignature' => CoreString::html2text($editorContactSignature)
                 ];
             } elseif ($action == 'OFR_OBJECT_DENIED') {
                 $paramArray = [
                     'authorName' => strip_tags($userFullName),
                     'objectForReviewTitle' => '"' . strip_tags($objectForReview->getTitle()) . '"',
                     'submissionUrl' => $request->url(null, 'author', 'submit'),
-                    'editorialContactSignature' => PKPString::html2text($editorContactSignature)
+                    'editorialContactSignature' => CoreString::html2text($editorContactSignature)
                 ];
             } elseif ($action == 'OFR_OBJECT_MAILED') {
                 $paramArray = [
                     'authorName' => strip_tags($userFullName),
-                    'authorMailingAddress' => PKPString::html2text($userMailingAddress),
+                    'authorMailingAddress' => CoreString::html2text($userMailingAddress),
                     'objectForReviewTitle' => '"' . strip_tags($objectForReview->getTitle()) . '"',
                     'submissionUrl' => $request->url(null, 'author', 'submit'),
-                    'editorialContactSignature' => PKPString::html2text($editorContactSignature)
+                    'editorialContactSignature' => CoreString::html2text($editorContactSignature)
                 ];
             } elseif ($action == 'OFR_REVIEWER_REMOVED') {
                 $paramArray = [
                     'authorName' => strip_tags($userFullName),
                     'objectForReviewTitle' => '"' . strip_tags($objectForReview->getTitle()) . '"',
-                    'editorialContactSignature' => PKPString::html2text($editorContactSignature)
+                    'editorialContactSignature' => CoreString::html2text($editorContactSignature)
                 ];
             }
             $email->addRecipient($userEmail, $userFullName);
@@ -1303,7 +1303,7 @@ class ObjectsForReviewEditorHandler extends Handler {
     /**
      * Create trivial notification
      * @param int $notificationType
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     protected function _createTrivialNotification($notificationType, $request) {
         $user = $request->getUser();

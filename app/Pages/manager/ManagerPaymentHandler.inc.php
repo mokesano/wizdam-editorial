@@ -44,7 +44,7 @@ class ManagerPaymentHandler extends ManagerHandler {
     /**
      * Display Settings Form (main payments page)
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function payments($args = [], $request = null) {
         $this->validate();
@@ -57,7 +57,7 @@ class ManagerPaymentHandler extends ManagerHandler {
     /**
      * Execute the form or display it again if there are problems
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function savePaymentSettings($args = [], $request = null) {
         $this->validate();
@@ -85,7 +85,7 @@ class ManagerPaymentHandler extends ManagerHandler {
     /** 
      * Display all payments previously made
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewPayments($args = [], $request = null) {
         $this->validate();
@@ -98,7 +98,7 @@ class ManagerPaymentHandler extends ManagerHandler {
     /** 
      * Display a single Completed payment 
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function viewPayment($args = [], $request = null) {
         $this->validate();
@@ -111,7 +111,7 @@ class ManagerPaymentHandler extends ManagerHandler {
     /**
      * Display form to edit program settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function payMethodSettings() {
         $this->validate();
@@ -124,7 +124,7 @@ class ManagerPaymentHandler extends ManagerHandler {
     /**
      * Save changes to payment settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function savePayMethodSettings($args = [], $request = null) {
         $this->validate();

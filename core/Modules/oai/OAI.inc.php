@@ -20,9 +20,9 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 7.4 - 8.x Modernization)
  */
 
-import('lib.pkp.classes.oai.OAIStruct');
-import('lib.pkp.classes.oai.OAIUtils');
-import('lib.pkp.classes.plugins.PluginRegistry');
+import('lib.wizdam.classes.oai.OAIStruct');
+import('lib.wizdam.classes.oai.OAIUtils');
+import('lib.wizdam.classes.plugins.PluginRegistry');
 
 class OAI {
     /** @var OAIConfig configuration parameters */
@@ -662,7 +662,7 @@ class OAI {
         header('Content-Type: text/xml');
 
         echo    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" .
-            "<?xml-stylesheet type=\"text/xsl\" href=\"" . PKPRequest::getBaseUrl() . "/lib/pkp/xml/oai2.xsl\" ?>\n" .
+            "<?xml-stylesheet type=\"text/xsl\" href=\"" . CoreRequest::getBaseUrl() . "/lib/wizdam/xml/oai2.xsl\" ?>\n" .
             "<OAI-PMH xmlns=\"http://www.openarchives.org/OAI/2.0/\"\n" .
             "\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n" .
             "\txsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/\n" .

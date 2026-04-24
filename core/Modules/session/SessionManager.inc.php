@@ -180,10 +180,10 @@ class SessionManager {
         if (is_null($instance)) {
             $application = Registry::get('application');
             // [WIZDAM REFACTOR] assert() → instanceof
-            if ($application instanceof PKPApplication) {
+            if ($application instanceof CoreApplication) {
                 $request = $application->getRequest();
             } else {
-                $request = PKPApplication::getRequest();
+                $request = CoreApplication::getRequest();
             }
 
             // Implicitly set session manager by ref in the registry

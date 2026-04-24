@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/help/OJSHelpMappingFile.inc.php
+ * @file classes/help/AppHelpMappingFile.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.help.HelpMappingFile');
+import('lib.wizdam.classes.help.HelpMappingFile');
 
 class AppHelpMappingFile extends HelpMappingFile {
     
@@ -29,16 +29,16 @@ class AppHelpMappingFile extends HelpMappingFile {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function OJSHelpMappingFile() {
+    public function AppHelpMappingFile() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor OJSHelpMappingFile(). Please refactor to use __construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor AppHelpMappingFile(). Please refactor to use __construct().",
             E_USER_DEPRECATED
         );
         self::__construct();
     }
 
     /**
-     * Return the filename for a built-in OJS help TOC filename.
+     * Return the filename for a built-in Wizdam help TOC filename.
      * @param $tocId string
      * @return string
      */
@@ -48,7 +48,7 @@ class AppHelpMappingFile extends HelpMappingFile {
     }
 
     /**
-     * Return the filename for a built-in OJS help topic filename.
+     * Return the filename for a built-in Wizdam help topic filename.
      * @param $topicId string
      * @return string
      */
@@ -58,7 +58,7 @@ class AppHelpMappingFile extends HelpMappingFile {
     }
 
     /**
-     * Return the topic ID for a built-in OJS help topic filename.
+     * Return the topic ID for a built-in Wizdam help topic filename.
      * @param $filename string
      * @return string
      */
@@ -70,7 +70,7 @@ class AppHelpMappingFile extends HelpMappingFile {
     }
 
     /**
-     * Get the search path for built-in OJS help files.
+     * Get the search path for built-in Wizdam help files.
      * @param $locale string
      * @return string
      */

@@ -18,7 +18,7 @@ define('BLOCK_CONTEXT_LEFT_SIDEBAR',		0x00000001);
 define('BLOCK_CONTEXT_RIGHT_SIDEBAR',		0x00000002);
 define('BLOCK_CONTEXT_HOMEPAGE',		0x00000003);
 
-import('lib.pkp.classes.plugins.LazyLoadPlugin');
+import('lib.wizdam.classes.plugins.LazyLoadPlugin');
 
 class BlockPlugin extends LazyLoadPlugin {
     
@@ -139,7 +139,7 @@ class BlockPlugin extends LazyLoadPlugin {
 	/**
 	 * Get the HTML contents for this block.
 	 * @param $templateMgr object
-	 * @param $request PKPRequest (Optional for legacy plugins)
+	 * @param $request CoreRequest (Optional for legacy plugins)
 	 * @return string
 	 */
     function getContents($templateMgr, $request = NULL) {
@@ -187,7 +187,7 @@ class BlockPlugin extends LazyLoadPlugin {
 	 * @return string
 	 */
 	function _getContextSpecificHomepageHook() {
-		$application = PKPApplication::getApplication();
+		$application = CoreApplication::getApplication();
 
 		if ($application->getContextDepth() == 0) return null;
 

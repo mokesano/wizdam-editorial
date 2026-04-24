@@ -23,7 +23,7 @@ declare(strict_types=1);
  * - TRUE MODULAR SECURITY: Decoupled Default Captcha, reCAPTCHA, and Turnstile
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class RegistrationForm extends Form {
 
@@ -62,7 +62,7 @@ class RegistrationForm extends Form {
             // PILAR 3: DEFAULT CAPTCHA (Gambar) (HANYA JIKA TURNSTILE & RECAPTCHA OFF)
             if (!$this->turnstileEnabled && !$this->reCaptchaEnabled) {
                 if (Config::getVar('captcha', 'captcha') && Config::getVar('captcha', 'captcha_on_register')) {
-                    import('lib.pkp.classes.captcha.CaptchaManager');
+                    import('lib.wizdam.classes.captcha.CaptchaManager');
                     $captchaManager = new CaptchaManager();
                     if ($captchaManager->isEnabled()) {
                         $this->captchaEnabled = true;
@@ -256,7 +256,7 @@ class RegistrationForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {
@@ -272,7 +272,7 @@ class RegistrationForm extends Form {
         
         // 1. Eksekusi logic UI berdasarkan Flag
         if ($this->captchaEnabled) {
-            import('lib.pkp.classes.captcha.CaptchaManager');
+            import('lib.wizdam.classes.captcha.CaptchaManager');
             $captchaManager = new CaptchaManager();
             $captcha = $captchaManager->createCaptcha();
             if ($captcha) {
@@ -429,7 +429,7 @@ class RegistrationForm extends Form {
             }
         }
 
-        // 1. OJS secara native membaca variabel dari $_POST
+        // 1. Wizdam secara native membaca variabel dari $_POST
         $this->readUserVars($userVars);
         
         // 2. NORMALISASI NATIVE: Pastikan struktur data multi-bahasa  konsisten
@@ -535,7 +535,7 @@ class RegistrationForm extends Form {
             if (!$userId) { return false; }
 
             $interests = $this->getData('interestsKeywords') ? $this->getData('interestsKeywords') : $this->getData('interestsTextOnly');
-            import('lib.pkp.classes.user.InterestManager');
+            import('lib.wizdam.classes.user.InterestManager');
             $interestManager = new InterestManager();
             $interestManager->setInterestsForUser($user, $interests);
 
@@ -567,7 +567,7 @@ class RegistrationForm extends Form {
         if (!$this->existingUser) {
             import('classes.mail.MailTemplate');
             if ($requireValidation) {
-                import('lib.pkp.classes.security.AccessKeyManager');
+                import('lib.wizdam.classes.security.AccessKeyManager');
                 $accessKeyManager = new AccessKeyManager();
                 $accessKey = $accessKeyManager->createKey('RegisterContext', $user->getId(), null, Config::getVar('email', 'validation_timeout'));
 
@@ -586,7 +586,7 @@ class RegistrationForm extends Form {
                 $mail->setFrom($journal->getSetting('contactEmail'), $journal->getSetting('contactName'));
                 $mail->assignParams(array(
                     'username' => $this->getData('username'),
-                    'password' => PKPString::substr($this->getData('password'), 0, 30),
+                    'password' => CoreString::substr($this->getData('password'), 0, 30),
                     'userFullName' => $user->getFullName()
                 ));
                 $mail->addRecipient($user->getEmail(), $user->getFullName());

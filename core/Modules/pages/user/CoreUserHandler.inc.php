@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file pages/user/PKPUserHandler.inc.php
+ * @file pages/user/CoreUserHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -30,7 +30,7 @@ class CoreUserHandler extends Handler {
     /**
      * [SHIM] Backward Compatibility for Legacy Calls
      */
-    public function PKPUserHandler() {
+    public function CoreUserHandler() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error("Deprecated constructor called. Use __construct().", E_USER_DEPRECATED);
         }
@@ -40,7 +40,7 @@ class CoreUserHandler extends Handler {
     /**
      * Get keywords for reviewer interests autocomplete.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return string Serialized JSON object
      */
     public function getInterests($args, $request = null) {
@@ -53,12 +53,12 @@ class CoreUserHandler extends Handler {
         // [SECURITY FIX] Sanitasi string (Fix variabel undefined $term -> $filter)
         $filter = trim($filter);
 
-        import('lib.pkp.classes.user.InterestManager');
+        import('lib.wizdam.classes.user.InterestManager');
         $interestManager = new InterestManager();
 
         $interests = $interestManager->getAllInterests($filter);
 
-        import('lib.pkp.classes.core.JSONMessage');
+        import('lib.wizdam.classes.core.JSONMessage');
         $json = new JSONMessage(true, $interests);
         
         header('Content-Type: application/json');
@@ -68,7 +68,7 @@ class CoreUserHandler extends Handler {
     /**
      * Persist the status for a user's preference to see inline help.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string Serialized JSON object
      */
     public function toggleHelp($args, $request) {
@@ -81,7 +81,7 @@ class CoreUserHandler extends Handler {
             $userDao->updateObject($user);
         }
 
-        import('lib.pkp.classes.core.JSONMessage');
+        import('lib.wizdam.classes.core.JSONMessage');
         $json = new JSONMessage(true);
         
         header('Content-Type: application/json');

@@ -18,10 +18,10 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class UserInstitutionalSubscriptionForm extends Form {
-    /** @var $request PKPRequest */
+    /** @var $request CoreRequest */
     public $request;
 
     /** @var userId int the user associated with the subscription */
@@ -35,7 +35,7 @@ class UserInstitutionalSubscriptionForm extends Form {
 
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $userId int
      * @param $subscriptionId int
      */
@@ -164,7 +164,7 @@ class UserInstitutionalSubscriptionForm extends Form {
             import('classes.subscription.InstitutionalSubscription');
             // [WIZDAM FIX] Replaced create_function with Closure
             $this->addCheck(new FormValidatorArrayCustom($this, 'ipRanges', 'required', 'user.subscriptions.form.ipRangeValid', function($ipRange, $regExp) {
-                return PKPString::regexp_match($regExp, $ipRange);
+                return CoreString::regexp_match($regExp, $ipRange);
             },
                 array(
                     '/^' .

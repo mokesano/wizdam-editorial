@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying objects from an XML data source.
  */
 
-import('lib.pkp.classes.xml.XMLParser');
+import('lib.wizdam.classes.xml.XMLParser');
 
 class XMLDAO {
     

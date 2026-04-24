@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (HookRegistry::dispatch + instanceof modernization)
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 // Our own and OA-S classification types.
 define('USAGE_EVENT_PLUGIN_CLASSIFICATION_BOT', 'bot');
@@ -340,8 +340,8 @@ class UsageEventPlugin extends GenericPlugin {
             $this->updateSetting(0, 'uniqueSiteId', $siteId);
         }
         array_unshift($idParams, $siteId);
-        $ojsId = 'ojs:' . implode('-', $idParams);
-        $identifiers = array('other::ojs' => $ojsId);
+        $wizdamId = 'wizdam:' . implode('-', $idParams);
+        $identifiers = array('other::wizdam' => $wizdamId);
 
         // Standardized public identifiers
         // [WIZDAM FIX] Replaced is_a() with instanceof

@@ -18,7 +18,7 @@ declare(strict_types=1);
 
 define('SWORD_PASSWORD_SLUG', '******');
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class DepositPointForm extends Form {
 
@@ -85,7 +85,7 @@ class DepositPointForm extends Form {
     /**
      * Display the form.
      * @see Form::display()
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $template
      */
     public function display($request = null, $template = null) {

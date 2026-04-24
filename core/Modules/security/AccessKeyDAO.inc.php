@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying AccessKey objects.
  */
 
-import('lib.pkp.classes.security.AccessKey');
+import('lib.wizdam.classes.security.AccessKey');
 
 class AccessKeyDAO extends DAO {
     

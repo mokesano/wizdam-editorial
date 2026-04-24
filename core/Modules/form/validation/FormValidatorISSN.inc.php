@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+import('lib.wizdam.classes.form.validation.FormValidator');
 
 class FormValidatorISSN extends FormValidator {
     
@@ -27,7 +27,7 @@ class FormValidatorISSN extends FormValidator {
      * @param string $message the error message for validation failures (i18n key)
      */
     public function __construct($form, $field, $type, $message) {
-        import('lib.pkp.classes.validation.ValidatorISSN');
+        import('lib.wizdam.classes.validation.ValidatorISSN');
         $validator = new ValidatorISSN();
         parent::__construct($form, $field, $type, $message, $validator);
     }

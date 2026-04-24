@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.controllers.grid.GridRow');
+import('lib.wizdam.classes.controllers.grid.GridRow');
 
 class CoreFilterGridRow extends GridRow {
     
@@ -45,7 +45,7 @@ class CoreFilterGridRow extends GridRow {
     
     /**
      * @see GridRow::initialize()
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function initialize($request, $template = null) {
         // Do the default initialization

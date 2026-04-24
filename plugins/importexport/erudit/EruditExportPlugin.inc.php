@@ -15,7 +15,7 @@ declare(strict_types=1);
  */
 
 import('classes.plugins.ImportExportPlugin');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
 class EruditExportPlugin extends ImportExportPlugin {
 
@@ -113,7 +113,7 @@ class EruditExportPlugin extends ImportExportPlugin {
             default:
                 // Display a list of articles for export
                 $this->setBreadcrumbs();
-                AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_SUBMISSION);
                 
                 $rangeInfo = Handler::getRangeInfo('articles');
                 $articleIds = $publishedArticleDao->getPublishedArticleIdsAlphabetizedByJournal($journal->getId(), false);
@@ -123,7 +123,7 @@ class EruditExportPlugin extends ImportExportPlugin {
                     $articleIds = array_slice($articleIds, $rangeInfo->getCount() * ($rangeInfo->getPage() - 1), $rangeInfo->getCount());
                 }
                 
-                import('lib.pkp.classes.core.VirtualArrayIterator');
+                import('lib.wizdam.classes.core.VirtualArrayIterator');
                 $iterator = new VirtualArrayIterator(ArticleSearch::formatResults($articleIds), $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
                 
                 $templateMgr->assign('articles', $iterator);

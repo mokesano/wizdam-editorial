@@ -41,7 +41,7 @@ class SwordHandler extends Handler {
     /**
      * Display index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args, $request) {
         $this->validate();

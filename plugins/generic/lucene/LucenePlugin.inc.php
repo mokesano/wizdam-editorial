@@ -16,7 +16,7 @@ declare(strict_types=1);
  * @edition Wizdam Edition (PHP 8.x Compatible)
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 import('plugins.generic.lucene.classes.SolrWebService');
 
 define('LUCENE_PLUGIN_DEFAULT_RANKING_BOOST', 1.0); // Default: No boost (=weight factor one).
@@ -768,7 +768,7 @@ class LucenePlugin extends GenericPlugin {
 		if ($template != 'search/search.tpl') return false;
 
 		// Get request and context.
-		$request = PKPApplication::getRequest();
+		$request = CoreApplication::getRequest();
 		$journal = $request->getContext();
 
 		// Assign our private stylesheet.
@@ -839,7 +839,7 @@ class LucenePlugin extends GenericPlugin {
 		];
 
 		// Create a URL that links to "similar documents".
-		$request = PKPApplication::getRequest();
+		$request = CoreApplication::getRequest();
 		$router = $request->getRouter();
 		$simdocsUrl = $router->url(
 			$request, null, 'lucene', 'similarDocuments', null, $urlParams
@@ -1050,7 +1050,7 @@ class LucenePlugin extends GenericPlugin {
 		}
 
 		// Assign parameters.
-		$request = PKPApplication::getRequest();
+		$request = CoreApplication::getRequest();
 		$site = $request->getSite();
 		$mail->assignParams(
 			['siteName' => $site->getLocalizedTitle(), 'error' => $error]

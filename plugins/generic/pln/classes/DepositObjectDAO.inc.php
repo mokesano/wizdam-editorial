@@ -167,7 +167,7 @@ class DepositObjectDAO extends DAO {
     }
 
     /**
-     * Create a new deposit object for OJS content that doesn't yet have one
+     * Create a new deposit object for Wizdam content that doesn't yet have one
      * @param int $journalId
      * @param string $objectType
      * @return array DepositObject ordered by sequence

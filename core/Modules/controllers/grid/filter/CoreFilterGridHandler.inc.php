@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/controllers/grid/filter/PKPFilterGridHandler.inc.php
+ * @file classes/controllers/grid/filter/CoreFilterGridHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,14 +16,14 @@ declare(strict_types=1);
  */
 
 // import grid base classes
-import('lib.pkp.classes.controllers.grid.GridHandler');
+import('lib.wizdam.classes.controllers.grid.GridHandler');
 
 // import filter grid specific classes
-import('lib.pkp.classes.controllers.grid.filter.PKPFilterGridRow');
-import('lib.pkp.classes.controllers.grid.filter.FilterGridCellProvider');
+import('lib.wizdam.classes.controllers.grid.filter.PKPFilterGridRow');
+import('lib.wizdam.classes.controllers.grid.filter.FilterGridCellProvider');
 
 // import metadata framework classes
-import('lib.pkp.classes.metadata.MetadataDescription');
+import('lib.wizdam.classes.metadata.MetadataDescription');
 
 
 class CoreFilterGridHandler extends GridHandler {
@@ -51,7 +51,7 @@ class CoreFilterGridHandler extends GridHandler {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPFilterGridHandler() {
+    public function CoreFilterGridHandler() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor parent::'" . get_class($this) . "'. Please refactor to parent::__construct().", 
@@ -117,17 +117,17 @@ class CoreFilterGridHandler extends GridHandler {
 
 
     //
-    // Overridden methods from PKPHandler
+    // Overridden methods from CoreHandler
     //
     /**
      * Configure the grid
-     * @see PKPHandler::initialize()
+     * @see CoreHandler::initialize()
      */
     public function initialize($request, $args = null) {
         parent::initialize($request, $args);
 
         // Load manager-specific translations
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_MANAGER, LOCALE_COMPONENT_PKP_SUBMISSION);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_MANAGER, LOCALE_COMPONENT_WIZDAM_SUBMISSION);
 
         // Retrieve the filters to be displayed in the grid
         $router = $request->getRouter();
@@ -206,7 +206,7 @@ class CoreFilterGridHandler extends GridHandler {
     /**
      * An action to manually add a new filter
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function addFilter($args, $request) {
         // Calling editFilter() to edit a new filter.
@@ -216,7 +216,7 @@ class CoreFilterGridHandler extends GridHandler {
     /**
      * Edit a filter
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $newFilter
      */
     public function editFilter($args, $request, bool $newFilter = false) {
@@ -228,7 +228,7 @@ class CoreFilterGridHandler extends GridHandler {
         }
 
         // Form handling
-        import('lib.pkp.classes.controllers.grid.filter.form.FilterForm');
+        import('lib.wizdam.classes.controllers.grid.filter.form.FilterForm');
         
         // Strict Type Safety: Ensure null is not passed where string is expected
         $formTitle = $this->getTitle() ?? ''; 
@@ -250,7 +250,7 @@ class CoreFilterGridHandler extends GridHandler {
     /**
      * Update a filter
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string
      */
     public function updateFilter($args, $request) {
@@ -260,7 +260,7 @@ class CoreFilterGridHandler extends GridHandler {
         $filter = $this->getFilterFromArgs($request, $args, true);
 
         // Form initialization
-        import('lib.pkp.classes.controllers.grid.filter.form.FilterForm');
+        import('lib.wizdam.classes.controllers.grid.filter.form.FilterForm');
         
         // Type Safety
         $formTitle = $this->getTitle() ?? ''; 
@@ -302,7 +302,7 @@ class CoreFilterGridHandler extends GridHandler {
     /**
      * Delete a filter
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string
      */
     public function deleteFilter($args, $request) {
@@ -329,7 +329,7 @@ class CoreFilterGridHandler extends GridHandler {
      * This will retrieve a filter object from the
      * grids data source based on the request arguments.
      * If no filter can be found then this will raise a fatal error.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param array $args
      * @param bool $mayBeTemplate whether filter templates should be considered.
      * @return Filter

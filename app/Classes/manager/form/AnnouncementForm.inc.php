@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.manager.form.PKPAnnouncementForm');
+import('lib.wizdam.classes.manager.form.CoreAnnouncementForm');
 
 class AnnouncementForm extends CoreAnnouncementForm {
     

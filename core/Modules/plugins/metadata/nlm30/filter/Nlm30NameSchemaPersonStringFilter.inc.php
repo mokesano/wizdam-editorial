@@ -18,7 +18,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Reference Fixes
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
 
 class Nlm30NameSchemaPersonStringFilter extends Nlm30PersonStringFilter {
     /** @var string */
@@ -42,7 +42,7 @@ class Nlm30NameSchemaPersonStringFilter extends Nlm30PersonStringFilter {
         assert(is_string($delimiter));
         $this->_delimiter = $delimiter;
 
-        $inputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema(*)';
+        $inputType = 'metadata::lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema(*)';
         $outputType = 'primitive::string';
         if ($filterMode == PERSON_STRING_FILTER_MULTIPLE) $inputType .= '[]';
 
@@ -177,11 +177,11 @@ class Nlm30NameSchemaPersonStringFilter extends Nlm30PersonStringFilter {
         $givenNames = $personDescription->getStatement('given-names');
         $nameVars['%firstname%'] = $nameVars['%initials%'] = '';
         if(is_array($givenNames) && count($givenNames)) {
-            if (PKPString::strlen($givenNames[0]) > 1) {
+            if (CoreString::strlen($givenNames[0]) > 1) {
                 $nameVars['%firstname%'] = array_shift($givenNames);
             }
             foreach($givenNames as $givenName) {
-                $nameVars['%initials%'] .= PKPString::substr($givenName, 0, 1).'.';
+                $nameVars['%initials%'] .= CoreString::substr($givenName, 0, 1).'.';
             }
         }
         if (!empty($nameVars['%initials%'])) $nameVars['%initials%'] = ' '.$nameVars['%initials%'];

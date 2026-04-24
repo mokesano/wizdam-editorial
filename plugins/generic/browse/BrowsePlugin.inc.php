@@ -12,10 +12,10 @@ declare(strict_types=1);
  * @ingroup plugins_generic_browse
  *
  * @brief Browse by additional objects plugin class.
- * * MODERNIZED FOR PHP 7.4+ & OJS FORK
+ * * MODERNIZED FOR PHP 7.4+ & Wizdam FORK
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class BrowsePlugin extends GenericPlugin {
     

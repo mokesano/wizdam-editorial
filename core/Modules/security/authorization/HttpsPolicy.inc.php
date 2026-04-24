@@ -14,16 +14,16 @@ declare(strict_types=1);
  * @brief Class to control access to handler operations based on protocol.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
 
 class HttpsPolicy extends AuthorizationPolicy {
-    /** @var PKPRequest */
+    /** @var CoreRequest */
     public $_request;
 
     /**
      * Constructor
      *
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function __construct($request) {
         parent::__construct();
@@ -31,14 +31,14 @@ class HttpsPolicy extends AuthorizationPolicy {
         $this->_request = $request;
 
         // Add advice
-        // redirectSSL is a method of PKPRequest
+        // redirectSSL is a method of CoreRequest
         $callOnDeny = array($request, 'redirectSSL', array());
         $this->setAdvice(AUTHORIZATION_ADVICE_CALL_ON_DENY, $callOnDeny);
     }
 
     /**
      * [SHIM] Backward Compatibility
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function HttpsPolicy($request) {
         trigger_error(

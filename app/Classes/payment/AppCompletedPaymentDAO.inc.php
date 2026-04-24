@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/payment/ojs/OJSCompletedPaymentDAO.inc.php
+ * @file classes/payment/wizdam/AppCompletedPaymentDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -30,7 +30,7 @@ class AppCompletedPaymentDAO extends DAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function OJSCompletedPaymentDAO() {
+    public function AppCompletedPaymentDAO() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor " . get_class($this) . "(). Please refactor to use __construct().",

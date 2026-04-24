@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - Secure Obfuscated Profile Image Naming
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class ProfileForm extends Form {
 
@@ -56,7 +56,7 @@ class ProfileForm extends Form {
         $this->addCheck(new FormValidatorCustom($this, 'email', 'required', 'user.register.form.emailExists', array(DAORegistry::getDAO('UserDAO'), 'userExistsByEmail'), array($user->getId(), true), true));
         
         // [WIZDAM SECURITY] Gunakan Validator CSRF yang kita buat sebelumnya!
-        import('lib.pkp.classes.form.validation.FormValidatorCSRF');
+        import('lib.wizdam.classes.form.validation.FormValidatorCSRF');
         $this->addCheck(new FormValidatorCSRF($this));
         
         $this->addCheck(new FormValidatorPost($this));
@@ -261,7 +261,7 @@ class ProfileForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {
@@ -315,7 +315,7 @@ class ProfileForm extends Form {
         }
         
         // Panggil Engine CSRF yang sudah Anda buat
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('lib.wizdam.classes.validation.ValidatorCSRF');
         $templateMgr->assign('csrfToken', ValidatorCSRF::generateToken());
 
         $templateMgr->assign('profileImage', $user->getSetting('profileImage'));
@@ -335,13 +335,13 @@ class ProfileForm extends Form {
     /**
      * Initialize form data from current settings.
      * @param mixed $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function initData($args = null, $request = null) {
         $user = $request->getUser();
         if (!$user) return; // Safety
 
-        import('lib.pkp.classes.user.InterestManager');
+        import('lib.wizdam.classes.user.InterestManager');
         $interestManager = new InterestManager();
 
         $this->_data = array(
@@ -457,7 +457,7 @@ class ProfileForm extends Form {
 
         // Insert the user interests
         $interests = $this->getData('interestsKeywords') ? $this->getData('interestsKeywords') : $this->getData('interestsTextOnly');
-        import('lib.pkp.classes.user.InterestManager');
+        import('lib.wizdam.classes.user.InterestManager');
         $interestManager = new InterestManager();
         $interestManager->setInterestsForUser($user, $interests);
 

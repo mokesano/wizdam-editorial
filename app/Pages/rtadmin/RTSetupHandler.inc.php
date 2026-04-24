@@ -44,7 +44,7 @@ class RTSetupHandler extends RTAdminHandler {
     /**
      * Display settings page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function settings($args = [], $request = null) {
         $this->validate();
@@ -89,7 +89,7 @@ class RTSetupHandler extends RTAdminHandler {
     /**
      * Save settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSettings($args = [], $request = null) {
         $this->validate();

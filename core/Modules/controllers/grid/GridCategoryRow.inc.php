@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief Class defining basic operations for handling the category row in a grid
  * [WIZDAM EDITION] Refactored for PHP 8.x Strict Standards.
  */
-import('lib.pkp.classes.controllers.grid.GridRow');
-import('lib.pkp.classes.controllers.grid.GridCategoryRowCellProvider');
+import('lib.wizdam.classes.controllers.grid.GridRow');
+import('lib.wizdam.classes.controllers.grid.GridCategoryRowCellProvider');
 
 class GridCategoryRow extends GridRow {
     /** @var string empty row locale key */

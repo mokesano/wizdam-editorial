@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Optimized for PHP 7.4/8.x, APCu support, and .wiz Binary Cache
  */
 
-import('lib.pkp.classes.cache.FileCache');
+import('lib.wizdam.classes.cache.FileCache');
 
 define('CACHE_TYPE_FILE', 1);
 define('CACHE_TYPE_OBJECT', 2);
@@ -94,12 +94,12 @@ class CacheManager {
             case 'apc':
             case 'apcu': // [MODERNISASI] Support config 'apcu' secara eksplisit
                 // Ensure e-rename file APCCache.inc.php to APCuCache.inc.php
-                import('lib.pkp.classes.cache.APCuCache');
+                import('lib.wizdam.classes.cache.APCuCache');
                 $cache = new APCuCache($context, $cacheId, $fallback);
                 break;
                 
             case 'memcache':
-                import('lib.pkp.classes.cache.MemcacheCache');
+                import('lib.wizdam.classes.cache.MemcacheCache');
                 $cache = new MemcacheCache(
                     $context, $cacheId, $fallback,
                     Config::getVar('cache','memcache_hostname'),
@@ -113,7 +113,7 @@ class CacheManager {
                 break;
                 
             case 'none':
-                import('lib.pkp.classes.cache.GenericCache');
+                import('lib.wizdam.classes.cache.GenericCache');
                 $cache = new GenericCache($context, $cacheId, $fallback);
                 break;
                 

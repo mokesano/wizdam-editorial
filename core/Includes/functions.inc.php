@@ -41,8 +41,8 @@ if (!function_exists('str_contains')) {
  * Emulate a Java-style import statement.
  * [WIZDAM] Updated to support PSR-4 Autoloading bypass and Legacy Path Mapping.
  * If a class contains backslashes, we assume it's handled by Composer/Autoloader.
- * Maps legacy paths (lib.pkp.*, classes.*, pages.*) to new structure (core.library.*, app.classes.*, app.pages.*).
- * Also maps PKP class names to CORE and OJS class names to APP.
+ * Maps legacy paths (lib.wizdam.*, classes.*, pages.*) to new structure (core.library.*, app.classes.*, app.pages.*).
+ * Also maps Wizdam class names to CORE and Wizdam class names to APP.
  * @param string $class the complete name of the class to be imported
  */
 if (!function_exists('import')) {
@@ -59,8 +59,8 @@ if (!function_exists('import')) {
         // [WIZDAM] Legacy Path Mapping - Map old paths to new structure
         $mappedClass = $class;
         
-        // Map lib.pkp.* -> core.modules.*
-        if (strpos($class, 'lib.pkp.') === 0) {
+        // Map lib.wizdam.* -> core.modules.*
+        if (strpos($class, 'lib.wizdam.') === 0) {
             $mappedClass = 'core.Modules.' . substr($class, 9);
         }
         // Map lib.wizdam.* -> core.kernel.*
@@ -127,7 +127,7 @@ function fatalError(string $reason, int $httpStatus = 500): void {
         die();
     };
 
-    // [WIZDAM FIX-C] OJS 2.x tidak memiliki REST API — hanya AJAX internal jQuery
+    // [WIZDAM FIX-C] Wizdam 2.x tidak memiliki REST API — hanya AJAX internal jQuery
     $isAjaxRequest = isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
                      strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
 
@@ -234,7 +234,7 @@ function cloneObject(object $object): object {
 /**
  * Instantiates an object for a given fully qualified class name.
  * [WIZDAM] Updated Regex to allow Namespaces (Backslashes).
- * @param string $fullyQualifiedClassName (e.g., 'lib.pkp...Core' OR 'APP\core\Application')
+ * @param string $fullyQualifiedClassName (e.g., 'lib.wizdam...Core' OR 'APP\core\Application')
  * @param mixed $expectedTypes
  * @param mixed $expectedPackages
  * @param mixed $expectedMethods
@@ -244,7 +244,7 @@ function cloneObject(object $object): object {
 function instantiate(string $fullyQualifiedClassName, $expectedTypes = null, $expectedPackages = null, $expectedMethods = null, $constructorArg = null) {
     $errorFlag = false;
 
-    if (!PKPString::regexp_match('/^[a-zA-Z0-9._\\\\]+$/', $fullyQualifiedClassName)) {
+    if (!CoreString::regexp_match('/^[a-zA-Z0-9._\\\\]+$/', $fullyQualifiedClassName)) {
         // [WIZDAM FIX-D] Log agar silent fail tidak menyulitkan debugging di production
         error_log('[WIZDAM] instantiate(): Invalid class name rejected: ' . $fullyQualifiedClassName);
         return $errorFlag;
@@ -326,7 +326,7 @@ function stripAssocArray(array $values, bool $useClientCharset = false): array {
             if ($useClientCharset && strtolower(Config::getVar('i18n', 'client_charset')) !== 'utf-8') {
                 $values[$key] = html_entity_decode($values[$key], ENT_QUOTES, Config::getVar('i18n', 'client_charset'));
             } else {
-                $values[$key] = PKPString::html2utf($values[$key]);
+                $values[$key] = CoreString::html2utf($values[$key]);
             }
         } else {
             $values[$key] = stripAssocArray((array) $values[$key], $useClientCharset);

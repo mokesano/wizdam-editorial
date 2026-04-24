@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying FilterGroup objects.
  */
 
-import('lib.pkp.classes.filter.FilterGroup');
+import('lib.wizdam.classes.filter.FilterGroup');
 
 class FilterGroupDAO extends DAO {
     

@@ -8,7 +8,7 @@ declare(strict_types=1);
  * Menangani pengambilan data statistik performa artikel dengan performa tinggi.
  */
 
-import('lib.pkp.classes.db.DAO');
+import('lib.wizdam.classes.db.DAO');
 
 class MostPopularDAO extends DAO {
 

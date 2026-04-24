@@ -61,7 +61,7 @@ class IssueGalley extends IssueFile {
      * @return int
      */
     public function getViews() {
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         return $application->getPrimaryMetricByAssoc(ASSOC_TYPE_ISSUE_GALLEY, (int) $this->getId());
     }
 

@@ -84,7 +84,7 @@ class QuickSubmitPlugin extends ImportExportPlugin {
     public function display($args, $request): void {
         $templateMgr = TemplateManager::getManager();
         $templateMgr->register_function('plugin_url', [$this, 'smartyPluginUrl']);
-        AppLocale::requireComponents(LOCALE_COMPONENT_OJS_AUTHOR, LOCALE_COMPONENT_OJS_EDITOR, LOCALE_COMPONENT_PKP_SUBMISSION);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_AUTHOR, LOCALE_COMPONENT_WIZDAM_EDITOR, LOCALE_COMPONENT_WIZDAM_SUBMISSION);
         $this->setBreadcrumbs();
 
         if (array_shift($args) == 'saveSubmit') {

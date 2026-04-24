@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.linkAction.request.LinkActionRequest');
+import('lib.wizdam.classes.linkAction.request.LinkActionRequest');
 
 class RedirectAction extends LinkActionRequest {
     /** @var string The URL this action will invoke */
@@ -63,7 +63,7 @@ class RedirectAction extends LinkActionRequest {
      * @return string
      */
     public function getJSLinkActionRequest(): string {
-        return '$.pkp.classes.linkAction.RedirectRequest';
+        return '$.wizdam.classes.linkAction.RedirectRequest';
     }
 
     /**

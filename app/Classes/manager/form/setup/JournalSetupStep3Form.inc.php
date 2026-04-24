@@ -124,7 +124,7 @@ class JournalSetupStep3Form extends JournalSetupForm {
      * - Fixed Logic: Unconditional execution of Filter Grids.
      * - Type Safe: Handles Dispatcher correctly to generate URLs.
      *
-     * @param PKPRequest|null $request 
+     * @param CoreRequest|null $request 
      * @param Dispatcher|null $dispatcher 
      */
     public function display($request = null, $dispatcher = null) {
@@ -135,7 +135,7 @@ class JournalSetupStep3Form extends JournalSetupForm {
         $templateMgr = TemplateManager::getManager($request);
         
         // Load Assets
-        $templateMgr->addStyleSheet($request->getBaseUrl().'/styles/ojs.css');
+        $templateMgr->addStyleSheet($request->getBaseUrl().'/styles/wizdam.css');
         $templateMgr->addJavaScript('public/js/core-library/functions/modal.js');
         $templateMgr->addJavaScript('public/js/core-library/lib/jquery/plugins/validate/jquery.validate.min.js');
         $templateMgr->addJavaScript('public/js/core-library/functions/jqueryValidatorI18n.js');

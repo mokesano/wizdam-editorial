@@ -23,7 +23,7 @@ declare(strict_types=1);
  * * [WIZDAM EDITION] REFACTOR: PHP 8.1+ Signature Compatibility Fix
  */
 
-import('lib.pkp.plugins.metadata.mods34.filter.Mods34SchemaSubmissionAdapter');
+import('lib.wizdam.plugins.metadata.mods34.filter.Mods34SchemaSubmissionAdapter');
 
 class Mods34SchemaArticleAdapter extends Mods34SchemaSubmissionAdapter {
 
@@ -88,14 +88,14 @@ class Mods34SchemaArticleAdapter extends Mods34SchemaSubmissionAdapter {
             return $article;
         }
         
-        // Pass specific author class name for OJS articles.
+        // Pass specific author class name for Wizdam articles.
         // We intentionally ignore the $authorClassName passed in argument (it's there just for signature match)
         // and force 'classes.article.Author'.
         $article = parent::injectMetadataIntoDataObject($mods34Description, $article, 'classes.article.Author');
 
         // ...
         // [WIZDAM NOTE] The logic below is marked as FIXME in original code.
-        // It requires mapping MODS specific fields to OJS Journal/Issue settings.
+        // It requires mapping MODS specific fields to Wizdam Journal/Issue settings.
         // FIXME: Go through MODS schema and see what context-specific
         // information needs to be added, e.g. from Article, PublishedArticle
         // Issue, Journal, journal settings or site settings.
@@ -116,7 +116,7 @@ class Mods34SchemaArticleAdapter extends Mods34SchemaSubmissionAdapter {
         
         if (!$article instanceof Article) {
              // Fail safe
-             return new MetadataDescription('lib.pkp.plugins.metadata.mods34.schema.Mods34Schema', ASSOC_TYPE_ARTICLE);
+             return new MetadataDescription('lib.wizdam.plugins.metadata.mods34.schema.Mods34Schema', ASSOC_TYPE_ARTICLE);
         }
 
         // Extract meta-data from the submission.

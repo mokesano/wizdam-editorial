@@ -18,12 +18,12 @@ declare(strict_types=1);
 
 class PaymentManager {
     
-    /** @var PKPRequest */
+    /** @var CoreRequest */
     public $request;
 
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function __construct($request) {
         $this->request = $request;
@@ -31,7 +31,7 @@ class PaymentManager {
 
     /**
      * [SHIM] Backward Compatibility
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function PaymentManager($request) {
         trigger_error(
@@ -74,7 +74,7 @@ class PaymentManager {
      */
     public function isConfigured() {
         $paymentPlugin = $this->getPaymentPlugin(null);
-        if ($paymentPlugin !== null) return $paymentPlugin->isConfigured(PKPApplication::getRequest());
+        if ($paymentPlugin !== null) return $paymentPlugin->isConfigured(CoreApplication::getRequest());
         return false;
     }
 

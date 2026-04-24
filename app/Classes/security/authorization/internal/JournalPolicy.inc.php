@@ -11,24 +11,24 @@ declare(strict_types=1);
  * @class JournalPolicy
  * @ingroup security_authorization_internal
  *
- * @brief Policy that ensures availability of an OJS journal in
+ * @brief Policy that ensures availability of an Wizdam journal in
  * the request context
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.security.authorization.PolicySet');
+import('lib.wizdam.classes.security.authorization.PolicySet');
 
 class JournalPolicy extends PolicySet {
     
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function __construct($request) {
         parent::__construct();
 
         // Ensure that we have a journal in the context.
-        import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
+        import('lib.wizdam.classes.security.authorization.ContextRequiredPolicy');
         $this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noJournal'));
     }
 

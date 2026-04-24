@@ -50,7 +50,7 @@ class CopyeditorHandler extends Handler {
     /**
      * Display copyeditor index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args, $request) {
         $this->validate($request);
@@ -191,7 +191,7 @@ class CopyeditorHandler extends Handler {
     /**
      * Display submission management instructions.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function instructions($args, $request) {
         $this->setupTemplate();
@@ -204,7 +204,7 @@ class CopyeditorHandler extends Handler {
     /**
      * Validate that the user is the assigned copyeditor for
      * the article, if specified. Validate user role.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int|null $articleId optional
      */
     public function validate($request, $articleId = null) {

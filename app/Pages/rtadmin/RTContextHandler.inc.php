@@ -44,7 +44,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * Create context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createContext($args, $request = null) {
         $this->validate();
@@ -74,7 +74,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * List contexts.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function contexts($args, $request = null) {
         $this->validate();
@@ -100,7 +100,7 @@ class RTContextHandler extends RTAdminHandler {
             // [WIZDAM] Removed assign_by_ref
             $templateMgr->assign('version', $version);
 
-            import('lib.pkp.classes.core.ArrayItemIterator');
+            import('lib.wizdam.classes.core.ArrayItemIterator');
             $templateMgr->assign('contexts', new ArrayItemIterator($version->getContexts(), $rangeInfo->getPage(), $rangeInfo->getCount()));
 
             $templateMgr->assign('helpTopicId', 'journal.managementPages.readingTools.contexts');
@@ -113,7 +113,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * Edit context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editContext($args, $request = null) {
         $this->validate();
@@ -143,7 +143,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * Delete context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteContext($args, $request = null) {
         $this->validate();
@@ -169,7 +169,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * Save context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveContext($args, $request = null) {
         $this->validate();
@@ -198,7 +198,7 @@ class RTContextHandler extends RTAdminHandler {
     /**
      * Move context.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveContext($args, $request = null) {
         $this->validate();

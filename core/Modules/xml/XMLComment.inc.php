@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, No References, Visibility)
  */
 
-import ('lib.pkp.classes.xml.XMLNode');
+import ('lib.wizdam.classes.xml.XMLNode');
 
 class XMLComment extends XMLNode {
 

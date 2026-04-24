@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @ingroup tools
  *
  * @brief CLI tool to convert a .PO file for ISO3166 into the countries.xml format
- * supported by the PKP suite.
+ * supported by the Wizdam suite.
  * [WIZDAM EDITION] Modernized Localization Tool.
  */
 

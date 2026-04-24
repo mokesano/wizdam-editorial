@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/pkp/classes/core/PKPWizdamStats.inc.php
+ * @file lib/wizdam/classes/core/PKPWizdamStats.inc.php
  * 
  * Copyright (c) 2017-2026 Sangia Publishing House
  * Copyright (c) 2017-2026 Rochmady and Wizdam Team
@@ -11,17 +11,17 @@ declare(strict_types=1);
  * @ingroup Statistics
  * @class CoreWizdamStats
  * 
- * @brief Mengintegrasikan logika statistik kustom (v1.24.0) ke dalam core OJS.
+ * @brief Mengintegrasikan logika statistik kustom (v1.24.0) ke dalam core Wizdam.
  * Menggabungkan logika dari journal-insight.txt, getJournalStats_v2.txt, dan allJournalStats.txt
  * @author Rochmady and Wizdam Team
  * @version v1.24.0 (Core Refactor Lengkap - Final)
  */
 
 // Import kelas-kelas yang diperlukan
-import('lib.pkp.classes.db.DBConnection');
-import('lib.pkp.classes.cache.CacheManager');
-import('lib.pkp.classes.core.Core');
-import('lib.pkp.classes.config.Config');
+import('lib.wizdam.classes.db.DBConnection');
+import('lib.wizdam.classes.cache.CacheManager');
+import('lib.wizdam.classes.core.Core');
+import('lib.wizdam.classes.config.Config');
 import('classes.journal.JournalDAO');
 import('classes.article.ArticleDAO');
 import('classes.article.ArticleGalleyDAO');
@@ -574,7 +574,7 @@ class CoreWizdamStats {
                 $result->Close();
             }
         } catch (Exception $e) {
-            // HANYA log jika OJS diatur untuk mencatat error di config.inc.php
+            // HANYA log jika Wizdam diatur untuk mencatat error di config.inc.php
             if (Config::getVar('debug', 'log_errors')) {
                 error_log("WizdamStats: Error checking DB: " . $e->getMessage()); 
             }
@@ -608,7 +608,7 @@ class CoreWizdamStats {
                         // error_log("WizdamStats: Cache CORRUPT (unserialize failed) for JID: $journalId");
                     }
                 } catch (Exception $e) { 
-                    // HANYA jika OJS diatur untuk mencatat error di config.inc.php
+                    // HANYA jika Wizdam diatur untuk mencatat error di config.inc.php
                     if (Config::getVar('debug', 'log_errors')) {
                         error_log("WizdamStats: Failed to read/unserialize cache for JID $journalId: " . $e->getMessage()); 
                     }
@@ -672,7 +672,7 @@ class CoreWizdamStats {
             return ($result1 !== false && $result2 !== false && $result3 !== false);
 
         } catch (Exception $e) {
-            // HANYA log jika OJS diatur untuk mencatat error di config.inc.php
+            // HANYA log jika Wizdam diatur untuk mencatat error di config.inc.php
             if (Config::getVar('debug', 'log_errors')) {
                 error_log("WizdamStats: Exception during cache writing for JID $journalId: " . $e->getMessage());
             }
@@ -732,7 +732,7 @@ class CoreWizdamStats {
             $result = $articleDao->retrieve(
                 "SELECT SUM(metric) as total FROM metrics 
                  WHERE assoc_type = ? AND context_id = ?
-                 AND (metric_type = 'ojs::counter' OR metric_type = 'ojs::legacyDefault' OR metric_type = 'ojs::legacyCounter')",
+                 AND (metric_type = 'wizdam::counter' OR metric_type = 'wizdam::legacyDefault' OR metric_type = 'wizdam::legacyCounter')",
                 array(ASSOC_TYPE_ARTICLE, $journalId)
             );
             if ($result && !$result->EOF) $metrics['total_views'] = (int)$result->fields['total'];
@@ -767,7 +767,7 @@ class CoreWizdamStats {
             return $hash;
 
         } catch (Exception $e) {
-             // HANYA log jika OJS diatur untuk mencatat error di config.inc.php
+             // HANYA log jika Wizdam diatur untuk mencatat error di config.inc.php
              if (Config::getVar('debug', 'log_errors')) {
                  error_log("WizdamStats: Exception during HASH generation for JID $journalId: " . $e->getMessage());
              }
@@ -816,7 +816,7 @@ class CoreWizdamStats {
                 $jViews = 0; $jDownloads = 0; $jAuthors = 0;
 
                 // 1. Hitung Views
-                $result = $articleDao->retrieve("SELECT SUM(metric) AS total FROM metrics WHERE assoc_type = ? AND context_id = ? AND (metric_type = 'ojs::counter' OR metric_type = 'ojs::legacyDefault' OR metric_type = 'ojs::legacyCounter')", array(ASSOC_TYPE_ARTICLE, $jId));
+                $result = $articleDao->retrieve("SELECT SUM(metric) AS total FROM metrics WHERE assoc_type = ? AND context_id = ? AND (metric_type = 'wizdam::counter' OR metric_type = 'wizdam::legacyDefault' OR metric_type = 'wizdam::legacyCounter')", array(ASSOC_TYPE_ARTICLE, $jId));
                 if ($result && !$result->EOF) $jViews = (int)$result->fields['total'];
                 if($result) $result->Close();
                 if ($jViews == 0) {
@@ -826,7 +826,7 @@ class CoreWizdamStats {
                 }
 
                 // 2. Hitung Downloads
-                $result = $articleDao->retrieve("SELECT SUM(metric) AS total FROM metrics WHERE assoc_type = ? AND context_id = ? AND (metric_type = 'ojs::counter::galley' OR metric_type LIKE '%download%')", array(ASSOC_TYPE_GALLEY, $jId));
+                $result = $articleDao->retrieve("SELECT SUM(metric) AS total FROM metrics WHERE assoc_type = ? AND context_id = ? AND (metric_type = 'wizdam::counter::galley' OR metric_type LIKE '%download%')", array(ASSOC_TYPE_GALLEY, $jId));
                 if ($result && !$result->EOF) $jDownloads = (int)$result->fields['total'];
                 if($result) $result->Close();
                 if ($jDownloads == 0) {

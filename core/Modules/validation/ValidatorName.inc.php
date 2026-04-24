@@ -11,7 +11,7 @@ declare(strict_types=1);
  * Rejects dummy characters, repeating single characters, and universal dummy abbreviations.
  */
 
-import('lib.pkp.classes.validation.Validator');
+import('lib.wizdam.classes.validation.Validator');
 
 class ValidatorName extends Validator {
     

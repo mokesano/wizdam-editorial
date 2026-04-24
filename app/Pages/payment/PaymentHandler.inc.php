@@ -44,11 +44,11 @@ class PaymentHandler extends Handler {
     /**
      * Pass request to plugin.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function plugin($args, $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $paymentMethodPlugins = PluginRegistry::loadCategory('paymethod');
         $paymentMethodPluginName = array_shift($args);

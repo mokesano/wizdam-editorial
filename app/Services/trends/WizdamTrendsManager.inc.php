@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 class WizdamTrendsManager {
 
-    public static function assignMostPopularPayload(TemplateManager $templateMgr, ?Journal $journal, PKPRequest $request): void {
+    public static function assignMostPopularPayload(TemplateManager $templateMgr, ?Journal $journal, CoreRequest $request): void {
         import('lib.wizdam.trends.MostPopularDAO');
         $popularDao = new MostPopularDAO();
         
@@ -48,7 +48,7 @@ class WizdamTrendsManager {
     /**
      * [WIZDAM] - Eksekusi Micro-Payload (Mengekstrak seluruh data ke tipe skalar murni)
      */
-    private static function _formatMicroPayload(array $rawViewsData, PKPRequest $request): array {
+    private static function _formatMicroPayload(array $rawViewsData, CoreRequest $request): array {
         $journalDao = DAORegistry::getDAO('JournalDAO');
         $articleDao = DAORegistry::getDAO('ArticleDAO');
         $authorDao = DAORegistry::getDAO('AuthorDAO');

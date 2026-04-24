@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/notification/PKPNotificationManager.inc.php
+ * @file classes/notification/CoreNotificationManager.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -28,16 +28,16 @@ class CoreNotificationManager {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPNotificationManager() {
+    public function CoreNotificationManager() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPNotificationManager(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreNotificationManager(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }
 
     /**
      * Construct a set of notifications and return them as a formatted string
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $userId int
      * @param $level int optional
      * @param $contextId int optional
@@ -54,7 +54,7 @@ class CoreNotificationManager {
 
     /*
      * Return a string of formatted notifications for display
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $notifications object DAOResultFactory
      * @param $notificationTemplate string optional Template to use for constructing an individual notification for display
      * @return string
@@ -74,7 +74,7 @@ class CoreNotificationManager {
 
     /**
      * Return a fully formatted notification for display
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $notification object Notification
      * @return string
      */
@@ -107,7 +107,7 @@ class CoreNotificationManager {
 
     /**
      * Construct a URL for the notification based on its type and associated object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $notification Notification
      * @return string|false
      */
@@ -118,7 +118,7 @@ class CoreNotificationManager {
     /**
      * Return a message string for the notification based on its type
      * and associated object.
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $notification Notification
      * @return string|null
      */
@@ -312,7 +312,7 @@ class CoreNotificationManager {
 
     /**
      * Create a new notification with the specified arguments and insert into DB
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $userId int (optional)
      * @param $notificationType int
      * @param $contextId int
@@ -404,7 +404,7 @@ class CoreNotificationManager {
 
     /**
      * General notification data formating.
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param array $notifications
      * @return array
      */
@@ -424,7 +424,7 @@ class CoreNotificationManager {
 
     /**
      * In place notification data formating.
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $notifications array
      * @return array
      */
@@ -443,7 +443,7 @@ class CoreNotificationManager {
 
     /**
      * Send an email to a user regarding the notification
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $notification object Notification
      */
     public function sendNotificationEmail($request, $notification) {
@@ -466,14 +466,14 @@ class CoreNotificationManager {
         // WIZDAM UPDATE: Gunakan dispatch.
         // Parameter adalah objek ($notification), jadi tidak perlu '&'.
         // Jika hook mengembalikan nilai true, email dibatalkan.
-        if (!HookRegistry::dispatch('PKPNotificationManager::sendNotificationEmail', array($notification))) {
+        if (!HookRegistry::dispatch('CoreNotificationManager::sendNotificationEmail', array($notification))) {
             $mail->send();
         }
     }
 
     /**
      * Send an update to all users on the mailing list
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $notification object Notification
      */
     public function sendToMailingList($request, $notification) {
@@ -503,7 +503,7 @@ class CoreNotificationManager {
 
     /**
      * Static function to send an email to a mailing list user e.g. regarding signup
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $email string
      * @param $token string the user's token (for confirming and unsubscribing)
      * @param $template string The mail template to use

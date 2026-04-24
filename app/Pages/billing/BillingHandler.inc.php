@@ -188,7 +188,7 @@ class BillingHandler extends Handler {
 
         $paymentType = $request->getUserVar('payment_type') ?: 'all';
 
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('lib.wizdam.classes.validation.ValidatorCSRF');
         if ($request->isPost()) {
             if (!ValidatorCSRF::checkToken($request->getUserVar('csrfToken'))) {
                 $this->_sendJsonResponse($request, 'error', __('billing.error.csrfInvalid'));

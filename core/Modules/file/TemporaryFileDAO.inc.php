@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying TemporaryFile objects.
  */
 
-import('lib.pkp.classes.file.TemporaryFile');
+import('lib.wizdam.classes.file.TemporaryFile');
 
 class TemporaryFileDAO extends DAO {
     

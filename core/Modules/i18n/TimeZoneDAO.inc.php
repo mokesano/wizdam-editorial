@@ -42,7 +42,7 @@ class TimeZoneDAO extends DAO {
      * @return string
      */
     public function getFilename() {
-        return "lib/pkp/registry/timeZones.xml";
+        return "lib/wizdam/registry/timeZones.xml";
     }
 
     /**

@@ -44,10 +44,10 @@ class SubmissionReviewHandler extends ReviewerHandler {
     /**
      * Display the submission review page.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function submission($args, $request) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $journal = $request->getJournal();
         $reviewId = (int) array_shift($args);
 
@@ -84,10 +84,10 @@ class SubmissionReviewHandler extends ReviewerHandler {
     /**
      * Confirm whether the review has been accepted or not.
      * @param array $args optional
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function confirmReview($args, $request) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $reviewId = (int) trim((string) $request->getUserVar('reviewId'));
         
@@ -118,10 +118,10 @@ class SubmissionReviewHandler extends ReviewerHandler {
     /**
      * Save the competing interests statement, if allowed.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function saveCompetingInterests($args, $request) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $reviewId = (int) trim((string) $request->getUserVar('reviewId'));
         $this->validate($request, $reviewId);
         $reviewerSubmission = $this->submission;
@@ -138,10 +138,10 @@ class SubmissionReviewHandler extends ReviewerHandler {
     /**
      * Record the reviewer recommendation.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function recordRecommendation($args, $request) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $reviewId = (int) trim((string) $request->getUserVar('reviewId'));
         $recommendation = (int) trim((string) $request->getUserVar('recommendation'));
 
@@ -162,11 +162,11 @@ class SubmissionReviewHandler extends ReviewerHandler {
     /**
      * View the submission metadata
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function viewMetadata($args, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $reviewId = (int) array_shift($args);
         $articleId = (int) array_shift($args);
@@ -183,11 +183,11 @@ class SubmissionReviewHandler extends ReviewerHandler {
     /**
      * Upload the reviewer's annotated version of an article.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function uploadReviewerVersion($args, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // [SECURITY FIX] Amankan 'reviewId' dengan trim() dan (int)
         $reviewId = (int) trim((string) $request->getUserVar('reviewId'));
@@ -202,11 +202,11 @@ class SubmissionReviewHandler extends ReviewerHandler {
     /**
      * Delete one of the reviewer's annotated versions of an article.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function deleteReviewerVersion($args, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $reviewId = (int) array_shift($args);
         $fileId = (int) array_shift($args);
@@ -229,11 +229,11 @@ class SubmissionReviewHandler extends ReviewerHandler {
     /**
      * Download a file.
      * @param array $args ($articleId, $fileId, [$revision])
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function downloadFile($args, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $reviewId = (int) array_shift($args);
         $articleId = (int) array_shift($args);
@@ -256,11 +256,11 @@ class SubmissionReviewHandler extends ReviewerHandler {
     /**
      * Edit or preview review form response.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function editReviewFormResponse($args, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $reviewId = (int) array_shift($args);
 
@@ -279,11 +279,11 @@ class SubmissionReviewHandler extends ReviewerHandler {
     /**
      * Save review form response
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function saveReviewFormResponse($args, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $reviewId = (int) array_shift($args);
         $reviewFormId = (int) array_shift($args);

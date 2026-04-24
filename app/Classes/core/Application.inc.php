@@ -10,12 +10,12 @@ declare(strict_types=1);
  *
  * @class Application
  * @ingroup core
- * @see PKPApplication
+ * @see CoreApplication
  *
  * @brief Class describing this application.
  */
 
-import('lib.pkp.classes.core.PKPApplication');
+import('lib.wizdam.classes.core.CoreApplication');
 import('classes.statistics.StatisticsHelper');
 import('classes.core.Request');
 
@@ -27,7 +27,7 @@ define('ASSOC_TYPE_ARTICLE',        0x0000101); // 257
 define('ASSOC_TYPE_ANNOUNCEMENT',   0x0000102); // 258
 
 // [PERBAIKAN KONFLIK ID]
-// Issue dibiarkan menggunakan ID asli OJS (0x103)
+// Issue dibiarkan menggunakan ID asli Wizdam (0x103)
 define('ASSOC_TYPE_ISSUE',          0x0000103); // 259
 
 // Section digeser ke ID baru agar tidak bentrok dengan Issue.
@@ -91,7 +91,7 @@ class Application extends CoreApplication {
         // Panggil dari induknya (Registry)
         $request = parent::getRequest();
 
-        // Jika request kosong atau tertinggal di fase "amnesia" (hanya PKPRequest dasar),
+        // Jika request kosong atau tertinggal di fase "amnesia" (hanya CoreRequest dasar),
         // lakukan Upcasting/Healing DI SINI (Lapisan Aplikasi).
         if ($request === null || !($request instanceof Request)) {
             $request = new Request();
@@ -122,9 +122,9 @@ class Application extends CoreApplication {
      * @return string
      */
     public function getName(): string {
-        // [PERINGATAN] Jika ubah 'ojs2' maka ubah pula DB tabel 'versions'.
+        // [PERINGATAN] Jika ubah 'wizdam2' maka ubah pula DB tabel 'versions'.
         // Jika diubah, Application::getCurrentVersion() gagal, dan TemplateManager crash.
-        return 'ojs2'; 
+        return 'wizdam2'; 
     }
 
     /**
@@ -132,7 +132,7 @@ class Application extends CoreApplication {
      * @return string
      */
     public function getNameKey(): string {
-        // [PERINGATAN] Jika ubah 'ojs2' ubah pemanggilan nama aplikasi.
+        // [PERINGATAN] Jika ubah 'wizdam2' ubah pemanggilan nama aplikasi.
         // Menjadi common.wizdamEditionSystems
         return 'common.openJournalSystems';
     }
@@ -142,9 +142,9 @@ class Application extends CoreApplication {
      * @return string
      */
     public function getVersionDescriptorUrl(): string {
-        // [PERINGATAN] Jika ubah 'ojs2' siapkan url cek versi aplikasi.
+        // [PERINGATAN] Jika ubah 'wizdam2' siapkan url cek versi aplikasi.
         // Gunakan url wizdamEditin untuk versi fork Wizdam Fork Edition
-        return 'http://pkp.sfu.ca/ojs/xml/ojs-version.xml';
+        return 'http://wizdam.sfu.ca/wizdam/xml/wizdam-version.xml';
     }
 
     /**
@@ -166,14 +166,14 @@ class Application extends CoreApplication {
             'AuthorDAO' => 'classes.article.AuthorDAO',
             'AuthorSubmissionDAO' => 'classes.submission.author.AuthorSubmissionDAO',
             'CategoryDAO' => 'classes.journal.categories.CategoryDAO',
-            'CommentDAO' => 'lib.pkp.classes.comment.CommentDAO',
+            'CommentDAO' => 'lib.wizdam.classes.comment.CommentDAO',
             'CopyeditorSubmissionDAO' => 'classes.submission.copyeditor.CopyeditorSubmissionDAO',
             'EditAssignmentDAO' => 'classes.submission.editAssignment.EditAssignmentDAO',
             'EditorSubmissionDAO' => 'classes.submission.editor.EditorSubmissionDAO',
             'EmailTemplateDAO' => 'classes.mail.EmailTemplateDAO',
             'GiftDAO' => 'classes.gift.GiftDAO',
-            'GroupDAO' => 'lib.pkp.classes.group.GroupDAO',
-            'GroupMembershipDAO' => 'lib.pkp.classes.group.GroupMembershipDAO',
+            'GroupDAO' => 'lib.wizdam.classes.group.GroupDAO',
+            'GroupMembershipDAO' => 'lib.wizdam.classes.group.GroupMembershipDAO',
             'IndividualSubscriptionDAO' => 'classes.subscription.IndividualSubscriptionDAO',
             'InstitutionalSubscriptionDAO' => 'classes.subscription.InstitutionalSubscriptionDAO',
             'IssueDAO' => 'classes.issue.IssueDAO',
@@ -185,20 +185,20 @@ class Application extends CoreApplication {
             'LayoutEditorSubmissionDAO' => 'classes.submission.layoutEditor.LayoutEditorSubmissionDAO',
             'MetricsDAO' => 'classes.statistics.MetricsDAO',
             'NoteDAO' => 'classes.note.NoteDAO',
-            'OAIDAO' => 'classes.oai.ojs.OAIDAO',
-            'OJSCompletedPaymentDAO' => 'classes.payment.ojs.OJSCompletedPaymentDAO',
+            'OAIDAO' => 'classes.oai.wizdam.OAIDAO',
+            'AppCompletedPaymentDAO' => 'classes.payment.wizdam.AppCompletedPaymentDAO',
             'PluginSettingsDAO' => 'classes.plugins.PluginSettingsDAO',
             'ProofreaderSubmissionDAO' => 'classes.submission.proofreader.ProofreaderSubmissionDAO',
             'PublishedArticleDAO' => 'classes.article.PublishedArticleDAO',
-            'QueuedPaymentDAO' => 'lib.pkp.classes.payment.QueuedPaymentDAO',
+            'QueuedPaymentDAO' => 'lib.wizdam.classes.payment.QueuedPaymentDAO',
             'ReviewAssignmentDAO' => 'classes.submission.reviewAssignment.ReviewAssignmentDAO',
             'ReviewerSubmissionDAO' => 'classes.submission.reviewer.ReviewerSubmissionDAO',
-            'ReviewFormDAO' => 'lib.pkp.classes.reviewForm.ReviewFormDAO',
-            'ReviewFormElementDAO' => 'lib.pkp.classes.reviewForm.ReviewFormElementDAO',
-            'ReviewFormResponseDAO' => 'lib.pkp.classes.reviewForm.ReviewFormResponseDAO',
+            'ReviewFormDAO' => 'lib.wizdam.classes.reviewForm.ReviewFormDAO',
+            'ReviewFormElementDAO' => 'lib.wizdam.classes.reviewForm.ReviewFormElementDAO',
+            'ReviewFormResponseDAO' => 'lib.wizdam.classes.reviewForm.ReviewFormResponseDAO',
             'RoleDAO' => 'classes.security.RoleDAO',
-            'RTDAO' => 'classes.rt.ojs.RTDAO',
-            'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
+            'RTDAO' => 'classes.rt.wizdam.RTDAO',
+            'ScheduledTaskDAO' => 'lib.wizdam.classes.scheduledTask.ScheduledTaskDAO',
             'SectionDAO' => 'classes.journal.SectionDAO',
             'SectionEditorsDAO' => 'classes.journal.SectionEditorsDAO',
             'SectionEditorSubmissionDAO' => 'classes.submission.sectionEditor.SectionEditorSubmissionDAO',
@@ -299,7 +299,7 @@ class Application extends CoreApplication {
     }
 
     /**
-     * Main entry point for OJS statistics reports.
+     * Main entry point for Wizdam statistics reports.
      * @param string|array|null $metricType
      * @param array|string $columns
      * @param array $filter

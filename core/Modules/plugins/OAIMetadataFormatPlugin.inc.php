@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/pkp/classes/plugins/OAIMetadataFormatPlugin.inc.php
+ * @file lib/wizdam/classes/plugins/OAIMetadataFormatPlugin.inc.php
  *
  * @class OAIMetadataFormatPlugin
  * @ingroup plugins
@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 
 import('classes.plugins.Plugin');
-import('lib.pkp.classes.oai.OAIStruct');
+import('lib.wizdam.classes.oai.OAIStruct');
 
 class OAIMetadataFormatPlugin extends Plugin {
 

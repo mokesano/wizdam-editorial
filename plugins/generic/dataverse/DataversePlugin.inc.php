@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored into a Clean Architecture Orchestration Hub for PHP 8.4
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 // HTTP status codes
 define('DATAVERSE_PLUGIN_HTTP_STATUS_OK',         200);

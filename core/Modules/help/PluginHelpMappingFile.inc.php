@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Abstracts the plugin's help mapping XML files.
  */
 
-import('lib.pkp.classes.help.HelpMappingFile');
+import('lib.wizdam.classes.help.HelpMappingFile');
 
 class PluginHelpMappingFile extends HelpMappingFile {
     /** @var object */

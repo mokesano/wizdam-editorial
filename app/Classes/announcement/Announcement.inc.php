@@ -23,7 +23,7 @@ declare(strict_types=1);
  * - Strict SHIM
  */
 
-import('lib.pkp.classes.announcement.PKPAnnouncement');
+import('lib.wizdam.classes.announcement.PKPAnnouncement');
 
 class Announcement extends CoreAnnouncement {
     

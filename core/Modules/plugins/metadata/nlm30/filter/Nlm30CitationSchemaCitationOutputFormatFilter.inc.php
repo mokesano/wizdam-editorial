@@ -16,8 +16,8 @@ declare(strict_types=1);
  * via smarty template.
  */
 
-import('lib.pkp.classes.filter.TemplateBasedFilter');
-import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+import('lib.wizdam.classes.filter.TemplateBasedFilter');
+import('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
 
 // This is a brand name so doesn't have to be translated...
 define('GOOGLE_SCHOLAR_TAG', '[Google Scholar]');
@@ -125,7 +125,7 @@ class Nlm30CitationSchemaCitationOutputFormatFilter extends TemplateBasedFilter 
                 $property = $input->getProperty($propertyName);
                 $propertyLocale = $property->getTranslated() ? $locale : null;
                 // Assign by reference not strictly required for scalar/simple values but often used in older Smarty integration
-                // We keep assign_by_ref or change to assign depending on framework version. Assuming OJS 2.x/3.x legacy uses assign_by_ref.
+                // We keep assign_by_ref or change to assign depending on framework version. Assuming Wizdam 2.x/3.x legacy uses assign_by_ref.
                 // However, getting statement returns value, not reference usually.
                 // If getStatement returns by ref in core, we might need &
                 $value = $input->getStatement($propertyName, $propertyLocale);

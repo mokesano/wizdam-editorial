@@ -16,13 +16,13 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
+import('lib.wizdam.classes.security.authorization.DataObjectRequiredPolicy');
 
 class SectionEditorSubmissionRequiredPolicy extends DataObjectRequiredPolicy {
     
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function __construct($request, $args, $submissionParameterName = 'articleId') {
         parent::__construct($request, $args, $submissionParameterName, 'user.authorization.invalidSectionEditorSubmission');

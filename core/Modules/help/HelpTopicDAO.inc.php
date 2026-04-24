@@ -15,9 +15,9 @@ declare(strict_types=1);
  * @brief Operations for retrieving HelpTopic objects.
  */
 
-import('lib.pkp.classes.help.HelpTopic');
-import('lib.pkp.classes.help.PKPHelp');
-import('lib.pkp.classes.help.HelpTopicSection'); // Import yang hilang
+import('lib.wizdam.classes.help.HelpTopic');
+import('lib.wizdam.classes.help.CoreHelp');
+import('lib.wizdam.classes.help.HelpTopicSection'); // Import yang hilang
 
 class HelpTopicDAO extends XMLDAO {
     
@@ -46,10 +46,10 @@ class HelpTopicDAO extends XMLDAO {
      */
     protected function _getCache($topicId) { // Menghapus reference (&)
         $cache = Registry::get('helpTopicCache', true, null); // Menghapus reference (&)
-        $locale = PKPHelp::getLocale();
+        $locale = CoreHelp::getLocale();
 
         if (!isset($cache[$locale][$topicId])) {
-            $help = PKPHelp::getHelp(); // Menghapus reference (&)
+            $help = CoreHelp::getHelp(); // Menghapus reference (&)
             $cacheManager = CacheManager::getManager(); // Menghapus reference (&)
             $cache[$locale][$topicId] = $cacheManager->getFileCache('help-topic-' . $locale, $topicId, array($this, '_cacheMiss'));
 
@@ -71,7 +71,7 @@ class HelpTopicDAO extends XMLDAO {
      * @return HelpMappingFile|null
      */
     public function getMappingFile($topicId) { // Menghapus reference (&)
-        $help = PKPHelp::getHelp(); // Menghapus reference (&)
+        $help = CoreHelp::getHelp(); // Menghapus reference (&)
         $mappingFiles = $help->getMappingFiles(); // Menghapus reference (&)
 
         for ($i = 0; $i < count($mappingFiles); $i++) {
@@ -178,9 +178,9 @@ class HelpTopicDAO extends XMLDAO {
      * @return array matching HelpTopics
      */
     public function getTopicsByKeyword($keyword) { // Menghapus reference (&)
-        $keyword = PKPString::strtolower($keyword);
+        $keyword = CoreString::strtolower($keyword);
         $matchingTopics = array();
-        $help = PKPHelp::getHelp(); // Menghapus reference (&)
+        $help = CoreHelp::getHelp(); // Menghapus reference (&)
 
         foreach ($help->getSearchPaths() as $searchPath => $mappingFile) {
             $dir = @opendir($searchPath); // @ ditambahkan untuk menekan warning jika direktori tidak ada
@@ -242,11 +242,11 @@ class HelpTopicDAO extends XMLDAO {
             $topic = $this->getTopic($topicId); // Menghapus reference (&)
 
             if ($topic) {
-                $numMatches = PKPString::substr_count(PKPString::strtolower($topic->getTitle()), $keyword);
+                $numMatches = CoreString::substr_count(CoreString::strtolower($topic->getTitle()), $keyword);
 
                 foreach ($topic->getSections() as $section) {
-                    $numMatches += PKPString::substr_count(PKPString::strtolower($section->getTitle()), $keyword);
-                    $numMatches += PKPString::substr_count(PKPString::strtolower($section->getContent()), $keyword);
+                    $numMatches += CoreString::substr_count(CoreString::strtolower($section->getTitle()), $keyword);
+                    $numMatches += CoreString::substr_count(CoreString::strtolower($section->getContent()), $keyword);
                 }
 
                 if ($numMatches > 0) {

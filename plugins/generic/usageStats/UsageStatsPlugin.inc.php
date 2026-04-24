@@ -12,11 +12,11 @@ declare(strict_types=1);
  * @ingroup plugins_generic_usageStats
  *
  * @brief Provide usage statistics to data objects.
- * MODERNIZED FOR PHP 7.4+ & OJS FORK
+ * MODERNIZED FOR PHP 7.4+ & Wizdam FORK
  */
 
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class UsageStatsPlugin extends GenericPlugin {
 
@@ -170,7 +170,7 @@ class UsageStatsPlugin extends GenericPlugin {
      * @param $args array
      * @param $message string
      * @param $messageParams array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return bool
      */
     public function manage(string $verb, array $args, string $message, array $messageParams, $request = NULL): bool {
@@ -213,7 +213,7 @@ class UsageStatsPlugin extends GenericPlugin {
      * Get the management verbs associated with this plugin.
      * @see GenericPlugin::getManagementVerbs()
      * @param $verbs array
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return array
      */
     function getManagementVerbs(array $verbs = [], $request = null): array {
@@ -371,7 +371,7 @@ class UsageStatsPlugin extends GenericPlugin {
     * @return string
     */
     public function getFilesPath() {
-        import('lib.pkp.classes.file.PrivateFileManager');
+        import('lib.wizdam.classes.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         return realpath($fileMgr->getBasePath()) . DIRECTORY_SEPARATOR . 'usageStats';
@@ -465,7 +465,7 @@ class UsageStatsPlugin extends GenericPlugin {
 
         $usageLogEntry = implode(' ', $desiredParams) . PHP_EOL;
 
-        import('lib.pkp.classes.file.PrivateFileManager');
+        import('lib.wizdam.classes.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         // Get the current day filename.
@@ -504,7 +504,7 @@ class UsageStatsPlugin extends GenericPlugin {
     *
     * NB: This implementation was taken from OA-S directly. 
     * See http://sourceforge.net/p/openaccessstati/code-0/3/tree/trunk/logfile-parser/lib/logutils.php
-    * We just do not implement the PHP4 part as OJS dropped PHP4 support.
+    * We just do not implement the PHP4 part as Wizdam dropped PHP4 support.
     *
     * @param $ip string
     * @param $salt string

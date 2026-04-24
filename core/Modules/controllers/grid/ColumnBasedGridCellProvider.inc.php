@@ -21,7 +21,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x Strict Standards.
  */
 
-import('lib.pkp.classes.controllers.grid.GridCellProvider');
+import('lib.wizdam.classes.controllers.grid.GridCellProvider');
 
 class ColumnBasedGridCellProvider extends GridCellProvider {
     

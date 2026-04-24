@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, Type Safety)
  */
 
-import('lib.pkp.classes.validation.ValidatorRegExp');
+import('lib.wizdam.classes.validation.ValidatorRegExp');
 
 class ValidatorISNI extends ValidatorRegExp {
     

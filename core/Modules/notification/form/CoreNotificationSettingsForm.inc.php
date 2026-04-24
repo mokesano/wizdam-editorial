@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/notification/form/PKPNotificationSettingsForm.inc.php
+ * @file classes/notification/form/CoreNotificationSettingsForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief Form to edit notification settings.
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class CoreNotificationSettingsForm extends Form {
     
@@ -35,16 +35,16 @@ class CoreNotificationSettingsForm extends Form {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPNotificationSettingsForm() {
+    public function CoreNotificationSettingsForm() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPNotificationSettingsForm(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreNotificationSettingsForm(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }
 
     /**
      * Display the form.
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $template string
      */
     public function display($request = null, $template = null) {

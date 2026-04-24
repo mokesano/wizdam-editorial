@@ -33,7 +33,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.metadata.MetadataSchema');
+import('lib.wizdam.classes.metadata.MetadataSchema');
 
 class Mods34NameSchema extends MetadataSchema {
     
@@ -45,7 +45,7 @@ class Mods34NameSchema extends MetadataSchema {
         parent::__construct(
             'mods-3.4-name',
             'mods34',
-            'lib.pkp.plugins.metadata.mods34.schema.Mods34NameSchema',
+            'lib.wizdam.plugins.metadata.mods34.schema.Mods34NameSchema',
             [ASSOC_TYPE_AUTHOR, ASSOC_TYPE_EDITOR]
         );
 

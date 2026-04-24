@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Form for QuickSubmit one-page submission plugin
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class QuickSubmitForm extends Form {
     
@@ -83,7 +83,7 @@ class QuickSubmitForm extends Form {
             'required', 
             'user.profile.form.emailRequired', 
             function($email, $regExp) { 
-                return PKPString::regexp_match($regExp, $email); 
+                return CoreString::regexp_match($regExp, $email); 
             }, 
             array(ValidatorEmail::getRegexp()), 
             false, 
@@ -96,7 +96,7 @@ class QuickSubmitForm extends Form {
             'required', 
             'user.profile.form.urlInvalid', 
             function($url, $regExp) { 
-                return empty($url) ? true : PKPString::regexp_match($regExp, $url); 
+                return empty($url) ? true : CoreString::regexp_match($regExp, $url); 
             }, 
             array(ValidatorUrl::getRegexp()), 
             false, 
@@ -104,7 +104,7 @@ class QuickSubmitForm extends Form {
         ));
 
         // Add ORCiD validation
-        import('lib.pkp.classes.validation.ValidatorORCID');
+        import('lib.wizdam.classes.validation.ValidatorORCID');
         $this->addCheck(new FormValidatorArrayCustom(
             $this, 
             'authors', 
@@ -320,7 +320,7 @@ class QuickSubmitForm extends Form {
         $signoffDao = DAORegistry::getDAO('SignoffDAO');
         $sectionEditorSubmissionDao = DAORegistry::getDAO('SectionEditorSubmissionDAO');
 
-        // PKPApplication::getApplication() logic maintained
+        // CoreApplication::getApplication() logic maintained
         $request = $this->request;
         $user = $request->getUser();
         $router = $request->getRouter();

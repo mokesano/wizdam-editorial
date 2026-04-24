@@ -2,25 +2,25 @@
 declare(strict_types=1);
 
 /**
- * @defgroup rt_ojs
+ * @defgroup rt_wizdam
  */
 
 /**
- * @file classes/rt/ojs/JournalRT.inc.php
+ * @file classes/rt/wizdam/JournalRT.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class JournalRT
- * @ingroup rt_ojs
+ * @ingroup rt_wizdam
  *
- * @brief OJS-specific Reading Tools end-user interface.
+ * @brief Wizdam-specific Reading Tools end-user interface.
  *
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.rt.RT');
+import('lib.wizdam.classes.rt.RT');
 import('classes.rt.RTDAO');
 
 class JournalRT extends RT {

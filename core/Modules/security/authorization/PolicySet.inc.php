@@ -23,7 +23,7 @@ define('COMBINING_PERMIT_OVERRIDES', 0x02);
 
 // Include the authorization policy class which contains
 // definitions for the deny and permit effects.
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
 
 class PolicySet {
     /** @var array */

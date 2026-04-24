@@ -16,7 +16,7 @@ declare(strict_types=1);
 
 define('TIMED_VIEW_REPORT_YEAR_OFFSET_PAST', '-20');
 define('TIMED_VIEW_REPORT_YEAR_OFFSET_FUTURE', '+0');
-define('OJS_METRIC_TYPE_TIMED_VIEWS', 'ojs::timedViews');
+define('APP_METRIC_TYPE_TIMED_VIEWS', 'wizdam::timedViews');
 
 import('classes.plugins.ReportPlugin');
 
@@ -114,7 +114,7 @@ class TimedViewReportPlugin extends ReportPlugin {
     /**
      * Display the report.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function display($args, $request) {
         parent::display($args, $request);
@@ -138,7 +138,7 @@ class TimedViewReportPlugin extends ReportPlugin {
             ));
             $journal = $request->getJournal();
             $metricsDao = DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */
-            $metricsDao->purgeRecords(OJS_METRIC_TYPE_TIMED_VIEWS, $dateClear);
+            $metricsDao->purgeRecords(APP_METRIC_TYPE_TIMED_VIEWS, $dateClear);
             $form->display();
         } else {
             $form->initData();

@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - Visibility explicit
  */
 
-import('lib.pkp.classes.submission.PKPAuthor');
+import('lib.wizdam.classes.submission.CoreAuthor');
 
 class Author extends CoreAuthor {
     

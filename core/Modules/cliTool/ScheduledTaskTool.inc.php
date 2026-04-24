@@ -20,10 +20,10 @@ if (!defined('TASKS_REGISTRY_FILE')) {
     define('TASKS_REGISTRY_FILE', Config::getVar('general', 'registry_dir') . '/scheduledTasks.xml');
 }
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
-import('lib.pkp.classes.scheduledTask.ScheduledTaskHelper');
-import('lib.pkp.classes.scheduledTask.ScheduledTaskDAO');
-import('lib.pkp.classes.xml.XMLParser'); // [WIZDAM] Explicit Import
+import('lib.wizdam.classes.scheduledTask.ScheduledTask');
+import('lib.wizdam.classes.scheduledTask.ScheduledTaskHelper');
+import('lib.wizdam.classes.scheduledTask.ScheduledTaskDAO');
+import('lib.wizdam.classes.xml.XMLParser'); // [WIZDAM] Explicit Import
 
 class ScheduledTaskTool extends CommandLineTool {
 

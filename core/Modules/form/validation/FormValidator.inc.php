@@ -157,7 +157,7 @@ class FormValidator {
                     return false;
                 }
             } elseif (is_object($validator) && method_exists($validator, 'isValid')) {
-                // EKSEKUSI PENTING: Jalankan validator standar OJS
+                // EKSEKUSI PENTING: Jalankan validator standar Wizdam
                 return $validator->isValid($fieldValue);
             }
             

@@ -16,8 +16,8 @@ declare(strict_types=1);
  */
 
 // import grid classes
-import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.controllers.grid.GridCategoryRow');
+import('lib.wizdam.classes.controllers.grid.GridHandler');
+import('lib.wizdam.classes.controllers.grid.GridCategoryRow');
 
 // empty category constant
 define('GRID_CATEGORY_NONE', 'NONE');
@@ -37,7 +37,7 @@ class CategoryGridHandler extends GridHandler {
     public function __construct($dataProvider = null) {
         parent::__construct($dataProvider);
 
-        import('lib.pkp.classes.controllers.grid.NullGridCellProvider');
+        import('lib.wizdam.classes.controllers.grid.NullGridCellProvider');
         $this->addColumn(new GridColumn(
             'indent', 
             null, 
@@ -156,7 +156,7 @@ class CategoryGridHandler extends GridHandler {
      * @return string
      */
     public function getJSHandler() {
-        return '$.pkp.controllers.grid.CategoryGridHandler';
+        return '$.wizdam.controllers.grid.CategoryGridHandler';
     }
 
     /**

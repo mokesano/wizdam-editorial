@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 import('classes.file.JournalFileManager');
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
+import('lib.wizdam.classes.scheduledTask.ScheduledTask');
 
 class Depositor extends ScheduledTask {
 

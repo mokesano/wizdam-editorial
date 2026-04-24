@@ -16,8 +16,8 @@ declare(strict_types=1);
  *
  */
 
-import('lib.pkp.classes.codelist.Subject');
-import('lib.pkp.classes.codelist.CodelistItemDAO');
+import('lib.wizdam.classes.codelist.Subject');
+import('lib.wizdam.classes.codelist.CodelistItemDAO');
 
 class SubjectDAO extends CodelistItemDAO {
 
@@ -50,7 +50,7 @@ class SubjectDAO extends CodelistItemDAO {
         if (!AppLocale::isLocaleValid($locale)) {
             $locale = AppLocale::MASTER_LOCALE;
         }
-        return "lib/pkp/locale/$locale/bic21subjects.xml";
+        return "lib/wizdam/locale/$locale/bic21subjects.xml";
     }
 
     /**

@@ -16,10 +16,10 @@ declare(strict_types=1);
 
 define('SITE_ACCESS_ALL_ROLES', 0x01);
 
-import('lib.pkp.classes.security.authorization.PolicySet');
+import('lib.wizdam.classes.security.authorization.PolicySet');
 
 class CoreSiteAccessPolicy extends PolicySet {
-    /** @var PKPRequest */
+    /** @var CoreRequest */
     public $_request;
 
     /**
@@ -32,12 +32,12 @@ class CoreSiteAccessPolicy extends PolicySet {
         $siteRolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
         
         if(is_array($roleAssignments)) {
-            import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+            import('lib.wizdam.classes.security.authorization.RoleBasedHandlerOperationPolicy');
             foreach($roleAssignments as $role => $operations) {
                 $siteRolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
             }
         } elseif ($roleAssignments === SITE_ACCESS_ALL_ROLES) {
-            import('lib.pkp.classes.security.authorization.PKPPublicAccessPolicy');
+            import('lib.wizdam.classes.security.authorization.PKPPublicAccessPolicy');
             $siteRolePolicy->addPolicy(new CorePublicAccessPolicy($request, $operations));
         } else {
             fatalError('Invalid role assignments!');
@@ -58,7 +58,7 @@ class CoreSiteAccessPolicy extends PolicySet {
 
     /**
      * Return the request.
-     * @return PKPRequest
+     * @return CoreRequest
      */
     public function getRequest() {
         return $this->_request;

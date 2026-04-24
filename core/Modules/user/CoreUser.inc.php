@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/user/PKPUser.inc.php
+ * @file classes/user/CoreUser.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -32,9 +32,9 @@ class CoreUser extends DataObject {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPUser() {
+    public function CoreUser() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPUser(). Please refactor to parent::__construct().", 
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreUser(). Please refactor to parent::__construct().", 
             E_USER_DEPRECATED
         );
         self::__construct();
@@ -600,7 +600,7 @@ class CoreUser extends DataObject {
      */
     public function getUserInterests() {
         if (Config::getVar('debug', 'deprecation_warnings')) trigger_error('Deprecated function.');
-        import('lib.pkp.classes.user.InterestManager');
+        import('lib.wizdam.classes.user.InterestManager');
         $interestManager = new InterestManager();
         return $interestManager->getInterestsForUser($this);
     }
@@ -610,7 +610,7 @@ class CoreUser extends DataObject {
      * @return string
      */
     public function getInterestString() {
-        import('lib.pkp.classes.user.InterestManager');
+        import('lib.wizdam.classes.user.InterestManager');
         $interestManager = new InterestManager();
         return $interestManager->getInterestsString($this);
     }
@@ -883,7 +883,7 @@ class CoreUser extends DataObject {
      */
     public function getContactSignature() {
         $signature = $this->getFullName();
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_USER);
         if ($a = $this->getLocalizedAffiliation()) $signature .= "\n" . $a;
         if ($p = $this->getPhone()) $signature .= "\n" . __('user.phone') . ' ' . $p;
         if ($f = $this->getFax()) $signature .= "\n" . __('user.fax') . ' ' . $f;

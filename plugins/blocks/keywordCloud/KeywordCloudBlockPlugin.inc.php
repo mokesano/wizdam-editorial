@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM STATUS] DEPRECATED UI PATTERN. Safe for PHP 8, but recommended for removal.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 define('KEYWORD_BLOCK_MAX_ITEMS', 20);
 define('KEYWORD_BLOCK_CACHE_DAYS', 2);
@@ -93,7 +93,7 @@ class KeywordCloudBlockPlugin extends BlockPlugin {
     /**
      * Get the HTML contents for this block.
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {

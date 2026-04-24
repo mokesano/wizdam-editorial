@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 import('classes.article.ArticleComment');
-import('lib.pkp.classes.db.DBRowIterator');
+import('lib.wizdam.classes.db.DBRowIterator');
 
 class ReviewReportDAO extends DAO {
     

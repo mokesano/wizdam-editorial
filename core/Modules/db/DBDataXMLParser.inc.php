@@ -15,7 +15,7 @@ declare(strict_types=1);
  * See dbscripts/xml/dtd/xmldata.dtd for the XML schema used.
  */
 
-import('lib.pkp.classes.xml.XMLParser');
+import('lib.wizdam.classes.xml.XMLParser');
 
 class DBDataXMLParser {
 

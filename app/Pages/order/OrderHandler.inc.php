@@ -101,7 +101,7 @@ class OrderHandler extends Handler {
             $this->_redirectWithError($request, 'order.error.invalidMethod', 'cart');
         }
 
-        import('lib.pkp.classes.validation.ValidatorCSRF');
+        import('lib.wizdam.classes.validation.ValidatorCSRF');
         if (!ValidatorCSRF::checkToken($request->getUserVar('csrfToken'))) {
             $this->_redirectWithError($request, 'order.error.csrfInvalid', 'cart');
         }

@@ -32,7 +32,7 @@ class CoreLoginHandler extends Handler {
      * Display user login form.
      * Redirect to user index page if user is already validated.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -76,7 +76,7 @@ class CoreLoginHandler extends Handler {
         }
         
         $source = trim((string) $request->getUserVar('source'));
-        if (!empty($source) && !PKPRequest::isPathValid($source)) { $source = ''; }
+        if (!empty($source) && !CoreRequest::isPathValid($source)) { $source = ''; }
         $templateMgr->assign('source', $source);
         $templateMgr->assign('showRemember', Config::getVar('general', 'session_lifetime') > 0);
 
@@ -86,7 +86,7 @@ class CoreLoginHandler extends Handler {
         // Generate login URL (considering SSL settings)
         $loginUrl = $this->_getLoginUrl($request);
         if (Config::getVar('security', 'force_login_ssl')) {
-            $loginUrl = PKPString::regexp_replace('/^http:/', 'https:', $loginUrl);
+            $loginUrl = CoreString::regexp_replace('/^http:/', 'https:', $loginUrl);
         }
         $templateMgr->assign('loginUrl', $loginUrl);
 
@@ -103,7 +103,7 @@ class CoreLoginHandler extends Handler {
     /**
      * Validate user's credentials and log the user in.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function signIn($args = [], $request = null) {
         $this->validate();
@@ -143,7 +143,7 @@ class CoreLoginHandler extends Handler {
                 $request->redirect(null, null, 'changePassword', $user->getUsername());
             } else {
                 $source = trim((string) $request->getUserVar('source'));
-                if (!empty($source) && !PKPRequest::isPathValid($source)) { 
+                if (!empty($source) && !CoreRequest::isPathValid($source)) { 
                     $source = ''; 
                 }
 
@@ -171,7 +171,7 @@ class CoreLoginHandler extends Handler {
             $session->setSessionVar('loginRemember',       $remember);
         
             $source = trim((string) $request->getUserVar('source'));
-            if (!empty($source) && !PKPRequest::isPathValid($source)) { $source = ''; }
+            if (!empty($source) && !CoreRequest::isPathValid($source)) { $source = ''; }
         
             $request->redirect(null, 'login', null, null, !empty($source) ? ['source' => $source] : []);
         }
@@ -181,7 +181,7 @@ class CoreLoginHandler extends Handler {
      * Handle login when implicitAuth is enabled.
      * Redirects to WAYF for authentication and then back to the site.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function implicitAuthLogin($args, $request) {
         // [WIZDAM] Singleton Fallback
@@ -207,13 +207,13 @@ class CoreLoginHandler extends Handler {
      * Handle return from WAYF after implicit authentication.
      * Validates the user and logs them in if successful.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function implicitAuthReturn($args, $request) {
         $this->validate();
         if (!$request) $request = Application::get()->getRequest();
     
-        // 1. Jika sudah login (sesi OJS aktif), langsung redirect
+        // 1. Jika sudah login (sesi Wizdam aktif), langsung redirect
         if (Validation::isLoggedIn()) {
             $request->redirect(null, 'user');
         }
@@ -243,7 +243,7 @@ class CoreLoginHandler extends Handler {
         $user = $userDao->getUserByUsername($implicitUsername)
               ?? $userDao->getUserByEmail($implicitUsername); // Beberapa IdP kirim email
     
-        // 5. Jika user tidak ditemukan di OJS, tolak
+        // 5. Jika user tidak ditemukan di Wizdam, tolak
         if (!$user) {
             $request->redirect(null, 'login');
             return;
@@ -261,7 +261,7 @@ class CoreLoginHandler extends Handler {
 
     /**
      * Helper: Get login URL (considering SSL settings)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string Login URL
      */
     public function _redirectAfterLogin($request) {
@@ -273,7 +273,7 @@ class CoreLoginHandler extends Handler {
     /**
      * Log the user out and redirect to the login page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function signOut($args = [], $request = null) {
         $this->validate();
@@ -289,7 +289,7 @@ class CoreLoginHandler extends Handler {
         $source = trim((string) $request->getUserVar('source'));
 
         // 2. LAPISAN KEAMANAN: Cegah redirect ke luar situs (Open Redirect)
-        if (!empty($source) && !PKPRequest::isPathValid($source)) {
+        if (!empty($source) && !CoreRequest::isPathValid($source)) {
             $source = '';
         }
 
@@ -316,7 +316,7 @@ class CoreLoginHandler extends Handler {
     /**
      * Display the lost password form.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function lostPassword($args = [], $request = null) {
         $this->validate();
@@ -331,7 +331,7 @@ class CoreLoginHandler extends Handler {
     /**
      * Handle password reset request and send confirmation email.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function requestResetPassword($args, $request) {
         $this->validate();
@@ -378,7 +378,7 @@ class CoreLoginHandler extends Handler {
     /**
      * Handle password reset confirmation and update password.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function resetPassword($args = [], $request = null) {
         $this->validate();
@@ -455,7 +455,7 @@ class CoreLoginHandler extends Handler {
     /**
      * Display the change password form for users who must change their password.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function changePassword($args, $request) {
         $this->validate();
@@ -474,7 +474,7 @@ class CoreLoginHandler extends Handler {
     /**
      * Handle the submission of the change password form.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function savePassword($args, $request) {
         $this->validate();
@@ -504,7 +504,7 @@ class CoreLoginHandler extends Handler {
 
     /**
      * Helper: Set email sender for password reset emails
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param MailTemplate $mail
      * @param Site $site
      * @return bool True if sender is set successfully, False otherwise

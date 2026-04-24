@@ -22,7 +22,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10BaseSchema');
+import('lib.wizdam.plugins.metadata.openurl10.schema.Openurl10BaseSchema');
 
 define('OPENURL10_GENRE_CONFERENCE', 'conference');
 define('OPENURL10_GENRE_PROCEEDING', 'proceeding');

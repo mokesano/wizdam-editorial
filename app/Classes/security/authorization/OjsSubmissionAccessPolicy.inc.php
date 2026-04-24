@@ -11,18 +11,18 @@ declare(strict_types=1);
  * @class OjsSubmissionAccessPolicy
  * @ingroup security_authorization
  *
- * @brief Class to control access to OJS's submission editing components
+ * @brief Class to control access to Wizdam's submission editing components
  * * MODERNIZED FOR WIZDAM FORK
  */
 
 import('classes.security.authorization.internal.JournalPolicy');
-import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+import('lib.wizdam.classes.security.authorization.RoleBasedHandlerOperationPolicy');
 
 class OjsSubmissionAccessPolicy extends JournalPolicy {
     
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $args array
      * @param $roleAssignments array
      * @param $submissionParameterName string

@@ -66,7 +66,7 @@ class ScheduledTaskHelper {
      */
     public function getMail() {
         // Instantiate a mail object.
-        import('lib.pkp.classes.mail.Mail');
+        import('lib.wizdam.classes.mail.Mail');
         return new Mail();
     }
 
@@ -198,7 +198,7 @@ class ScheduledTaskHelper {
      * [MODERNISASI] Defined as static
      */
     public static function clearExecutionLogs() {
-        import('lib.pkp.classes.file.PrivateFileManager');
+        import('lib.wizdam.classes.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
     
         $fileMgr->rmtree($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR);    
@@ -209,7 +209,7 @@ class ScheduledTaskHelper {
      * @param $file string
      */
     public function downloadExecutionLog($file) {
-        import('lib.pkp.classes.file.PrivateFileManager');
+        import('lib.wizdam.classes.file.PrivateFileManager');
         $fileMgr = new PrivateFileManager();
 
         $fileMgr->downloadFile($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);    

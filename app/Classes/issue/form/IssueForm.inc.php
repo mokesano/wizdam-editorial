@@ -20,7 +20,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x (Removed create_function)
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 import('classes.issue.Issue'); // Bring in constants
 
 class IssueForm extends Form {
@@ -60,7 +60,7 @@ class IssueForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {

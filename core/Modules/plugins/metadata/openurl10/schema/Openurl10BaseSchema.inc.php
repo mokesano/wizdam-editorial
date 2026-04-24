@@ -22,7 +22,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.metadata.MetadataSchema');
+import('lib.wizdam.classes.metadata.MetadataSchema');
 
 class Openurl10BaseSchema extends MetadataSchema {
     

@@ -122,7 +122,7 @@ class GatewayPlugin extends Plugin {
      * @param array $args
      * @param string|null $message
      * @param array|null $messageParams
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return bool
      */
     public function manage(string $verb, array $args, string $message = null, $messageParams = null, $request = null): bool {

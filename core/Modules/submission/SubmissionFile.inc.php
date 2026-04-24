@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Submission file class.
  */
 
-import('lib.pkp.classes.file.PKPFile');
+import('lib.wizdam.classes.file.CoreFile');
 
 class SubmissionFile extends CoreFile {
     

@@ -201,7 +201,7 @@ class OAIMetadataFormat {
      * @return array the cleansed array
      */
     public function stripAssocArray($values) {
-        // Asumsi: Fungsi global stripAssocArray tersedia di PKP library
+        // Asumsi: Fungsi global stripAssocArray tersedia di Wizdam library
         return stripAssocArray($values);
     }
 }

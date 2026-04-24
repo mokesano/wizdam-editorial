@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class that describes a configurable filter setting.
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+import('lib.wizdam.classes.form.validation.FormValidator');
 
 class FilterSetting {
     /** @var string the (internal) name of the setting */

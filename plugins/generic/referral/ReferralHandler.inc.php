@@ -169,7 +169,7 @@ class ReferralHandler extends Handler {
     /**
      * Perform a batch action on a set of referrals.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function bulkAction($args, $request) {
         // [SECURITY FIX] Amankan referralId: Casting ke array sudah ada.

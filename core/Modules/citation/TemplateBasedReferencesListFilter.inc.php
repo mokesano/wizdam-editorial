@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.filter.TemplateBasedFilter');
+import('lib.wizdam.classes.filter.TemplateBasedFilter');
 
 class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
     
@@ -27,7 +27,7 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
      */
     public function __construct($filterGroup) {
         // Add the persistable filter settings.
-        import('lib.pkp.classes.filter.FilterSetting');
+        import('lib.wizdam.classes.filter.FilterSetting');
         $this->addSetting(new FilterSetting('citationOutputFilterName', null, null));
         $this->addSetting(new FilterSetting('metadataSchemaName', null, null));
 
@@ -102,9 +102,9 @@ class TemplateBasedReferencesListFilter extends TemplateBasedFilter {
     //
     /**
      * @see TemplateBasedFilter::addTemplateVars()
-     * @param PKPTemplateManager $templateMgr
+     * @param CoreTemplateManager $templateMgr
      * @param Submission $submission
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param AppLocale $locale
      */
     public function addTemplateVars($templateMgr, $submission, $request, $locale) {

@@ -14,10 +14,10 @@ declare(strict_types=1);
  * @brief User plugin DOM functions for export
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
-define('USERS_DTD_URL', 'http://pkp.sfu.ca/ojs/dtds/users.dtd');
-define('USERS_DTD_ID', '-//PKP/OJS Users XML//EN');
+define('USERS_DTD_URL', 'http://wizdam.sfu.ca/wizdam/dtds/users.dtd');
+define('USERS_DTD_ID', '-//Wizdam/Wizdam Users XML//EN');
 
 class UserExportDom {
 
@@ -98,7 +98,7 @@ class UserExportDom {
                 }
             }
 
-            import('lib.pkp.classes.user.InterestManager');
+            import('lib.wizdam.classes.user.InterestManager');
             $interestManager = new InterestManager();
             $interests = $interestManager->getInterestsForUser($user);
             if (is_array($interests)) {

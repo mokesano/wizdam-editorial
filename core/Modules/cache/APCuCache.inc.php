@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM] Renamed from APCCache to APCuCache to reflect modern PHP usage.
  */
 
-import('lib.pkp.classes.cache.GenericCache');
+import('lib.wizdam.classes.cache.GenericCache');
 
 // Helper class untuk menyimpan nilai boolean false
 // (Karena apcu_fetch mengembalikan false jika gagal, kita butuh cara membedakannya)

@@ -20,7 +20,7 @@ declare(strict_types=1);
  *
  */
 
-import('lib.pkp.classes.codelist.CodelistItem');
+import('lib.wizdam.classes.codelist.CodelistItem');
 
 class Qualifier extends CodelistItem {
 

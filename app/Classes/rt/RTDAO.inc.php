@@ -2,17 +2,17 @@
 declare(strict_types=1);
 
 /**
- * @file classes/rt/ojs/RTDAO.inc.php
+ * @file classes/rt/wizdam/RTDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class RTDAO
- * @ingroup rt_ojs
+ * @ingroup rt_wizdam
  * @see RT
  *
- * @brief DAO operations for the OJS Reading Tools interface.
+ * @brief DAO operations for the Wizdam Reading Tools interface.
  *
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */

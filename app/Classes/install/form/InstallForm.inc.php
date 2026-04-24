@@ -21,8 +21,8 @@ declare(strict_types=1);
  */
 
 import('classes.install.Install');
-import('lib.pkp.classes.site.VersionCheck');
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.site.VersionCheck');
+import('lib.wizdam.classes.form.Form');
 
 class InstallForm extends Form {
 
@@ -131,7 +131,7 @@ class InstallForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {
@@ -145,7 +145,7 @@ class InstallForm extends Form {
         $templateMgr->assign('allowFileUploads', get_cfg_var('file_uploads') ? __('common.yes') : __('common.no'));
         $templateMgr->assign('maxFileUploadSize', get_cfg_var('upload_max_filesize'));
         $templateMgr->assign('databaseDriverOptions', $this->checkDBDrivers());
-        $templateMgr->assign('supportsMBString', PKPString::hasMBString() ? __('common.yes') : __('common.no'));
+        $templateMgr->assign('supportsMBString', CoreString::hasMBString() ? __('common.yes') : __('common.no'));
         $templateMgr->assign('phpIsSupportedVersion', version_compare(PHP_REQUIRED_VERSION, PHP_VERSION) != 1);
         $templateMgr->assign('phpRequiredVersion', PHP_REQUIRED_VERSION);
         $templateMgr->assign('phpVersion', PHP_VERSION);

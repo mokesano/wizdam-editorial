@@ -29,7 +29,7 @@ define ('COMPONENT_ROUTER_PARTS_MAXDEPTH', 5);
 define ('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define ('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
 
-import('lib.pkp.classes.core.PKPRouter');
+import('lib.wizdam.classes.core.CoreRouter');
 import('classes.core.Request');
 
 class CoreComponentRouter extends CoreRouter {
@@ -49,7 +49,7 @@ class CoreComponentRouter extends CoreRouter {
 
     /**
      * Determines whether this router can route the given request.
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return boolean true, if the router supports this request, otherwise false
      */
     public function supports($request) {
@@ -64,7 +64,7 @@ class CoreComponentRouter extends CoreRouter {
      * NB: This can be a component that not actually exists
      * in the code base.
      *
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string the requested component or an empty string
      * if none can be found.
      */
@@ -83,12 +83,12 @@ class CoreComponentRouter extends CoreRouter {
             array_pop($rpcServiceEndpointParts);
 
             // Construct the fully qualified component class name from the rest of it.
-            $handlerClassName = PKPString::camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_UP).'Handler';
+            $handlerClassName = CoreString::camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_UP).'Handler';
 
             // camelize remaining endpoint parts
             $camelizedRpcServiceEndpointParts = array();
             foreach ( $rpcServiceEndpointParts as $part) {
-                $camelizedRpcServiceEndpointParts[] = PKPString::camelize($part, CAMEL_CASE_HEAD_DOWN);
+                $camelizedRpcServiceEndpointParts[] = CoreString::camelize($part, CAMEL_CASE_HEAD_DOWN);
             }
             $handlerPackage = implode('.', $camelizedRpcServiceEndpointParts);
 
@@ -104,7 +104,7 @@ class CoreComponentRouter extends CoreRouter {
      * NB: This can be an operation that not actually
      * exists in the requested component.
      *
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string the requested operation or an empty string
      * if none can be found.
      */
@@ -120,7 +120,7 @@ class CoreComponentRouter extends CoreRouter {
             }
 
             // Pop off the operation part
-            $this->_op = PKPString::camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_DOWN);
+            $this->_op = CoreString::camelize(array_pop($rpcServiceEndpointParts), CAMEL_CASE_HEAD_DOWN);
         }
 
         return $this->_op;
@@ -130,7 +130,7 @@ class CoreComponentRouter extends CoreRouter {
      * Get the (validated) RPC service endpoint from the request.
      * If no such RPC service endpoint can be constructed then the method
      * returns null.
-     * @param $request PKPRequest the request to be routed
+     * @param $request CoreRequest the request to be routed
      * @return callable an array with the handler instance
      * and the handler operation to be called by call_user_func().
      */
@@ -156,8 +156,8 @@ class CoreComponentRouter extends CoreRouter {
                 case file_exists($componentFileName):
                     break;
 
-                case file_exists('lib/pkp/'.$componentFileName):
-                    $component = 'lib.pkp.'.$component;
+                case file_exists('lib/wizdam/'.$componentFileName):
+                    $component = 'lib.wizdam.'.$component;
                     break;
 
                 default:
@@ -169,7 +169,7 @@ class CoreComponentRouter extends CoreRouter {
             // of the following packages:
             $allowedPackages = array(
                 'controllers',
-                'lib.pkp.controllers'
+                'lib.wizdam.controllers'
             );
 
             // Retrieve requested component operation
@@ -182,7 +182,7 @@ class CoreComponentRouter extends CoreRouter {
                 $op, 'authorize', 'validate', 'initialize'
             );
 
-            $componentInstance = instantiate($component, 'PKPHandler', $allowedPackages, $requiredMethods);
+            $componentInstance = instantiate($component, 'CoreHandler', $allowedPackages, $requiredMethods);
             if (!is_object($componentInstance)) return $nullVar;
 
             //
@@ -197,10 +197,10 @@ class CoreComponentRouter extends CoreRouter {
 
 
     //
-    // Implement template methods from PKPRouter
+    // Implement template methods from CoreRouter
     //
     /**
-     * @see PKPRouter::route()
+     * @see CoreRouter::route()
      */
     public function route($request) {
         // Determine the requested service endpoint.
@@ -218,7 +218,7 @@ class CoreComponentRouter extends CoreRouter {
     }
 
     /**
-     * @see PKPRouter::url()
+     * @see CoreRouter::url()
      */
     public function url($request, $newContext = null, $component = null, $op = null, $path = null,
             $params = null, $anchor = null, $escape = false) {
@@ -250,15 +250,15 @@ class CoreComponentRouter extends CoreRouter {
         $componentParts = explode('.', $component);
         $componentName = array_pop($componentParts);
         assert(substr($componentName, -7) == 'Handler');
-        $componentName = PKPString::uncamelize(substr($componentName, 0, -7));
+        $componentName = CoreString::uncamelize(substr($componentName, 0, -7));
 
         // uncamelize the component parts
         $uncamelizedComponentParts = array();
         foreach ($componentParts as $part) {
-            $uncamelizedComponentParts[] = PKPString::uncamelize($part);
+            $uncamelizedComponentParts[] = CoreString::uncamelize($part);
         }
         array_push($uncamelizedComponentParts, $componentName);
-        $opName = PKPString::uncamelize($op);
+        $opName = CoreString::uncamelize($op);
 
         //
         // Additional query parameters
@@ -307,14 +307,14 @@ class CoreComponentRouter extends CoreRouter {
     }
 
     /**
-     * @see PKPRouter::handleAuthorizationFailure()
+     * @see CoreRouter::handleAuthorizationFailure()
      */
     public function handleAuthorizationFailure($request, $authorizationMessage) {
         // Translate the authorization error message.
         if (defined('LOCALE_COMPONENT_APPLICATION_COMMON')) {
             AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON);
         }
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_USER);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_USER);
         $translatedAuthorizationMessage = __($authorizationMessage);
 
         // Add the router name and operation if show_stacktrace is enabled.
@@ -325,7 +325,7 @@ class CoreComponentRouter extends CoreRouter {
             $translatedAuthorizationMessage .= ' ['.$url.$queryString.']';
         }
         // Return a JSON error message.
-        import('lib.pkp.classes.core.JSONMessage');
+        import('lib.wizdam.classes.core.JSONMessage');
         $json = new JSONMessage(false, $translatedAuthorizationMessage);
         header('Content-Type: application/json');
         return $json->getString();
@@ -339,7 +339,7 @@ class CoreComponentRouter extends CoreRouter {
      * Get the (validated) RPC service endpoint parts from the request.
      * If no such RPC service endpoint parts can be retrieved
      * then the method returns null.
-     * @param $request PKPRequest the request to be routed
+     * @param $request CoreRequest the request to be routed
      * @return array a string array with the RPC service endpoint
      * parts as values.
      */
@@ -374,7 +374,7 @@ class CoreComponentRouter extends CoreRouter {
      * Try to retrieve a (non-validated) array with the service
      * endpoint parts from the request. See the classdoc for the
      * URL patterns supported here.
-     * @param $request PKPRequest the request to be routed
+     * @param $request CoreRequest the request to be routed
      * @return array an array of (non-validated) service endpoint
      * parts or null if the request is not an RPC request.
      */
@@ -452,7 +452,7 @@ class CoreComponentRouter extends CoreRouter {
             $rpcServiceEndpointParts[$key] = strtolower_codesafe($rpcServiceEndpointPart);
 
             // We only allow letters, numbers and the hyphen.
-            if (!PKPString::regexp_match('/^[a-z0-9-]*$/', $rpcServiceEndpointPart)) return null;
+            if (!CoreString::regexp_match('/^[a-z0-9-]*$/', $rpcServiceEndpointPart)) return null;
         }
 
         return $rpcServiceEndpointParts;

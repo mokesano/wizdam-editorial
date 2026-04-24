@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying Group objects.
  */
 
-import ('lib.pkp.classes.group.Group');
+import ('lib.wizdam.classes.group.Group');
 
 class GroupDAO extends DAO {
     

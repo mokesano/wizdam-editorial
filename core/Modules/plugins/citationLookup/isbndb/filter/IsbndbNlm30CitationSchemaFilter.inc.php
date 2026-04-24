@@ -27,8 +27,8 @@ if (!defined('ISBNDB_WEBSERVICE_URL')) {
     define('ISBNDB_WEBSERVICE_URL', 'http://isbndb.com/api/books.xml');
 }
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
-import('lib.pkp.classes.filter.FilterSetting');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('lib.wizdam.classes.filter.FilterSetting');
 
 class IsbndbNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
     
@@ -72,7 +72,7 @@ class IsbndbNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
     protected function isValidIsbn($isbn): bool {
         return is_string($isbn) 
             && is_numeric($isbn) 
-            && PKPString::strlen($isbn) === 13;
+            && CoreString::strlen($isbn) === 13;
     }
 }
 ?>

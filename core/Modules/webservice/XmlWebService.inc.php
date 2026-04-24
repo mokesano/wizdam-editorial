@@ -15,8 +15,8 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, No References, Visibility)
  */
 
-import('lib.pkp.classes.webservice.WebService');
-import('lib.pkp.classes.xslt.XSLTransformer');
+import('lib.wizdam.classes.webservice.WebService');
+import('lib.wizdam.classes.xslt.XSLTransformer');
 
 class XmlWebService extends WebService {
     /** @var integer */

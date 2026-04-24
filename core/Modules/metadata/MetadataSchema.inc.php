@@ -21,8 +21,8 @@ declare(strict_types=1);
  * OpenURL, dc(terms), MODS) or a subset of it.
  *
  * We only implement such subsets of meta-data schemas that contain elements which
- * can be mapped to PKP application objects. Meta-data schemas are not meant to
- * represent any meta-data in the given schema just PKP application meta-data. The
+ * can be mapped to Wizdam application objects. Meta-data schemas are not meant to
+ * represent any meta-data in the given schema just Wizdam application meta-data. The
  * constructor argument uniquely identifies the application objects this meta-data
  * schema can be mapped to. There should never be two MetadataSchemas with the same
  * namespace that map to the same application object type. This also means that we
@@ -32,7 +32,7 @@ declare(strict_types=1);
  * information about composite meta-data properties.
  *
  * Example: We implement a composite to represent authors that correspond to the
- * PKPAuthor class. We do not implement composites for title meta-data
+ * CoreAuthor class. We do not implement composites for title meta-data
  * even if the chosen schema allows this (e.g. abbreviated title, alternative title)
  * as this data is implemented as fields of the Submission object. This doesn't mean
  * that such data cannot be mapped to composites in external bindings, e.g. in an
@@ -60,7 +60,7 @@ declare(strict_types=1);
  * installation of new schemas.
  */
 
-import('lib.pkp.classes.metadata.MetadataProperty');
+import('lib.wizdam.classes.metadata.MetadataProperty');
 
 class MetadataSchema {
     /** @var array */
@@ -90,7 +90,7 @@ class MetadataSchema {
      * @param $classname the fully qualified class name of
      * this schema
      * @param $assocTypes array|integer the association types of
-     * PKP application objects that can be described using
+     * Wizdam application objects that can be described using
      * this schema. A single association type can be given as
      * a scalar.
      */
@@ -149,7 +149,7 @@ class MetadataSchema {
     }
 
     /**
-     * Get the association types for PKP application objects
+     * Get the association types for Wizdam application objects
      * that can be described with this schema.
      * @return array
      */

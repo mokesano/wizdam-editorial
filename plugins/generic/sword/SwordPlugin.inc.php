@@ -25,7 +25,7 @@ define('NOTIFICATION_TYPE_SWORD_ENABLED',       NOTIFICATION_TYPE_PLUGIN_BASE + 
 define('NOTIFICATION_TYPE_SWORD_DEPOSIT_COMPLETE',      NOTIFICATION_TYPE_PLUGIN_BASE + 0x0000003);
 define('NOTIFICATION_TYPE_SWORD_AUTO_DEPOSIT_COMPLETE',     NOTIFICATION_TYPE_PLUGIN_BASE + 0x0000004);
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class SwordPlugin extends GenericPlugin {
 
@@ -93,7 +93,7 @@ class SwordPlugin extends GenericPlugin {
 
     /**
      * Check whether or not this plugin is enabled
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return boolean
      */
     public function getEnabled($request = null): bool {
@@ -285,7 +285,7 @@ class SwordPlugin extends GenericPlugin {
 
         switch ($verb) {
             case 'settings':
-                AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON,  LOCALE_COMPONENT_PKP_MANAGER);
+                AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON,  LOCALE_COMPONENT_WIZDAM_MANAGER);
                 $templateMgr = TemplateManager::getManager();
                 $templateMgr->register_function('plugin_url', [$this, 'smartyPluginUrl']);
                 $journal = $request->getJournal();

@@ -16,7 +16,7 @@
  * WIZDAM EDITION: PHP 8 Compatibility (Static & Strict Types)
  */
 
-import('lib.pkp.classes.core.PKPRequest');
+import('lib.wizdam.classes.core.CoreRequest');
 
 class Request extends CoreRequest {
     
@@ -44,7 +44,7 @@ class Request extends CoreRequest {
      */
     public static function getRequestedJournalPath() {
         static $journal;
-        $instance = PKPRequest::_checkThis();
+        $instance = CoreRequest::_checkThis();
 
         if (!isset($journal)) {
             $journal = $instance->_delegateToRouter('getRequestedContextPath', 1);
@@ -61,7 +61,7 @@ class Request extends CoreRequest {
      * @see PKPPageRouter::getContext()
      */
     public static function getJournal() {
-        $instance = PKPRequest::_checkThis();
+        $instance = CoreRequest::_checkThis();
         $returner = $instance->_delegateToRouter('getContext', 1);
         return $returner;
     }
@@ -71,7 +71,7 @@ class Request extends CoreRequest {
      * @see PKPPageRouter::getRequestedContextPath()
      */
     public static function getRequestedContextPath($contextLevel = null) {
-        $instance = PKPRequest::_checkThis();
+        $instance = CoreRequest::_checkThis();
 
         // Emulate the old behavior of getRequestedContextPath for
         // backwards compatibility.
@@ -89,7 +89,7 @@ class Request extends CoreRequest {
      * but since it is static, it shadows the parent method.
      */
     public static function getContext($level = 1) {
-        $instance = PKPRequest::_checkThis();
+        $instance = CoreRequest::_checkThis();
         $returner = $instance->_delegateToRouter('getContext', $level);
         return $returner;
     }
@@ -99,7 +99,7 @@ class Request extends CoreRequest {
      * @see PKPPageRouter::getContextByName()
      */
     public static function getContextByName($contextName) {
-        $instance = PKPRequest::_checkThis();
+        $instance = CoreRequest::_checkThis();
         $returner = $instance->_delegateToRouter('getContextByName', $contextName);
         return $returner;
     }
@@ -110,7 +110,7 @@ class Request extends CoreRequest {
      */
     public static function url($journalPath = null, $page = null, $op = null, $path = null,
             $params = null, $anchor = null, $escape = false) {
-        $instance = PKPRequest::_checkThis();
+        $instance = CoreRequest::_checkThis();
         return $instance->_delegateToRouter('url', $journalPath, $page, $op, $path,
             $params, $anchor, $escape);
     }
@@ -120,7 +120,7 @@ class Request extends CoreRequest {
      * @see PageRouter::redirectHome()
      */
     public static function redirectHome() {
-        $instance = PKPRequest::_checkThis();
+        $instance = CoreRequest::_checkThis();
         return $instance->_delegateToRouter('redirectHome');
     }
 }

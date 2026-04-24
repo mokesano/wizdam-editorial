@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.comment.Comment');
+import('lib.wizdam.classes.comment.Comment');
 
 define ('SUBMISSION_COMMENT_RECURSE_ALL', -1);
 
@@ -220,10 +220,10 @@ class CommentDAO extends DAO {
                 $comment->getParentCommentId(),
                 (isset($user) ? $user->getId() : null),
                 $comment->getPosterIP(),
-                PKPString::substr($comment->getTitle(), 0, 255),
+                CoreString::substr($comment->getTitle(), 0, 255),
                 $comment->getBody(),
-                PKPString::substr($comment->getPosterName(), 0, 90),
-                PKPString::substr($comment->getPosterEmail(), 0, 90)
+                CoreString::substr($comment->getPosterName(), 0, 90),
+                CoreString::substr($comment->getPosterEmail(), 0, 90)
             ]
         );
 
@@ -319,10 +319,10 @@ class CommentDAO extends DAO {
                 $comment->getParentCommentId(),
                 (isset($user) ? $user->getId() : null),
                 $comment->getPosterIP(),
-                PKPString::substr($comment->getTitle(), 0, 255),
+                CoreString::substr($comment->getTitle(), 0, 255),
                 $comment->getBody(),
-                PKPString::substr($comment->getPosterName(), 0, 90),
-                PKPString::substr($comment->getPosterEmail(), 0, 90),
+                CoreString::substr($comment->getPosterName(), 0, 90),
+                CoreString::substr($comment->getPosterEmail(), 0, 90),
                 $comment->getId()
             ]
         );

@@ -16,8 +16,8 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.db.DBDataXMLParser');
-import('lib.pkp.classes.db.DBConnection'); // [WIZDAM] Explicitly import DBConnection
+import('lib.wizdam.classes.db.DBDataXMLParser');
+import('lib.wizdam.classes.db.DBConnection'); // [WIZDAM] Explicitly import DBConnection
 
 class XmlToSqlTool extends CommandLineTool {
 

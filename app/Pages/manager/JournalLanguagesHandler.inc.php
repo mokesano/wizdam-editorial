@@ -44,7 +44,7 @@ class JournalLanguagesHandler extends ManagerHandler {
     /**
      * Display form to edit language settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function languages($args = [], $request = null) {
         $this->validate();
@@ -60,7 +60,7 @@ class JournalLanguagesHandler extends ManagerHandler {
     /**
      * Save changes to language settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveLanguageSettings($args, $request) {
         $this->validate();
@@ -89,7 +89,7 @@ class JournalLanguagesHandler extends ManagerHandler {
     /**
      * Reload the default localized settings for the journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function reloadLocalizedDefaultSettings($args, $request) {
         // [WIZDAM] Singleton Fallback

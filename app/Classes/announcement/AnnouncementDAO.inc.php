@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 
 import('classes.announcement.Announcement');
-import('lib.pkp.classes.announcement.PKPAnnouncementDAO');
+import('lib.wizdam.classes.announcement.PKPAnnouncementDAO');
 
 class AnnouncementDAO extends CoreAnnouncementDAO {
     

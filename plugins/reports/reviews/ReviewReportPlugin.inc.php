@@ -64,14 +64,14 @@ class ReviewReportPlugin extends ReportPlugin {
     /**
      * Display the report.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function display($args, $request) {
         $journal = $request->getJournal();
 
         header('content-type: text/comma-separated-values');
         header('content-disposition: attachment; filename=reviews-' . date('Ymd') . '.csv');
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_SUBMISSION);
 
         $reviewReportDao = DAORegistry::getDAO('ReviewReportDAO'); /* @var $reviewReportDao ReviewReportDAO */
         
@@ -114,7 +114,7 @@ class ReviewReportPlugin extends ReportPlugin {
         $yesNoArray = ['declined', 'cancelled'];
 
         $fp = fopen('php://output', 'wt');
-        PKPString::fputcsv($fp, array_values($columns));
+        CoreString::fputcsv($fp, array_values($columns));
 
         while ($row = $reviewsIterator->next()) {
             foreach ($columns as $index => $junk) {
@@ -132,7 +132,7 @@ class ReviewReportPlugin extends ReportPlugin {
                     $columns[$index] = $row[$index];
                 }
             }
-            PKPString::fputcsv($fp, $columns);
+            CoreString::fputcsv($fp, $columns);
             unset($row);
         }
         fclose($fp);

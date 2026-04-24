@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 7.4+ Compatible & Custom Logic Preserved
  */
 
-import('lib.pkp.classes.site.Version');
+import('lib.wizdam.classes.site.Version');
 
 class VersionDAO extends DAO {
     
@@ -47,7 +47,7 @@ class VersionDAO extends DAO {
      */
     public function getCurrentVersion($productType = null, $product = null, $isPlugin = false) {
         if(!$productType || !$product) {
-            $application = PKPApplication::getApplication();
+            $application = CoreApplication::getApplication();
             $productType = 'core';
             $product = $application->getName();
         }
@@ -92,7 +92,7 @@ class VersionDAO extends DAO {
         $versions = array();
 
         if(!$productType || !$product) {
-            $application = PKPApplication::getApplication();
+            $application = CoreApplication::getApplication();
             $productType = 'core';
             $product = $application->getName();
         }
@@ -217,7 +217,7 @@ class VersionDAO extends DAO {
             $contextNames = array_keys($context);
             foreach ($contextNames as $contextLevel => $contextName) {
                 // Transform from camel case to ..._...
-                PKPString::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
+                CoreString::regexp_match_all('/[A-Z][a-z]*/', ucfirst($contextName), $words);
                 $contextNames[$contextLevel] = strtolower_codesafe(implode('_', $words[0]));
             }
             // [NOTE] Logic kompleks query ini dipertahankan

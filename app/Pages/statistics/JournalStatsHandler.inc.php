@@ -81,7 +81,7 @@ class JournalStatsHandler extends Handler {
     }
 
     /**
-     * Helper untuk memuat template header/footer standar OJS
+     * Helper untuk memuat template header/footer standar Wizdam
      * @param Request $request
      */
     public function setupTemplate() {

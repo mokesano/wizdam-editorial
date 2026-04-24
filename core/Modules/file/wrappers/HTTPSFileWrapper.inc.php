@@ -16,7 +16,7 @@ declare(strict_types=1);
  *
  */
 
-import('lib.pkp.classes.file.wrappers.HTTPFileWrapper');
+import('lib.wizdam.classes.file.wrappers.HTTPFileWrapper');
 
 class HTTPSFileWrapper extends HTTPFileWrapper {
     /**

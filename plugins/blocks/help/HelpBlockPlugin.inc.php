@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. Future Home of Wizdam Chat Assistant.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class HelpBlockPlugin extends BlockPlugin {
     
@@ -103,7 +103,7 @@ class HelpBlockPlugin extends BlockPlugin {
      * Get the HTML contents for this block.
      * [WIZDAM] Added explicit method to facilitate future ChatBox injection
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {

@@ -128,7 +128,7 @@ class SwordImportExportPlugin extends ImportExportPlugin {
     /**
      * Display the plugin interface.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function display($args, $request = null) {
         $templateMgr = TemplateManager::getManager();
@@ -217,7 +217,7 @@ class SwordImportExportPlugin extends ImportExportPlugin {
                 $articleIds = $publishedArticleDao->getPublishedArticleIdsAlphabetizedByJournal($journal->getId(), false);
                 $totalArticles = count($articleIds);
                 if ($rangeInfo->isValid()) $articleIds = array_slice($articleIds, $rangeInfo->getCount() * ($rangeInfo->getPage()-1), $rangeInfo->getCount());
-                import('lib.pkp.classes.core.VirtualArrayIterator');
+                import('lib.wizdam.classes.core.VirtualArrayIterator');
                 $iterator = new VirtualArrayIterator(ArticleSearch::formatResults($articleIds), $totalArticles, $rangeInfo->getPage(), $rangeInfo->getCount());
                 foreach (['swordUrl', 'swordUsername', 'swordPassword', 'depositEditorial', 'depositGalleys', 'swordDepositPoint'] as $var) {
                     $templateMgr->assign($var, Request::getUserVar($var));

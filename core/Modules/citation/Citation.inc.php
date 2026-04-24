@@ -27,9 +27,9 @@ define('CITATION_PARSED', 0x03);
 define('CITATION_LOOKED_UP', 0x04);
 define('CITATION_APPROVED', 0x05);
 
-import('lib.pkp.classes.core.DataObject');
-import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter');
+import('lib.wizdam.classes.core.DataObject');
+import('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationAdapter');
 
 class Citation extends DataObject {
     /** @var int citation state (raw, edited, parsed, looked-up) */
@@ -268,14 +268,14 @@ class Citation extends DataObject {
         $citationString = (string) $citationString;
 
         // 1) If the string contains non-UTF8 characters, convert it to UTF-8
-        if (Config::getVar('i18n', 'charset_normalization') && !PKPString::utf8_compliant($citationString)) {
-            $citationString = PKPString::utf8_normalize($citationString);
+        if (Config::getVar('i18n', 'charset_normalization') && !CoreString::utf8_compliant($citationString)) {
+            $citationString = CoreString::utf8_normalize($citationString);
         }
         // 2) Strip slashes and whitespace
         $citationString = trim(stripslashes($citationString));
 
         // 3) Normalize whitespace
-        $citationString = PKPString::regexp_replace('/[\s]+/', ' ', $citationString);
+        $citationString = CoreString::regexp_replace('/[\s]+/', ' ', $citationString);
 
         return $citationString;
     }

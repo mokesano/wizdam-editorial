@@ -38,8 +38,8 @@ declare(strict_types=1);
  * child relationships. See CompositeFilter for more details.
  */
 
-import('lib.pkp.classes.filter.Filter');
-import('lib.pkp.classes.filter.FilterGroup');
+import('lib.wizdam.classes.filter.Filter');
+import('lib.wizdam.classes.filter.FilterGroup');
 
 define('FILTER_GROUP_TEMPORARY_ONLY', '$$$temporary$$$');
 

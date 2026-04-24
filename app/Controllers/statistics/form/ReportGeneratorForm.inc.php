@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 define('TIME_FILTER_OPTION_YESTERDAY', 0);
 define('TIME_FILTER_OPTION_CURRENT_MONTH', 1);
@@ -86,7 +86,7 @@ class ReportGeneratorForm extends Form {
 
     /**
      * Initialize the form from the current settings.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function fetch($request, $template = null, $display = false) {
         $router = $request->getRouter();
@@ -254,7 +254,7 @@ class ReportGeneratorForm extends Form {
 
     /**
      * @see Form::execute()
-     * @param PKPRequest $request (No reference needed in PHP8 for objects)
+     * @param CoreRequest $request (No reference needed in PHP8 for objects)
      * @return string Report URL
      */
     public function execute($request) {

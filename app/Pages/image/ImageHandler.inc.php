@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 import('classes.handler.Handler');
-import('lib.pkp.classes.file.FileManager');
+import('lib.wizdam.classes.file.FileManager');
 
 class ImageHandler extends Handler {
 
@@ -46,7 +46,7 @@ class ImageHandler extends Handler {
      * URL: index.php/journal/image/issue/ID/width/height/filename
      * Cache: /public/journals/X/cache/issues/
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function issue($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -61,7 +61,7 @@ class ImageHandler extends Handler {
      * URL: index.php/journal/image/header/ID/width/height/filename
      * Cache: /public/journals/X/cache/headers/
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function header($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -76,7 +76,7 @@ class ImageHandler extends Handler {
      * URL: index.php/journal/image/article/ID/width/height/filename
      * Cache: /public/journals/X/cache/articles/
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function article($args, $request = null) {
         // [WIZDAM] Singleton Fallback
@@ -89,7 +89,7 @@ class ImageHandler extends Handler {
     /**
      * --- FUNGSI INTI (THE CORE LOGIC) ---
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $typeFolder Nama folder cache (issues/headers/articles)
      * @param string $sourceSubFolder Subfolder sumber (kosong jika di root jurnal)
      */

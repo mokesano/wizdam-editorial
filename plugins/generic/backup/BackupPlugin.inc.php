@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe CLI Execution & Resource Mgmt.
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class BackupPlugin extends GenericPlugin {
     
@@ -67,7 +67,7 @@ class BackupPlugin extends GenericPlugin {
 
     /**
      * [PERISAI KEAMANAN]
-     * Override fungsi bawaan OJS. Memaksa semua pengaturan plugin ini
+     * Override fungsi bawaan Wizdam. Memaksa semua pengaturan plugin ini
      * selalu disimpan ke level Site (Context 0), tidak peduli dari 
      * jurnal mana tombol "Enable" ditekan.
      */
@@ -77,7 +77,7 @@ class BackupPlugin extends GenericPlugin {
 
     /**
      * [PERISAI KEAMANAN]
-     * Override fungsi bawaan OJS. Memaksa sistem selalu membaca status
+     * Override fungsi bawaan Wizdam. Memaksa sistem selalu membaca status
      * dari level Site (Context 0).
      */
     public function getSetting($contextId, $name) {
@@ -117,7 +117,7 @@ class BackupPlugin extends GenericPlugin {
         $sourceFile = $args[2];
         $request = Application::getRequest();
 
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_ADMIN, LOCALE_COMPONENT_APPLICATION_COMMON);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_ADMIN, LOCALE_COMPONENT_APPLICATION_COMMON);
         $returnValue = 0;
         $dateStamp = date('Y-m-d');
 
@@ -181,7 +181,7 @@ class BackupPlugin extends GenericPlugin {
                 header('Content-Type: application/x-gzip');
                 header('Content-Transfer-Encoding: binary');
                 
-                // Backup OJS Root Dir (Up 4 levels from this plugin file)
+                // Backup Wizdam Root Dir (Up 4 levels from this plugin file)
                 $rootDir = dirname(dirname(dirname(dirname(__FILE__))));
                 passthru($tarTool . ' -c -z ' . escapeshellarg($rootDir), $returnValue);
                 

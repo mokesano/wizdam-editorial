@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/PKPHandler.inc.php
+ * @file classes/core/CoreHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,9 +16,9 @@ declare(strict_types=1);
  */
 
 // FIXME: remove these import statements - handler validators are deprecated.
-import('lib.pkp.classes.handler.validation.HandlerValidator');
-import('lib.pkp.classes.handler.validation.HandlerValidatorRoles');
-import('lib.pkp.classes.handler.validation.HandlerValidatorCustom');
+import('lib.wizdam.classes.handler.validation.HandlerValidator');
+import('lib.wizdam.classes.handler.validation.HandlerValidatorRoles');
+import('lib.wizdam.classes.handler.validation.HandlerValidatorCustom');
 
 class CoreHandler {
     
@@ -41,7 +41,7 @@ class CoreHandler {
 
     /** 
      * [WIZDAM] New Property: Request Object Storage
-     * @var PKPRequest|null 
+     * @var CoreRequest|null 
      */
     public $_request = null;
 
@@ -65,7 +65,7 @@ class CoreHandler {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPHandler($request = null) {
+    public function CoreHandler($request = null) {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor parent::" . get_class($this) . "(). Please refactor to use parent::__construct().",
@@ -83,7 +83,7 @@ class CoreHandler {
     
     /**
      * Get the Request object associated with this handler.
-     * @return PKPRequest
+     * @return CoreRequest
      */
     public function getRequest() {
         if ($this->_request) {
@@ -124,7 +124,7 @@ class CoreHandler {
              if ($dispatcher) {
                  $this->_dispatcher = $dispatcher;
              } else {
-                 // fatalError('PKPHandler: Dispatcher not available.');
+                 // fatalError('CoreHandler: Dispatcher not available.');
              }
         }
         return $this->_dispatcher;
@@ -141,7 +141,7 @@ class CoreHandler {
     /**
      * Fallback method in case request handler does not implement index method.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function index(array $args = [], $request = null) {
         $dispatcher = $this->getDispatcher();
@@ -169,7 +169,7 @@ class CoreHandler {
      */
     public function addPolicy($authorizationPolicy, $addToTop = false) {
         if (is_null($this->_authorizationDecisionManager)) {
-            import('lib.pkp.classes.security.authorization.AuthorizationDecisionManager');
+            import('lib.wizdam.classes.security.authorization.AuthorizationDecisionManager');
             $this->_authorizationDecisionManager = new AuthorizationDecisionManager();
         }
         $this->_authorizationDecisionManager->addPolicy($authorizationPolicy, $addToTop);
@@ -249,30 +249,30 @@ class CoreHandler {
     /**
      * Authorize this request.
      * [WIZDAM FIX] Removed type hints to match legacy children signatures
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param array $args
      * @param array $roleAssignments
      * @return bool
      */
     public function authorize($request, $args, $roleAssignments) {
-        import('lib.pkp.classes.security.authorization.RestrictedSiteAccessPolicy');
+        import('lib.wizdam.classes.security.authorization.RestrictedSiteAccessPolicy');
         $this->addPolicy(new RestrictedSiteAccessPolicy($request), true);
 
         if ($this->requireSSL()) {
-            import('lib.pkp.classes.security.authorization.HttpsPolicy');
+            import('lib.wizdam.classes.security.authorization.HttpsPolicy');
             $this->addPolicy(new HttpsPolicy($request), true);
         }
 
         if (!defined('SESSION_DISABLE_INIT')) {
             $user = $request->getUser();
             if (is_a($user, 'User')) { // Kept is_a for broader compatibility momentarily
-                import('lib.pkp.classes.security.authorization.UserRolesRequiredPolicy');
+                import('lib.wizdam.classes.security.authorization.UserRolesRequiredPolicy');
                 $this->addPolicy(new UserRolesRequiredPolicy($request), true);
             }
         }
 
         if (!is_object($this->_authorizationDecisionManager)) {
-             return true; // Fail open or closed depending on legacy logic? Usually fail open in old OJS for backwards compat if auth not set up.
+             return true; // Fail open or closed depending on legacy logic? Usually fail open in old Wizdam for backwards compat if auth not set up.
         }
 
         $router = $request->getRouter();
@@ -289,7 +289,7 @@ class CoreHandler {
     /**
      * Perform data integrity checks.
      * @param array|null $requiredContexts
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return bool
      */
     public function validate($requiredContexts = null, $request = null) {
@@ -309,7 +309,7 @@ class CoreHandler {
             $exemptedOps = ['callback', 'webhook']; 
 
             if (!in_array($op, $exemptedOps)) {
-                import('lib.pkp.classes.validation.ValidatorCSRF'); 
+                import('lib.wizdam.classes.validation.ValidatorCSRF'); 
                 
                 // Ambil token dari request menggunakan konstanta FIELD_NAME agar dinamis dan konsisten
                 $clientToken = $request->getUserVar(ValidatorCSRF::FIELD_NAME);
@@ -369,7 +369,7 @@ class CoreHandler {
     /**
      * Subclasses can override this method to configure the handler.
      * [WIZDAM FIX] Removed type hints to match legacy children signatures: initialize($request, $args)
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param array|null $args
      */
     public function initialize($request, $args = null) {
@@ -379,7 +379,7 @@ class CoreHandler {
         $router = $request->getRouter();
         if (is_a($router, 'PKPComponentRouter')) {
             $componentId = $router->getRequestedComponent($request);
-            $componentId = str_replace('.', '-', PKPString::strtolower(PKPString::substr($componentId, 0, -7)));
+            $componentId = str_replace('.', '-', CoreString::strtolower(CoreString::substr($componentId, 0, -7)));
             $this->setId($componentId);
         } else {
             if (is_a($router, 'PKPPageRouter')) {
@@ -427,7 +427,7 @@ class CoreHandler {
         if ($context) $count = $context->getSetting('itemsPerPage');
         if (!isset($count)) $count = Config::getVar('interface', 'items_per_page');
 
-        import('lib.pkp.classes.db.DBResultRange');
+        import('lib.wizdam.classes.db.DBResultRange');
 
         if (isset($count)) $returner = new DBResultRange($count, $pageNum);
         else $returner = new DBResultRange(-1, -1);
@@ -477,7 +477,7 @@ class CoreHandler {
      * @return array
      */
     public function getLoginExemptions() {
-        import('lib.pkp.classes.security.authorization.RestrictedSiteAccessPolicy');
+        import('lib.wizdam.classes.security.authorization.RestrictedSiteAccessPolicy');
         return RestrictedSiteAccessPolicy::_getLoginExemptions();
     }
 

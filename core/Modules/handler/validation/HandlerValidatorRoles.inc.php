@@ -16,8 +16,8 @@ declare(strict_types=1);
  * NB: Deprecated - please use RoleBasedHandlerOperationPolicy instead.
  */
 
-import('lib.pkp.classes.handler.validation.HandlerValidatorPolicy');
-import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+import('lib.wizdam.classes.handler.validation.HandlerValidatorPolicy');
+import('lib.wizdam.classes.security.authorization.RoleBasedHandlerOperationPolicy');
 
 class HandlerValidatorRoles extends HandlerValidatorPolicy {
     /**
@@ -31,7 +31,7 @@ class HandlerValidatorRoles extends HandlerValidatorPolicy {
      */
     public function __construct($handler, $redirectLogin = true, $message = null, $additionalArgs = array(), $roles = array(), $all = false) {
         // Hapus '&' pada assignment objek
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         $request = $application->getRequest();
         
         $policy = new RoleBasedHandlerOperationPolicy($request, $roles, array(), $message, $all, true);

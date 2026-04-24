@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief Form to edit notification settings.
  */
 
-import('lib.pkp.classes.notification.form.PKPNotificationSettingsForm');
+import('lib.wizdam.classes.notification.form.CoreNotificationSettingsForm');
 
 class NotificationSettingsForm extends CoreNotificationSettingsForm {
     
@@ -163,7 +163,7 @@ class NotificationSettingsForm extends CoreNotificationSettingsForm {
      */
     public function execute($object = null) {
         // BUGFIX: $request was undefined in original code
-        $request = PKPApplication::getRequest();
+        $request = CoreApplication::getRequest();
         
         $user = $request->getUser();
         $userId = $user->getId();

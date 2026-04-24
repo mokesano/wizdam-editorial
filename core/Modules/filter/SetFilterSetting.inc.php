@@ -15,8 +15,8 @@ declare(strict_types=1);
  * be one of a given set of values.
  */
 
-import('lib.pkp.classes.filter.FilterSetting');
-import('lib.pkp.classes.form.validation.FormValidatorInSet');
+import('lib.wizdam.classes.filter.FilterSetting');
+import('lib.wizdam.classes.form.validation.FormValidatorInSet');
 
 class SetFilterSetting extends FilterSetting {
     /** @var array */

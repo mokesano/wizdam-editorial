@@ -2,24 +2,23 @@
 declare(strict_types=1);
 
 /**
- * @file tools/install.php
+ * @file core/Modules/tools/install.php
  *
- * Copyright (c) 2013-2019 Simon Fraser University
- * Copyright (c) 2003-2019 John Willinsky
+ * Copyright (c) 2013-2025 Wizdam Framework Contributors
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class installTool
+ * @class AppInstallTool
  * @ingroup tools
  *
- * @brief CLI tool for installing OJS.
+ * @brief CLI tool for installing Wizdam.
  * [WIZDAM EDITION] Modernized CLI Installer Child.
  */
 
 require(__DIR__ . '/bootstrap.inc.php');
 
-import('lib.pkp.classes.cliTool.InstallTool');
+import('core.Modules.cliTool.InstallTool');
 
-class OJSInstallTool extends InstallTool {
+class AppInstallTool extends InstallTool {
     /**
      * Constructor.
      * @param array $argv command-line arguments
@@ -31,7 +30,7 @@ class OJSInstallTool extends InstallTool {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function OJSInstallTool($argv = []) {
+    public function AppInstallTool($argv = []) {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor parent::" . get_class($this) . "(). Please refactor to use parent::__construct().",
@@ -49,13 +48,13 @@ class OJSInstallTool extends InstallTool {
      */
     protected function readParams(): bool {
         // [WIZDAM] Application Component
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER, LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_PKP_USER);
-        printf("%s\n", __('installer.ojsInstallation'));
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_INSTALLER, LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_WIZDAM_USER);
+        printf("%s\n", __('installer.wizdamInstallation'));
 
         // Call Parent implementation to read all common parameters
         parent::readParams();
 
-        // Read OJS-specific final parameter
+        // Read Wizdam-specific final parameter
         $this->readParamBoolean('install', 'installer.installApplication');
 
         // Parent expects a boolean return value to determine execution flow.

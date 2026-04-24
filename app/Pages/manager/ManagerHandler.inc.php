@@ -57,7 +57,7 @@ class ManagerHandler extends Handler {
     /**
      * Display journal management index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -69,10 +69,10 @@ class ManagerHandler extends Handler {
         $journal = $request->getJournal();
         $templateMgr = TemplateManager::getManager();
 
-        // Display a warning message if there is a new version of OJS available
+        // Display a warning message if there is a new version of Wizdam available
         $newVersionAvailable = false;
         if (Config::getVar('general', 'show_upgrade_warning')) {
-            import('lib.pkp.classes.site.VersionCheck');
+            import('lib.wizdam.classes.site.VersionCheck');
             if ($latestVersion = VersionCheck::checkIfNewVersionExists()) {
                 $newVersionAvailable = true;
                 $templateMgr->assign('latestVersion', $latestVersion);
@@ -102,7 +102,7 @@ class ManagerHandler extends Handler {
     /**
      * Send an email to a user or group of users.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function email($args, $request = null) {
         $this->validate();

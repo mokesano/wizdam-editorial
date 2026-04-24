@@ -171,7 +171,7 @@ class DataciteExportPlugin extends DOIExportPlugin {
         unset($suppFiles);
 
         // Instantiate supp file iterator.
-        import('lib.pkp.classes.core.VirtualArrayIterator');
+        import('lib.wizdam.classes.core.VirtualArrayIterator');
         $iterator = new VirtualArrayIterator($suppFileData, $totalSuppFiles, $rangeInfo->getPage(), $rangeInfo->getCount());
 
         // Prepare and display the supp file template.
@@ -184,7 +184,7 @@ class DataciteExportPlugin extends DOIExportPlugin {
      */
     public function generateExportFiles($request, $exportType, $objects, $targetPath, $journal, &$errors) {
         // Additional locale file.
-        AppLocale::requireComponents([LOCALE_COMPONENT_OJS_EDITOR]);
+        AppLocale::requireComponents([LOCALE_COMPONENT_WIZDAM_EDITOR]);
 
         // Export objects one by one (DataCite does not allow
         // multiple objects per file).
@@ -225,7 +225,7 @@ class DataciteExportPlugin extends DOIExportPlugin {
         $doi = $object->getPubId('doi');
         assert(!empty($doi));
         if ($this->isTestMode($request)) {
-            $doi = PKPString::regexp_replace('#^[^/]+/#', DATACITE_API_TESTPREFIX . '/', $doi);
+            $doi = CoreString::regexp_replace('#^[^/]+/#', DATACITE_API_TESTPREFIX . '/', $doi);
         }
         $url = $this->_getObjectUrl($request, $journal, $object);
         assert(!empty($url));
@@ -423,7 +423,7 @@ class DataciteExportPlugin extends DOIExportPlugin {
 
         if ($this->isTestMode($request)) {
             // Change server domain for testing.
-            $url = PKPString::regexp_replace('#://[^\s]+/index.php#', '://example.com/index.php', $url);
+            $url = CoreString::regexp_replace('#://[^\s]+/index.php#', '://example.com/index.php', $url);
         }
         return $url;
     }

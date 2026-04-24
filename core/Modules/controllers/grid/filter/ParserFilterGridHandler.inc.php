@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/pkp/controllers/grid/filter/ParserFilterGridHandler.inc.php
+ * @file lib/wizdam/controllers/grid/filter/ParserFilterGridHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -40,8 +40,8 @@ class ParserFilterGridHandler extends FilterGridHandler {
     }
 
     /**
-     * @see PKPHandler::initialize()
-     * @param PKPRequest $request
+     * @see CoreHandler::initialize()
+     * @param CoreRequest $request
      * @param array|null $args
      */
     public function initialize($request, $args = null) {

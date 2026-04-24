@@ -41,7 +41,7 @@ declare(strict_types=1);
  * contributions to certain filter groups (e.g. citation parsers).
  */
 
-import('lib.pkp.classes.core.DataObject');
+import('lib.wizdam.classes.core.DataObject');
 
 class FilterGroup extends DataObject {
     

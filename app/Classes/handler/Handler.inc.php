@@ -15,7 +15,7 @@ declare(strict_types=1);
  * WIZDAM EDITION: PHP 8 Compatibility (Clean Inheritance) & Modular Security
  */
 
-import('lib.pkp.classes.handler.PKPHandler');
+import('lib.wizdam.classes.handler.CoreHandler');
 import('classes.handler.validation.HandlerValidatorJournal');
 import('classes.handler.validation.HandlerValidatorSubmissionComment');
 
@@ -23,7 +23,7 @@ class Handler extends CoreHandler {
     
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      */
     public function __construct($request = null) {
         parent::__construct($request);
@@ -76,7 +76,7 @@ class Handler extends CoreHandler {
         // PILAR 3: DEFAULT CAPTCHA (Fallback)
         // Hanya render Captcha gambar jika Turnstile DAN reCAPTCHA dimatikan
         if (!$turnstileEnabled && !$reCaptchaEnabled) {
-            import('lib.pkp.classes.captcha.CaptchaManager');
+            import('lib.wizdam.classes.captcha.CaptchaManager');
             $captchaManager = new CaptchaManager();
             $captchaEnabled = $captchaManager->isEnabledForContext($context);
             
@@ -90,7 +90,7 @@ class Handler extends CoreHandler {
                 }
             }
         } else {
-            // Matikan trigger frontend OJS untuk gambar captcha
+            // Matikan trigger frontend Wizdam untuk gambar captcha
             $templateMgr->assign('captchaEnabled', false);
         }
         
@@ -101,7 +101,7 @@ class Handler extends CoreHandler {
 
     /**
      * [WIZDAM SECURITY] Helper: Validasi Token Paralel & Fallback Legacy
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool True jika valid, False jika gagal.
      */
     protected function _validateSecurityTokens($request, string $context = ''): bool {
@@ -172,7 +172,7 @@ class Handler extends CoreHandler {
 
         // --- LAYER 2: FALLBACK DEFAULT CAPTCHA ---
         // Dieksekusi HANYA JIKA Turnstile OFF dan reCAPTCHA OFF
-        import('lib.pkp.classes.captcha.CaptchaManager');
+        import('lib.wizdam.classes.captcha.CaptchaManager');
         $captchaManager = new CaptchaManager();
         $captchaEnabled = $captchaManager->isEnabledForContext($context);
         
@@ -201,11 +201,11 @@ class Handler extends CoreHandler {
     
     /**
      * Setup common template variables.
-     * [WIZDAM] Override PKPHandler::setupTemplate() untuk inject
+     * [WIZDAM] Override CoreHandler::setupTemplate() untuk inject
      * reCAPTCHA v3 public key secara global ke semua halaman.
      * v3 passive monitoring tidak memerlukan form submission —
      * cukup script tag di header dengan public key tersedia.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param bool $subclass
      */
     public function setupTemplate($request = null) {

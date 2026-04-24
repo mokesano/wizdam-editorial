@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+import('lib.wizdam.classes.form.validation.FormValidator');
 
 class FormValidatorORCID extends FormValidator {
     
@@ -27,7 +27,7 @@ class FormValidatorORCID extends FormValidator {
      * @param string $message the error message for validation failures (i18n key)
      */
     public function __construct($form, $field, $type, $message) {
-        import('lib.pkp.classes.validation.ValidatorORCID');
+        import('lib.wizdam.classes.validation.ValidatorORCID');
         $validator = new ValidatorORCID();
         parent::__construct($form, $field, $type, $message, $validator);
     }

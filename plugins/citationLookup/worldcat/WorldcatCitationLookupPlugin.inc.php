@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief WorldCat citation database connector plug-in.
  */
 
-import('lib.pkp.plugins.citationLookup.worldcat.PKPWorldcatCitationLookupPlugin');
+import('lib.wizdam.plugins.citationLookup.worldcat.PKPWorldcatCitationLookupPlugin');
 
 class WorldcatCitationLookupPlugin extends CoreWorldcatCitationLookupPlugin {
     

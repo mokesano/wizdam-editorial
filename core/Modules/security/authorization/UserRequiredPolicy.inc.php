@@ -14,10 +14,10 @@ declare(strict_types=1);
  * @brief Policy to deny access if a context cannot be found in the request.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
 
 class UserRequiredPolicy extends AuthorizationPolicy {
-    /** @var PKPRequest */
+    /** @var CoreRequest */
     public $_request;
 
     /**

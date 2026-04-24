@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaCitationOutputFormatFilter');
 
 class Nlm30CitationSchemaNlm30XmlFilter extends Nlm30CitationSchemaCitationOutputFormatFilter {
     /**
@@ -51,7 +51,7 @@ class Nlm30CitationSchemaNlm30XmlFilter extends Nlm30CitationSchemaCitationOutpu
      * @return string
      */
     public function getClassName() {
-        return 'lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaNlm30XmlFilter';
+        return 'lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaNlm30XmlFilter';
     }
 
     //
@@ -62,7 +62,7 @@ class Nlm30CitationSchemaNlm30XmlFilter extends Nlm30CitationSchemaCitationOutpu
      * [WIZDAM FIX] Removed references (&) to match parent signature compatibility in PHP 8
      * @param TemplateManager $templateMgr
      * @param mixed $input
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $locale
      */
     public function addTemplateVars($templateMgr, $input, $request, &$locale) {

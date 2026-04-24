@@ -16,9 +16,9 @@ declare(strict_types=1);
  */
 
 import('classes.plugins.GatewayPlugin');
-import('lib.pkp.classes.site.VersionCheck');
-import('lib.pkp.classes.db.DBResultRange');
-import('lib.pkp.classes.core.ArrayItemIterator');
+import('lib.wizdam.classes.site.VersionCheck');
+import('lib.wizdam.classes.db.DBResultRange');
+import('lib.wizdam.classes.core.ArrayItemIterator');
 
 define('PLN_PLUGIN_PING_ARTICLE_COUNT', 12);
 
@@ -138,7 +138,7 @@ class PLNGatewayPlugin extends GatewayPlugin {
 			$templateMgr->assign('termsAccepted', 'no');
 		}
 		
-		$application = PKPApplication::getApplication();
+		$application = CoreApplication::getApplication();
 		$products = $application->getEnabledProducts('plugins.generic');
 		$curlVersion = 'not installed';
 		if(function_exists('curl_version')) {
@@ -168,8 +168,8 @@ class PLNGatewayPlugin extends GatewayPlugin {
 		$templateMgr->assign('termsDisplay', new ArrayItemIterator($termsDisplay));
 
 		$versionDao = DAORegistry::getDAO('VersionDAO');
-		$ojsVersion = $versionDao->getCurrentVersion();
-		$templateMgr->assign('ojsVersion', $ojsVersion->getVersionString());
+		$wizdamVersion = $versionDao->getCurrentVersion();
+		$templateMgr->assign('wizdamVersion', $wizdamVersion->getVersionString());
 
 		$publishedArticlesDAO = DAORegistry::getDAO('PublishedArticleDAO');
 		$range = new DBResultRange(PLN_PLUGIN_PING_ARTICLE_COUNT);

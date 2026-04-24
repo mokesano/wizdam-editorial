@@ -2,24 +2,24 @@
 declare(strict_types=1);
 
 /**
- * @defgroup payment_ojs
+ * @defgroup payment_wizdam
  */
 
 /**
- * @file classes/payment/ojs/OJSCompletedPayment.inc.php
+ * @file classes/payment/wizdam/OJSCompletedPayment.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2006-2009 Gunther Eysenbach, Juan Pablo Alperin, MJ Suhonos
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class AppCompletedPayment
- * @ingroup payment_ojs
- * @see OJSCompletedPaymentDAO
+ * @ingroup payment_wizdam
+ * @see AppCompletedPaymentDAO
  *
  * @brief Class describing a payment ready to be in the database.
  * * MODERNIZED FOR WIZDAM FORK
  */
-import('lib.pkp.classes.payment.Payment');
+import('lib.wizdam.classes.payment.Payment');
 
 class AppCompletedPayment extends Payment {
     /** @var int */

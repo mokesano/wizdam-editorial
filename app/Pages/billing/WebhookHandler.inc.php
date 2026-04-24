@@ -38,7 +38,7 @@ class WebhookHandler extends Handler {
      * Menangani request webhook yang masuk dari Payment Gateway.
      * URL contoh: /billing/webhook/midtrans
      * @param array $args URL segments setelah /webhook/, misal ['midtrans']
-     * @param mixed $request Objek request bawaan OJS
+     * @param mixed $request Objek request bawaan Wizdam
      */
     public function index(array $args = [], $request = null): void {
         $gatewayName = isset($args[0]) ? strtolower($args[0]) : '';

@@ -17,7 +17,7 @@ declare(strict_types=1);
  */
 
 import('classes.handler.Handler');
-import('lib.pkp.classes.core.PKPWizdamStats');
+import('lib.wizdam.classes.core.PKPWizdamStats');
 
 class IndexHandler extends Handler {
     
@@ -46,7 +46,7 @@ class IndexHandler extends Handler {
      * If no journal is selected, display list of journals.
      * Otherwise, display the index page for the selected journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -96,7 +96,7 @@ class IndexHandler extends Handler {
             
             // --- MODIFIKASI DIMULAI (WIZDAM Editor Staff) ---
             // 1. Import kelas handler baru dari core
-            import('lib.pkp.classes.core.PKPWizdamEditorStaff');
+            import('lib.wizdam.classes.core.PKPWizdamEditorStaff');
             
             // 2. jumlah staff yang ingin ditampilkan (sesuai kebutuhan)
             $maxStaffToShow = 3; 

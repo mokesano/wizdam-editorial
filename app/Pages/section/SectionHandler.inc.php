@@ -32,7 +32,7 @@ class SectionHandler extends Handler {
     /**
      * Fallback jika URL hanya /section
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function index(array $args = [], $request = null) {
         Request::redirect(null, 'index');
@@ -44,10 +44,10 @@ class SectionHandler extends Handler {
      * [WIZDAM] $args[0] berisi slug section karena PKPPageRouter
      * meletakkan segmen sebelum $op di dalam $args.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function about(array $args = [], $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $journal = $request->getJournal();
         if (!$journal) {
             Request::redirect(null, 'index');
@@ -67,10 +67,10 @@ class SectionHandler extends Handler {
      * Menampilkan semua artikel section dengan paginasi.
      * URL: /{context}/section/{slug}/articles
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function articles(array $args = [], $request = null) {
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
         $journal = $request->getJournal();
         if (!$journal) {
             Request::redirect(null, 'index');
@@ -131,7 +131,7 @@ class SectionHandler extends Handler {
     /**
      * Halaman index section: 4 artikel terbaru + editor.
      * [WIZDAM] Data editor dikirim sebagai User object langsung — tidak dibungkus
-     * array terbatas. Template bebas mengakses semua getter PKPUser.
+     * array terbatas. Template bebas mengakses semua getter CoreUser.
      * @param object $section
      * @param object $journal
      */
@@ -160,7 +160,7 @@ class SectionHandler extends Handler {
      * [WIZDAM] Lead editor dikirim sebagai User object langsung.
      * @param object $section
      * @param object $journal
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     private function _showSectionAbout($section, $journal, $request): void {
         $this->setupSectionTemplate($section);
@@ -183,11 +183,11 @@ class SectionHandler extends Handler {
     }
 
     /**
-     * Halaman semua artikel section dengan paginasi OJS.
-     * [WIZDAM] Menggunakan VirtualArrayIterator dan getRangeInfo() bawaan OJS.
+     * Halaman semua artikel section dengan paginasi Wizdam.
+     * [WIZDAM] Menggunakan VirtualArrayIterator dan getRangeInfo() bawaan Wizdam.
      * @param object $section
      * @param object $journal
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     private function _showSectionArticles($section, $journal, $request): void {
         $this->setupSectionTemplate($section);
@@ -202,7 +202,7 @@ class SectionHandler extends Handler {
         $offset       = ($currentPage - 1) * $itemsPerPage;
         $pageArticles = array_slice($allFiltered, $offset, $itemsPerPage);
 
-        import('lib.pkp.classes.core.VirtualArrayIterator');
+        import('lib.wizdam.classes.core.VirtualArrayIterator');
         $articlesIterator = new VirtualArrayIterator(
             $pageArticles,
             $totalCount,

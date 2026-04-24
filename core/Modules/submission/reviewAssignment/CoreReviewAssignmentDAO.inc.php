@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/reviewAssignment/PKPReviewAssignmentDAO.inc.php
+ * @file classes/submission/reviewAssignment/CoreReviewAssignmentDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -10,12 +10,12 @@ declare(strict_types=1);
  *
  * @class CoreReviewAssignmentDAO
  * @ingroup submission
- * @see PKPReviewAssignment
+ * @see CoreReviewAssignment
  *
  * @brief Class for DAO relating reviewers to submissions.
  */
 
-import('lib.pkp.classes.submission.reviewAssignment.PKPReviewAssignment');
+import('lib.wizdam.classes.submission.reviewAssignment.CoreReviewAssignment');
 
 class CoreReviewAssignmentDAO extends DAO {
     
@@ -34,9 +34,9 @@ class CoreReviewAssignmentDAO extends DAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPReviewAssignmentDAO() {
+    public function CoreReviewAssignmentDAO() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPReviewAssignmentDAO(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreReviewAssignmentDAO(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }

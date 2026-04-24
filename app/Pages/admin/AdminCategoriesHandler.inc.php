@@ -50,7 +50,7 @@ class AdminCategoriesHandler extends AdminHandler {
     /**
      * Display a list of categories.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function categories($args, $request) {
         $this->validate($request);
@@ -62,7 +62,7 @@ class AdminCategoriesHandler extends AdminHandler {
         // Unused variable removed: $categoryEntryDao
 
         $categoriesArray = $categoryDao->getCategories();
-        import('lib.pkp.classes.core.ArrayItemIterator');
+        import('lib.wizdam.classes.core.ArrayItemIterator');
         $categories = ArrayItemIterator::fromRangeInfo($categoriesArray, $rangeInfo);
 
         $templateMgr = TemplateManager::getManager();
@@ -80,7 +80,7 @@ class AdminCategoriesHandler extends AdminHandler {
     /**
      * Delete a category.
      * @param array $args first parameter is the ID of the category to delete
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteCategory($args, $request) {
         $categoryId = (int) array_shift($args);
@@ -101,7 +101,7 @@ class AdminCategoriesHandler extends AdminHandler {
     /**
      * Change the sequence of a category.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveCategory($args, $request) {
         $categoryId = (int) $request->getUserVar('id');
@@ -152,7 +152,7 @@ class AdminCategoriesHandler extends AdminHandler {
     /**
      * Display form to edit a category.
      * @param array $args optional, parameter is the ID of the category to edit
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editCategory($args, $request) {
         $categoryId = (int) array_shift($args);
@@ -182,7 +182,7 @@ class AdminCategoriesHandler extends AdminHandler {
     /**
      * Display form to create new category.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createCategory($args, $request) {
         $this->editCategory($args, $request);
@@ -191,7 +191,7 @@ class AdminCategoriesHandler extends AdminHandler {
     /**
      * Save changes to a category.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function updateCategory($args, $request) {
         $categoryIdInput = $request->getUserVar('categoryId');
@@ -234,7 +234,7 @@ class AdminCategoriesHandler extends AdminHandler {
     /**
      * Set the site-wide categories enabled/disabled flag.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function setCategoriesEnabled($args, $request) {
         $this->validate($request);
@@ -246,7 +246,7 @@ class AdminCategoriesHandler extends AdminHandler {
 
     /**
      * Set up the template.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Category|null $category optional
      * @param bool $subclass optional
      */
@@ -265,7 +265,7 @@ class AdminCategoriesHandler extends AdminHandler {
      * Validate the request. If a category ID is supplied, the category object
      * will be fetched and validated against. If, additionally, the user ID is 
      * supplied, the user and membership objects will be validated and fetched.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param int|null $categoryId optional
      * @return bool
      */

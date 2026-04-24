@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Piwik plugin class
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class PiwikPlugin extends GenericPlugin {
 

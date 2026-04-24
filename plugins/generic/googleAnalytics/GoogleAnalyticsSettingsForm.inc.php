@@ -19,7 +19,7 @@ define('GOOGLE_ANALYTICS_SITE_ENABLE', 1);
 define('GOOGLE_ANALYTICS_SITE_DISABLE', -1);
 define('GOOGLE_ANALYTICS_SITE_UNCHANGED', 0);
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class GoogleAnalyticsSettingsForm extends Form {
 
@@ -62,7 +62,7 @@ class GoogleAnalyticsSettingsForm extends Form {
     /**
      * Display the form.
      * @see Form::display()
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $template string (optional) Override the default template path.
      */
     public function display($request = null, $template = null) {

@@ -96,7 +96,7 @@ class PayPalPlugin extends PaymethodPlugin {
 
     /**
      * TAMPILAN SETTINGS (BACKEND)
-     * Menggunakan struktur <tr> agar pas dengan tabel OJS
+     * Menggunakan struktur <tr> agar pas dengan tabel Wizdam
      * @return string
      * @param array $params
      * @param Smarty $smarty
@@ -178,7 +178,7 @@ class PayPalPlugin extends PaymethodPlugin {
                 $formatter->setAttribute(\NumberFormatter::MIN_FRACTION_DIGITS, 2);
                 $formatter->setAttribute(\NumberFormatter::MAX_FRACTION_DIGITS, 2);
 
-                // 2. Ambil nilai TOTAL AKHIR dari antrean OJS
+                // 2. Ambil nilai TOTAL AKHIR dari antrean Wizdam
                 $finalAmount = $queuedPayment->getAmount();
 
                 // 3. TARIK PENGATURAN DARI FEE PAYMENT OPTIONS & REVERSE-CALCULATION
@@ -383,7 +383,7 @@ class PayPalPlugin extends PaymethodPlugin {
                 curl_setopt($ch, CURLOPT_URL, $paypalUrl);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt($ch, CURLOPT_POST, 1);
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent: PKP PayPal Service', 'Content-Type: application/x-www-form-urlencoded', 'Content-Length: ' . strlen($req)));
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent: Wizdam PayPal Service', 'Content-Type: application/x-www-form-urlencoded', 'Content-Length: ' . strlen($req)));
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $req);
                 $ret = curl_exec ($ch);
                 $curlError = curl_error($ch);
@@ -403,8 +403,8 @@ class PayPalPlugin extends PaymethodPlugin {
                             $payPalDao->insertTransaction(
                                 $transactionId,
                                 $request->getUserVar('txn_type'),
-                                PKPString::strtolower($request->getUserVar('payer_email')),
-                                PKPString::strtolower($request->getUserVar('receiver_email')),
+                                CoreString::strtolower($request->getUserVar('payer_email')),
+                                CoreString::strtolower($request->getUserVar('receiver_email')),
                                 $request->getUserVar('item_number'),
                                 $request->getUserVar('payment_date'),
                                 $request->getUserVar('payer_id'),
@@ -413,8 +413,8 @@ class PayPalPlugin extends PaymethodPlugin {
 
                             $queuedPaymentId = $request->getUserVar('custom');
                             import('classes.payment.AppPaymentManager');
-                            $ojsPaymentManager = new AppPaymentManager($request);
-                            $queuedPayment = $ojsPaymentManager->getQueuedPayment($queuedPaymentId);
+                            $wizdamPaymentManager = new AppPaymentManager($request);
+                            $queuedPayment = $wizdamPaymentManager->getQueuedPayment($queuedPaymentId);
 
                             if (!$queuedPayment) {
                                 $this->sendInvestigateMail($mail, $journal, $_POST, "Missing queued payment ID: $queuedPaymentId");
@@ -425,9 +425,9 @@ class PayPalPlugin extends PaymethodPlugin {
                             $queuedAmount = $queuedPayment->getAmount();
                             $grantedCurrency = $request->getUserVar('mc_currency');
                             $queuedCurrency = $queuedPayment->getCurrencyCode();
-                            $grantedEmail = PKPString::strtolower($request->getUserVar('receiver_email'));
+                            $grantedEmail = CoreString::strtolower($request->getUserVar('receiver_email'));
                             // Fallback check jika selleraccount lama masih ada
-                            $queuedEmail = PKPString::strtolower($this->getSetting($journal->getId(), 'selleraccount'));
+                            $queuedEmail = CoreString::strtolower($this->getSetting($journal->getId(), 'selleraccount'));
 
                             // Note: Validasi email mungkin perlu disesuaikan jika menggunakan API v2 tanpa selleraccount setting
                             // Tapi untuk keamanan, biarkan logika ini berjalan jika data tersedia.
@@ -439,7 +439,7 @@ class PayPalPlugin extends PaymethodPlugin {
                                 $queuedPaymentDao->updateQueuedPayment($queuedPaymentId, $queuedPayment);
                             }
 
-                            if ($ojsPaymentManager->fulfillQueuedPayment($queuedPayment, $this->getName())) {
+                            if ($wizdamPaymentManager->fulfillQueuedPayment($queuedPayment, $this->getName())) {
                                 exit();
                             }
                             
@@ -459,12 +459,12 @@ class PayPalPlugin extends PaymethodPlugin {
                 break;
 
             case 'cancel':
-                AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON, LOCALE_COMPONENT_PKP_USER, LOCALE_COMPONENT_APPLICATION_COMMON);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_COMMON, LOCALE_COMPONENT_WIZDAM_USER, LOCALE_COMPONENT_APPLICATION_COMMON);
                 $templateMgr->assign(array(
                     'currentUrl' => $request->url(null, 'index'),
                     'pageTitle' => 'plugins.paymethod.paypal.purchase.cancelled.title',
                     'message' => 'plugins.paymethod.paypal.purchase.cancelled',
-                    'backLink' => $request->getUserVar('ojsReturnUrl'),
+                    'backLink' => $request->getUserVar('wizdamReturnUrl'),
                     'backLinkLabel' => 'common.continue'
                 ));
                 $templateMgr->display('common/message.tpl');

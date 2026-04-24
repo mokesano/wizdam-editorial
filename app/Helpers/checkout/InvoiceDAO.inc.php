@@ -11,11 +11,11 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  * @class InvoiceDAO
  * @brief Operations for retrieving and modifying Invoice objects. 
- * Memiliki fitur Legacy Bridge ke tabel completed_payments bawaan OJS.
+ * Memiliki fitur Legacy Bridge ke tabel completed_payments bawaan Wizdam.
  */
 
-import('lib.pkp.classes.db.DAO');
-import('lib.pkp.classes.db.DBResultRange');
+import('lib.wizdam.classes.db.DAO');
+import('lib.wizdam.classes.db.DBResultRange');
 import('lib.wizdam.classes.checkout.Invoice');
 import('classes.payment.AppQueuedPayment');
 import('classes.payment.QueuedPayment');

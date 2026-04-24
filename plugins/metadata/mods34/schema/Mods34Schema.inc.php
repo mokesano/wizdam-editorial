@@ -16,10 +16,10 @@ declare(strict_types=1);
  * @ingroup plugins_metadata_mods34_schema
  * @see PKPMods34Schema
  *
- * @brief OJS-specific implementation of the Mods34Schema.
+ * @brief Wizdam-specific implementation of the Mods34Schema.
  */
 
-import('lib.pkp.plugins.metadata.mods34.schema.PKPMods34Schema');
+import('lib.wizdam.plugins.metadata.mods34.schema.PKPMods34Schema');
 
 class Mods34Schema extends CoreMods34Schema {
 

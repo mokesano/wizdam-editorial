@@ -21,9 +21,9 @@ declare(strict_types=1);
  * [MODERNISASI] Refactored for PHP 7.4+ Compatibility
  */
 
-import('lib.pkp.classes.db.DBConnection');
-import('lib.pkp.classes.db.DAOResultFactory');
-import('lib.pkp.classes.core.DataObject');
+import('lib.wizdam.classes.db.DBConnection');
+import('lib.wizdam.classes.db.DAOResultFactory');
+import('lib.wizdam.classes.core.DataObject');
 
 define('SORT_DIRECTION_ASC', 0x00001);
 define('SORT_DIRECTION_DESC', 0x00002);
@@ -633,7 +633,7 @@ class DAO {
         }
 
         // Create and render the JSON message
-        import('lib.pkp.classes.core.JSONMessage');
+        import('lib.wizdam.classes.core.JSONMessage');
         $json = new JSONMessage(true);
         $json->setEvent('dataChanged', $eventData);
         header('Content-Type: application/json');

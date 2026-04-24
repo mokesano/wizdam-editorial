@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class to represent a page validation check.
  */
 
-import('lib.pkp.classes.handler.validation.HandlerValidator');
+import('lib.wizdam.classes.handler.validation.HandlerValidator');
 
 class HandlerValidatorCustom extends HandlerValidator {
     /** @var callable The user supplied function to call */

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/file/PKPFileDAO.inc.php
+ * @file classes/file/CoreFileDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -10,13 +10,13 @@ declare(strict_types=1);
  *
  * @class CoreFileDAO
  * @ingroup file
- * @see PKPFile
+ * @see CoreFile
  *
- * @brief Abstract base class for retrieving and modifying PKPFile
+ * @brief Abstract base class for retrieving and modifying CoreFile
  * objects and their decendents
  */
 
-define('INLINEABLE_TYPES_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'registry' . DIRECTORY_SEPARATOR . 'inlineTypes.txt');
+define('INLINEABLE_TYPES_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'wizdam' . DIRECTORY_SEPARATOR . 'registry' . DIRECTORY_SEPARATOR . 'inlineTypes.txt');
 
 class CoreFileDAO extends DAO {
     /**
@@ -35,9 +35,9 @@ class CoreFileDAO extends DAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPFileDAO() {
+    public function CoreFileDAO() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPFileDAO(). Please refactor to use parent::__construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreFileDAO(). Please refactor to use parent::__construct().",
             E_USER_DEPRECATED
         );
         self::__construct();
@@ -49,7 +49,7 @@ class CoreFileDAO extends DAO {
     
     /**
      * Check whether a file may be displayed inline.
-     * @param $file PKPFile
+     * @param $file CoreFile
      * @return boolean
      */
     public function isInlineable($file) {

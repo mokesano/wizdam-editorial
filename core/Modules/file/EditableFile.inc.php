@@ -27,7 +27,7 @@ class EditableFile {
      * @param $filename string
      */
     public function __construct($filename) {
-        import('lib.pkp.classes.file.FileWrapper');
+        import('lib.wizdam.classes.file.FileWrapper');
         $this->filename = $filename;
         // Modernisasi: Hapus &
         $wrapper = FileWrapper::wrapper($this->filename);

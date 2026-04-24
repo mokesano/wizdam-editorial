@@ -18,7 +18,7 @@ declare(strict_types=1);
  */
 
 import('classes.submission.reviewAssignment.ReviewAssignment');
-import('lib.pkp.classes.submission.reviewAssignment.PKPReviewAssignmentDAO');
+import('lib.wizdam.classes.submission.reviewAssignment.CoreReviewAssignmentDAO');
 
 class ReviewAssignmentDAO extends CoreReviewAssignmentDAO {
     public $articleFileDao = null;
@@ -295,7 +295,7 @@ class ReviewAssignmentDAO extends CoreReviewAssignmentDAO {
     }
 
     /**
-    * @see PKPReviewAssignmentDAO::getReviewRoundJoin()
+    * @see CoreReviewAssignmentDAO::getReviewRoundJoin()
     */
     public function getReviewRoundJoin() {
         return 'r.submission_id = r2.submission_id AND r.round = r2.round';

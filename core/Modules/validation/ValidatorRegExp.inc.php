@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor & Visibility)
  */
 
-import ('lib.pkp.classes.validation.Validator');
+import ('lib.wizdam.classes.validation.Validator');
 
 class ValidatorRegExp extends Validator {
 
@@ -54,7 +54,7 @@ class ValidatorRegExp extends Validator {
      * @return boolean
      */
     public function isValid($value) {
-        return (boolean)PKPString::regexp_match_get($this->_regExp, $value, $this->_matches);
+        return (boolean)CoreString::regexp_match_get($this->_regExp, $value, $this->_matches);
     }
 
 

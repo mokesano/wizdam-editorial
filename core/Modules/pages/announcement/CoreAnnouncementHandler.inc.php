@@ -30,7 +30,7 @@ class CoreAnnouncementHandler extends Handler {
     /**
      * Display announcement index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index(array $args = [], $request = null) {
         $this->validate();
@@ -54,7 +54,7 @@ class CoreAnnouncementHandler extends Handler {
     /**
      * View announcement details.
      * @param array $args first parameter is the ID of announcement to display
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function view($args, $request) {
         $this->validate();
@@ -89,7 +89,7 @@ class CoreAnnouncementHandler extends Handler {
 
     /**
      * Setup common template variables.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $subclass
      */
     public function setupTemplate($request = null, $subclass = false) {
@@ -105,7 +105,7 @@ class CoreAnnouncementHandler extends Handler {
     /**
      * Returns true when announcements are enabled 
      * in the context, otherwise false.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool
      */
     protected function _getAnnouncementsEnabled($request) {
@@ -116,7 +116,7 @@ class CoreAnnouncementHandler extends Handler {
 
     /**
      * Returns a list of (non-expired) announcements for this context.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param DBResultRange|null $rangeInfo
      * @return DAOResultFactory|null
      */
@@ -128,7 +128,7 @@ class CoreAnnouncementHandler extends Handler {
 
     /**
      * Returns an introductory text to be displayed with the announcements.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return string|null
      */
     protected function _getAnnouncementsIntroduction($request) {
@@ -139,7 +139,7 @@ class CoreAnnouncementHandler extends Handler {
 
     /**
      * Checks whether the given announcement is valid for display.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param int $announcementId
      * @return bool
      */

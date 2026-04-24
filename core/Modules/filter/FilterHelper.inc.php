@@ -25,7 +25,7 @@ class FilterHelper {
     public static function installFilterGroups($filterGroupsNode) {
         // Install filter groups.
         $filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /* @var $filterGroupDao FilterGroupDAO */
-        import('lib.pkp.classes.filter.FilterGroup');
+        import('lib.wizdam.classes.filter.FilterGroup');
 
         foreach ($filterGroupsNode->getChildren() as $filterGroupNode) { /* @var $filterGroupNode XMLNode */
             $filterGroupSymbolic = $filterGroupNode->getAttribute('symbolic');
@@ -70,7 +70,7 @@ class FilterHelper {
         // We have to include the filter class before going on
         // so that all required constants are defined before they
         // might be used in settings.
-        if (PKPString::regexp_match('/^[a-zA-Z0-9.]+$/', $filterClassName)) {
+        if (CoreString::regexp_match('/^[a-zA-Z0-9.]+$/', $filterClassName)) {
             import($filterClassName);
         }
 

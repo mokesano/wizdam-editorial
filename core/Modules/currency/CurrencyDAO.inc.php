@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.currency.Currency');
+import('lib.wizdam.classes.currency.Currency');
 
 class CurrencyDAO extends DAO {
 
@@ -103,7 +103,7 @@ class CurrencyDAO extends DAO {
      * @return string
      */
     public function getCurrencyFilename($locale) {
-        return "lib/pkp/locale/$locale/currencies.xml";
+        return "lib/wizdam/locale/$locale/currencies.xml";
     }
 
     /**

@@ -13,7 +13,7 @@ declare(strict_types=1);
  * @brief Data Object yang merepresentasikan satu entitas Tagihan (Global Level).
  */
 
-import('lib.pkp.classes.core.DataObject');
+import('lib.wizdam.classes.core.DataObject');
 
 class Invoice extends DataObject {
     
@@ -160,7 +160,7 @@ class Invoice extends DataObject {
      * @return bool true jika tagihan sudah dibayar lunas
      */
     public function isPaid(): bool {
-        // Jika ini adalah legacy payment dari OJS, biasanya dianggap lunas (karena masuk ke completed_payments)
+        // Jika ini adalah legacy payment dari Wizdam, biasanya dianggap lunas (karena masuk ke completed_payments)
         if ($this->isLegacy()) {
             return true; 
         }

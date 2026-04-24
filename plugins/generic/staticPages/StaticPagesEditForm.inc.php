@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class StaticPagesEditForm extends Form {
     
@@ -191,7 +191,7 @@ class StaticPagesEditForm extends Form {
 
     /**
      * Display the form.
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $template string
      */
     public function display($request = null, $template = null) {

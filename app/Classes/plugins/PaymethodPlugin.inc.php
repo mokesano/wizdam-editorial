@@ -90,7 +90,7 @@ class PaymethodPlugin extends Plugin {
      * [WIZDAM CRITICAL FIX] Removed $key parameter to match PaymentManager call signature
      * @param int $queuedPaymentId
      * @param QueuedPayment $queuedPayment
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return mixed
      */
     public function displayPaymentForm(int $queuedPaymentId, $queuedPayment, $request) {
@@ -146,7 +146,7 @@ class PaymethodPlugin extends Plugin {
      * Handle an incoming request from a user callback or an external
      * payment processing system.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function handle($args, $request) {
         // Subclass should override.

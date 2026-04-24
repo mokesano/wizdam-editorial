@@ -51,11 +51,11 @@ class ReviewerHandler extends Handler {
     /**
      * Display reviewer index page.
      * @param array $args
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate($request);
         $this->setupTemplate();
@@ -105,7 +105,7 @@ class ReviewerHandler extends Handler {
             }
 
             // Convert submission array back to an ItemIterator class
-            import('lib.pkp.classes.core.ArrayItemIterator');
+            import('lib.wizdam.classes.core.ArrayItemIterator');
             $submissions = ArrayItemIterator::fromRangeInfo($submissionsArray, $rangeInfo);
         } else {
             $submissions = $reviewerSubmissionDao->getReviewerSubmissionsByReviewerId($user->getId(), $journal->getId(), $active, $rangeInfo, $sort, $sortDirection);
@@ -147,7 +147,7 @@ class ReviewerHandler extends Handler {
             define('REVIEWER_ACCESS_KEY_SESSION_VAR', 'ReviewerAccessKey');
         }
 
-        import('lib.pkp.classes.security.AccessKeyManager');
+        import('lib.wizdam.classes.security.AccessKeyManager');
         $accessKeyManager = new AccessKeyManager();
 
         $session = $request->getSession();

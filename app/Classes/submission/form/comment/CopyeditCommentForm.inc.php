@@ -83,14 +83,14 @@ class CopyeditCommentForm extends CommentForm {
      * Email the comment.
      * [WIZDAM] Signature adjusted to match Parent::email($recipients, $request)
      * Legacy calls passing only ($request) are handled via type detection.
-     * @param mixed $recipients (Legacy: PKPRequest object)
+     * @param mixed $recipients (Legacy: CoreRequest object)
      * @param mixed $request (Legacy: null)
      */
     public function email($recipients, $request = null) {
         // [WIZDAM] Polyfill for legacy signature mismatch
         // Original: email($request)
         // Parent: email($recipients, $request)
-        if ($recipients instanceof PKPRequest && $request === null) {
+        if ($recipients instanceof CoreRequest && $request === null) {
             $request = $recipients;
             $recipients = []; // Will be populated below
         }

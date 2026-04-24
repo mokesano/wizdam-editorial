@@ -29,7 +29,7 @@ declare(strict_types=1);
  * - Short Array Syntax
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
 
 class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
     
@@ -52,7 +52,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
      * @return string the class name of this filter
      */
     public function getClassName(): string {
-        return 'lib.pkp.plugins.citationParser.regex.filter.RegexRawCitationNlm30CitationSchemaFilter';
+        return 'lib.wizdam.plugins.citationParser.regex.filter.RegexRawCitationNlm30CitationSchemaFilter';
     }
 
     //
@@ -73,12 +73,12 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 
         // Parse out any embedded URLs
         $urlPattern = '(<?(https?://([-\w\.]+)+(:\d+)?(/([\w/_\.,]*(\?[^\s>]+)?)?)?)>?)';
-        if (PKPString::regexp_match_get($urlPattern, $citationString, $matches)) {
+        if (CoreString::regexp_match_get($urlPattern, $citationString, $matches)) {
             // Assume that the URL is a link to the resource.
             $metadata['uri'] = $matches[1];
 
             // Remove the URL from the citation string
-            $citationString = PKPString::regexp_replace($urlPattern, '', $citationString);
+            $citationString = CoreString::regexp_replace($urlPattern, '', $citationString);
 
             // If the URL is a link to PubMed, save the PMID
             $pmIdExpressions = [
@@ -87,7 +87,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
                 '/pubmedid=(?P<pmId>\d+)/i'
             ];
             foreach ($pmIdExpressions as $pmIdExpression) {
-                if (PKPString::regexp_match_get($pmIdExpression, $matches[1], $pmIdMatches)) {
+                if (CoreString::regexp_match_get($pmIdExpression, $matches[1], $pmIdMatches)) {
                     $metadata['pub-id[@pub-id-type="pmid"]'] = $pmIdMatches['pmId'];
                     break;
                 }
@@ -96,34 +96,34 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 
         // Parse out an embedded PMID and remove from the citation string
         $pmidPattern = '/pmid:?\s*(\d+)/i';
-        if (PKPString::regexp_match_get($pmidPattern, $citationString, $matches)) {
+        if (CoreString::regexp_match_get($pmidPattern, $citationString, $matches)) {
             $metadata['pub-id[@pub-id-type="pmid"]'] = $matches[1];
-            $citationString = PKPString::regexp_replace($pmidPattern, '', $citationString);
+            $citationString = CoreString::regexp_replace($pmidPattern, '', $citationString);
         }
 
         // Parse out an embedded DOI and remove it from the citation string
         $doiPattern = '/doi:?\s*(\S+)/i';
-        if (PKPString::regexp_match_get($doiPattern, $citationString, $matches)) {
+        if (CoreString::regexp_match_get($doiPattern, $citationString, $matches)) {
             $metadata['pub-id[@pub-id-type="doi"]'] = $matches[1];
-            $citationString = PKPString::regexp_replace($doiPattern, '', $citationString);
+            $citationString = CoreString::regexp_replace($doiPattern, '', $citationString);
         }
 
         // Parse out the access date if we have one and remove it from the citation string
         $accessDatePattern = '/accessed:?\s*([\s\w]+)/i';
-        if (PKPString::regexp_match_get($accessDatePattern, $citationString, $matches)) {
+        if (CoreString::regexp_match_get($accessDatePattern, $citationString, $matches)) {
             $metadata['access-date'] = $matches[1];
-            $citationString = PKPString::regexp_replace($accessDatePattern, '', $citationString);
+            $citationString = CoreString::regexp_replace($accessDatePattern, '', $citationString);
         }
 
         // Clean out square brackets
-        $citationString = PKPString::regexp_replace('/\[(\s*(pubmed|medline|full text)\s*)*]/i', '', $citationString);
+        $citationString = CoreString::regexp_replace('/\[(\s*(pubmed|medline|full text)\s*)*]/i', '', $citationString);
 
         // Book citation
         $unparsedTail = '';
         
         
 
-        if (PKPString::regexp_match_get("/\s*(?P<authors>[^\.]+)\.\s*(?P<source>.*?)\s*(?P<publisherLoc>[^\.]*):\s*(?P<publisherName>[^:]*?);\s*(?P<date>\d\d\d\d.*?)(?P<tail>.*)/", $citationString, $matches)) {
+        if (CoreString::regexp_match_get("/\s*(?P<authors>[^\.]+)\.\s*(?P<source>.*?)\s*(?P<publisherLoc>[^\.]*):\s*(?P<publisherName>[^:]*?);\s*(?P<date>\d\d\d\d.*?)(?P<tail>.*)/", $citationString, $matches)) {
             $metadata['[@publication-type]'] = NLM30_PUBLICATION_TYPE_BOOK;
             $metadata['author'] = $matches['authors'];
             $metadata['source'] = $matches['source'];
@@ -133,19 +133,19 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
             $unparsedTail = $matches['tail'];
 
         // Journal citation
-        } elseif (PKPString::regexp_match_get("/\s*(?P<authors>[^\.]+)\.\s*(?P<titleSource>.*)\s*(?P<date>\d\d\d\d.*?);(?P<volumeAndIssue>[^:]+):(?P<tail>.*)/", $citationString, $matches)) {
+        } elseif (CoreString::regexp_match_get("/\s*(?P<authors>[^\.]+)\.\s*(?P<titleSource>.*)\s*(?P<date>\d\d\d\d.*?);(?P<volumeAndIssue>[^:]+):(?P<tail>.*)/", $citationString, $matches)) {
             $metadata['[@publication-type]'] = NLM30_PUBLICATION_TYPE_JOURNAL;
             $metadata['author'] = $matches['authors'];
 
             $titleSource = [];
-            if (PKPString::regexp_match_get("/(.*[\.!\?])(.*)/", trim($matches['titleSource'], " ."), $titleSource)) {
+            if (CoreString::regexp_match_get("/(.*[\.!\?])(.*)/", trim($matches['titleSource'], " ."), $titleSource)) {
                 $metadata['article-title'] = $titleSource[1];
                 $metadata['source'] = $titleSource[2];
             }
             $metadata['date'] = $matches['date'];
 
             $volumeAndIssue = [];
-            if (PKPString::regexp_match_get("/([^\(]+)(\(([^\)]+)\))?/", $matches['volumeAndIssue'], $volumeAndIssue)) {
+            if (CoreString::regexp_match_get("/([^\(]+)(\(([^\)]+)\))?/", $matches['volumeAndIssue'], $volumeAndIssue)) {
                 $metadata['volume'] = $volumeAndIssue[1];
                 if (isset($volumeAndIssue[3])) {
                     $metadata['issue'] = $volumeAndIssue[3];
@@ -155,7 +155,7 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
             $unparsedTail = $matches['tail'];
 
         // Web citation with or without authors
-        } elseif (PKPString::regexp_match_get("/\s*(?P<citationSource>.*?)\s*URL:\s*(?P<tail>.*)/", $citationString, $matches)) {
+        } elseif (CoreString::regexp_match_get("/\s*(?P<citationSource>.*?)\s*URL:\s*(?P<tail>.*)/", $citationString, $matches)) {
             $unparsedTail = $matches['tail'];
 
             $citationParts = explode(".", trim($matches['citationSource'], '. '));
@@ -190,14 +190,14 @@ class RegexRawCitationNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilte
 
         // Extract page numbers if possible
         $pagesPattern = "/^[:p\.\s]*(?P<fpage>[Ee]?\d+)(-(?P<lpage>\d+))?/";
-        if (!empty($unparsedTail) && PKPString::regexp_match_get($pagesPattern, $unparsedTail, $matches)) {
+        if (!empty($unparsedTail) && CoreString::regexp_match_get($pagesPattern, $unparsedTail, $matches)) {
             $metadata['fpage'] = $matches['fpage'];
             if (isset($matches['lpage'])) {
                 $metadata['lpage'] = $matches['lpage'];
             }
 
             // Add the unparsed part of the citation string as a comment so it doesn't get lost.
-            $comment = PKPString::trimPunctuation(PKPString::regexp_replace($pagesPattern, '', $unparsedTail));
+            $comment = CoreString::trimPunctuation(CoreString::regexp_replace($pagesPattern, '', $unparsedTail));
             if (!empty($comment)) {
                 $metadata['comment'] = $comment;
             }

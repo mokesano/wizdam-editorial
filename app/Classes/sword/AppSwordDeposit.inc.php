@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @class AppSwordDeposit
  * @ingroup sword
  *
- * @brief Class providing a SWORD deposit wrapper for OJS articles
+ * @brief Class providing a SWORD deposit wrapper for Wizdam articles
  * * MODERNIZED FOR WIZDAM FORK
  */
 
@@ -40,7 +40,7 @@ class AppSwordDeposit {
 
     /**
      * Constructor.
-     * Create a SWORD deposit object for an OJS article.
+     * Create a SWORD deposit object for an Wizdam article.
      * @param $article Article|PublishedArticle
      */
     public function __construct($article) {
@@ -203,7 +203,7 @@ class AppSwordDeposit {
      * Clean up after a deposit, i.e. removing all created files.
      */
     public function cleanup() {
-        import('lib.pkp.classes.file.FileManager');
+        import('lib.wizdam.classes.file.FileManager');
         $fileManager = new FileManager();
 
         $fileManager->rmtree($this->outPath);

@@ -44,7 +44,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * Create search.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function createSearch($args, $request = null) {
         $this->validate();
@@ -77,7 +77,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * List searches.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function searches($args, $request = null) {
         $this->validate();
@@ -108,7 +108,7 @@ class RTSearchHandler extends RTAdminHandler {
             $templateMgr->assign('version', $version);
             $templateMgr->assign('context', $context);
             
-            import('lib.pkp.classes.core.ArrayItemIterator');
+            import('lib.wizdam.classes.core.ArrayItemIterator');
             $templateMgr->assign('searches', new ArrayItemIterator($context->getSearches(), $rangeInfo->getPage(), $rangeInfo->getCount()));
 
             $templateMgr->assign('helpTopicId', 'journal.managementPages.readingTools.contexts');
@@ -121,7 +121,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * Edit search.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function editSearch($args, $request = null) {
         $this->validate();
@@ -153,7 +153,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * Delete search.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function deleteSearch($args, $request = null) {
         $this->validate();
@@ -181,7 +181,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * Save search.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSearch($args, $request = null) {
         $this->validate();
@@ -212,7 +212,7 @@ class RTSearchHandler extends RTAdminHandler {
     /**
      * Move search.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveSearch($args, $request = null) {
         $this->validate();

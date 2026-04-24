@@ -136,11 +136,11 @@ class ResolverPlugin extends GatewayPlugin {
                 foreach ($articles as $article) {
                     // Look for the correct page in the list of articles.
                     $matches = null;
-                    if (PKPString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)$/', $article->getPages(), $matches)) {
+                    if (CoreString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)$/', $article->getPages(), $matches)) {
                         $matchedPage = (int) $matches[1];
                         if ($page == $matchedPage) Request::redirect(null, 'article', 'view', $article->getBestArticleId());
                     }
-                    if (PKPString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)[ ]?-[ ]?([Pp][Pp]?[.]?[ ]?)?(\d+)$/', $article->getPages(), $matches)) {
+                    if (CoreString::regexp_match_get('/^[Pp][Pp]?[.]?[ ]?(\d+)[ ]?-[ ]?([Pp][Pp]?[.]?[ ]?)?(\d+)$/', $article->getPages(), $matches)) {
                         $matchedPageFrom = (int) $matches[1];
                         $matchedPageTo = (int) $matches[3];
                         if ($page >= $matchedPageFrom && ($page < $matchedPageTo || ($page == $matchedPageTo && $matchedPageFrom == $matchedPageTo))) Request::redirect(null, 'article', 'view', $article->getBestArticleId());

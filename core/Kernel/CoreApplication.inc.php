@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/PKPApplication.inc.php
+ * @file classes/core/CoreApplication.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -63,18 +63,18 @@ class CoreApplication {
         if (defined('E_NOTICE')) $errorReportingLevel &= ~E_NOTICE;
         @error_reporting($errorReportingLevel);
 
-        import('lib.pkp.classes.core.PKPProfiler');
-        $pkpProfiler = new CoreProfiler();
+        import('lib.wizdam.classes.core.PKPProfiler');
+        $wizdamProfiler = new CoreProfiler();
 
-        Console::logMemory('', 'PKPApplication::construct');
-        Console::logSpeed('PKPApplication::construct');
+        Console::logMemory('', 'CoreApplication::construct');
+        Console::logSpeed('CoreApplication::construct');
 
         mt_srand((int) ((double) microtime() * 1000000));
 
-        import('lib.pkp.classes.core.Core');
-        import('lib.pkp.classes.core.PKPString');
-        import('lib.pkp.classes.core.Registry');
-        import('lib.pkp.classes.config.Config');
+        import('lib.wizdam.classes.core.Core');
+        import('lib.wizdam.classes.core.CoreString');
+        import('lib.wizdam.classes.core.Registry');
+        import('lib.wizdam.classes.config.Config');
 
         if ((bool) Config::getVar('debug', 'display_errors')) {
             @ini_set('display_errors', '0');
@@ -88,18 +88,18 @@ class CoreApplication {
         Registry::set('request', $request);
         // ---------------------------
 
-        import('lib.pkp.classes.db.DAORegistry');
-        import('lib.pkp.classes.db.XMLDAO');
-        import('lib.pkp.classes.cache.CacheManager');
+        import('lib.wizdam.classes.db.DAORegistry');
+        import('lib.wizdam.classes.db.XMLDAO');
+        import('lib.wizdam.classes.cache.CacheManager');
         import('classes.security.Validation');
-        import('lib.pkp.classes.session.SessionManager');
+        import('lib.wizdam.classes.session.SessionManager');
         import('classes.template.TemplateManager');
         import('classes.notification.NotificationManager');
-        import('lib.pkp.classes.plugins.PluginRegistry');
-        import('lib.pkp.classes.plugins.HookRegistry');
+        import('lib.wizdam.classes.plugins.PluginRegistry');
+        import('lib.wizdam.classes.plugins.HookRegistry');
         import('classes.i18n.AppLocale');
 
-        PKPString::init();
+        CoreString::init();
         set_error_handler([$this, 'errorHandler']);
 
         $microTime = Core::microtime();
@@ -107,7 +107,7 @@ class CoreApplication {
 
         $notes = [];
         Registry::set('system.debug.notes', $notes);
-        Registry::set('system.debug.profiler', $pkpProfiler);
+        Registry::set('system.debug.profiler', $wizdamProfiler);
 
         if ((bool) Config::getVar('general', 'installed')) {
             $conn = DBConnection::getInstance();
@@ -126,10 +126,10 @@ class CoreApplication {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPApplication() {
+    public function CoreApplication() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
-                "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPApplication(). Please refactor to use parent::__construct().", 
+                "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreApplication(). Please refactor to use parent::__construct().", 
                 E_USER_DEPRECATED
             );
         }
@@ -139,7 +139,7 @@ class CoreApplication {
 
     /**
      * Get the current application object
-     * @return PKPApplication|object|null
+     * @return CoreApplication|object|null
      */
     public static function getApplication() {
         return Registry::get('application');
@@ -149,7 +149,7 @@ class CoreApplication {
      * Get the request implementation singleton
      * @return Request
      */
-    public static function getRequest(): PKPRequest {
+    public static function getRequest(): CoreRequest {
         return Registry::get('request', true, null);
     }
 
@@ -161,7 +161,7 @@ class CoreApplication {
         $dispatcher = Registry::get('dispatcher', true, null);
 
         if ($dispatcher === null) {
-            import('lib.pkp.classes.core.Dispatcher');
+            import('lib.wizdam.classes.core.Dispatcher');
             $dispatcher = new Dispatcher();
             Registry::set('dispatcher', $dispatcher);
 
@@ -170,7 +170,7 @@ class CoreApplication {
                 $dispatcher->setApplication($application);
             }
 
-            $dispatcher->addRouterName('lib.pkp.classes.core.PKPComponentRouter', ROUTE_COMPONENT);
+            $dispatcher->addRouterName('lib.wizdam.classes.core.PKPComponentRouter', ROUTE_COMPONENT);
             $dispatcher->addRouterName('classes.core.PageRouter', ROUTE_PAGE);
         }
 
@@ -191,7 +191,7 @@ class CoreApplication {
      * @return string
      */
     public function getName(): string {
-        return 'pkp-lib';
+        return 'wizdam-lib';
     }
 
     /**
@@ -297,42 +297,42 @@ class CoreApplication {
      */
     public function getDAOMap(): array {
         return [
-            'AccessKeyDAO' => 'lib.pkp.classes.security.AccessKeyDAO',
-            'AuthSourceDAO' => 'lib.pkp.classes.security.AuthSourceDAO',
-            'CaptchaDAO' => 'lib.pkp.classes.captcha.CaptchaDAO',
-            'CitationDAO' => 'lib.pkp.classes.citation.CitationDAO',
-            'ControlledVocabDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabDAO',
-            'ControlledVocabEntryDAO' => 'lib.pkp.classes.controlledVocab.ControlledVocabEntryDAO',
-            'CountryDAO' => 'lib.pkp.classes.i18n.CountryDAO',
-            'CurrencyDAO' => 'lib.pkp.classes.currency.CurrencyDAO',
-            'DataObjectTombstoneDAO' => 'lib.pkp.classes.tombstone.DataObjectTombstoneDAO',
-            'DataObjectTombstoneSettingsDAO' => 'lib.pkp.classes.tombstone.DataObjectTombstoneSettingsDAO',
-            'FilterDAO' => 'lib.pkp.classes.filter.FilterDAO',
-            'FilterGroupDAO' => 'lib.pkp.classes.filter.FilterGroupDAO',
-            'GroupDAO' => 'lib.pkp.classes.group.GroupDAO',
-            'GroupMembershipDAO' => 'lib.pkp.classes.group.GroupMembershipDAO',
-            'HelpTocDAO' => 'lib.pkp.classes.help.HelpTocDAO',
-            'HelpTopicDAO' => 'lib.pkp.classes.help.HelpTopicDAO',
-            'InterestDAO' => 'lib.pkp.classes.user.InterestDAO',
-            'InterestEntryDAO' => 'lib.pkp.classes.user.InterestEntryDAO',
-            'LanguageDAO' => 'lib.pkp.classes.language.LanguageDAO',
-            'MetadataDescriptionDAO' => 'lib.pkp.classes.metadata.MetadataDescriptionDAO',
-            'NotificationDAO' => 'lib.pkp.classes.notification.NotificationDAO',
-            'NotificationMailListDAO' => 'lib.pkp.classes.notification.NotificationMailListDAO',
-            'NotificationSettingsDAO' => 'lib.pkp.classes.notification.NotificationSettingsDAO',
-            'NotificationSubscriptionSettingsDAO' => 'lib.pkp.classes.notification.NotificationSubscriptionSettingsDAO',
-            'ONIXCodelistItemDAO' => 'lib.pkp.classes.codelist.ONIXCodelistItemDAO',
-            'ProcessDAO' => 'lib.pkp.classes.process.ProcessDAO',
-            'QualifierDAO' => 'lib.pkp.classes.codelist.QualifierDAO',
-            'ScheduledTaskDAO' => 'lib.pkp.classes.scheduledTask.ScheduledTaskDAO',
-            'SessionDAO' => 'lib.pkp.classes.session.SessionDAO',
-            'SiteDAO' => 'lib.pkp.classes.site.SiteDAO',
-            'SiteSettingsDAO' => 'lib.pkp.classes.site.SiteSettingsDAO',
-            'SubjectDAO' => 'lib.pkp.classes.codelist.SubjectDAO',
-            'TimeZoneDAO' => 'lib.pkp.classes.i18n.TimeZoneDAO',
-            'TemporaryFileDAO' => 'lib.pkp.classes.file.TemporaryFileDAO',
-            'VersionDAO' => 'lib.pkp.classes.site.VersionDAO',
-            'XMLDAO' => 'lib.pkp.classes.db.XMLDAO'
+            'AccessKeyDAO' => 'lib.wizdam.classes.security.AccessKeyDAO',
+            'AuthSourceDAO' => 'lib.wizdam.classes.security.AuthSourceDAO',
+            'CaptchaDAO' => 'lib.wizdam.classes.captcha.CaptchaDAO',
+            'CitationDAO' => 'lib.wizdam.classes.citation.CitationDAO',
+            'ControlledVocabDAO' => 'lib.wizdam.classes.controlledVocab.ControlledVocabDAO',
+            'ControlledVocabEntryDAO' => 'lib.wizdam.classes.controlledVocab.ControlledVocabEntryDAO',
+            'CountryDAO' => 'lib.wizdam.classes.i18n.CountryDAO',
+            'CurrencyDAO' => 'lib.wizdam.classes.currency.CurrencyDAO',
+            'DataObjectTombstoneDAO' => 'lib.wizdam.classes.tombstone.DataObjectTombstoneDAO',
+            'DataObjectTombstoneSettingsDAO' => 'lib.wizdam.classes.tombstone.DataObjectTombstoneSettingsDAO',
+            'FilterDAO' => 'lib.wizdam.classes.filter.FilterDAO',
+            'FilterGroupDAO' => 'lib.wizdam.classes.filter.FilterGroupDAO',
+            'GroupDAO' => 'lib.wizdam.classes.group.GroupDAO',
+            'GroupMembershipDAO' => 'lib.wizdam.classes.group.GroupMembershipDAO',
+            'HelpTocDAO' => 'lib.wizdam.classes.help.HelpTocDAO',
+            'HelpTopicDAO' => 'lib.wizdam.classes.help.HelpTopicDAO',
+            'InterestDAO' => 'lib.wizdam.classes.user.InterestDAO',
+            'InterestEntryDAO' => 'lib.wizdam.classes.user.InterestEntryDAO',
+            'LanguageDAO' => 'lib.wizdam.classes.language.LanguageDAO',
+            'MetadataDescriptionDAO' => 'lib.wizdam.classes.metadata.MetadataDescriptionDAO',
+            'NotificationDAO' => 'lib.wizdam.classes.notification.NotificationDAO',
+            'NotificationMailListDAO' => 'lib.wizdam.classes.notification.NotificationMailListDAO',
+            'NotificationSettingsDAO' => 'lib.wizdam.classes.notification.NotificationSettingsDAO',
+            'NotificationSubscriptionSettingsDAO' => 'lib.wizdam.classes.notification.NotificationSubscriptionSettingsDAO',
+            'ONIXCodelistItemDAO' => 'lib.wizdam.classes.codelist.ONIXCodelistItemDAO',
+            'ProcessDAO' => 'lib.wizdam.classes.process.ProcessDAO',
+            'QualifierDAO' => 'lib.wizdam.classes.codelist.QualifierDAO',
+            'ScheduledTaskDAO' => 'lib.wizdam.classes.scheduledTask.ScheduledTaskDAO',
+            'SessionDAO' => 'lib.wizdam.classes.session.SessionDAO',
+            'SiteDAO' => 'lib.wizdam.classes.site.SiteDAO',
+            'SiteSettingsDAO' => 'lib.wizdam.classes.site.SiteSettingsDAO',
+            'SubjectDAO' => 'lib.wizdam.classes.codelist.SubjectDAO',
+            'TimeZoneDAO' => 'lib.wizdam.classes.i18n.TimeZoneDAO',
+            'TemporaryFileDAO' => 'lib.wizdam.classes.file.TemporaryFileDAO',
+            'VersionDAO' => 'lib.wizdam.classes.site.VersionDAO',
+            'XMLDAO' => 'lib.wizdam.classes.db.XMLDAO'
         ];
     }
 
@@ -562,12 +562,12 @@ class CoreApplication {
 
 /**
  * Helper function outside class
- * @see PKPApplication::defineExposedConstant
+ * @see CoreApplication::defineExposedConstant
  * @param string $name
  * @param mixed $value
  * @return void
  */
 function define_exposed(string $name, $value): void {
-    PKPApplication::defineExposedConstant($name, $value);
+    CoreApplication::defineExposedConstant($name, $value);
 }
 ?>

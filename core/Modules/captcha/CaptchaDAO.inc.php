@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 
-import('lib.pkp.classes.captcha.Captcha');
+import('lib.wizdam.classes.captcha.Captcha');
 
 class CaptchaDAO extends DAO {
     

@@ -16,7 +16,7 @@ declare(strict_types=1);
  *
  */
 
-import('lib.pkp.classes.payment.Payment');
+import('lib.wizdam.classes.payment.Payment');
 
 class QueuedPayment extends Payment {
     

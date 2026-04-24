@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM] MODERNIZED FOR PHP 8.x compatibility.
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class ObjectForReviewAssignmentForm extends Form {
 

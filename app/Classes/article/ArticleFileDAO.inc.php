@@ -20,7 +20,7 @@ declare(strict_types=1);
  * - Hook Dispatch
  */
 
-import('lib.pkp.classes.file.PKPFileDAO');
+import('lib.wizdam.classes.file.CoreFileDAO');
 import('classes.article.ArticleFile');
 
 class ArticleFileDAO extends CoreFileDAO {

@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief APA citation style plug-in.
  */
 
-import('lib.pkp.plugins.citationOutput.apa.PKPApaCitationOutputPlugin');
+import('lib.wizdam.plugins.citationOutput.apa.PKPApaCitationOutputPlugin');
 
 class ApaCitationOutputPlugin extends CoreApaCitationOutputPlugin {
     

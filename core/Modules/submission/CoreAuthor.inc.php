@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/submission/PKPAuthor.inc.php
+ * @file classes/submission/CoreAuthor.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -10,7 +10,7 @@ declare(strict_types=1);
  *
  * @class CoreAuthor
  * @ingroup submission
- * @see PKPAuthorDAO
+ * @see CoreAuthorDAO
  *
  * @brief Author metadata class.
  */
@@ -27,9 +27,9 @@ class CoreAuthor extends DataObject {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPAuthor() {
+    public function CoreAuthor() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPAuthor(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreAuthor(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct();
     }

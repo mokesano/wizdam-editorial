@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM STATUS] Legacy Feature. Consider Repurposing.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class FontSizeBlockPlugin extends BlockPlugin {
 
@@ -104,7 +104,7 @@ class FontSizeBlockPlugin extends BlockPlugin {
     /**
      * Get the HTML contents for this block.
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {

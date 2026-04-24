@@ -23,7 +23,7 @@ declare(strict_types=1);
  * functionality.
  *
  * Newer plug-ins support enable/disable and request filter settings that
- * enable the PKP library plug-in framework to lazy-load plug-ins only
+ * enable the Wizdam library plug-in framework to lazy-load plug-ins only
  * when their functionality is actually being required for a request.
  *
  * For backwards compatibility we need to assume that older plug-ins
@@ -91,7 +91,7 @@ class CorePlugin {
         }
         if ($this->getInstallEmailTemplateDataFile()) {
             HookRegistry::register ('Installer::postInstall', array($this, 'installEmailTemplateData'));
-            HookRegistry::register ('PKPLocale::installLocale', array($this, 'installLocale'));
+            HookRegistry::register ('CoreLocale::installLocale', array($this, 'installLocale'));
         }
         if ($this->getInstallDataFile()) {
             HookRegistry::register ('Installer::postInstall', array($this, 'installData'));
@@ -288,7 +288,7 @@ class CorePlugin {
         // Construct the well-known filter configuration file names.
         $filterConfigFile = $this->getPluginPath().'/filter/'.PLUGIN_FILTER_DATAFILE;
         return [
-            './lib/pkp/' . $filterConfigFile,
+            './lib/wizdam/' . $filterConfigFile,
             './' . $filterConfigFile
         ];
     }
@@ -352,7 +352,7 @@ class CorePlugin {
         if ($locale == '') $locale = AppLocale::getLocale();
         import('classes.help.Help');
         $help = Help::getHelp();
-        import('lib.pkp.classes.help.PluginHelpMappingFile');
+        import('lib.wizdam.classes.help.PluginHelpMappingFile');
         $pluginHelpMapping = new PluginHelpMappingFile($this);
         $help->addMappingFile($pluginHelpMapping);
         return true;
@@ -368,7 +368,7 @@ class CorePlugin {
         if (!Config::getVar('general', 'installed')) return null;
 
         // Check that the context has the correct depth
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         assert(is_array($context) && $application->getContextDepth() == count($context));
 
         // Construct the argument list and call the plug-in settings DAO
@@ -389,7 +389,7 @@ class CorePlugin {
      */
     public function updateContextSpecificSetting(array $context, string $name, $value, $type = null): void {
         // Check that the context has the correct depth
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         assert(is_array($context) && $application->getContextDepth() == count($context));
 
         // Construct the argument list and call the plug-in settings DAO
@@ -429,7 +429,7 @@ class CorePlugin {
      * @return array
      */
     public function getSettingMainContext($request = null): array {
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         $contextDepth = $application->getContextDepth();
     
         $settingContext = array();
@@ -487,8 +487,8 @@ class CorePlugin {
         $masterLocale = MASTER_LOCALE;
         $baseLocaleFilename = $this->getPluginPath() . "/locale/$locale/locale.xml";
         $baseMasterLocaleFilename = $this->getPluginPath() . "/locale/$masterLocale/locale.xml";
-        $libPkpFilename = "lib/pkp/$baseLocaleFilename";
-        $masterLibPkpFilename = "lib/pkp/$baseMasterLocaleFilename";
+        $libPkpFilename = "lib/wizdam/$baseLocaleFilename";
+        $masterLibPkpFilename = "lib/wizdam/$baseMasterLocaleFilename";
         
         $filenames = [];
         if (file_exists($baseMasterLocaleFilename)) $filenames[] = $baseLocaleFilename;
@@ -528,7 +528,7 @@ class CorePlugin {
             if ($sql) {
                 $result = $installer->executeSQL($sql);
             } else {
-                AppLocale::requireComponents(LOCALE_COMPONENT_PKP_INSTALLER);
+                AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_INSTALLER);
                 $installer->setError(INSTALLER_ERROR_DB, str_replace('{$file}', $this->getInstallDataFile(), __('installer.installParseDBFileError')));
                 $result = false;
             }
@@ -549,7 +549,7 @@ class CorePlugin {
         $result = $args[1];
 
         // All contexts are set to zero for site-wide plug-in settings
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         $contextDepth = $application->getContextDepth();
         if ($contextDepth > 0) {
             $arguments = array_fill(0, $contextDepth, 0);
@@ -575,7 +575,7 @@ class CorePlugin {
     public function installContextSpecificSettings($hookName, $args): bool {
         // Only applications that have at least one context can
         // install context specific settings.
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         $contextDepth = $application->getContextDepth();
         if ($contextDepth > 0) {
             $context = $args[1];
@@ -778,7 +778,7 @@ class CorePlugin {
      * @return string
      */
     public function _getContextSpecificInstallationHook(): ?string {
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         
         if (!$application) return null;
         if ($application->getContextDepth() == 0) return null;

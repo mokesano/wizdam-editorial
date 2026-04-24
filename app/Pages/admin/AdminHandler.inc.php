@@ -59,7 +59,7 @@ class AdminHandler extends Handler {
     /**
      * Display site admin index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function index($args = [], $request = null) {
         $this->validate();
@@ -67,10 +67,10 @@ class AdminHandler extends Handler {
 
         $templateMgr = TemplateManager::getManager();
 
-        // Display a warning message if there is a new version of OJS available
+        // Display a warning message if there is a new version of Wizdam available
         $newVersionAvailable = false;
         if (Config::getVar('general', 'show_upgrade_warning')) {
-            import('lib.pkp.classes.site.VersionCheck');
+            import('lib.wizdam.classes.site.VersionCheck');
             if ($latestVersion = VersionCheck::checkIfNewVersionExists()) {
                 $newVersionAvailable = true;
                 $templateMgr->assign('latestVersion', $latestVersion);
@@ -106,7 +106,7 @@ class AdminHandler extends Handler {
     /**
      * Tampilkan formulir 'About Site Settings' kustom.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function aboutSite($args, $request) {
         $this->validate();
@@ -135,7 +135,7 @@ class AdminHandler extends Handler {
     /**
      * Simpan formulir 'About Site Settings' kustom.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveAboutSite($args, $request) {
         $this->validate();

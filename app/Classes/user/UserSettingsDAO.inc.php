@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.user.PKPUserSettingsDAO');
+import('lib.wizdam.classes.user.CoreUserSettingsDAO');
 
 class UserSettingsDAO extends CoreUserSettingsDAO {
     
@@ -29,7 +29,7 @@ class UserSettingsDAO extends CoreUserSettingsDAO {
      * @return mixed
      */
     public function getSetting($userId, $name, $assocType = null, $assocId = null) {
-        // [WIZDAM FIX] Logic adjustment for OJS 2.x/3.x legacy compatibility.
+        // [WIZDAM FIX] Logic adjustment for Wizdam 2.x/3.x legacy compatibility.
         // If $assocId is null, it means the caller is likely using the old signature:
         // getSetting($userId, $name, $journalId).
         // In this case, $assocType holds the $journalId (or null), and we must

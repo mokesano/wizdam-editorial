@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief Vancouver citation style plug-in.
  */
 
-import('lib.pkp.plugins.citationOutput.vancouver.PKPVancouverCitationOutputPlugin');
+import('lib.wizdam.plugins.citationOutput.vancouver.PKPVancouverCitationOutputPlugin');
 
 class VancouverCitationOutputPlugin extends CoreVancouverCitationOutputPlugin {
     

@@ -11,13 +11,13 @@ declare(strict_types=1);
  * @class MailTemplate
  * @ingroup mail
  *
- * @brief Subclass of PKPMailTemplate for mailing a template email.
+ * @brief Subclass of CoreMailTemplate for mailing a template email.
  *
  * [WIZDAM EDITION] Refactored for PHP 7.4 and ready for 8.1+ Strict Compliance
  * [FIXED] str_contains replaced with strpos for universal compatibility
  */
 
-import('lib.pkp.classes.mail.PKPMailTemplate');
+import('lib.wizdam.classes.mail.CoreMailTemplate');
 
 class MailTemplate extends CoreMailTemplate {
     /** @var object|null The journal this message relates to */

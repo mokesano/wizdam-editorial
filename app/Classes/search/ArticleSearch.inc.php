@@ -57,15 +57,15 @@ class ArticleSearch {
         $return = array('+' => array(), '' => array(), '-' => array());
         $postBool = $preBool = '';
 
-        $notOperator = PKPString::strtolower(__('search.operator.not'));
-        $andOperator = PKPString::strtolower(__('search.operator.and'));
-        $orOperator = PKPString::strtolower(__('search.operator.or'));
+        $notOperator = CoreString::strtolower(__('search.operator.not'));
+        $andOperator = CoreString::strtolower(__('search.operator.and'));
+        $orOperator = CoreString::strtolower(__('search.operator.or'));
         
         while ($pos < $total) {
             if (!empty($signTokens[$pos])) $sign = $signTokens[$pos];
             else if (empty($sign)) $sign = '+';
             
-            $token = PKPString::strtolower($tokens[$pos++]);
+            $token = CoreString::strtolower($tokens[$pos++]);
             
             switch ($token) {
                 case $notOperator:
@@ -78,7 +78,7 @@ class ArticleSearch {
                 default:
                     $postBool = '';
                     if ($pos < $total) {
-                        $peek = PKPString::strtolower($tokens[$pos]);
+                        $peek = CoreString::strtolower($tokens[$pos]);
                         if ($peek == $orOperator) {
                             $postBool = 'or';
                             $pos++;
@@ -443,7 +443,7 @@ class ArticleSearch {
 
         $results = ArticleSearch::formatResults($results);
 
-        import('lib.pkp.classes.core.VirtualArrayIterator');
+        import('lib.wizdam.classes.core.VirtualArrayIterator');
         $returner = new VirtualArrayIterator($results, $totalResults, $page, $itemsPerPage);
         return $returner;
     }

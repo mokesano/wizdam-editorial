@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/security/PKPUserGroupDAO.inc.php
+ * @file classes/security/CoreUserGroupDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
@@ -18,7 +18,7 @@ declare(strict_types=1);
  * are ported over to them.
  */
 
-import('lib.pkp.classes.security.UserGroup');
+import('lib.wizdam.classes.security.UserGroup');
 
 class CoreUserGroupDAO extends DAO {
     /** @var UserDAO a shortcut to get the UserDAO **/
@@ -40,9 +40,9 @@ class CoreUserGroupDAO extends DAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPUserGroupDAO() {
+    public function CoreUserGroupDAO() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPUserGroupDAO(). Please refactor to use parent::__construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreUserGroupDAO(). Please refactor to use parent::__construct().",
             E_USER_DEPRECATED
         );
         self::__construct();
@@ -73,7 +73,7 @@ class CoreUserGroupDAO extends DAO {
 
         $this->getDataObjectSettings('user_group_settings', 'user_group_id', $row['user_group_id'], $userGroup);
 
-        HookRegistry::dispatch('PKPUserGroupDAO::_returnFromRow', array(&$userGroup, &$row));
+        HookRegistry::dispatch('CoreUserGroupDAO::_returnFromRow', array(&$userGroup, &$row));
 
         return $userGroup;
     }

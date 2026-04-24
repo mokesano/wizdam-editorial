@@ -18,7 +18,7 @@ declare(strict_types=1);
  */
 
 // Import FileCache sebagai pengganti
-import('lib.pkp.classes.cache.FileCache');
+import('lib.wizdam.classes.cache.FileCache');
 
 class XCacheCache extends FileCache {
     

@@ -21,8 +21,8 @@ declare(strict_types=1);
  * by plug-ins via the filter registry.
  */
 
-import('lib.pkp.classes.filter.PersistableFilter');
-import('lib.pkp.classes.metadata.MetadataDescription');
+import('lib.wizdam.classes.filter.PersistableFilter');
+import('lib.wizdam.classes.metadata.MetadataDescription');
 
 class MetadataDataObjectAdapter extends PersistableFilter {
     /** @var MetadataSchema */

@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.form.validation.FormValidator');
+import('lib.wizdam.classes.form.validation.FormValidator');
 
 class FormValidatorListbuilder extends FormValidator {
 
@@ -57,7 +57,7 @@ class FormValidatorListbuilder extends FormValidator {
      */
     public function isValid() {
         $value = $this->getFieldValue();
-        import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
+        import('lib.wizdam.classes.controllers.listbuilder.ListbuilderHandler');
         
         // [WIZDAM] PHP 8 Fix: $request was undefined in original code.
         // Retrieve request from the Application context.

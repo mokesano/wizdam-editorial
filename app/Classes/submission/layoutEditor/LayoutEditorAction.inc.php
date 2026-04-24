@@ -187,12 +187,12 @@ class LayoutEditorAction extends Action {
      * Marks layout assignment as completed.
      * @param object $submission
      * @param boolean $send
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @return boolean
      */
     public static function completeLayoutEditing($submission, $send, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $signoffDao = DAORegistry::getDAO('SignoffDAO');
         $userDao = DAORegistry::getDAO('UserDAO');
@@ -296,11 +296,11 @@ class LayoutEditorAction extends Action {
      * Post layout comment.
      * @param object $article
      * @param boolean $emailComment
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function postLayoutComment($article, $emailComment, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('LayoutEditorAction::postLayoutComment', [&$article, &$emailComment])) {
             import('classes.submission.form.comment.LayoutCommentForm');
@@ -351,11 +351,11 @@ class LayoutEditorAction extends Action {
      * Post proofread comment.
      * @param object $article
      * @param boolean $emailComment
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function postProofreadComment($article, $emailComment, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('LayoutEditorAction::postProofreadComment', [&$article, &$emailComment])) {
             import('classes.submission.form.comment.ProofreadCommentForm');

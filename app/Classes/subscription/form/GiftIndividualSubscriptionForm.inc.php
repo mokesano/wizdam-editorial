@@ -18,10 +18,10 @@
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class GiftIndividualSubscriptionForm extends Form {
-    /** @var $request PKPRequest */
+    /** @var $request CoreRequest */
     public $request;
 
     /** @var userId int the buyer associated with the gift purchase */

@@ -18,9 +18,9 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Removed create_function
  */
 
-import('lib.pkp.classes.filter.Filter');
-import('lib.pkp.classes.metadata.MetadataDescription');
-import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
+import('lib.wizdam.classes.filter.Filter');
+import('lib.wizdam.classes.metadata.MetadataDescription');
+import('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema');
 
 define('PERSON_STRING_FILTER_MULTIPLE', 0x01);
 define('PERSON_STRING_FILTER_SINGLE', 0x02);

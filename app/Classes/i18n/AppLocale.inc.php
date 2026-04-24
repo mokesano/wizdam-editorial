@@ -15,7 +15,7 @@ declare(strict_types=1);
  * WIZDAM EDITION: PHP 8 Compatibility (Static Methods)
  */
 
-import('lib.pkp.classes.i18n.PKPLocale');
+import('lib.wizdam.classes.i18n.CoreLocale');
 
 define('LOCALE_COMPONENT_APPLICATION_COMMON', 0x00000101);
 define('LOCALE_COMPONENT_APP_AUTHOR',         0x00000102);
@@ -24,7 +24,7 @@ define('LOCALE_COMPONENT_APP_MANAGER',        0x00000104);
 define('LOCALE_COMPONENT_APP_ADMIN',          0x00000105);
 define('LOCALE_COMPONENT_APP_DEFAULT',        0x00000106);
 
-// Konstanta OJS Baru (Hasil pecahan/refactoring dari locale.xml)
+// Konstanta Wizdam Baru (Hasil pecahan/refactoring dari locale.xml)
 define('LOCALE_COMPONENT_APP_PAYMENT',        0x00000107);
 define('LOCALE_COMPONENT_APP_AUTHORIZATION',  0x00000108);
 define('LOCALE_COMPONENT_APP_NOTIFICATION',   0x00000109);
@@ -245,7 +245,7 @@ class AppLocale extends CoreLocale {
     /**
      * [WIZDAM] Smart Locale Auto-Loader
      * Secara dinamis memuat komponen locale berdasarkan Page/Handler yang sedang diakses
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function requireComponentsForRequest($request) {
         $router = $request->getRouter();

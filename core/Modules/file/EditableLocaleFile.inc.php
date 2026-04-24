@@ -15,7 +15,7 @@ declare(strict_types=1);
  *
  */
 
-import('lib.pkp.classes.file.EditableFile');
+import('lib.wizdam.classes.file.EditableFile');
 
 class EditableLocaleFile extends LocaleFile {
     /** @var EditableFile */
@@ -72,7 +72,7 @@ class EditableLocaleFile extends LocaleFile {
      */
     public function update($key, $value) {
         $matches = null;
-        $quotedKey = PKPString::regexp_quote($key);
+        $quotedKey = CoreString::regexp_quote($key);
         preg_match(
             "/<message[\W]+key=\"$quotedKey\">/",
             $this->getContents(),
@@ -99,7 +99,7 @@ class EditableLocaleFile extends LocaleFile {
      */
     public function delete($key) {
         $matches = null;
-        $quotedKey = PKPString::regexp_quote($key);
+        $quotedKey = CoreString::regexp_quote($key);
         preg_match(
             "/[ \t]*<message[\W]+key=\"$quotedKey\">/",
             $this->getContents(),

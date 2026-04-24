@@ -19,7 +19,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Serialized + GZIP Compressed Cache (.wiz)
  */
 
-import('lib.pkp.classes.cache.GenericCache');
+import('lib.wizdam.classes.cache.GenericCache');
 
 class FileCache extends GenericCache {
     
@@ -113,7 +113,7 @@ class FileCache extends GenericCache {
      */
     public function setCache($id, $value) {
         // Flush the cache; it will be regenerated on demand.
-        // FileCache OJS biasanya "All-or-Nothing", jadi mengubah satu value 
+        // FileCache Wizdam biasanya "All-or-Nothing", jadi mengubah satu value 
         // mengharuskan invalidasi seluruh file agar digenerate ulang oleh Fallback.
         $this->flush();
     }

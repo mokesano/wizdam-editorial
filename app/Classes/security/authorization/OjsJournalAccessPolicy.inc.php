@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @class OjsJournalAccessPolicy
  * @ingroup security_authorization
  *
- * @brief Class to control access to OJS' journal setup components
+ * @brief Class to control access to Wizdam' journal setup components
  * * MODERNIZED FOR WIZDAM FORK
  */
 
@@ -21,7 +21,7 @@ class OjsJournalAccessPolicy extends JournalPolicy {
     
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $roleAssignments array
      */
     public function __construct($request, $roleAssignments) {
@@ -31,7 +31,7 @@ class OjsJournalAccessPolicy extends JournalPolicy {
         // so we can simply add all role assignments. It's ok if
         // any of these role conditions permits access.
         $journalRolePolicy = new PolicySet(COMBINING_PERMIT_OVERRIDES);
-        import('lib.pkp.classes.security.authorization.RoleBasedHandlerOperationPolicy');
+        import('lib.wizdam.classes.security.authorization.RoleBasedHandlerOperationPolicy');
         foreach($roleAssignments as $role => $operations) {
             $journalRolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }

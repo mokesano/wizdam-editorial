@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/PKPString.inc.php
+ * @file classes/core/CoreString.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -142,7 +142,7 @@ class CoreString {
         if (defined('ENABLE_MBSTRING')) {
             // In modern PHP/Wizdam environment, we prefer native mb_ calls if available
             // but we keep the require structure for library consistency if files exist
-            if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
+            if (file_exists('./lib/wizdam/lib/phputf8/mbstring/core.php')) {
                 require_once './core/Library/phputf8/mbstring/core.php';
             }
             return mb_strlen($string);
@@ -162,7 +162,7 @@ class CoreString {
      */
     public static function strpos(string $haystack, string $needle, int $offset = 0) {
         if (defined('ENABLE_MBSTRING')) {
-             if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
+             if (file_exists('./lib/wizdam/lib/phputf8/mbstring/core.php')) {
                 require_once './core/Library/phputf8/mbstring/core.php';
              }
              return mb_strpos($haystack, $needle, $offset);
@@ -181,7 +181,7 @@ class CoreString {
      */
     public static function strrpos(string $haystack, string $needle) {
         if (defined('ENABLE_MBSTRING')) {
-            if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
+            if (file_exists('./lib/wizdam/lib/phputf8/mbstring/core.php')) {
                 require_once './core/Library/phputf8/mbstring/core.php';
             }
             return mb_strrpos($haystack, $needle);
@@ -201,7 +201,7 @@ class CoreString {
      */
     public static function substr(string $string, int $start, $length = false): string {
         if (defined('ENABLE_MBSTRING')) {
-            if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
+            if (file_exists('./lib/wizdam/lib/phputf8/mbstring/core.php')) {
                 require_once './core/Library/phputf8/mbstring/core.php';
             }
             return mb_substr($string, $start, $length === false ? null : $length);
@@ -257,7 +257,7 @@ class CoreString {
      */
     public static function strtolower(string $string): string {
         if (defined('ENABLE_MBSTRING')) {
-            if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
+            if (file_exists('./lib/wizdam/lib/phputf8/mbstring/core.php')) {
                 require_once './core/Library/phputf8/mbstring/core.php';
             }
             return mb_strtolower($string);
@@ -275,7 +275,7 @@ class CoreString {
      */
     public static function strtoupper(string $string): string {
         if (defined('ENABLE_MBSTRING')) {
-            if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
+            if (file_exists('./lib/wizdam/lib/phputf8/mbstring/core.php')) {
                 require_once './core/Library/phputf8/mbstring/core.php';
             }
             return mb_strtoupper($string);
@@ -293,7 +293,7 @@ class CoreString {
      */
     public static function ucfirst(string $string): string {
         if (defined('ENABLE_MBSTRING')) {
-            if (file_exists('./lib/pkp/lib/phputf8/mbstring/core.php')) {
+            if (file_exists('./lib/wizdam/lib/phputf8/mbstring/core.php')) {
                 require_once './core/Library/phputf8/mbstring/core.php';
                 require_once './core/Library/phputf8/ucfirst.php';
             }
@@ -723,7 +723,7 @@ class CoreString {
      * @return string
      */
     public static function utf8_normalize(string $str): string {
-        import('lib.pkp.classes.core.Transcoder');
+        import('lib.wizdam.classes.core.Transcoder');
 
         if (self::hasMBString()) {
             // NB: CP-1252 often segfaults; we've left it out here but it will detect as 'ISO-8859-1'
@@ -992,7 +992,7 @@ class CoreString {
      * @return string
      */
     public static function titleCase(string $title): string {
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_COMMON);
+        AppLocale::requireComponents(LOCALE_COMPONENT_WIZDAM_COMMON);
         $smallWords = explode(' ', __('common.titleSmallWords'));
 
         $words = explode(' ', $title);

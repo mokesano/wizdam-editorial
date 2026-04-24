@@ -60,7 +60,7 @@ class Subscription extends DataObject {
 
     /**
      * Get the ID of the subscription.
-     * @deprecated since OJS 2.x. Please use getId() instead.
+     * @deprecated since Wizdam 2.x. Please use getId() instead.
      * @return int
      */
     public function getSubscriptionId() {
@@ -72,7 +72,7 @@ class Subscription extends DataObject {
 
     /**
      * Set the ID of the subscription.
-     * @deprecated since OJS 2.x. Please use setId() instead.
+     * @deprecated since Wizdam 2.x. Please use setId() instead.
      * @param $subscriptionId int
      */
     public function setSubscriptionId($subscriptionId) {

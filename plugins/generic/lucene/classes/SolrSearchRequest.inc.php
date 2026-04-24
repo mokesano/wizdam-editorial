@@ -20,7 +20,7 @@ class SolrSearchRequest {
 
     /**
      * @var Journal The journal to be queried. All journals of
-     * an OJS instance will be queried if no journal is given.
+     * an Wizdam instance will be queried if no journal is given.
      */
     protected $_journal = null;
 
@@ -345,22 +345,22 @@ class SolrSearchRequest {
      * @param array $keywords See ArticleSearch::retrieveResults()
      */
     public function addQueryFromKeywords($keywords) {
-        // Get a mapping of OJS search fields bitmaps to index fields.
+        // Get a mapping of Wizdam search fields bitmaps to index fields.
         $indexFieldMap = ArticleSearch::getIndexFieldMap();
 
         // The keywords list is indexed with a search field bitmap.
         foreach($keywords as $searchFieldBitmap => $searchPhrase) {
-            // Translate the search field from OJS to solr nomenclature.
+            // Translate the search field from Wizdam to solr nomenclature.
             if (empty($searchFieldBitmap)) {
                 // An empty search field means "all fields".
                 $solrFields = array_values($indexFieldMap);
             } else {
                 $solrFields = [];
-                foreach($indexFieldMap as $ojsField => $solrField) {
+                foreach($indexFieldMap as $wizdamField => $solrField) {
                     // The search field bitmap may stand for
                     // several actual index fields (e.g. the index terms
                     // field).
-                    if ($searchFieldBitmap & $ojsField) {
+                    if ($searchFieldBitmap & $wizdamField) {
                         $solrFields[] = $solrField;
                     }
                 }

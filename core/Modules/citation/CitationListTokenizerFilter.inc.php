@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.filter.Filter');
+import('lib.wizdam.classes.filter.Filter');
 
 class CitationListTokenizerFilter extends Filter {
     /**
@@ -58,7 +58,7 @@ class CitationListTokenizerFilter extends Filter {
         // separated with line endings.
         
         // 1) Remove empty lines and normalize line endings.
-        $input = PKPString::regexp_replace('/[\r\n]+/s', "\n", $input);
+        $input = CoreString::regexp_replace('/[\r\n]+/s', "\n", $input);
         
         // 2) Remove trailing/leading line breaks.
         $input = trim($input, "\n");
@@ -72,7 +72,7 @@ class CitationListTokenizerFilter extends Filter {
         
         // 4) Remove numbers from the beginning of each citation.
         foreach($citations as $index => $citation) {
-            $citations[$index] = PKPString::regexp_replace('/^\s*[\[#]?[0-9]+[.)\]]?\s*/', '', $citation);
+            $citations[$index] = CoreString::regexp_replace('/^\s*[\[#]?[0-9]+[.)\]]?\s*/', '', $citation);
         }
 
         return $citations;

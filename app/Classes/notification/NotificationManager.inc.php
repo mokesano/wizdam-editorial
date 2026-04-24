@@ -8,14 +8,14 @@ declare(strict_types=1);
  * Copyright (c) 2000-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @class PKPNotificationManager
+ * @class CoreNotificationManager
  * @ingroup notification
  * @see NotificationDAO
  * @see Notification
  * @brief Class for Notification Manager.
  */
 
-import('lib.pkp.classes.notification.PKPNotificationManager');
+import('lib.wizdam.classes.notification.CoreNotificationManager');
 
 class NotificationManager extends CoreNotificationManager {
     
@@ -41,7 +41,7 @@ class NotificationManager extends CoreNotificationManager {
 
     /**
      * Construct a URL for the notification based on its type and associated object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $notification Notification
      * @return string
      */
@@ -178,7 +178,7 @@ class NotificationManager extends CoreNotificationManager {
 
     /**
      * Construct the contents for the notification based on its type and associated object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $notification Notification
      * @return string
      */
@@ -352,7 +352,7 @@ class NotificationManager extends CoreNotificationManager {
 
     /**
      * Returns an array of information on the journal's subscription settings
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return array
      */
     public function getSubscriptionSettings($request) {

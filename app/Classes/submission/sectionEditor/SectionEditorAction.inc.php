@@ -63,7 +63,7 @@ class SectionEditorAction extends Action {
      * Records an editor's submission decision.
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param int $decision
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function recordDecision($sectionEditorSubmission, $decision, $request) {
         $editAssignments = $sectionEditorSubmission->getEditAssignments();
@@ -87,7 +87,7 @@ class SectionEditorAction extends Action {
             $decisions = SectionEditorSubmission::getEditorDecisionOptions();
             // Add log
             import('classes.article.log.ArticleLog');
-            AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_OJS_EDITOR);
+            AppLocale::requireComponents(LOCALE_COMPONENT_APPLICATION_COMMON, LOCALE_COMPONENT_WIZDAM_EDITOR);
             ArticleLog::logEvent($request, $sectionEditorSubmission, ARTICLE_LOG_EDITOR_DECISION, 'log.editor.decision', ['editorName' => $user->getFullName(), 'decision' => __($decisions[$decision])]);
         }
     }
@@ -97,7 +97,7 @@ class SectionEditorAction extends Action {
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param int $reviewerId
      * @param int|null $round
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function addReviewer($sectionEditorSubmission, $reviewerId, $round, $request) {
         $sectionEditorSubmissionDao = DAORegistry::getDAO('SectionEditorSubmissionDAO');
@@ -153,7 +153,7 @@ class SectionEditorAction extends Action {
      * Clears a review assignment from a submission.
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param int $reviewId
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function clearReview($sectionEditorSubmission, $reviewId, $request) {
         $sectionEditorSubmissionDao = DAORegistry::getDAO('SectionEditorSubmissionDAO');
@@ -180,7 +180,7 @@ class SectionEditorAction extends Action {
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param int $reviewId
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function notifyReviewer($sectionEditorSubmission, $reviewId, $send, $request) {
@@ -242,7 +242,7 @@ class SectionEditorAction extends Action {
                 HookRegistry::dispatch('SectionEditorAction::notifyReviewer', [&$sectionEditorSubmission, &$reviewAssignment, &$email]);
                 if ($email->isEnabled()) {
                     if ($reviewerAccessKeysEnabled) {
-                        import('lib.pkp.classes.security.AccessKeyManager');
+                        import('lib.wizdam.classes.security.AccessKeyManager');
                         import('pages.reviewer.ReviewerHandler');
                         $accessKeyManager = new AccessKeyManager();
 
@@ -289,7 +289,7 @@ class SectionEditorAction extends Action {
                         'reviewerUsername' => $reviewer->getUsername(),
                         'reviewerPassword' => $reviewer->getPassword(),
                         'editorialContactSignature' => $user->getContactSignature(),
-                        'reviewGuidelines' => PKPString::html2text($journal->getLocalizedSetting('reviewGuidelines')),
+                        'reviewGuidelines' => CoreString::html2text($journal->getLocalizedSetting('reviewGuidelines')),
                         'submissionReviewUrl' => $submissionUrl,
                         'abstractTermIfEnabled' => ($sectionEditorSubmission->getLocalizedAbstract() == '' ? '' : __('article.abstract')),
                         'passwordResetUrl' => $request->url(null, 'login', 'resetPassword', $reviewer->getUsername(), ['confirm' => Validation::generatePasswordResetHash($reviewer->getId())])
@@ -319,7 +319,7 @@ class SectionEditorAction extends Action {
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param int $reviewId
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function cancelReview($sectionEditorSubmission, $reviewId, $send, $request) {
@@ -382,7 +382,7 @@ class SectionEditorAction extends Action {
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param int $reviewId
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff no error was encountered
      */
     public static function remindReviewer($sectionEditorSubmission, $reviewId, $send, $request) {
@@ -409,7 +409,7 @@ class SectionEditorAction extends Action {
             $reviewer = $userDao->getById($reviewAssignment->getReviewerId());
 
             if ($reviewerAccessKeysEnabled) {
-                import('lib.pkp.classes.security.AccessKeyManager');
+                import('lib.wizdam.classes.security.AccessKeyManager');
                 import('pages.reviewer.ReviewerHandler');
                 $accessKeyManager = new AccessKeyManager();
 
@@ -484,7 +484,7 @@ class SectionEditorAction extends Action {
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param int $reviewId
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function thankReviewer($sectionEditorSubmission, $reviewId, $send, $request) {
@@ -535,7 +535,7 @@ class SectionEditorAction extends Action {
      * @param int $articleId
      * @param int $reviewId
      * @param int $quality
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function rateReviewer($articleId, $reviewId, $quality, $request) {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
@@ -624,7 +624,7 @@ class SectionEditorAction extends Action {
      * @param string $dueDate
      * @param int $numWeeks
      * @param bool $logEntry
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function setDueDate($articleId, $reviewId, $dueDate, $numWeeks, $logEntry, $request) {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
@@ -691,7 +691,7 @@ class SectionEditorAction extends Action {
      * Notifies an author that a submission was unsuitable.
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param bool $send true if an email should be sent
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function unsuitableSubmission($sectionEditorSubmission, $send, $request) {
@@ -735,7 +735,7 @@ class SectionEditorAction extends Action {
      * @param int $reviewId
      * @param int $recommendation
      * @param int $acceptOption
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function setReviewerRecommendation($article, $reviewId, $recommendation, $acceptOption, $request) {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
@@ -839,7 +839,7 @@ class SectionEditorAction extends Action {
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param int $fileId
      * @param int $revision
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * TODO: SECURITY!
      */
     public static function setCopyeditFile($sectionEditorSubmission, $fileId, $revision, $request) {
@@ -870,7 +870,7 @@ class SectionEditorAction extends Action {
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param int $fileId
      * @param int $revision
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * TODO: SECURITY!
      */
     public static function resubmitFile($sectionEditorSubmission, $fileId, $revision, $request) {
@@ -927,7 +927,7 @@ class SectionEditorAction extends Action {
      * Assigns a copyeditor to a submission.
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param int $copyeditorId
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function selectCopyeditor($sectionEditorSubmission, $copyeditorId, $request) {
         $sectionEditorSubmissionDao = DAORegistry::getDAO('SectionEditorSubmissionDAO');
@@ -957,7 +957,7 @@ class SectionEditorAction extends Action {
      * Notifies a copyeditor about a copyedit assignment.
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function notifyCopyeditor($sectionEditorSubmission, $send, $request) {
@@ -1005,7 +1005,7 @@ class SectionEditorAction extends Action {
     /**
      * Initiates the initial copyedit stage when the editor does the copyediting.
      * @param SectionEditorSubmission $sectionEditorSubmission
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function initiateCopyedit($sectionEditorSubmission, $request) {
         $user = $request->getUser();
@@ -1028,7 +1028,7 @@ class SectionEditorAction extends Action {
      * Thanks a copyeditor about a copyedit assignment.
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function thankCopyeditor($sectionEditorSubmission, $send, $request) {
@@ -1071,7 +1071,7 @@ class SectionEditorAction extends Action {
      * Notifies the author that the copyedit is complete.
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function notifyAuthorCopyedit($sectionEditorSubmission, $send, $request) {
@@ -1121,7 +1121,7 @@ class SectionEditorAction extends Action {
      * Thanks an author for completing editor / author review.
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function thankAuthorCopyedit($sectionEditorSubmission, $send, $request) {
@@ -1164,7 +1164,7 @@ class SectionEditorAction extends Action {
      * Notify copyeditor about final copyedit.
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function notifyFinalCopyedit($sectionEditorSubmission, $send, $request) {
@@ -1215,7 +1215,7 @@ class SectionEditorAction extends Action {
      * Thank copyeditor for completing final copyedit.
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function thankFinalCopyedit($sectionEditorSubmission, $send, $request) {
@@ -1287,7 +1287,7 @@ class SectionEditorAction extends Action {
     /**
      * Upload the post-review version of an article.
      * @param SectionEditorSubmission $sectionEditorSubmission
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function uploadEditorVersion($sectionEditorSubmission, $request) {
         import('classes.file.ArticleFileManager');
@@ -1364,7 +1364,7 @@ class SectionEditorAction extends Action {
     /**
      * Editor completes initial copyedit (copyeditors disabled).
      * @param SectionEditorSubmission $sectionEditorSubmission
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function completeCopyedit($sectionEditorSubmission, $request) {
         $signoffDao = DAORegistry::getDAO('SignoffDAO');
@@ -1388,7 +1388,7 @@ class SectionEditorAction extends Action {
     /**
      * Section editor completes final copyedit (copyeditors disabled).
      * @param SectionEditorSubmission $sectionEditorSubmission
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function completeFinalCopyedit($sectionEditorSubmission, $request) {
         $signoffDao = DAORegistry::getDAO('SignoffDAO');
@@ -1426,7 +1426,7 @@ class SectionEditorAction extends Action {
     /**
      * Archive a submission.
      * @param SectionEditorSubmission $sectionEditorSubmission
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function archiveSubmission($sectionEditorSubmission, $request) {
         $sectionEditorSubmissionDao = DAORegistry::getDAO('SectionEditorSubmissionDAO');
@@ -1460,7 +1460,7 @@ class SectionEditorAction extends Action {
     /**
      * Restores a submission to the queue.
      * @param SectionEditorSubmission $sectionEditorSubmission
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function restoreToQueue($sectionEditorSubmission, $request) {
         if (HookRegistry::dispatch('SectionEditorAction::restoreToQueue', [&$sectionEditorSubmission])) return;
@@ -1562,7 +1562,7 @@ class SectionEditorAction extends Action {
      * Assign a layout editor to a submission.
      * @param SectionEditorSubmission $submission
      * @param int $editorId user ID of the new layout editor
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function assignLayoutEditor($submission, $editorId, $request) {
         $signoffDao = DAORegistry::getDAO('SignoffDAO');
@@ -1603,7 +1603,7 @@ class SectionEditorAction extends Action {
      * Notifies the current layout editor about an assignment.
      * @param SectionEditorSubmission $submission
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function notifyLayoutEditor($submission, $send, $request) {
@@ -1650,7 +1650,7 @@ class SectionEditorAction extends Action {
      * Sends acknowledgement email to the current layout editor.
      * @param SectionEditorSubmission $submission
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function thankLayoutEditor($submission, $send, $request) {
@@ -1773,7 +1773,7 @@ class SectionEditorAction extends Action {
     /**
      * Add Submission Note
      * @param int $articleId
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function addSubmissionNote($articleId, $request) {
         import('classes.file.ArticleFileManager');
@@ -1827,7 +1827,7 @@ class SectionEditorAction extends Action {
     /**
      * Updates Submission Note
      * @param int $articleId
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function updateSubmissionNote($articleId, $request) {
         import('classes.file.ArticleFileManager');
@@ -1915,7 +1915,7 @@ class SectionEditorAction extends Action {
      * @param Article $article
      * @param int $reviewId
      * @param bool $emailComment
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool
      */
     public static function postPeerReviewComment($article, $reviewId, $emailComment, $request) {
@@ -1969,7 +1969,7 @@ class SectionEditorAction extends Action {
      * Post editor decision comment.
      * @param Article $article
      * @param bool $emailComment
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool
      */
     public static function postEditorDecisionComment($article, $emailComment, $request) {
@@ -2008,7 +2008,7 @@ class SectionEditorAction extends Action {
      * Email editor decision comment.
      * @param SectionEditorSubmission $sectionEditorSubmission
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool
      */
     public static function emailEditorDecisionComment($sectionEditorSubmission, $send, $request) {
@@ -2091,11 +2091,11 @@ class SectionEditorAction extends Action {
                         $articleComments = $articleCommentDao->getArticleComments($sectionEditorSubmission->getId(), COMMENT_TYPE_PEER_REVIEW, $reviewAssignment->getId());
                         if($articleComments) {
                             $body .= "------------------------------------------------------\n";
-                            $body .= __('submission.comments.importPeerReviews.reviewerLetter', ['reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getReviewId()])]) . "\n";
+                            $body .= __('submission.comments.importPeerReviews.reviewerLetter', ['reviewerLetter' => CoreString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getReviewId()])]) . "\n";
                             if (is_array($articleComments)) {
                                 foreach ($articleComments as $comment) {
                                     // If the comment is viewable by the author, then add the comment.
-                                    if ($comment->getViewable()) $body .= PKPString::html2text($comment->getComments()) . "\n\n";
+                                    if ($comment->getViewable()) $body .= CoreString::html2text($comment->getComments()) . "\n\n";
                                 }
                             }
                             $body .= "------------------------------------------------------\n\n";
@@ -2107,10 +2107,10 @@ class SectionEditorAction extends Action {
                             $reviewFormElements = $reviewFormElementDao->getReviewFormElements($reviewFormId);
                             if(!$articleComments) {
                                 $body .= "------------------------------------------------------\n";
-                                $body .= __('submission.comments.importPeerReviews.reviewerLetter', ['reviewerLetter' => PKPString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getReviewId()])]) . "\n\n";
+                                $body .= __('submission.comments.importPeerReviews.reviewerLetter', ['reviewerLetter' => CoreString::enumerateAlphabetically($reviewIndexes[$reviewAssignment->getReviewId()])]) . "\n\n";
                             }
                             foreach ($reviewFormElements as $reviewFormElement) if ($reviewFormElement->getIncluded()) {
-                                $body .= PKPString::html2text($reviewFormElement->getLocalizedQuestion()) . ": \n";
+                                $body .= CoreString::html2text($reviewFormElement->getLocalizedQuestion()) . ": \n";
                                 $reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewId, $reviewFormElement->getId());
 
                                 if ($reviewFormResponse) {
@@ -2118,10 +2118,10 @@ class SectionEditorAction extends Action {
                                     if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
                                         if ($reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
                                             foreach ($reviewFormResponse->getValue() as $value) {
-                                                $body .= "\t" . PKPString::html2text($possibleResponses[$value-1]['content']) . "\n";
+                                                $body .= "\t" . CoreString::html2text($possibleResponses[$value-1]['content']) . "\n";
                                             }
                                         } else {
-                                            $body .= "\t" . PKPString::html2text($possibleResponses[$reviewFormResponse->getValue()-1]['content']) . "\n";
+                                            $body .= "\t" . CoreString::html2text($possibleResponses[$reviewFormResponse->getValue()-1]['content']) . "\n";
                                         }
                                         $body .= "\n";
                                     } else {
@@ -2148,7 +2148,7 @@ class SectionEditorAction extends Action {
      * Blind CC the editor decision email to reviewers.
      * @param Article $article
      * @param bool $send
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool true iff ready for redirect
      */
     public static function bccEditorDecisionCommentToReviewers($article, $send, $request) {
@@ -2175,7 +2175,7 @@ class SectionEditorAction extends Action {
                 $commentsText = "";
                 if ($article->getMostRecentEditorDecisionComment()) {
                     $comment = $article->getMostRecentEditorDecisionComment();
-                    $commentsText = PKPString::html2text($comment->getComments()) . "\n\n";
+                    $commentsText = CoreString::html2text($comment->getComments()) . "\n\n";
                 }
                 $user = $request->getUser();
 
@@ -2209,7 +2209,7 @@ class SectionEditorAction extends Action {
      * Post copyedit comment.
      * @param Article $article
      * @param bool $emailComment
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool
      */
     public static function postCopyeditComment($article, $emailComment, $request) {
@@ -2262,7 +2262,7 @@ class SectionEditorAction extends Action {
      * Post layout comment.
      * @param Article $article
      * @param bool $emailComment
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool
      */
     public static function postLayoutComment($article, $emailComment, $request) {
@@ -2315,7 +2315,7 @@ class SectionEditorAction extends Action {
      * Post proofread comment.
      * @param Article $article
      * @param bool $emailComment
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return bool
      */
     public static function postProofreadComment($article, $emailComment, $request) {
@@ -2355,7 +2355,7 @@ class SectionEditorAction extends Action {
      * Confirms the review assignment on behalf of its reviewer.
      * @param int $reviewId
      * @param bool $accept True === accept; false === decline
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function confirmReviewForReviewer($reviewId, $accept, $request) {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
@@ -2390,7 +2390,7 @@ class SectionEditorAction extends Action {
      * Upload a review on behalf of its reviewer.
      * @param int $reviewId
      * @param Article $article
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public static function uploadReviewForReviewer($reviewId, $article, $request) {
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');

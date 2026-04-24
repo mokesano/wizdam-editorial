@@ -120,7 +120,7 @@ class Submission extends DataObject {
     public function getAuthorEmails() {
         $authors = $this->getAuthors();
 
-        import('lib.pkp.classes.mail.Mail');
+        import('lib.wizdam.classes.mail.Mail');
         $returner = array();
         foreach($authors as $author) {
             $returner[] = Mail::encodeDisplayName($author->getFullName()) . ' <' . $author->getEmail() . '>';

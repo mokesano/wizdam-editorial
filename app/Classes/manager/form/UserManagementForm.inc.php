@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class UserManagementForm extends Form {
 
@@ -211,7 +211,7 @@ class UserManagementForm extends Form {
             $userDao = DAORegistry::getDAO('UserDAO');
             $user = $userDao->getById($this->userId);
 
-            import('lib.pkp.classes.user.InterestManager');
+            import('lib.wizdam.classes.user.InterestManager');
             $interestManager = new InterestManager();
 
             if ($user != null) {
@@ -459,7 +459,7 @@ class UserManagementForm extends Form {
 
         // Insert the user interests
         $interests = $this->getData('interestsKeywords') ? $this->getData('interestsKeywords') : $this->getData('interestsTextOnly');
-        import('lib.pkp.classes.user.InterestManager');
+        import('lib.wizdam.classes.user.InterestManager');
         $interestManager = new InterestManager();
         $interestManager->setInterestsForUser($user, $interests);
     }

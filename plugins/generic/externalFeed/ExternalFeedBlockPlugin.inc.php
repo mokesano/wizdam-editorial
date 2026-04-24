@@ -12,14 +12,14 @@ declare(strict_types=1);
  * @ingroup plugins_generic_externalFeed
  *
  * @brief Class for block component of external feed plugin
- * * MODERNIZED FOR PHP 8.x & OJS FORK (Wizdam Edition)
+ * * MODERNIZED FOR PHP 8.x & Wizdam FORK (Wizdam Edition)
  * - Added Block-Specific CSS injection.
  * - Implemented Firewall Bypass logic.
  * - Redirected template to 'templates/' folder.
  * - Strict Syntax Compliance.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class ExternalFeedBlockPlugin extends BlockPlugin {
     
@@ -127,7 +127,7 @@ class ExternalFeedBlockPlugin extends BlockPlugin {
         $externalFeedDao = DAORegistry::getDAO('ExternalFeedDAO');
         
         $plugin->import('simplepie.SimplePie');
-        import('lib.pkp.classes.core.PKPString');
+        import('lib.wizdam.classes.core.CoreString');
     
         $feeds = $externalFeedDao->getExternalFeedsByJournalId($journal->getId());
         $externalFeeds = array();

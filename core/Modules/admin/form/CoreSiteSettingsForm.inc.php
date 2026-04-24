@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/admin/form/PKPSiteSettingsForm.inc.php
+ * @file classes/admin/form/CoreSiteSettingsForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -19,7 +19,7 @@ declare(strict_types=1);
  */
 
 define('SITE_MIN_PASSWORD_LENGTH', 12);
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class CoreSiteSettingsForm extends Form {
     
@@ -55,7 +55,7 @@ class CoreSiteSettingsForm extends Form {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPSiteSettingsForm() {
+    public function CoreSiteSettingsForm() {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor parent::'" . get_class($this) . "'. Please refactor to parent::__construct().", 

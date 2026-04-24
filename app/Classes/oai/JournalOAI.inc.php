@@ -2,28 +2,28 @@
 declare(strict_types=1);
 
 /**
- * @defgroup oai_ojs
+ * @defgroup oai_wizdam
  */
 
 /**
- * @file classes/oai/ojs/JournalOAI.inc.php
+ * @file classes/oai/wizdam/JournalOAI.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2003-2019 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class JournalOAI
- * @ingroup oai_ojs
+ * @ingroup oai_wizdam
  * @see OAIDAO
  *
- * @brief OJS-specific OAI interface.
+ * @brief Wizdam-specific OAI interface.
  * Designed to support both a site-wide and journal-specific OAI interface
  * (based on where the request is directed).
  *
  * [WIZDAM EDITION] REFACTOR: PHP 8.1+ Compatibility, Strict Types, Structured Returns
  */
 
-import('lib.pkp.classes.oai.OAI');
+import('lib.wizdam.classes.oai.OAI');
 import('classes.oai.OAIDAO');
 
 class JournalOAI extends OAI {

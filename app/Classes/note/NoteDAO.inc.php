@@ -12,12 +12,12 @@ declare(strict_types=1);
  * @ingroup note
  * @see PKPNoteDAO
  *
- * @brief OJS extension of PKPNoteDAO
+ * @brief Wizdam extension of PKPNoteDAO
  *
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.note.PKPNoteDAO');
+import('lib.wizdam.classes.note.PKPNoteDAO');
 import('classes.note.Note');
 
 class NoteDAO extends CoreNoteDAO {

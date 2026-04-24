@@ -15,10 +15,10 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.controllers.grid.GridHandler');
-import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridRow');
-import('lib.pkp.classes.controllers.listbuilder.ListbuilderGridColumn');
-import('lib.pkp.classes.controllers.listbuilder.MultilingualListbuilderGridColumn');
+import('lib.wizdam.classes.controllers.grid.GridHandler');
+import('lib.wizdam.classes.controllers.listbuilder.ListbuilderGridRow');
+import('lib.wizdam.classes.controllers.listbuilder.ListbuilderGridColumn');
+import('lib.wizdam.classes.controllers.listbuilder.MultilingualListbuilderGridColumn');
 
 /* Listbuilder source types: text-based, pulldown, ... */
 define_exposed('LISTBUILDER_SOURCE_TYPE_TEXT', 0);
@@ -63,14 +63,14 @@ class ListbuilderHandler extends GridHandler {
 
     /**
      * @see GridHandler::initialize
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $addItemLink
      */
     public function initialize($request, $addItemLink = true) {
         parent::initialize($request);
 
         if ($addItemLink) {
-            import('lib.pkp.classes.linkAction.request.NullAction');
+            import('lib.wizdam.classes.linkAction.request.NullAction');
             $this->addAction(
                 new LinkAction(
                     'addItem',
@@ -150,7 +150,7 @@ class ListbuilderHandler extends GridHandler {
 
     /**
      * Get the new row ID from the request.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return int
      */
     public function getNewRowId($request): int {
@@ -159,7 +159,7 @@ class ListbuilderHandler extends GridHandler {
 
     /**
      * Delete an entry.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param mixed $rowId ID of row to modify
      * @return boolean
      */
@@ -169,7 +169,7 @@ class ListbuilderHandler extends GridHandler {
 
     /**
      * Persist an update to an entry.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param mixed $rowId ID of row to modify
      * @param mixed $newRowId ID of the new entry
      * @return boolean
@@ -184,7 +184,7 @@ class ListbuilderHandler extends GridHandler {
 
     /**
      * Persist a new entry insert.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param mixed $newRowId ID of row to modify
      * @return mixed
      */
@@ -194,7 +194,7 @@ class ListbuilderHandler extends GridHandler {
 
     /**
      * Fetch the options for a LISTBUILDER_SOURCE_TYPE_SELECT LB
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return array
      */
     public function getOptions($request) {
@@ -207,7 +207,7 @@ class ListbuilderHandler extends GridHandler {
     /**
      * Fetch the listbuilder.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function fetch($args, $request) {
         return $this->fetchGrid($args, $request);
@@ -215,7 +215,7 @@ class ListbuilderHandler extends GridHandler {
 
     /**
      * Unpack data to save using an external handler.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $data (the json encoded data from the listbuilder itself)
      * @param callable|null $deletionCallback
      * @param callable|null $insertionCallback
@@ -227,7 +227,7 @@ class ListbuilderHandler extends GridHandler {
         if (!$insertionCallback) $insertionCallback = [$this, 'insertEntry'];
         if (!$updateCallback) $updateCallback = [$this, 'updateEntry'];
 
-        import('lib.pkp.classes.core.JSONManager');
+        import('lib.wizdam.classes.core.JSONManager');
         $jsonManager = new JSONManager();
         
         // [WIZDAM] Critical Fix: Treat data as string for decoding.
@@ -295,7 +295,7 @@ class ListbuilderHandler extends GridHandler {
     /**
      * Save the listbuilder using the internal handler.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function save($args, $request) {
         // The ListbuilderHandler will post a list of changed
@@ -322,7 +322,7 @@ class ListbuilderHandler extends GridHandler {
     /**
      * Load the set of options for a select list type listbuilder.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function fetchOptions($args, $request) {
         $options = $this->getOptions($request);

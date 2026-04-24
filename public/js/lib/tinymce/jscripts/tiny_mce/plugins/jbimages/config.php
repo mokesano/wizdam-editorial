@@ -24,7 +24,7 @@
 |
 -------------------------------------------------------------------*/
 
-	/* PKP Customization, 01/03/2012; Determine img_path from external file */
+	/* Wizdam Customization, 01/03/2012; Determine img_path from external file */
 	require_once('integratePKP.php');
 	$integratePKP = new IntegratePKP();
 
@@ -126,14 +126,14 @@
 |
 -------------------------------------------------------------------*/
 
-	/* PKP Customization, 01/03/2012; Specify upload path */
+	/* Wizdam Customization, 01/03/2012; Specify upload path */
 	$config['upload_path'] = $integratePKP->getPKPImageUploadPath();
 
 
 /*-------------------------------------------------------------------
 |
 | Maximum size of upload directory in kilobytes (set to 0 for no limit)
-| PKP Customization, 01/03/2012
+| Wizdam Customization, 01/03/2012
 |
 -------------------------------------------------------------------*/
 
@@ -143,7 +143,7 @@
 /*-------------------------------------------------------------------
 |
 | Show uploaded images and allow for images to be deleted
-| PKP Customization, 01/03/2012
+| Wizdam Customization, 01/03/2012
 |
 -------------------------------------------------------------------*/
 

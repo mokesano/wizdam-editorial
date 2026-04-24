@@ -16,7 +16,7 @@ declare(strict_types=1);
  */
 
 import('classes.plugins.GatewayPlugin');
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
 class METSGatewayPlugin extends GatewayPlugin {
     
@@ -82,7 +82,7 @@ class METSGatewayPlugin extends GatewayPlugin {
      * @param array $args
      * @param string|null $message
      * @param array|null $messageParams
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return bool
      */
     public function manage(string $verb, array $args, string $message = NULL, $messageParams = NULL, $request = NULL): bool {
@@ -131,7 +131,7 @@ class METSGatewayPlugin extends GatewayPlugin {
     /**
      * Handle fetch requests for this plugin.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return bool
      */
     public function fetch($args, $request = null) {
@@ -209,7 +209,7 @@ class METSGatewayPlugin extends GatewayPlugin {
     /**
      * @param Journal $journal
      * @param array $issues
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return bool
      */
     public function exportIssues($journal, $issues, $request = null) {

@@ -10,13 +10,13 @@ declare(strict_types=1);
  *
  * @class SiteSettingsForm
  * @ingroup admin_form
- * @see PKPSiteSettingsForm
+ * @see CoreSiteSettingsForm
  *
  * @brief Form to edit site settings.
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.admin.form.PKPSiteSettingsForm');
+import('lib.wizdam.classes.admin.form.CoreSiteSettingsForm');
 
 class SiteSettingsForm extends CoreSiteSettingsForm {
     
@@ -42,7 +42,7 @@ class SiteSettingsForm extends CoreSiteSettingsForm {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {

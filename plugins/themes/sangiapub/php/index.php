@@ -407,8 +407,8 @@
     });
 
     function fetchNotifications() {
-        // Gantilah URL di bawah ini dengan URL endpoint yang sesuai dari server OJS Anda
-        fetch('https://your-ojs-server.com/api/notifications')
+        // Gantilah URL di bawah ini dengan URL endpoint yang sesuai dari server Wizdam Anda
+        fetch('https://your-wizdam-server.com/api/notifications')
             .then(response => response.json())
             .then(data => {
                 var notificationCount = data.count || 0;

@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/gift/PKPGift.inc.php
+ * @file classes/gift/CoreGift.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -14,7 +14,7 @@ declare(strict_types=1);
  *
  * @class CoreGift
  * @ingroup gift
- * @see GiftDAO, PKPGiftDAO
+ * @see GiftDAO, CoreGiftDAO
  *
  * @brief Basic class describing a gift.
  */
@@ -37,9 +37,9 @@ class CoreGift extends DataObject {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPGift() {
+    public function CoreGift() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPGift(). Please refactor to use parent::__construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreGift(). Please refactor to use parent::__construct().",
             E_USER_DEPRECATED
         );
         self::__construct();

@@ -2,17 +2,17 @@
 declare(strict_types=1);
 
 /**
- * @file classes/oai/PKPOAIDAO.inc.php
+ * @file classes/oai/CoreOAIDAO.inc.php
  * HIGH PERFORMANCE BASE: Enables Pre-loading for OAI
  *
- * Base DAO class for OAI operations in PKP/OJS.
+ * Base DAO class for OAI operations in Wizdam/Wizdam.
  * This class provides high-performance bulk-loading hooks and a unified
  * structure for fetching OAI Records and Identifiers.
  * * REFACTORED: Wizdam Edition (PHP 7.4 - 8.x Modernization)
  */
 
-import('lib.pkp.classes.oai.OAIStruct');
-import('lib.pkp.classes.db.DBResultRange');
+import('lib.wizdam.classes.oai.OAIStruct');
+import('lib.wizdam.classes.db.DBResultRange');
 
 class CoreOAIDAO extends DAO {
 
@@ -31,9 +31,9 @@ class CoreOAIDAO extends DAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPOAIDAO() {
+    public function CoreOAIDAO() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPOAIDAO(). Please refactor to use parent::__construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreOAIDAO(). Please refactor to use parent::__construct().",
             E_USER_DEPRECATED
         );
         self::__construct();

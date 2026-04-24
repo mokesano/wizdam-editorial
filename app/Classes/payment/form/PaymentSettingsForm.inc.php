@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/payments/ojs/form/PaymentSettingsForm.inc.php
+ * @file classes/payments/wizdam/form/PaymentSettingsForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2006-2009 Gunther Eysenbach, Juan Pablo Alperin
@@ -15,7 +15,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class PaymentSettingsForm extends Form {
     

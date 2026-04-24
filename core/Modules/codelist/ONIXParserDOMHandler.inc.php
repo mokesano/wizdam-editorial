@@ -20,8 +20,8 @@ declare(strict_types=1);
  * Example:  <xs:simpleType name="List30">...</xs:simpleType>
  */
 
-import('lib.pkp.classes.xml.XMLParserDOMHandler');
-import('lib.pkp.classes.xml.XMLNode');
+import('lib.wizdam.classes.xml.XMLParserDOMHandler');
+import('lib.wizdam.classes.xml.XMLNode');
 
 class ONIXParserDOMHandler extends XMLParserDOMHandler {
 

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Class defining operations for temporary file management.
  */
 
-import('lib.pkp.classes.file.PKPTemporaryFileManager');
+import('lib.wizdam.classes.file.CoreTemporaryFileManager');
 
 class TemporaryFileManager extends CoreTemporaryFileManager {
     

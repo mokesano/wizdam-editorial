@@ -15,8 +15,8 @@ declare(strict_types=1);
  * YYYY[-MM[-DD]].
  */
 
-import('lib.pkp.classes.filter.Filter');
-import('lib.pkp.classes.validation.ValidatorDate');
+import('lib.wizdam.classes.filter.Filter');
+import('lib.wizdam.classes.validation.ValidatorDate');
 
 class DateStringNormalizerFilter extends Filter {
     
@@ -63,7 +63,7 @@ class DateStringNormalizerFilter extends Filter {
         $normalizedDate = null;
         
         foreach($dateExpressions as $dateExpression) {
-            if (PKPString::regexp_match_get($dateExpression, $input, $parsedDate) ){
+            if (CoreString::regexp_match_get($dateExpression, $input, $parsedDate) ){
                 if (isset($parsedDate['year'])) {
                     $normalizedDate = $parsedDate['year'];
 

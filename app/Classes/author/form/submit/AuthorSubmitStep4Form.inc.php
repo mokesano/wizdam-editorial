@@ -22,7 +22,7 @@ class AuthorSubmitStep4Form extends AuthorSubmitForm {
      * Constructor.
      * @param Article $article
      * @param Journal $journal
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function __construct($article, $journal, $request) {
         parent::__construct($article, 4, $journal, $request);
@@ -43,7 +43,7 @@ class AuthorSubmitStep4Form extends AuthorSubmitForm {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {

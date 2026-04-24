@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief MetsExportDom export plugin DOM functions for export
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
 class MetsExportDom {
 
@@ -473,7 +473,7 @@ class MetsExportDom {
 
 	function generateArticleHtmlGalleyImageFileDom(&$doc, &$root, $article, $galley, $imageFile, $useAttribute) {
 		import('classes.file.PublicFileManager');
-		import('lib.pkp.classes.file.FileManager');
+		import('lib.wizdam.classes.file.FileManager');
 		$fileManager = new FileManager();
 		$contentWrapper = $this->getSetting($this->journalId, 'contentWrapper');
 		$mfile = XMLCustomWriter::createElement($doc, 'METS:file');
@@ -511,7 +511,7 @@ class MetsExportDom {
 	 */
 	function generateArticleFileDom(&$doc, &$root, $article, &$galleyFile, $useAttribute) {
 		import('classes.file.PublicFileManager');
-		import('lib.pkp.classes.file.FileManager');
+		import('lib.wizdam.classes.file.FileManager');
 		$fileManager = new FileManager();
 		$contentWrapper = $this->getSetting($this->journalId, 'contentWrapper');
 		$mfile = XMLCustomWriter::createElement($doc, 'METS:file');
@@ -545,7 +545,7 @@ class MetsExportDom {
 	 */
 	function generateArticleSuppFileDom(&$doc, &$root, $article, &$suppFile) {
 		import('classes.file.PublicFileManager');
-		import('lib.pkp.classes.file.FileManager');
+		import('lib.wizdam.classes.file.FileManager');
 		$fileManager = new FileManager();
 		$contentWrapper = $this->getSetting($this->journalId, 'contentWrapper');
 		$mfile = XMLCustomWriter::createElement($doc, 'METS:file');
@@ -646,7 +646,7 @@ class MetsExportDom {
 	}
 
 	/**
-	 * Creator is the OJS Sysytem
+	 * Creator is the Wizdam Sysytem
 	 */
 	function getCreatorString() {
 		$versionDao = DAORegistry::getDAO('VersionDAO');

@@ -6,7 +6,7 @@ declare(strict_types=1);
  */
 
 /**
- * @file classes/install/PKPInstall.inc.php
+ * @file classes/install/CoreInstall.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -23,7 +23,7 @@ declare(strict_types=1);
  * - Update the config file with installation parameters.
  */
 
-import('lib.pkp.classes.install.Installer');
+import('lib.wizdam.classes.install.Installer');
 
 class CoreInstall extends Installer {
 
@@ -41,7 +41,7 @@ class CoreInstall extends Installer {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPInstall($xmlDescriptor, $params, $isPlugin) {
+    public function CoreInstall($xmlDescriptor, $params, $isPlugin) {
         if (Config::getVar('debug', 'deprecation_warnings')) {
             trigger_error(
                 "Class '" . get_class($this) . "' uses deprecated constructor " . get_class($this) . "(). Please refactor to use __construct().",
@@ -128,7 +128,7 @@ class CoreInstall extends Installer {
         } else {
             // Create required subdirectories
             $dirsToCreate = $this->getCreateDirectories();
-            import('lib.pkp.classes.file.FileManager');
+            import('lib.wizdam.classes.file.FileManager');
             $fileManager = new FileManager();
             foreach ($dirsToCreate as $dirName) {
                 $dirToCreate = $this->getParam('filesDir') . '/' . $dirName;
@@ -150,7 +150,7 @@ class CoreInstall extends Installer {
         } else {
             // Create required subdirectories
             $dirsToCreate = $this->getCreateDirectories();
-            import('lib.pkp.classes.file.FileManager');
+            import('lib.wizdam.classes.file.FileManager');
             $fileManager = new FileManager();
             foreach ($dirsToCreate as $dirName) {
                 $dirToCreate = $publicFilesDir . '/' . $dirName;

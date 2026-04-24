@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/gift/PKPGiftDAO.inc.php
+ * @file classes/gift/CoreGiftDAO.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -10,12 +10,12 @@ declare(strict_types=1);
  *
  * @class CoreGiftDAO
  * @ingroup gift
- * @see Gift, PKPGift
+ * @see Gift, CoreGift
  *
  * @brief Operations for retrieving and modifying Gift objects.
  */
 
-import('lib.pkp.classes.gift.PKPGift');
+import('lib.wizdam.classes.gift.CoreGift');
 
 define('GIFT_REDEEM_STATUS_SUCCESS', 0x01);
 define('GIFT_REDEEM_STATUS_ERROR_GIFT_INVALID', 0x2);
@@ -34,9 +34,9 @@ class CoreGiftDAO extends DAO {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPGiftDAO() {
+    public function CoreGiftDAO() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPGiftDAO(). Please refactor to use parent::__construct().",
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreGiftDAO(). Please refactor to use parent::__construct().",
             E_USER_DEPRECATED
         );
         self::__construct();

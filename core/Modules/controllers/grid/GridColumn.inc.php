@@ -22,7 +22,7 @@ define('COLUMN_ALIGNMENT_LEFT', 'left');
 define('COLUMN_ALIGNMENT_CENTER', 'center');
 define('COLUMN_ALIGNMENT_RIGHT', 'right');
 
-import('lib.pkp.classes.controllers.grid.GridBodyElement');
+import('lib.wizdam.classes.controllers.grid.GridBodyElement');
 
 class GridColumn extends GridBodyElement {
     /** @var string|null the column title i18n key */
@@ -123,7 +123,7 @@ class GridColumn extends GridBodyElement {
         
         // [WIZDAM] Lazy load default provider if none exists
         if ($provider === null) {
-            import('lib.pkp.classes.controllers.grid.ArrayGridCellProvider');
+            import('lib.wizdam.classes.controllers.grid.ArrayGridCellProvider');
             $provider = new ArrayGridCellProvider();
             $this->setCellProvider($provider);
         }

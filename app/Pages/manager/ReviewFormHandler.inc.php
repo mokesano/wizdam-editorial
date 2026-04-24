@@ -44,7 +44,7 @@ class ReviewFormHandler extends ManagerHandler {
     /**
      * Display a list of review forms within the current journal.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function reviewForms($args, $request) {
         $this->validate();
@@ -195,7 +195,7 @@ class ReviewFormHandler extends ManagerHandler {
         $templateMgr->assign('completeCounts', $completeCounts);
         $templateMgr->assign('incompleteCounts', $incompleteCounts);
         
-        // Note: register_function is technically deprecated in Smarty 3/4 but usually shimmed in OJS wrappers.
+        // Note: register_function is technically deprecated in Smarty 3/4 but usually shimmed in Wizdam wrappers.
         // If 'ReviewFormHandler' static methods are accessible, this works.
         $templateMgr->register_function('form_language_chooser', ['ReviewFormHandler', 'smartyFormLanguageChooser']);
         $templateMgr->assign('helpTopicId', 'journal.managementPages.reviewForms');
@@ -392,7 +392,7 @@ class ReviewFormHandler extends ManagerHandler {
         $templateMgr->assign('unusedReviewFormTitles', $unusedReviewFormTitles);
         $templateMgr->assign('reviewFormElements', $reviewFormElements);
         $templateMgr->assign('reviewFormId', $reviewFormId);
-        import('lib.pkp.classes.reviewForm.ReviewFormElement');
+        import('lib.wizdam.classes.reviewForm.ReviewFormElement');
         $templateMgr->assign('reviewFormElementTypeOptions', ReviewFormElement::getReviewFormElementTypeOptions());
         $templateMgr->assign('helpTopicId', 'journal.managementPages.reviewForms');
         $templateMgr->display('manager/reviewForms/reviewFormElements.tpl');
@@ -564,7 +564,7 @@ class ReviewFormHandler extends ManagerHandler {
     /**
      * Change the sequence of a review form element.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function moveReviewFormElement($args, $request) {
         $this->validate();

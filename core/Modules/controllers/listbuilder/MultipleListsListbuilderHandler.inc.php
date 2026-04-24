@@ -15,8 +15,8 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.controllers.listbuilder.ListbuilderHandler');
-import('lib.pkp.classes.controllers.listbuilder.ListbuilderList');
+import('lib.wizdam.classes.controllers.listbuilder.ListbuilderHandler');
+import('lib.wizdam.classes.controllers.listbuilder.ListbuilderList');
 
 define_exposed('LISTBUILDER_SOURCE_TYPE_NONE', 3);
 
@@ -141,7 +141,7 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
 
         // Multiple lists listbuilder always have orderable rows.
         // We don't have any other requirement for it.
-        import('lib.pkp.classes.controllers.grid.feature.OrderMultipleListsItemsFeature');
+        import('lib.wizdam.classes.controllers.grid.feature.OrderMultipleListsItemsFeature');
         return [new OrderMultipleListsItemsFeature()];
     }
 
@@ -194,7 +194,7 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
      * Implement to set data on each list. This
      * will be used by the loadData method to retrieve
      * the listbuilder data.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param mixed $filter
      */
     protected function setListsData($request, $filter) {
@@ -212,7 +212,7 @@ class MultipleListsListbuilderHandler extends ListbuilderHandler {
     /**
      * Fetch the listbuilder.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function fetch($args, $request) {
         // [WIZDAM] Singleton Fallback

@@ -10,7 +10,7 @@ declare(strict_types=1);
  *
  * @class CoreAnnouncementType
  * @ingroup announcement
- * @see AnnouncementTypeDAO, AnnouncementTypeForm, PKPAnnouncementTypeDAO, PKPAnnouncementTypeForm
+ * @see AnnouncementTypeDAO, AnnouncementTypeForm, PKPAnnouncementTypeDAO, CoreAnnouncementTypeForm
  *
  * @brief Basic class describing an announcement type.
  *

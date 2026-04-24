@@ -21,7 +21,7 @@ declare(strict_types=1);
  * access behaviour depending on the type of the accessed file.
  */
 
-import('lib.pkp.classes.file.PKPFileDAO');
+import('lib.wizdam.classes.file.CoreFileDAO');
 
 class CoreSubmissionFileDAO extends CoreFileDAO {
     
@@ -282,7 +282,7 @@ class CoreSubmissionFileDAO extends CoreFileDAO {
             $targetFilePath = $updatedFile->getFilePath();
             // assert($previousFilePath != $targetFilePath && !file_exists($targetFilePath));
             
-            import('lib.pkp.classes.file.FileManager');
+            import('lib.wizdam.classes.file.FileManager');
             $fileManager = new FileManager();
             $fileManager->copyFile($previousFilePath, $targetFilePath);
 

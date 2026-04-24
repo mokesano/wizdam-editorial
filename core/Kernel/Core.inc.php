@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief Class containing system-wide functions.
  */
 
-define('USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'pkp' . DIRECTORY_SEPARATOR . 'registry' . DIRECTORY_SEPARATOR . 'botAgents.txt');
+define('USER_AGENTS_FILE', Core::getBaseDir() . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'wizdam' . DIRECTORY_SEPARATOR . 'registry' . DIRECTORY_SEPARATOR . 'botAgents.txt');
 
 class Core {
 
@@ -48,22 +48,22 @@ class Core {
      */
     public static function cleanVar($var) {
         // only normalize strings that are not UTF-8 already, and when the system is using UTF-8
-        if ( Config::getVar('i18n', 'charset_normalization') == 'On' && strtolower_codesafe(Config::getVar('i18n', 'client_charset')) == 'utf-8' && !PKPString::utf8_is_valid($var) ) {
+        if ( Config::getVar('i18n', 'charset_normalization') == 'On' && strtolower_codesafe(Config::getVar('i18n', 'client_charset')) == 'utf-8' && !CoreString::utf8_is_valid($var) ) {
 
-            $var = PKPString::utf8_normalize($var);
+            $var = CoreString::utf8_normalize($var);
 
             // convert HTML entities into valid UTF-8 characters (do not transcode)
             $var = html_entity_decode($var, ENT_COMPAT, 'UTF-8');
 
             // strip any invalid UTF-8 sequences
-            $var = PKPString::utf8_bad_strip($var);
+            $var = CoreString::utf8_bad_strip($var);
 
             // re-encode special HTML characters
             $var = htmlspecialchars($var, ENT_NOQUOTES, 'UTF-8', false);
         }
 
         // strip any invalid ASCII control characters
-        $var = PKPString::utf8_strip_ascii_ctrl($var);
+        $var = CoreString::utf8_strip_ascii_ctrl($var);
 
         return trim($var);
     }
@@ -75,7 +75,7 @@ class Core {
      * @return string
      */
     public static function cleanFileVar($var) {
-        return PKPString::regexp_replace('/[^\w\-]/', '', $var);
+        return CoreString::regexp_replace('/[^\w\-]/', '', $var);
     }
 
     /**
@@ -139,7 +139,7 @@ class Core {
         }
 
         foreach (self::$botRegexps[$botRegexpsFile] as $regexp) {
-            if (PKPString::regexp_match($regexp, $userAgent)) {
+            if (CoreString::regexp_match($regexp, $userAgent)) {
                 return true;
             }
         }

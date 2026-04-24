@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Form for METS gateway plugin settings
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class SettingsForm extends Form {
 

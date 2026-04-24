@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Basic class describing users existing in the system.
  */
 
-import('lib.pkp.classes.user.PKPUser');
+import('lib.wizdam.classes.user.CoreUser');
 
 class User extends CoreUser {
 

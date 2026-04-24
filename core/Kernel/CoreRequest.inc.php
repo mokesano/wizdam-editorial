@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/core/PKPRequest.inc.php
+ * @file classes/core/CoreRequest.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -18,7 +18,7 @@ class CoreRequest {
     //
     // Internal state - please do not reference directly
     //
-    /** @var PKPRouter router instance used to route this request */
+    /** @var CoreRouter router instance used to route this request */
     public $_router = null;
     /** @var Dispatcher dispatcher instance used to dispatch this request */
     public $_dispatcher = null;
@@ -48,9 +48,9 @@ class CoreRequest {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPRequest() {
+    public function CoreRequest() {
         trigger_error(
-            "Class '" . get_class($this) . "' uses deprecated constructor parent::PKPRequest(). Please refactor to parent::__construct().", 
+            "Class '" . get_class($this) . "' uses deprecated constructor parent::CoreRequest(). Please refactor to parent::__construct().", 
             E_USER_DEPRECATED
         );
         self::__construct();
@@ -58,7 +58,7 @@ class CoreRequest {
 
     /**
      * Get the router instance
-     * @return PKPRouter
+     * @return CoreRouter
      */
     public static function getRouter() {
         $instance = self::_checkThis();
@@ -67,7 +67,7 @@ class CoreRequest {
 
     /**
      * Set the router instance
-     * @param $router instance PKPRouter
+     * @param $router instance CoreRouter
      */
     public static function setRouter($router) {
         $instance = self::_checkThis();
@@ -128,7 +128,7 @@ class CoreRequest {
      * @param $url string
      */
     public static function redirectUrlJson($url) {
-        import('lib.pkp.classes.core.JSONMessage');
+        import('lib.wizdam.classes.core.JSONMessage');
         $json = new JSONMessage(true);
         $json->setEvent('redirectRequested', $url);
         header('Content-Type: application/json');
@@ -141,7 +141,7 @@ class CoreRequest {
     public static function redirectSSL() {
         $instance = self::_checkThis();
 
-        // Note that we are intentionally skipping PKP processing of REQUEST_URI and QUERY_STRING for a protocol redirect
+        // Note that we are intentionally skipping Wizdam processing of REQUEST_URI and QUERY_STRING for a protocol redirect
         // This processing is deferred to the redirected (target) URI
         $url = 'https://' . $instance->getServerHost() . $_SERVER['REQUEST_URI'];
         $queryString = $_SERVER['QUERY_STRING'];
@@ -155,7 +155,7 @@ class CoreRequest {
     public static function redirectNonSSL() {
         $instance = self::_checkThis();
 
-        // Note that we are intentionally skipping PKP processing of REQUEST_URI and QUERY_STRING for a protocol redirect
+        // Note that we are intentionally skipping Wizdam processing of REQUEST_URI and QUERY_STRING for a protocol redirect
         // This processing is deferred to the redirected (target) URI
         $url = 'http://' . $instance->getServerHost() . $_SERVER['REQUEST_URI'];
         $queryString = $_SERVER['QUERY_STRING'];
@@ -211,7 +211,7 @@ class CoreRequest {
             $parts = explode('/', $path);
             foreach ($parts as $i => $part) {
                 // Use self:: instead of $this for callback in static context
-                $pieces = array_map(array('PKPRequest', 'encodeBasePathFragment'), str_split($part));
+                $pieces = array_map(array('CoreRequest', 'encodeBasePathFragment'), str_split($part));
                 $parts[$i] = implode('', $pieces);
             }
             $instance->_basePath = implode('/', $parts);
@@ -397,8 +397,8 @@ class CoreRequest {
 
         if (!isset($instance->_protocol)) {
             $https = isset($_SERVER['HTTPS']) ? $_SERVER['HTTPS'] : '';
-            // Use PKPString::strtolower_codesafe if available, otherwise native strtolower
-            $httpsLower = class_exists('PKPString') ? PKPString::strtolower($https) : strtolower($https);
+            // Use CoreString::strtolower_codesafe if available, otherwise native strtolower
+            $httpsLower = class_exists('CoreString') ? CoreString::strtolower($https) : strtolower($https);
             
             $instance->_protocol = ($httpsLower != 'on') ? 'http' : 'https';
             // HOOK: Request::getProtocol
@@ -444,7 +444,7 @@ class CoreRequest {
         static $remoteAddr;
         if (isset($remoteAddr)) return $remoteAddr;
 
-        // PERBAIKAN 1: Baca dari [general] (sesuai kode OJS 2.4.8)
+        // PERBAIKAN 1: Baca dari [general] (sesuai kode Wizdam 2.4.8)
         // dan JANGAN gunakan default 'true' agar pengaturan 'Off' Anda dihargai.
         $trustedProxy = Config::getVar('general', 'trust_x_forwarded_for'); 
         $ip = null;
@@ -731,7 +731,7 @@ class CoreRequest {
     }
 
 	/**
-	 * Redirect to the specified page within a PKP Application.
+	 * Redirect to the specified page within a Wizdam Application.
 	 * Shorthand for a common call to $request->redirect($dispatcher->url($request, ROUTE_PAGE, ...)).
 	 * @param $context Array The optional contextual paths
 	 * @param $page string The name of the op to redirect to.
@@ -811,15 +811,15 @@ class CoreRequest {
 
     /**
      * This method exists to maintain backwards compatibility
-     * with static calls to PKPRequest.
-     * @return PKPRequest
+     * with static calls to CoreRequest.
+     * @return CoreRequest
      */
     public static function _checkThis() {
         $instance = Registry::get('request');
         if (is_null($instance)) {
             // [WIZDAM] Pertahankan log sebagai sinyal diagnostik
             // Alihkan dari fatalError() ke error_log() agar eksekusi berlanjut
-            error_log('PKPRequest singleton not properly initialized.');
+            error_log('CoreRequest singleton not properly initialized.');
             
             // [WIZDAM] Self-initialize fallback instance agar method pemanggil
             // tidak menerima null dan crash dengan error yang tidak jelas
@@ -829,10 +829,10 @@ class CoreRequest {
     }
 
     /**
-     * [WIZDAM] Initialize a minimal PKPRequest fallback instance.
+     * [WIZDAM] Initialize a minimal CoreRequest fallback instance.
      * Digunakan ketika singleton belum terdaftar di Registry,
      * misalnya saat CLI, cron job, atau hook yang dipanggil terlalu awal.
-     * @return PKPRequest
+     * @return CoreRequest
      */
     protected static function _initializeFallbackInstance() {
         $instance = new static();

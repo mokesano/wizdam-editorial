@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Wrapper class for uploading files to a site/journal's public directory.
  */
 
-import('lib.pkp.classes.file.PKPPublicFileManager');
+import('lib.wizdam.classes.file.CorePublicFileManager');
 
 class PublicFileManager extends CorePublicFileManager {
     

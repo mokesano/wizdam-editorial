@@ -104,11 +104,11 @@ class AuthorAction extends Action {
     /**
      * Upload the revised version of an article.
      * @param object $authorSubmission
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function uploadRevisedVersion($authorSubmission, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         import('classes.file.ArticleFileManager');
         $articleFileManager = new ArticleFileManager($authorSubmission->getId());
@@ -170,12 +170,12 @@ class AuthorAction extends Action {
      * Author completes editor / author review.
      * @param object $authorSubmission
      * @param boolean $send
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      * @return boolean
      */
     public static function completeAuthorCopyedit($authorSubmission, $send, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $authorSubmissionDao = DAORegistry::getDAO('AuthorSubmissionDAO');
         $signoffDao = DAORegistry::getDAO('SignoffDAO');
@@ -328,11 +328,11 @@ class AuthorAction extends Action {
      * Post layout comment.
      * @param object $article
      * @param boolean $emailComment
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function postLayoutComment($article, $emailComment, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('AuthorAction::postLayoutComment', [&$article, &$emailComment])) {
             import('classes.submission.form.comment.LayoutCommentForm');
@@ -383,11 +383,11 @@ class AuthorAction extends Action {
      * Email editor decision comment.
      * @param object $authorSubmission
      * @param boolean $send
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function emailEditorDecisionComment($authorSubmission, $send, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $userDao = DAORegistry::getDAO('UserDAO');
 
@@ -457,11 +457,11 @@ class AuthorAction extends Action {
      * Post copyedit comment.
      * @param object $article
      * @param boolean $emailComment
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function postCopyeditComment($article, $emailComment, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('AuthorAction::postCopyeditComment', [&$article, &$emailComment])) {
             import('classes.submission.form.comment.CopyeditCommentForm');
@@ -512,11 +512,11 @@ class AuthorAction extends Action {
      * Post proofread comment.
      * @param object $article
      * @param boolean $emailComment
-     * @param object $request PKPRequest
+     * @param object $request CoreRequest
      */
     public static function postProofreadComment($article, $emailComment, $request) {
         // [WIZDAM] Strict Type Guard
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         if (!HookRegistry::dispatch('AuthorAction::postProofreadComment', [&$article, &$emailComment])) {
             import('classes.submission.form.comment.ProofreadCommentForm');

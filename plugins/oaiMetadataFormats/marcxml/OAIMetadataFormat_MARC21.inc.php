@@ -124,7 +124,7 @@ class OAIMetadataFormat_MARC21 extends OAIMetadataFormat {
         }
 
         // 8. Abstract (Tag 520)
-        $abstract = PKPString::html2text($article->getAbstract($article->getLocale()));
+        $abstract = CoreString::html2text($article->getAbstract($article->getLocale()));
         if (!empty($abstract)) {
              $response .= $this->formatDataField('520', ' ', ' ', 'a', $abstract);
         }

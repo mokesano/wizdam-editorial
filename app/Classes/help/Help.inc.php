@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * MODERNIZED FOR WIZDAM FORK
  */
 
-import('lib.pkp.classes.help.PKPHelp');
+import('lib.wizdam.classes.help.CoreHelp');
 
 class Help extends CoreHelp {
     
@@ -25,7 +25,7 @@ class Help extends CoreHelp {
      */
     public function __construct() {
         parent::__construct();
-        import('classes.help.OJSHelpMappingFile');
+        import('classes.help.AppHelpMappingFile');
         $mainMappingFile = new AppHelpMappingFile();
         $this->addMappingFile($mainMappingFile);
     }

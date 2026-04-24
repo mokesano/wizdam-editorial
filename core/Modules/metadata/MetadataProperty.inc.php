@@ -207,7 +207,7 @@ class MetadataProperty {
             '-', '', '', '', '-'
         );
         $propertyId = trim(str_replace($from, $to, $this->getName()), '-');
-        $propertyId = PKPString::camelize($propertyId);
+        $propertyId = CoreString::camelize($propertyId);
         return $propertyId;
     }
 
@@ -372,7 +372,7 @@ class MetadataProperty {
 
                             if (is_integer($value)) {
                                 // Validate with controlled vocabulary validator
-                                import('lib.pkp.classes.validation.ValidatorControlledVocab');
+                                import('lib.wizdam.classes.validation.ValidatorControlledVocab');
                                 $validator = new ValidatorControlledVocab($symbolic, $assocType, $assocId);
                                 if ($validator->isValid($value)) {
                                     return array(METADATA_PROPERTY_TYPE_VOCABULARY => $allowedTypeParam);
@@ -383,7 +383,7 @@ class MetadataProperty {
 
                         case METADATA_PROPERTY_TYPE_URI:
                             // Validate with the URI validator
-                            import('lib.pkp.classes.validation.ValidatorUri');
+                            import('lib.wizdam.classes.validation.ValidatorUri');
                             $validator = new ValidatorUri();
                             if ($validator->isValid($value)) return array(METADATA_PROPERTY_TYPE_URI => null);
                             break;

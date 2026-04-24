@@ -44,7 +44,7 @@ class AdminSettingsHandler extends AdminHandler {
     /**
      * Display form to modify site settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function settings($args = [], $request = null) {
         $this->validate();
@@ -64,7 +64,7 @@ class AdminSettingsHandler extends AdminHandler {
     /**
      * Validate and save changes to site settings.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function saveSettings($args, $request) {
         $this->validate();

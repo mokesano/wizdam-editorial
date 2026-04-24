@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @class TimedViewReportForm
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class TimedViewReportForm extends Form {
 
@@ -113,7 +113,7 @@ class TimedViewReportForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {
@@ -148,12 +148,12 @@ class TimedViewReportForm extends Form {
         $dateStart = $this->getData('dateStart');
         $dateEnd = $this->getData('dateEnd');
         if ($this->getData('useTimedViewRecords')) {
-            $metricType = OJS_METRIC_TYPE_TIMED_VIEWS;
+            $metricType = APP_METRIC_TYPE_TIMED_VIEWS;
         } else {
-            $metricType = OJS_METRIC_TYPE_COUNTER;
+            $metricType = APP_METRIC_TYPE_COUNTER;
         }
 
-        import('lib.pkp.classes.db.DBResultRange');
+        import('lib.wizdam.classes.db.DBResultRange');
         $dbResultRange = new DBResultRange(STATISTICS_MAX_ROWS);
 
         $metricsDao = DAORegistry::getDAO('MetricsDAO'); /* @var $metricsDao MetricsDAO */

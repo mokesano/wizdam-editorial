@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 define('DATAVERSE_PLUGIN_PASSWORD_SLUG', '********');
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class DataverseAuthForm extends Form {
 

@@ -16,7 +16,7 @@ declare(strict_types=1);
  *
  */
 
-import('lib.pkp.classes.language.Language');
+import('lib.wizdam.classes.language.Language');
 
 class LanguageDAO extends DAO {
 
@@ -108,7 +108,7 @@ class LanguageDAO extends DAO {
      * @return string
      */
     public function getLanguageFilename($locale) {
-        return "lib/pkp/locale/$locale/languages.xml";
+        return "lib/wizdam/locale/$locale/languages.xml";
     }
 
     /**

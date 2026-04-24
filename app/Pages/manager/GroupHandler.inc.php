@@ -313,7 +313,7 @@ class GroupHandler extends ManagerHandler {
 
             } elseif (!empty($searchInitial)) {
                 // $searchInitial sudah diamankan
-                $searchInitial = PKPString::strtoupper($searchInitial);
+                $searchInitial = CoreString::strtoupper($searchInitial);
                 $searchType = USER_FIELD_INITIAL;
                 $search = $searchInitial;
             }

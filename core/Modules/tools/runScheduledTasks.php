@@ -17,7 +17,7 @@ declare(strict_types=1);
 
 require(__DIR__ . '/bootstrap.inc.php');
 
-import('lib.pkp.classes.cliTool.ScheduledTaskTool');
+import('lib.wizdam.classes.cliTool.ScheduledTaskTool');
 
 class runScheduledTasks extends ScheduledTaskTool {
     /**

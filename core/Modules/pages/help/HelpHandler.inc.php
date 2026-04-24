@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file lib/pkp/pages/help/HelpHandler.inc.php
+ * @file lib/wizdam/pages/help/HelpHandler.inc.php
  *
  * Copyright (c) 2013-2025 Simon Fraser University Library
  * Copyright (c) 2003-2025 John Willinsky
@@ -22,11 +22,11 @@ if (!defined('HELP_DEFAULT_TOPIC')) define('HELP_DEFAULT_TOPIC', 'index/topic/00
 if (!defined('HELP_DEFAULT_TOC')) define('HELP_DEFAULT_TOC', 'index/toc/000000');
 
 // Imports (Wizdam Core Pathing)
-import('lib.pkp.classes.help.HelpToc');
-import('lib.pkp.classes.help.HelpTocDAO');
-import('lib.pkp.classes.help.HelpTopic');
-import('lib.pkp.classes.help.HelpTopicDAO');
-import('lib.pkp.classes.help.HelpTopicSection');
+import('lib.wizdam.classes.help.HelpToc');
+import('lib.wizdam.classes.help.HelpTocDAO');
+import('lib.wizdam.classes.help.HelpTopic');
+import('lib.wizdam.classes.help.HelpTopicDAO');
+import('lib.wizdam.classes.help.HelpTopicSection');
 import('classes.handler.Handler'); // Akan otomatis mencari Handler terdekat (Core/App)
 
 class HelpHandler extends Handler {
@@ -51,7 +51,7 @@ class HelpHandler extends Handler {
     /**
      * Show the help index page.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return void
      */
     public function index($args = [], $request = null) {
@@ -61,7 +61,7 @@ class HelpHandler extends Handler {
     /**
      * Show the help table of contents.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return void
      */
     public function toc($args, $request) {
@@ -79,17 +79,17 @@ class HelpHandler extends Handler {
     /**
      * View a help topic.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return void
      */
     public function view($args, $request) {
         $this->validate();
         $this->setupTemplate();
-        $request = $request instanceof PKPRequest ? $request : PKPApplication::getRequest();
+        $request = $request instanceof CoreRequest ? $request : CoreApplication::getRequest();
 
         $topicId = implode("/", $args ?? []);
         $rawKeyword = (string) $request->getUserVar('keyword');
-        $keyword = trim(PKPString::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($rawKeyword)));
+        $keyword = trim(CoreString::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($rawKeyword)));
         $result = (int) $request->getUserVar('result');
 
         $topicDao = DAORegistry::getDAO('HelpTopicDAO');
@@ -125,17 +125,17 @@ class HelpHandler extends Handler {
     /**
      * Search help topics.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return void
      */
     public function search($args, $request) {
         $this->validate();
         $this->setupTemplate();
-        $request = $request instanceof PKPRequest ? $request : PKPApplication::getRequest();
+        $request = $request instanceof CoreRequest ? $request : CoreApplication::getRequest();
         
         $searchResults = [];
         $rawKeyword = (string) $request->getUserVar('keyword');
-        $keyword = trim(PKPString::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($rawKeyword)));
+        $keyword = trim(CoreString::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($rawKeyword)));
 
         if (!empty($keyword)) {
             $topicDao = DAORegistry::getDAO('HelpTopicDAO');
@@ -172,7 +172,7 @@ class HelpHandler extends Handler {
      * @return void
      */
     public function chat($args = []): void {
-        $request = PKPApplication::getRequest();
+        $request = CoreApplication::getRequest();
         if (!$request->isPost()) {
             http_response_code(403);
             echo json_encode(['error' => 'Method not allowed']);
@@ -202,7 +202,7 @@ class HelpHandler extends Handler {
 
         // 1. User Search
         if (!empty($query)) {
-            $keyword = trim(PKPString::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($query)));
+            $keyword = trim(CoreString::regexp_replace('/[^\w\s\.\-]/', '', strip_tags($query)));
             $topics = $topicDao->getTopicsByKeyword($keyword);
             
             if (empty($topics)) return $this->_getLocalizedMsg('search_fail', $locale, $query);

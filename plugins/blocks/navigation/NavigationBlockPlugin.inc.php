@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. Transitioning to Publisher-Centric Nav.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class NavigationBlockPlugin extends BlockPlugin {
     
@@ -73,13 +73,13 @@ class NavigationBlockPlugin extends BlockPlugin {
     /**
      * Get the contents for this block.
      * @param $templateMgr object
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {
         $journal = $request->getJournal();
 
-        // Opsi pencarian standar OJS
+        // Opsi pencarian standar Wizdam
         $templateMgr->assign('articleSearchByOptions', array(
             'query' => 'search.allFields',
             'authors' => 'search.author',

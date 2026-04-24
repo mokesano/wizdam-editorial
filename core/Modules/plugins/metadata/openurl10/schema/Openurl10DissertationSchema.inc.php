@@ -22,7 +22,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10BaseSchema');
+import('lib.wizdam.plugins.metadata.openurl10.schema.Openurl10BaseSchema');
 
 // "dissertation" is not defined as genre in the standard. We only use it internally.
 define('OPENURL10_PSEUDOGENRE_DISSERTATION', 'dissertation');
@@ -35,7 +35,7 @@ class Openurl10DissertationSchema extends Openurl10BaseSchema {
     public function __construct() {
         parent::__construct(
             'openurl-1.0-dissertation',
-            'lib.pkp.plugins.metadata.openurl10.schema.Openurl10DissertationSchema'
+            'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10DissertationSchema'
         );
 
         // Add meta-data properties that only appear in the OpenURL dissertation standard

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM] MODERNIZED FOR PHP 8.x
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class ExternalFeedPlugin extends GenericPlugin {
     
@@ -236,8 +236,8 @@ class ExternalFeedPlugin extends GenericPlugin {
                 $externalFeedDao = DAORegistry::getDAO('ExternalFeedDAO');
                 $this->import('simplepie.SimplePie');
                 
-                // PENTING: Import PKPString agar tidak error Class Not Found
-                import('lib.pkp.classes.core.PKPString');
+                // PENTING: Import CoreString agar tidak error Class Not Found
+                import('lib.wizdam.classes.core.CoreString');
 
                 $feeds = $externalFeedDao->getExternalFeedsByJournalId($journal->getId());
                 $processedFeeds = array(); 
@@ -284,13 +284,13 @@ class ExternalFeedPlugin extends GenericPlugin {
                     $feed->enable_order_by_date(false);
                     $feed->init();
 
-                    // --- LOGIC SLUGIFY MENGGUNAKAN PKPString (FIX ERROR) ---
+                    // --- LOGIC SLUGIFY MENGGUNAKAN CoreString (FIX ERROR) ---
                     if (empty($sectionIdSlug)) {
                         $rawTitle = $currentFeed->getLocalizedTitle(); 
                         
-                        $slug = PKPString::strtolower($rawTitle); 
+                        $slug = CoreString::strtolower($rawTitle); 
                         $slug = str_replace(array('&', 'amp;'), '', $slug); 
-                        $slug = PKPString::regexp_replace('/[^a-z0-9]+/', '-', $slug);
+                        $slug = CoreString::regexp_replace('/[^a-z0-9]+/', '-', $slug);
                         $slug = trim($slug, '-'); 
                         
                         if (empty($slug)) { $slug = 'external-feed'; }
@@ -377,8 +377,8 @@ class ExternalFeedPlugin extends GenericPlugin {
     
         AppLocale::requireComponents(
             LOCALE_COMPONENT_APPLICATION_COMMON,
-            LOCALE_COMPONENT_PKP_MANAGER,
-            LOCALE_COMPONENT_PKP_USER
+            LOCALE_COMPONENT_WIZDAM_MANAGER,
+            LOCALE_COMPONENT_WIZDAM_USER
         );
         $templateMgr = TemplateManager::getManager();
         $templateMgr->register_function('plugin_url', array($this, 'smartyPluginUrl'));

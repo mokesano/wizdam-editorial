@@ -21,11 +21,11 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.metadata.CrosswalkFilter');
-import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
-import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10JournalSchema');
-import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10BookSchema');
-import('lib.pkp.plugins.metadata.openurl10.schema.Openurl10DissertationSchema');
+import('lib.wizdam.classes.metadata.CrosswalkFilter');
+import('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+import('lib.wizdam.plugins.metadata.openurl10.schema.Openurl10JournalSchema');
+import('lib.wizdam.plugins.metadata.openurl10.schema.Openurl10BookSchema');
+import('lib.wizdam.plugins.metadata.openurl10.schema.Openurl10DissertationSchema');
 
 class Nlm30Openurl10CrosswalkFilter extends CrosswalkFilter {
     
@@ -34,7 +34,7 @@ class Nlm30Openurl10CrosswalkFilter extends CrosswalkFilter {
      * @param string $fromSchema fully qualified class name of supported input meta-data schema
      * @param string $toSchema fully qualified class name of supported output meta-data schema
      */
-    public function __construct($fromSchema = 'lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', $toSchema = 'lib.pkp.plugins.metadata.openurl10.schema.Openurl10BaseSchema') {
+    public function __construct($fromSchema = 'lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema', $toSchema = 'lib.wizdam.plugins.metadata.openurl10.schema.Openurl10BaseSchema') {
         $this->setDisplayName('Crosswalk from NLM Citation to Open URL');
         parent::__construct($fromSchema, $toSchema);
     }

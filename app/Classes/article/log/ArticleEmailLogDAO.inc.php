@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.log.EmailLogDAO');
+import('lib.wizdam.classes.log.EmailLogDAO');
 import('classes.article.log.ArticleEmailLogEntry');
 
 class ArticleEmailLogDAO extends EmailLogDAO {

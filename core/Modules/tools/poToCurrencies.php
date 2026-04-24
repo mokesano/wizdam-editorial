@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @ingroup tools
  *
  * @brief CLI tool to convert a .PO file for ISO4217 into the currencies.xml format
- * supported by the PKP suite.
+ * supported by the Wizdam suite.
  * [WIZDAM EDITION] Modernized Currency Localization Tool.
  */
 

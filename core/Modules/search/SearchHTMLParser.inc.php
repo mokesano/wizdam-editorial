@@ -14,8 +14,8 @@ declare(strict_types=1);
  * @brief Class to extract text from an HTML file.
  */
 
-import('lib.pkp.classes.search.SearchFileParser');
-import('lib.pkp.classes.core.PKPString');
+import('lib.wizdam.classes.search.SearchFileParser');
+import('lib.wizdam.classes.core.CoreString');
 
 class SearchHTMLParser extends SearchFileParser {
 
@@ -57,7 +57,7 @@ class SearchHTMLParser extends SearchFileParser {
         $line = strip_tags($line);
 
         // convert HTML entities to valid UTF-8 characters
-        $line = PKPString::html2utf($line);
+        $line = CoreString::html2utf($line);
 
         return $line;
     }

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Describes user roles within the system and the associated permissions.
  */
 
-import('lib.pkp.classes.security.UserGroup');
+import('lib.wizdam.classes.security.UserGroup');
 
 class UserGroupAssignment extends DataObject {
     /** @var UserGroup the UserGroup object associated with this assignment **/

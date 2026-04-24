@@ -19,7 +19,7 @@ declare(strict_types=1);
  * - Visibility Explicit
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class LoginChangePasswordForm extends Form {
 
@@ -92,7 +92,7 @@ class LoginChangePasswordForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param string|null $template
      */
     public function display($request = null, $template = null) {

@@ -11,15 +11,15 @@ declare(strict_types=1);
  * @class FilterGridHandler
  * @ingroup classes_controllers_grid_filter
  *
- * @brief Handle OJS specific parts of filter grid requests.
+ * @brief Handle Wizdam specific parts of filter grid requests.
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.controllers.grid.filter.PKPFilterGridHandler');
+import('lib.wizdam.classes.controllers.grid.filter.CoreFilterGridHandler');
 
 // import validation classes
 import('classes.handler.validation.HandlerValidatorJournal');
-import('lib.pkp.classes.handler.validation.HandlerValidatorRoles');
+import('lib.wizdam.classes.handler.validation.HandlerValidatorRoles');
 
 class FilterGridHandler extends CoreFilterGridHandler {
     
@@ -49,12 +49,12 @@ class FilterGridHandler extends CoreFilterGridHandler {
 
 
     //
-    // Implement template methods from PKPHandler
+    // Implement template methods from CoreHandler
     //
     
     /**
-     * @see PKPHandler::authorize()
-     * @param PKPRequest $request
+     * @see CoreHandler::authorize()
+     * @param CoreRequest $request
      * @param array $args
      * @param array $roleAssignments
      */

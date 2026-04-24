@@ -324,7 +324,7 @@ class Mail extends DataObject {
         }
 
         if (empty($contentType)) {
-            $contentType = PKPString::mime_content_type($filePath);
+            $contentType = CoreString::mime_content_type($filePath);
             if (empty($contentType)) $contentType = 'application/x-unknown-content-type';
         }
 
@@ -532,7 +532,7 @@ class Mail extends DataObject {
         $recipients = $this->getAddressArrayString($this->getRecipients(), true, true);
         $from = $this->getFromString(true);
 
-        $subject = PKPString::encode_mime_header($this->getSubject());
+        $subject = CoreString::encode_mime_header($this->getSubject());
         $body = $this->getBody();
         
         // MARKDOWN PROCESSING: Process markdown content before sending
@@ -541,10 +541,10 @@ class Mail extends DataObject {
         // FIXME Some *nix mailers won't work with CRLFs
         if (Core::isWindows()) {
             // Convert LFs to CRLFs for Windows
-            $body = PKPString::regexp_replace("/([^\r]|^)\n/", "\$1\r\n", $body);
+            $body = CoreString::regexp_replace("/([^\r]|^)\n/", "\$1\r\n", $body);
         } else {
             // Convert CRLFs to LFs for *nix
-            $body = PKPString::regexp_replace("/\r\n/", "\n", $body);
+            $body = CoreString::regexp_replace("/\r\n/", "\n", $body);
         }
 
         // FIXED: Improved MIME handling and content type detection
@@ -654,12 +654,12 @@ class Mail extends DataObject {
             // Removed & from reference
             $smtp = Registry::get('smtpMailer', true, null);
             if ($smtp === null) {
-                import('lib.pkp.classes.mail.SMTPMailer');
+                import('lib.wizdam.classes.mail.SMTPMailer');
                 $smtp = new SMTPMailer();
             }
             $sent = $smtp->mail($this, $recipients, $subject, $mailBody, $headers);
         } else {
-            $sent = PKPString::mail($recipients, $subject, $mailBody, $headers, $additionalParameters);
+            $sent = CoreString::mail($recipients, $subject, $mailBody, $headers, $additionalParameters);
         }
 
         if (!$sent) {
@@ -682,8 +682,8 @@ class Mail extends DataObject {
      * @return string
      */
     public static function encodeDisplayName($displayName, $send = false) {
-        if (PKPString::regexp_match('!^[-A-Za-z0-9\!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+$!', $displayName)) return $displayName;
-        return ('"' . ($send ? PKPString::encode_mime_header(str_replace(
+        if (CoreString::regexp_match('!^[-A-Za-z0-9\!#\$%&\'\*\+\/=\?\^_\`\{\|\}~]+$!', $displayName)) return $displayName;
+        return ('"' . ($send ? CoreString::encode_mime_header(str_replace(
             array('"', '\\'),
             '',
             $displayName

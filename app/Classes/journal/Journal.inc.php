@@ -434,7 +434,7 @@ class Journal extends DataObject {
             if (count($availableMetrics) === 1) {
                 $defaultMetricType = $availableMetrics[0];
             } else {
-                $application = PKPApplication::getApplication();
+                $application = CoreApplication::getApplication();
                 $defaultMetricType = $application->getDefaultMetricType();
             }
         } else {
@@ -459,7 +459,7 @@ class Journal extends DataObject {
     public function getMetrics($metricType = null, array $columns = [], array $filter = [], array $orderBy = [], $range = null) {
         // Add a journal filter and run the report.
         $filter[STATISTICS_DIMENSION_CONTEXT_ID] = $this->getId();
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         return $application->getMetrics($metricType, $columns, $filter, $orderBy, $range);
     }
 }

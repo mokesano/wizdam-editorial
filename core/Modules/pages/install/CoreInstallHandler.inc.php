@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file pages/install/PKPInstallHandler.inc.php
+ * @file pages/install/CoreInstallHandler.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -33,7 +33,7 @@ class CoreInstallHandler extends Handler {
      * If no context is selected, list all.
      * Otherwise, display the index page for the selected context.
      * @param array $args
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function index($args = [], $request = null) {
         // [Wizdam] Singleton Fallback
@@ -65,7 +65,7 @@ class CoreInstallHandler extends Handler {
     /**
      * Redirect to index if system has already been installed.
      * @param mixed $requiredContexts (Ignored in this handler)
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      */
     public function validate($requiredContexts = null, $request = null) {
         // [Wizdam] Singleton Fallback inside validate
@@ -83,7 +83,7 @@ class CoreInstallHandler extends Handler {
     /**
      * Execute installer.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function install($args, $request) {
         $this->validate(null, $request);
@@ -102,7 +102,7 @@ class CoreInstallHandler extends Handler {
     /**
      * Display upgrade form.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function upgrade($args, $request) {
         $this->validate(null, $request);
@@ -126,7 +126,7 @@ class CoreInstallHandler extends Handler {
     /**
      * Execute upgrade.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      */
     public function installUpgrade($args, $request) {
         $this->validate(null, $request);
@@ -144,7 +144,7 @@ class CoreInstallHandler extends Handler {
 
     /**
      * Set up the installer template.
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @param bool $subclass
      */
     public function setupTemplate($request = null, $subclass = false) {

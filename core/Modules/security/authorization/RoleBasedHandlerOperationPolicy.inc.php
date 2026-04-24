@@ -15,7 +15,7 @@ declare(strict_types=1);
  * control.
  */
 
-import('lib.pkp.classes.security.authorization.HandlerOperationPolicy');
+import('lib.wizdam.classes.security.authorization.HandlerOperationPolicy');
 
 class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy {
     /** @var array the target roles */

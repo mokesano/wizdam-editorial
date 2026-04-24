@@ -15,7 +15,7 @@ declare(strict_types=1);
  * filters into filter networks.
  */
 
-import('lib.pkp.classes.filter.PersistableFilter');
+import('lib.wizdam.classes.filter.PersistableFilter');
 
 class CompositeFilter extends PersistableFilter {
     /** @var array An ordered array of sub-filters */

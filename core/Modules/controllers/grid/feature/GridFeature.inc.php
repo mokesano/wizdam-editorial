@@ -164,7 +164,7 @@ class GridFeature {
 
     /**
      * Hook called when save grid items sequence is requested.
-     * @param array $args 'request' => PKPRequest, 'grid' => GridHandler
+     * @param array $args 'request' => CoreRequest, 'grid' => GridHandler
      * @return mixed
      */
     public function saveSequence($args) {

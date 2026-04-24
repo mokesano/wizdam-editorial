@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.log.EventLogEntry');
+import('lib.wizdam.classes.log.EventLogEntry');
 
 // Log entry associative types. All types must be defined here
 define('ARTICLE_LOG_TYPE_DEFAULT',             0);

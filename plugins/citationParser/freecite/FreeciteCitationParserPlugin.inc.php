@@ -18,7 +18,7 @@ declare(strict_types=1);
  * @brief FreeCite citation extraction connector plug-in.
  */
 
-import('lib.pkp.plugins.citationParser.freecite.PKPFreeciteCitationParserPlugin');
+import('lib.wizdam.plugins.citationParser.freecite.PKPFreeciteCitationParserPlugin');
 
 class FreeciteCitationParserPlugin extends CoreFreeciteCitationParserPlugin {
     

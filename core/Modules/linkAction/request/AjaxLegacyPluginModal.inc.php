@@ -19,7 +19,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.x
  */
 
-import('lib.pkp.classes.linkAction.request.AjaxModal');
+import('lib.wizdam.classes.linkAction.request.AjaxModal');
 
 class AjaxLegacyPluginModal extends AjaxModal {
     
@@ -55,7 +55,7 @@ class AjaxLegacyPluginModal extends AjaxModal {
      */
     public function getLocalizedOptions(): array {
         return array_merge(parent::getLocalizedOptions(), array(
-            'modalHandler' => '$.pkp.controllers.modal.AjaxLegacyPluginModalHandler',
+            'modalHandler' => '$.wizdam.controllers.modal.AjaxLegacyPluginModalHandler',
             'url' => $this->getUrl()
         ));
     }

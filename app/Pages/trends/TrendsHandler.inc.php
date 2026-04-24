@@ -17,7 +17,7 @@ import('classes.handler.Handler');
 class TrendsHandler extends Handler {
 
     public function authorize($request, $args, $roleAssignments) {
-        import('lib.pkp.classes.security.authorization.ContextRequiredPolicy');
+        import('lib.wizdam.classes.security.authorization.ContextRequiredPolicy');
         $this->addPolicy(new ContextRequiredPolicy($request, 'user.authorization.noContext', false));
         return parent::authorize($request, $args, $roleAssignments);
     }

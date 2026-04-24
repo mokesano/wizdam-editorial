@@ -140,40 +140,40 @@ class URNPubIdPlugin extends PubIdPlugin {
                     $urnSuffix = $this->getSetting($journal->getId(), "urn{$pubObjectType}SuffixPattern");
 
                     // %j - journal initials
-                    $urnSuffix = PKPString::regexp_replace('/%j/', PKPString::strtolower($journal->getLocalizedSetting('initials', $journal->getPrimaryLocale())), $urnSuffix);
+                    $urnSuffix = CoreString::regexp_replace('/%j/', CoreString::strtolower($journal->getLocalizedSetting('initials', $journal->getPrimaryLocale())), $urnSuffix);
                     
                     // %x - custom identifier
                     if ($pubObject->getStoredPubId('publisher-id')) {
-                        $urnSuffix = PKPString::regexp_replace('/%x/', $pubObject->getStoredPubId('publisher-id'), $urnSuffix);
+                        $urnSuffix = CoreString::regexp_replace('/%x/', $pubObject->getStoredPubId('publisher-id'), $urnSuffix);
                     }
                     if ($issue) {
                         // %v - volume number
-                        $urnSuffix = PKPString::regexp_replace('/%v/', $issue->getVolume(), $urnSuffix);
+                        $urnSuffix = CoreString::regexp_replace('/%v/', $issue->getVolume(), $urnSuffix);
                         // %i - issue number
-                        $urnSuffix = PKPString::regexp_replace('/%i/', $issue->getNumber(), $urnSuffix);
+                        $urnSuffix = CoreString::regexp_replace('/%i/', $issue->getNumber(), $urnSuffix);
                         // %Y - year
-                        $urnSuffix = PKPString::regexp_replace('/%Y/', $issue->getYear(), $urnSuffix);
+                        $urnSuffix = CoreString::regexp_replace('/%Y/', $issue->getYear(), $urnSuffix);
                     }
                     if ($article) {
                         // %a - article id
-                        $urnSuffix = PKPString::regexp_replace('/%a/', $article->getId(), $urnSuffix);
+                        $urnSuffix = CoreString::regexp_replace('/%a/', $article->getId(), $urnSuffix);
                         // %p - page number
                         if ($article->getPages()) {
-                            $urnSuffix = PKPString::regexp_replace('/%p/', $article->getPages(), $urnSuffix);
+                            $urnSuffix = CoreString::regexp_replace('/%p/', $article->getPages(), $urnSuffix);
                         }
                     }
                     if ($galley) {
                         // %g - galley id
-                        $urnSuffix = PKPString::regexp_replace('/%g/', $galley->getId(), $urnSuffix);
+                        $urnSuffix = CoreString::regexp_replace('/%g/', $galley->getId(), $urnSuffix);
                     }
                     if ($suppFile) {
                         // %s - supp file id
-                        $urnSuffix = PKPString::regexp_replace('/%s/', $suppFile->getId(), $urnSuffix);
+                        $urnSuffix = CoreString::regexp_replace('/%s/', $suppFile->getId(), $urnSuffix);
                     }
                     break;
 
                 default:
-                    $urnSuffix = PKPString::strtolower($journal->getLocalizedSetting('initials', $journal->getPrimaryLocale()));
+                    $urnSuffix = CoreString::strtolower($journal->getLocalizedSetting('initials', $journal->getPrimaryLocale()));
 
                     if ($issue) {
                         $urnSuffix .= '.v' . $issue->getVolume() . 'i' . $issue->getNumber();

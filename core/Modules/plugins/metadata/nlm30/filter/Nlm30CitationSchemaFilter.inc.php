@@ -15,19 +15,19 @@ declare(strict_types=1);
  * NLM citation metadata descriptions.
  */
 
-import('lib.pkp.classes.filter.PersistableFilter');
-import('lib.pkp.classes.filter.BooleanFilterSetting');
+import('lib.wizdam.classes.filter.PersistableFilter');
+import('lib.wizdam.classes.filter.BooleanFilterSetting');
 
-import('lib.pkp.classes.metadata.MetadataDescription');
-import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
-import('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema');
-import('lib.pkp.plugins.metadata.nlm30.filter.PersonStringNlm30NameSchemaFilter');
-import('lib.pkp.classes.metadata.DateStringNormalizerFilter');
+import('lib.wizdam.classes.metadata.MetadataDescription');
+import('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema');
+import('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema');
+import('lib.wizdam.plugins.metadata.nlm30.filter.PersonStringNlm30NameSchemaFilter');
+import('lib.wizdam.classes.metadata.DateStringNormalizerFilter');
 
-import('lib.pkp.classes.webservice.XmlWebService');
+import('lib.wizdam.classes.webservice.XmlWebService');
 
-import('lib.pkp.classes.xml.XMLHelper');
-import('lib.pkp.classes.xslt.XSLTransformationFilter');
+import('lib.wizdam.classes.xml.XMLHelper');
+import('lib.wizdam.classes.xslt.XSLTransformationFilter');
 
 class Nlm30CitationSchemaFilter extends PersistableFilter {
     /** @var array */
@@ -127,7 +127,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
      * @return array
      */
     public function constructSearchStrings($searchTemplates, $citationDescription) {
-        import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter');
+        import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30NameSchemaPersonStringFilter');
         $personStringFilter = new Nlm30NameSchemaPersonStringFilter();
 
         $firstAuthorSurname = $firstAuthor = '';
@@ -149,7 +149,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
                 $citationDescription->getStatement('source'));
 
         $year = (string)$citationDescription->getStatement('date');
-        $year = (PKPString::strlen($year) > 4 ? PKPString::substr($year, 0, 4) : $year);
+        $year = (CoreString::strlen($year) > 4 ? CoreString::substr($year, 0, 4) : $year);
 
         $isbn = (string)$citationDescription->getStatement('isbn');
 
@@ -352,7 +352,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
      * @return MetadataDescription|null
      */
     public function getNlm30CitationDescriptionFromMetadataArray($metadataArray) {
-        $citationDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
+        $citationDescription = new MetadataDescription('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30CitationSchema', ASSOC_TYPE_CITATION);
 
         $metadataArray = arrayClean($metadataArray);
         if (!$citationDescription->setStatements($metadataArray)) {
@@ -389,9 +389,9 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
     public function fixPublisherNameAndLocation($metadata) {
         if (isset($metadata['publisher-loc'])) {
             if (empty($metadata['publisher-name'])) {
-                $metadata['publisher-name'] = PKPString::regexp_replace('/.*:([^,]+),?.*/', '\1', $metadata['publisher-loc']);
+                $metadata['publisher-name'] = CoreString::regexp_replace('/.*:([^,]+),?.*/', '\1', $metadata['publisher-loc']);
             }
-            $metadata['publisher-loc'] = PKPString::regexp_replace('/^(.+):.*/', '\1', $metadata['publisher-loc']);
+            $metadata['publisher-loc'] = CoreString::regexp_replace('/^(.+):.*/', '\1', $metadata['publisher-loc']);
 
             if (!empty($metadata['publisher-name']) && $metadata['publisher-name'] == $metadata['publisher-loc']) {
                 unset($metadata['publisher-name']);
@@ -404,7 +404,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
 
         foreach(['publisher-name', 'publisher-loc'] as $publisherProperty) {
             if (isset($metadata[$publisherProperty])) {
-                $metadata[$publisherProperty] = PKPString::trimPunctuation($metadata[$publisherProperty]);
+                $metadata[$publisherProperty] = CoreString::trimPunctuation($metadata[$publisherProperty]);
             }
         }
 
@@ -479,7 +479,7 @@ class Nlm30CitationSchemaFilter extends PersistableFilter {
                 $metadataArray[$metadataKey] = $this->_recursivelyTrimPunctuation($metadataValue);
             }
             if (is_string($metadataValue)) {
-                $metadataArray[$metadataKey] = PKPString::trimPunctuation($metadataValue);
+                $metadataArray[$metadataKey] = CoreString::trimPunctuation($metadataValue);
             }
         }
         return $metadataArray;

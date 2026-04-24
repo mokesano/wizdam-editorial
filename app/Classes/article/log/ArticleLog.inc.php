@@ -27,17 +27,17 @@ class ArticleLog {
     
     /**
      * Add a new event log entry with the specified parameters
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Article $article
      * @param int $eventType
      * @param string $messageKey
      * @param array $params optional
      * @return ArticleEventLogEntry|null
      */
-    public static function logEvent(PKPRequest $request, Article $article, int $eventType, string $messageKey, array $params = []): ?ArticleEventLogEntry {
+    public static function logEvent(CoreRequest $request, Article $article, int $eventType, string $messageKey, array $params = []): ?ArticleEventLogEntry {
         $journal = $request->getJournal();
         
-        // [FIX WIZDAM] Kembalikan ke logika standar OJS: Argumen ke-2 adalah Article ID, bukan User ID.
+        // [FIX WIZDAM] Kembalikan ke logika standar Wizdam: Argumen ke-2 adalah Article ID, bukan User ID.
         // Ditambah (int) casting untuk keamanan tipe data PHP 8.
         return self::logEventHeadless(
             $journal, 
@@ -94,10 +94,10 @@ class ArticleLog {
      * Add an email log entry to this article.
      * @param int $articleId
      * @param ArticleEmailLogEntry $entry
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return int|false ID of inserted object or false
      */
-    public static function logEmail(int $articleId, ArticleEmailLogEntry $entry, ?PKPRequest $request = null) {
+    public static function logEmail(int $articleId, ArticleEmailLogEntry $entry, ?CoreRequest $request = null) {
         $articleDao = DAORegistry::getDAO('ArticleDAO');
         $journalId = $articleDao->getArticleJournalId($articleId);
 

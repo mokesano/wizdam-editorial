@@ -22,7 +22,7 @@ declare(strict_types=1);
  * For details see <http://dublincore.org/documents/dces/>,
  */
 
-import('lib.pkp.classes.metadata.MetadataSchema');
+import('lib.wizdam.classes.metadata.MetadataSchema');
 
 class CoreDc11Schema extends MetadataSchema {
     

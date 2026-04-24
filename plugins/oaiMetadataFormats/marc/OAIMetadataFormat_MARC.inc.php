@@ -118,7 +118,7 @@ class OAIMetadataFormat_MARC extends OAIMetadataFormat {
         }
 
         // 9. Field 520: Abstract
-        $abstract = PKPString::html2text($article->getAbstract($article->getLocale()));
+        $abstract = CoreString::html2text($article->getAbstract($article->getLocale()));
         if (!empty($abstract)) {
              $response .= $this->formatVarField('520', ' ', ' ', 'a', $abstract);
         }

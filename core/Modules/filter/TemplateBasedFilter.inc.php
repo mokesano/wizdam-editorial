@@ -15,7 +15,7 @@ declare(strict_types=1);
  * their input via smarty templates.
  */
 
-import('lib.pkp.classes.filter.PersistableFilter');
+import('lib.wizdam.classes.filter.PersistableFilter');
 
 class TemplateBasedFilter extends PersistableFilter {
     
@@ -88,7 +88,7 @@ class TemplateBasedFilter extends PersistableFilter {
     public function process($input) { // Menghilangkan reference (&) pada return dan parameter $input
         // Initialize view
         $locale = AppLocale::getLocale();
-        $application = PKPApplication::getApplication();
+        $application = CoreApplication::getApplication();
         $request = $application->getRequest(); // Menghilangkan reference (&)
         $templateMgr = TemplateManager::getManager($request); // Menghilangkan reference (&)
 

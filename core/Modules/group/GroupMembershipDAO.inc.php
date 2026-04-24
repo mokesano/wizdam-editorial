@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying group membership info.
  */
 
-import ('lib.pkp.classes.group.GroupMembership');
+import ('lib.wizdam.classes.group.GroupMembership');
 
 class GroupMembershipDAO extends DAO {
     /** @var UserDAO */

@@ -12,13 +12,13 @@ declare(strict_types=1);
  * @ingroup plugins_generic_externalFeed
  *
  * @brief Form for journal managers to modify external feed plugin settings
- * * MODERNIZED FOR PHP 8.x & OJS FORK (Wizdam Edition)
+ * * MODERNIZED FOR PHP 8.x & Wizdam FORK (Wizdam Edition)
  * - Implemented proper __construct.
  * - Removed obsolete var keywords.
  * - Strict type casting for security.
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class ExternalFeedForm extends Form {
 

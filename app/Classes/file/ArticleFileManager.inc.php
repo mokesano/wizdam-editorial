@@ -26,7 +26,7 @@ declare(strict_types=1);
  * [article id]/attachment
  */
 
-import('lib.pkp.classes.file.FileManager');
+import('lib.wizdam.classes.file.FileManager');
 import('classes.article.ArticleFile');
 
 class ArticleFileManager extends FileManager {

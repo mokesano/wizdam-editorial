@@ -113,7 +113,7 @@ class CounterReport {
     }
 
     /*
-     * Convert an OJS metrics request to COUNTER ReportItems
+     * Convert an Wizdam metrics request to COUNTER ReportItems
      * Abstract method must be implemented by subclass
      * @param string|array $columns column (aggregation level) selection
      * @param array $filters report-level filter selection
@@ -136,7 +136,7 @@ class CounterReport {
     }
 
     /**
-     * Set an errors condition; Proper Exception handling is deferred until the OJS 3.0 Release
+     * Set an errors condition; Proper Exception handling is deferred until the Wizdam 3.0 Release
      * @param Exception $error
      */
     public function setError($error) {
@@ -152,7 +152,7 @@ class CounterReport {
      * @return array
      */
     protected function filterForContext($filters) {
-        $request = PKPApplication::getRequest();
+        $request = CoreApplication::getRequest();
         $journal = $request->getJournal();
         $journalId = $journal ? $journal->getJournalId() : '';
         // If the request context is at the journal level, the dimension context id must be that same journal id
@@ -207,7 +207,7 @@ class CounterReport {
             try {
                 $report = new COUNTER\Reports(
                     new COUNTER\Report(
-                        PKPString::generateUUID(),
+                        CoreString::generateUUID(),
                         $this->getRelease(),
                         $this->getCode(),
                         $this->getTitle(),
@@ -281,7 +281,7 @@ class CounterReport {
      * @return mixed
      */
     public function _getVendorComponent($key) {
-        $request = PKPApplication::getRequest();
+        $request = CoreApplication::getRequest();
         $site = $request->getSite();
         switch ($key) {
             case 'name':

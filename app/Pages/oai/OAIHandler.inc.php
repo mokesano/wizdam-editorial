@@ -47,11 +47,11 @@ class OAIHandler extends Handler {
     /**
      * Entry point utama untuk menangani request OAI.
      * @param array $args
-     * @param object|null $request PKPRequest
+     * @param object|null $request CoreRequest
      */
     public function index($args = [], $request = null) {
         // [WIZDAM] Strict Type Guard & DI
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         $this->validate();
         PluginRegistry::loadCategory('oaiMetadataFormats', true);
@@ -99,7 +99,7 @@ class OAIHandler extends Handler {
      */
     public function validate($requiredContexts = null, $request = null) {
         // [WIZDAM] Request Fallback
-        $request = $request instanceof PKPRequest ? $request : Application::get()->getRequest();
+        $request = $request instanceof CoreRequest ? $request : Application::get()->getRequest();
 
         // Site validation checks not applicable
         // parent::validate();

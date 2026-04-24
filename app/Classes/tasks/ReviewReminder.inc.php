@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Class to perform automated reminders for reviewers.
  */
 
-import('lib.pkp.classes.scheduledTask.ScheduledTask');
+import('lib.wizdam.classes.scheduledTask.ScheduledTask');
 
 define('REVIEW_REMIND_AUTO', 'REVIEW_REMIND_AUTO');
 define('REVIEW_REQUEST_REMIND_AUTO', 'REVIEW_REQUEST_REMIND_AUTO');
@@ -75,7 +75,7 @@ class ReviewReminder extends ScheduledTask {
 
         $urlParams = array();
         if ($reviewerAccessKeysEnabled) {
-            import('lib.pkp.classes.security.AccessKeyManager');
+            import('lib.wizdam.classes.security.AccessKeyManager');
             $accessKeyManager = new AccessKeyManager();
 
             // Key lifetime is the typical review period plus four weeks

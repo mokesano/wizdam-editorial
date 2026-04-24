@@ -945,7 +945,7 @@ class ArticleDAO extends DAO {
         // Rekonstruksi ke format ber-hyphen (1234-567X) agar bisa ditelan ValidatorISSN
         $reconstructedIssn = substr($extractedIssn, 0, 4) . '-' . substr($extractedIssn, 4, 4);
 
-        import('lib.pkp.classes.validation.ValidatorISSN');
+        import('lib.wizdam.classes.validation.ValidatorISSN');
         $validator = new ValidatorISSN();
         
         return $validator->isValid($reconstructedIssn);
@@ -986,7 +986,7 @@ class ArticleDAO extends DAO {
         // Ambil Raw ISSN (Biasanya formatnya XXXX-XXXX)
         $rawIssn = $journal ? ($journal->getSetting('onlineIssn') ? $journal->getSetting('onlineIssn') : $journal->getSetting('printIssn')) : '';
         
-        import('lib.pkp.classes.validation.ValidatorISSN');
+        import('lib.wizdam.classes.validation.ValidatorISSN');
         $validator = new ValidatorISSN();
 
         // Cek kelayakan matematis MENGGUNAKAN RAW ISSN (yang masih ada tanda hubungnya)

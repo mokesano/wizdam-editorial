@@ -15,7 +15,7 @@ declare(strict_types=1);
  * objects from DAOs.
  */
 
-import('lib.pkp.classes.core.ItemIterator');
+import('lib.wizdam.classes.core.ItemIterator');
 
 class DAOResultFactory extends ItemIterator {
     
@@ -255,7 +255,7 @@ class DAOResultFactory extends ItemIterator {
      * @return object
      */
     public function getLastPageRangeInfo() {
-        import('lib.pkp.classes.db.DBResultRange');
+        import('lib.wizdam.classes.db.DBResultRange');
         $returner = new DBResultRange($this->count, $this->pageCount);
         return $returner;
     }

@@ -22,7 +22,7 @@ declare(strict_types=1);
  * - Explicit Visibility & Return Types
  */
 
-import('lib.pkp.classes.plugins.MetadataPlugin');
+import('lib.wizdam.classes.plugins.MetadataPlugin');
 
 class CoreOpenurl10MetadataPlugin extends MetadataPlugin {
     

@@ -16,7 +16,7 @@ declare(strict_types=1);
  * * REFACTORED: Wizdam Edition (PHP 8 Constructor, No References, Visibility, Hook Dispatch)
  */
 
-import ('lib.pkp.classes.reviewForm.ReviewFormResponse');
+import ('lib.wizdam.classes.reviewForm.ReviewFormResponse');
 
 class ReviewFormResponseDAO extends DAO {
 

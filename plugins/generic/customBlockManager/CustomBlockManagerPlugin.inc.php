@@ -12,7 +12,7 @@ declare(strict_types=1);
  * @ingroup GenericPlugin
  */
 
-import('lib.pkp.classes.plugins.GenericPlugin');
+import('lib.wizdam.classes.plugins.GenericPlugin');
 
 class CustomBlockManagerPlugin extends GenericPlugin {
     

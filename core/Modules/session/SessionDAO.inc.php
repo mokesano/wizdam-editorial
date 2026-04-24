@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] PHP 7.4+ Compatible & Hardened
  */
 
-import('lib.pkp.classes.session.Session');
+import('lib.wizdam.classes.session.Session');
 
 class SessionDAO extends DAO {
     
@@ -142,7 +142,7 @@ class SessionDAO extends DAO {
 
     /**
      * Update an existing session.
-     * @deprecated since OJS 2.x. Please use updateObject() instead.
+     * @deprecated since Wizdam 2.x. Please use updateObject() instead.
      * @see SessionDAO::updateObject()
      * @param $session Session
      * @return boolean
@@ -166,7 +166,7 @@ class SessionDAO extends DAO {
 
     /**
      * Delete a session.
-     * @deprecated since OJS 2.x. Please use deleteObject() instead.
+     * @deprecated since Wizdam 2.x. Please use deleteObject() instead.
      * @see SessionDAO::deleteObject()
      * @param $session Session
      * @return boolean

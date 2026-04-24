@@ -18,7 +18,7 @@ declare(strict_types=1);
  * are ported over to them.
  */
 
-import('lib.pkp.classes.security.UserGroupAssignment');
+import('lib.wizdam.classes.security.UserGroupAssignment');
 
 class UserGroupAssignmentDAO extends DAO {
     

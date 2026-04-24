@@ -182,7 +182,7 @@ class JSONMessage {
         }
 
         // Encode the object.
-        import('lib.pkp.classes.core.JSONManager');
+        import('lib.wizdam.classes.core.JSONManager');
         $jsonManager = new JSONManager();
         return $jsonManager->encode($jsonObject);
     }

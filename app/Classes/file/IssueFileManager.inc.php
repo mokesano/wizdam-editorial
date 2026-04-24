@@ -17,7 +17,7 @@ declare(strict_types=1);
  * [issue id]/public
  */
 
-import('lib.pkp.classes.file.FileManager');
+import('lib.wizdam.classes.file.FileManager');
 import('classes.issue.IssueFile');
 
 class IssueFileManager extends FileManager {

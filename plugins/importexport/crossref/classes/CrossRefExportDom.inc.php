@@ -158,7 +158,7 @@ class CrossRefExportDom extends DOIExportDom {
         $journal = $this->getJournal();
         $cache = $this->getCache();
 
-        // Retrieve basic OJS objects.
+        // Retrieve basic Wizdam objects.
         $publicationObjects = parent::retrievePublicationObjects($object);
 
         // Retrieve additional related objects.
@@ -376,7 +376,7 @@ class CrossRefExportDom extends DOIExportDom {
         /* Abstracts */
         if ($article->getAbstract($journal->getPrimaryLocale())) {
             $abstractNode = XMLCustomWriter::createElement($doc, 'jats:abstract');
-            XMLCustomWriter::createChildWithText($doc, $abstractNode, 'jats:p', PKPString::html2utf(strip_tags($article->getAbstract($journal->getPrimaryLocale()))));
+            XMLCustomWriter::createChildWithText($doc, $abstractNode, 'jats:p', CoreString::html2utf(strip_tags($article->getAbstract($journal->getPrimaryLocale()))));
             XMLCustomWriter::appendChild($journalArticleNode, $abstractNode);
         }
 

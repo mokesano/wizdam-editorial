@@ -329,8 +329,8 @@ class Validation {
      * @return string
      */
     public static function suggestUsername($firstName, $lastName) {
-        $initial = PKPString::substr($firstName, 0, 1);
-        $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', PKPString::strtolower($initial . $lastName));
+        $initial = CoreString::substr($firstName, 0, 1);
+        $suggestion = CoreString::regexp_replace('/[^a-zA-Z0-9_-]/', '', CoreString::strtolower($initial . $lastName));
         $userDao = DAORegistry::getDAO('UserDAO');
         for ($i = ''; $userDao->userExistsByUsername($suggestion . $i); $i++);
         return $suggestion . $i;

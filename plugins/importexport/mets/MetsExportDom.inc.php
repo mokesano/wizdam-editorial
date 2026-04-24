@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 7.4/8.0+ (Static Methods, Strict Types, XML DOM)
  */
 
-import('lib.pkp.classes.xml.XMLCustomWriter');
+import('lib.wizdam.classes.xml.XMLCustomWriter');
 
 class MetsExportDom {
 
@@ -664,7 +664,7 @@ class MetsExportDom {
      */
     public static function generateArticleHtmlGalleyImageFileDom(DOMDocument $doc, DOMElement $root, $article, $galley, $imageFile, $useAttribute, Journal $journal): void {
         import('classes.file.PublicFileManager');
-        import('lib.pkp.classes.file.FileManager');
+        import('lib.wizdam.classes.file.FileManager');
         
         $fileManager = new FileManager();
         $contentWrapper = Request::getUserVar('contentWrapper');
@@ -709,7 +709,7 @@ class MetsExportDom {
      */
     public static function generateArticleFileDom(DOMDocument $doc, DOMElement $root, $article, $galleyFile, $useAttribute, Journal $journal): void {
         import('classes.file.PublicFileManager');
-        import('lib.pkp.classes.file.FileManager');
+        import('lib.wizdam.classes.file.FileManager');
         
         $fileManager = new FileManager();
         $contentWrapper = Request::getUserVar('contentWrapper');
@@ -753,7 +753,7 @@ class MetsExportDom {
      */
     public static function generateArticleSuppFileDom(DOMDocument $doc, DOMElement $root, $article, SuppFile $suppFile, Journal $journal): void {
         import('classes.file.PublicFileManager');
-        import('lib.pkp.classes.file.FileManager');
+        import('lib.wizdam.classes.file.FileManager');
         
         $fileManager = new FileManager();
         $contentWrapper = Request::getUserVar('contentWrapper');
@@ -891,7 +891,7 @@ class MetsExportDom {
     }
 
     /**
-     * Creator is the OJS System
+     * Creator is the Wizdam System
      * @return string
      */
     public static function getCreatorString(): string {

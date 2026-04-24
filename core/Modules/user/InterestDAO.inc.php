@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying a user's review interests.
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabDAO');
+import('lib.wizdam.classes.controlledVocab.ControlledVocabDAO');
 
 define('CONTROLLED_VOCAB_INTEREST', 'interest');
 
@@ -112,7 +112,7 @@ class InterestDAO extends ControlledVocabDAO {
         });
 
         // Turn back into an iterator.
-        import('lib.pkp.classes.core.ArrayItemIterator');
+        import('lib.wizdam.classes.core.ArrayItemIterator');
         return new ArrayItemIterator($interests);
     }
 

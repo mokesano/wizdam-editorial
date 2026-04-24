@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief Opt-out component.
  */
 
-import('lib.pkp.classes.plugins.BlockPlugin');
+import('lib.wizdam.classes.plugins.BlockPlugin');
 
 class UsageStatsOptoutBlockPlugin extends BlockPlugin {
 
@@ -177,7 +177,7 @@ class UsageStatsOptoutBlockPlugin extends BlockPlugin {
      * Get the contents of the block
      * @see BlockPlugin::getContents()
      * @param $templateMgr TemplateManager
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @return string
      */
     public function getContents($templateMgr, $request = null) {

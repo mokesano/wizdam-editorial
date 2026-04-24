@@ -26,9 +26,9 @@ declare(strict_types=1);
  * - Removed reference operators
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
-import('lib.pkp.classes.filter.FilterSetting');
-import('lib.pkp.classes.metadata.MetadataDescription');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30CitationSchemaFilter');
+import('lib.wizdam.classes.filter.FilterSetting');
+import('lib.wizdam.classes.metadata.MetadataDescription');
 
 // Define constants safely
 if (!defined('WORLDCAT_WEBSERVICE_SEARCH')) {
@@ -86,7 +86,7 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
      * @return string
      */
     public function getClassName(): string {
-        return 'lib.pkp.plugins.citationLookup.worldcat.filter.WorldcatNlm30CitationSchemaFilter';
+        return 'lib.wizdam.plugins.citationLookup.worldcat.filter.WorldcatNlm30CitationSchemaFilter';
     }
 
     //
@@ -119,7 +119,7 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
             }
 
             // parse the OCLC numbers from search results
-            PKPString::regexp_match_all('/id="itemid_(\d+)"/', $result, $matches);
+            CoreString::regexp_match_all('/id="itemid_(\d+)"/', $result, $matches);
             if (!empty($matches[1])) {
                 $oclcMatches = $matches[1];
                 break;
@@ -232,13 +232,13 @@ class WorldcatNlm30CitationSchemaFilter extends Nlm30CitationSchemaFilter {
 
         // Clean non-numerics from ISBN
         if (!empty($metadata['isbn'])) {
-            $metadata['isbn'] = PKPString::regexp_replace('/[^\dX]*/', '', $metadata['isbn']);
+            $metadata['isbn'] = CoreString::regexp_replace('/[^\dX]*/', '', $metadata['isbn']);
         }
 
         // Clean non-numerics from issued date (year)
         if (!empty($metadata['date'])) {
-            $metadata['date'] = PKPString::regexp_replace('/,.*/', ', ', $metadata['date']);
-            $metadata['date'] = PKPString::regexp_replace('/[^\d{4}]/', '', $metadata['date']);
+            $metadata['date'] = CoreString::regexp_replace('/,.*/', ', ', $metadata['date']);
+            $metadata['date'] = CoreString::regexp_replace('/[^\d{4}]/', '', $metadata['date']);
         }
 
         return $this->getNlm30CitationDescriptionFromMetadataArray($metadata);

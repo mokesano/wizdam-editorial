@@ -18,7 +18,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance & Reference Fixes
  */
 
-import('lib.pkp.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
+import('lib.wizdam.plugins.metadata.nlm30.filter.Nlm30PersonStringFilter');
 
 class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
     /** @var int */
@@ -46,7 +46,7 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
         $this->_filterDegrees = (bool) $filterDegrees;
 
         $inputType = 'primitive::string';
-        $outputType = 'metadata::lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema(*)';
+        $outputType = 'metadata::lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema(*)';
         if ($filterMode == PERSON_STRING_FILTER_MULTIPLE) $outputType .= '[]';
 
         parent::__construct($inputType, $outputType, $filterMode);
@@ -169,15 +169,15 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
      */
     public function _parsePersonsString($personsString, $title, $degrees) {
         // Check for 'et al'.
-        $personsStringBeforeEtal = PKPString::strlen($personsString);
-        $personsString = PKPString::regexp_replace('/et ?al$/', '', $personsString);
-        $etAl = ($personsStringBeforeEtal == PKPString::strlen($personsString) ? false : true);
+        $personsStringBeforeEtal = CoreString::strlen($personsString);
+        $personsString = CoreString::regexp_replace('/et ?al$/', '', $personsString);
+        $etAl = ($personsStringBeforeEtal == CoreString::strlen($personsString) ? false : true);
 
         // Remove punctuation.
         $personsString = trim($personsString, ':;, ');
 
         // Cut the authors string into pieces.
-        $personStrings = PKPString::iterativeExplode([':', ';'], $personsString);
+        $personStrings = CoreString::iterativeExplode([':', ';'], $personsString);
 
         // If we did not have success with simple patterns then try more complex
         // patterns to tokenize multiple-person strings.
@@ -204,9 +204,9 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
             $matched = false;
             foreach($complexPersonsPatterns as $complexPersonsPattern) {
                 // Break at the first pattern that matches.
-                if ($matched = PKPString::regexp_match($complexPersonsPattern[0], $personsString)) {
+                if ($matched = CoreString::regexp_match($complexPersonsPattern[0], $personsString)) {
                     // Retrieve names.
-                    $success = PKPString::regexp_match_all($complexPersonsPattern[1], $personsString, $personStrings);
+                    $success = CoreString::regexp_match_all($complexPersonsPattern[1], $personsString, $personStrings);
                     assert($success && count($personStrings) == 1);
                     $personStrings = $personStrings[0];
                     break;
@@ -263,7 +263,7 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
         $personRegexPrefixedDoubleSurname = "(?P<prefix>(?:".$personRegex['prefix'].")?)(?P<surname>".$personRegex['double-surname'].")";
 
         // Instantiate the target person description
-        $personDescription = new MetadataDescription('lib.pkp.plugins.metadata.nlm30.schema.Nlm30NameSchema', $this->_assocType);
+        $personDescription = new MetadataDescription('lib.wizdam.plugins.metadata.nlm30.schema.Nlm30NameSchema', $this->_assocType);
 
         // Clean the person string
         $personString = trim($personString);
@@ -272,24 +272,24 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
         $suffixString = '';
 
         $results = [];
-        if ($title && PKPString::regexp_match_get('/^('.$personRegex['title'].')/i', $personString, $results)) {
+        if ($title && CoreString::regexp_match_get('/^('.$personRegex['title'].')/i', $personString, $results)) {
             $suffixString = trim($results[1], ',:; ');
-            $personString = PKPString::regexp_replace('/^('.$personRegex['title'].')/i', '', $personString);
+            $personString = CoreString::regexp_replace('/^('.$personRegex['title'].')/i', '', $personString);
         }
 
-        if ($degrees && PKPString::regexp_match_get('/('.$personRegex['degrees'].')$/i', $personString, $results)) {
+        if ($degrees && CoreString::regexp_match_get('/('.$personRegex['degrees'].')$/i', $personString, $results)) {
             $degreesArray = explode(',', trim($results[1], ','));
             foreach($degreesArray as $key => $degree) {
-                $degreesArray[$key] = PKPString::trimPunctuation($degree);
+                $degreesArray[$key] = CoreString::trimPunctuation($degree);
             }
             $suffixString .= ' - '.implode('; ', $degreesArray);
-            $personString = PKPString::regexp_replace('/('.$personRegex['degrees'].')$/i', '', $personString);
+            $personString = CoreString::regexp_replace('/('.$personRegex['degrees'].')$/i', '', $personString);
         }
 
         if (!empty($suffixString)) $personDescription->addStatement('suffix', $suffixString);
 
         // Space initials when followed by a given name or last name.
-        $personString = PKPString::regexp_replace('/([A-Z])\.([A-Z][a-z])/', '\1. \2', $personString);
+        $personString = CoreString::regexp_replace('/([A-Z])\.([A-Z][a-z])/', '\1. \2', $personString);
 
         // 2. Extract names and initials from the person string
 
@@ -324,7 +324,7 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
 
         $results = [];
         foreach ($personExpressions as $expressionId => $personExpression) {
-            if ($nameFound = PKPString::regexp_match_get($personExpression, $personString, $results)) {
+            if ($nameFound = CoreString::regexp_match_get($personExpression, $personString, $results)) {
                 // Given names
                 if (!empty($results['givenName'])) {
                     // Split given names
@@ -338,7 +338,7 @@ class PersonStringNlm30NameSchemaFilter extends Nlm30PersonStringFilter {
                 // Initials (will also be saved as given names)
                 if (!empty($results['initials'])) {
                     $results['initials'] = str_replace(['.', '-', ' '], ['', '', ''], $results['initials']);
-                    for ($initialNum = 0; $initialNum < PKPString::strlen($results['initials']); $initialNum++) {
+                    for ($initialNum = 0; $initialNum < CoreString::strlen($results['initials']); $initialNum++) {
                         $initial = $results['initials'][$initialNum];
                         $personDescription->addStatement('given-names', $initial);
                         unset($initial);

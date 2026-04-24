@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * @file classes/manager/form/PKPAnnouncementForm.inc.php
+ * @file classes/manager/form/CoreAnnouncementForm.inc.php
  *
  * Copyright (c) 2013-2019 Simon Fraser University
  * Copyright (c) 2000-2019 John Willinsky
@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Refactored for PHP 8.1+ Strict Compliance
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 class CoreAnnouncementForm extends Form {
     /** @var int|null the ID of the announcement being edited */
@@ -84,9 +84,9 @@ class CoreAnnouncementForm extends Form {
     /**
      * [SHIM] Backward Compatibility
      */
-    public function PKPAnnouncementForm($contextId, $announcementId = null) {
+    public function CoreAnnouncementForm($contextId, $announcementId = null) {
         if (Config::getVar('debug', 'deprecation_warnings')) {
-            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::PKPAnnouncementForm(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
+            trigger_error('Class ' . get_class($this) . ' uses deprecated constructor parent::CoreAnnouncementForm(). Please refactor to parent::__construct().', E_USER_DEPRECATED);
         }
         self::__construct($contextId, $announcementId);
     }
@@ -118,7 +118,7 @@ class CoreAnnouncementForm extends Form {
 
     /**
      * Display the form.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param string $template
      */
     public function display($request = null, $template = null) {
@@ -187,7 +187,7 @@ class CoreAnnouncementForm extends Form {
     /**
      * Save announcement.
      * [WIZDAM FIX] Updated signature to accept optional request, matching child class
-     * @param PKPRequest|null $request
+     * @param CoreRequest|null $request
      * @return Announcement
      */
     public function execute($request = null) {

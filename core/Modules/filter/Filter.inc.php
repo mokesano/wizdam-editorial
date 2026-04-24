@@ -16,9 +16,9 @@ declare(strict_types=1);
  * and return another well-specified data type.
  */
 
-import('lib.pkp.classes.core.DataObject');
-import('lib.pkp.classes.filter.TypeDescription');
-import('lib.pkp.classes.filter.TypeDescriptionFactory');
+import('lib.wizdam.classes.core.DataObject');
+import('lib.wizdam.classes.filter.TypeDescription');
+import('lib.wizdam.classes.filter.TypeDescriptionFactory');
 
 class Filter extends DataObject {
     /** @var TypeDescription */
@@ -343,7 +343,7 @@ class Filter extends DataObject {
             // If we found any runtime restrictions then construct a
             // runtime environment from the settings.
             if ($hasRuntimeSettings) {
-                import('lib.pkp.classes.core.RuntimeEnvironment');
+                import('lib.wizdam.classes.core.RuntimeEnvironment');
                 $this->_runtimeEnvironment = new RuntimeEnvironment($phpVersionMin, $phpVersionMax, $phpExtensions, $externalPrograms);
             } else {
                 // Set null so that we don't try to construct

@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized. PHP 8 Safe (Removed create_function & each).
  */
 
-import('lib.pkp.classes.form.Form');
+import('lib.wizdam.classes.form.Form');
 
 define('BFR_COVER_PAGE_IMAGE_NAME', 'coverPage');
 

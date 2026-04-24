@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Basic class describing a reviewer interest
  */
 
-import('lib.pkp.classes.controlledVocab.ControlledVocabEntry');
+import('lib.wizdam.classes.controlledVocab.ControlledVocabEntry');
 
 class InterestEntry extends ControlledVocabEntry {
     

@@ -15,13 +15,13 @@ declare(strict_types=1);
  * operation whitelist.
  */
 
-import('lib.pkp.classes.security.authorization.HandlerOperationPolicy');
+import('lib.wizdam.classes.security.authorization.HandlerOperationPolicy');
 
 class CorePublicAccessPolicy extends HandlerOperationPolicy {
     
     /**
      * Constructor
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $operations array|string either a single operation or a list of operations that
      * this policy is targeting.
      * @param $message string a message to be displayed if the authorization fails

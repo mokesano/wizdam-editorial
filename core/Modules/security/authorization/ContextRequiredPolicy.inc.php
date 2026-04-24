@@ -14,16 +14,16 @@ declare(strict_types=1);
  * @brief Policy to deny access if a context cannot be found in the request.
  */
 
-import('lib.pkp.classes.security.authorization.AuthorizationPolicy');
+import('lib.wizdam.classes.security.authorization.AuthorizationPolicy');
 
 class ContextRequiredPolicy extends AuthorizationPolicy {
-    /** @var PKPRequest */
+    /** @var CoreRequest */
     public $_request;
 
     /**
      * Constructor
      *
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $message string
      */
     public function __construct($request, $message = 'user.authorization.contextRequired') {
@@ -34,7 +34,7 @@ class ContextRequiredPolicy extends AuthorizationPolicy {
 
     /**
      * [SHIM] Backward Compatibility
-     * @param $request PKPRequest
+     * @param $request CoreRequest
      * @param $message string
      */
     public function ContextRequiredPolicy($request, $message = 'user.authorization.contextRequired') {

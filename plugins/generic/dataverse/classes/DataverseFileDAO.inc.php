@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized for PHP 8.4 Strict Typing and Null-Safety.
  */
 
-import('lib.pkp.classes.db.DAO');
+import('lib.wizdam.classes.db.DAO');
 import('plugins.generic.dataverse.classes.DataverseFile'); // [WIZDAM FIX] Import absolut untuk mencegah Null Pointer
 
 class DataverseFileDAO extends DAO {

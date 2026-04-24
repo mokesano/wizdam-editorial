@@ -118,11 +118,11 @@ class TypeDescriptionFactory {
      */
     protected function _namespaceMap($namespace) { // Menggunakan protected
         static $namespaceMap = array(
-            TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE => 'lib.pkp.classes.filter.PrimitiveTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_CLASS => 'lib.pkp.classes.filter.ClassTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_METADATA => 'lib.pkp.classes.metadata.MetadataTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_XML => 'lib.pkp.classes.xslt.XMLTypeDescription',
-            TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => 'lib.pkp.classes.validation.ValidatorTypeDescription'
+            TYPE_DESCRIPTION_NAMESPACE_PRIMITIVE => 'lib.wizdam.classes.filter.PrimitiveTypeDescription',
+            TYPE_DESCRIPTION_NAMESPACE_CLASS => 'lib.wizdam.classes.filter.ClassTypeDescription',
+            TYPE_DESCRIPTION_NAMESPACE_METADATA => 'lib.wizdam.classes.metadata.MetadataTypeDescription',
+            TYPE_DESCRIPTION_NAMESPACE_XML => 'lib.wizdam.classes.xslt.XMLTypeDescription',
+            TYPE_DESCRIPTION_NAMESPACE_VALIDATOR => 'lib.wizdam.classes.validation.ValidatorTypeDescription'
         );
         if (!isset($namespaceMap[$namespace])) return null;
         return $namespaceMap[$namespace];

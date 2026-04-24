@@ -58,7 +58,7 @@ class IssueHandler extends Handler {
     /**
      * Display about index page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function index($args = [], $request = null) {
@@ -68,7 +68,7 @@ class IssueHandler extends Handler {
     /**
      * Display current issue page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function current($args, $request) {
@@ -105,7 +105,7 @@ class IssueHandler extends Handler {
     /**
      * Display issue view page.
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function view($args, $request) {
@@ -140,7 +140,7 @@ class IssueHandler extends Handler {
                     // --- Hitung issueIdentifier ---
                     $issueIdentifier = '';
                     if ($issueNumber !== '') {
-                        $slug = PKPString::slugify($issueNumber);
+                        $slug = CoreString::slugify($issueNumber);
                         // Jika slug kosong setelah slugify (misal karakter aneh saja),
                         // gunakan ID sebagai fallback
                         $issueIdentifier = ($slug !== '') ? $slug : (string) $issue->getId();
@@ -262,7 +262,7 @@ class IssueHandler extends Handler {
     /**
      * Display the issue archive listings
      * @param array $args
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function archive($args, $request) {
@@ -304,7 +304,7 @@ class IssueHandler extends Handler {
     /**
      * View a PDF issue galley inline
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function viewIssue($args, $request) {
@@ -343,7 +343,7 @@ class IssueHandler extends Handler {
     /**
      * Issue galley interstitial page for non-PDF files
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function viewDownloadInterstitial($args, $request) {
@@ -368,7 +368,7 @@ class IssueHandler extends Handler {
     /**
      * View an issue galley file (inline file).
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function viewFile($args, $request) {
@@ -382,7 +382,7 @@ class IssueHandler extends Handler {
     /**
      * Downloads an issue galley file
      * @param array $args ($issueId, $galleyId)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @return void
      */
     public function download($args, $request) {
@@ -513,7 +513,7 @@ class IssueHandler extends Handler {
                             Validation::redirectLogin("payment.loginRequired.forIssue");
                         }
 
-                        $completedPaymentDao = DAORegistry::getDAO('OJSCompletedPaymentDAO');
+                        $completedPaymentDao = DAORegistry::getDAO('AppCompletedPaymentDAO');
                         $dateEndMembership   = $user->getSetting('dateEndMembership', 0);
                         if ($completedPaymentDao->hasPaidPurchaseIssue($userId, (int) $issueId) || (!is_null($dateEndMembership) && $dateEndMembership > time())) {
                             return true;
@@ -551,7 +551,7 @@ class IssueHandler extends Handler {
 
     /**
      * Show an issue galley file (either inline or download)
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param bool $inline
      * @return void
      */
@@ -584,7 +584,7 @@ class IssueHandler extends Handler {
 
     /**
      * Given an issue, set up the template with all the required variables.
-     * @param PKPRequest $request
+     * @param CoreRequest $request
      * @param Issue $issue
      * @param bool $showToc
      * @return void

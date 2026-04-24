@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Operations for retrieving and modifying IssueFile objects.
  */
 
-import('lib.pkp.classes.file.PKPFileDAO');
+import('lib.wizdam.classes.file.CoreFileDAO');
 import('classes.issue.IssueFile');
 
 class IssueFileDAO extends CoreFileDAO {

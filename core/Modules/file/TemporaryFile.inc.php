@@ -15,7 +15,7 @@ declare(strict_types=1);
  * @brief Temporary file class.
  */
 
-import('lib.pkp.classes.file.PKPFile');
+import('lib.wizdam.classes.file.CoreFile');
 
 class TemporaryFile extends CoreFile {
 
@@ -41,7 +41,7 @@ class TemporaryFile extends CoreFile {
      * @return string
      */
     public function getFilePath() {
-        import('lib.pkp.classes.file.PKPTemporaryFileManager');
+        import('lib.wizdam.classes.file.CoreTemporaryFileManager');
         $temporaryFileManager = new CoreTemporaryFileManager();
         return $temporaryFileManager->getBasePath() . $this->getFileName();
     }
