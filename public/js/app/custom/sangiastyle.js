@@ -1353,6 +1353,7 @@ document.addEventListener("DOMContentLoaded", function() {
  */
 $(document).ready(function() {
     var footer = $('#standardFooter');
+    var trustedHrefMap = new WeakMap();
 
     function isSafeHttpUrl(urlValue) {
         try {
@@ -1375,7 +1376,7 @@ $(document).ready(function() {
                 safeHref = new URL(hrefValue, window.location.origin).toString();
             }
 
-            link.attr('data-href', safeHref);
+            trustedHrefMap.set(this, safeHref);
             link.attr('href', 'javascript:void(0)');
         });
     }
@@ -1383,12 +1384,10 @@ $(document).ready(function() {
     // Mengembalikan href asli setelah halaman selesai dimuat
     $(window).on('load', function() {
         if (footer.length) {
-            footer.find('a[data-href]').each(function() {
+            footer.find('a[href="javascript:void(0)"]').each(function() {
                 var link = $(this);
-                var originalHref = link.attr('data-href');
-                // data-href sudah disanitasi saat penyimpanan; fallback tetap konservatif
+                var originalHref = trustedHrefMap.get(this) || '#';
                 link.attr('href', isSafeHttpUrl(originalHref) ? originalHref : '#');
-                link.removeAttr('data-href');
             });
         }
     });
