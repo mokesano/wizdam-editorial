@@ -63,11 +63,19 @@
             "Wizdam\\Core\\": [
                 "core/Includes/"
             ],
-            "App\\": [
-                "app/Domain/",
-                "app/Pages/",
-                "app/Controllers/",
-                "app/Services/",
+            "App\\Domain\\": [
+                "app/Domain/"
+            ],
+            "App\\Pages\\": [
+                "app/Pages/"
+            ],
+            "App\\Controllers\\": [
+                "app/Controllers/"
+            ],
+            "App\\Services\\": [
+                "app/Services/"
+            ],
+            "App\\Helpers\\": [
                 "app/Helpers/"
             ]
         },
