@@ -57,6 +57,10 @@ require(BASE_SYS_DIR . '/core/Includes/functions.inc.php');
 // [WIZDAM] We use the import function to load the core Application class.
 import('app.Domain.core.Application');
 
+// [WIZDAM MODERNISASI PSR-4] Use fully qualified class name
+// Since Application is now in namespace App\Domain\Core, we must reference it properly.
+use App\Domain\Core\Application;
+
 // [WIZDAM] Instantiate the Application Singleton.
 // The constructor of Application registers itself to the Registry.
 // This prepares system for the Application::get()->execute() call in index.php.

@@ -28,5 +28,8 @@ if (!file_exists($bootstrap)) {
 }
 require($bootstrap);
 
+// [WIZDAM MODERNISASI PSR-4] Import Application class with namespace
+use App\Domain\Core\Application;
+
 // [WIZDAM ARCHITECTURE] Fluent Execution
 Application::get()->execute();

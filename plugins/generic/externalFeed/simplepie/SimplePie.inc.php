@@ -1,46 +1,61 @@
 <?php
 /**
- * Wrapper SimplePie untuk Wizdam
- * Menjembatani Wizdam lama dengan SimplePie Modern (Namespaced)
+ * Wrapper SimplePie untuk Wizdam Editorial 1.0
+ * Menjembatani kode legacy Wizdam dengan SimplePie Modern (Namespaced) dari core/Library
+ * 
+ * Menggunakan library SimplePie terpusat di: ./core/Library/simplepie/simplepie/
  */
 
+// Path ke root aplikasi (4 level ke atas dari plugins/generic/externalFeed/simplepie)
+// simplepie -> externalFeed -> generic -> plugins -> workspace = 4 level
+$wizdamRoot = dirname(dirname(dirname(dirname(__DIR__))));
+
+// Path ke library SimplePie terpusat
+$coreSimplePiePath = $wizdamRoot . '/core/Library/simplepie/simplepie/';
+
 /** 
- * 1. Panggil Autoloader bawaan SimplePie
- * Pastikan file autoloader.php ada di folder yang sama dengan file ini
+ * 1. Panggil Autoloader SimplePie dari Library Pusat
  */ 
-$autoloaderPath = dirname(__FILE__) . '/autoloader.php';
+$autoloaderPath = $coreSimplePiePath . 'autoloader.php';
 
 if (file_exists($autoloaderPath)) {
     require_once($autoloaderPath);
 } else {
     // Logging error jika autoloader hilang
     error_log('SimplePie Wrapper: autoloader.php tidak ditemukan di ' . $autoloaderPath);
+    return;
 }
 
 /**
- * 2. MAPPING NAMESPACE (Kunci Perbaikan Error Anda)
- * Kita cek apakah class 'SimplePie\SimplePie' tersedia lewat autoloader
- * Jika ya, kita buat alias menjadi 'SimplePie' biasa agar Wizdam bisa membacanya.
+ * 2. MAPPING NAMESPACE (Kunci Kompatibilitas)
+ * Kita cek apakah class 'SimplePie\\SimplePie' tersedia lewat autoloader
+ * Jika ya, kita buat alias menjadi 'SimplePie' (tanpa namespace) agar kode legacy Wizdam bisa menggunakannya.
  */ 
-if (class_exists('SimplePie\SimplePie')) {
+if (class_exists('SimplePie\\SimplePie')) {
     if (!class_exists('SimplePie')) {
-        class_alias('SimplePie\SimplePie', 'SimplePie');
+        class_alias('SimplePie\\SimplePie', 'SimplePie');
     }
 } 
 
 /**
  * 3. FALLBACK MANUAL (Jaga-jaga jika autoloader gagal)
  * SimplePie Master biasanya menaruh file utama di folder /src/SimplePie.php
+ * Folder src sudah di-link sebagai symlink dari wrapper ini
  */ 
 else {
-    $manualSource = dirname(__FILE__) . '/src/SimplePie.php';
+    // Coba via symlink lokal
+    $manualSource = __DIR__ . '/src/SimplePie.php';
     if (file_exists($manualSource)) {
         require_once($manualSource);
         // Cek lagi dan buat alias
-        if (class_exists('SimplePie\SimplePie') && !class_exists('SimplePie')) {
-            class_alias('SimplePie\SimplePie', 'SimplePie');
+        if (class_exists('SimplePie\\SimplePie') && !class_exists('SimplePie')) {
+            class_alias('SimplePie\\SimplePie', 'SimplePie');
         }
     }
 }
 
+// Verifikasi class SimplePie tersedia
+if (!class_exists('SimplePie')) {
+    error_log('SimplePie Wrapper: Gagal memuat class SimplePie dari library pusat');
+}
 ?>
