@@ -80,8 +80,6 @@
             ]
         },
         "classmap": [
-            "core/Kernel/",
-            "core/Includes/",
             "resources/smarty/plugins/",
             "plugins/gateways/",
             "plugins/generic/",
@@ -94,7 +92,8 @@
         ],
         "exclude-from-classmap": [
             "**/node_modules/",
-            "**/tests/"
+            "**/tests/",
+            "**/*.inc.php"
         ]
     },
     "autoload-dev": {

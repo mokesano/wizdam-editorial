@@ -1,58 +1,38 @@
-```bash
-# Compiled and build artifacts
-*.pyc
-__pycache__/
-*.o
-*.obj
-dist/
-build/
+```
+# PHP compiled files
+*.phpc
 
 # Dependencies
 vendor/
-node_modules/
 
 # Logs and temp files
 *.log
 *.tmp
-*.swp
 
 # Environment
 .env
 .env.local
 *.env.*
 
-# Editors
-.vscode/
+# IDE files
 .idea/
+.vscode/
 
 # OS generated files
 .DS_Store
 Thumbs.db
 
-# Coverage reports
+# Build/test artifacts
+build/
+dist/
 coverage/
 htmlcov/
-.coverage
+*.out
 
-# Python specific
-*.pyc
+# Cache directories
 __pycache__/
+*.pyc
 *.pyo
 *.pyd
 .Python
-*.so
-.PyCharmCache/
-.mypy_cache/
-.pytest_cache/
-.tox/
-
-# PHP specific
-vendor/
-composer.lock
-*.phar
-
-# Build directories
-target/
-build/
-dist/
 ```

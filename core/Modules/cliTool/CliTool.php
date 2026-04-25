@@ -36,7 +36,7 @@ define('SESSION_DISABLE_INIT', 1);
 
 // Load Core Bootstrap
 // [WIZDAM] Standardized bootstrap loading
-require('./core/Includes/bootstrap.inc.php');
+require('./core/Includes/bootstrap.php');
 
 class CommandLineTool {
 

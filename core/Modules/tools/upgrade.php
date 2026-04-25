@@ -14,7 +14,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Wizdam Upgrade Tool Implementation.
  */
 
-require(__DIR__ . '/bootstrap.inc.php');
+require(__DIR__ . '/bootstrap.php');
 
 import('core.Modules.cliTool.UpgradeTool');
 

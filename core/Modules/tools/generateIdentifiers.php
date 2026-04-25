@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @brief CLI tool to generate eLocator and PII sequentially for existing articles.
  */
 
-require(__DIR__ . '/bootstrap.inc.php');
+require(__DIR__ . '/bootstrap.php');
 
 class GenerateIdentifiers extends CommandLineTool {
 
