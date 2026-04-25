@@ -88,12 +88,7 @@
             "plugins/paymethod/"
         ],
         "files": [
-            "core/Includes/functions.inc.php"
-        ],
-        "exclude-from-classmap": [
-            "**/node_modules/",
-            "**/tests/",
-            "**/*.inc.php"
+            "core/Includes/functions.php"
         ]
     },
     "autoload-dev": {

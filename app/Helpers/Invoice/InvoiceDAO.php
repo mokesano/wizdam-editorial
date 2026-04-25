@@ -20,8 +20,8 @@ namespace App\Helpers\Invoice;
 import('core.Modules.db.DAO');
 import('core.Modules.db.DBResultRange');
 import('core.Modules.invoice.Invoice');
-import('core.Modules.payment.AppQueuedPayment');
-import('core.Modules.payment.QueuedPayment');
+import('app.Domain.Payment.AppQueuedPayment');
+import('app.Domain.Payment.QueuedPayment');
 
 class InvoiceDAO extends DAO {
 

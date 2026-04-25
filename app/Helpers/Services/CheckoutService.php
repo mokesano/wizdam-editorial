@@ -18,7 +18,7 @@ declare(strict_types=1);
 namespace App\Helpers\Services;
 
 
-import('core.Modules.payment.AppQueuedPayment');
+import('app.Domain.Payment.AppQueuedPayment');
 import('core.Modules.services.InvoiceService');
 
 class CheckoutService {
