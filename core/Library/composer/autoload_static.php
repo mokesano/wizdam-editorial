@@ -85,7 +85,11 @@ class ComposerStaticInitf5b869e270d60ee3419e8e65ef6a0366
         ),
         'A' =>
         array (
-            'App\\' => 4,
+            'App\\Services\\' => 13,
+            'App\\Pages\\' => 10,
+            'App\\Helpers\\' => 12,
+            'App\\Domain\\' => 11,
+            'App\\Controllers\\' => 16,
         ),
     );
 
@@ -215,13 +219,25 @@ class ComposerStaticInitf5b869e270d60ee3419e8e65ef6a0366
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'App\\' =>
+        'App\\Services\\' =>
+        array (
+            0 => __DIR__ . '/../../..' . '/app/Services',
+        ),
+        'App\\Pages\\' =>
+        array (
+            0 => __DIR__ . '/../../..' . '/app/Pages',
+        ),
+        'App\\Helpers\\' =>
+        array (
+            0 => __DIR__ . '/../../..' . '/app/Helpers',
+        ),
+        'App\\Domain\\' =>
         array (
             0 => __DIR__ . '/../../..' . '/app/Domain',
-            1 => __DIR__ . '/../../..' . '/app/Pages',
-            2 => __DIR__ . '/../../..' . '/app/Controllers',
-            3 => __DIR__ . '/../../..' . '/app/Services',
-            4 => __DIR__ . '/../../..' . '/app/Helpers',
+        ),
+        'App\\Controllers\\' =>
+        array (
+            0 => __DIR__ . '/../../..' . '/app/Controllers',
         ),
     );
 
@@ -268,6 +284,41 @@ class ComposerStaticInitf5b869e270d60ee3419e8e65ef6a0366
         'ApaCitationPlugin' => __DIR__ . '/../../..' . '/plugins/citationFormats/apa/ApaCitationPlugin.inc.php',
         'AppInstallTool' => __DIR__ . '/../../..' . '/core/Modules/tools/install.php',
         'AppUpgradeTool' => __DIR__ . '/../../..' . '/core/Modules/tools/upgrade.php',
+        'App\\Helpers\\Cart\\CartItemDAO' => __DIR__ . '/../../..' . '/app/Helpers/Cart/CartItemDAO.php',
+        'App\\Helpers\\Checkout\\Form\\PaymentSettingsForm' => __DIR__ . '/../../..' . '/app/Helpers/Checkout/Form/PaymentSettingsForm.php',
+        'App\\Helpers\\Checkout\\Invoice' => __DIR__ . '/../../..' . '/app/Helpers/Checkout/Invoice.php',
+        'App\\Helpers\\Checkout\\InvoiceDAO' => __DIR__ . '/../../..' . '/app/Helpers/Checkout/InvoiceDAO.php',
+        'App\\Helpers\\Checkout\\Payment\\MidtransGateway' => __DIR__ . '/../../..' . '/app/Helpers/Checkout/Payment/MidtransGateway.php',
+        'App\\Helpers\\Checkout\\Payment\\PaymentGatewayInterface' => __DIR__ . '/../../..' . '/app/Helpers/Checkout/Payment/PaymentGatewayInterface.php',
+        'App\\Helpers\\Checkout\\Payment\\XenditGateway' => __DIR__ . '/../../..' . '/app/Helpers/Checkout/Payment/XenditGateway.php',
+        'App\\Helpers\\Checkout\\Services\\InvoiceService' => __DIR__ . '/../../..' . '/app/Helpers/Checkout/Services/InvoiceService.php',
+        'App\\Helpers\\Checkout\\Services\\LoAService' => __DIR__ . '/../../..' . '/app/Helpers/Checkout/Services/LoAService.php',
+        'App\\Helpers\\Checkout\\Services\\PaymentSettingsService' => __DIR__ . '/../../..' . '/app/Helpers/Checkout/Services/PaymentSettingsService.php',
+        'App\\Helpers\\Checkout\\Services\\PdfService' => __DIR__ . '/../../..' . '/app/Helpers/Checkout/Services/PdfService.php',
+        'App\\Helpers\\Checkout\\Services\\QrCodeService' => __DIR__ . '/../../..' . '/app/Helpers/Checkout/Services/QrCodeService.php',
+        'App\\Helpers\\Image\\AssetRouter' => __DIR__ . '/../../..' . '/app/Helpers/Image/AssetRouter.php',
+        'App\\Helpers\\Invoice\\Invoice' => __DIR__ . '/../../..' . '/app/Helpers/Invoice/Invoice.php',
+        'App\\Helpers\\Invoice\\InvoiceDAO' => __DIR__ . '/../../..' . '/app/Helpers/Invoice/InvoiceDAO.php',
+        'App\\Helpers\\Payment\\Form\\PaymentSettingsForm' => __DIR__ . '/../../..' . '/app/Helpers/Payment/Form/PaymentSettingsForm.php',
+        'App\\Helpers\\Payment\\MidtransGateway' => __DIR__ . '/../../..' . '/app/Helpers/Payment/MidtransGateway.php',
+        'App\\Helpers\\Payment\\PaymentGatewayInterface' => __DIR__ . '/../../..' . '/app/Helpers/Payment/PaymentGatewayInterface.php',
+        'App\\Helpers\\Payment\\XenditGateway' => __DIR__ . '/../../..' . '/app/Helpers/Payment/XenditGateway.php',
+        'App\\Helpers\\Redeem\\RewardPointDAO' => __DIR__ . '/../../..' . '/app/Helpers/Redeem/RewardPointDAO.php',
+        'App\\Helpers\\Security\\DigitalSignatureService' => __DIR__ . '/../../..' . '/app/Helpers/Security/DigitalSignatureService.php',
+        'App\\Helpers\\Security\\SecurityHashService' => __DIR__ . '/../../..' . '/app/Helpers/Security/SecurityHashService.php',
+        'App\\Helpers\\Services\\CartService' => __DIR__ . '/../../..' . '/app/Helpers/Services/CartService.php',
+        'App\\Helpers\\Services\\CertificateService' => __DIR__ . '/../../..' . '/app/Helpers/Services/CertificateService.php',
+        'App\\Helpers\\Services\\CheckoutService' => __DIR__ . '/../../..' . '/app/Helpers/Services/CheckoutService.php',
+        'App\\Helpers\\Services\\DiscountService' => __DIR__ . '/../../..' . '/app/Helpers/Services/DiscountService.php',
+        'App\\Helpers\\Services\\InvoiceService' => __DIR__ . '/../../..' . '/app/Helpers/Services/InvoiceService.php',
+        'App\\Helpers\\Services\\LoAService' => __DIR__ . '/../../..' . '/app/Helpers/Services/LoAService.php',
+        'App\\Helpers\\Services\\PaymentSettingsService' => __DIR__ . '/../../..' . '/app/Helpers/Services/PaymentSettingsService.php',
+        'App\\Helpers\\Services\\PdfService' => __DIR__ . '/../../..' . '/app/Helpers/Services/PdfService.php',
+        'App\\Helpers\\Services\\QrCodeService' => __DIR__ . '/../../..' . '/app/Helpers/Services/QrCodeService.php',
+        'App\\Helpers\\Services\\RedeemService' => __DIR__ . '/../../..' . '/app/Helpers/Services/RedeemService.php',
+        'App\\Helpers\\Services\\TaxVatService' => __DIR__ . '/../../..' . '/app/Helpers/Services/TaxVatService.php',
+        'App\\Helpers\\Validators\\ValidatorCSRF' => __DIR__ . '/../../..' . '/app/Helpers/Validators/ValidatorCSRF.php',
+        'App\\Helpers\\Validators\\ValidatorWF' => __DIR__ . '/../../..' . '/app/Helpers/Validators/ValidatorWF.php',
         'ArrayGridCellProvider' => __DIR__ . '/../../..' . '/core/Modules/controllers/grid/ArrayGridCellProvider.inc.php',
         'ArrayItemIterator' => __DIR__ . '/../../..' . '/core/Kernel/ArrayItemIterator.inc.php',
         'ArticleReportDAO' => __DIR__ . '/../../..' . '/plugins/reports/articles/ArticleReportDAO.inc.php',
@@ -3057,7 +3108,6 @@ class ComposerStaticInitf5b869e270d60ee3419e8e65ef6a0366
         'ShibAuthPlugin' => __DIR__ . '/../../..' . '/plugins/implicitAuth/shibboleth/ShibAuthPlugin.inc.php',
         'Signoff' => __DIR__ . '/../../..' . '/core/Modules/signoff/Signoff.inc.php',
         'SimplePie' => __DIR__ . '/..' . '/simplepie/simplepie/library/SimplePie.php',
-        'SimplePieUtils\\PHPStan\\RegistryCallMethodReturnTypeExtension' => __DIR__ . '/../../..' . '/plugins/generic/externalFeed/simplepie/utils/PHPStan/RegistryCallMethodReturnTypeExtension.php',
         'SimplePie\\Author' => __DIR__ . '/..' . '/simplepie/simplepie/src/Author.php',
         'SimplePie\\Cache' => __DIR__ . '/..' . '/simplepie/simplepie/src/Cache.php',
         'SimplePie\\Cache\\Base' => __DIR__ . '/..' . '/simplepie/simplepie/src/Cache/Base.php',
@@ -3105,7 +3155,6 @@ class ComposerStaticInitf5b869e270d60ee3419e8e65ef6a0366
         'SimplePie\\Source' => __DIR__ . '/..' . '/simplepie/simplepie/src/Source.php',
         'SimplePie\\XML\\Declaration\\Parser' => __DIR__ . '/..' . '/simplepie/simplepie/src/XML/Declaration/Parser.php',
         'SimplePie_Author' => __DIR__ . '/..' . '/simplepie/simplepie/library/SimplePie/Author.php',
-        'SimplePie_Autoloader' => __DIR__ . '/../../..' . '/plugins/generic/externalFeed/simplepie/autoloader.php',
         'SimplePie_Cache' => __DIR__ . '/..' . '/simplepie/simplepie/library/SimplePie/Cache.php',
         'SimplePie_Cache_Base' => __DIR__ . '/..' . '/simplepie/simplepie/library/SimplePie/Cache/Base.php',
         'SimplePie_Cache_DB' => __DIR__ . '/..' . '/simplepie/simplepie/library/SimplePie/Cache/DB.php',

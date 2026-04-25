@@ -37,5 +37,9 @@ return array(
     'GrahamCampbell\\ResultType\\' => array($vendorDir . '/graham-campbell/result-type/src'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
-    'App\\' => array($baseDir . '/app/Domain', $baseDir . '/app/Pages', $baseDir . '/app/Controllers', $baseDir . '/app/Services', $baseDir . '/app/Helpers'),
+    'App\\Services\\' => array($baseDir . '/app/Services'),
+    'App\\Pages\\' => array($baseDir . '/app/Pages'),
+    'App\\Helpers\\' => array($baseDir . '/app/Helpers'),
+    'App\\Domain\\' => array($baseDir . '/app/Domain'),
+    'App\\Controllers\\' => array($baseDir . '/app/Controllers'),
 );
