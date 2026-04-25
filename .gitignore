@@ -1,50 +1,52 @@
-```
-# Log files
-*.log
+```php
+# Compiled and build artifacts
+*.pyc
+*.o
+*.obj
+*.class
+*.exe
+*.dll
+*.so
+*.a
+*.out
 
-# PSR4 migration artifacts
-psr4_fix_log.txt
-psr4_violations.txt
-violation_dirs.txt
-
-# Backup/shell script files
-*.sh
-*.py
-
-# Documentation
-*.md
-
-# Composer dependencies
-vendor/
+# Dependencies
 node_modules/
+venv/
+.venv/
+__pycache__/
+dist/
+build/
+target/
+.gradle/
+.mypy_cache/
+.pytest_cache/
 
-# Environment files
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Environment
 .env
 .env.local
 .env.*
 
-# IDE files
+# Editors
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# OS generated files
+# System files
 .DS_Store
 Thumbs.db
 
-# Build artifacts
-build/
-dist/
-target/
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Temporary files
-*.tmp
-*.temp
+# Coverage
+coverage/
+htmlcov/
+.coverage
 
 # Compressed files
 *.zip
@@ -69,5 +71,4 @@ __pycache__/
 *.tar.bz2
 *.tar.xz
 *.tar.zst
-
 ```
