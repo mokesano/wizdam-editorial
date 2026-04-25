@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized CLI Tool.
  */
 
-require(dirname(__DIR__) . '/tools/bootstrap.inc.php');
+require(dirname(__DIR__) . '/tools/bootstrap.php');
 
 // Bring in the file loader folder constants.
 import('core.Modules.task.FileLoader');

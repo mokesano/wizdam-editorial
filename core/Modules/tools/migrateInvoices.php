@@ -6,7 +6,7 @@ declare(strict_types=1);
  * @brief CLI tool untuk migrasi Queued & Completed Payments secara sekuensial.
  */
 
-require(__DIR__ . '/bootstrap.inc.php');
+require(__DIR__ . '/bootstrap.php');
 
 class MigrateInvoices extends CommandLineTool {
 

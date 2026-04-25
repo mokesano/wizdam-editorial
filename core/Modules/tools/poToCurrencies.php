@@ -16,7 +16,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized Currency Localization Tool.
  */
 
-require(__DIR__ . '/bootstrap.inc.php');
+require(__DIR__ . '/bootstrap.php');
 
 // [WIZDAM] Ensure the binary exists, otherwise this tool is unusable.
 define('PO_TO_CSV_TOOL', '/usr/bin/po2csv');

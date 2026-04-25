@@ -51,7 +51,7 @@ ini_set('include_path', implode(ENV_SEPARATOR, $includePaths));
 
 // System-wide functions (Global Helper Functions)
 // Loads import(), String wrapper, etc.
-require(BASE_SYS_DIR . '/core/Includes/functions.inc.php');
+require(BASE_SYS_DIR . '/core/Includes/functions.php');
 
 // Initialize the application environment
 // [WIZDAM] We use the import function to load the core Application class.

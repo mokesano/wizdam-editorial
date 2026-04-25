@@ -1,72 +1,38 @@
 ```
+# PHP compiled files
+*.phpc
+
 # Dependencies
 vendor/
-node_modules/
 
-# Build artifacts
-build/
-dist/
-target/
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
+# Logs and temp files
 *.log
-*.pot
-*.po
-*~
-.pytest_cache/
-.mypy_cache/
-.hypothesis/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-Thumbs.db
+*.tmp
 
 # Environment
 .env
 .env.local
 *.env.*
 
-# Archives
-*.zip
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.gz
-*.rar
-*.7z
+# IDE files
+.idea/
+.vscode/
 
-# Logs
-*.log
+# OS generated files
+.DS_Store
+Thumbs.db
 
-# Coverage
+# Build/test artifacts
+build/
+dist/
 coverage/
 htmlcov/
+*.out
 
-# Temporary files
-*.tmp
-*.temp
+# Cache directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
 ```

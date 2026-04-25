@@ -15,7 +15,7 @@ declare(strict_types=1);
  * [WIZDAM EDITION] Modernized CLI Tool.
  */
 
-require(__DIR__ . '/bootstrap.inc.php');
+require(__DIR__ . '/bootstrap.php');
 
 import('core.Modules.file.ArticleFileManager');
 

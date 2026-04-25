@@ -80,13 +80,20 @@
             ]
         },
         "classmap": [
-            "core/Modules/",
-            "core/Kernel/",
             "resources/smarty/plugins/",
-            "plugins/"
+            "plugins/gateways/",
+            "plugins/generic/",
+            "plugins/importexport/",
+            "plugins/oaiMetadataFormats/",
+            "plugins/paymethod/"
         ],
         "files": [
             "core/Includes/functions.inc.php"
+        ],
+        "exclude-from-classmap": [
+            "**/node_modules/",
+            "**/tests/",
+            "**/*.inc.php"
         ]
     },
     "autoload-dev": {
