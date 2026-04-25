@@ -18,7 +18,7 @@ namespace App\Helpers\Payment;
 
 require_once(Core::getBaseDir() . '/lib/wizdam/library/autoload.php');
 
-import('core.Modules.payment.PaymentGatewayInterface');
+import('app.Domain.Payment.PaymentGatewayInterface');
 import('core.Modules.invoice.Invoice');
 
 use Midtrans\Config;

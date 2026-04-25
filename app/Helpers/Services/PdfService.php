@@ -18,7 +18,7 @@ namespace App\Helpers\Services;
 
 require_once(Core::getBaseDir() . '/lib/wizdam/library/autoload.php');
 import('core.Modules.invoice.Invoice');
-import('core.Modules.security.DigitalSignatureService');
+import('app.Domain.Security.DigitalSignatureService');
 
 use Mpdf\Mpdf;
 use Mpdf\Output\Destination;

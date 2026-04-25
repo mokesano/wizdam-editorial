@@ -1,39 +1,67 @@
 ```
-# PHP compiled files
-*.phpc
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
 
 # Dependencies
 vendor/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Logs and temp files
 *.log
 *.tmp
+*.swp
+*.swo
 
 # Environment
 .env
 .env.local
-*.env.*
+.env.*
 
-# IDE files
-.idea/
+# Editors
 .vscode/
-node_modules/
+.idea/
 
 # OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Build/test artifacts
-build/
-dist/
-coverage/
-htmlcov/
-*.out
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+*~
 
-# Cache directories
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
+# PHP specific
+*.php~
+*.php.bak
+*.php.swp
+
+# Composer/Packagist
+composer.lock
+vendor/
+
+# Build/Cache directories (if any PHP projects)
+cache/
+temp/
+
+# Original rules preserved
+*.log
 ```
