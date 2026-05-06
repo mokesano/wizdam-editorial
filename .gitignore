@@ -2,6 +2,19 @@
 # PHP compiled files
 *.phpc
 
+# Abaikan seluruh isi storage/cache/ kecuali .gitkeep di folder inti
+storage/cache/*
+!storage/cache/t_cache/.gitkeep
+!storage/cache/t_compile/.gitkeep
+!storage/cache/t_config/.gitkeep
+**/cache/*
+!**/cache/.gitkeep
+
+# Abaikan semua file .json.gz di seluruh repositori
+*.json.gz
+*.gz
+*.cache
+
 # Dependencies
 vendor/
 
